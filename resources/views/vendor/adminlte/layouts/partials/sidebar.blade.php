@@ -50,6 +50,7 @@
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
                     <li><a href="#">Biodata</a></li>
+                    <li><a href="{{ url('dosen/pengmas') }}">Pengmas</a></li>
                 </ul>
             </li>
             <!-- Sidebar Modul Mahasiswa -->
