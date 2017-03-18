@@ -34,14 +34,91 @@
             <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
-            <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
+
+            <!-- Sidebar Modul Kurikulum -->
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-link'></i> <span>Kurikulum</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
+                    <!-- Tulis disini fiturnya -->
+                    <li><a href="#">RPS</a></li>
+                    <li><a href="#">Mata Kuliah</a></li>
                 </ul>
             </li>
+            <!-- Sidebar Modul Dosen -->
+            <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>Dosen</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <!-- Tulis disini fiturnya -->
+                    <li><a href="#">Biodata</a></li>
+                </ul>
+            </li>
+            <!-- Sidebar Modul Mahasiswa -->
+            <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>Mahasiswa</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <!-- Tulis disini fiturnya -->
+                    <li><a href="#">Fitur</a></li>
+                </ul>
+            </li>
+
+            <!-- Sidebar Modul KRS & KHS -->
+            <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>KRS & KHS</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <!-- Tulis disini fiturnya -->
+                    <li><a href="#">Fitur</a></li>
+                </ul>
+            </li>
+
+            <!-- Sidebar Modul Pengelolaan Kegiatan -->
+            <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>Pengelolaan Kegiatan</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <!-- Tulis disini fiturnya -->
+                    <li><a href="#">Fitur</a></li>
+                </ul>
+            </li>
+
+            <!-- Sidebar Modul Layanan Akademik -->
+            <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>Layanan Akademik</span>
+                <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <!-- Tulis disini fiturnya -->
+                    <li><a href="#">Fitur</a></li>
+                </ul>
+            </li>
+
+            <!-- Sidebar Modul Inventaris -->
+            <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>Inventaris</span>
+                <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <!-- Tulis disini fiturnya -->
+                    <li><a href="#">Fitur</a></li>
+                </ul>
+            </li>
+
+            <!-- Sidebar Modul Notulen -->
+            <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>Notulen</span>
+                <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <!-- Tulis disini fiturnya -->
+                    <li><a href="#">Fitur</a></li>
+                </ul>
+            </li>
+
+            <!-- Sidebar Modul Monitoring Skripsi -->
+            <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>Monitoring Skripsi</span>
+                <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <!-- Tulis disini fiturnya -->
+                    <li><a href="#">Fitur</a></li>
+                </ul>
+            </li>
+
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
