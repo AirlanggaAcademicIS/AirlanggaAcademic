@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
      Route::get('/monsi/form-viewskripsi', function () {
     return view('monsi.form-viewskripsi');
 
-    
+    Route::get('/dosen/penelitian', function () {
+    return view('dosen.penelitian.create');
 });
 });

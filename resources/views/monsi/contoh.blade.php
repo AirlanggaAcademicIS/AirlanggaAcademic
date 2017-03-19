@@ -6,11 +6,13 @@
 @endsection
 
 @section('htmlheader_title')
-Fitur 
+<!-- Nama konten -->
+Nama konten 
 @endsection
 
 @section('contentheader_title')
-Fitur
+<!-- Nama konten -->
+Nama konten
 @endsection
 
 @section('main-content')
