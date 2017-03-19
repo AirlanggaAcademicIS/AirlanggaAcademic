@@ -115,7 +115,11 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
+                    <li><a href="{{ url('monsi/tabel-mhs') }}">Informasi Propsal - Skripsi</a></li>
+                    <li><a href="#">Bimbingan Proposal - Skripsi</a></li>
+                    <li><a href="#">Sidang Proposal - Skripsi</a></li>
+                    <li><a href="#">Hasil Proposal - Skripsi</a></li>
+                    <li><a href="#">Berkas Proposal - Skripsi</a></li>
                 </ul>
             </li>
 
