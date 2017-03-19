@@ -22,32 +22,4 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
-    Route::get('/monsi/tabel-mhs', function () {
-    return view('monsi.tabel-mhs');
-
-
-});
-     Route::get('/monsi/form-editskripsi', function () {
-    return view('monsi.form-editskripsi');
-
-    
-});
-     Route::get('/monsi/form-viewskripsi', function () {
-    return view('monsi.form-viewskripsi');
-
-    
-});
-     Route::get('/monsi/form-viewskripsi', function () {
-    return view('monsi.form-viewskripsi');
-
-    });
-
-    Route::get('/dosen/penelitian', function () {
-    return view('dosen.penelitian.create');
-});
-    Route::get('/monsi/form_uploadproposal', function () {
-    return view('monsi.form_uploadproposal');
-
-    });
-
 });
