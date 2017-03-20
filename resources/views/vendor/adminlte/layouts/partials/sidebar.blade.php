@@ -64,7 +64,49 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Mahasiswa</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
+                    <li>
+                        <a href="#"><i class="fa fa-circle-o"></i> Kemahasiswaan
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{url('/mahasiswa/penelitian')}}"><i class="fa fa-circle-o"></i> Penelitian</a></li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> Prestasi</a></li>
+                            </ul>
+                    </li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Biodata</a></li>
+                    <li>
+                        <a href="#"><i class="fa fa-circle-o"></i> Karyawan
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> Verifikasi
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                        <ul class="treeview-menu">
+                                            <li><a href="#"><i class="fa fa-circle-o"></i> Penelitian</a></li>
+                                        </ul>
+                                        <ul class="treeview-menu">
+                                            <li><a href="#"><i class="fa fa-circle-o"></i> Penelitian</a></li>
+                                        </ul>
+                                        <ul class="treeview-menu">
+                                            <li><a href="#"><i class="fa fa-circle-o"></i> Prestasi</a></li>
+                                        </ul>
+                                </li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> Create Account</a></li>
+                            </ul>
+                    </li>
+
+
                 </ul>
             </li>
 
