@@ -1,23 +1,4 @@
-@extends('adminlte::layouts.app')
-
-@section('code-header')
-
-
-@endsection
-
-@section('htmlheader_title')
-<!-- Nama konten -->
-Nama konten 
-@endsection
-
-@section('contentheader_title')
-<!-- Nama konten -->
-Nama konten
-@endsection
-
-@section('main-content')
-
-<h1>Input Laporan Kegiatan</h1>
+<h1>Input LPJ</h1>
 <form class="form-horizontal">
     <div class="form-group">
      <label class="control-label col-sm-2">Nomor Kegiatan :</label>		
@@ -36,7 +17,6 @@ Nama konten
       <input type="file" id="exampleInputFile">
   <p class="help-block">(Maks. file 25 MB).</p>
   <div class="form-group">
-
     <label for="upload">Upload Dokumentasi (jpg, jpeg, png) :</label>        
   </div>     
       <input type="file" id="exampleInputFile">
@@ -51,7 +31,7 @@ Nama konten
 		<div class="modal-dialog">			
 			<div class="modal-content">
 				<div class="modal-body">
-					<p>Laporan berhasil diinput.</p>
+					<p>File berhasil terkirim.</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
@@ -60,13 +40,3 @@ Nama konten
 		</div>
 	</div>
 </form>
-
-
-@endsection
-
-@section('code-footer')
-
-
-
-
-@endsection

@@ -76,7 +76,7 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Pengelolaan Kegiatan</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="{{ url('kegiatan/input_lpj') }}">Input LPJ</a></li>
+                    <li><a href="{{ url('kegiatan/input_lpj') }}">Input Laporan Kegiatan</a></li>
                 </ul>
             </li>
 
