@@ -29,25 +29,25 @@ Route::group(['middleware' => 'auth'], function () {
 });
      Route::get('/monsi/form-editskripsi', function () {
     return view('monsi.form-editskripsi');
-
-    
 });
      Route::get('/monsi/form-viewskripsi', function () {
     return view('monsi.form-viewskripsi');
-
-    
 });
      Route::get('/monsi/form-viewskripsi', function () {
     return view('monsi.form-viewskripsi');
-
-    });
-
-    Route::get('/dosen/penelitian', function () {
-    return view('dosen.penelitian.create');
 });
-    Route::get('/monsi/form_uploadproposal', function () {
-    return view('monsi.form_uploadproposal');
 
-    });
+    
+    Route::get('/dosen/jurnal/', function () {
+    return view('dosen.jurnal.jurnal');
+});
+    Route::get('/dosen/jurnal/create', function () {
+    return view('dosen.jurnal.create');
+});
+    Route::get('/dosen/jurnal/edit', function () {
+    return view('dosen.jurnal.edit');
+});
+    
+    
 
 });
