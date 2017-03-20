@@ -21,6 +21,17 @@ Route::group(['middleware' => 'auth'], function () {
 //        // Uses Auth Middleware
 //    });
 
+	Route::get('/approve', function () {
+    return view('krs-khs/approve');
+});
+	Route::get('/approve1', function () {
+    return view('krs-khs/approve1');
+});
+
+	Route::get('/buka', function () {
+    return view('krs-khs/buka');
+});
+
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
 
@@ -78,6 +89,17 @@ Route::get('/dosen/penelitian/edit',function()
     Route::get('/dosen/penelitian', function () {
     return view('dosen.penelitian.create');
     });
+    Route::get('/monsi/upload-bimbingan', function () {
+    return view('monsi.upload-bimbingan');
+
+    });
+
+    Route::get('/monsi/view-bimbingan', function () {
+    return view('monsi.view-bimbingan');
+
+    });
+
+});
     Route::get('/monsi/tabel-mhs2', function () {
     return view('monsi.tabel-mhs2');
     });
@@ -91,5 +113,4 @@ Route::get('/dosen/penelitian/edit',function()
 
 
 });
-
 

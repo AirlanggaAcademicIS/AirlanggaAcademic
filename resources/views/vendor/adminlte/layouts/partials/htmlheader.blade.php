@@ -9,6 +9,7 @@
 
     
     <link href="{{ asset('/css/all.css') }}" rel="stylesheet" type="text/css" />
+     <link rel="stylesheet" href="{{asset('/plugins/datepicker3.css')}}">
 
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
