@@ -56,11 +56,15 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Dosen</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+<<<<<<< HEAD
+                    <li><a href="{{url('/dosen/laporan/laporan')}}">Laporan Kinerja Dosen</a></li>
+=======
         
                     <li><a href="{{url('/dosen/pengmas/pengmas')}}">Pengabdian Masyarakat</a></li>
                     <li><a href="{{ url('/dosen/konferensi/konferensi') }}">Konferensi</a></li>
                     <li><a href="{{url('/dosen/penelitian/penelitian')}}">Penelitian</a></li>                 
                <li><a href="{{url('/dosen/jurnal/')}}">Jurnal</a></li>                    
+>>>>>>> ea7138f61680371be6328adb72ddcdcad47c69a9
                 </ul>
             </li>
             <!-- Sidebar Modul Mahasiswa -->
