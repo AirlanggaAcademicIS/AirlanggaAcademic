@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
@@ -22,4 +23,14 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+    Route::get('/dosen/penelitian/penelitian',function()
+{ return view('dosen.penelitian.penelitian'); 
+});
+Route::get('/dosen/penelitian/create',function()
+{ return view('dosen.penelitian.create'); 
+});
+Route::get('/dosen/penelitian/edit',function()
+{ return view('dosen.penelitian.edit'); 
+});
+
 });
