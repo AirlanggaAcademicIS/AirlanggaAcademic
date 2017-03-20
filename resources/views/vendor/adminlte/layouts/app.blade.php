@@ -57,9 +57,7 @@ desired effect
 </div>
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
-
     @yield('code-footer')
-
 @show
 
 </body>
