@@ -6,7 +6,9 @@
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
+| routes are loaded by the RouteServiceProvider within a group whichRoute::get('/', function () {
+    return view('welcome');
+});
 | contains the "web" middleware group. Now create something great!
 |
 */
@@ -22,6 +24,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+    Route::get('kurikulum/rps/index', function () {
+    return view('kurikulum.rps.index');
+});
+    Route::get('kurikulum/detail-rps', function () {
+    return view('kurikulum.rps.index-rps');
+});
+    Route::get('kurikulum/tambah-rps', function () {
+    return view('kurikulum.rps.index-add-rps');
+});   
     Route::get('/dosen/penelitian', function () {
     return view('dosen.penelitian.create');
 });
