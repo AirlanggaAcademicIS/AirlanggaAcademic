@@ -26,6 +26,20 @@ Route::group(['middleware' => 'auth'], function () {
 //        // Uses Auth Middleware
 //    });
 
+
+Route::get('/mahasiswa/prestasi', function () {
+    return view('mahasiswa.tabel');
+});
+Route::get('/mahasiswa/input_prestasi', function () {
+    return view('mahasiswa.input_prestasi');
+});
+Route::get('/mahasiswa/edit_prestasi', function () {
+    return view('mahasiswa.edit_prestasi');
+});
+Route::get('/mahasiswa/tabel_berhasil', function () {
+    return view('mahasiswa.tabel_berhasil');
+});
+
 	Route::get('/krs-khs/mk', function () {
     return view('krs-khs/mk');
 });
@@ -56,8 +70,11 @@ Route::group(['middleware' => 'auth'], function () {
     return view('krs-khs/buka');
 });
 
+
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+
+
 
    
     Route::get('/dosen/laporan/laporan', function () {
@@ -68,9 +85,17 @@ Route::group(['middleware' => 'auth'], function () {
      
 });
     
+
+
+
+
+
+    Route::get('/karyawan/regis', function () {
+    return view('mahasiswa.registrasi_akun');
 });
-
-
+    Route::get('/mahasiswa/ubah-pass', function () {
+    return view('mahasiswa.ubah_pass_mhs');
+});
     Route::get('/pla/permohonansurat', function () {
     return view('pla.permohonansurat');
 
@@ -277,6 +302,7 @@ Route::get('/dosen/penelitian/edit',function()
 
 });
 
+
     Route::get('/mahasiswa/lihat-jadwal-sidang-proposal', function () {
     return view('mahasiswa.lihat-jadwal-sidang-proposal');
 });
@@ -284,4 +310,6 @@ Route::get('/dosen/penelitian/edit',function()
 });
 
 
+
+});
 
