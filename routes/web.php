@@ -32,8 +32,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     
 });
-     Route::get('/monsi/form-viewskripsi', function () {
-    return view('monsi.form-viewskripsi');
+     Route::get('/monsi/form-dataskripsi', function () {
+    return view('monsi.form-dataskripsi');
 
     
 });
