@@ -1,19 +1,17 @@
-@extends('adminlte::layouts.app')
-
-@section('code-header')
+<?php $__env->startSection('code-header'); ?>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('htmlheader_title')
+<?php $__env->startSection('htmlheader_title'); ?>
 Fitur 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('contentheader_title')
+<?php $__env->startSection('contentheader_title'); ?>
 Fitur
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('main-content')
+<?php $__env->startSection('main-content'); ?>
 <div class="box box-info">
 <form class="form-horizontal">
   <br>
@@ -69,7 +67,7 @@ Fitur
     </div>
 
      <div class="box-footer">
-      <center><a href="{{ url('monsi/tabel-mhs') }}"><button type="button" class="btn btn-default">Kembali</button></a></center>
+      <center><a href="<?php echo e(url('monsi/tabel-mhs')); ?>"><button type="button" class="btn btn-default">Kembali</button></a></center>
     </div>
 
    
@@ -79,11 +77,12 @@ Fitur
 </form>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('code-footer')
-
-
+<?php $__env->startSection('code-footer'); ?>
 
 
-@endsection
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('adminlte::layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

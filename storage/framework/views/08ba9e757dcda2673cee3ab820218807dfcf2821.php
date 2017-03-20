@@ -1,21 +1,19 @@
-@extends('adminlte::layouts.app')
-
-@section('code-header')
+<?php $__env->startSection('code-header'); ?>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('htmlheader_title')
+<?php $__env->startSection('htmlheader_title'); ?>
 <!-- Nama konten -->
 Nama konten 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('contentheader_title')
+<?php $__env->startSection('contentheader_title'); ?>
 <!-- Nama konten -->
 Edit Informasi Skripsi dan Bimbingan
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('main-content')
+<?php $__env->startSection('main-content'); ?>
 <div class="box box-info">
 <form class="form-horizontal">
   <br>
@@ -84,7 +82,7 @@ Edit Informasi Skripsi dan Bimbingan
   </div>
   <!-- /.box-body -->
   <div class="box-footer">
-      <center><a href="{{ url('monsi/tabel-mhs') }}"><button type="button" class="btn btn-default">Kembali</button></a>
+      <center><a href="<?php echo e(url('monsi/tabel-mhs')); ?>"><button type="button" class="btn btn-default">Kembali</button></a>
       <button type="button" class="btn btn-primary" style="margin-left: 40px;" data-toggle="modal" data-target="#myModal2">Simpan</button>
       <button type="button" class="btn btn-danger" style="margin-left: 40px;" data-toggle="modal" data-target="#myModal">Hapus</button></center>
   </div>
@@ -106,6 +104,9 @@ Edit Informasi Skripsi dan Bimbingan
         <div class="modal-body">
           <h5 style="text-align: center;">Yakin hapus informasi?</h5>
            <center><button type="button" class="btn btn-danger" data-dismiss="modal">Yes</button><button type="button" class="btn btn-primary" style="margin-left: 20px;" data-dismiss="modal">Tidak</button></center>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
       
@@ -136,11 +137,12 @@ Edit Informasi Skripsi dan Bimbingan
             
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('code-footer')
-
-
+<?php $__env->startSection('code-footer'); ?>
 
 
-@endsection
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('adminlte::layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
