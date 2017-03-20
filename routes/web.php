@@ -22,21 +22,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
-    Route::get('/monsi/tabel-mhs', function () {
-    return view('monsi.tabel-mhs');
-
-
+    Route::get('/krs-khs/krs', function () {
+    return view('krs-khs/contoh');
 });
-     Route::get('/monsi/form-editskripsi', function () {
-    return view('monsi.form-editskripsi');
-
-    
-});
-     Route::get('/monsi/form-viewskripsi', function () {
-    return view('monsi.form-viewskripsi');
-
-    
-});
+<<<<<<< HEAD
      Route::get('/monsi/form-dataskripsi', function () {
     return view('monsi.form-dataskripsi');
 
@@ -44,10 +33,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/dosen/penelitian', function () {
     return view('dosen.penelitian.create');
+=======
+>>>>>>> 43ecb2250bc066a0d2da02b7bd748db87b228c83
 });
-    Route::get('/monsi/form_uploadproposal', function () {
-    return view('monsi.form_uploadproposal');
 
+<<<<<<< HEAD
     });
 
     Route::get('/monsi/tabel-mhs2', function () {
@@ -57,3 +47,5 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 });
+=======
+>>>>>>> 43ecb2250bc066a0d2da02b7bd748db87b228c83
