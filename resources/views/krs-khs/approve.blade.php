@@ -27,7 +27,7 @@ Fitur
                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Kode MA</th>
                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Nama Mata Ajar</th>
                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">SKS</th>
-                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Kelas</th></tr>
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Kelas</th>
                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th></tr>
                 </thead>
                 <tbody>
@@ -35,18 +35,21 @@ Fitur
                   <td class="sorting_1">1</td>
                   <td>AG001</td>
                   <td>Agama</td>
+                  <td>2</td>
                   <td>322</td>
                   <td><a href="/approve1"><button type="button" class="btn btn-md btn-primary">Approve</button></a></td>
                 </tr><tr role="row" class="even">
                   <td class="sorting_1">2</td>
                   <td>PS001</td>
                   <td>PSI</td>
+                  <td>3</td>
                   <td>319B</td>
                   <td><button type="button" class="btn btn-md btn-primary">Approve</button></td>
                  </tr><tr role="row" class="even">
                   <td class="sorting_1">3</td>
                   <td>KB001</td>
                   <td>KCB</td>
+                  <td>3</td>
                   <td>323</td>
                   <td><button type="button" class="btn btn-md btn-primary">Approve</button></td>
                 </tbody>

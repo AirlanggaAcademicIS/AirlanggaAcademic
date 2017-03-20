@@ -75,9 +75,7 @@
                     <li><a href="{{url('mahasiswa/lihat-jadwal-sidang-proposal')}}">Sidang Proposal</a></li>
 
                     <li><a href="{{url('/mahasiswa/prestasi')}}">Prestasi</a></li>
-
-                    <li><a href="{{url('mahasiswa/jadwal_sidang_proposal_mhs')}}">Sidang Proposal</a></li>
-
+                   
                 </ul>
             </li>
 
