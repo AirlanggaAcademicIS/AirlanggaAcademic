@@ -6,14 +6,17 @@
 @endsection
 
 @section('htmlheader_title')
-Fitur 
+<!-- Nama konten -->
+Nama konten 
 @endsection
 
 @section('contentheader_title')
-Fitur
+<!-- Nama konten -->
+Nama konten
 @endsection
 
 @section('main-content')
+<<<<<<< HEAD
 <div class="content-wrapper" style="min-height: 916px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -206,6 +209,9 @@ Fitur
     </section>
     <!-- /.content -->
   </div>
+=======
+<!-- Kodingan HTML ditaruh di sini -->
+>>>>>>> de4bfccffc14a8ee68cf1015ed13a93bcb7be818
 @endsection
 
 @section('code-footer')
