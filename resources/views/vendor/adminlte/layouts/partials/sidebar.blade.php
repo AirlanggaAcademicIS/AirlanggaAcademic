@@ -121,6 +121,7 @@
                     <li><a href="#">Sidang Proposal - Skripsi</a></li>
                     <li><a href="#">Hasil Proposal - Skripsi</a></li>
                     <li><a href="{{url('monsi/form_uploadproposal')}}">Berkas Proposal - Skripsi</a></li>
+                    
                 </ul>
             </li>
 

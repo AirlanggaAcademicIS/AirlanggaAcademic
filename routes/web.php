@@ -48,6 +48,23 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/monsi/form_uploadproposal', function () {
     return view('monsi.form_uploadproposal');
 
-    });
 
+    });
+    Route::get('/monsi/form_uploadskripsi', function () {
+    return view('monsi.form_uploadskripsi');
+
+});
+    Route::get('/monsi/tabel_judul', function () {
+    return view('monsi.tabel_judul');
+});
+
+Route::get('/monsi/download_file', function (){
+    return view('monsi.download_file');
+    });
+Route::get('/monsi/notif_uploadberhasil', function (){
+    return view('monsi.notif_uploadberhasil');
+    });
+Route::get('/monsi/notif_uploadgagal', function (){
+    return view('monsi.notif_uploadgagal');
+});
 });
