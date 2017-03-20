@@ -85,7 +85,9 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
+                    <li><a href="{{ url('pla/permohonan_ruangan_user') }}">Permohonan Ruangan</a></li>
+                    <li><a href="#">Pengumpulan Proposal/Skripsi</a></li>
+                    <li><a href="#">Surat Menyurat</a></li>
                 </ul>
             </li>
 
