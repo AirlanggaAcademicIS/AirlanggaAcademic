@@ -130,7 +130,7 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-            <li>
+                    <li>
               <a href="#"><i class="fa fa-circle-o"></i> Informasi Proposal - Skripsi
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
@@ -179,7 +179,9 @@
             </li>
                 </ul>
             </li>
-
+    
+            
+                
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
