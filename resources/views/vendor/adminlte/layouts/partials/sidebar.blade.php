@@ -41,7 +41,13 @@
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
                     <li><a href="#">RPS</a></li>
-                    <li><a href="#">Mata Kuliah</a></li>
+                    <li><a href="#">Silabus</a></li>
+                    <li><a href="#">Capaian Program</a></li>
+                    <li><a href="#">Capaian Pembelajaran</a></li>
+                    <li><a href="#">E-Learning</a></li>
+                    <li><a href="#">Manage Kode CP Mata Kuliah</a></li>
+                    <li><a href="#">Manage Kode CP Prodi</a></li>
+                    <li><a href="#">Manage Mata Kuliah</a></li>
                 </ul>
             </li>
             <!-- Sidebar Modul Dosen -->
@@ -67,6 +73,7 @@
                 <a href="#"><i class='fa fa-link'></i> <span>KRS & KHS</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+                    <li><a href="{{url('/krs-khs/krs')}}">Kartu Rencana Studi</a></li>
                     <li><a href="#">Fitur</a></li>
                 </ul>
             </li>
@@ -116,12 +123,62 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+<<<<<<< HEAD
                     <li><a href="{{ url('monsi/tabel-mhs') }}">Informasi Propsal - Skripsi</a></li>
                     <li><a href="#">Bimbingan Proposal - Skripsi</a></li>
                     <li><a href="#">Sidang Proposal - Skripsi</a></li>
                     <li><a href="#">Hasil Proposal - Skripsi</a></li>
                     <li><a href="{{url('monsi/form_uploadproposal')}}">Berkas Proposal - Skripsi</a></li>
                     
+=======
+            <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Informasi Proposal - Skripsi
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('monsi/tabel-mhs') }}"><i class="fa fa-circle-o"></i> Admin TU</a></li>
+                <li><a href="{{ url('monsi/tabel-mhs2') }}"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
+              </ul>
+            </li>
+
+             <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Bimbingan Proposal - Skripsi
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('monsi/upload-bimbingan') }}"><i class="fa fa-circle-o"></i> Dosen</a></li>
+                <li><a href="{{ url('monsi/view-bimbingan') }}"><i class="fa fa-circle-o"></i> Mahasiswa</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Sidang Proposal - Skripsi
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Admin TU</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Berkas Proposal - Skripsi
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('monsi/form_uploadproposal') }}"><i class="fa fa-circle-o"></i> Mahasiswa</a></li>
+                <li><a href="{{ url('monsi/tabel_judul') }}"><i class="fa fa-circle-o"></i> Dosen - Admin TU</a></li>
+              </ul>
+            </li>
+>>>>>>> 317d4297b4617d5a836d1113cd2a5cb3ade86a46
                 </ul>
             </li>
 
