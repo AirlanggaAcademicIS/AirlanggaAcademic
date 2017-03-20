@@ -73,7 +73,6 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
 >>>>>>> a6a163632004abb6847dd43f373750d94434d5b2
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
-<<<<<<< HEAD
    
     Route::get('/dosen/laporan/laporan', function () {
     return view('dosen.laporan.laporan');
@@ -83,9 +82,13 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
      
 });
     
-});
-=======
 
+    Route::get('/karyawan/regis', function () {
+    return view('mahasiswa.registrasi_akun');
+});
+    Route::get('/mahasiswa/ubah-pass', function () {
+    return view('mahasiswa.ubah_pass_mhs');
+]);
     Route::get('/pla/permohonansurat', function () {
     return view('pla.permohonansurat');
 
@@ -291,8 +294,4 @@ Route::get('/dosen/penelitian/edit',function()
     return view('dosen.pengmas.create');
 
 });
-
 });
-
-
->>>>>>> ea7138f61680371be6328adb72ddcdcad47c69a9
