@@ -82,12 +82,13 @@ Upload Informasi Skripsi dan Bimbingan
   </div>
   <!-- /.box-body -->
   <div class="box-footer">
-      <a href="#"><button type="button" class="btn btn-default" style="margin-left: 500px;">Kembali</button></a>
+      <a href="{{ url('monsi/tabel-mhs') }}"><button type="button" class="btn btn-default" style="margin-left: 500px;">Kembali</button></a>
       <button type="submit" class="btn btn-primary" style="margin-left: 40px;">Simpan</button>
   </div>
   <!-- /.box-footer -->
 </form>
 </div>
+
 
 @endsection
 
