@@ -20,6 +20,17 @@ Route::group(['middleware' => 'auth'], function () {
 //        // Uses Auth Middleware
 //    });
 
+	Route::get('/approve', function () {
+    return view('krs-khs/approve');
+});
+	Route::get('/approve1', function () {
+    return view('krs-khs/approve1');
+});
+
+	Route::get('/buka', function () {
+    return view('krs-khs/buka');
+});
+
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
 });
