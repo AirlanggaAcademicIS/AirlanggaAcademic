@@ -14,7 +14,7 @@ Fitur
 @endsection
 
 @section('main-content')
-Fitur
+
 @endsection
 
 @section('code-footer')
