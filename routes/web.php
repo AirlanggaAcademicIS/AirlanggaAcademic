@@ -22,6 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+
     Route::get('/krs-khs/form_khs', function () {
     return view('krs-khs.form_khs');
     });
@@ -34,6 +35,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/krs-khs/detail_nilai_BD', function () {
     return view('krs-khs.detail_nilai_BD');
     });
+    Route::get('/krs-khs/krs', function () {
+    return view('krs-khs/contoh');
+    });
+     Route::get('/monsi/form-dataskripsi', function () {
+    return view('monsi.form-dataskripsi');
+    });
+    Route::get('/dosen/penelitian', function () {
+    return view('dosen.penelitian.create');
+    });
+    Route::get('/monsi/tabel-mhs2', function () {
+    return view('monsi.tabel-mhs2');
+    });
 });
-
 

@@ -6,17 +6,15 @@
 @endsection
 
 @section('htmlheader_title')
-<!-- Nama konten -->
-Nama konten 
+Fitur 
 @endsection
 
 @section('contentheader_title')
-<!-- Nama konten -->
-Nama konten
+Fitur
 @endsection
 
 @section('main-content')
-<!-- Kodingan HTML ditaruh di sini -->
+	@include('kurikulum.kode.content')
 @endsection
 
 @section('code-footer')
