@@ -56,15 +56,14 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Dosen</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-<<<<<<< HEAD
-                    <li><a href="{{url('/dosen/laporan/laporan')}}">Laporan Kinerja Dosen</a></li>
-=======
+
+                    <li><a href="{{url('/dosen/laporan/laporan')}}">Laporan Kinerja Dosen</a></l
         
                     <li><a href="{{url('/dosen/pengmas/pengmas')}}">Pengabdian Masyarakat</a></li>
                     <li><a href="{{ url('/dosen/konferensi/konferensi') }}">Konferensi</a></li>
                     <li><a href="{{url('/dosen/penelitian/penelitian')}}">Penelitian</a></li>                 
                <li><a href="{{url('/dosen/jurnal/')}}">Jurnal</a></li>                    
->>>>>>> ea7138f61680371be6328adb72ddcdcad47c69a9
+
                 </ul>
             </li>
             <!-- Sidebar Modul Mahasiswa -->
@@ -72,11 +71,13 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Mahasiswa</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-<<<<<<< HEAD
+
+                    <li><a href="{{url('mahasiswa/lihat-jadwal-sidang-proposal')}}">Sidang Proposal</a></li>
+
                     <li><a href="{{url('/mahasiswa/prestasi')}}">Prestasi</a></li>
-=======
+
                     <li><a href="{{url('mahasiswa/jadwal_sidang_proposal_mhs')}}">Sidang Proposal</a></li>
->>>>>>> a6a163632004abb6847dd43f373750d94434d5b2
+
                 </ul>
             </li>
 
@@ -89,7 +90,7 @@
                     <li><a href="{{url('/krs-khs/dosen_mk')}}">MK Diajar</a></li>
                     <li><a href="{{url('/krs-khs/input_jadwal')}}">input jadwal</a></li>
                     <li><a href="{{url('/krs-khs/input_ruang')}}">input ruang kelas</a></li>
-
+                    <li><a href="{{url('/krs-khs/input_nilai')}}">input nilai</a></li>
                     <li><a href="{{url('/approve1')}}">Approve KRS</a></li>
                     <li><a href="{{url('/buka')}}">Buka KRS</a></li>
                     <li><a href="{{ url('krs-khs/form_khs') }}">KHS</a></li>

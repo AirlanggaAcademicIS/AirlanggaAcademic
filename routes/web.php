@@ -37,6 +37,7 @@ Route::get('/mahasiswa/edit_prestasi', function () {
 Route::get('/mahasiswa/tabel_berhasil', function () {
     return view('mahasiswa.tabel_berhasil');
 });
+
 	Route::get('/krs-khs/mk', function () {
     return view('krs-khs/mk');
 });
@@ -69,6 +70,9 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+
+
+
    
     Route::get('/dosen/laporan/laporan', function () {
     return view('dosen.laporan.laporan');
@@ -78,6 +82,10 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
      
 });
     
+
+
+
+
 
     Route::get('/karyawan/regis', function () {
     return view('mahasiswa.registrasi_akun');
@@ -169,6 +177,17 @@ Route::get('/dosen/penelitian/edit',function()
     Route::get('/krs-khs/krs', function () {
     return view('krs-khs/contoh');
     });
+    Route::get('/krs-khs/input_nilai', function () {
+    return view('krs-khs.input_nilai');
+    });
+     
+    
+
+    
+    Route::get('/monsi/form-dataskripsi', function () {
+    return view('monsi.form-dataskripsi');
+  	});
+  	
 
     Route::get('add-asset', 'HomeController@input');
     Route::get('view-asset', 'HomeController@index');
@@ -267,4 +286,13 @@ Route::get('/dosen/penelitian/edit',function()
     return view('dosen.pengmas.create');
 
 });
+
+
+    Route::get('/mahasiswa/lihat-jadwal-sidang-proposal', function () {
+    return view('mahasiswa.lihat-jadwal-sidang-proposal');
 });
+
+
+
+});
+
