@@ -1,41 +1,49 @@
-# TableTools
+"Moono" Skin
+====================
 
-TableTools is a plug-in for the DataTables HTML table enhancer, which adds a highly customisable button toolbar to a DataTable. Key features include:
+This skin has been chosen for the **default skin** of CKEditor 4.x, elected from the CKEditor
+[skin contest](http://ckeditor.com/blog/new_ckeditor_4_skin) and further shaped by
+the CKEditor team. "Moono" is maintained by the core developers.
 
-* Copy to clipboard
-* Save table data as CSV, XLS or PDF files
-* Print view for clean printing
-* Row selection options
-* Easy use predefined buttons
-* Simple customisation of buttons
-* Well defined API for advanced control
+For more information about skins, please check the [CKEditor Skin SDK](http://docs.cksource.com/CKEditor_4.x/Skin_SDK)
+documentation.
 
+Features
+-------------------
+"Moono" is a monochromatic skin, which offers a modern look coupled with gradients and transparency.
+It comes with the following features:
 
-# Installation
+- Chameleon feature with brightness,
+- high-contrast compatibility,
+- graphics source provided in SVG.
 
-To use TableTools, first download DataTables ( http://datatables.net/download ) and place the unzipped TableTools package into a `extensions` directory in the DataTables package (in DataTables 1.9- use the `extras` directory). This will allow the pages in the examples to operate correctly. To see the examples running, open the `examples` directory in your web-browser.
+Directory Structure
+-------------------
 
+CSS parts:
+- **editor.css**: the main CSS file. It's simply loading several other files, for easier maintenance,
+- **mainui.css**: the file contains styles of entire editor outline structures,
+- **toolbar.css**: the file contains styles of the editor toolbar space (top),
+- **richcombo.css**: the file contains styles of the rich combo ui elements on toolbar,
+- **panel.css**: the file contains styles of the rich combo drop-down, it's not loaded
+until the first panel open up,
+- **elementspath.css**: the file contains styles of the editor elements path bar (bottom),
+- **menu.css**: the file contains styles of all editor menus including context menu and button drop-down,
+it's not loaded until the first menu open up,
+- **dialog.css**: the CSS files for the dialog UI, it's not loaded until the first dialog open,
+- **reset.css**: the file defines the basis of style resets among all editor UI spaces,
+- **preset.css**: the file defines the default styles of some UI elements reflecting the skin preference,
+- **editor_XYZ.css** and **dialog_XYZ.css**: browser specific CSS hacks.
 
-# Basic usage
+Other parts:
+- **skin.js**: the only JavaScript part of the skin that registers the skin, its browser specific files and its icons and defines the Chameleon feature,
+- **icons/**: contains all skin defined icons,
+- **images/**: contains a fill general used images,
+- **dev/**: contains SVG source of the skin icons.
 
-TableTools is initialised using the `T` option that it adds to DataTables' `dom` option. For example:
+License
+-------
 
-```js
-$(document).ready( function () {
-	$('#example').DataTable( {
-		dom: 'T<"clear">lfrtip'
-	} );
-} );
-```
+Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
 
-
-# Documentation / support
-
-* Documentation: http://datatables.net/extensions/tabletools/
-* DataTables support forums: http://datatables.net/forums
-
-
-# GitHub
-
-If you fancy getting involved with the development of TableTools and help make it better, please refer to its GitHub repo: https://github.com/DataTables/TableTools
-
+For licensing, see LICENSE.md or [http://ckeditor.com/license](http://ckeditor.com/license)

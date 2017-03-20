@@ -42,65 +42,60 @@ Fitur
                   <td>Rr. Nadhila Ramadhini A.</td>
                   <td>081411631007</td>
                   <td><div class="btn-group">
-                      <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">Upload</button></a>
-                      <a href="{{ url('monsi/form-editskripsi') }}" ><button type="button" class="btn-xs btn-primary">Edit</button></a>
                       <a href="{{ url('monsi/form-viewskripsi') }}" ><button type="button" class="btn-xs btn-warning">View</button></a>
-                  
-                    </div></td>
+                     </td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Zafitra  Ramadani</td>
                   <td>081411631016</td>
                   <td><div class="btn-group">
-                      <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-success">Upload</button></a>
-                      <a href="{{ url('monsi/form-editskripsi') }}" ><button type="button" class="btn-xs btn-primary">Edit</button></a>
                       <a href="{{ url('monsi/form-viewskripsi') }}" ><button type="button" class="btn-xs btn-warning">View</button></a>
-                    </div></td>
+                     </td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>Shof Rijal Ahlan Robbani</td>
                   <td>081411633038</td>
                   <td><div class="btn-group">
-                      <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-success">Upload</button></a>
-                      <a href="{{ url('monsi/form-editskripsi') }}" ><button type="button" class="btn-xs btn-primary">Edit</button></a>
                       <a href="{{ url('monsi/form-viewskripsi') }}" ><button type="button" class="btn-xs btn-warning">View</button></a>
-                    </div></td>
+                     </td>
                 </tr>
+                
                 <tr>
                   <td>4</td>
                   <td>Kenny Everest Karnama</td>
                   <td>081411631044</td>
                   <td><div class="btn-group">
-                      <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-success">Upload</button></a>
-                      <a href="{{ url('monsi/form-editskripsi') }}" ><button type="button" class="btn-xs btn-primary">Edit</button></a>
                       <a href="{{ url('monsi/form-viewskripsi') }}" ><button type="button" class="btn-xs btn-warning">View</button></a>
-                    </div></td>
+                     </td>
                 </tr>
                 <tr>
                   <td>5</td>
                   <td>Dzikri Robbi Usamah</td>
                   <td>081411633004</td>
                   <td><div class="btn-group">
-                      <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-success">Upload</button></a>
-                      <a href="{{ url('monsi/form-editskripsi') }}" ><button type="button" class="btn-xs btn-primary">Edit</button></a>
                       <a href="{{ url('monsi/form-viewskripsi') }}" ><button type="button" class="btn-xs btn-warning">View</button></a>
-                    </div></td>
+                     </td>
                 </tr>
                 <tr>
                   <td>6</td>
                   <td>Regina Devi Loanita L.</td>
                   <td>081411633005</td>
                   <td><div class="btn-group">
-                      <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-success">Upload</button></a>
-                      <a href="{{ url('monsi/form-editskripsi') }}" ><button type="button" class="btn-xs btn-primary">Edit</button></a>
                       <a href="{{ url('monsi/form-viewskripsi') }}" ><button type="button" class="btn-xs btn-warning">View</button></a>
-                    </div></td>
+                     </td>
                 </tr>
                 
               </table>
             </div>
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
             <!-- /.box-body -->
           </div>
 @endsection

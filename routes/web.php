@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
 
+
     Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
     Route::get('index-maintenance', 'MaintenanceController@index');
 	Route::get('view-maintenance', 'MaintenanceController@viewDetail');
@@ -33,4 +34,17 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('add-asset', 'HomeController@input');
     Route::get('view-asset', 'HomeController@index');
+
+    Route::get('/krs-khs/krs', function () {
+    return view('krs-khs/contoh');
+    });
+    Route::get('/monsi/form-dataskripsi', function () {
+    return view('monsi.form-dataskripsi');
+    });
+    Route::get('/dosen/penelitian', function () {
+    return view('dosen.penelitian.create');
+    });
+    Route::get('/monsi/tabel-mhs2', function () {
+    return view('monsi.tabel-mhs2');
+    });
 });
