@@ -57,7 +57,8 @@
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
                     <li><a href="{{ url('/dosen/konferensi/konferensi') }}">Konferensi</a></li>
-                    <li><a href="{{url('/dosen/penelitian/penelitian')}}">Penelitian</a></li>              
+                    <li><a href="{{url('/dosen/penelitian/penelitian')}}">Penelitian</a></li>                 
+               <li><a href="{{url('/dosen/jurnal/')}}">Jurnal</a></li>                    
                 </ul>
             </li>
             <!-- Sidebar Modul Mahasiswa -->

@@ -38,6 +38,30 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dosen/penelitian/penelitian',function()
 { return view('dosen.penelitian.penelitian'); 
 });
+
+     Route::get('/monsi/form-editskripsi', function () {
+    return view('monsi.form-editskripsi');
+});
+     Route::get('/monsi/form-viewskripsi', function () {
+    return view('monsi.form-viewskripsi');
+});
+     Route::get('/monsi/form-viewskripsi', function () {
+    return view('monsi.form-viewskripsi');
+});
+
+    
+    Route::get('/dosen/jurnal/', function () {
+    return view('dosen.jurnal.jurnal');
+});
+    Route::get('/dosen/jurnal/create', function () {
+    return view('dosen.jurnal.create');
+});
+    Route::get('/dosen/jurnal/edit', function () {
+    return view('dosen.jurnal.edit');
+});
+    
+    
+
 Route::get('/dosen/penelitian/create',function()
 { return view('dosen.penelitian.create'); 
 });
@@ -137,6 +161,7 @@ Route::get('/dosen/penelitian/edit',function()
     Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
     Route::get('index-peminjaman', 'PeminjamanController@index');
     Route::get('view-peminjaman', 'PeminjamanController@viewDetail');
+
 
 
 });
