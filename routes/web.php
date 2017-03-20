@@ -22,7 +22,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
-    Route::get('/dosen/penelitian', function () {
-    return view('dosen.penelitian.create');
+    Route::get('/krs-khs/input_ruang', function () {
+    return view('krs-khs/input_ruang');
+
 });
+
+        Route::get('/krs-khs/input_jadwal', function () {
+    return view('krs-khs/input_jadwal');
+});
+        
 });

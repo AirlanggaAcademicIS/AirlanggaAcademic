@@ -67,7 +67,8 @@
                 <a href="#"><i class='fa fa-link'></i> <span>KRS & KHS</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
+                    <li><a href="{{url('/krs-khs/input_jadwal')}}">input jadwal</a></li>
+                    <li><a href="{{url('/krs-khs/input_ruang')}}">input ruang kelas</a></li>
                 </ul>
             </li>
 
