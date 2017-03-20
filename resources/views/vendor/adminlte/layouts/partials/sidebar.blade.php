@@ -71,7 +71,7 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Mahasiswa</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="{{url('mahasiswa/jadwal_sidang_proposal_mhs')}}">Sidang Proposal</a></li>
+                    <li><a href="{{url('mahasiswa/lihat-jadwal-sidang-proposal')}}">Sidang Proposal</a></li>
                 </ul>
             </li>
 

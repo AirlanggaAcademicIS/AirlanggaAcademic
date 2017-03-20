@@ -277,6 +277,10 @@ Route::get('/dosen/penelitian/edit',function()
 
 });
 
+    Route::get('/mahasiswa/lihat-jadwal-sidang-proposal', function () {
+    return view('mahasiswa.lihat-jadwal-sidang-proposal');
+});
+
 });
 
 
