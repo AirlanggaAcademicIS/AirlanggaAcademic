@@ -18,11 +18,33 @@ Route::get('/', function () {
 });
 
 
+
+Route::group(['middleware' => 'auth'], function () {
+
 Route::group(['middleware' => 'auth'], function () {  
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });
 
+	Route::get('/krs-khs/mk', function () {
+    return view('krs-khs/mk');
+});
+
+	Route::get('/contoh', function () {
+    return view('mahasiswa/contoh');
+});
+
+	Route::get('/krs-khs/mk/bobot', function () {
+    return view('krs-khs/bobot');
+});
+
+    Route::get('/krs-khs/mk/input_nilai', function () {
+    return view('krs-khs/input_nilai');
+});
+
+    Route::get('/krs-khs/dosen_mk', function () {
+    return view('krs-khs/input_dosen_mk');
+});
 	Route::get('/approve', function () {
     return view('krs-khs/approve');
 });
@@ -38,6 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
     #adminlte_routes
 
 
+
     Route::get('/pla/peringatansurat', function () {
     return view('pla.peringatansurat
     	');
@@ -47,7 +70,13 @@ Route::group(['middleware' => 'auth'], function () {
     	');
 });
     });
-=======
+
+
+    Route::get('/pla/permohonansurat', function () {
+    return view('pla.permohonansurat');
+
+});
+
 
     Route::get('/krs-khs/input_ruang', function () {
     return view('krs-khs/input_ruang');
@@ -58,13 +87,13 @@ Route::group(['middleware' => 'auth'], function () {
     return view('krs-khs/input_jadwal');
 });
         
-=======
+
     Route::get('/dosen/pengabdianmasyarakat', function () {
     return view('dosen.pengabdianmasyarakat');
     });
     Route::get('/dosen/pengmas/pengmas', function () {
     return view('dosen.pengmas.pengmas');
-
+});
     Route::get('kurikulum/rps/index', function () {
     return view('kurikulum.rps.index');
 });
@@ -240,16 +269,15 @@ Route::get('/dosen/penelitian/edit',function()
     return view('monsi.lihat-jadwal-sidang-skripsi-dosen');
 
     });
-});
+
 
     Route::get('/dosen/pengmas/edit', function () {
     return view('dosen.pengmas.edit');
 });
     Route::get('/dosen/pengmas/create', function () {
     return view('dosen.pengmas.create');
->>>>>>> 5949bb179632db0f752c79e69545a30efe015a2b
-});
 
 });
 
->>>>>>> 071daf88abdb77b5201a92cb21895488e534aae7
+});
+

@@ -77,17 +77,17 @@
                 <a href="#"><i class='fa fa-link'></i> <span>KRS & KHS</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-<<<<<<< HEAD
+                    <li><a href="{{url('/krs-khs/mk')}}">Mata Kuliah</a></li>
+                    <li><a href="{{url('/krs-khs/dosen_mk')}}">MK Diajar</a></li>
                     <li><a href="{{url('/krs-khs/input_jadwal')}}">input jadwal</a></li>
                     <li><a href="{{url('/krs-khs/input_ruang')}}">input ruang kelas</a></li>
-=======
+
                     <li><a href="{{url('/approve1')}}">Approve KRS</a></li>
                     <li><a href="{{url('/buka')}}">Buka KRS</a></li>
                     <li><a href="{{ url('krs-khs/form_khs') }}">KHS</a></li>
                     <li><a href="{{ url('krs-khs/histori_nilai') }}">Histori Nilai</a></li>
                     <li><a href="{{url('/krs-khs/krs')}}">Kartu Rencana Studi</a></li>
                     <li><a href="#">Fitur</a></li>
->>>>>>> 5949bb179632db0f752c79e69545a30efe015a2b
                 </ul>
             </li>
 
@@ -106,10 +106,14 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-<<<<<<< HEAD
+
                     
                     <li><a href="{{ url('pla/peringatansurat') }}">Peringatan Surat Jadi</a></li>
-=======
+
+
+                    <li><a href="{{ url('pla/permohonansurat') }}">Surat Menyurat</a></li>
+
+
                     <li>
                       <a href="#"><i class="fa fa-circle-o"></i>Permohonan Ruangan
                         <span class="pull-right-container">
@@ -146,7 +150,9 @@
                       </ul>
                     </li>
 
->>>>>>> 071daf88abdb77b5201a92cb21895488e534aae7
+
+
+
                 </ul>
             </li>
 
