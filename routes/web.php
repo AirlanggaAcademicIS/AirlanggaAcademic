@@ -18,11 +18,33 @@ Route::get('/', function () {
 });
 
 
+
+Route::group(['middleware' => 'auth'], function () {
+
 Route::group(['middleware' => 'auth'], function () {  
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });
 
+	Route::get('/krs-khs/mk', function () {
+    return view('krs-khs/mk');
+});
+
+	Route::get('/contoh', function () {
+    return view('mahasiswa/contoh');
+});
+
+	Route::get('/krs-khs/mk/bobot', function () {
+    return view('krs-khs/bobot');
+});
+
+    Route::get('/krs-khs/mk/input_nilai', function () {
+    return view('krs-khs/input_nilai');
+});
+
+    Route::get('/krs-khs/dosen_mk', function () {
+    return view('krs-khs/input_dosen_mk');
+});
 	Route::get('/approve', function () {
     return view('krs-khs/approve');
 });

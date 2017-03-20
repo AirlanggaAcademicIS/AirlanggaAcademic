@@ -81,7 +81,8 @@
                 <a href="#"><i class='fa fa-link'></i> <span>KRS & KHS</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-
+                    <li><a href="{{url('/krs-khs/mk')}}">Mata Kuliah</a></li>
+                    <li><a href="{{url('/krs-khs/dosen_mk')}}">MK Diajar</a></li>
                     <li><a href="{{url('/krs-khs/input_jadwal')}}">input jadwal</a></li>
                     <li><a href="{{url('/krs-khs/input_ruang')}}">input ruang kelas</a></li>
 
@@ -91,7 +92,6 @@
                     <li><a href="{{ url('krs-khs/histori_nilai') }}">Histori Nilai</a></li>
                     <li><a href="{{url('/krs-khs/krs')}}">Kartu Rencana Studi</a></li>
                     <li><a href="#">Fitur</a></li>
-
                 </ul>
             </li>
 
