@@ -58,7 +58,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
-<<<<<<< HEAD
    
     Route::get('/dosen/laporan/laporan', function () {
     return view('dosen.laporan.laporan');
@@ -68,8 +67,6 @@ Route::group(['middleware' => 'auth'], function () {
      
 });
     
-});
-=======
 
     Route::get('/karyawan/regis', function () {
     return view('mahasiswa.registrasi_akun');
@@ -282,12 +279,4 @@ Route::get('/dosen/penelitian/edit',function()
     return view('dosen.pengmas.create');
 
 });
-
-<<<<<<< HEAD
 });
-=======
-});
-
-
->>>>>>> ea7138f61680371be6328adb72ddcdcad47c69a9
->>>>>>> 4a013d4afe26f6d3c2cc31b3c9f43459835532fe
