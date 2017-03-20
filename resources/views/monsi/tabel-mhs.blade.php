@@ -45,7 +45,7 @@ Fitur
                       <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">Upload</button></a>
                       <a href="{{ url('monsi/form-editskripsi') }}" ><button type="button" class="btn-xs btn-primary">Edit</button></a>
                       <a href="{{ url('monsi/form-viewskripsi') }}" ><button type="button" class="btn-xs btn-warning">View</button></a>
-                      <button type="button" class="btn-xs btn-danger">Delete</button>
+                  
                     </div></td>
                 </tr>
                 <tr>
@@ -56,7 +56,6 @@ Fitur
                       <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-success">Upload</button></a>
                       <a href="{{ url('monsi/form-editskripsi') }}" ><button type="button" class="btn-xs btn-primary">Edit</button></a>
                       <a href="{{ url('monsi/form-viewskripsi') }}" ><button type="button" class="btn-xs btn-warning">View</button></a>
-                      <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-danger">Delete</button></a>
                     </div></td>
                 </tr>
                 <tr>
@@ -67,7 +66,6 @@ Fitur
                       <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-success">Upload</button></a>
                       <a href="{{ url('monsi/form-editskripsi') }}" ><button type="button" class="btn-xs btn-primary">Edit</button></a>
                       <a href="{{ url('monsi/form-viewskripsi') }}" ><button type="button" class="btn-xs btn-warning">View</button></a>
-                      <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-danger">Delete</button></a>
                     </div></td>
                 </tr>
                 <tr>
@@ -78,7 +76,6 @@ Fitur
                       <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-success">Upload</button></a>
                       <a href="{{ url('monsi/form-editskripsi') }}" ><button type="button" class="btn-xs btn-primary">Edit</button></a>
                       <a href="{{ url('monsi/form-viewskripsi') }}" ><button type="button" class="btn-xs btn-warning">View</button></a>
-                      <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-danger">Delete</button></a>
                     </div></td>
                 </tr>
                 <tr>
@@ -89,7 +86,6 @@ Fitur
                       <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-success">Upload</button></a>
                       <a href="{{ url('monsi/form-editskripsi') }}" ><button type="button" class="btn-xs btn-primary">Edit</button></a>
                       <a href="{{ url('monsi/form-viewskripsi') }}" ><button type="button" class="btn-xs btn-warning">View</button></a>
-                      <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-danger">Delete</button></a>
                     </div></td>
                 </tr>
                 <tr>
@@ -100,19 +96,11 @@ Fitur
                       <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-success">Upload</button></a>
                       <a href="{{ url('monsi/form-editskripsi') }}" ><button type="button" class="btn-xs btn-primary">Edit</button></a>
                       <a href="{{ url('monsi/form-viewskripsi') }}" ><button type="button" class="btn-xs btn-warning">View</button></a>
-                      <a href="{{ url('monsi/form-dataskripsi') }}" ><button type="button" class="btn-xs btn-danger">Delete</button></a>
                     </div></td>
                 </tr>
                 
               </table>
             </div>
-            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      ...
-    </div>
-  </div>
-</div>
             <!-- /.box-body -->
           </div>
 @endsection
