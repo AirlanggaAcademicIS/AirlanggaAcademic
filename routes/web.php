@@ -24,5 +24,17 @@ Route::group(['middleware' => 'auth'], function () {
     #adminlte_routes
     Route::get('/dosen/penelitian', function () {
     return view('dosen.penelitian.create');
+
 });
+   
+     Route::get('/dosen/konferensi/konferensi', function () {
+    return view('dosen.konferensi.konferensi');
+}); 
+     Route::get('/dosen/konferensi/create', function () {
+    return view('dosen.konferensi.create');
+}); 
+	 Route::get('/dosen/konferensi/edit', function () {
+    return view('dosen.konferensi.edit');
+});
+
 });
