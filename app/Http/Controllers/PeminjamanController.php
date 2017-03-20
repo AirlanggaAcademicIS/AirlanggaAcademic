@@ -33,6 +33,16 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        return view('peminjaman.tabel-peminjaman');
+        return view('inventaris.peminjaman.tabel-peminjaman');
+    }
+
+    public function inputPeminjaman()
+    {
+        return view('inventaris.peminjaman.input-peminjaman');
+    }
+
+    public function viewDetail()
+    {
+        return view('inventaris.peminjaman.view-peminjaman');
     }
 }

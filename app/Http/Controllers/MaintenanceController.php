@@ -33,6 +33,16 @@ class MaintenanceController extends Controller
      */
     public function index()
     {
-        return view('maintenance.tabel-maintenance');
+        return view('inventaris.maintenance.tabel-maintenance');
+    }
+
+    public  function inputMaintenance()
+    {
+        return view('inventaris.maintenance.input-maintenance');
+    }
+
+    public  function viewDetail()
+    {
+        return view('inventaris.maintenance.view-maintenance');
     }
 }
