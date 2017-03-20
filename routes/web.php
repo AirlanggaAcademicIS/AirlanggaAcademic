@@ -50,4 +50,34 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
+     Route::get('/monsi/sidang_proposal', function () {
+    return view('monsi.sidang-proposal');
+
+    });
+
+     Route::get('/monsi/sidang_skripsi', function () {
+    return view('monsi.sidang-skripsi');
+
+    });
+
+      Route::get('/monsi/jadwal_sidang_proposal_mhs', function () {
+    return view('monsi.lihat-jadwal-sidang-proposal');
+
+    });
+
+       Route::get('/monsi/jadwal_sidang_proposal_dosen', function () {
+    return view('monsi.lihat-jadwal-sidang-proposal-dosen');
+
+    });
+
+         Route::get('/monsi/jadwal_sidang_skripsi_mhs', function () {
+    return view('monsi.lihat-jadwal-sidang-skripsi');
+
+    });
+
+          Route::get('/monsi/jadwal_sidang_skripsi_dosen', function () {
+    return view('monsi.lihat-jadwal-sidang-skripsi-dosen');
+
+    });
+
 });

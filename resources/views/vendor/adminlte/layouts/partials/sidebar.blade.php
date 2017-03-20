@@ -58,7 +58,7 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Mahasiswa</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
+                    <li><a href="{{url('mahasiswa/jadwal_sidang_proposal_mhs')}}">Sidang Proposal</a></li>
                 </ul>
             </li>
 
@@ -118,7 +118,16 @@
                     <!-- Tulis disini fiturnya -->
                     <li><a href="{{ url('monsi/tabel-mhs') }}">Informasi Propsal - Skripsi</a></li>
                     <li><a href="#">Bimbingan Proposal - Skripsi</a></li>
-                    <li><a href="#">Sidang Proposal - Skripsi</a></li>
+                    <li class="treeview">
+
+                    <a href="#"><i class='fa fa-link'></i> <span>Sidang Proposal dan Skripsi</span>
+                <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <!-- Tulis disini fiturnya -->
+                    <li><a href="{{url('monsi/sidang_proposal')}}">Sidang Proposal</a></li>
+                    <li><a href="{{url('monsi/sidang_skripsi')}}">Sidang Skripsi</a></li>
+                </ul>
+                    </li>
                     <li><a href="#">Hasil Proposal - Skripsi</a></li>
                     <li><a href="{{url('monsi/form_uploadproposal')}}">Berkas Proposal - Skripsi</a></li>
                 </ul>
