@@ -22,9 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
-    Route::get('/kurikulum/kode', function () {
-    return view('kurikulum.kode.index');
-});
+
     Route::get('/karyawan/regis', function () {
     return view('mahasiswa.registrasi_akun');
 });
