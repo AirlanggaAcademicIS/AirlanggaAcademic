@@ -41,7 +41,13 @@
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
                     <li><a href="#">RPS</a></li>
-                    <li><a href="#">Mata Kuliah</a></li>
+                    <li><a href="#">Silabus</a></li>
+                    <li><a href="#">Capaian Program</a></li>
+                    <li><a href="#">Capaian Pembelajaran</a></li>
+                    <li><a href="#">E-Learning</a></li>
+                    <li><a href="#">Manage Kode CP Mata Kuliah</a></li>
+                    <li><a href="#">Manage Kode CP Prodi</a></li>
+                    <li><a href="#">Manage Mata Kuliah</a></li>
                 </ul>
             </li>
             <!-- Sidebar Modul Dosen -->
@@ -117,7 +123,11 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
+                    <li><a href="{{ url('monsi/tabel-mhs') }}">Informasi Propsal - Skripsi</a></li>
+                    <li><a href="#">Bimbingan Proposal - Skripsi</a></li>
+                    <li><a href="#">Sidang Proposal - Skripsi</a></li>
+                    <li><a href="#">Hasil Proposal - Skripsi</a></li>
+                    <li><a href="{{url('monsi/form_uploadproposal')}}">Berkas Proposal - Skripsi</a></li>
                 </ul>
             </li>
 

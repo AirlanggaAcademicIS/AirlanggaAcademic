@@ -26,3 +26,4 @@ Route::group(['middleware' => 'auth'], function () {
     return view('krs-khs/contoh');
 });
 });
+
