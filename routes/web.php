@@ -25,4 +25,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dosen/penelitian', function () {
     return view('dosen.penelitian.create');
 });
+    Route::get('/mahasiswa/input/', function () {
+    return view('mahasiswa.input_biodata');
+});
+    Route::get('/mahasiswa/edit/', function () {
+    return view('mahasiswa.edit_biodata');
+});
+   Route::get('/mahasiswa/view/', function () {
+    return view('mahasiswa.view_biodata');
+}); 
 });

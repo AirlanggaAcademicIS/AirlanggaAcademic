@@ -6,22 +6,20 @@
 @endsection
 
 @section('htmlheader_title')
-<!-- Nama konten -->
-Nama konten 
+Biodata Mahasiswa
 @endsection
 
 @section('contentheader_title')
 <!-- Nama konten -->
-Nama konten
+Biodata Mahasiswa
 @endsection
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+
     <section class="content-header">
       <h1>
-        Tambah Biodata
+        Input Biodata
         <small>Form</small>
       </h1>
       <ol class="breadcrumb">
@@ -478,11 +476,12 @@ Nama konten
                 </div>
   </div>
   <div class="box-footer clearfix">
-              <button type="submit" class="pull-right btn btn-default" id="kirim">Tambah
-               </button></form>
+              <button type="submit" class="pull-right btn btn-primary" id="kirim">Input
+               </button>
+</div>
+               </form>
             </div>
   </div></section>
-</div>
 </section>
 </div>
 
