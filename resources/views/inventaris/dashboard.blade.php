@@ -59,7 +59,8 @@
                   <td>3.000.000</td>
                   <td>3</td>
                   <td>15.000.000</td>                
-                </tr>
+                  </tr>
+         
                 <tr>
                   <td>01432</td>
                   <td>Lemari</td>
@@ -72,7 +73,8 @@
                   <td>1</td>
                   <td>1.000.000</td>
                 </tr>
-                <tr>
+                
+                                <tr>
                   <td>01672</td>
                   <td>Laptop</td>
                   <td>Ready</td>
@@ -84,7 +86,8 @@
                   <td>12</td>
                   <td>72.000.000</td>
                 </tr>
-                <tr>
+                  
+                                <tr>
                   <td>01122</td>
                   <td>LCD</td>
                   <td>Ready</td>
@@ -95,8 +98,9 @@
                   <td>4.500.000</td>
                   <td>2</td>
                   <td>9.000.000</td>
-                </tr>               
-                <tr>
+                </tr>
+               
+                                <tr>
                   <td>01312</td>
                   <td>Sound system</td>
                   <td>Ready</td>
@@ -107,8 +111,9 @@
                   <td>1.000.000</td>
                   <td>4</td>
                   <td>4.000.000</td>
-                </tr>                
-                <tr>
+                </tr>
+               
+                                <tr>
                   <td>01431</td>
                   <td>Smart Board</td>
                   <td>Ready</td>
@@ -119,8 +124,8 @@
                   <td>2.000.000</td>
                   <td>3</td>
                   <td>6.000.000</td>
-                </tr>                
-                <tr>
+                </tr>
+                                               <tr>
                   <td>01232</td>
                   <td>Papan Tulis</td>
                   <td>Ready</td>
@@ -131,6 +136,7 @@
                   <td>1.000.000</td>
                   <td>2</td>
                   <td>2.000.000</td>
+
                 <tfoot>
                   <tr>
                   <th>serial_barcode</th>
