@@ -16,6 +16,7 @@ Edit Informasi Skripsi dan Bimbingan
 @endsection
 
 @section('main-content')
+<div class="box box-info">
 <form class="form-horizontal">
   <br>
   <div class="box-body">
@@ -101,12 +102,15 @@ Edit Informasi Skripsi dan Bimbingan
 
   </div>
   <!-- /.box-body -->
-      <center><button type="submit" class="btn btn-default">Simpan</button></center>
-      <br>
-      <br>
-      <center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Hapus</button></center>  <!-- /.box-footer -->
+  <div class="box-footer">
+      <a href=""{{ url('monsi/tabel-mhs') }}""><button type="button" class="btn btn-default" style="margin-left: 400px;">Kembali</button></a>
+      <button type="submit" class="btn btn-primary" style="margin-left: 40px;">Simpan</button>
+      <button type="button" class="btn btn-danger" style="margin-left: 40px;" data-toggle="modal" data-target="#myModal">Hapus</button>
+  </div>
+  <!-- /.box-footer -->
  
 </form>
+</div>
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">

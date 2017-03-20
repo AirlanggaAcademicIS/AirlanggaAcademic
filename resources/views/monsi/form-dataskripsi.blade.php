@@ -16,6 +16,7 @@ Upload Informasi Skripsi dan Bimbingan
 @endsection
 
 @section('main-content')
+<div class="box box-info">
 <form class="form-horizontal">
   <br>
   <div class="box-body">
@@ -80,9 +81,14 @@ Upload Informasi Skripsi dan Bimbingan
 
   </div>
   <!-- /.box-body -->
-      <center><button type="submit" class="btn btn-default">Simpan</button></center>
+  <div class="box-footer">
+      <a href="{{ url('monsi/tabel-mhs') }}"><button type="button" class="btn btn-default" style="margin-left: 500px;">Kembali</button></a>
+      <button type="submit" class="btn btn-primary" style="margin-left: 40px;">Simpan</button>
+  </div>
   <!-- /.box-footer -->
 </form>
+</div>
+
 
 @endsection
 
