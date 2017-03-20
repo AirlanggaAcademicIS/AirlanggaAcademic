@@ -22,6 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+
     Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
     Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
     Route::get('index-maintenance', 'MaintenanceController@index');
