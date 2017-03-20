@@ -39,6 +39,11 @@ Route::get('/mahasiswa/edit_prestasi', function () {
 Route::get('/mahasiswa/tabel_berhasil', function () {
     return view('mahasiswa.tabel_berhasil');
 });
+ Route::get('/mahasiswa/lihat-jadwal-sidang-proposal', function () {
+    return view('mahasiswa.lihat-jadwal-sidang-proposal');
+});
+
+
 
 	Route::get('/krs-khs/mk', function () {
     return view('krs-khs/mk');
@@ -85,11 +90,6 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
      
 });
     
-
-
-
-
-
     Route::get('/karyawan/regis', function () {
     return view('mahasiswa.registrasi_akun');
 });
@@ -306,10 +306,7 @@ Route::get('/dosen/penelitian/edit',function()
 });
 
 
-    Route::get('/mahasiswa/lihat-jadwal-sidang-proposal', function () {
-    return view('mahasiswa.lihat-jadwal-sidang-proposal');
-});
-
+   
 });
 
 
