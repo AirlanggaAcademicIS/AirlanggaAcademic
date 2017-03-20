@@ -2,9 +2,9 @@
 2017 Project
 
 ## Requirement:
--XAMPP 5.6.30 (atau tool lain, dengan versi PHP minimal 5.6.4. jangan gunakan PHP versi 7) (https://www.apachefriends.org/download.html)
--Composer (https://getcomposer.org/download/)
--git atau svn clint,  (https://desktop.github.com/ , https://git-scm.com/download/gui/windows atau https://tortoisesvn.net/downloads.html)
+- XAMPP 5.6.30 (atau tool lain, dengan versi PHP minimal 5.6.4. jangan gunakan PHP versi 7) (https://www.apachefriends.org/download.html)
+- Composer (https://getcomposer.org/download/)
+- git atau svn clint,  (https://desktop.github.com/ , https://git-scm.com/download/gui/windows atau https://tortoisesvn.net/downloads.html)
 
 ## Installation instructions:
 - clone this repo ( https://github.com/AirlanggaAcademicIS/AirlanggaAcademic.git )
