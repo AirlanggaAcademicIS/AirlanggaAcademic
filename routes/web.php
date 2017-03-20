@@ -184,6 +184,9 @@ Route::get('/dosen/penelitian/edit',function()
     Route::get('/krs-khs/krs', function () {
     return view('krs-khs/contoh');
     });
+    Route::get('/krs-khs/input_nilai', function () {
+    return view('krs-khs.input_nilai');
+    });
      
     
 
