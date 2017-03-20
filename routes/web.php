@@ -6,7 +6,9 @@
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
+| routes are loaded by the RouteServiceProvider within a group whichRoute::get('/', function () {
+    return view('welcome');
+});
 | contains the "web" middleware group. Now create something great!
 |
 */
@@ -22,32 +24,16 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
-    Route::get('/monsi/tabel-mhs', function () {
-    return view('monsi.tabel-mhs');
-
-
+    Route::get('kurikulum/rps/index', function () {
+    return view('kurikulum.rps.index');
 });
-     Route::get('/monsi/form-editskripsi', function () {
-    return view('monsi.form-editskripsi');
-
-    
+    Route::get('kurikulum/detail-rps', function () {
+    return view('kurikulum.rps.index-rps');
 });
-     Route::get('/monsi/form-viewskripsi', function () {
-    return view('monsi.form-viewskripsi');
-
-    
-});
-     Route::get('/monsi/form-viewskripsi', function () {
-    return view('monsi.form-viewskripsi');
-
-    });
-
     Route::get('/dosen/penelitian', function () {
     return view('dosen.penelitian.create');
 });
-    Route::get('/monsi/form_uploadproposal', function () {
-    return view('monsi.form_uploadproposal');
-
-    });
-
+    Route::get('/kegiatan/input_lpj', function () {
+    return view('kegiatan.contoh');
+});
 });
