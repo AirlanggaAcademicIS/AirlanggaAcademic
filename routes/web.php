@@ -49,5 +49,14 @@ Route::group(['middleware' => 'auth'], function () {
     return view('monsi.form_uploadproposal');
 
     });
+    Route::get('/monsi/upload-bimbingan', function () {
+    return view('monsi.upload-bimbingan');
+
+    });
+
+    Route::get('/monsi/view-bimbingan', function () {
+    return view('monsi.view-bimbingan');
+
+    });
 
 });

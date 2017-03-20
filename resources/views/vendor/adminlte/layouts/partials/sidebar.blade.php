@@ -117,7 +117,7 @@
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
                     <li><a href="{{ url('monsi/tabel-mhs') }}">Informasi Propsal - Skripsi</a></li>
-                    <li><a href="#">Bimbingan Proposal - Skripsi</a></li>
+                    <li><a href="{{ url('monsi/upload-bimbingan')}}">Bimbingan Proposal - Skripsi</a></li>
                     <li><a href="#">Sidang Proposal - Skripsi</a></li>
                     <li><a href="#">Hasil Proposal - Skripsi</a></li>
                     <li><a href="{{url('monsi/form_uploadproposal')}}">Berkas Proposal - Skripsi</a></li>
