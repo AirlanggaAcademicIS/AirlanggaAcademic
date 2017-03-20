@@ -41,10 +41,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/krs-khs/dosen_mk', function () {
     return view('krs-khs/input_dosen_mk');
 });
-
-    Route::get('/genjeh', function () {
-    return view('monsi/genjeh');
-});
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
 });
