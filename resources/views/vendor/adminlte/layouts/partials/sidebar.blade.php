@@ -49,8 +49,9 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Dosen</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Biodata</a></li>
-                    <li><a href="{{ url('dosen/pengmas') }}">Pengmas</a></li>
+                    <li><a href="{{url('/dosen/penelitian')}}">Biodata</a></li>
+                    <li><a href="{{url('/dosen/pengmas/pengmas')}}">Pengabdian Masyarakat</a></li>
+                    
                 </ul>
             </li>
             <!-- Sidebar Modul Mahasiswa -->
