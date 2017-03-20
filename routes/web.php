@@ -20,6 +20,17 @@ Route::group(['middleware' => 'auth'], function () {
 //        // Uses Auth Middleware
 //    });
 
+	Route::get('/approve', function () {
+    return view('krs-khs/approve');
+});
+	Route::get('/approve1', function () {
+    return view('krs-khs/approve1');
+});
+
+	Route::get('/buka', function () {
+    return view('krs-khs/buka');
+});
+
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
     Route::get('/krs-khs/form_khs', function () {
@@ -37,6 +48,25 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/krs-khs/krs', function () {
     return view('krs-khs/contoh');
     });
+     Route::get('/monsi/form-dataskripsi', function () {
+
+    Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
+    Route::get('index-maintenance', 'MaintenanceController@index');
+	Route::get('view-maintenance', 'MaintenanceController@viewDetail');
+
+
+    
+     Route::get('/monsi/form-dataskripsi', function () {
+    return view('monsi.form-dataskripsi');
+  });
+    Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
+    Route::get('index-peminjaman', 'PeminjamanController@index');
+    Route::get('view-peminjaman', 'PeminjamanController@viewDetail');
+
+
+    Route::get('add-asset', 'HomeController@input');
+    Route::get('view-asset', 'HomeController@index');
+
     Route::get('/krs-khs/krs', function () {
     return view('krs-khs/contoh');
     });
@@ -46,6 +76,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dosen/penelitian', function () {
     return view('dosen.penelitian.create');
     });
+
     Route::get('/monsi/form_uploadskripsi', function () {
     return view('monsi.form_uploadskripsi');
     });
@@ -61,6 +92,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/monsi/notif_uploadgagal', function (){
     return view('monsi.notif_uploadgagal');
     });
+
+    Route::get('/monsi/upload-bimbingan', function () {
+    return view('monsi.upload-bimbingan');
+
+    });
+
+    Route::get('/monsi/view-bimbingan', function () {
+    return view('monsi.view-bimbingan');
+
+    });
+
+
+
     Route::get('/monsi/tabel-mhs2', function () {
     return view('monsi.tabel-mhs2');
     });
@@ -75,7 +119,16 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('add-asset', 'HomeController@input');
     Route::get('view-asset', 'HomeController@index');
-});
+
      
 
-    
+    Route::get('/monsi/tabel-mhs', function () {
+    return view('monsi.tabel-mhs');
+    });
+    Route::get('/monsi/form-viewskripsi', function () {
+    return view('monsi.form-viewskripsi');
+    });
+
+
+});
+

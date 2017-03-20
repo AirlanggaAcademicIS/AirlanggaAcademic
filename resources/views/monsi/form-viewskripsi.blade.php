@@ -14,6 +14,7 @@ Fitur
 @endsection
 
 @section('main-content')
+<div class="box box-info">
 <form class="form-horizontal">
   <br>
   <div class="box-body">
@@ -67,11 +68,16 @@ Fitur
       </div>
     </div>
 
+     <div class="box-footer">
+      <a href="{{ url('monsi/tabel-mhs') }}"><button type="button" class="btn btn-default" style="margin-left: 600px;">Kembali</button></a>
+    </div>
+
    
 
   </div>
       
 </form>
+</div>
 
 @endsection
 
