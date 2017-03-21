@@ -15,7 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('notulensi/notulensi/ViewDaftarHasil', function () {
+    return view('notulensi.notulensi.ViewDaftarHasil');
+});
+    Route::group(['middleware' => 'auth'], function () {
+    Route::get('notulensi/notulensi/ViewEditNotulensi', function () {
+    return view('notulensi.notulensi.ViewEditNotulensi');
+});
+    });
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });
