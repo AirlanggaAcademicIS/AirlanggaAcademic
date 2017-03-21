@@ -71,6 +71,9 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Mahasiswa</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+                    <li><a href="{{url('/mahasiswa/input/')}}">Input Biodata</a></li>
+                    <li><a href="{{url('/mahasiswa/view/')}}">View Biodata</a></li>
+                    <li><a href="{{url('/karyawan')}}">Karyawan</a></li>
                     <li>
                         <a href="#"><i class="fa fa-circle-o"></i> Kemahasiswaan
                             <span class="pull-right-container">
@@ -86,7 +89,7 @@
                     </li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> Biodata</a></li>
                     <li>
-                        <a href="#"><i class="fa fa-circle-o"></i> Karyawan
+                        <a href="{{url('/karyawan')}}"><i class="fa fa-circle-o"></i> Karyawan
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -112,6 +115,9 @@
                                 <li><a href="#"><i class="fa fa-circle-o"></i> Create Account</a></li>
                             </ul>
                     </li>
+
+                    <li><a href="{{url('/mahasiswa/prestasi')}}">Prestasi</a></li>
+                   
                 </ul>
             </li>
 

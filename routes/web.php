@@ -218,7 +218,6 @@ Route::get('/dosen/penelitian/edit',function()
 { return view('dosen.penelitian.edit'); 
 });
 
-});
     Route::get('/krs-khs/form_khs', function () {
     return view('krs-khs.form_khs');
     });
@@ -349,9 +348,17 @@ Route::get('/dosen/penelitian/edit',function()
     Route::get('/mahasiswa/lihat-jadwal-sidang-proposal', function () {
     return view('mahasiswa.lihat-jadwal-sidang-proposal');
 
->>>>>>> 0f93479142897a3a0cb98d1c570f7454caeaebd8
+
 });
 
-
+    Route::get('/mahasiswa/input/', function () {
+    return view('mahasiswa.input_biodata');
+});
+    Route::get('/mahasiswa/edit/', function () {
+    return view('mahasiswa.edit_biodata');
+});
+   Route::get('/mahasiswa/view/', function () {
+    return view('mahasiswa.view_biodata');
+}); 
 
 });
