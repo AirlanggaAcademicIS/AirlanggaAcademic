@@ -166,6 +166,10 @@
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
 <<<<<<< HEAD
+                    <li><a href="{{url('pla/permohonan_ruang')}}">Konfirmasi Ruangan</a></li>
+                  
+=======
+<<<<<<< HEAD
                     <li><a href="#">Fitur</a></li>
                     <li><a href="{{url('/pla/konfirmasiproposal')}}">Konfirmasi Proposal</a></li>
                     <li><a href="{{url('/pla/konfirmasiskripsi')}}">Konfirmasi Skripsi</a></li>
@@ -211,6 +215,7 @@
 
 
 >>>>>>> a9d03f52c70ddadc5c71b33fec90f9c43fe34791
+>>>>>>> ea460daeeda422e18a31366bb8d01a7a2df359fd
                 </ul>
             </li>
 

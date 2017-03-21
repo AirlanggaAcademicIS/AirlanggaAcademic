@@ -353,6 +353,14 @@ Route::get('/dosen/penelitian/edit',function()
 
     });
 
+<<<<<<< HEAD
+    Route::get('/pla/permohonan_ruangan_admin', function () {
+    return view('pla.permohonan_ruangan_admin');
+
+    });
+    
+
+=======
      Route::get('/monsi/sidang_skripsi', function () {
     return view('monsi.sidang-skripsi');
 
@@ -406,5 +414,6 @@ Route::get('/dosen/penelitian/edit',function()
 }); 
 
 >>>>>>> a9d03f52c70ddadc5c71b33fec90f9c43fe34791
+>>>>>>> ea460daeeda422e18a31366bb8d01a7a2df359fd
 });
 >>>>>>> 781b2a83a47cc6468257f76d4f7f3cac5c26240e
