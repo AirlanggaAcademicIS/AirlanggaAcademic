@@ -46,8 +46,8 @@
                     <li><a href="#">Capaian Program</a></li>
                     <li><a href="#">Capaian Pembelajaran</a></li>
                     <li><a href="#">E-Learning</a></li>
-                    <li><a href="#">Manage Kode CP Mata Kuliah</a></li>
-                    <li><a href="#">Manage Kode CP Prodi</a></li>
+                    <li><a href="{{ url('kurikulum/kode/cpmatkul') }}">Manage Kode CP Mata Kuliah</a></li>
+                    <li><a href="{{ url('kurikulum/kode/cplprodi') }}">Manage Kode CP Prodi</a></li>
                     <li><a href="#">Manage Mata Kuliah</a></li>
                 </ul>
             </li>
@@ -150,6 +150,8 @@
                     <!-- Tulis disini fiturnya -->
                     <li><a href="{{url('/kegiatan/viewlpj')}}">Berita Acara</a></li>
                     <li><a href="{{url('/kegiatan/adminview')}}">Admin Berita Acara</a></li>
+                    <li><a href="{{url('/kegiatan/inputkalender')}}">Input Kalender</a></li>
+                     <li><a href="{{url('/kegiatan/kalender')}}">Kalender Kegiatan</a></li>
                     <li><a href="{{ url('kegiatan/input_lpj') }}">Input Laporan Kegiatan</a></li>
                     <li><a href="{{url('/kegiatan/publikasi')}}">Publikasi</a></li>
                 <li><a href="{{url('/kegiatan/pengajuan_kegiatan')}}">Pengajuan Kegiatan</a></li>
