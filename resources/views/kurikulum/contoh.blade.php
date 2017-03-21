@@ -17,6 +17,7 @@ Nama konten
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
+<<<<<<< HEAD
 <div class="box box-info">
             
             <div class="box-body">
@@ -66,6 +67,9 @@ Nama konten
             </div>
            
           </div>
+=======
+<p> halo </p>
+>>>>>>> 2c1eedec33a56715f523b130714d4dac1d9f56d7
 @endsection
 
 @section('code-footer')
