@@ -22,4 +22,16 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+    Route::get('/notulensi/undangan/daftarRapat', function () {
+    return view('notulensi.undangan.daftarRapat');
+});
+   Route::get('/notulensi/kalender/calendar', function () {
+    return view('notulensi.kalender.calendar');
+});
+   Route::get('/notulensi/kehadiranRapat/kehadiran', function () {
+    return view('notulensi.kehadiranRapat.kehadiran');
+});
+   Route::get('/notulensi/kehadiranRapat/jumlah', function () {
+    return view('notulensi.kehadiranRapat.jumlah');
+});
 });

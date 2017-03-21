@@ -105,7 +105,11 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
+                    <li><a href="{{ url('notulensi/undangan/daftarRapat') }}">Undangan</a></li>
+                    <li><a href="{{ url('notulensi/kehadiranRapat/kehadiran')}}">Kehadiran Rapat</a></li>
+                    <li><a href="#">Notulensi Rapat</a></li>
+                    <li><a href="{{ url('notulensi/kalender/calendar')}}">Kalender</a></li>
+
                 </ul>
             </li>
 
