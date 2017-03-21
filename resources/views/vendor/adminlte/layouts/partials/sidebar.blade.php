@@ -76,7 +76,8 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Pengelolaan Kegiatan</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
+                    <li><a href="{{url('/kegiatan/inputkalender')}}">Input Kalender</a></li>
+                     <li><a href="{{url('/kegiatan/kalender')}}">Kalender Kegiatan</a></li>
                 </ul>
             </li>
 

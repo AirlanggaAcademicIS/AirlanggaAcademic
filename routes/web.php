@@ -50,4 +50,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
+Route::get('/kegiatan/kalender', function () {
+    return view('kegiatan.kalender');
+});
+Route::get('/kegiatan/inputkalender', function () {
+    return view('kegiatan.inputkalender');
+    });
 });
