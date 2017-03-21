@@ -236,6 +236,11 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Notulen</span>
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
+                <li><a href="#">Undangan</a></li>
+                <li><a href="#">Kehadiran</a></li>
+                <li><a href="{{ url('notulensi/notulensi/ViewDaftarHasil') }}">Notulensi TU </a></li>
+                <li><a href="#">Kalender</a></li>
+
                     <!-- Tulis disini fiturnya -->
                     <li><a href="{{ url('notulensi/daftarnotulensi') }}">Notulensi Rapat</a></li>
                     <li><a href="{{ url('notulensi/formnotulensi') }}">Form Notulensi</a></li>

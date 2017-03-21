@@ -20,10 +20,24 @@ Route::get('/', function () {
 
 <<<<<<< HEAD
 
+<<<<<<< HEAD
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('notulensi/notulensi/ViewDaftarHasil', function () {
+    return view('notulensi.notulensi.ViewDaftarHasil');
+});
+    Route::group(['middleware' => 'auth'], function () {
+    Route::get('notulensi/notulensi/ViewEditNotulensi', function () {
+    return view('notulensi.notulensi.ViewEditNotulensi');
+});
+    });
+=======
+=======
 =======
 >>>>>>> a9d03f52c70ddadc5c71b33fec90f9c43fe34791
+>>>>>>> ea460daeeda422e18a31366bb8d01a7a2df359fd
 Route::group(['middleware' => 'auth'], function () {
  
+>>>>>>> f6fccf35c9921d3e2b03b57a0426d305eee32806
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });
