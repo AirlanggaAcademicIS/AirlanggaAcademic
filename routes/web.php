@@ -50,4 +50,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
+    Route::get('/pla/permohonan_ruangan_admin', function () {
+    return view('pla.permohonan_ruangan_admin');
+
+    });
+    
+
 });
