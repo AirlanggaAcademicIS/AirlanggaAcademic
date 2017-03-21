@@ -1,4 +1,5 @@
 <!-- REQUIRED JS SCRIPTS -->
+<<<<<<< HEAD
 <!-- REQUIRED JS SCRIPTS -->
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
@@ -6,10 +7,14 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+=======
+
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
 <!-- JQuery and bootstrap are required by Laravel 5.3 in resources/assets/js/bootstrap.js-->
 <!-- Laravel App -->
 <script src="<?php echo e(mix('/js/app.js')); ?>" type="text/javascript"></script>
 
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -32,10 +37,18 @@
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
       Both of these plugins are recommended to enhance 
       user experience. Slimscroll is required when using thethe
+=======
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+      Both of these plugins are recommended to enhance the
+      user experience. Slimscroll is required when using the
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
       fixed layout. -->
 <script>
     window.Laravel = <?php echo json_encode([
         'csrfToken' => csrf_token(),
     ]); ?>;
 </script>
+<<<<<<< HEAD
 <?php echo $__env->yieldContent('code-footer'); ?>   
+=======
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab

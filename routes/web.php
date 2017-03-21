@@ -98,12 +98,15 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
 	Route::get('/buka', function () {
     return view('krs-khs/buka');
 
+
     });
+
 
 });
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+
 
 
 
@@ -119,6 +122,24 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
 
 
 
+    Route::get('/kurikulum/kode', function () {
+    return view('kurikulum.kode.index');
+});
+
+    Route::get('kurikulum/rps/index', function () {
+    return view('kurikulum.rps.index');
+});
+    Route::get('kurikulum/detail-rps', function () {
+    return view('kurikulum.rps.index-rps');
+});
+    Route::get('/dosen/penelitian', function () {
+    return view('dosen.penelitian.create');
+});
+    Route::get('/kegiatan/input_lpj', function () {
+    return view('kegiatan.contoh');
+});
+
+
     Route::get('/notulensi/daftarnotulensi', function () {
     return view('notulensi.daftarnotulensi');
 });
@@ -128,7 +149,9 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
     Route::get('/notulensi/kirimnotulensi', function () {
     return view('notulensi.kirimnotulensi');
 });
+
 });
+
 
     Route::get('/pla/konfirmasiproposal', function () {
     return view('pla.konfirmasiproposal');
@@ -194,7 +217,6 @@ Route::get('/karyawan/ver-pen-more', function () {
     return view('dosen.laporan.isilaporan');
      
 });
-    
     Route::get('/karyawan/regis', function () {
     return view('mahasiswa.registrasi_akun');
 });
@@ -202,11 +224,16 @@ Route::get('/karyawan/ver-pen-more', function () {
     return view('mahasiswa.ubah_pass_mhs');
 });
 
-    Route::get('/pla/permohonansurat', function () {
-    return view('pla.permohonansurat');
-
+    Route::get('/kurikulum/kode/cpmatkul', function () {
+    return view('/kurikulum/kode/index-cpmatkul');
+});
+    Route::get('/kurikulum/kode/cplprodi', function () {
+    return view('/kurikulum/kode/index-cplprodi');
 });
 
+    Route::get('/pla/permohonansurat', function () {
+    return view('pla.permohonansurat');
+});
 
     Route::get('/krs-khs/input_ruang', function () {
     return view('krs-khs/input_ruang');
@@ -288,6 +315,12 @@ Route::get('/dosen/penelitian/edit',function()
     return view('krs-khs/contoh');
     });
 
+
+    Route::get('/monsi/form-dataskripsi', function () {
+    return view('monsi.form-dataskripsi');
+    });
+
+
     Route::get('/monsi/form-dataskripsi', function () {
     return view('monsi.form-dataskripsi');
     });
@@ -295,10 +328,6 @@ Route::get('/dosen/penelitian/edit',function()
     Route::get('/krs-khs/input_nilai', function () {
     return view('krs-khs.input_nilai');
     });
-     
-    
-
-    
     Route::get('/monsi/form-dataskripsi', function () {
     return view('monsi.form-dataskripsi');
   	});
@@ -307,6 +336,7 @@ Route::get('/dosen/penelitian/edit',function()
     Route::get('add-asset', 'HomeController@input');
     Route::get('view-asset', 'HomeController@index');
 
+    });
 
     Route::get('/krs-khs/krs', function () {
     return view('krs-khs/contoh');
@@ -390,7 +420,9 @@ Route::get('/dosen/penelitian/edit',function()
     return view('pla.permohonan_ruangan_admin');
 
     });
+
     
+
 
 
      Route::get('/monsi/sidang_skripsi', function () {
@@ -412,7 +444,12 @@ Route::get('/dosen/penelitian/edit',function()
     return view('monsi.lihat-jadwal-sidang-skripsi');
 
     });
-
+Route::get('/kegiatan/kalender', function () {
+    return view('kegiatan.kalender');
+});
+Route::get('/kegiatan/inputkalender', function () {
+    return view('kegiatan.inputkalender');
+    });
           Route::get('/monsi/jadwal_sidang_skripsi_dosen', function () {
     return view('monsi.lihat-jadwal-sidang-skripsi-dosen');
 
@@ -444,8 +481,13 @@ Route::get('/dosen/penelitian/edit',function()
 });
    Route::get('/mahasiswa/view/', function () {
     return view('mahasiswa.view_biodata');
+
 }); 
 
 
 });
+
+
+});
+   });
 

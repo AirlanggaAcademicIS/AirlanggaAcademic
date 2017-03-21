@@ -1,12 +1,17 @@
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
 
     <title> Airlangga Academic </title>
 
+=======
+    <title> AdminLTE 2 with Laravel - <?php echo $__env->yieldContent('htmlheader_title', 'Your title here'); ?> </title>
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
+<<<<<<< HEAD
     
     <link href="<?php echo e(asset('/css/all.css')); ?>" rel="stylesheet" type="text/css" />
 
@@ -25,15 +30,23 @@
 
 <!-- <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link> -->
 
+=======
+    <link href="<?php echo e(asset('/css/all.css')); ?>" rel="stylesheet" type="text/css" />
+
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<<<<<<< HEAD
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+=======
+
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -54,6 +67,7 @@
             echo json_encode($trans);
          ?>
     </script>
+<<<<<<< HEAD
 
     
 </head>
@@ -61,3 +75,6 @@
 
 </head>
 
+=======
+</head>
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
