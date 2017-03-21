@@ -9,7 +9,7 @@
     <div class="form-group">
 	    <label>Nama Mata Kuliah</label>
 	    <select class="form-control select2" style="width: 100%;">
-	      <option selected="selected">Nama Mata Kuliah</option>
+	      <option selected="selected">Pilih Mata Kuliah</option>
 	      <option>Tim Pengajar Pengantar Manajemen Umum</option>
 	      <option>Tim Pengajar Pengantar Teknologi Informasi</option>
 	      <option>Tim Pengajar Agama</option>

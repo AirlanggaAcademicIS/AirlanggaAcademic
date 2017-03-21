@@ -9,7 +9,7 @@
   <thead>
     <tr>
       <th>Kode Mata Kuliah</th>
-      <th>Nama</th>
+      <th>Nama Mata Kuliah</th>
       <th>Unduh</th>      
       <th>Keterangan</th>
     </tr>
