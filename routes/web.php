@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 Route::group(['middleware' => 'auth'], function () {
     Route::get('notulensi/notulensi/ViewDaftarHasil', function () {
     return view('notulensi.notulensi.ViewDaftarHasil');
@@ -30,6 +31,10 @@ Route::group(['middleware' => 'auth'], function () {
 });
     });
 =======
+=======
+=======
+>>>>>>> a9d03f52c70ddadc5c71b33fec90f9c43fe34791
+>>>>>>> ea460daeeda422e18a31366bb8d01a7a2df359fd
 Route::group(['middleware' => 'auth'], function () {
  
 >>>>>>> f6fccf35c9921d3e2b03b57a0426d305eee32806
@@ -37,6 +42,10 @@ Route::group(['middleware' => 'auth'], function () {
 //        // Uses Auth Middleware
 //    });
 
+<<<<<<< HEAD
+	Route::get('/krs-khs/nilai', function () {
+    return view('krs-khs/nilai');
+=======
 	Route::get('/mahasiswa/penelitian/', function () {
     return view('mahasiswa.penelitian');
 });
@@ -95,10 +104,38 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
 
 	Route::get('/buka', function () {
     return view('krs-khs/buka');
+>>>>>>> a9d03f52c70ddadc5c71b33fec90f9c43fe34791
 });
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+<<<<<<< HEAD
+
+    Route::get('/notulensi/daftarnotulensi', function () {
+    return view('notulensi.daftarnotulensi');
+});
+    Route::get('/notulensi/formnotulensi', function () {
+    return view('notulensi.formnotulensi');
+});
+    Route::get('/notulensi/kirimnotulensi', function () {
+    return view('notulensi.kirimnotulensi');
+});
+});
+=======
+<<<<<<< HEAD
+    Route::get('/pla/konfirmasiproposal', function () {
+    return view('pla.konfirmasiproposal');
+});
+    Route::get('/pla/konfirmasiskripsi', function () {
+    return view('pla.konfirmasiskripsi');
+});
+=======
+    Route::get('/kegiatan/publikasi', function () {
+    return view('kegiatan.publikasi');
+});
+    Route::get('/kegiatan/input', function () {
+    return view('kegiatan.input');
+});
     Route::get('/kegiatan/pengajuan_kegiatan', function(){
     	return view('kegiatan.pengajuan_kegiatan');
     });
@@ -224,7 +261,6 @@ Route::get('/dosen/penelitian/create',function()
 Route::get('/dosen/penelitian/edit',function()
 { return view('dosen.penelitian.edit'); 
 });
-
 
     Route::get('/krs-khs/form_khs', function () {
     return view('krs-khs.form_khs');
@@ -356,8 +392,9 @@ Route::get('/dosen/penelitian/edit',function()
     Route::get('/mahasiswa/lihat-jadwal-sidang-proposal', function () {
     return view('mahasiswa.lihat-jadwal-sidang-proposal');
 
+
 });
-<<<<<<< HEAD
+
     Route::get('/mahasiswa/input/', function () {
     return view('mahasiswa.input_biodata');
 });
@@ -367,9 +404,7 @@ Route::get('/dosen/penelitian/edit',function()
    Route::get('/mahasiswa/view/', function () {
     return view('mahasiswa.view_biodata');
 }); 
-=======
 
-
-
->>>>>>> 8862d013f7507c91c23a9472cbb9c55f0da908c1
+>>>>>>> a9d03f52c70ddadc5c71b33fec90f9c43fe34791
 });
+>>>>>>> 781b2a83a47cc6468257f76d4f7f3cac5c26240e

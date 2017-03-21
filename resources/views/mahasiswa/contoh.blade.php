@@ -249,6 +249,8 @@ Nama konten
 =======
 <!-- Kodingan HTML ditaruh di sini -->
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -263,6 +265,7 @@ Nama konten
       </ol>
     </section>
 =======
+>>>>>>> f6fccf35c9921d3e2b03b57a0426d305eee32806
 >>>>>>> de4bfccffc14a8ee68cf1015ed13a93bcb7be818
 >>>>>>> ea7138f61680371be6328adb72ddcdcad47c69a9
 @endsection
