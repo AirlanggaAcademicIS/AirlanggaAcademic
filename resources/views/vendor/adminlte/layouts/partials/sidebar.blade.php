@@ -45,8 +45,8 @@
                     <li><a href="#">Capaian Program</a></li>
                     <li><a href="#">Capaian Pembelajaran</a></li>
                     <li><a href="#">E-Learning</a></li>
-                    <li><a href="#">Manage Kode CP Mata Kuliah</a></li>
-                    <li><a href="#">Manage Kode CP Prodi</a></li>
+                    <li><a href="{{ url('kurikulum/kode/cpmatkul') }}">Manage Kode CP Mata Kuliah</a></li>
+                    <li><a href="{{ url('kurikulum/kode/cplprodi') }}">Manage Kode CP Prodi</a></li>
                     <li><a href="#">Manage Mata Kuliah</a></li>
                 </ul>
             </li>
