@@ -37,5 +37,9 @@
     window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
     ]) !!};
+<<<<<<< HEAD
+</script>
+=======
 </script>
 @yield('code-footer')   
+>>>>>>> 8862d013f7507c91c23a9472cbb9c55f0da908c1

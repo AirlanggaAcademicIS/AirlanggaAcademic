@@ -72,6 +72,7 @@
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <li><a href="{{url('/mahasiswa/input/')}}">Input Biodata</a></li>
                     <li><a href="{{url('/mahasiswa/view/')}}">View Biodata</a></li>
 =======
@@ -79,6 +80,8 @@
                     <li><a href="{{url('/karyawan')}}">Karyawan</a></li>
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 0f93479142897a3a0cb98d1c570f7454caeaebd8
                     <li>
                         <a href="#"><i class="fa fa-circle-o"></i> Kemahasiswaan
                             <span class="pull-right-container">
@@ -120,6 +123,7 @@
                                 <li><a href="#"><i class="fa fa-circle-o"></i> Create Account</a></li>
                             </ul>
                     </li>
+<<<<<<< HEAD
 
 
 =======
@@ -131,6 +135,8 @@
 >>>>>>> d3b46b3b843bd5257c8c099b291decfa2e75c3d5
 >>>>>>> 3d456354401dbacd613d58ff957280b1495f99b8
 >>>>>>> 8862d013f7507c91c23a9472cbb9c55f0da908c1
+=======
+>>>>>>> 0f93479142897a3a0cb98d1c570f7454caeaebd8
                 </ul>
             </li>
 
@@ -158,7 +164,10 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Pengelolaan Kegiatan</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
+                <li><a href="{{url('/kegiatan/pengajuan_kegiatan')}}">Pengajuan Kegiatan</a></li>
+                <li><a href="{{url('/kegiatan/admin')}}">Admin Kegiatan</a></li>
+                    <li><a href="{{ url('kegiatan/dokumentasi') }}">Dokumentasi</a></li>
+                    <li><a href="{{ url('kegiatan/input') }}">Input TU</a></li>
                 </ul>
             </li>
 

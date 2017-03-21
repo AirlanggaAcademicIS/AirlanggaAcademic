@@ -18,7 +18,6 @@ Route::get('/', function () {
 });
 
 
-\
 Route::group(['middleware' => 'auth'], function () {
  
     //    Route::get('/link1', function ()    {
@@ -87,6 +86,20 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+    Route::get('/kegiatan/pengajuan_kegiatan', function(){
+    	return view('kegiatan.pengajuan_kegiatan');
+    });
+
+      Route::get('/kegiatan/admin', function(){
+    	return view('kegiatan.admin');
+    });
+
+	Route::get('/kegiatan/dokumentasi', function () {
+    return view('kegiatan.dokumentasi');
+});
+	Route::get('/kegiatan/input', function () {
+    return view('kegiatan.input');
+});
 
 Route::get('/karyawan', function () {
     return view('mahasiswa.karyawan');
@@ -115,10 +128,6 @@ Route::get('/karyawan/ver-bio-more', function () {
 Route::get('/karyawan/ver-pen-more', function () {
     return view('mahasiswa.ver_pen_more');
 });
-
-
-});
-
 
    
     Route::get('/dosen/laporan/laporan', function () {
@@ -351,5 +360,3 @@ Route::get('/dosen/penelitian/edit',function()
 
 >>>>>>> 8862d013f7507c91c23a9472cbb9c55f0da908c1
 });
-
-

@@ -9,6 +9,8 @@
 
     
     <link href="{{ asset('/css/all.css') }}" rel="stylesheet" type="text/css" />
+<<<<<<< HEAD
+=======
 
      <link rel="stylesheet" href="{{asset('/plugins/datepicker3.css')}}">
 
@@ -25,6 +27,7 @@
 
 <!-- <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link> -->
 
+>>>>>>> 8862d013f7507c91c23a9472cbb9c55f0da908c1
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
