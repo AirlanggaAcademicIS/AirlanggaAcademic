@@ -24,5 +24,17 @@ Route::group(['middleware' => 'auth'], function () {
     #adminlte_routes
     Route::get('/dosen/penelitian', function () {
     return view('dosen.penelitian.create');
-});
+    });
+
+    Route::get('/kegiatan/viewlpj', function () {
+    return view('kegiatan.viewlpj');
+    });
+
+    Route::get('/kegiatan/postpertama', function () {
+    return view('kegiatan.postpertama');
+    });
+
+    Route::get('/kegiatan/adminview', function () {
+    return view('kegiatan.adminview');
+    });
 });
