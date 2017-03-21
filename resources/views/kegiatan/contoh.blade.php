@@ -20,8 +20,8 @@ Nama konten
 <h1>Input Laporan Kegiatan</h1>
 <form class="form-horizontal">
     <div class="form-group">
-     <label class="control-label col-sm-2">Nomor Kegiatan :</label>		
-        <input style="width: 200px" type="text" class="form-control" placeholder="Nomor Kegiatan">
+     <label class="control-label col-sm-2">Kode Kegiatan :</label>		
+        <input style="width: 200px" type="text" class="form-control" placeholder="Kode Kegiatan">
       	</div>
     <div class="form-group">
     <label class="control-label col-sm-2">Evaluasi Kegiatan :</label>
