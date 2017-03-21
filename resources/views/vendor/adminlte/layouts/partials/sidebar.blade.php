@@ -239,7 +239,7 @@
                 <ul class="treeview-menu">
                 <li><a href="#">Undangan</a></li>
                 <li><a href="#">Kehadiran</a></li>
-                <li><a href="{{ url('notulensi/notulensi/ViewDaftarHasil') }}">Notulensi </a></li>
+                <li><a href="{{ url('notulensi/notulensi/ViewDaftarHasil') }}">Notulensi TU </a></li>
                 <li><a href="#">Kalender</a></li>
 
                     <!-- Tulis disini fiturnya -->
