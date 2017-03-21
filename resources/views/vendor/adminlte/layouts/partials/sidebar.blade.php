@@ -108,10 +108,6 @@
                     <!-- Tulis disini fiturnya -->
 
                     
-                    <li><a href="{{ url('pla/peringatansurat') }}">Peringatan Surat Jadi</a></li>
-
-
-                    <li><a href="{{ url('pla/permohonansurat') }}">Surat Menyurat</a></li>
 
 
                     <li>
@@ -145,8 +141,8 @@
                         </span>
                       </a>
                       <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Admin TU</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
+                        <li><a href="{{ url('pla/peringatansurat') }}"><i class="fa fa-circle-o"></i> Admin TU</a></li>
+                        <li><a href="{{ url('pla/permohonansurat') }}"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
                       </ul>
                     </li>
 
