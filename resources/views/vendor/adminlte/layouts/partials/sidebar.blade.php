@@ -33,6 +33,7 @@
         <ul class="sidebar-menu">
             <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
             <!-- Optionally, you can add icons to the links -->
+
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
 
             <!-- Sidebar Modul Kurikulum -->
@@ -41,7 +42,13 @@
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
                     <li><a href="#">RPS</a></li>
-                    <li><a href="#">Mata Kuliah</a></li>
+                    <li><a href="#">Silabus</a></li>
+                    <li><a href="#">Capaian Program</a></li>
+                    <li><a href="#">Capaian Pembelajaran</a></li>
+                    <li><a href="#">E-Learning</a></li>
+                    <li><a href="#">Manage Kode CP Mata Kuliah</a></li>
+                    <li><a href="#">Manage Kode CP Prodi</a></li>
+                    <li><a href="#">Manage Mata Kuliah</a></li>
                 </ul>
             </li>
             <!-- Sidebar Modul Dosen -->
@@ -49,8 +56,14 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Dosen</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="{{url('/dosen/penelitian')}}">Biodata</a></li>
-                    <li><a href="#">Penelitian</a></li>
+
+                    <li><a href="{{url('/dosen/laporan/laporan')}}">Laporan Kinerja Dosen</a></l
+        
+                    <li><a href="{{url('/dosen/pengmas/pengmas')}}">Pengabdian Masyarakat</a></li>
+                    <li><a href="{{ url('/dosen/konferensi/konferensi') }}">Konferensi</a></li>
+                    <li><a href="{{url('/dosen/penelitian/penelitian')}}">Penelitian</a></li>                 
+               <li><a href="{{url('/dosen/jurnal/')}}">Jurnal</a></li>                    
+
                 </ul>
             </li>
             <!-- Sidebar Modul Mahasiswa -->
@@ -58,7 +71,47 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Mahasiswa</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
+                    <li>
+                        <a href="#"><i class="fa fa-circle-o"></i> Kemahasiswaan
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{url('/mahasiswa/penelitian')}}"><i class="fa fa-circle-o"></i> Penelitian</a></li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> Prestasi</a></li>
+                            </ul>
+                    </li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Biodata</a></li>
+                    <li>
+                        <a href="#"><i class="fa fa-circle-o"></i> Karyawan
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> Verifikasi
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                        <ul class="treeview-menu">
+                                            <li><a href="#"><i class="fa fa-circle-o"></i> Penelitian</a></li>
+                                        </ul>
+                                        <ul class="treeview-menu">
+                                            <li><a href="#"><i class="fa fa-circle-o"></i> Penelitian</a></li>
+                                        </ul>
+                                        <ul class="treeview-menu">
+                                            <li><a href="#"><i class="fa fa-circle-o"></i> Prestasi</a></li>
+                                        </ul>
+                                </li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> Create Account</a></li>
+                            </ul>
+                    </li>
                 </ul>
             </li>
 
@@ -67,6 +120,16 @@
                 <a href="#"><i class='fa fa-link'></i> <span>KRS & KHS</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+                    <li><a href="{{url('/krs-khs/mk')}}">Mata Kuliah</a></li>
+                    <li><a href="{{url('/krs-khs/dosen_mk')}}">MK Diajar</a></li>
+                    <li><a href="{{url('/krs-khs/input_jadwal')}}">input jadwal</a></li>
+                    <li><a href="{{url('/krs-khs/input_ruang')}}">input ruang kelas</a></li>
+                    <li><a href="{{url('/krs-khs/input_nilai')}}">input nilai</a></li>
+                    <li><a href="{{url('/approve1')}}">Approve KRS</a></li>
+                    <li><a href="{{url('/buka')}}">Buka KRS</a></li>
+                    <li><a href="{{ url('krs-khs/form_khs') }}">KHS</a></li>
+                    <li><a href="{{ url('krs-khs/histori_nilai') }}">Histori Nilai</a></li>
+                    <li><a href="{{url('/krs-khs/krs')}}">Kartu Rencana Studi</a></li>
                     <li><a href="#">Fitur</a></li>
                 </ul>
             </li>
@@ -77,7 +140,10 @@
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
                     <li><a href="{{url('/kegiatan/publikasi')}}">Publikasi</a></li>
-                    <li><a href="{{url('/kegiatan/input')}}">Input</a></li>
+                <li><a href="{{url('/kegiatan/pengajuan_kegiatan')}}">Pengajuan Kegiatan</a></li>
+                <li><a href="{{url('/kegiatan/admin')}}">Admin Kegiatan</a></li>
+                    <li><a href="{{ url('kegiatan/dokumentasi') }}">Dokumentasi</a></li>
+                    <li><a href="{{ url('kegiatan/input') }}">Input TU</a></li>
                 </ul>
             </li>
 
@@ -87,7 +153,46 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
+
+                    <li><a href="{{ url('pla/permohonansurat') }}">Surat Menyurat</a></li>
+
+                    <li>
+                      <a href="#"><i class="fa fa-circle-o"></i>Permohonan Ruangan
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li><a href="{{url('/pla/permohonan_ruangan_admin')}}"><i class="fa fa-circle-o"></i> Admin TU</a></li>
+                        <li><a href="{{url('/pla/permohonan_ruangan_user')}}"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
+                      </ul>
+                    </li>
+                    
+                    <li>
+                      <a href="#"><i class="fa fa-circle-o"></i>Pengumpulan Proposal/Skripsi
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Admin TU</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#"><i class="fa fa-circle-o"></i>Surat Menyurat
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Admin TU</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
+                      </ul>
+                    </li>
+
+
                 </ul>
             </li>
 
@@ -97,7 +202,9 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
+                    <li><a href="{{ url('/view-asset')}}">all asset</a></li>
+                    <li><a href="{{url('/index-peminjaman')}}">peminjaman</a></li>
+                    <li><a href="{{url('/index-maintenance')}}">maintenance</a></li>
                 </ul>
             </li>
 
@@ -117,10 +224,72 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
-                </ul>
+
+                    <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Informasi Proposal - Skripsi
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('monsi/tabel-mhs') }}"><i class="fa fa-circle-o"></i> Admin TU</a></li>
+                <li><a href="{{ url('monsi/tabel-mhs2') }}"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
+              </ul>
             </li>
 
+             <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Bimbingan Proposal - Skripsi
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('monsi/upload-bimbingan') }}"><i class="fa fa-circle-o"></i> Dosen</a></li>
+                <li><a href="{{ url('monsi/view-bimbingan') }}"><i class="fa fa-circle-o"></i> Mahasiswa</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Sidang Proposal - Skripsi
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Admin TU</a>
+                <ul class="treeview-menu">
+                <li><a href="{{ url('/monsi/sidang_proposal') }}"><i class="fa fa-circle-o"></i> Sidang Proposal</a></li>
+                <li><a href="{{ url('/monsi/sidang_skripsi') }}"><i class="fa fa-circle-o"></i> Sidang Skripsi</a></li>
+              </ul></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Dosen</a>
+                <ul class="treeview-menu">
+                <li><a href="{{ url('/monsi/jadwal_sidang_proposal_dosen') }}"><i class="fa fa-circle-o"></i> Sidang Proposal</a></li>
+                <li><a href="{{ url('/monsi/jadwal_sidang_skripsi_dosen') }}"><i class="fa fa-circle-o"></i> Sidang Skripsi</a></li>
+              </ul></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Mahasiswa</a>
+                <ul class="treeview-menu">
+                <li><a href="{{ url('/monsi/jadwal_sidang_proposal_mhs') }}"><i class="fa fa-circle-o"></i> Sidang Proposal</a></li>
+                <li><a href="{{ url('/monsi/jadwal_sidang_skripsi_mhs') }}"><i class="fa fa-circle-o"></i> Sidang Skripsi</a></li>
+              </ul></li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Berkas Proposal - Skripsi
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('monsi/form_uploadproposal') }}"><i class="fa fa-circle-o"></i> Mahasiswa</a></li>
+                <li><a href="{{ url('monsi/tabel_judul') }}"><i class="fa fa-circle-o"></i> Dosen - Admin TU</a></li>
+              </ul>
+            </li>
+                </ul>
+            </li>
+    
+            
+                
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

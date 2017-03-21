@@ -1,6 +1,7 @@
 @extends('adminlte::layouts.app')
 <html>
 @section('code-header')
+<<<<<<< HEAD
 @endsection
 
 @section('htmlheader_title')
@@ -29,6 +30,37 @@ PUBLIKASI KEGIATAN
   <input type="text" name="tanggalpelaksanaan" value="07/11/2017">
   <br><br>
   <input type="file" id="myFile">
+=======
+
+
+@endsection
+
+@section('htmlheader_title')
+<title>Input TU</title>
+@endsection
+
+@section('contentheader_title')
+Input Dokumentasi
+@endsection
+
+@section('main-content')
+<body>
+<form>
+Nomor Kegiatan
+<br>
+<input type="text" name="JudulK" value=""/>
+<br>
+Tempat Kegiatan
+<br>
+<input type="text" name="TempatK" value=""/>
+<br>
+Tanggal Pelaksanaan
+<br>
+<input type="date" name="TanggalT" value=""/>
+<br>
+<br>
+<input type="file" id="myFile">
+>>>>>>> 0f93479142897a3a0cb98d1c570f7454caeaebd8
 (max size 200MB)
 <script>
 function myFunction() {
@@ -37,12 +69,33 @@ function myFunction() {
 }
 </script>
 <br><br>
+<<<<<<< HEAD
   <button type="button"><a href="{{url('/kegiatan/publikasi')}}">Submit</a></button>
 </form> 
 
 @endsection
 
 @section('code-footer')
+=======
+Deskripsi Kegiatan
+<br>
+<textarea rows="4" cols="50" name="comment" form="usrform">Enter text here...</textarea>
+<br>
+<button type="submit" onclick="clicked(event)" /><a href="{{url('/kegiatan/dokumentasi')}}">Submit</a></button>
+<script>
+function clicked(e)
+{
+    if(!confirm('Dokumentasi akan ditampilkan.'))e.preventDefault();
+}
+</script>
+</form>
+@endsection
+
+@section('code-footer')
+
+
+
+>>>>>>> 0f93479142897a3a0cb98d1c570f7454caeaebd8
 </body>
 @endsection
 </html>
