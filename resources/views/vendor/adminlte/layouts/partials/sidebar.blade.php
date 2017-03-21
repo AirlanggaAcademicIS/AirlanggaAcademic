@@ -66,7 +66,8 @@
                 <a href="#"><i class='fa fa-link'></i> <span>KRS & KHS</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
+                    <li><a href="{{ url('krs-khs/krs') }}">Krs</a></li>
+                    <li><a href="{{ url('krs-khs/approve') }}">Approve</a></li>
                 </ul>
             </li>
 
