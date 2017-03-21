@@ -22,4 +22,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+    Route::get('/kegiatan/pengajuan_kegiatan', function(){
+    	return view('kegiatan.pengajuan_kegiatan');
+    });
+
+      Route::get('/kegiatan/admin', function(){
+    	return view('kegiatan.admin');
+    });
 });
