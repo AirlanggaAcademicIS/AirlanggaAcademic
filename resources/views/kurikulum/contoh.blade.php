@@ -17,6 +17,7 @@ Nama konten
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
+<p> halo </p>
 @endsection
 
 @section('code-footer')
