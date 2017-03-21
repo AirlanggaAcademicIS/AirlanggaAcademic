@@ -112,7 +112,9 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">Fitur</a></li>
+                    <li><a href="{{ url('notulensi/daftarnotulensi') }}">Notulensi Rapat</a></li>
+                    <li><a href="{{ url('notulensi/formnotulensi') }}">Form Notulensi</a></li>
+                    <li><a href="{{ url('notulensi/kirimnotulensi') }}">Kirim Notulensi</a></li>
                 </ul>
             </li>
 
