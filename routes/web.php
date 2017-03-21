@@ -25,8 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('/krs-khs/krs', function () {
     return view('krs-khs.krs');
 
-    Route::get('/krs-khs/approve', function () {
-    return view('krs-khs.approve');
+   
    
 
 
@@ -35,4 +34,4 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 });
-  });
+ 

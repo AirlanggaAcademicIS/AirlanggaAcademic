@@ -67,7 +67,7 @@
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
                     <li><a href="{{ url('krs-khs/krs') }}">Krs</a></li>
-                    <li><a href="{{ url('krs-khs/approve') }}">Approve</a></li>
+                  
                 </ul>
             </li>
 
