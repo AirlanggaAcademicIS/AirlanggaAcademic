@@ -22,7 +22,18 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+    Route::get('kurikulum/silabus', function () {
+    	return view('kurikulum.silabus.index');	
+	});
+	Route::get('kurikulum/detail-silabus', function () {
+    	return view('kurikulum.silabus.index-silabus');	
+	});
+
+	Route::get('kurikulum/create-silabus', function () {
+		return view('kurikulum.silabus.index-createsilabus');
+	});
+
     Route::get('/dosen/penelitian', function () {
-    return view('dosen.penelitian.create');
-});
+	    return view('dosen.penelitian.create');
+	});
 });

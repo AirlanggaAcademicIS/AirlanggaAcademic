@@ -33,15 +33,16 @@
         <ul class="sidebar-menu">
             <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
+            <li class="active"><a href="{{ url('kurikulum/contoh') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
 
             <!-- Sidebar Modul Kurikulum -->
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Kurikulum</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">RPS</a></li>
-                    <li><a href="#">Mata Kuliah</a></li>
+                    <li><a href="kurikulum/contoh">RPS</a></li>
+                    <li><a href="kurikulum/contoh">Mata Kuliah</a></li>
+                    <li><a href="kurikulum/silabus">Silabus</a></li>
                 </ul>
             </li>
             <!-- Sidebar Modul Dosen -->
