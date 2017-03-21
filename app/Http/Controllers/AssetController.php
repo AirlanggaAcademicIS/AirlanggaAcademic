@@ -33,6 +33,10 @@ class AssetController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
+        return view('adminlte::home');
+=======
         return view('inventaris.dashboard');
+>>>>>>> 4e7e057ec092d0678de69eee8f7e961c07ac4817
     }
 }
