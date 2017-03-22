@@ -107,6 +107,21 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
 
+  Route::get('/krs-khs/krs', function () {
+    return view('krs-khs.krs');
+
+   
+   
+
+
+
+
+
+});
+});
+ 
+
+
         Route::get('/kurikulum/contoh', function () {
     return view('kurikulum.contoh');
 });      

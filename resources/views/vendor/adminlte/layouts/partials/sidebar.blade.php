@@ -145,11 +145,16 @@
                     <!-- Tulis disini fiturnya -->
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                     <li><a href="{{url('/krs-khs/nilai')}}">Nilai</a></li>
                     <li><a href="#">KRS</a></li>
                     <li><a href="#">KHS</a></li>
 >>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
+=======
+                    <li><a href="{{ url('krs-khs/krs') }}">Krs</a></li>
+                  
+>>>>>>> 09bb1b2dc18bb0d46311b92d85a83a012ab0068d
 =======
 
                     <li><a href="{{url('/krs-khs/nilai')}}">Nilai</a></li>
