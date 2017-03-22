@@ -43,7 +43,7 @@
                     <!-- Tulis disini fiturnya -->
                     <li><a href="#">RPS</a></li>
                     <li><a href="#">Silabus</a></li>
-                    <li><a href="#">Capaian Program</a></li>
+                    <li><a href="<?php echo e(url('kurikulum/cpprogram/')); ?>">Capaian Program</a></li>
                     <li><a href="#">Capaian Pembelajaran</a></li>
                     <li><a href="#">E-Learning</a></li>
                     <li><a href="<?php echo e(url('kurikulum/kode/cpmatkul')); ?>">Manage Kode CP Mata Kuliah</a></li>

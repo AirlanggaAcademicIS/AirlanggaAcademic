@@ -9,12 +9,6 @@
 <!-- JQuery and bootstrap are required by Laravel 5.3 in resources/assets/js/bootstrap.js-->
 <!-- Laravel App -->
 <script src="{{ mix('/js/app.js') }}" type="text/javascript"></script>
-<<<<<<< HEAD
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-=======
-<<<<<<< HEAD
 
 <script src="{{asset('plugins/jquery.dataTables.js')}}" type="text/javascript"></script>
 <script src="{{asset('plugins/dataTables.bootstrap.js')}}" type="text/javascript"></script>
@@ -46,6 +40,9 @@
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 
 
+<<<<<<< HEAD
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+=======
 >>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
@@ -63,12 +60,18 @@
         'csrfToken' => csrf_token(),
     ]) !!};
 <<<<<<< HEAD
+<<<<<<< HEAD
 </script>
 =======
 <<<<<<< HEAD
 </script>
 =======
 </script>
+=======
+</script>
+=======
+</script>
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
 <<<<<<< HEAD
 
 <!-- <script>
@@ -90,4 +93,7 @@
 @yield('code-footer')   
 >>>>>>> 8862d013f7507c91c23a9472cbb9c55f0da908c1
 >>>>>>> 9300dac77978c5b287756ac72a3aee7544989653
+<<<<<<< HEAD
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+=======
 >>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab

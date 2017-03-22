@@ -101,7 +101,7 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
-<<<<<<< HEAD
+
     Route::get('/kurikulum/cpprogram/', function () {
     	return view('kurikulum.cpprogram.index');
 	});
@@ -117,9 +117,6 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
 	Route::get('/kurikulum/view', function () {
     return view('kurikulum.cpprogram.view');
 });
-
-});
-=======
 
     Route::get('/kurikulum/kode', function () {
     return view('kurikulum.kode.index');
@@ -454,4 +451,4 @@ Route::get('/kegiatan/inputkalender', function () {
     return view('mahasiswa.view_biodata');
 });
    });
->>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+
