@@ -18,6 +18,20 @@ Route::get('/', function () {
 });
 
 
+<<<<<<< HEAD
+=======
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('notulensi/notulensi/ViewDaftarHasil', function () {
+    return view('notulensi.notulensi.ViewDaftarHasil');
+});
+    Route::group(['middleware' => 'auth'], function () {
+    Route::get('notulensi/notulensi/ViewEditNotulensi', function () {
+    return view('notulensi.notulensi.ViewEditNotulensi');
+});
+    });
+
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
 Route::group(['middleware' => 'auth'], function () {
  
 
@@ -88,6 +102,7 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
     return view('krs-khs/buka');
 });
 
+<<<<<<< HEAD
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
 
@@ -375,6 +390,297 @@ Route::get('/dosen/penelitian/edit',function()
    Route::get('/notulensi/kehadiranRapat/jumlah', function () {
     return view('notulensi.kehadiranRapat.jumlah');
 });
+=======
+    //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
+    #adminlte_routes
+    Route::get('kurikulum/silabus', function () {
+    	return view('kurikulum.silabus.index');	
+	});
+	Route::get('kurikulum/detail-silabus', function () {
+    	return view('kurikulum.silabus.index-silabus');	
+	});
+
+	Route::get('kurikulum/create-silabus', function () {
+		return view('kurikulum.silabus.index-createsilabus');
+	});
+
+    Route::get('/dosen/penelitian', function () {
+	    return view('dosen.penelitian.create');
+	});
+
+    Route::get('/kurikulum/kode', function () {
+    return view('kurikulum.kode.index');
+});
+
+    Route::get('kurikulum/rps/index', function () {
+    return view('kurikulum.rps.index');
+});
+    Route::get('kurikulum/detail-rps', function () {
+    return view('kurikulum.rps.index-rps');
+});
+    Route::get('/dosen/penelitian', function () {
+    return view('dosen.penelitian.create');
+});
+    Route::get('/kegiatan/input_lpj', function () {
+    return view('kegiatan.contoh');
+});
+
+    Route::get('/notulensi/daftarnotulensi', function () {
+    return view('notulensi.daftarnotulensi');
+});
+    Route::get('/notulensi/formnotulensi', function () {
+    return view('notulensi.formnotulensi');
+});
+    Route::get('/notulensi/kirimnotulensi', function () {
+    return view('notulensi.kirimnotulensi');
+});
+    Route::get('/pla/konfirmasiproposal', function () {
+    return view('pla.konfirmasiproposal');
+});
+    Route::get('/pla/konfirmasiskripsi', function () {
+    return view('pla.konfirmasiskripsi');
+});
+    Route::get('/kegiatan/publikasi', function () {
+    return view('kegiatan.publikasi');
+});
+    Route::get('/kegiatan/input', function () {
+    return view('kegiatan.input');
+});
+    Route::get('/kegiatan/pengajuan_kegiatan', function(){
+    	return view('kegiatan.pengajuan_kegiatan');
+    });
+
+      Route::get('/kegiatan/admin', function(){
+    	return view('kegiatan.admin');
+    });
+
+	Route::get('/kegiatan/dokumentasi', function () {
+    return view('kegiatan.dokumentasi');
+});
+	Route::get('/kegiatan/input', function () {
+    return view('kegiatan.input');
+});
+
+Route::get('/karyawan', function () {
+    return view('mahasiswa.karyawan');
+});
+
+Route::get('/karyawan/ver-bio', function () {
+    return view('mahasiswa.ver_bio');
+});
+
+Route::get('/karyawan/ver-pres', function () {
+    return view('mahasiswa.ver_pres');
+});
+
+Route::get('/karyawan/ver-pen', function () {
+    return view('mahasiswa.ver_pen');
+});
+
+Route::get('/karyawan/ver-pres-more', function () {
+    return view('mahasiswa.ver_pres_more');
+});
+
+Route::get('/karyawan/ver-bio-more', function () {
+    return view('mahasiswa.ver_bio_more');
+});
+
+Route::get('/karyawan/ver-pen-more', function () {
+    return view('mahasiswa.ver_pen_more');
+});
+
+   
+    Route::get('/dosen/laporan/laporan', function () {
+    return view('dosen.laporan.laporan');
+});
+    Route::get('/dosen/laporan/isilaporan', function () {
+    return view('dosen.laporan.isilaporan');
+     
+});
+    Route::get('/karyawan/regis', function () {
+    return view('mahasiswa.registrasi_akun');
+});
+    Route::get('/mahasiswa/ubah-pass', function () {
+    return view('mahasiswa.ubah_pass_mhs');
+});
+    Route::get('/kurikulum/kode/cpmatkul', function () {
+    return view('/kurikulum/kode/index-cpmatkul');
+});
+    Route::get('/kurikulum/kode/cplprodi', function () {
+    return view('/kurikulum/kode/index-cplprodi');
+});
+    Route::get('/pla/permohonansurat', function () {
+    return view('pla.permohonansurat');
+});
+    Route::get('/krs-khs/input_ruang', function () {
+    return view('krs-khs/input_ruang');
+
+});
+
+        Route::get('/krs-khs/input_jadwal', function () {
+    return view('krs-khs/input_jadwal');
+});
+        
+
+    Route::get('/dosen/pengabdianmasyarakat', function () {
+    return view('dosen.pengabdianmasyarakat');
+    });
+    Route::get('/dosen/pengmas/pengmas', function () {
+    return view('dosen.pengmas.pengmas');
+});
+    Route::get('kurikulum/rps/index', function () {
+    return view('kurikulum.rps.index');
+});
+    Route::get('kurikulum/detail-rps', function () {
+    return view('kurikulum.rps.index-rps');
+});
+    Route::get('kurikulum/tambah-rps', function () {
+    return view('kurikulum.rps.index-add-rps');
+});   
+
+
+    Route::get('/pla/permohonan_ruangan_user', function () {
+    return view('pla.permohonan_ruangan_user');
+});
+
+
+
+    Route::get('/dosen/penelitian/penelitian',function()
+{ return view('dosen.penelitian.penelitian'); 
+});
+
+     Route::get('/monsi/form-editskripsi', function () {
+    return view('monsi.form-editskripsi');
+});
+     Route::get('/monsi/form-viewskripsi', function () {
+    return view('monsi.form-viewskripsi');
+});
+    
+    Route::get('/dosen/jurnal/', function () {
+    return view('dosen.jurnal.jurnal');
+});
+    Route::get('/dosen/jurnal/create', function () {
+    return view('dosen.jurnal.create');
+});
+    Route::get('/dosen/jurnal/edit', function () {
+    return view('dosen.jurnal.edit');
+});
+    
+    
+
+Route::get('/dosen/penelitian/create',function()
+{ return view('dosen.penelitian.create'); 
+});
+Route::get('/dosen/penelitian/edit',function()
+{ return view('dosen.penelitian.edit'); 
+});
+
+    Route::get('/krs-khs/form_khs', function () {
+    return view('krs-khs.form_khs');
+    });
+    Route::get('/krs-khs/histori_nilai', function () {
+    return view('krs-khs.histori_nilai');
+    });
+    Route::get('/krs-khs/detail_nilai_RPL', function () {
+    return view('krs-khs.detail_nilai_RPL');
+    });
+    Route::get('/krs-khs/detail_nilai_BD', function () {
+    return view('krs-khs.detail_nilai_BD');
+    });
+    Route::get('/krs-khs/krs', function () {
+    return view('krs-khs/contoh');
+    });
+    Route::get('/monsi/form-dataskripsi', function () {
+    return view('monsi.form-dataskripsi');
+    });
+    Route::get('/krs-khs/input_nilai', function () {
+    return view('krs-khs.input_nilai');
+    });
+    Route::get('/monsi/form-dataskripsi', function () {
+    return view('monsi.form-dataskripsi');
+  	});
+  	
+
+    Route::get('add-asset', 'HomeController@input');
+    Route::get('view-asset', 'HomeController@index');
+    });
+    Route::get('/krs-khs/krs', function () {
+    return view('krs-khs/contoh');
+    });
+    Route::get('/monsi/form-dataskripsi', function () {
+    return view('monsi.form-dataskripsi');
+    });
+    Route::get('/dosen/penelitian', function () {
+    return view('dosen.penelitian.create');
+    });
+    Route::get('/dosen/konferensi/konferensi', function () {
+    return view('dosen.konferensi.konferensi');
+	}); 
+     Route::get('/dosen/konferensi/create', function () {
+    return view('dosen.konferensi.create');
+	}); 
+	Route::get('/dosen/konferensi/edit', function () {
+    return view('dosen.konferensi.edit');
+    });
+    Route::get('/monsi/form_uploadproposal', function () {
+    return view('monsi.form_uploadproposal');
+    });
+    Route::get('/monsi/tabel_judul', function () {
+    return view('monsi.tabel_judul');
+    });
+    Route::get('/monsi/download_file', function (){
+    return view('monsi.download_file');
+    });
+    Route::get('/monsi/upload-bimbingan', function () {
+    return view('monsi.upload-bimbingan');
+    });
+    Route::get('/monsi/view-bimbingan', function () {
+    return view('monsi.view-bimbingan');
+    });
+    Route::get('/monsi/tabel-mhs2', function () {
+    return view('monsi.tabel-mhs2');
+    });
+    Route::get('/monsi/tabel-mhs', function () {
+    return view('monsi.tabel-mhs');
+    });
+    Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
+    Route::get('index-maintenance', 'MaintenanceController@index');
+    Route::get('view-maintenance', 'MaintenanceController@viewDetail');
+
+    Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
+    Route::get('index-peminjaman', 'PeminjamanController@index');
+    Route::get('view-peminjaman', 'PeminjamanController@viewDetail');
+
+    Route::get('add-asset', 'HomeController@input');
+    Route::get('view-asset', 'HomeController@index');
+
+    Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
+    Route::get('index-peminjaman', 'PeminjamanController@index');
+    Route::get('view-peminjaman', 'PeminjamanController@viewDetail');
+
+
+
+     Route::get('/monsi/sidang_proposal', function () {
+    return view('monsi.sidang-proposal');
+
+    });
+
+    Route::get('index-peminjaman', 'PeminjamanController@index');
+    Route::get('index-maintenance', 'MaintenanceController@index');
+
+    Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
+    Route::get('index-maintenance', 'MaintenanceController@index');
+    Route::get('view-maintenance', 'MaintenanceController@viewDetail');
+
+    Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
+    Route::get('index-peminjaman', 'PeminjamanController@index');
+    Route::get('view-peminjaman', 'PeminjamanController@viewDetail');
+
+    Route::get('add-asset', 'HomeController@input');
+    Route::get('view-asset', 'HomeController@index');
+    //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
+    #adminlte_routes
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
     Route::get('/pla/permohonan_ruangan_admin', function () {
     return view('pla.permohonan_ruangan_admin');
 
@@ -398,6 +704,23 @@ Route::get('/dosen/penelitian/edit',function()
     return view('monsi.lihat-jadwal-sidang-skripsi');
 
     });
+<<<<<<< HEAD
+=======
+
+
+         Route::get('/kegiatan/viewlpj', function () {
+    return view('kegiatan.viewlpj');
+    });
+
+    Route::get('/kegiatan/postpertama', function () {
+    return view('kegiatan.postpertama');
+    });
+
+    Route::get('/kegiatan/adminview', function () {
+    return view('kegiatan.adminview');
+    });
+    
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
 Route::get('/kegiatan/kalender', function () {
     return view('kegiatan.kalender');
 });
@@ -418,8 +741,17 @@ Route::get('/kegiatan/inputkalender', function () {
 
 });
 
+<<<<<<< HEAD
     Route::get('/mahasiswa/lihat-jadwal-sidang-proposal', function () {
     return view('mahasiswa.lihat-jadwal-sidang-proposal');
+=======
+
+
+    Route::get('/mahasiswa/lihat-jadwal-sidang-proposal', function () {
+    return view('mahasiswa.lihat-jadwal-sidang-proposal');
+
+
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
 });
 
     Route::get('/mahasiswa/input/', function () {
@@ -427,7 +759,15 @@ Route::get('/kegiatan/inputkalender', function () {
 });
     Route::get('/mahasiswa/edit/', function () {
     return view('mahasiswa.edit_biodata');
+<<<<<<< HEAD
 });
    Route::get('/mahasiswa/view/', function () {
     return view('mahasiswa.view_biodata');
 });
+=======
+});
+   Route::get('/mahasiswa/view/', function () {
+    return view('mahasiswa.view_biodata');
+});
+   });
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb

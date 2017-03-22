@@ -1,4 +1,5 @@
 <!-- REQUIRED JS SCRIPTS -->
+<<<<<<< HEAD
 <!-- REQUIRED JS SCRIPTS -->
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
@@ -47,11 +48,23 @@
 	// });
 	window.alert("sometext");
 </script> -->
+=======
+
+<!-- JQuery and bootstrap are required by Laravel 5.3 in resources/assets/js/bootstrap.js-->
+<!-- Laravel App -->
+<script src="<?php echo e(mix('/js/app.js')); ?>" type="text/javascript"></script>
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+      Both of these plugins are recommended to enhance the
+      user experience. Slimscroll is required when using the
+      fixed layout. -->
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
 <script>
     window.Laravel = <?php echo json_encode([
         'csrfToken' => csrf_token(),
     ]); ?>;
 </script>
+<<<<<<< HEAD
 
 <!-- <script>
 	$(function () {
@@ -67,3 +80,5 @@
 	});
 </script>
 <?php echo $__env->yieldContent('code-footer'); ?> 
+=======
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb

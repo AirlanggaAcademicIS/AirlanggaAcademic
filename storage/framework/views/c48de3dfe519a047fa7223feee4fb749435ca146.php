@@ -1,12 +1,17 @@
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
 
     <title> Airlangga Academic </title>
 
+=======
+    <title> AdminLTE 2 with Laravel - <?php echo $__env->yieldContent('htmlheader_title', 'Your title here'); ?> </title>
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
+<<<<<<< HEAD
     
     <link href="<?php echo e(asset('/css/all.css')); ?>" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -34,6 +39,9 @@
 
 
 <!-- <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link> -->
+=======
+    <link href="<?php echo e(asset('/css/all.css')); ?>" rel="stylesheet" type="text/css" />
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -62,5 +70,8 @@
             echo json_encode($trans);
          ?>
     </script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
 </head>

@@ -57,6 +57,13 @@ desired effect
 </div>
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    
+=======
+>>>>>>> 2c1eedec33a56715f523b130714d4dac1d9f56d7
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
     @yield('code-footer')
 @show
 

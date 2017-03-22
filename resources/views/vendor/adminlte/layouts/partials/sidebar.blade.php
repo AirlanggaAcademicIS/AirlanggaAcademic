@@ -33,7 +33,11 @@
         <ul class="sidebar-menu">
             <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
             <!-- Optionally, you can add icons to the links -->
+<<<<<<< HEAD
 
+=======
+            <li class="active"><a href="{{ url('kurikulum/contoh') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
 
             <!-- Sidebar Modul Kurikulum -->
@@ -126,6 +130,12 @@
                 <a href="#"><i class='fa fa-link'></i> <span>KRS & KHS</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+<<<<<<< HEAD
+=======
+                    <li><a href="{{url('/krs-khs/nilai')}}">Nilai</a></li>
+                    <li><a href="#">KRS</a></li>
+                    <li><a href="#">KHS</a></li>
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                     <li><a href="{{url('/krs-khs/mk')}}">Mata Kuliah</a></li>
                     <li><a href="{{url('/krs-khs/dosen_mk')}}">MK Diajar</a></li>
                     <li><a href="{{url('/krs-khs/input_jadwal')}}">input jadwal</a></li>
@@ -136,6 +146,10 @@
                     <li><a href="{{ url('krs-khs/form_khs') }}">KHS</a></li>
                     <li><a href="{{ url('krs-khs/histori_nilai') }}">Histori Nilai</a></li>
                     <li><a href="{{url('/krs-khs/krs')}}">Kartu Rencana Studi</a></li>
+<<<<<<< HEAD
+=======
+                    <li><a href="#">Fitur</a></li>
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                 </ul>
             </li>
 
@@ -144,6 +158,11 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Pengelolaan Kegiatan</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+<<<<<<< HEAD
+=======
+                    <li><a href="{{url('/kegiatan/viewlpj')}}">Berita Acara</a></li>
+                    <li><a href="{{url('/kegiatan/adminview')}}">Admin Berita Acara</a></li>
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                     <li><a href="{{url('/kegiatan/inputkalender')}}">Input Kalender</a></li>
                      <li><a href="{{url('/kegiatan/kalender')}}">Kalender Kegiatan</a></li>
                     <li><a href="{{ url('kegiatan/input_lpj') }}">Input Laporan Kegiatan</a></li>
@@ -164,8 +183,12 @@
                     <li><a href="{{url('pla/permohonan_ruang')}}">Konfirmasi Ruangan</a></li>
                     <li><a href="{{url('/pla/konfirmasiproposal')}}">Konfirmasi Proposal</a></li>
                     <li><a href="{{url('/pla/konfirmasiskripsi')}}">Konfirmasi Skripsi</a></li>
+<<<<<<< HEAD
                     <li><a href="{{ url('pla/permohonansurat') }}">Surat Menyurat</a></li>z
 
+=======
+                    <li><a href="{{ url('pla/permohonansurat') }}">Surat Menyurat</a></li>
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                     <li>
                       <a href="#"><i class="fa fa-circle-o"></i>Permohonan Ruangan
                         <span class="pull-right-container">
@@ -227,10 +250,13 @@
                 <li><a href="#">Kalender</a></li>
 
                     <!-- Tulis disini fiturnya -->
+<<<<<<< HEAD
                     <li><a href="{{ url('notulensi/undangan/daftarRapat') }}">Undangan</a></li>
                     <li><a href="{{ url('notulensi/kehadiranRapat/kehadiran')}}">Kehadiran Rapat</a></li>
                     <li><a href="#">Notulensi Rapat</a></li>
                     <li><a href="{{ url('notulensi/kalender/calendar')}}">Kalender</a></li>
+=======
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                     <li><a href="{{ url('notulensi/daftarnotulensi') }}">Notulensi Rapat</a></li>
                     <li><a href="{{ url('notulensi/formnotulensi') }}">Form Notulensi</a></li>
                     <li><a href="{{ url('notulensi/kirimnotulensi') }}">Kirim Notulensi</a></li>
@@ -254,6 +280,7 @@
                 <li><a href="{{ url('monsi/tabel-mhs') }}"><i class="fa fa-circle-o"></i> Admin TU</a></li>
                 <li><a href="{{ url('monsi/tabel-mhs2') }}"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
               </ul>
+<<<<<<< HEAD
             </li>
 
              <li>
@@ -268,6 +295,22 @@
               </ul>
             </li>
 
+=======
+            </li>
+
+             <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Bimbingan Proposal - Skripsi
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('monsi/upload-bimbingan') }}"><i class="fa fa-circle-o"></i> Dosen</a></li>
+                <li><a href="{{ url('monsi/view-bimbingan') }}"><i class="fa fa-circle-o"></i> Mahasiswa</a></li>
+              </ul>
+            </li>
+
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
             <li>
               <a href="#"><i class="fa fa-circle-o"></i> Sidang Proposal - Skripsi
                 <span class="pull-right-container">

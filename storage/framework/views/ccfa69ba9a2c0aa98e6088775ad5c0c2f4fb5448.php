@@ -33,7 +33,14 @@
         <ul class="sidebar-menu">
             <li class="header"><?php echo e(trans('adminlte_lang::message.header')); ?></li>
             <!-- Optionally, you can add icons to the links -->
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
             <li class="active"><a href="<?php echo e(url('home')); ?>"><i class='fa fa-link'></i> <span><?php echo e(trans('adminlte_lang::message.home')); ?></span></a></li>
 
             <!-- Sidebar Modul Kurikulum -->
@@ -42,6 +49,12 @@
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
                     <li><a href="#">RPS</a></li>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                    <li><a href="#">Mata Kuliah</a></li>
+=======
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                     <li><a href="#">Silabus</a></li>
                     <li><a href="#">Capaian Program</a></li>
                     <li><a href="#">Capaian Pembelajaran</a></li>
@@ -49,6 +62,10 @@
                     <li><a href="<?php echo e(url('kurikulum/kode/cpmatkul')); ?>">Manage Kode CP Mata Kuliah</a></li>
                     <li><a href="<?php echo e(url('kurikulum/kode/cplprodi')); ?>">Manage Kode CP Prodi</a></li>
                     <li><a href="#">Manage Mata Kuliah</a></li>
+<<<<<<< HEAD
+=======
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                 </ul>
             </li>
             <!-- Sidebar Modul Dosen -->
@@ -56,6 +73,13 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Dosen</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                    <li><a href="<?php echo e(url('/dosen/penelitian')); ?>">Biodata</a></li>
+                    <li><a href="#">Penelitian</a></li>
+=======
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
 
                     <li><a href="<?php echo e(url('/dosen/laporan/laporan')); ?>">Laporan Kinerja Dosen</a></l
         
@@ -64,6 +88,10 @@
                     <li><a href="<?php echo e(url('/dosen/penelitian/penelitian')); ?>">Penelitian</a></li>                 
                <li><a href="<?php echo e(url('/dosen/jurnal/')); ?>">Jurnal</a></li>                    
 
+<<<<<<< HEAD
+=======
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                 </ul>
             </li>
             <!-- Sidebar Modul Mahasiswa -->
@@ -71,6 +99,12 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Mahasiswa</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                    <li><a href="#">Fitur</a></li>
+=======
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                     <li><a href="<?php echo e(url('/mahasiswa/input/')); ?>">Input Biodata</a></li>
                     <li><a href="<?php echo e(url('/mahasiswa/view/')); ?>">View Biodata</a></li>
                     <li><a href="<?php echo e(url('/karyawan')); ?>">Karyawan</a></li>
@@ -118,6 +152,10 @@
 
                     <li><a href="<?php echo e(url('/mahasiswa/prestasi')); ?>">Prestasi</a></li>
                    
+<<<<<<< HEAD
+=======
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                 </ul>
             </li>
 
@@ -126,6 +164,17 @@
                 <a href="#"><i class='fa fa-link'></i> <span>KRS & KHS</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                    <li><a href="#">Fitur</a></li>
+=======
+<<<<<<< HEAD
+                    <li><a href="<?php echo e(url('/krs-khs/nilai')); ?>">Nilai</a></li>
+                    <li><a href="#">KRS</a></li>
+                    <li><a href="#">KHS</a></li>
+=======
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                     <li><a href="<?php echo e(url('/krs-khs/mk')); ?>">Mata Kuliah</a></li>
                     <li><a href="<?php echo e(url('/krs-khs/dosen_mk')); ?>">MK Diajar</a></li>
                     <li><a href="<?php echo e(url('/krs-khs/input_jadwal')); ?>">input jadwal</a></li>
@@ -136,6 +185,12 @@
                     <li><a href="<?php echo e(url('krs-khs/form_khs')); ?>">KHS</a></li>
                     <li><a href="<?php echo e(url('krs-khs/histori_nilai')); ?>">Histori Nilai</a></li>
                     <li><a href="<?php echo e(url('/krs-khs/krs')); ?>">Kartu Rencana Studi</a></li>
+<<<<<<< HEAD
+=======
+                    <li><a href="#">Fitur</a></li>
+>>>>>>> a9d03f52c70ddadc5c71b33fec90f9c43fe34791
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                 </ul>
             </li>
 
@@ -144,14 +199,34 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Pengelolaan Kegiatan</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+<<<<<<< HEAD
                     <li><a href="<?php echo e(url('/kegiatan/inputkalender')); ?>">Input Kalender</a></li>
                      <li><a href="<?php echo e(url('/kegiatan/kalender')); ?>">Kalender Kegiatan</a></li>
                     <li><a href="<?php echo e(url('kegiatan/input_lpj')); ?>">Input Laporan Kegiatan</a></li>
+=======
+<<<<<<< HEAD
+                    <li><a href="<?php echo e(url('/kegiatan/viewlpj')); ?>">Berita Acara</a></li>
+                    <li><a href="<?php echo e(url('/kegiatan/adminview')); ?>">Admin Berita Acara</a></li>
+=======
+<<<<<<< HEAD
+                    <li><a href="<?php echo e(url('/kegiatan/inputkalender')); ?>">Input Kalender</a></li>
+                     <li><a href="<?php echo e(url('/kegiatan/kalender')); ?>">Kalender Kegiatan</a></li>
+=======
+<<<<<<< HEAD
+                    <li><a href="<?php echo e(url('kegiatan/input_lpj')); ?>">Input Laporan Kegiatan</a></li>
+=======
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                     <li><a href="<?php echo e(url('/kegiatan/publikasi')); ?>">Publikasi</a></li>
                 <li><a href="<?php echo e(url('/kegiatan/pengajuan_kegiatan')); ?>">Pengajuan Kegiatan</a></li>
                 <li><a href="<?php echo e(url('/kegiatan/admin')); ?>">Admin Kegiatan</a></li>
                     <li><a href="<?php echo e(url('kegiatan/dokumentasi')); ?>">Dokumentasi</a></li>
                     <li><a href="<?php echo e(url('kegiatan/input')); ?>">Input TU</a></li>
+<<<<<<< HEAD
+=======
+>>>>>>> 7f52ac8ca7d33e5afdb8da0d5f0e3253a17f2f3f
+>>>>>>> 4bf6935348f49df39706586260909904e0b72e73
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                 </ul>
             </li>
 
@@ -161,10 +236,30 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+<<<<<<< HEAD
                     <li><a href="<?php echo e(url('pla/permohonan_ruang')); ?>">Konfirmasi Ruangan</a></li>
                     <li><a href="<?php echo e(url('/pla/konfirmasiproposal')); ?>">Konfirmasi Proposal</a></li>
                     <li><a href="<?php echo e(url('/pla/konfirmasiskripsi')); ?>">Konfirmasi Skripsi</a></li>
                     <li><a href="<?php echo e(url('pla/permohonansurat')); ?>">Surat Menyurat</a></li>z
+=======
+<<<<<<< HEAD
+                    <li><a href="#">Fitur</a></li>
+=======
+<<<<<<< HEAD
+                    <li><a href="#">Fitur</a></li>                    
+=======
+<<<<<<< HEAD
+                    <li><a href="<?php echo e(url('pla/permohonan_ruang')); ?>">Konfirmasi Ruangan</a></li>
+                  
+=======
+<<<<<<< HEAD
+                    <li><a href="#">Fitur</a></li>
+                    <li><a href="<?php echo e(url('/pla/konfirmasiproposal')); ?>">Konfirmasi Proposal</a></li>
+                    <li><a href="<?php echo e(url('/pla/konfirmasiskripsi')); ?>">Konfirmasi Skripsi</a></li>
+=======
+
+                    <li><a href="<?php echo e(url('pla/permohonansurat')); ?>">Surat Menyurat</a></li>
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
 
                     <li>
                       <a href="#"><i class="fa fa-circle-o"></i>Permohonan Ruangan
@@ -201,6 +296,15 @@
                         <li><a href="#"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
                       </ul>
                     </li>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> a9d03f52c70ddadc5c71b33fec90f9c43fe34791
+>>>>>>> ea460daeeda422e18a31366bb8d01a7a2df359fd
+>>>>>>> 7f52ac8ca7d33e5afdb8da0d5f0e3253a17f2f3f
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                 </ul>
             </li>
 
@@ -210,9 +314,19 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+<<<<<<< HEAD
                     <li><a href="<?php echo e(url('/view-asset')); ?>">all asset</a></li>
                     <li><a href="<?php echo e(url('/index-peminjaman')); ?>">peminjaman</a></li>
                     <li><a href="<?php echo e(url('/index-maintenance')); ?>">maintenance</a></li>
+=======
+<<<<<<< HEAD
+                    <li><a href="#">Fitur</a></li>
+=======
+                    <li><a href="<?php echo e(url('/view-asset')); ?>">all asset</a></li>
+                    <li><a href="<?php echo e(url('/index-peminjaman')); ?>">peminjaman</a></li>
+                    <li><a href="<?php echo e(url('/index-maintenance')); ?>">maintenance</a></li>
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                 </ul>
             </li>
 
@@ -221,12 +335,20 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Notulen</span>
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                    <!-- Tulis disini fiturnya -->
+                    <li><a href="#">Fitur</a></li>
+=======
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                 <li><a href="#">Undangan</a></li>
                 <li><a href="#">Kehadiran</a></li>
                 <li><a href="<?php echo e(url('notulensi/notulensi/ViewDaftarHasil')); ?>">Notulensi TU </a></li>
                 <li><a href="#">Kalender</a></li>
 
                     <!-- Tulis disini fiturnya -->
+<<<<<<< HEAD
                     <li><a href="<?php echo e(url('notulensi/undangan/daftarRapat')); ?>">Undangan</a></li>
                     <li><a href="<?php echo e(url('notulensi/kehadiranRapat/kehadiran')); ?>">Kehadiran Rapat</a></li>
                     <li><a href="#">Notulensi Rapat</a></li>
@@ -234,6 +356,12 @@
                     <li><a href="<?php echo e(url('notulensi/daftarnotulensi')); ?>">Notulensi Rapat</a></li>
                     <li><a href="<?php echo e(url('notulensi/formnotulensi')); ?>">Form Notulensi</a></li>
                     <li><a href="<?php echo e(url('notulensi/kirimnotulensi')); ?>">Kirim Notulensi</a></li>
+=======
+                    <li><a href="<?php echo e(url('notulensi/daftarnotulensi')); ?>">Notulensi Rapat</a></li>
+                    <li><a href="<?php echo e(url('notulensi/formnotulensi')); ?>">Form Notulensi</a></li>
+                    <li><a href="<?php echo e(url('notulensi/kirimnotulensi')); ?>">Kirim Notulensi</a></li>
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
                 </ul>
             </li>
 
@@ -243,6 +371,15 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                    <li><a href="#">Fitur</a></li>
+                </ul>
+            </li>
+
+=======
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
 
                     <li>
               <a href="#"><i class="fa fa-circle-o"></i> Informasi Proposal - Skripsi
@@ -309,6 +446,10 @@
     
             
                 
+<<<<<<< HEAD
+=======
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

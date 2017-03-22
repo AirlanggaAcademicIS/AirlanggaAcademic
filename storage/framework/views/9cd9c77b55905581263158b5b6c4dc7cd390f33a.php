@@ -29,10 +29,17 @@
                     name="<?php echo e(config('auth.providers.users.field','email')); ?>"
                     domain="<?php echo e(config('auth.defaults.domain','')); ?>"
                     ></login-input-field>
+<<<<<<< HEAD
             <div class="form-group has-feedback">
                 <input type="email" class="form-control" placeholder="<?php echo e(trans('adminlte_lang::message.email')); ?>" name="email"/>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
+=======
+            
+                
+                
+            
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
             <div class="form-group has-feedback">
                 <input type="password" class="form-control" placeholder="<?php echo e(trans('adminlte_lang::message.password')); ?>" name="password"/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>

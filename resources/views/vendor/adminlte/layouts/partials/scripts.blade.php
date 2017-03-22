@@ -37,6 +37,35 @@
 
 
 
+<script src="{{asset('plugins/jquery.dataTables.js')}}" type="text/javascript"></script>
+<script src="{{asset('plugins/dataTables.bootstrap.js')}}" type="text/javascript"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="{{ asset('/css/bootstrap-tagsinput.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ asset('/js/bootstrap-tagsinput.js') }}"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="{{ mix('/js/app.js') }}" type="text/javascript"></script>
+<!-- <script src="{{asset('/plugins/jquery-2.2.3.min.js')}}" type="text/javascript"></script> -->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="{{asset('/plugins/bootstrap-datepicker.js')}}"></script>
+<script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
+<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+
+
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
       Both of these plugins are recommended to enhance 
       user experience. Slimscroll is required when using thethe
@@ -66,4 +95,13 @@
 		});	
 	});
 </script>
+<<<<<<< HEAD
 @yield('code-footer') 
+=======
+@yield('code-footer')
+
+=======
+@yield('code-footer')   
+>>>>>>> 8862d013f7507c91c23a9472cbb9c55f0da908c1
+>>>>>>> 9300dac77978c5b287756ac72a3aee7544989653
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
