@@ -9,8 +9,6 @@
 
     
     <link href="{{ asset('/css/all.css') }}" rel="stylesheet" type="text/css" />
-<<<<<<< HEAD
-
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -22,11 +20,7 @@
     <link rel="stylesheet" href="style.css">
     <!-- DataTables -->
   <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
-=======
-<<<<<<< HEAD
-=======
 
->>>>>>> 9300dac77978c5b287756ac72a3aee7544989653
      <link rel="stylesheet" href="{{asset('/plugins/datepicker3.css')}}">
 
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
@@ -37,12 +31,6 @@
 
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-
-
-
-<!-- <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link> -->
-
->>>>>>> 8862d013f7507c91c23a9472cbb9c55f0da908c1
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

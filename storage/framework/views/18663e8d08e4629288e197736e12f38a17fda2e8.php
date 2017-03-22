@@ -1,21 +1,19 @@
-@extends('adminlte::layouts.app')
-
-@section('code-header')
+<?php $__env->startSection('code-header'); ?>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('htmlheader_title')
+<?php $__env->startSection('htmlheader_title'); ?>
 <!-- Nama konten -->
 Rencana Pembelajaran Semester 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('contentheader_title')
+<?php $__env->startSection('contentheader_title'); ?>
 <!-- Nama konten -->
 Rencana Pembelajaran Semester
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('main-content')
+<?php $__env->startSection('main-content'); ?>
 
 <h1>Input Laporan Kegiatan</h1>
 <form class="form-horizontal">
@@ -61,11 +59,12 @@ Rencana Pembelajaran Semester
 	</div>
 </form>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('code-footer')
-
-
+<?php $__env->startSection('code-footer'); ?>
 
 
-@endsection
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('adminlte::layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
