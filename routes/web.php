@@ -17,9 +17,6 @@
         return view('welcome');
     });
 
-
-
-    
     Route::group(['middleware' => ['auth']], function () {
 
         // Modul Mahasiswa
