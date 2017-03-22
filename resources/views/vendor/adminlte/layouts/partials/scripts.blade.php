@@ -95,13 +95,4 @@
 		});	
 	});
 </script>
-<<<<<<< HEAD
 @yield('code-footer') 
-=======
-@yield('code-footer')
-
-=======
-@yield('code-footer')   
->>>>>>> 8862d013f7507c91c23a9472cbb9c55f0da908c1
->>>>>>> 9300dac77978c5b287756ac72a3aee7544989653
->>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
