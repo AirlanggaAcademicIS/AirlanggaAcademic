@@ -69,7 +69,7 @@ Fitur
     </div>
 
      <div class="box-footer">
-      <a href="{{ url('monsi/tabel-mhs') }}"><button type="button" class="btn btn-default" style="margin-left: 600px;">Kembali</button></a>
+      <center><a href="{{ url('monsi/tabel-mhs') }}"><button type="button" class="btn btn-default">Kembali</button></a></center>
     </div>
 
    
