@@ -19,19 +19,17 @@ Route::get('/', function () {
 
 
 
-Route::group(['middleware' => 'auth'], function () {
-
 Route::group(['middleware' => 'auth'], function () {  
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });
 
 	Route::get('/krs-khs/mk', function () {
-    return view('krs-khs/mk');
+    return view('krs-khs.mk');
 });
 
 	Route::get('/contoh', function () {
-    return view('mahasiswa/contoh');
+    return view('mahasiswa.contoh');
 });
 
 	Route::get('/krs-khs/mk/bobot', function () {
@@ -39,21 +37,21 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
     Route::get('/krs-khs/mk/input_nilai', function () {
-    return view('krs-khs/input_nilai');
+    return view('krs-khs.input_nilai');
 });
 
     Route::get('/krs-khs/dosen_mk', function () {
-    return view('krs-khs/input_dosen_mk');
+    return view('krs-khs.input_dosen_mk');
 });
 	Route::get('/approve', function () {
-    return view('krs-khs/approve');
+    return view('krs-khs.approve');
 });
 	Route::get('/approve1', function () {
-    return view('krs-khs/approve1');
+    return view('krs-khs.approve1');
 });
 
 	Route::get('/buka', function () {
-    return view('krs-khs/buka');
+    return view('krs-khs.buka');
 });
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
