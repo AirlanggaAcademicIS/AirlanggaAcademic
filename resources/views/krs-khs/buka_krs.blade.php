@@ -34,15 +34,15 @@ Fitur
                 <tr role="row" class="odd">
                   <td class="sorting_1">Fachruziah</td> 
                   <td>2017</td>
-                  <td><a href="{{url('/approve')}}" type="button">Detail</a></td>
+                  <td><a href="{{url('perwalian/approve')}}" type="button">Detail</a></td>
                 </tr><tr role="row" class="even">
                   <td class="sorting_1">Fara</td>
                   <td>2014</td>
-                  <td><a href="{{url('/approve')}}" type="button">Detail</a></td>
+                  <td><a href="{{url('perwalian/approve')}}" type="button">Detail</a></td>
                 </tr><tr role="row" class="odd">
                   <td class="sorting_1">Rani</td>
                   <td>2014</td>
-                  <td><a href="{{url('/approve')}}" type="button">Detail</a></td>
+                  <td><a href="{{url('perwalian/approve')}}" type="button">Detail</a></td>
                 </tr></tbody>
                 <tfoot>
                 <tr></tr>

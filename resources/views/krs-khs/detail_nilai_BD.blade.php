@@ -14,8 +14,6 @@ Detail Nilai
 @endsection
 
 @section('main-content')
-<!DOCTYPE html>
-
     <section class="content">
       <div class="row">
         <div class="col-xs-12">

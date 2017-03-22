@@ -58,39 +58,39 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul KRS & KHS
     Route::group(['prefix' => 'krs-khs'], function() {
-        Route::get('mk', function () {
+        Route::get('dosen', function () {
             return view('krs-khs.mk');
         });
 
-        Route::get('mk/bobot', function () {
+        Route::get('dosen/bobot', function () {
             return view('krs-khs.bobot');
         });
 
-        Route::get('mk/input_nilai', function () {
+        Route::get('dosen/list_mahasiswa/input_nilai', function () {
             return view('krs-khs.input_nilai');
         });
 
-        Route::get('dosen_mk', function () {
+        Route::get('dosen/list_mahasiswa', function () {
+            return view('krs-khs.mahasiswa_mk');
+        });
+
+        Route::get('dosen/input_dosen_mk', function () {
             return view('krs-khs.input_dosen_mk');
         });
 
-        Route::get('approve', function () {
-            return view('krs-khs.approve');
-        });
-
-        Route::get('approve1', function () {
+        Route::get('perwalian', function () {
             return view('krs-khs.buka_krs');
         });
 
-        Route::get('buka', function () {
-            return view('krs-khs.buka');
+        Route::get('perwalian/approve', function () {
+            return view('krs-khs.approve');
         });
 
-        Route::get('form_khs', function () {
+        Route::get('khs', function () {
         return view('krs-khs.form_khs');
         });
 
-        Route::get('histori_nilai', function () {
+        Route::get('khs/histori_nilai', function () {
         return view('krs-khs.histori_nilai');
         });
 
@@ -103,14 +103,18 @@ Route::group(['middleware' => ['auth']], function () {
         });
 
         Route::get('krs', function () {
-        return view('krs-khs.contoh');
+        return view('krs-khs.lihat_krs');
         });
 
-        Route::get('input_ruang', function () {
+        Route::get('krs/pilih', function () {
+        return view('krs-khs.pilih_krs');
+        });
+
+        Route::get('penjadwalan/ruang', function () {
         return view('krs-khs/input_ruang');
         });
 
-        Route::get('input_jadwal', function () {
+        Route::get('penjadwalan', function () {
         return view('krs-khs/input_jadwal');
         });
 
