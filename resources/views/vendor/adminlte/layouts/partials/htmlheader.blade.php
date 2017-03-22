@@ -9,7 +9,6 @@
 
     
     <link href="{{ asset('/css/all.css') }}" rel="stylesheet" type="text/css" />
-
      <link rel="stylesheet" href="{{asset('/plugins/datepicker3.css')}}">
 
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">

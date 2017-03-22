@@ -17,13 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-\
 Route::group(['middleware' => 'auth'], function () {
  
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });
+
+	Route::get('/krs-khs/nilai', function () {
+    return view('krs-khs/nilai');
 
 	Route::get('/mahasiswa/penelitian/', function () {
     return view('mahasiswa.penelitian');
@@ -88,6 +89,45 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
 
+    Route::get('/notulensi/daftarnotulensi', function () {
+    return view('notulensi.daftarnotulensi');
+});
+    Route::get('/notulensi/formnotulensi', function () {
+    return view('notulensi.formnotulensi');
+});
+    Route::get('/notulensi/kirimnotulensi', function () {
+    return view('notulensi.kirimnotulensi');
+});
+});
+
+    Route::get('/pla/konfirmasiproposal', function () {
+    return view('pla.konfirmasiproposal');
+});
+    Route::get('/pla/konfirmasiskripsi', function () {
+    return view('pla.konfirmasiskripsi');
+});
+
+    Route::get('/kegiatan/publikasi', function () {
+    return view('kegiatan.publikasi');
+});
+    Route::get('/kegiatan/input', function () {
+    return view('kegiatan.input');
+});
+    Route::get('/kegiatan/pengajuan_kegiatan', function(){
+    	return view('kegiatan.pengajuan_kegiatan');
+    });
+
+      Route::get('/kegiatan/admin', function(){
+    	return view('kegiatan.admin');
+    });
+
+	Route::get('/kegiatan/dokumentasi', function () {
+    return view('kegiatan.dokumentasi');
+});
+	Route::get('/kegiatan/input', function () {
+    return view('kegiatan.input');
+});
+
 Route::get('/karyawan', function () {
     return view('mahasiswa.karyawan');
 });
@@ -115,10 +155,6 @@ Route::get('/karyawan/ver-bio-more', function () {
 Route::get('/karyawan/ver-pen-more', function () {
     return view('mahasiswa.ver_pen_more');
 });
-
-
-});
-
 
    
     Route::get('/dosen/laporan/laporan', function () {
@@ -202,7 +238,6 @@ Route::get('/dosen/penelitian/create',function()
 Route::get('/dosen/penelitian/edit',function()
 { return view('dosen.penelitian.edit'); 
 });
-
 
     Route::get('/krs-khs/form_khs', function () {
     return view('krs-khs.form_khs');
@@ -295,6 +330,11 @@ Route::get('/dosen/penelitian/edit',function()
 
     });
 
+    Route::get('/pla/permohonan_ruangan_admin', function () {
+    return view('pla.permohonan_ruangan_admin');
+
+    });
+    
      Route::get('/monsi/sidang_skripsi', function () {
     return view('monsi.sidang-skripsi');
 
@@ -334,8 +374,18 @@ Route::get('/dosen/penelitian/edit',function()
     Route::get('/mahasiswa/lihat-jadwal-sidang-proposal', function () {
     return view('mahasiswa.lihat-jadwal-sidang-proposal');
 
+
 });
 
+    Route::get('/mahasiswa/input/', function () {
+    return view('mahasiswa.input_biodata');
+});
+    Route::get('/mahasiswa/edit/', function () {
+    return view('mahasiswa.edit_biodata');
+});
+   Route::get('/mahasiswa/view/', function () {
+    return view('mahasiswa.view_biodata');
+}); 
 
-
+});
 
