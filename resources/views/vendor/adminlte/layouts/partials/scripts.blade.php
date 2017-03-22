@@ -40,6 +40,10 @@
 <script src="{{asset('plugins/jquery.dataTables.js')}}" type="text/javascript"></script>
 <script src="{{asset('plugins/dataTables.bootstrap.js')}}" type="text/javascript"></script>
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -55,6 +59,10 @@
 
 
 <script src="{{ mix('/js/app.js') }}" type="text/javascript"></script>
+<<<<<<< HEAD
+>>>>>>> 9300dac77978c5b287756ac72a3aee7544989653
+=======
+>>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
 <!-- <script src="{{asset('/plugins/jquery-2.2.3.min.js')}}" type="text/javascript"></script> -->
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
@@ -65,6 +73,13 @@
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+=======
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+=======
+>>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
       Both of these plugins are recommended to enhance 
@@ -80,7 +95,23 @@
     window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
     ]) !!};
+<<<<<<< HEAD
+<<<<<<< HEAD
 </script>
+=======
+<<<<<<< HEAD
+</script>
+=======
+</script>
+=======
+</script>
+=======
+</script>
+<<<<<<< HEAD
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+<<<<<<< HEAD
+=======
+>>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
 
 <!-- <script>
 	$(function () {
@@ -95,4 +126,20 @@
 		});	
 	});
 </script>
+<<<<<<< HEAD
 @yield('code-footer') 
+=======
+@yield('code-footer')
+<<<<<<< HEAD
+
+=======
+@yield('code-footer')   
+>>>>>>> 8862d013f7507c91c23a9472cbb9c55f0da908c1
+>>>>>>> 9300dac77978c5b287756ac72a3aee7544989653
+<<<<<<< HEAD
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+=======
+>>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+=======
+>>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
+>>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50

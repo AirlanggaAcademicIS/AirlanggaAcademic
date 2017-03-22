@@ -16,6 +16,22 @@ Nama konten
 @endsection
 
 @section('main-content')
+<<<<<<< HEAD
+<form>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+=======
 <!-- Kodingan HTML ditaruh di sini -->
 <<<<<<< HEAD
 <p> halo </p>
@@ -73,7 +89,12 @@ Nama konten
 =======
 <p> halo </p>
 >>>>>>> 2c1eedec33a56715f523b130714d4dac1d9f56d7
+<<<<<<< HEAD
 >>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
+=======
+>>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
+>>>>>>> e1988d14e0ddc8545d70082aa9525f9a6364703f
+>>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
 @endsection
 
 @section('code-footer')
