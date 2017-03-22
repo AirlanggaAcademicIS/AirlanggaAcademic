@@ -19,7 +19,7 @@
         @endif
 
         <!-- search form (Optional) -->
-        <form action="#" method="get" class="sidebar-form">
+        <form action="#" method="get" class="sidebkuar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="{{ trans('adminlte_lang::message.search') }}..."/>
               <span class="input-group-btn">
@@ -40,8 +40,9 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Kurikulum</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="#">RPS</a></li>
+                    <li><a href="{{ url('kurikulum/contoh') }}">RPS</a></li>
                     <li><a href="#">Mata Kuliah</a></li>
+                    <li><a href="{{ url('kurikulum/cpbelajar/') }}">Capaian Pembelajaran</a></li>
                 </ul>
             </li>
             <!-- Sidebar Modul Dosen -->
