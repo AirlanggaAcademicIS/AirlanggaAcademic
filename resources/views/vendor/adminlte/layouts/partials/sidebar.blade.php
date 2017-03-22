@@ -127,17 +127,28 @@
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <li><a href="{{url('/krs-khs/nilai')}}">Nilai</a></li>
                     <li><a href="#">KRS</a></li>
                     <li><a href="#">KHS</a></li>
 =======
+=======
+                    <li><a href="{{url('/krs-khs/nilai')}}">Nilai</a></li>
+                    <li><a href="#">KRS</a></li>
+                    <li><a href="#">KHS</a></li>
+>>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
                     <li><a href="{{url('/krs-khs/mk')}}">Mata Kuliah</a></li>
                     <li><a href="{{url('/krs-khs/dosen_mk')}}">MK Diajar</a></li>
                     <li><a href="{{url('/krs-khs/input_jadwal')}}">input jadwal</a></li>
                     <li><a href="{{url('/krs-khs/input_ruang')}}">input ruang kelas</a></li>
                     <li><a href="{{url('/krs-khs/input_nilai')}}">input nilai</a></li>
+<<<<<<< HEAD
                     <li><a href="{{url('/approve1')}}">Approve KRS</a></li>
                     <li><a href="{{url('/buka')}}">Buka KRS</a></li>
+=======
+                    <li><a href="{{url('/krs-khs/approve1')}}">Approve KRS</a></li>
+                    <li><a href="{{url('/krs-khs/buka')}}">Buka KRS</a></li>
+>>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
                     <li><a href="{{ url('krs-khs/form_khs') }}">KHS</a></li>
                     <li><a href="{{ url('krs-khs/histori_nilai') }}">Histori Nilai</a></li>
                     <li><a href="{{url('/krs-khs/krs')}}">Kartu Rencana Studi</a></li>
@@ -152,19 +163,30 @@
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <li><a href="{{url('/kegiatan/inputkalender')}}">Input Kalender</a></li>
                      <li><a href="{{url('/kegiatan/kalender')}}">Kalender Kegiatan</a></li>
 =======
 <<<<<<< HEAD
                     <li><a href="{{ url('kegiatan/input_lpj') }}">Input Laporan Kegiatan</a></li>
 =======
+=======
+                    <li><a href="{{url('/kegiatan/viewlpj')}}">Berita Acara</a></li>
+                    <li><a href="{{url('/kegiatan/adminview')}}">Admin Berita Acara</a></li>
+                    <li><a href="{{url('/kegiatan/inputkalender')}}">Input Kalender</a></li>
+                     <li><a href="{{url('/kegiatan/kalender')}}">Kalender Kegiatan</a></li>
+                    <li><a href="{{ url('kegiatan/input_lpj') }}">Input Laporan Kegiatan</a></li>
+>>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
                     <li><a href="{{url('/kegiatan/publikasi')}}">Publikasi</a></li>
                 <li><a href="{{url('/kegiatan/pengajuan_kegiatan')}}">Pengajuan Kegiatan</a></li>
                 <li><a href="{{url('/kegiatan/admin')}}">Admin Kegiatan</a></li>
                     <li><a href="{{ url('kegiatan/dokumentasi') }}">Dokumentasi</a></li>
                     <li><a href="{{ url('kegiatan/input') }}">Input TU</a></li>
+<<<<<<< HEAD
 >>>>>>> 7f52ac8ca7d33e5afdb8da0d5f0e3253a17f2f3f
 >>>>>>> 4bf6935348f49df39706586260909904e0b72e73
+=======
+>>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
                 </ul>
             </li>
 
@@ -174,6 +196,7 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <li><a href="#">Fitur</a></li>                    
 =======
@@ -189,6 +212,12 @@
 
                     <li><a href="{{ url('pla/permohonansurat') }}">Surat Menyurat</a></li>
 
+=======
+                    <li><a href="{{url('pla/permohonan_ruang')}}">Konfirmasi Ruangan</a></li>
+                    <li><a href="{{url('/pla/konfirmasiproposal')}}">Konfirmasi Proposal</a></li>
+                    <li><a href="{{url('/pla/konfirmasiskripsi')}}">Konfirmasi Skripsi</a></li>
+                    <li><a href="{{ url('pla/permohonansurat') }}">Surat Menyurat</a></li>
+>>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
                     <li>
                       <a href="#"><i class="fa fa-circle-o"></i>Permohonan Ruangan
                         <span class="pull-right-container">
@@ -224,11 +253,14 @@
                         <li><a href="#"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
                       </ul>
                     </li>
+<<<<<<< HEAD
 
 
 >>>>>>> a9d03f52c70ddadc5c71b33fec90f9c43fe34791
 >>>>>>> ea460daeeda422e18a31366bb8d01a7a2df359fd
 >>>>>>> 7f52ac8ca7d33e5afdb8da0d5f0e3253a17f2f3f
+=======
+>>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
                 </ul>
             </li>
 
@@ -278,6 +310,7 @@
                 <li><a href="{{ url('monsi/tabel-mhs') }}"><i class="fa fa-circle-o"></i> Admin TU</a></li>
                 <li><a href="{{ url('monsi/tabel-mhs2') }}"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
               </ul>
+<<<<<<< HEAD
             </li>
 
              <li>
@@ -292,6 +325,22 @@
               </ul>
             </li>
 
+=======
+            </li>
+
+             <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Bimbingan Proposal - Skripsi
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('monsi/upload-bimbingan') }}"><i class="fa fa-circle-o"></i> Dosen</a></li>
+                <li><a href="{{ url('monsi/view-bimbingan') }}"><i class="fa fa-circle-o"></i> Mahasiswa</a></li>
+              </ul>
+            </li>
+
+>>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
             <li>
               <a href="#"><i class="fa fa-circle-o"></i> Sidang Proposal - Skripsi
                 <span class="pull-right-container">
