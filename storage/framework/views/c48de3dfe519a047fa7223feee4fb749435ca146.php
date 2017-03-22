@@ -9,6 +9,27 @@
 
     
     <link href="<?php echo e(asset('/css/all.css')); ?>" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+
+     <link rel="stylesheet" href="<?php echo e(asset('/plugins/datepicker3.css')); ?>">
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset ('/css/custom.css')); ?>">
+    <link href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo e(asset('/css/jquery-ui.css')); ?>" rel="stylesheet">
+
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
