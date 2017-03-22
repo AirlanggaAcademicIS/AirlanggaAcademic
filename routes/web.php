@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 
 
+
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('notulensi/notulensi/ViewDaftarHasil', function () {
     return view('notulensi.notulensi.ViewDaftarHasil');
@@ -933,7 +935,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     });
     
+
 }); 
+
 
 
 
