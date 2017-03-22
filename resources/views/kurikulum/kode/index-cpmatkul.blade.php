@@ -6,15 +6,15 @@
 @endsection
 
 @section('htmlheader_title')
-Fitur 
+Capaian Mata Kuliah 
 @endsection
 
 @section('contentheader_title')
-Fitur
+Capaian Mata Kuliah
 @endsection
 
 @section('main-content')
-	@include('kurikulum.kode.content')
+	@include('kurikulum.kode.content-cpmatkul')
 @endsection
 
 @section('code-footer')

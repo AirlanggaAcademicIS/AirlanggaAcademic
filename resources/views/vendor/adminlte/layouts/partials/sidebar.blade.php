@@ -33,7 +33,6 @@
         <ul class="sidebar-menu">
             <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
             <!-- Optionally, you can add icons to the links -->
-
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
 
             <!-- Sidebar Modul Kurikulum -->
@@ -46,8 +45,8 @@
                     <li><a href="#">Capaian Program</a></li>
                     <li><a href="#">Capaian Pembelajaran</a></li>
                     <li><a href="#">E-Learning</a></li>
-                    <li><a href="#">Manage Kode CP Mata Kuliah</a></li>
-                    <li><a href="#">Manage Kode CP Prodi</a></li>
+                    <li><a href="{{ url('kurikulum/kode/cpmatkul') }}">Manage Kode CP Mata Kuliah</a></li>
+                    <li><a href="{{ url('kurikulum/kode/cplprodi') }}">Manage Kode CP Prodi</a></li>
                     <li><a href="#">Manage Mata Kuliah</a></li>
                 </ul>
             </li>
@@ -134,8 +133,8 @@
                     <li><a href="{{url('/krs-khs/input_jadwal')}}">input jadwal</a></li>
                     <li><a href="{{url('/krs-khs/input_ruang')}}">input ruang kelas</a></li>
                     <li><a href="{{url('/krs-khs/input_nilai')}}">input nilai</a></li>
-                    <li><a href="{{url('/approve1')}}">Approve KRS</a></li>
-                    <li><a href="{{url('/buka')}}">Buka KRS</a></li>
+                    <li><a href="{{url('/krs-khs/approve1')}}">Approve KRS</a></li>
+                    <li><a href="{{url('/krs-khs/buka')}}">Buka KRS</a></li>
                     <li><a href="{{ url('krs-khs/form_khs') }}">KHS</a></li>
                     <li><a href="{{ url('krs-khs/histori_nilai') }}">Histori Nilai</a></li>
                     <li><a href="{{url('/krs-khs/krs')}}">Kartu Rencana Studi</a></li>
@@ -148,6 +147,11 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Pengelolaan Kegiatan</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
+                    <li><a href="{{url('/kegiatan/viewlpj')}}">Berita Acara</a></li>
+                    <li><a href="{{url('/kegiatan/adminview')}}">Admin Berita Acara</a></li>
+                    <li><a href="{{url('/kegiatan/inputkalender')}}">Input Kalender</a></li>
+                     <li><a href="{{url('/kegiatan/kalender')}}">Kalender Kegiatan</a></li>
+                    <li><a href="{{ url('kegiatan/input_lpj') }}">Input Laporan Kegiatan</a></li>
                     <li><a href="{{url('/kegiatan/publikasi')}}">Publikasi</a></li>
                 <li><a href="{{url('/kegiatan/pengajuan_kegiatan')}}">Pengajuan Kegiatan</a></li>
                 <li><a href="{{url('/kegiatan/admin')}}">Admin Kegiatan</a></li>
@@ -163,15 +167,9 @@
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
                     <li><a href="{{url('pla/permohonan_ruang')}}">Konfirmasi Ruangan</a></li>
-                  
-
-                    <li><a href="#">Fitur</a></li>
                     <li><a href="{{url('/pla/konfirmasiproposal')}}">Konfirmasi Proposal</a></li>
                     <li><a href="{{url('/pla/konfirmasiskripsi')}}">Konfirmasi Skripsi</a></li>
-
-
                     <li><a href="{{ url('pla/permohonansurat') }}">Surat Menyurat</a></li>
-
                     <li>
                       <a href="#"><i class="fa fa-circle-o"></i>Permohonan Ruangan
                         <span class="pull-right-container">
@@ -207,8 +205,6 @@
                         <li><a href="#"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
                       </ul>
                     </li>
-
-
                 </ul>
             </li>
 
@@ -229,6 +225,11 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Notulen</span>
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
+                <li><a href="#">Undangan</a></li>
+                <li><a href="#">Kehadiran</a></li>
+                <li><a href="{{ url('notulensi/notulensi/ViewDaftarHasil') }}">Notulensi TU </a></li>
+                <li><a href="#">Kalender</a></li>
+
                     <!-- Tulis disini fiturnya -->
                     <li><a href="{{ url('notulensi/daftarnotulensi') }}">Notulensi Rapat</a></li>
                     <li><a href="{{ url('notulensi/formnotulensi') }}">Form Notulensi</a></li>
