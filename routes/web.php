@@ -104,7 +104,7 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
-<<<<<<< HEAD
+
   Route::get('/krs-khs/krs', function () {
     return view('krs-khs.krs');
 
@@ -118,7 +118,7 @@ Route::get('/mahasiswa/tabel_berhasil', function () {
 });
 });
  
-=======
+
 
         Route::get('/kurikulum/contoh', function () {
     return view('kurikulum.contoh');
@@ -956,4 +956,3 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
->>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
