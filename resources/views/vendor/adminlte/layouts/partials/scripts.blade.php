@@ -38,7 +38,6 @@
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 
-
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
       Both of these plugins are recommended to enhance 
       user experience. Slimscroll is required when using thethe
@@ -53,7 +52,6 @@
     window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
     ]) !!};
-
 </script>
 <!-- <script>
 	$(function () {

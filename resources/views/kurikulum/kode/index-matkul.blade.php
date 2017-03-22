@@ -6,19 +6,15 @@
 @endsection
 
 @section('htmlheader_title')
-<!-- Nama konten -->
-Rencana Pembelajaran Semester 
+Mata Kuliah
 @endsection
 
 @section('contentheader_title')
-<!-- Nama konten -->
-Rencana Pembelajaran Semester
+Mata Kuliah
 @endsection
 
 @section('main-content')
-<!-- Kodingan HTML ditaruh di sini -->
-@include('kurikulum.rps.content')
-
+	@include('kurikulum.kode.content-matkul')
 @endsection
 
 @section('code-footer')
