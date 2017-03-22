@@ -17,7 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
 
 
 Route::group(['middleware' => 'auth'], function () {
@@ -909,6 +908,5 @@ Route::group(['middleware' => ['auth']], function () {
 
     });
     
-}); 
->>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
+});
 
