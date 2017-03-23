@@ -76,18 +76,6 @@ Route::group(['middleware' => ['auth']], function () {
             return view('krs-khs.mk');
         });
 
-
-
-
-
-    Route::get('/pla/peringatansurat', function () {
-    return view('pla.peringatansurat
-    	');
-});
-    Route::get('/pla/formsuratmasuk', function () {
-    return view('pla.formsuratmasuk
-    	');
-});
     });
 
 
@@ -539,6 +527,12 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('permohonan_ruangan_admin', function () {
                 return view('pla.permohonan_ruangan_admin');
             });
+            Route::get('/pla/peringatansurat', function () {
+    return view('pla.peringatansurat
+        ');
+});
+    
+});
 
         });
 
