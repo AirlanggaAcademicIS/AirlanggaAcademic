@@ -41,25 +41,6 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Kurikulum</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-<<<<<<< HEAD
-                    <li><a href="#">RPS</a></li>
-<<<<<<< HEAD
-                    <li><a href="#">Mata Kuliah</a></li>
-=======
-                    <li><a href="#">Silabus</a></li>
-                    <li><a href="#">Capaian Program</a></li>
-                    <li><a href="#">Capaian Pembelajaran</a></li>
-                    <li><a href="#">E-Learning</a></li>
-<<<<<<< HEAD
-                    <li><a href="#">Manage Kode CP Mata Kuliah</a></li>
-                    <li><a href="#">Manage Kode CP Prodi</a></li>
-=======
-                    <li><a href="<?php echo e(url('kurikulum/kode/cpmatkul')); ?>">Manage Kode CP Mata Kuliah</a></li>
-                    <li><a href="<?php echo e(url('kurikulum/kode/cplprodi')); ?>">Manage Kode CP Prodi</a></li>
->>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
-                    <li><a href="#">Manage Mata Kuliah</a></li>
->>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
-=======
 
                     <li><a href="<?php echo e(url('kurikulum/rps')); ?>">RPS</a></li>
                     <li><a href="<?php echo e(url('kurikulum/silabus')); ?>">Silabus</a></li>
@@ -70,7 +51,6 @@
                     <li><a href="<?php echo e(url('kurikulum/kode/cplprodi')); ?>">Manage Kode CP Prodi</a></li>
                     <li><a href="<?php echo e(url('kurikulum/kode/matkul')); ?>">Manage Mata Kuliah</a></li>
 
->>>>>>> b33be47886353ecbfd9beef510f85a44610c93f3
                 </ul>
             </li>
             <!-- Sidebar Modul Dosen -->
@@ -78,26 +58,13 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Dosen</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                    <li><a href="<?php echo e(url('/dosen/penelitian')); ?>">Biodata</a></li>
-                    <li><a href="#">Penelitian</a></li>
->>>>>>> 2c1eedec33a56715f523b130714d4dac1d9f56d7
-=======
-=======
->>>>>>> b33be47886353ecbfd9beef510f85a44610c93f3
 
                     <li><a href="<?php echo e(url('/dosen/laporan/laporan')); ?>">Laporan Kinerja Dosen</a></l
->>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
         
                     <li><a href="<?php echo e(url('/dosen/pengmas/pengmas')); ?>">Pengabdian Masyarakat</a></li>
                     <li><a href="<?php echo e(url('/dosen/konferensi/konferensi')); ?>">Konferensi</a></li>
                     <li><a href="<?php echo e(url('/dosen/penelitian/penelitian')); ?>">Penelitian</a></li>                 
                <li><a href="<?php echo e(url('/dosen/jurnal/')); ?>">Jurnal</a></li>                    
-<<<<<<< HEAD
-=======
 
                 </ul>
             </li>
@@ -106,16 +73,6 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Mahasiswa</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    <li><a href="<?php echo e(url('mahasiswa/jadwal_sidang_proposal_mhs')); ?>">Sidang Proposal</a></li>
-=======
-                    <li><a href="#">Fitur</a></li>
->>>>>>> 2c1eedec33a56715f523b130714d4dac1d9f56d7
-=======
-=======
->>>>>>> b33be47886353ecbfd9beef510f85a44610c93f3
                     <li><a href="<?php echo e(url('/mahasiswa/input/')); ?>">Input Biodata</a></li>
                     <li><a href="<?php echo e(url('/mahasiswa/view/')); ?>">View Biodata</a></li>
                     <li><a href="<?php echo e(url('/karyawan')); ?>">Karyawan</a></li>
@@ -171,54 +128,26 @@
                 <a href="#"><i class='fa fa-link'></i> <span>KRS & KHS</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-<<<<<<< HEAD
-                    <li><a href="#">KRS</a></li>
-                    <li><a href="<?php echo e(url('/krs-khs/nilai')); ?>">Nilai</a></li>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                    <li><a href="#">Fitur</a></li>
->>>>>>> 2c1eedec33a56715f523b130714d4dac1d9f56d7
-=======
-<<<<<<< HEAD
                     <li><a href="<?php echo e(url('/krs-khs/nilai')); ?>">Nilai</a></li>
                     <li><a href="#">KRS</a></li>
                     <li><a href="#">KHS</a></li>
-=======
->>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
->>>>>>> 1975a799522fedadac2317edbcd3323abc218390
+
                     <li><a href="<?php echo e(url('/krs-khs/mk')); ?>">Mata Kuliah</a></li>
                     <li><a href="<?php echo e(url('/krs-khs/dosen_mk')); ?>">MK Diajar</a></li>
                     <li><a href="<?php echo e(url('/krs-khs/input_jadwal')); ?>">input jadwal</a></li>
                     <li><a href="<?php echo e(url('/krs-khs/input_ruang')); ?>">input ruang kelas</a></li>
-<<<<<<< HEAD
                     <li><a href="<?php echo e(url('/krs-khs/input_nilai')); ?>">input nilai</a></li>
-                    <li><a href="<?php echo e(url('/approve1')); ?>">Approve KRS</a></li>
-                    <li><a href="<?php echo e(url('/buka')); ?>">Buka KRS</a></li>
-                    <li><a href="<?php echo e(url('/krs-khs/approve1')); ?>">Approve KRS</a></li>
-                    <li><a href="<?php echo e(url('/krs-khs/buka')); ?>">Buka KRS</a></li>
-                    <li><a href="<?php echo e(url('krs-khs/form_khs')); ?>">KHS</a></li>
-                    <li><a href="<?php echo e(url('krs-khs/histori_nilai')); ?>">Histori Nilai</a></li>
-                    <li><a href="<?php echo e(url('/krs-khs/krs')); ?>">Kartu Rencana Studi</a></li>
-=======
-<<<<<<< HEAD
-
-=======
-                    <li><a href="<?php echo e(url('/krs-khs/input_nilai')); ?>">input nilai</a></li>
->>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
                     <li><a href="<?php echo e(url('/approve1')); ?>">Approve KRS</a></li>
                     <li><a href="<?php echo e(url('/buka')); ?>">Buka KRS</a></li>
                     <li><a href="<?php echo e(url('krs-khs/form_khs')); ?>">KHS</a></li>
                     <li><a href="<?php echo e(url('krs-khs/histori_nilai')); ?>">Histori Nilai</a></li>
                     <li><a href="<?php echo e(url('/krs-khs/krs')); ?>">Kartu Rencana Studi</a></li>
                     <li><a href="#">Fitur</a></li>
-<<<<<<< HEAD
-=======
->>>>>>> a9d03f52c70ddadc5c71b33fec90f9c43fe34791
->>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
-=======
+
+
+
+
+
                     <li><a href="<?php echo e(url('krs-khs/krs')); ?>">KRS</a>
                         <ul class="treeview-menu">
                             <li><a href="<?php echo e(url('krs-khs/krs')); ?>">Lihat KRS</a></li>
@@ -242,8 +171,7 @@
                     <li><a href="<?php echo e(url('krs-khs/krs')); ?>">Perwalian</a></li>
                     <li><a href="<?php echo e(url('krs-khs/penjadwalan')); ?>">Penjadwalan</a>
                     </li>
->>>>>>> b33be47886353ecbfd9beef510f85a44610c93f3
->>>>>>> 1975a799522fedadac2317edbcd3323abc218390
+
                 </ul>
             </li>
 
@@ -252,48 +180,23 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Pengelolaan Kegiatan</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-<<<<<<< HEAD
-            <li><a href="<?php echo e(url('/kegiatan/inputkalender')); ?>">Input Kalender</a></li>
+                    <li><a href="<?php echo e(url('/kegiatan/inputkalender')); ?>">Input Kalender</a></li>
                      <li><a href="<?php echo e(url('/kegiatan/kalender')); ?>">Kalender Kegiatan</a></li>
 
                     <li><a href="<?php echo e(url('kegiatan/input_lpj')); ?>">Input Laporan Kegiatan</a></li>
+
+
                     <li><a href="<?php echo e(url('/kegiatan/viewlpj')); ?>">Berita Acara</a></li>
                     <li><a href="<?php echo e(url('/kegiatan/adminview')); ?>">Admin Berita Acara</a></li>
-                    <li><a href="<?php echo e(url('/kegiatan/inputkalender')); ?>">Input Kalender</a></li>
-                    <li><a href="<?php echo e(url('/kegiatan/kalender')); ?>">Kalender Kegiatan</a></li>
-                    <li><a href="<?php echo e(url('/kegiatan/input_lpj')); ?>">Input Laporan Kegiatan</a></li>
-                    <li><a href="<?php echo e(url('/kegiatan/viewlpj')); ?>">Berita Acara</a></li>
-                    <li><a href="<?php echo e(url('/kegiatan/adminview')); ?>">Admin 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    <li><a href="#">Fitur</a></li>
-=======
-                    <li><a href="<?php echo e(url('/kegiatan/viewlpj')); ?>">Berita Acara</a></li>
-                    <li><a href="<?php echo e(url('/kegiatan/adminview')); ?>">Admin Berita Acara</a></li>
->>>>>>> 2c1eedec33a56715f523b130714d4dac1d9f56d7
-=======
-<<<<<<< HEAD
                     <li><a href="<?php echo e(url('/kegiatan/inputkalender')); ?>">Input Kalender</a></li>
                      <li><a href="<?php echo e(url('/kegiatan/kalender')); ?>">Kalender Kegiatan</a></li>
-=======
-<<<<<<< HEAD
                     <li><a href="<?php echo e(url('kegiatan/input_lpj')); ?>">Input Laporan Kegiatan</a></li>
-=======
-=======
-                    <li><a href="<?php echo e(url('/kegiatan/inputkalender')); ?>">Input Kalender</a></li>
-                    <li><a href="<?php echo e(url('/kegiatan/kalender')); ?>">Kalender Kegiatan</a></li>
-                    <li><a href="<?php echo e(url('/kegiatan/input_lpj')); ?>">Input Laporan Kegiatan</a></li>
-                    <li><a href="<?php echo e(url('/kegiatan/viewlpj')); ?>">Berita Acara</a></li>
-                    <li><a href="<?php echo e(url('/kegiatan/adminview')); ?>">Admin Berita Acara</a></li>
->>>>>>> b33be47886353ecbfd9beef510f85a44610c93f3
->>>>>>> 1975a799522fedadac2317edbcd3323abc218390
+
                     <li><a href="<?php echo e(url('/kegiatan/publikasi')); ?>">Publikasi</a></li>
-                    <li><a href="<?php echo e(url('/kegiatan/pengajuan_kegiatan')); ?>">Pengajuan Kegiatan</a></li>
-                    <li><a href="<?php echo e(url('/kegiatan/admin')); ?>">Admin Kegiatan</a></li>
-                    <li><a href="<?php echo e(url('/kegiatan/dokumentasi')); ?>">Dokumentasi</a></li>
-                    <li><a href="<?php echo e(url('/kegiatan/input')); ?>">Input TU</a></li>
+                <li><a href="<?php echo e(url('/kegiatan/pengajuan_kegiatan')); ?>">Pengajuan Kegiatan</a></li>
+                <li><a href="<?php echo e(url('/kegiatan/admin')); ?>">Admin Kegiatan</a></li>
+                    <li><a href="<?php echo e(url('kegiatan/dokumentasi')); ?>">Dokumentasi</a></li>
+                    <li><a href="<?php echo e(url('kegiatan/input')); ?>">Input TU</a></li>
                 </ul>
             </li>
 
@@ -303,43 +206,34 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-<<<<<<< HEAD
-                    <li><a href="<?php echo e(url('pla/permohonansurat')); ?>">Surat Menyurat</a></li>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-                    
 
-=======
-                    <li><a href="#">Fitur</a></li>
->>>>>>> 2c1eedec33a56715f523b130714d4dac1d9f56d7
-=======
-<<<<<<< HEAD
                     <li><a href="#">Fitur</a></li>                    
-=======
-<<<<<<< HEAD
-=======
+
+                    <li><a href="<?php echo e(url('pla/permohonan_ruang')); ?>">Konfirmasi Ruangan</a></li>
+                  
+
+                    <li><a href="#">Fitur</a></li>
+                    <li><a href="<?php echo e(url('/pla/konfirmasiproposal')); ?>">Konfirmasi Proposal</a></li>
+                    <li><a href="<?php echo e(url('/pla/konfirmasiskripsi')); ?>">Konfirmasi Skripsi</a></li>
+
+
                     <li><a href="<?php echo e(url('pla/permohonansurat')); ?>">Surat Menyurat</a></li>
->>>>>>> b33be47886353ecbfd9beef510f85a44610c93f3
->>>>>>> 1975a799522fedadac2317edbcd3323abc218390
+
+
+
+                    <li><a href="<?php echo e(url('pla/permohonansurat')); ?>">Surat Menyurat</a></li>
+
                     <li><a href="<?php echo e(url('pla/permohonan_ruang')); ?>">Konfirmasi Ruangan</a></li>
                     <li><a href="<?php echo e(url('/pla/konfirmasiproposal')); ?>">Konfirmasi Proposal</a></li>
                     <li><a href="<?php echo e(url('/pla/konfirmasiskripsi')); ?>">Konfirmasi Skripsi</a></li>
                     <li><a href="<?php echo e(url('pla/permohonansurat')); ?>">Surat Menyurat</a></li>
-<<<<<<< HEAD
-                    <li><a href="#"><i class="fa fa-circle-o"></i>Permohonan Ruangan</a></li>
-=======
-<<<<<<< HEAD
->>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
 
                     <li>
                       <a href="#"><i class="fa fa-circle-o"></i>Permohonan Ruangan
-=======
+
                     <li><a href="#"><i class="fa fa-circle-o"></i>Permohonan Ruangan</a></li>
->>>>>>> b33be47886353ecbfd9beef510f85a44610c93f3
->>>>>>> 1975a799522fedadac2317edbcd3323abc218390
+
                         <span class="pull-right-container">
                           <i class="fa fa-angle-left pull-right"></i>
                         </span>
@@ -357,7 +251,8 @@
                         </span>
                       </a>
                       <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Admin TU</a></li>
+                        <li><a href="<?php echo e(url('/pla/konfirmasiproposal')); ?>"><i class="fa fa-circle-o"></i>Proposa; (Admin TU)</a></li>
+                        <li><a href="<?php echo e(url('/pla/konfirmasiskripsi')); ?>"><i class="fa fa-circle-o"></i>Skripsi (Admin TU)</a></li>
                         <li><a href="#"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
                       </ul>
                     </li>
@@ -369,31 +264,16 @@
                         </span>
                       </a>
                       <ul class="treeview-menu">
-<<<<<<< HEAD
                         <li><a href="<?php echo e(url('pla/peringatansurat')); ?>"><i class="fa fa-circle-o"></i> Admin TU</a></li>
                         <li><a href="<?php echo e(url('pla/permohonansurat')); ?>"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
-=======
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Admin TU</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
->>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
                       </ul>
                     </li>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> a9d03f52c70ddadc5c71b33fec90f9c43fe34791
->>>>>>> ea460daeeda422e18a31366bb8d01a7a2df359fd
->>>>>>> 7f52ac8ca7d33e5afdb8da0d5f0e3253a17f2f3f
->>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
-=======
->>>>>>> b33be47886353ecbfd9beef510f85a44610c93f3
->>>>>>> 1975a799522fedadac2317edbcd3323abc218390
+
+
                 </ul>
             </li>
 

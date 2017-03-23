@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
     /*
     |--------------------------------------------------------------------------
@@ -10,8 +9,8 @@
     | contains the "web" middleware group. Now create something great!
     |
     */
-=======
-    <?php
+
+    
 
 /*
 |--------------------------------------------------------------------------
@@ -32,51 +31,6 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth']], function () {
 
-    // Modul Mahasiswa
-    Route::group(['prefix' => 'mahasiswa'], function() {
-    // Url nya taruh disini
-        Route::get('penelitian', function () {
-            return view('mahasiswa.penelitian');
-        });
-
-        Route::get('input_penelitian', function () {
-            return view('mahasiswa.input_penelitian');
-        });
-
-        Route::get('edit_penelitian', function () {
-            return view('mahasiswa.edit_penelitian');
-        });
-
-        Route::get('prestasi', function () {
-            return view('mahasiswa.tabel');
-        });
-
-        Route::get('input_prestasi', function () {
-            return view('mahasiswa.input_prestasi');
-        });
-
-        Route::get('edit_prestasi', function () {
-            return view('mahasiswa.edit_prestasi');
-        });
-
-        Route::get('tabel_berhasil', function () {
-            return view('mahasiswa.tabel_berhasil');
-        });
-
-        Route::get('ubah-pass', function () {
-            return view('mahasiswa.ubah_pass_mhs');
-        });
-
-    });
->>>>>>> 1975a799522fedadac2317edbcd3323abc218390
-
-	Route::get('/approve1', function () {
-    return view('krs-khs/approve1');
-    });
-	Route::get('/buka', function () {
-    return view('krs-khs/buka');
-
-<<<<<<< HEAD
     
 Route::group(['middleware' => ['auth']], function () {
 
@@ -138,15 +92,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('approve', function () {
             return view('krs-khs.approve');
         });
-=======
-
-    });
-
-
-});
-
-
-
+ });
     // Modul KRS & KHS
     Route::group(['prefix' => 'krs-khs'], function() {
         Route::get('dosen', function () {
@@ -218,7 +164,6 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('krs', function () {
         return view('krs-khs.lihat_krs');
->>>>>>> 1975a799522fedadac2317edbcd3323abc218390
         });
 
         Route::get('krs/pilih', function () {
@@ -611,11 +556,6 @@ Route::group(['middleware' => ['auth']], function () {
 });
     
 });
-
-        });
-
-
-
     Route::get('index-peminjaman', 'PeminjamanController@index');
     Route::get('index-maintenance', 'MaintenanceController@index');
 
@@ -827,36 +767,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
             Route::get('index-peminjaman', 'PeminjamanController@index');
             Route::get('view-peminjaman', 'PeminjamanController@viewDetail');
-<<<<<<< HEAD
         }); 
     });
-=======
-
-        });
-        
-    }); 
 
 
-
-    Route::get('/mahasiswa/input/', function () {
-    return view('mahasiswa.input_biodata');
-});
-    Route::get('/mahasiswa/edit/', function () {
-    return view('mahasiswa.edit_biodata');
-});
-   Route::get('/mahasiswa/view/', function () {
-    return view('mahasiswa.view_biodata');
-
-}); 
-
-
-});
-
-
-});
-   });
-
-
-    
-
->>>>>>> 1975a799522fedadac2317edbcd3323abc218390
