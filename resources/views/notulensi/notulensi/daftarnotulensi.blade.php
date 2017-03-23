@@ -71,8 +71,8 @@ Notulensi Rapat
         <td>Senin 20 Maret 2017 08:00</td>
         <td>102</td>
         <td><span class="label label-success">Pending</span></td>
-        <td></a><button type="button" class="btn btn-info btn-xs pull" data-toggle="modal" data-target="#myModal">Konfirmasi</button>
-        <div id="myModal" class="modal fade" role="dialog">
+        <td></a><button type="button" class="btn btn-info btn-xs pull" data-toggle="modal" data-target="#myModal1">Konfirmasi</button>
+        <div id="myModal1" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- konten modal-->
       <div class="modal-content">
@@ -106,7 +106,7 @@ Notulensi Rapat
         <!-- heading modal -->
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Hasil Rapat</h4>
+          <h4 class="modal-title">Lihat Hasil</h4>
         </div>
         <!-- body modal -->
         <div class="modal-body">

@@ -9,18 +9,7 @@
 
     
     <link href="{{ asset('/css/all.css') }}" rel="stylesheet" type="text/css" />
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
->>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
-=======
->>>>>>> 74e4d8ab04030c58127ba02ffd05e7c92a7644cc
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">

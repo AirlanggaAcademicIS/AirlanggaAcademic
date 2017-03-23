@@ -33,18 +33,7 @@
         <ul class="sidebar-menu">
             <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
             <!-- Optionally, you can add icons to the links -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
             <li class="active"><a href="{{ url('kurikulum/contoh') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
->>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
-=======
->>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
-=======
-
->>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
 
             <!-- Sidebar Modul Kurikulum -->
@@ -139,33 +128,8 @@
                 <a href="#"><i class='fa fa-link'></i> <span>KRS & KHS</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                    <li><a href="{{url('/krs-khs/nilai')}}">Nilai</a></li>
                     <li><a href="#">KRS</a></li>
-                    <li><a href="#">KHS</a></li>
->>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
-=======
-                    <li><a href="{{ url('krs-khs/krs') }}">Krs</a></li>
-                  
->>>>>>> 09bb1b2dc18bb0d46311b92d85a83a012ab0068d
-=======
-
                     <li><a href="{{url('/krs-khs/nilai')}}">Nilai</a></li>
-                    <li><a href="#">KRS</a></li>
-                    <li><a href="#">KHS</a></li>
-
-                    <li><a href="{{url('/krs-khs/nilai')}}">Nilai</a></li>
-                    <li><a href="#">KRS</a></li>
-                    <li><a href="#">KHS</a></li>
-
->>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
-=======
-                    <li><a href="{{url('/krs-khs/nilai')}}">Nilai</a></li>
->>>>>>> 74e4d8ab04030c58127ba02ffd05e7c92a7644cc
                     <li><a href="{{url('/krs-khs/mk')}}">Mata Kuliah</a></li>
                     <li><a href="{{url('/krs-khs/dosen_mk')}}">MK Diajar</a></li>
                     <li><a href="{{url('/krs-khs/input_jadwal')}}">input jadwal</a></li>
@@ -178,17 +142,6 @@
                     <li><a href="{{ url('krs-khs/form_khs') }}">KHS</a></li>
                     <li><a href="{{ url('krs-khs/histori_nilai') }}">Histori Nilai</a></li>
                     <li><a href="{{url('/krs-khs/krs')}}">Kartu Rencana Studi</a></li>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                    <li><a href="#">Fitur</a></li>
-<<<<<<< HEAD
->>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
-=======
-
->>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
-=======
->>>>>>> 74e4d8ab04030c58127ba02ffd05e7c92a7644cc
                 </ul>
             </li>
 
@@ -197,32 +150,17 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Pengelolaan Kegiatan</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-
-                    <li><a href="{{url('/kegiatan/inputkalender')}}">Input Kalender</a></li>
+            <li><a href="{{url('/kegiatan/inputkalender')}}">Input Kalender</a></li>
                      <li><a href="{{url('/kegiatan/kalender')}}">Kalender Kegiatan</a></li>
 
                     <li><a href="{{ url('kegiatan/input_lpj') }}">Input Laporan Kegiatan</a></li>
-
->>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
                     <li><a href="{{url('/kegiatan/viewlpj')}}">Berita Acara</a></li>
                     <li><a href="{{url('/kegiatan/adminview')}}">Admin Berita Acara</a></li>
->>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
-                    <li><a href="{{url('/kegiatan/inputkalender')}}">Input Kalender</a></li>
-                     <li><a href="{{url('/kegiatan/kalender')}}">Kalender Kegiatan</a></li>
-                    <li><a href="{{ url('kegiatan/input_lpj') }}">Input Laporan Kegiatan</a></li>
-
-=======
                     <li><a href="{{url('/kegiatan/inputkalender')}}">Input Kalender</a></li>
                     <li><a href="{{url('/kegiatan/kalender')}}">Kalender Kegiatan</a></li>
                     <li><a href="{{ url('/kegiatan/input_lpj') }}">Input Laporan Kegiatan</a></li>
                     <li><a href="{{url('/kegiatan/viewlpj')}}">Berita Acara</a></li>
-                    <li><a href="{{url('/kegiatan/adminview')}}">Admin Berita Acara</a></li>
->>>>>>> 74e4d8ab04030c58127ba02ffd05e7c92a7644cc
+                    <li><a href="{{url('/kegiatan/adminview')}}">Admin 
                     <li><a href="{{url('/kegiatan/publikasi')}}">Publikasi</a></li>
                     <li><a href="{{url('/kegiatan/pengajuan_kegiatan')}}">Pengajuan Kegiatan</a></li>
                     <li><a href="{{url('/kegiatan/admin')}}">Admin Kegiatan</a></li>
@@ -241,22 +179,8 @@
                     <li><a href="{{url('pla/permohonan_ruang')}}">Konfirmasi Ruangan</a></li>
                     <li><a href="{{url('/pla/konfirmasiproposal')}}">Konfirmasi Proposal</a></li>
                     <li><a href="{{url('/pla/konfirmasiskripsi')}}">Konfirmasi Skripsi</a></li>
-<<<<<<< HEAD
-                    <li><a href="{{ url('pla/permohonansurat') }}">Surat Menyurat</a></li>z
-
-=======
                     <li><a href="{{ url('pla/permohonansurat') }}">Surat Menyurat</a></li>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
-=======
-
->>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
-                    <li>
-                      <a href="#"><i class="fa fa-circle-o"></i>Permohonan Ruangan
-=======
                     <li><a href="#"><i class="fa fa-circle-o"></i>Permohonan Ruangan</a></li>
->>>>>>> 74e4d8ab04030c58127ba02ffd05e7c92a7644cc
                         <span class="pull-right-container">
                           <i class="fa fa-angle-left pull-right"></i>
                         </span>
@@ -317,11 +241,11 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i>TU</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i>Dosen</a></li>
+                <li><a href="{{url('notulensi/undangan/daftarRapat')}}"><i class="fa fa-circle-o"></i>TU</a></li>
+                <li><a href="{{url('notulensi/undangan/undanganDosen')}}"><i class="fa fa-circle-o"></i>Dosen</a></li>
               </ul>
                 <li>
-              <a href="/notulensi/kehadiranRapat"><i class="fa fa-circle-o"></i> Kehadiran Rapat
+              <a href="{{url('notulensi/kehadiranRapat')}}"><i class="fa fa-circle-o"></i> Kehadiran Rapat
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
@@ -334,8 +258,8 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i>TU</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i>Dosen</a></li>
+                <li><a href="/notulensi/ViewDaftarHasil"><i class="fa fa-circle-o"></i>TU</a></li>
+                <li><a href="/notulensi/daftarnotulensi"><i class="fa fa-circle-o"></i>Dosen</a></li>
               </ul>
             </li>
                 <li>
@@ -365,11 +289,6 @@
                 <li><a href="{{ url('monsi/tabel-mhs') }}"><i class="fa fa-circle-o"></i> Admin TU</a></li>
                 <li><a href="{{ url('monsi/tabel-mhs2') }}"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
               </ul>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
             </li>
 
              <li>
@@ -383,12 +302,6 @@
                 <li><a href="{{ url('monsi/view-bimbingan') }}"><i class="fa fa-circle-o"></i> Mahasiswa</a></li>
               </ul>
             </li>
-
-<<<<<<< HEAD
-=======
-=======
-
->>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
             </li>
 
              <li>
@@ -402,12 +315,6 @@
                 <li><a href="{{ url('monsi/view-bimbingan') }}"><i class="fa fa-circle-o"></i> Mahasiswa</a></li>
               </ul>
             </li>
-
-<<<<<<< HEAD
->>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
-=======
-
->>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
             <li>
               <a href="#"><i class="fa fa-circle-o"></i> Sidang Proposal - Skripsi
                 <span class="pull-right-container">

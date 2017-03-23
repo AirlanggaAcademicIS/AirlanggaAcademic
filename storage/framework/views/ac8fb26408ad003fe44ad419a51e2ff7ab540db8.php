@@ -1,19 +1,17 @@
-@extends('adminlte::layouts.app')
-
-@section('code-header')
+<?php $__env->startSection('code-header'); ?>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('htmlheader_title')
+<?php $__env->startSection('htmlheader_title'); ?>
 Fitur 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('contentheader_title')
+<?php $__env->startSection('contentheader_title'); ?>
 DAFTAR RAPAT
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('main-content')
+<?php $__env->startSection('main-content'); ?>
 
 <!-- /.box-header -->
             <div class="margin"><tr>
@@ -74,7 +72,7 @@ DAFTAR RAPAT
                   <td>Rapat Koordinasi I</td>
                   <td>Selasa, 21 Maret 2017 - 12.15 WIB</td>
                   <td>Ruang 102</td>
-                  <td><a href="{{ url('notulensi/undangan/formUndangan') }}" class="btn btn-primary btn-md"> Undang </a></td>
+                  <td><a href="<?php echo e(url('notulensi/undangan/formUndangan')); ?>" class="btn btn-primary btn-md"> Undang </a></td>
                 </tr>
 
                 <tr>
@@ -82,22 +80,23 @@ DAFTAR RAPAT
                   <td>Rapat Koordinasi II</td>
                   <td>Kamis, 23 Maret 2017 - 08.00 WIB</td>
                   <td>Ruang 102</td>
-                  <td><a href="{{ url('notulensi/undangan/formUndangan') }}" class="btn btn-primary btn-md"> Undang </a></td>
+                  <td><a href="<?php echo e(url('notulensi/undangan/formUndangan')); ?>" class="btn btn-primary btn-md"> Undang </a></td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>Rapat Audiensi</td>
                   <td>Selasa, 4 April 2017 - 10.15 WIB</td>
                   <td>Ruang Labkom 5</td>
-                  <td><a href="{{ url('notulensi/undangan/formUndangan') }}" class="btn btn-primary btn-md"> Undang </a></td>
+                  <td><a href="<?php echo e(url('notulensi/undangan/formUndangan')); ?>" class="btn btn-primary btn-md"> Undang </a></td>
                 </tr>
               </table>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box --> 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('code-footer')
+<?php $__env->startSection('code-footer'); ?>
 	
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('adminlte::layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

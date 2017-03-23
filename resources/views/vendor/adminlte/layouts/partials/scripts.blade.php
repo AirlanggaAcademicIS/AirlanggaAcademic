@@ -74,10 +74,10 @@
       user experience. Slimscroll is required when using thethe
       fixed layout. -->
 <!-- <script>
-	// $(function () {
-	// 	alert("Haaa");
-	// });
-	window.alert("sometext");
+  // $(function () {
+  //  alert("Haaa");
+  // });
+  window.alert("sometext");
 </script> -->
 <script>
     window.Laravel = {!! json_encode([
@@ -86,35 +86,16 @@
 </script>
 
 <!-- <script>
-	$(function () {
-		$("#example2").DataTable();
-	});
+  $(function () {
+    $("#example2").DataTable();
+  });
 </script> -->
 
 <script type="text/javascript">
-	$(document).ready(function(){
-		$('.#example2').DataTable({
-			"ordering" : true
-		});	
-	});
+  $(document).ready(function(){
+    $('.#example2').DataTable({
+      "ordering" : true
+    }); 
+  });
 </script>
-<<<<<<< HEAD
-@yield('code-footer') 
-=======
-@yield('code-footer')
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
 @yield('code-footer')   
->>>>>>> 8862d013f7507c91c23a9472cbb9c55f0da908c1
->>>>>>> 9300dac77978c5b287756ac72a3aee7544989653
-<<<<<<< HEAD
->>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
-=======
->>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
-=======
->>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
->>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
-=======
->>>>>>> 74e4d8ab04030c58127ba02ffd05e7c92a7644cc

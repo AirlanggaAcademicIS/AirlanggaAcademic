@@ -1,49 +1,11 @@
-    <?php
-
-<<<<<<< HEAD
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group whichRoute::get('/', function () {
-    return view('welcome');
-});
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-
-<<<<<<< HEAD
-=======
-
-
-
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('notulensi/notulensi/ViewDaftarHasil', function () {
-    return view('notulensi.notulensi.ViewDaftarHasil');
-});
-    Route::group(['middleware' => 'auth'], function () {
-    Route::get('notulensi/notulensi/ViewEditNotulensi', function () {
-    return view('notulensi.notulensi.ViewEditNotulensi');
-});
-=======
+<?php
     /*
     |--------------------------------------------------------------------------
     | Web Routes
     |--------------------------------------------------------------------------
     |
     | Here is where you can register web routes for your application. These
-    | routes are loaded by the RouteServiceProvider within a group whichRoute::get('/', function () {
-        return view('welcome');
->>>>>>> 74e4d8ab04030c58127ba02ffd05e7c92a7644cc
-    });
+    | routes are loaded by the RouteServiceProvider within a group which
     | contains the "web" middleware group. Now create something great!
     |
     */
@@ -52,153 +14,7 @@ Route::group(['middleware' => 'auth'], function () {
         return view('welcome');
     });
 
-    Route::group(['middleware' => ['auth']], function () {
-
-        // Modul Mahasiswa
-        Route::group(['prefix' => 'mahasiswa'], function() {
-        // Url nya taruh disini
-            Route::get('penelitian', function () {
-                return view('mahasiswa.penelitian');
-            });
-
-            Route::get('input_penelitian', function () {
-                return view('mahasiswa.input_penelitian');
-            });
-
-            Route::get('edit_penelitian', function () {
-                return view('mahasiswa.edit_penelitian');
-            });
-
-            Route::get('prestasi', function () {
-                return view('mahasiswa.tabel');
-            });
-
-            Route::get('input_prestasi', function () {
-                return view('mahasiswa.input_prestasi');
-            });
-
-            Route::get('edit_prestasi', function () {
-                return view('mahasiswa.edit_prestasi');
-            });
-
-            Route::get('tabel_berhasil', function () {
-                return view('mahasiswa.tabel_berhasil');
-            });
-
-            Route::get('ubah-pass', function () {
-                return view('mahasiswa.ubah_pass_mhs');
-            });
-
-        });
-
-        // Modul KRS & KHS
-        Route::group(['prefix' => 'krs-khs'], function() {
-            Route::get('mk', function () {
-                return view('krs-khs.mk');
-            });
-
-            Route::get('mk/bobot', function () {
-                return view('krs-khs.bobot');
-            });
-
-            Route::get('mk/input_nilai', function () {
-                return view('krs-khs.input_nilai');
-            });
-
-            Route::get('dosen_mk', function () {
-                return view('krs-khs.input_dosen_mk');
-            });
-
-            Route::get('approve', function () {
-                return view('krs-khs.approve');
-            });
-
-            Route::get('approve1', function () {
-                return view('krs-khs.approve1');
-            });
-
-            Route::get('buka', function () {
-                return view('krs-khs.buka');
-            });
-
-            Route::get('form_khs', function () {
-            return view('krs-khs.form_khs');
-            });
-
-            Route::get('histori_nilai', function () {
-            return view('krs-khs.histori_nilai');
-            });
-
-            Route::get('detail_nilai_RPL', function () {
-            return view('krs-khs.detail_nilai_RPL');
-            });
-
-            Route::get('detail_nilai_BD', function () {
-            return view('krs-khs.detail_nilai_BD');
-            });
-
-            Route::get('krs', function () {
-            return view('krs-khs.contoh');
-            });
-
-            Route::get('input_ruang', function () {
-            return view('krs-khs/input_ruang');
-            });
-
-            Route::get('input_jadwal', function () {
-            return view('krs-khs/input_jadwal');
-            });
-
-<<<<<<< HEAD
-         Route::get('/monsi/jadwal_sidang_skripsi_mhs', function () {
-    return view('monsi.lihat-jadwal-sidang-skripsi');
-
-
-    });
-Route::get('/kegiatan/kalender', function () {
-    return view('kegiatan.kalender');
-});
-Route::get('/kegiatan/inputkalender', function () {
-    return view('kegiatan.inputkalender');
-    });
-          Route::get('/monsi/jadwal_sidang_skripsi_dosen', function () {
-    return view('monsi.lihat-jadwal-sidang-skripsi-dosen');
-
-    });
-
-
-    Route::get('/dosen/pengmas/edit', function () {
-    return view('dosen.pengmas.edit');
-});
-    Route::get('/dosen/pengmas/create', function () {
-    return view('dosen.pengmas.create');
-
-});
-
-
-});
-
-
-
-    Route::get('/mahasiswa/lihat-jadwal-sidang-proposal', function () {
-    return view('mahasiswa.lihat-jadwal-sidang-proposal');
-
-
-});
-
-    Route::get('/mahasiswa/input/', function () {
-    return view('mahasiswa.input_biodata');
-});
-    Route::get('/mahasiswa/edit/', function () {
-    return view('mahasiswa.edit_biodata');
-});
-   Route::get('/mahasiswa/view/', function () {
-    return view('mahasiswa.view_biodata');
-});
-   });
-
-
->>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
+    
 Route::group(['middleware' => ['auth']], function () {
 
     // Modul Mahasiswa
@@ -258,8 +74,7 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('approve', function () {
             return view('krs-khs.approve');
-=======
->>>>>>> 74e4d8ab04030c58127ba02ffd05e7c92a7644cc
+        });
         });
         
         // Modul Kurikulum
@@ -474,16 +289,9 @@ Route::group(['middleware' => ['auth']], function () {
                 return view('pla.konfirmasiproposal');
             });
 
-<<<<<<< HEAD
-
-        Route::get('pengmas/edit', function () {
-            return view('dosen.pengmas.edit');
-        });
-=======
             Route::get('konfirmasiskripsi', function () {
                 return view('pla.konfirmasiskripsi');
             });
->>>>>>> 74e4d8ab04030c58127ba02ffd05e7c92a7644cc
 
             Route::get('permohonansurat', function () {
                 return view('pla.permohonansurat');
@@ -502,12 +310,15 @@ Route::group(['middleware' => ['auth']], function () {
         // Modul Notulensi
         Route::group(['prefix' => 'notulensi'], function() {
 
+            Route::get('kehadiranRapat', function () {
+                return view('notulensi.kehadiranRapat.kehadiran');
+            });
             Route::get('daftarnotulensi', function () {
-                return view('notulensi.daftarnotulensi');
+                return view('notulensi.notulensi.daftarnotulensi');
             });
 
-            Route::get('formnotulensi', function () {
-                return view('notulensi.formnotulensi');
+            Route::get('ViewDaftarHasil', function () {
+                return view('notulensi.notulensi.ViewDaftarHasil');
             });
 
             Route::get('kirimnotulensi', function () {
@@ -520,6 +331,34 @@ Route::group(['middleware' => ['auth']], function () {
 
             Route::get('notulensi/ViewEditNotulensi', function () {
                 return view('notulensi.notulensi.ViewEditNotulensi');
+            });
+
+            Route::get('kehadiranRapat/jumlah', function () {
+            return view('notulensi.kehadiranRapat.jumlah');
+            });
+
+            Route::get('kehadiranRapat', function () {
+                return view('notulensi.kehadiranRapat.kehadiran');
+            });
+            Route::get('tambah', function () {
+                return view('notulensi.notulensi.formnotulensi');
+            });
+
+            Route::get('kalender', function () {
+                return view('notulensi.kalender.calendar');
+            });
+
+            Route::get('notulensi/formnotulensi', function () {
+                return view('notulensi.notulensi.formnotulensi');
+            });
+            Route::get('undangan/daftarRapat', function () {
+                return view('notulensi.undangan.daftarRapat');
+            });
+            Route::get('undangan/formUndangan', function () {
+                return view('notulensi.undangan.formUndangan');
+            });
+            Route::get('undangan/undanganDosen', function () {
+                return view('notulensi.undangan.undanganDosen');
             });
         });
 
@@ -591,20 +430,6 @@ Route::group(['middleware' => ['auth']], function () {
                 return view('monsi.tabel_judul');
             });
 
-<<<<<<< HEAD
-        Route::get('kehadiranRapat/jumlah', function () {
-            return view('notulensi.kehadiranRapat.jumlah');
-        });
-        Route::get('kehadiranRapat', function () {
-            return view('notulensi.kehadiranRapat.kehadiran');
-        });
-        Route::get('kalender', function () {
-            return view('notulensi.kalender.calendar');
-        });
-        Route::get('formnotulensi', function () {
-            return view('notulensi.formnotulensi');
-        });
-=======
             Route::get('download_file', function (){
                 return view('monsi.download_file');
             });
@@ -612,7 +437,6 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('upload-bimbingan', function () {
                 return view('monsi.upload-bimbingan');
             });
->>>>>>> 74e4d8ab04030c58127ba02ffd05e7c92a7644cc
 
             Route::get('view-bimbingan', function () {
                 return view('monsi.view-bimbingan');
@@ -671,113 +495,5 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
             Route::get('index-peminjaman', 'PeminjamanController@index');
             Route::get('view-peminjaman', 'PeminjamanController@viewDetail');
-
-<<<<<<< HEAD
-      Route::get('form-editskripsi', function () {
-            return view('monsi.form-editskripsi');
-        });
-
-        Route::get('form-viewskripsi', function () {
-            return view('monsi.form-viewskripsi');
-        });
-        
-        Route::get('form-dataskripsi', function () {
-            return view('monsi.form-dataskripsi');
-        });
-        
-        Route::get('form-dataskripsi', function () {
-            return view('monsi.form-dataskripsi');
-        });
-
-        Route::get('form-dataskripsi', function () {
-            return view('monsi.form-dataskripsi');
-        });
-
-        Route::get('form_uploadproposal', function () {
-            return view('monsi.form_uploadproposal');
-        });
-
-        Route::get('tabel_judul', function () {
-            return view('monsi.tabel_judul');
-        });
-
-       Route::get('download_file', function (){
-            return view('monsi.download_file');
-        });
-
-        Route::get('upload-bimbingan', function () {
-            return view('monsi.upload-bimbingan');
-        });
-
-        Route::get('view-bimbingan', function () {
-            return view('monsi.view-bimbingan');
-        });
-
-        Route::get('tabel-mhs2', function () {
-            return view('monsi.tabel-mhs2');
-        });
-
-        Route::get('tabel-mhs', function () {
-            return view('monsi.tabel-mhs');
-        });
-
-        Route::get('sidang_proposal', function () {
-            return view('monsi.sidang-proposal');
-        });
-
-        Route::get('sidang_skripsi', function () {
-            return view('monsi.sidang-skripsi');
-        });
-
-        Route::get('jadwal_sidang_proposal_mhs', function () {
-            return view('monsi.lihat-jadwal-sidang-proposal');
-        });
-
-        Route::get('jadwal_sidang_proposal_dosen', function () {
-            return view('monsi.lihat-jadwal-sidang-proposal-dosen');
-        });
-
-        Route::get('jadwal_sidang_skripsi_mhs', function () {
-            return view('monsi.lihat-jadwal-sidang-skripsi');
-        });
-
-        Route::get('jadwal_sidang_skripsi_dosen', function () {
-            return view('monsi.lihat-jadwal-sidang-skripsi-dosen');
-        });
-
+        }); 
     });
-
-    // Modul Inventaris
-    Route::group(['prefix' => 'inventaris'], function() {
-
-        Route::get('add-asset', 'HomeController@input');
-        Route::get('view-asset', 'HomeController@index');
-        Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
-        Route::get('index-maintenance', 'MaintenanceController@index');
-        Route::get('view-maintenance', 'MaintenanceController@viewDetail');
-
-        Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
-        Route::get('index-peminjaman', 'PeminjamanController@index');
-        Route::get('view-peminjaman', 'PeminjamanController@viewDetail');
-
-        Route::get('add-asset', 'HomeController@input');
-        Route::get('view-asset', 'HomeController@index');
-
-        Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
-        Route::get('index-peminjaman', 'PeminjamanController@index');
-        Route::get('view-peminjaman', 'PeminjamanController@viewDetail');
-
-    });
-    
-
-}); 
-
-
-
-=======
-        });
-        
-    }); 
->>>>>>> 74e4d8ab04030c58127ba02ffd05e7c92a7644cc
-
-    

@@ -1,21 +1,19 @@
-@extends('adminlte::layouts.app')
-
-@section('code-header')
+<?php $__env->startSection('code-header'); ?>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('htmlheader_title')
+<?php $__env->startSection('htmlheader_title'); ?>
 <!-- Nama konten -->
 Nama konten 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('contentheader_title')
+<?php $__env->startSection('contentheader_title'); ?>
 <!-- Nama konten -->
 Notulensi
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('main-content')
+<?php $__env->startSection('main-content'); ?>
 
 <div class="box">
             <div class="box-header">
@@ -74,10 +72,10 @@ Notulensi
           </ul>
           </div>
 
-              <a href="{{ url ('notulensi/notulensi/formnotulensi')}}" class="btn btn-primary btn-l">
+              <a href="<?php echo e(url ('notulensi/notulensi/formnotulensi')); ?>" class="btn btn-primary btn-l">
               <i class="fa fa-plus"></i> Tambah</a>
 
-               <a href="{{ url('notulensi/notulensi/ViewEditNotulensi') }}" class="btn btn-primary btn-md"> Edit</a>
+               <a href="<?php echo e(url('notulensi/notulensi/ViewEditNotulensi')); ?>" class="btn btn-primary btn-md"> Edit</a>
 
                
             <div class="box-body">
@@ -239,10 +237,10 @@ Notulensi
   </table>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('code-footer')
+<?php $__env->startSection('code-footer'); ?>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
 <script type="text/javascript">
@@ -250,4 +248,5 @@ $(document).ready(function(){
     $('#myTable1').DataTable();
 });
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('adminlte::layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
