@@ -14,8 +14,7 @@ Fitur
 @endsection
 
 @section('main-content')
-    <!-- Main content -->
-    <section class="content">
+<section class="content">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
@@ -26,22 +25,24 @@ Fitur
             <div class="box-body">
               <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                 <thead>
-                <tr role="row"><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending">Nama</th><th class="sorting_desc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" aria-sort="descending">Tahun</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Action</th></tr>
+                <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">Nama</th>
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Tahun</th>
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Action</th></tr>
                 </thead>
                 <tbody>
-
+                <tr role="row" class="odd">
+                  <td class="sorting_1">Fachruziah</td> 
+                  <td>2017</td>
+                  <td><a href="{{url('perwalian/approve')}}" type="button">Detail</a></td>
                 </tr><tr role="row" class="even">
-                  <td class="">Fachruziah</td>
-                  <td class="sorting_1">2017</td>
-                  <td class=""><button type="button" class="btn btn-md btn-primary">Buka KRS</button></td>
+                  <td class="sorting_1">Fara</td>
+                  <td>2014</td>
+                  <td><a href="{{url('perwalian/approve')}}" type="button">Detail</a></td>
                 </tr><tr role="row" class="odd">
-                  <td class="">Fara</td>
-                  <td class="sorting_1">2017</td>
-                  <td class=""><button type="button" class="btn btn-md btn-primary">Buka KRS</button></td>
-                </tr><tr role="row" class="even">
-                  <td class="">Rani</td>
-                  <td class="sorting_1">2017</td>
-                  <td class=""><button type="button" class="btn btn-md btn-primary">Buka KRS</button></td>
+                  <td class="sorting_1">Rani</td>
+                  <td>2014</td>
+                  <td><a href="{{url('perwalian/approve')}}" type="button">Detail</a></td>
                 </tr></tbody>
                 <tfoot>
                 <tr></tr>
@@ -51,7 +52,8 @@ Fitur
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-            <!-- /.box-body -->
+
+ 
           </div>
           <!-- /.box -->
         </div>
@@ -59,8 +61,6 @@ Fitur
       </div>
       <!-- /.row -->
     </section>
-    <!-- /.content -->
-  </div>
 @endsection
 
 @section('code-footer')

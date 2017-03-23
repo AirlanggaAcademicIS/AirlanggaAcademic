@@ -16,7 +16,6 @@ Rencana Pembelajaran Semester
 @endsection
 
 @section('main-content')
-<<<<<<< HEAD:resources/views/kegiatan/contoh.blade.php
 
 <h1>Input Laporan Kegiatan</h1>
 <form class="form-horizontal">
@@ -61,11 +60,6 @@ Rencana Pembelajaran Semester
 		</div>
 	</div>
 </form>
-
-=======
-<!-- Kodingan HTML ditaruh di sini -->
-@include('kurikulum.rps.content-add-rps')
->>>>>>> 7f52ac8ca7d33e5afdb8da0d5f0e3253a17f2f3f:resources/views/kurikulum/rps/index-add-rps.blade.php
 
 @endsection
 
