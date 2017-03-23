@@ -444,6 +444,20 @@ Route::get('/dosen/penelitian/edit',function()
     return view('monsi.lihat-jadwal-sidang-skripsi');
 
     });
+
+
+         Route::get('/kegiatan/viewlpj', function () {
+    return view('kegiatan.viewlpj');
+    });
+
+    Route::get('/kegiatan/postpertama', function () {
+    return view('kegiatan.postpertama');
+    });
+
+    Route::get('/kegiatan/adminview', function () {
+    return view('kegiatan.adminview');
+    });
+    
 Route::get('/kegiatan/kalender', function () {
     return view('kegiatan.kalender');
 });
