@@ -4,6 +4,7 @@
     <div class="pull-right hidden-xs">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     </div>
     <!-- Default to the left -->
    
@@ -25,4 +26,9 @@
 >>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
 =======
 >>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
+=======
+    </div>
+    <!-- Default to the left -->
+   
+>>>>>>> 1975a799522fedadac2317edbcd3323abc218390
 </footer>

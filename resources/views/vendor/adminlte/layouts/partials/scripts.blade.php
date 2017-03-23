@@ -40,7 +40,6 @@
 <script src="{{asset('plugins/jquery.dataTables.js')}}" type="text/javascript"></script>
 <script src="{{asset('plugins/dataTables.bootstrap.js')}}" type="text/javascript"></script>
 
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -66,9 +65,6 @@
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 
-
-
-
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
       Both of these plugins are recommended to enhance 
       user experience. Slimscroll is required when using thethe
@@ -84,14 +80,27 @@
         'csrfToken' => csrf_token(),
     ]) !!};
 </script>
-
 <!-- <script>
   $(function () {
     $("#example2").DataTable();
   });
 </script> -->
 
+<script>
+  $(function () {
+    $('#example1').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
+
 <script type="text/javascript">
+<<<<<<< HEAD
   $(document).ready(function(){
     $('.#example2').DataTable({
       "ordering" : true
@@ -99,3 +108,11 @@
   });
 </script>
 @yield('code-footer')   
+=======
+	$(document).ready(function(){
+		$('.#example2').DataTable({
+			"ordering" : true
+		});	
+	});
+</script>
+
