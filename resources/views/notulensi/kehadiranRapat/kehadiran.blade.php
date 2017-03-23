@@ -23,6 +23,7 @@ KEHADIRAN RAPAT
                   <th>Nama Rapat</th>
                   <th>Tempat</th>
                   <th>Tanggal</th>
+                  <th>Waktu</th>
                   <th>Jumlah Peserta</th>
                 </tr>
                 </thead>
@@ -32,6 +33,7 @@ KEHADIRAN RAPAT
                   <td>Rapat Koordinasi I</td>
                   <td>Ruang 102</td>
                   <td>Selasa, 21 Maret 2017 - 12.15 WIB</td>
+                  <td>12.15 WIB</td>
                   <td><a href="/notulensi/kehadiranRapat/jumlah">21</a></td>
                 </tr>
                 <tr>
@@ -39,6 +41,7 @@ KEHADIRAN RAPAT
                   <td>Rapat Koordinasi II</td>
                   <td>Ruang 102</td>
                   <td>Kamis, 23 Maret 2017 - 08.00 WIB</td>
+                  <td>08.00 WIB</td>
 				  <td><a href="/notulensi/kehadiranRapat/jumlah">15</a></td>
                 </tr>
                 <tr>
@@ -46,6 +49,7 @@ KEHADIRAN RAPAT
                   <td>Rapat Audiensi</td>
                   <td>Ruang Labkom 5</td>
                   <td>Selasa, 4 April 2017 - 10.15 WIB</td>
+                  <td>10.15 WIB</td>
                   <td><a href="/notulensi/kehadiranRapat/jumlah">32</a></td>
                 </tr>
               </table>

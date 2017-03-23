@@ -54,7 +54,6 @@ JUMLAH PESERTA RAPAT
               <br>
               <div>
                 <button type="button" class="btn bg-olive btn-sm">Cetak</button>
-                <button type="button" class="btn bg-olive btn-sm">Ok</button>
               </div>
             </div>
 @endsection
