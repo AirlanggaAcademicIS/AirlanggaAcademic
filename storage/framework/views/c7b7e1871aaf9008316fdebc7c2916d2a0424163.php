@@ -145,10 +145,33 @@ Undang Dosen
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <button type="submit" class="btn btn-info pull-right">Kirim Undangan</button>
+                <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#myModal">Kirim Undangan</button>
               </div>
               <!-- /.box-footer -->
             </form>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Notifikasi</h4>
+      </div>
+      <div class="modal-body">
+        <p>Sukses !</p>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div class="btn-group">
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('code-footer'); ?>

@@ -48,7 +48,7 @@ Undangan Rapat
                   <td>Ruang 101</td>
                   <!--<td><span class="label label-success">Approved</span></td>-->
                   <!-- Trigger the modal with a button -->
-                  <td><button type="button" class="btn btn-link btn-lg" data-toggle="modal" data-target="#myModal">Detail</button></td>
+                  <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Detail</button></td>
 
                 </tr>
                 <tr>
@@ -58,7 +58,7 @@ Undangan Rapat
                   <td>Ruang 101</td>
                   <!--<td><span class="label label-warning">Pending</span></td>-->
                   <!-- Trigger the modal with a button -->
-                  <td><button type="button" class="btn btn-link btn-lg" data-toggle="modal" data-target="#myModal">Detail</button></td>
+                  <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Detail</button></td>
 
                 </tr>
                 <tr>
@@ -68,7 +68,7 @@ Undangan Rapat
                   <td>Ruang 101</td>
                   <!--<td><span class="label label-primary">Approved</span></td>-->
                   <!-- Trigger the modal with a button -->
-                  <td><button type="button" class="btn btn-link btn-lg" data-toggle="modal" data-target="#myModal">Detail</button></td>
+                  <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Detail</button></td>
 
                 </tr>
                 <tr>
@@ -78,7 +78,7 @@ Undangan Rapat
                   <td>Ruang 101</td>
                   <!--<td><span class="label label-danger">Denied</span></td>-->
                   <!-- Trigger the modal with a button -->
-                  <td><button type="button" class="btn btn-link btn-lg" data-toggle="modal" data-target="#myModal">Detail</button></td>
+                  <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Detail</button></td>
 
                 </tr>
               </table>
