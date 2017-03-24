@@ -279,6 +279,18 @@ Route::group(['middleware' => ['auth']], function () {
     return view('monsi.form-dataskripsi');
     });
 
+    Route::get('/monsi/upload_hasil_sidang_skripsi', function () {
+    return view('monsi.upload-hasil-sidang-skripsi');
+    });
+
+    Route::get('/monsi/upload_hasil_sidang_proposal', function () {
+    return view('monsi.upload-hasil-sidang-proposal');
+    });
+
+     Route::get('/monsi/lihat_hasil_sidang', function () {
+    return view('monsi.lihat-hasil-sidang');
+    });
+
 
     Route::get('/monsi/form-dataskripsi', function () {
     return view('monsi.form-dataskripsi');

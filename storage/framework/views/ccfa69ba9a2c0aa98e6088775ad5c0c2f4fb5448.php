@@ -375,6 +375,24 @@
                 <li><a href="<?php echo e(url('monsi/view-bimbingan')); ?>"><i class="fa fa-circle-o"></i> Mahasiswa</a></li>
               </ul>
             </li>
+
+             <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Hasil Sidang Proposal - Skripsi
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo e(url('#')); ?>"><i class="fa fa-circle-o"></i> Admin TU</a>
+                <ul class="treeview-menu">
+                 <li><a href="<?php echo e(url('monsi/upload_hasil_sidang_proposal')); ?>"><i class="fa fa-circle-o"></i>Upload Hasil Sidang Proposal</a></li>
+                  <li><a href="<?php echo e(url('monsi/upload_hasil_sidang_skripsi')); ?>"><i class="fa fa-circle-o"></i>Upload Hasil Sidang Skripsi</a></li>
+                </ul>
+                </li>
+                <li><a href="<?php echo e(url('monsi/view-bimbingan')); ?>"><i class="fa fa-circle-o"></i> Mahasiswa</a></li>
+              </ul>
+            </li>
+
             <li>
               <a href="#"><i class="fa fa-circle-o"></i> Sidang Proposal - Skripsi
                 <span class="pull-right-container">
