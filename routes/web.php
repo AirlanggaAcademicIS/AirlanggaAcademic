@@ -330,6 +330,28 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/monsi/form_uploadproposal', function () {
     return view('monsi.form_uploadproposal');
     });
+     Route::get('/monsi/sidang-proposal', function () {
+                return view('monsi.sidang-proposal');
+            });
+
+            Route::get('/monsi/sidang-skripsi', function () {
+                return view('monsi.sidang-skripsi');
+            });
+    Route::get('/monsi/jadwal-sidang-proposal-mhs', function () {
+                return view('monsi.lihat-jadwal-sidang-proposal');
+            });
+
+            Route::get('/monsi/jadwal-sidang-proposal-dosen', function () {
+                return view('monsi.lihat-jadwal-sidang-proposal-dosen');
+            });
+
+            Route::get('jadwal-sidang-skripsi-mhs', function () {
+                return view('monsi.lihat-jadwal-sidang-skripsi');
+            });
+
+            Route::get('jadwal_sidang_skripsi_dosen', function () {
+                return view('monsi.lihat-jadwal-sidang-skripsi-dosen');
+            });
     Route::get('/monsi/tabel_judul', function () {
     return view('monsi.tabel_judul');
     });
@@ -734,23 +756,23 @@ Route::group(['middleware' => ['auth']], function () {
                 return view('monsi.tabel-mhs');
             });
 
-            Route::get('sidang_proposal', function () {
+            Route::get('sidang-proposal', function () {
                 return view('monsi.sidang-proposal');
             });
 
-            Route::get('sidang_skripsi', function () {
+            Route::get('sidang-skripsi', function () {
                 return view('monsi.sidang-skripsi');
             });
 
-            Route::get('jadwal_sidang_proposal_mhs', function () {
+            Route::get('jadwal-sidang-proposal-mhs', function () {
                 return view('monsi.lihat-jadwal-sidang-proposal');
             });
 
-            Route::get('jadwal_sidang_proposal_dosen', function () {
+            Route::get('jadwal-sidang-proposal-dosen', function () {
                 return view('monsi.lihat-jadwal-sidang-proposal-dosen');
             });
 
-            Route::get('jadwal_sidang_skripsi_mhs', function () {
+            Route::get('jadwal-sidang-skripsi-mhs', function () {
                 return view('monsi.lihat-jadwal-sidang-skripsi');
             });
 

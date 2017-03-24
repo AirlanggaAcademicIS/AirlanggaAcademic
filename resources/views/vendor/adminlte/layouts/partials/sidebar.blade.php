@@ -402,18 +402,18 @@
               <ul class="treeview-menu">
                 <li><a href="#"><i class="fa fa-circle-o"></i> Admin TU</a>
                 <ul class="treeview-menu">
-                <li><a href="{{ url('/monsi/sidang_proposal') }}"><i class="fa fa-circle-o"></i> Sidang Proposal</a></li>
-                <li><a href="{{ url('/monsi/sidang_skripsi') }}"><i class="fa fa-circle-o"></i> Sidang Skripsi</a></li>
+                <li><a href="{{ url('monsi/sidang-proposal') }}"><i class="fa fa-circle-o"></i> Sidang Proposal</a></li>
+                <li><a href="{{ url('monsi/sidang-skripsi') }}"><i class="fa fa-circle-o"></i> Sidang Skripsi</a></li>
               </ul></li>
                 <li><a href="#"><i class="fa fa-circle-o"></i> Dosen</a>
                 <ul class="treeview-menu">
-                <li><a href="{{ url('/monsi/jadwal_sidang_proposal_dosen') }}"><i class="fa fa-circle-o"></i> Sidang Proposal</a></li>
-                <li><a href="{{ url('/monsi/jadwal_sidang_skripsi_dosen') }}"><i class="fa fa-circle-o"></i> Sidang Skripsi</a></li>
+                <li><a href="{{ url('monsi/jadwal-sidang-proposal-dosen') }}"><i class="fa fa-circle-o"></i> Sidang Proposal</a></li>
+                <li><a href="{{ url('monsi/jadwal-sidang-skripsi-dosen') }}"><i class="fa fa-circle-o"></i> Sidang Skripsi</a></li>
               </ul></li>
               <li><a href="#"><i class="fa fa-circle-o"></i> Mahasiswa</a>
                 <ul class="treeview-menu">
-                <li><a href="{{ url('/monsi/jadwal_sidang_proposal_mhs') }}"><i class="fa fa-circle-o"></i> Sidang Proposal</a></li>
-                <li><a href="{{ url('/monsi/jadwal_sidang_skripsi_mhs') }}"><i class="fa fa-circle-o"></i> Sidang Skripsi</a></li>
+                <li><a href="{{ url('monsi/jadwal-sidang-proposal-mhs') }}"><i class="fa fa-circle-o"></i> Sidang Proposal</a></li>
+                <li><a href="{{ url('monsi/jadwal-sidang-skripsi-mhs') }}"><i class="fa fa-circle-o"></i> Sidang Skripsi</a></li>
               </ul></li>
               </ul>
             </li>
