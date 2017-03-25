@@ -69,22 +69,12 @@
       Both of these plugins are recommended to enhance 
       user experience. Slimscroll is required when using thethe
       fixed layout. -->
-<!-- <script>
-  // $(function () {
-  //  alert("Haaa");
-  // });
-  window.alert("sometext");
-</script> -->
+
 <script>
     window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
     ]) !!};
 </script>
-<!-- <script>
-  $(function () {
-    $("#example2").DataTable();
-  });
-</script> -->
 
 <script>
   $(function () {
@@ -100,7 +90,6 @@
 </script>
 
 <script type="text/javascript">
-<<<<<<< HEAD
   $(document).ready(function(){
     $('.#example2').DataTable({
       "ordering" : true
@@ -108,11 +97,3 @@
   });
 </script>
 @yield('code-footer')   
-=======
-	$(document).ready(function(){
-		$('.#example2').DataTable({
-			"ordering" : true
-		});	
-	});
-</script>
-

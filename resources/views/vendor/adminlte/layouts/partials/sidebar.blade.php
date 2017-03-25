@@ -128,26 +128,6 @@
                 <a href="#"><i class='fa fa-link'></i> <span>KRS & KHS</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="{{url('/krs-khs/nilai')}}">Nilai</a></li>
-                    <li><a href="#">KRS</a></li>
-                    <li><a href="#">KHS</a></li>
-
-                    <li><a href="{{url('/krs-khs/mk')}}">Mata Kuliah</a></li>
-                    <li><a href="{{url('/krs-khs/dosen_mk')}}">MK Diajar</a></li>
-                    <li><a href="{{url('/krs-khs/input_jadwal')}}">input jadwal</a></li>
-                    <li><a href="{{url('/krs-khs/input_ruang')}}">input ruang kelas</a></li>
-                    <li><a href="{{url('/krs-khs/input_nilai')}}">input nilai</a></li>
-                    <li><a href="{{url('/approve1')}}">Approve KRS</a></li>
-                    <li><a href="{{url('/buka')}}">Buka KRS</a></li>
-                    <li><a href="{{ url('krs-khs/form_khs') }}">KHS</a></li>
-                    <li><a href="{{ url('krs-khs/histori_nilai') }}">Histori Nilai</a></li>
-                    <li><a href="{{url('/krs-khs/krs')}}">Kartu Rencana Studi</a></li>
-                    <li><a href="#">Fitur</a></li>
-
-
-
-
-
                     <li><a href="{{ url('krs-khs/krs') }}">KRS</a>
                         <ul class="treeview-menu">
                             <li><a href="{{ url('krs-khs/krs') }}">Lihat KRS</a></li>
@@ -268,12 +248,6 @@
                         <li><a href="{{ url('pla/permohonansurat') }}"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
                       </ul>
                     </li>
-
-
-
-
-
-
                 </ul>
             </li>
 
