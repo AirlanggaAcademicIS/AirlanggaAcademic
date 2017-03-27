@@ -65,7 +65,7 @@
                   <td><a href="{{ url('view-maintenance') }}" class="btn btn-primary btn-xs">
                       <i class="fa fa-eye"></i> View Detail</a></td>
                 </tr>
-                
+
                 <tfoot>
                   <tr>
                   <th>serial_barcode</th>

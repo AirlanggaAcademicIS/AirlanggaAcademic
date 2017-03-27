@@ -16,6 +16,7 @@ Upload Informasi Skripsi dan Bimbingan
 @endsection
 
 @section('main-content')
+<div class="box box-info">
 <form class="form-horizontal">
   <br>
   <div class="box-body">
@@ -80,9 +81,34 @@ Upload Informasi Skripsi dan Bimbingan
 
   </div>
   <!-- /.box-body -->
-      <center><button type="submit" class="btn btn-default">Simpan</button></center>
+  <div class="box-footer">
+      <center><a href="{{ url('monsi/tabel-mhs') }}"><button type="button" class="btn btn-default">Kembali</button></a>
+      <button type="submit" class="btn btn-primary" style="margin-left: 50px;"  data-toggle="modal" data-target="#myModal">Simpan</button></center>
+  </div>
   <!-- /.box-footer -->
 </form>
+</div>
+
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Notifikasi</h4>
+        </div>
+        <div class="modal-body">
+          <p>Upload Berhasil.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+              </div>
+              </div>
+              </div>
+
 
 @endsection
 
