@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('view-peminjaman', 'PeminjamanController@viewDetail');
 
     Route::get('add-asset', 'HomeController@input');
-    Route::get('view-asset', 'HomeController@index');
+    Route::get('index-asset', 'HomeController@index');
 
     Route::get('/krs-khs/krs', function () {
     return view('krs-khs/contoh');
