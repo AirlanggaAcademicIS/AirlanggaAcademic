@@ -128,26 +128,6 @@
                 <a href="#"><i class='fa fa-link'></i> <span>KRS & KHS</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="{{url('/krs-khs/nilai')}}">Nilai</a></li>
-                    <li><a href="#">KRS</a></li>
-                    <li><a href="#">KHS</a></li>
-
-                    <li><a href="{{url('/krs-khs/mk')}}">Mata Kuliah</a></li>
-                    <li><a href="{{url('/krs-khs/dosen_mk')}}">MK Diajar</a></li>
-                    <li><a href="{{url('/krs-khs/input_jadwal')}}">input jadwal</a></li>
-                    <li><a href="{{url('/krs-khs/input_ruang')}}">input ruang kelas</a></li>
-                    <li><a href="{{url('/krs-khs/input_nilai')}}">input nilai</a></li>
-                    <li><a href="{{url('/approve1')}}">Approve KRS</a></li>
-                    <li><a href="{{url('/buka')}}">Buka KRS</a></li>
-                    <li><a href="{{ url('krs-khs/form_khs') }}">KHS</a></li>
-                    <li><a href="{{ url('krs-khs/histori_nilai') }}">Histori Nilai</a></li>
-                    <li><a href="{{url('/krs-khs/krs')}}">Kartu Rencana Studi</a></li>
-                    <li><a href="#">Fitur</a></li>
-
-
-
-
-
                     <li><a href="{{ url('krs-khs/krs') }}">KRS</a>
                         <ul class="treeview-menu">
                             <li><a href="{{ url('krs-khs/krs') }}">Lihat KRS</a></li>
@@ -168,7 +148,7 @@
                             <li><a href="{{ url('krs-khs/dosen/input_dosen_mk') }}">Input Dosen MK</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{ url('krs-khs/krs') }}">Perwalian</a></li>
+                    <li><a href="{{ url('krs-khs/perwalian/home') }}">Perwalian</a></li>
                     <li><a href="{{ url('krs-khs/penjadwalan') }}">Penjadwalan</a>
                     </li>
 
@@ -180,12 +160,6 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Pengelolaan Kegiatan</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="{{url('/kegiatan/inputkalender')}}">Input Kalender</a></li>
-                     <li><a href="{{url('/kegiatan/kalender')}}">Kalender Kegiatan</a></li>
-
-                    <li><a href="{{ url('kegiatan/input_lpj') }}">Input Laporan Kegiatan</a></li>
-
-
                     <li><a href="{{url('/kegiatan/viewlpj')}}">Berita Acara</a></li>
                     <li><a href="{{url('/kegiatan/adminview')}}">Admin Berita Acara</a></li>
                     <li><a href="{{url('/kegiatan/inputkalender')}}">Input Kalender</a></li>
@@ -211,28 +185,13 @@
                     <li><a href="#">Fitur</a></li>                    
 
                     <li><a href="{{url('pla/permohonan_ruang')}}">Konfirmasi Ruangan</a></li>
-                  
-
-                    <li><a href="#">Fitur</a></li>
-                    <li><a href="{{url('/pla/konfirmasiproposal')}}">Konfirmasi Proposal</a></li>
-                    <li><a href="{{url('/pla/konfirmasiskripsi')}}">Konfirmasi Skripsi</a></li>
-
-
-                    <li><a href="{{ url('pla/permohonansurat') }}">Surat Menyurat</a></li>
-
-
-
-                    <li><a href="{{ url('pla/permohonansurat') }}">Surat Menyurat</a></li>
-
                     <li><a href="{{url('pla/permohonan_ruang')}}">Konfirmasi Ruangan</a></li>
                     <li><a href="{{url('/pla/konfirmasiproposal')}}">Konfirmasi Proposal</a></li>
                     <li><a href="{{url('/pla/konfirmasiskripsi')}}">Konfirmasi Skripsi</a></li>
                     <li><a href="{{ url('pla/permohonansurat') }}">Surat Menyurat</a></li>
 
                     <li>
-                      <a href="#"><i class="fa fa-circle-o"></i>Permohonan Ruangan
-
-                    <li><a href="#"><i class="fa fa-circle-o"></i>Permohonan Ruangan</a></li>
+                    <a href="#"><i class="fa fa-circle-o"></i>Permohonan Ruangan</a></li>
 
                         <span class="pull-right-container">
                           <i class="fa fa-angle-left pull-right"></i>
@@ -268,12 +227,6 @@
                         <li><a href="{{ url('pla/permohonansurat') }}"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
                       </ul>
                     </li>
-
-
-
-
-
-
                 </ul>
             </li>
 
@@ -283,7 +236,7 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="{{ url('/view-asset')}}">all asset</a></li>
+                    <li><a href="{{ url('/index-asset')}}">all asset</a></li>
                     <li><a href="{{url('/index-peminjaman')}}">peminjaman</a></li>
                     <li><a href="{{url('/index-maintenance')}}">maintenance</a></li>
                 </ul>
@@ -349,19 +302,6 @@
                 <li><a href="{{ url('monsi/tabel-mhs') }}"><i class="fa fa-circle-o"></i> Admin TU</a></li>
                 <li><a href="{{ url('monsi/tabel-mhs2') }}"><i class="fa fa-circle-o"></i> Dosen - Mahasiswa</a></li>
               </ul>
-            </li>
-
-             <li>
-              <a href="#"><i class="fa fa-circle-o"></i> Bimbingan Proposal - Skripsi
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="{{ url('monsi/upload-bimbingan') }}"><i class="fa fa-circle-o"></i> Dosen</a></li>
-                <li><a href="{{ url('monsi/view-bimbingan') }}"><i class="fa fa-circle-o"></i> Mahasiswa</a></li>
-              </ul>
-            </li>
             </li>
 
              <li>

@@ -33,6 +33,7 @@
                   <th>harga_satuan</th>
                   <th>jumlah_barang</th>
                   <th>total_harga</th>
+                  <th>action</th>
                 </tr>
                 </thead>           
                 <tbody>
@@ -46,6 +47,8 @@
                   <td>5.000.000</td>
                   <td>3</td>
                   <td>15.000.000</td>
+                  <td><a href="<?php echo e(url('view-maintenance')); ?>" class="btn btn-primary btn-xs">
+                      <i class="fa fa-eye"></i> View Detail</a></td>
                 </tr>
                 <tr>
                   <td>01222</td>
@@ -57,84 +60,10 @@
                   <td>PT Faiq Makmur</td>
                   <td>3.000.000</td>
                   <td>3</td>
-                  <td>15.000.000</td>                
-                  </tr>
-         
-                <tr>
-                  <td>01432</td>
-                  <td>Lemari</td>
-                  <td>Ready</td>
-                  <td>Labkom1</td>
-                  <td>Furniture</td>
-                  <td>null</td>
-                  <td>PT Faiq Makmur</td>
-                  <td>1.000.000</td>
-                  <td>1</td>
-                  <td>1.000.000</td>
+                  <td>15.000.000</td>
+                  <td><a href="<?php echo e(url('view-maintenance')); ?>" class="btn btn-primary btn-xs">
+                      <i class="fa fa-eye"></i> View Detail</a></td>
                 </tr>
-                
-                                <tr>
-                  <td>01672</td>
-                  <td>Laptop</td>
-                  <td>Ready</td>
-                  <td>Labkom2</td>
-                  <td>Elektronik</td>
-                  <td>null</td>
-                  <td>PT Faiq Makmur</td>
-                  <td>6.000.000</td>
-                  <td>12</td>
-                  <td>72.000.000</td>
-                </tr>
-                  
-                                <tr>
-                  <td>01122</td>
-                  <td>LCD</td>
-                  <td>Ready</td>
-                  <td>Labkom4</td>
-                  <td>Elektronik</td>
-                  <td>null</td>
-                  <td>PT Faiq Makmur</td>
-                  <td>4.500.000</td>
-                  <td>2</td>
-                  <td>9.000.000</td>
-                </tr>
-               
-                                <tr>
-                  <td>01312</td>
-                  <td>Sound system</td>
-                  <td>Ready</td>
-                  <td>Labkom1</td>
-                  <td>Elektronik</td>
-                  <td>null</td>
-                  <td>PT Faiq Makmur</td>
-                  <td>1.000.000</td>
-                  <td>4</td>
-                  <td>4.000.000</td>
-                </tr>
-               
-                                <tr>
-                  <td>01431</td>
-                  <td>Smart Board</td>
-                  <td>Ready</td>
-                  <td>Labkom3</td>
-                  <td>Elektronik</td>
-                  <td>null</td>
-                  <td>PT Faiq Makmur</td>
-                  <td>2.000.000</td>
-                  <td>3</td>
-                  <td>6.000.000</td>
-                </tr>
-                                               <tr>
-                  <td>01232</td>
-                  <td>Papan Tulis</td>
-                  <td>Ready</td>
-                  <td>Labkom2</td>
-                  <td>Furniture</td>
-                  <td>null</td>
-                  <td>PT Faiq Makmur</td>
-                  <td>1.000.000</td>
-                  <td>2</td>
-                  <td>2.000.000</td>
 
                 <tfoot>
                   <tr>
@@ -148,6 +77,8 @@
                   <th>harga_satuan</th>
                   <th>jumlah_barang</th>
                   <th>total_harga</th>
+                  <td><a href="<?php echo e(#); ?>" class="btn btn-primary btn-xs">
+                      <i class="fa fa-eye"></i> View Detail</a></td>
                 </tr>
                 </tfoot>
               </table>

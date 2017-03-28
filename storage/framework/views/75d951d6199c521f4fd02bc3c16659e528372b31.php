@@ -1,24 +1,35 @@
-@extends('adminlte::layouts.app')
-
-@section('code-header')
+<?php $__env->startSection('code-header'); ?>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('htmlheader_title')
+<?php $__env->startSection('htmlheader_title'); ?>
 Fitur 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('contentheader_title')
+<?php $__env->startSection('contentheader_title'); ?>
 Histori Nilai
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('main-content')
+<?php $__env->startSection('main-content'); ?>
     <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
+            <div class="box-header">
+              <div class="input-group margin">
+                <div class="input-group-btn">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Pilih Semester
+                    <span class="fa fa-caret-down"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Semester 2014/2015 Ganjil</a></li>
+                    <li><a href="#">Semester 2014/2015 Genap</a></li>
+                    <li><a href="#">Semester 2015/2016 Ganjil</a></li>
+                    <li><a href="#">Semua Semester</a></li>
+                  </ul>
+                </div>
+            </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -94,11 +105,14 @@ Histori Nilai
       <!-- /.row -->
     </section>
     <!-- /.content -->
-@endsection
+  </div>
 
-@section('code-footer')
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('code-footer'); ?>
 
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('adminlte::layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
