@@ -236,7 +236,7 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="<?php echo e(url('/view-asset')); ?>">all asset</a></li>
+                    <li><a href="<?php echo e(url('/index-asset')); ?>">all asset</a></li>
                     <li><a href="<?php echo e(url('/index-peminjaman')); ?>">peminjaman</a></li>
                     <li><a href="<?php echo e(url('/index-maintenance')); ?>">maintenance</a></li>
                 </ul>

@@ -236,7 +236,7 @@
                 <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <!-- Tulis disini fiturnya -->
-                    <li><a href="{{ url('/view-asset')}}">all asset</a></li>
+                    <li><a href="{{ url('/index-asset')}}">all asset</a></li>
                     <li><a href="{{url('/index-peminjaman')}}">peminjaman</a></li>
                     <li><a href="{{url('/index-maintenance')}}">maintenance</a></li>
                 </ul>
