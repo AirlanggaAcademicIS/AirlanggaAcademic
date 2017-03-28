@@ -41,7 +41,7 @@ Detail Nilai
           <!-- /.box -->
         </div>
         <!-- /.col -->
-        <a class="btn btn-md btn-info" href ="{{ url('/krs-khs/form_khs') }}">Back</a>
+        <a class="btn btn-md btn-info" href ="{{ url('krs-khs/khs') }}">Back</a>
       </div>
       <!-- /.row -->
     </section>

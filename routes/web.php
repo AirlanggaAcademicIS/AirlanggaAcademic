@@ -1,4 +1,4 @@
-<?php
+    <?php
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -134,6 +134,10 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('detail_nilai_BD', function () {
         return view('krs-khs.detail_nilai_BD');
+        });
+        
+        Route::get('detail_nilai_RPL', function () {
+        return view('krs-khs.detail_nilai_RPL');
         });
 
     });

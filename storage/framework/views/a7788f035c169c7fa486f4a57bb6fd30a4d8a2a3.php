@@ -1,19 +1,17 @@
-@extends('adminlte::layouts.app')
-
-@section('code-header')
+<?php $__env->startSection('code-header'); ?>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('htmlheader_title')
+<?php $__env->startSection('htmlheader_title'); ?>
 Fitur 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('contentheader_title')
+<?php $__env->startSection('contentheader_title'); ?>
 KHS
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('main-content')
+<?php $__env->startSection('main-content'); ?>
 <section class="content-header">
       <div class="input-group margin">
                 <div class="input-group-btn">
@@ -52,7 +50,7 @@ KHS
                       <td>SIR202</td>
                       <td>Rekayasa Perangkat Lunak</td>
                       <td>3</td>
-                      <td><a href="{{ url('krs-khs/detail_nilai_RPL') }}">A</a></td>
+                      <td><a href="<?php echo e(url('krs-khs/detail_nilai_RPL')); ?>">A</a></td>
                       <td>12</td>
                     </tr>
                     <tr role="row" class="even">
@@ -60,7 +58,7 @@ KHS
                       <td>SID201</td>
                       <td>Basis Data</td>
                       <td>3</td>
-                      <td><a href="{{ url('krs-khs/detail_nilai_BD') }}">B</a></td>
+                      <td><a href="<?php echo e(url('krs-khs/detail_nilai_BD')); ?>">B</a></td>
                       <td>9</td>
                     </tr>
                     <tr role="row" class="odd">
@@ -117,11 +115,12 @@ KHS
         </div>
     </section>
     <!-- /.content -->
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('code-footer')
-
-
+<?php $__env->startSection('code-footer'); ?>
 
 
-@endsection
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('adminlte::layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
