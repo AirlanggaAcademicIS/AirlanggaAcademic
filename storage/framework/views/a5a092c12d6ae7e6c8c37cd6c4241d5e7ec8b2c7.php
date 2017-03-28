@@ -5,9 +5,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
 
-@section('htmlheader')
-    @include('adminlte::layouts.partials.htmlheader')
-@show
+<?php $__env->startSection('htmlheader'); ?>
+    <?php echo $__env->make('adminlte::layouts.partials.htmlheader', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->yieldSection(); ?>
 
 <!--
 BODY TAG OPTIONS:
@@ -33,32 +33,32 @@ desired effect
 <div id="app">
     <div class="wrapper">
 
-    @include('adminlte::layouts.partials.mainheader')
+    <?php echo $__env->make('adminlte::layouts.partials.mainheader', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-    @include('adminlte::layouts.partials.sidebar')
+    <?php echo $__env->make('adminlte::layouts.partials.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
-        @include('adminlte::layouts.partials.contentheader')
+        <?php echo $__env->make('adminlte::layouts.partials.contentheader', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
         <!-- Main content -->
         <section class="content">
             <!-- Your Page Content Here -->
-            @yield('main-content')
+            <?php echo $__env->yieldContent('main-content'); ?>
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 
-    @include('adminlte::layouts.partials.controlsidebar')
+    <?php echo $__env->make('adminlte::layouts.partials.controlsidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-    @include('adminlte::layouts.partials.footer')
+    <?php echo $__env->make('adminlte::layouts.partials.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 </div><!-- ./wrapper -->
 </div>
-@section('scripts')
-    @include('adminlte::layouts.partials.scripts')
-    @yield('code-footer')
-@show
+<?php $__env->startSection('scripts'); ?>
+    <?php echo $__env->make('adminlte::layouts.partials.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->yieldContent('code-footer'); ?>
+<?php echo $__env->yieldSection(); ?>
 
 </body>
 </html>

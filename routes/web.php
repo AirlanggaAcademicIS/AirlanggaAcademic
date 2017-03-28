@@ -75,46 +75,61 @@ Route::group(['middleware' => ['auth']], function () {
             return view('krs-khs.mk');
         });
 
-        Route::get('dosen/list_mahasiswa/input_nilai', function () {
-            return view('krs-khs.input_nilai');
-        });
-
-        Route::get('dosen/bobot', function () {
-            return view('krs-khs.bobot');
-        });
-
         Route::get('krs', function () {
-        return view('krs-khs.lihat_krs');
+        return view('krs-khs.krs.lihat_krs');
         });
 
         Route::get('krs/pilih', function () {
-        return view('krs-khs.pilih_krs');
+        return view('krs-khs.krs.pilih_krs');
+        });
+
+        Route::get('khs', function () {
+        return view('krs-khs.khs.form_khs');
+        });
+
+        Route::get('khs/histori_nilai', function () {
+        return view('krs-khs.khs.histori_nilai');
+        });
+
+        Route::get('dosen', function () {
+            return view('krs-khs.dosen.mk');
+        });
+
+        Route::get('dosen/list_mahasiswa/input_nilai', function () {
+            return view('krs-khs.dosen.input_nilai');
+        });
+
+        Route::get('dosen/bobot', function () {
+            return view('krs-khs.dosen.bobot');
+        });        
+
+        Route::get('dosen/list_mahasiswa', function () {
+            return view('krs-khs.dosen.mahasiswa_mk');
         });
 
         Route::get('penjadwalan/ruang', function () {
-        return view('krs-khs/input_ruang');
+        return view('krs-khs.penjadwalan.input_ruang');
         });
 
         Route::get('penjadwalan', function () {
-        return view('krs-khs/input_jadwal');
+        return view('krs-khs.penjadwalan.input_jadwal');
+        });
+
+        Route::get('penjadwalan/input_dosen_mk', function () {
+            return view('krs-khs.penjadwalan.input_dosen_mk');
+
+        });
+
+        Route::get('perwalian/home', function () {
+            return view('krs-khs.perwalian.perwalian');
         });
 
         Route::get('perwalian', function () {
-            return view('krs-khs.buka_krs');
+            return view('krs-khs.perwalian.buka_krs');
         });
 
         Route::get('perwalian/approve', function () {
-            return view('krs-khs.approve');
-        });
-
-        Route::get('dosen/list_mahasiswa', function () {
-            return view('krs-khs.mahasiswa_mk');
-        });
-
-
-        Route::get('dosen/input_dosen_mk', function () {
-            return view('krs-khs.input_dosen_mk');
-
+            return view('krs-khs.perwalian.approve');
         });
 
         Route::get('detail_nilai_BD', function () {
@@ -490,23 +505,23 @@ Route::group(['middleware' => ['auth']], function () {
                 return view('monsi.tabel-mhs');
             });
 
-            Route::get('sidang_proposal', function () {
+            Route::get('sidang-proposal', function () {
                 return view('monsi.sidang-proposal');
             });
 
-            Route::get('sidang_skripsi', function () {
+            Route::get('sidang-skripsi', function () {
                 return view('monsi.sidang-skripsi');
             });
 
-            Route::get('jadwal_sidang_proposal_mhs', function () {
+            Route::get('jadwal-sidang-proposal-mhs', function () {
                 return view('monsi.lihat-jadwal-sidang-proposal');
             });
 
-            Route::get('jadwal_sidang_proposal_dosen', function () {
+            Route::get('jadwal-sidang-proposal-dosen', function () {
                 return view('monsi.lihat-jadwal-sidang-proposal-dosen');
             });
 
-            Route::get('jadwal_sidang_skripsi_mhs', function () {
+            Route::get('jadwal-sidang-skripsi-mhs', function () {
                 return view('monsi.lihat-jadwal-sidang-skripsi');
             });
 
