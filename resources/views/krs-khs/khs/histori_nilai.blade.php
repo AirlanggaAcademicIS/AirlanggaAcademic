@@ -19,19 +19,6 @@ Histori Nilai
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
-              <div class="input-group margin">
-                <div class="input-group-btn">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Pilih Semester
-                    <span class="fa fa-caret-down"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Semester 2014/2015 Ganjil</a></li>
-                    <li><a href="#">Semester 2014/2015 Genap</a></li>
-                    <li><a href="#">Semester 2015/2016 Ganjil</a></li>
-                    <li><a href="#">Semua Semester</a></li>
-                  </ul>
-                </div>
-            </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -92,7 +79,6 @@ Histori Nilai
                 <tr>
                 <li>Total SKS     : 16</li>
                 </tr>
-                </tr>
                 <tr>
                 <li>Total bobot   : 54</li>
                 </tr>
@@ -108,7 +94,6 @@ Histori Nilai
     </section>
     <!-- /.content -->
   </div>
-
 @endsection
 
 @section('code-footer')
