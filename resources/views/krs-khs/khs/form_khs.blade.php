@@ -33,86 +33,88 @@ KHS
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-                          </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Semester</th>
-                  <th>Kode MA</th>
-                  <th>Nama MA</th>
-                  <th>SKS</th>
-                  <th>Nilai</th>
-                  <th>Bobot</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>2015/2016 Ganjil</td>
-                  <td>SIR202</td>
-                  <td>Rekayasa Perangkat Lunak</td>
-                  <td>3</td>
-                  <td><a href="{{ url('krs-khs/detail_nilai_RPL') }}">A</td>
-                  <td>12</td>
-                </tr>
-                <tr>
-                  <td>2015/2016 Ganjil</td>
-                  <td>SID201</td>
-                  <td>Basis Data</td>
-                  <td>3</td>
-                  <td><a href="{{ url('krs-khs/detail_nilai_BD') }}">B</td>
-                  <td>9</td>
-                </tr>
-                <tr>
-                  <td>2015/2016 Ganjil</td>
-                  <td>SIJ201</td>
-                  <td>Sistem Operasi</td>
-                  <td>3</td>
-                  <td>AB</td>
-                  <td>10,5</td>
-                </tr>
-                <tr>
-                  <td>2015/2016 Ganjil</td>
-                  <td>SIR201</td>
-                  <td>Pemrograman Berorientasi Obyek</td>
-                  <td>3</td>
-                  <td>AB</td>
-                  <td>10,5</td>
-                </tr>
-                <tr>
-                  <td>2015/2016 Ganjil</td>
-                  <td>SII201</td>
-                  <td>Konsep Sistem Informasi</td>
-                  <td>4</td>
-                  <td>B</td>
-                  <td>12</td>
-                </tr>
-                </tbody>
-              </table>
-              <div class="box-body">
-                <tr>
-                <li>Total SKS     : 16</li>
-                </tr>
-                <tr>
-                <li>IPS           : 3,37</li>
-                </tr>
-                <tr>
-                <li>IPK           : 3,4</li>
-                </tr>
-                <tr>
-                <li>Total bobot   : 54</li>
-                </tr>
+              <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                  <div class="col-sm-6"></div>
+                  <div class="col-sm-6"></div>
+                  </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                  <thead>
+                    <tr role="row">
+                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Semester</th></tr>
+                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Kode MA: activate to sort column ascending">Kode MA</th>
+                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Nama MA: activate to sort column ascending">Nama MA</th></tr>
+                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="SKS: activate to sort column ascending">SKS</th></tr>
+                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Nilai: activate to sort column ascending">Nilai</th></tr>
+                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Bobot: activate to sort column ascending">Bobot</th></tr>
+                    </thead>
+                  <tbody>
+                    <tr role="row" class="odd">
+                      <td>2015/2016 Ganjil</td>
+                      <td>SIR202</td>
+                      <td>Rekayasa Perangkat Lunak</td>
+                      <td>3</td>
+                      <td>A</td>
+                      <td>12</td>
+                    </tr>
+                    <tr role="row" class="even">
+                      <td>2015/2016 Ganjil</td>
+                      <td>SID201</td>
+                      <td>Basis Data</td>
+                      <td>3</td>
+                      <td>B</td>
+                      <td>9</td>
+                    </tr>
+                    <tr role="row" class="odd">
+                      <td>2015/2016 Ganjil</td>
+                      <td>SIJ201</td>
+                      <td>Sistem Operasi</td>
+                      <td>3</td>
+                      <td>AB</td>
+                      <td>10,5</td>
+                    </tr>
+                    <tr role="row" class="even">
+                      <td>2015/2016 Ganjil</td>
+                      <td>SIR201</td>
+                      <td>Pemrograman Berorientasi Obyek</td>
+                      <td>3</td>
+                      <td>AB</td>
+                      <td>10,5</td>
+                    </tr>
+                    <tr role="row" class="odd">
+                      <td>2015/2016 Ganjil</td>
+                      <td>SII201</td>
+                      <td>Konsep Sistem Informasi</td>
+                      <td>4</td>
+                      <td>B</td>
+                      <td>12</td>
+                    </tr>
+                  </tbody>
+                  <div class="box-body">
+                    <tr>
+                      <li>Total SKS     : 16</li>
+                    </tr>
+                    <tr>
+                      <li>Total bobot   : 54</li>
+                    </tr>
+                  </div>
+                </table>
                 </div>
+              </div>
             </div>
-            <!-- /.box-body -->
           </div>
-          <!-- /.box -->
+            <!-- /.box-body -->
         </div>
-        <!-- /.col -->
+          <!-- /.box -->
       </div>
+        <!-- /.col -->
+    </div>
       <!-- /.row -->
-    </section>
+  </section>
     <!-- Content Header (Page footer) -->
     <section class="content-footer">
       <div class="col-xs-12">

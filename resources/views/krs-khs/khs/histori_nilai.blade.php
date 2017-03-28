@@ -79,7 +79,6 @@ Histori Nilai
                 <tr>
                 <li>Total SKS     : 16</li>
                 </tr>
-                </tr>
                 <tr>
                 <li>Total bobot   : 54</li>
                 </tr>
