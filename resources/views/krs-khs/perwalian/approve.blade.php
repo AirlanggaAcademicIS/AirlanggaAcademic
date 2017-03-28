@@ -37,21 +37,96 @@ Fitur
                   <td>Agama</td>
                   <td>2</td>
                   <td>322</td>
-                  <td><a href="/approve1"><button type="button" class="btn btn-md btn-primary">Approve</button></a></td>
+                 <!-- <td><a href="/approve1"><button type="button" class="btn btn-md btn-primary">Approve</button></a></td>-->
+                 <div class="container">
+  
+  <!-- Trigger the modal with a button -->
+  <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Approve</button></td>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Succes</h4>
+        </div>
+        <div class="modal-body">
+          <p>Mata kuliah berhasil diapprove</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
                 </tr><tr role="row" class="even">
                   <td class="sorting_1">2</td>
                   <td>PS001</td>
                   <td>PSI</td>
                   <td>3</td>
                   <td>319B</td>
-                  <td><button type="button" class="btn btn-md btn-primary">Approve</button></td>
+                  <!-- <td><a href="/approve1"><button type="button" class="btn btn-md btn-primary">Approve</button></a></td>-->
+                   <div class="container">
+  
+  <!-- Trigger the modal with a button -->
+  <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Approve</button></td>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Succes</h4>
+        </div>
+        <div class="modal-body">
+          <p>Mata kuliah berhasil diapprove</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
                  </tr><tr role="row" class="even">
                   <td class="sorting_1">3</td>
                   <td>KB001</td>
                   <td>KCB</td>
                   <td>3</td>
                   <td>323</td>
-                  <td><button type="button" class="btn btn-md btn-primary">Approve</button></td>
+                  <!--<td><td><a href="/approve1"><button type="button" class="btn btn-md btn-primary">Approve</button></td>-->
+                   <div class="container">
+  
+  <!-- Trigger the modal with a button -->
+  <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Approve</button></td>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Succes</h4>
+        </div>
+        <div class="modal-body">
+          <p>Mata kuliah berhasil diapprove</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
                 </tbody>
                 <tfoot>
                 <tr>
@@ -63,6 +138,7 @@ Fitur
 
             <div align="center">
             <button type="button" class="btn btn-block-md-4 btn-success">Save</button>
+            
             </div>
             <!-- /.box-body -->
           </div>
