@@ -8,9 +8,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- JQuery and bootstrap are required by Laravel 5.3 in resources/assets/js/bootstrap.js-->
 <!-- Laravel App -->
-<script src="{{ mix('/js/app.js') }}" type="text/javascript"></script>
-<script src="{{asset('plugins/jquery.dataTables.js')}}" type="text/javascript"></script>
-<script src="{{asset('plugins/dataTables.bootstrap.js')}}" type="text/javascript"></script>
+<script src="<?php echo e(mix('/js/app.js')); ?>" type="text/javascript"></script>
+<script src="<?php echo e(asset('plugins/jquery.dataTables.js')); ?>" type="text/javascript"></script>
+<script src="<?php echo e(asset('plugins/dataTables.bootstrap.js')); ?>" type="text/javascript"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -27,9 +27,9 @@
   window.alert("sometext");
 </script> -->
 <script>
-    window.Laravel = {!! json_encode([
+    window.Laravel = <?php echo json_encode([
         'csrfToken' => csrf_token(),
-    ]) !!};
+    ]); ?>;
 </script>
 <!-- <script>
   $(function () {
