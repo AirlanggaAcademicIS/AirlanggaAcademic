@@ -140,7 +140,7 @@
       </select>
     </div>
 </div><br>
-<button type="submit" class="btn btn-info pull-right">Tambah</button> 
+<a href="{{('/kurikulum/rps')}}" class="btn btn-info pull-right">Tambah</a>
 
 </div>
 

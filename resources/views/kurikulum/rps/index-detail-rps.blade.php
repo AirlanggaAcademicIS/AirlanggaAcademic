@@ -16,8 +16,8 @@ Rencana Pembelajaran Semester
 @endsection
 
 @section('main-content')
-
-@include('kurikulum.rps.content-add-rps')
+<!-- Kodingan HTML ditaruh di sini -->
+@include('kurikulum.rps.content-detail-rps')
 
 @endsection
 

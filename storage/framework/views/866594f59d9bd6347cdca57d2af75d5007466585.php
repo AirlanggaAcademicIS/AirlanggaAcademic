@@ -91,8 +91,7 @@
   <!-- /.box-body -->
 
 	<div class="box-footer clearfix">
-      <button type="tambah" class="pull-right btn btn-info btn-sm" id="tambah">Tambah
-      </button>
+      <a href="<?php echo e(('/kurikulum/silabus')); ?>" class="pull-right btn btn-info btn-sm" id="tambah">Tambah </a>
     </div>
 
 </form>

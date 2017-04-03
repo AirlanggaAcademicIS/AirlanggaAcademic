@@ -1,5 +1,5 @@
 <div class="form-group">
-<a href="<?php echo e(('/kurikulum/tambah-rps')); ?>" class="btn btn-info btn-sm">Tambah RPS</a>
+<a href="<?php echo e(('rps/tambah-rps')); ?>" class="btn btn-info btn-sm">Tambah RPS</a>
 </div>
 <div class="box box-primary">
 
@@ -15,7 +15,7 @@
 	</thead>
 
 	<tbody>
-	<td><a href="/kurikulum/detail-rps">SID220</td></td>
+	<td><a href="<?php echo e(('rps/detail-rps')); ?>">SID220</td></td>
 	<td>Sistem Basis Data</td>
 	<td><a href="#">Unduh</a></td>
 	<td><a href="#" onclick="return confirm('Apakah Anda yakin untuk menghapus?');">Hapus</a></td>

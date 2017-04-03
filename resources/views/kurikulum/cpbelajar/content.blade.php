@@ -1,8 +1,11 @@
+<div class="form-group">
+<a style="margin-left: 10px;" href="{{('/kurikulum/cpbelajar/tambah')}}" class="btn btn-primary btn-md">Tambah Capaian Pembelajaran</a>
+</div>
 <div class="box">
             <div class="box-header">
               <center><h3 class="box-title">Tabel Kategori Capaian Pembelajaran</h3>
             </div>
-            <a style="margin-left: 10px;" href="{{('/kurikulum/cpbelajar/tambah')}}" class="btn btn-primary btn-md">Tambah Capaian Pembelajaran</a>
+            
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">
@@ -30,7 +33,7 @@
                   <td>Sikap
                   </td>
                   <td>Mewujudkan keunggulan yang berlandaskan moral agama (excellence with morality)</td>
-                  <td>Edit</td>
+                  <td><a href="/kurikulum/editcpbelajar">Edit</a></td>
                   <td>Hapus</td>
                 </tr>
                 <tr>
@@ -40,15 +43,8 @@
                   <td>Mampu menerapkan pemikiran logis, kritis, sistematis, dan inovatif 
                   dalam konteks pengembangan atau implementasi ilmu pengetahuan dan teknologi 
                   yang memperhatikan dan menerapkan nilai humaniora yang sesuai dengan bidang keahliannya</td>
-                  <td>Edit</td>
+                  <td><a href="/kurikulum/editcpbelajar">Edit</a></td>
                   <td>Hapus</td>
-                </tr>
-                <tr>
-                  <td>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
                 </tr>
                 </tbody>
                 <tfoot>

@@ -66,7 +66,7 @@
   <!-- /.box-body -->
 
 	<div class="box-footer clearfix">
-      <a href="{{('/kurikulum/silabus')}}" class="pull-right btn btn-info btn-sm" id="update">Update</a>
+      <a href="<?php echo e(('/kurikulum/silabus')); ?>" class="pull-right btn btn-info btn-sm" id="update">Update</a>
     </div>
 
 </form>

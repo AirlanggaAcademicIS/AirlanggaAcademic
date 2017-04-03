@@ -1,4 +1,6 @@
-<a href="<?php echo e(('/kurikulum/cpprogram/create/')); ?>" class="btn btn-primary btn-md">Tambah</a>
+<div class="form-group">
+<a href="<?php echo e(('/kurikulum/cpprogram/create/')); ?>" class="btn btn-primary btn-md">Tambah Capaian Program</a>
+</div>
 <div class="box">
 
             <div class="box-header">

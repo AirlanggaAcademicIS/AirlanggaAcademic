@@ -50,9 +50,24 @@
                     <li><a href="{{ url('kurikulum/kode/cpmatkul') }}">Manage Kode CP Mata Kuliah</a></li>
                     <li><a href="{{ url('kurikulum/kode/cplprodi') }}">Manage Kode CP Prodi</a></li>
                     <li><a href="{{ url('kurikulum/kode/matkul') }}">Manage Mata Kuliah</a></li>
+                    
+                    <li>
+                      <a href="#"><i class=""></i> E-Learning
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li><a href="{{ url('kurikulum/dosen') }}"><i class=""></i> Dosen</a></li>
+                        <li><a href="{{ url('kurikulum/mahasiswa') }}"><i class=""></i> Mahasiswa</a></li>
+                      </ul>
+                    </li>
 
-                </ul>
-            </li>
+                    </li>
+
+                        </ul>
+                    </li>
+
             <!-- Sidebar Modul Dosen -->
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Dosen</span> <i class="fa fa-angle-left pull-right"></i></a>

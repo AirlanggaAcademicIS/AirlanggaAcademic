@@ -167,17 +167,22 @@
             });
 
             // Fitur RPS
+
             Route::get('rps', function () {
                 return view('kurikulum.rps.index');
             });
-
-            Route::get('detail-rps', function () {
+            Route::get('rps/detail-rps', function () {
                 return view('kurikulum.rps.index-rps');
             });
-
-            Route::get('tambah-rps', function () {
+            Route::get('rps/tambah-rps', function () {
                 return view('kurikulum.rps.index-add-rps');
-            });
+            });   
+            Route::get('rps/lihat-rps', function () {
+                return view('kurikulum.rps.index-view-rps');
+            });   
+            Route::get('rps/rincian-rps', function () {
+                return view('kurikulum.rps.index-detail-rps');
+            });  
 
             // Fitur capaian manage kode
             Route::get('kode', function () {
@@ -194,6 +199,20 @@
 
             Route::get('kode/matkul', function () {
                 return view('kurikulum.kode.index-matkul');
+            });
+
+            // Fitur capaian program
+
+            Route::get('elearning', function () {
+                return view('kurikulum.elearning.index');
+            });
+
+            Route::get('dosen', function () {
+                return view('kurikulum.elearning.dosen');   
+            });
+
+            Route::get('mahasiswa', function () {
+                return view('kurikulum.elearning.mahasiswa');   
             });
 
 

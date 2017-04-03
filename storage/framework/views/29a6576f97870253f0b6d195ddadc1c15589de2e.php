@@ -4,19 +4,15 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('htmlheader_title'); ?>
-<!-- Nama konten -->
-Rencana Pembelajaran Semester 
+Fitur 
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-<!-- Nama konten -->
-Rencana Pembelajaran Semester
+Fitur
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('main-content'); ?>
-
-<?php echo $__env->make('kurikulum.rps.content-add-rps', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
+	<?php echo $__env->make('kurikulum.elearning.content', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('code-footer'); ?>

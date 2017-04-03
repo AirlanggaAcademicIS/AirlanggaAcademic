@@ -14,8 +14,8 @@ Rencana Pembelajaran Semester
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('main-content'); ?>
-
-<?php echo $__env->make('kurikulum.rps.content-add-rps', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<!-- Kodingan HTML ditaruh di sini -->
+<?php echo $__env->make('kurikulum.rps.content-rps', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 <?php $__env->stopSection(); ?>
 

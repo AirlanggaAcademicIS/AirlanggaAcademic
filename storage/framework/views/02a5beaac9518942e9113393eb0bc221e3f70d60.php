@@ -140,7 +140,7 @@
       </select>
     </div>
 </div><br>
-<a href="{{('/kurikulum/rps')}}" type="submit" class="btn btn-info pull-right">Ubah</a>
+<a href="<?php echo e(('/kurikulum/rps')); ?>" type="submit" class="btn btn-info pull-right">Ubah</a>
 
 </div>
 

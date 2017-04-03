@@ -6,19 +6,15 @@
 @endsection
 
 @section('htmlheader_title')
-<!-- Nama konten -->
-Rencana Pembelajaran Semester 
+Fitur 
 @endsection
 
 @section('contentheader_title')
-<!-- Nama konten -->
-Rencana Pembelajaran Semester
+Fitur
 @endsection
 
 @section('main-content')
-
-@include('kurikulum.rps.content-add-rps')
-
+	@include('kurikulum.elearning.content')
 @endsection
 
 @section('code-footer')
