@@ -74,7 +74,7 @@ Notulensi
           </ul>
           </div>
 
-              <a href="{{ url('input-peminjaman') }}" class="btn btn-primary btn-l">
+              <a href="{{ url ('notulensi/notulensi/formnotulensi')}}" class="btn btn-primary btn-l">
               <i class="fa fa-plus"></i> Tambah</a>
 
                <a href="{{ url('notulensi/notulensi/ViewEditNotulensi') }}" class="btn btn-primary btn-md"> Edit</a>

@@ -89,8 +89,12 @@ Nama konten
 =======
 <p> halo </p>
 >>>>>>> 2c1eedec33a56715f523b130714d4dac1d9f56d7
+<<<<<<< HEAD
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
+=======
 >>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
 >>>>>>> e1988d14e0ddc8545d70082aa9525f9a6364703f
+>>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
 @endsection
 
 @section('code-footer')

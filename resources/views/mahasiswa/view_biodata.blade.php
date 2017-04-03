@@ -1,5 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 @extends('adminlte::layouts.app')
 
 @section('code-header')
@@ -201,6 +203,7 @@ Biodata Mahasiswa
 @section('code-footer')
 
 =======
+>>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
 @extends('adminlte::layouts.app')
 
 @section('code-header')
@@ -401,7 +404,10 @@ Biodata Mahasiswa
 
 @section('code-footer')
 
+<<<<<<< HEAD
+=======
 >>>>>>> a3c3e3b59215f3cd3255e10b8ab596151be1ebab
+>>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
 =======
 @extends('adminlte::layouts.app')
 
@@ -603,5 +609,9 @@ Biodata Mahasiswa
 
 @section('code-footer')
 
+<<<<<<< HEAD
+>>>>>>> 9d403da96f72b1370cbb9ece263217f3d0d353fb
+=======
 >>>>>>> 11e2e7cc4bfdbcc2b0b3d0171e275d7173763d66
+>>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
 @endsection
