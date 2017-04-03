@@ -19,8 +19,6 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('biodata','Mahasiswa\BiodataController@index');
-    Route::get('jurnal','Dosen\JurnalController@index');
     // Modul Mahasiswa
     Route::group(['prefix' => 'mahasiswa'], function() {
     // Url nya taruh disini

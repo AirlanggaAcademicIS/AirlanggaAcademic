@@ -10,31 +10,15 @@ Fitur
 @endsection
 
 @section('contentheader_title')
-KHS
+Histori Nilai
 @endsection
 
 @section('main-content')
-<!DOCTYPE html>
-<section class="content-header">
-      <div class="input-group margin">
-                <div class="input-group-btn">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Pilih Semester
-                    <span class="fa fa-caret-down"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Semester 2014/2015 Ganjil</a></li>
-                    <li><a href="#">Semester 2014/2015 Genap</a></li>
-                    <li><a href="#">Semester 2015/2016 Ganjil</a></li>
-                  </ul>
-                </div>
-                </div>
-    </section>
     <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
-                          </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -54,7 +38,7 @@ KHS
                   <td>SIR202</td>
                   <td>Rekayasa Perangkat Lunak</td>
                   <td>3</td>
-                  <td><a href="{{ url('krs-khs/detail_nilai_RPL') }}">A</td>
+                  <td>A</td>
                   <td>12</td>
                 </tr>
                 <tr>
@@ -62,7 +46,7 @@ KHS
                   <td>SID201</td>
                   <td>Basis Data</td>
                   <td>3</td>
-                  <td><a href="{{ url('krs-khs/detail_nilai_BD') }}">B</td>
+                  <td>B</td>
                   <td>9</td>
                 </tr>
                 <tr>
@@ -96,12 +80,6 @@ KHS
                 <li>Total SKS     : 16</li>
                 </tr>
                 <tr>
-                <li>IPS           : 3,37</li>
-                </tr>
-                <tr>
-                <li>IPK           : 3,4</li>
-                </tr>
-                <tr>
                 <li>Total bobot   : 54</li>
                 </tr>
                 </div>
@@ -113,12 +91,6 @@ KHS
         <!-- /.col -->
       </div>
       <!-- /.row -->
-    </section>
-    <!-- Content Header (Page footer) -->
-    <section class="content-footer">
-      <div class="col-xs-12">
-        <button type="button" class="btn btn-info btn-flat">Cetak</button>
-        </div>
     </section>
     <!-- /.content -->
   </div>
