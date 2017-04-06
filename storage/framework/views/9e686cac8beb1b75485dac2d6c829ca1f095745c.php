@@ -33,11 +33,101 @@
         <ul class="sidebar-menu">
             <li class="header"><?php echo e(trans('adminlte_lang::message.header')); ?></li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="<?php echo e(url('kurikulum/contoh')); ?>"><i class='fa fa-link'></i> <span><?php echo e(trans('adminlte_lang::message.home')); ?></span></a></li>
-            <li class="active"><a href="<?php echo e(url('home')); ?>"><i class='fa fa-link'></i> <span><?php echo e(trans('adminlte_lang::message.home')); ?></span></a></li>
+            <li 
+            <?php if($page == 'home'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            ><a href="<?php echo e(url('home')); ?>"><i class='fa fa-link'></i> <span><?php echo e(trans('adminlte_lang::message.home')); ?></span></a></li>
+            
+            <!-- Modul Mahasiswa -->
+            <li>
+            <a href=""><i class='fa fa-users'></i> <span> Mahasiswa</span></a>
+            <ul class="treeview-menu">
+            <!-- Sidebar Biodata -->
+            <!-- $page nya sesuaiin sama yang di controller -->
             <li
+            <?php if($page == 'biodata'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
             >
-                <a href="<?php echo e(url('biodata')); ?>"><i class='fa fa-archive'></i> <span>Biodata</span></a>
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="<?php echo e(url('mahasiswa/biodata')); ?>"><i class='fa fa-book'></i> <span> Biodata</span></a>
+            </li>        
+            </ul>
+            </li>
+
+            <!-- Modul Dosen -->
+            <li>
+            <a href=""><i class='fa fa-users'></i> <span> Dosen</span></a>
+            <ul class="treeview-menu">
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            </ul>
+            </li>
+
+            <!-- Modul Kurikulum -->
+            <li>
+            <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
+            <ul class="treeview-menu">
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            </ul>
+            </li>
+
+            <!-- Modul Krs-Khs -->
+            <li>
+            <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
+            <ul class="treeview-menu">
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            </ul>
+            </li>
+
+            <!-- Modul Monitoring Skripsi -->
+            <li>
+            <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
+            <ul class="treeview-menu">
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            </ul>
+            </li>
+
+            <!-- Modul Notulensi -->
+            <li>
+            <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
+            <ul class="treeview-menu">
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            </ul>
+            </li>
+
+            <!-- Modul Pengelolaan Kegiatan -->
+            <li>
+            <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan</span></a>
+            <ul class="treeview-menu">
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            </ul>
+            </li>
+
+            <!-- Modul PLA -->
+            <li>
+            <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
+            <ul class="treeview-menu">
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            </ul>
+            </li>
+
+            <!-- Modul Inventaris -->
+            <li>
+            <a href=""><i class='fa fa-users'></i> <span> Inventaris</span></a>
+            <ul class="treeview-menu">
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            </ul>
             </li>
         </ul><!-- /.sidebar-menu -->
     </section>

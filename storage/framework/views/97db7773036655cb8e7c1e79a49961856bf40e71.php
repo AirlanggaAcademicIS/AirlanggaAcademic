@@ -58,10 +58,6 @@ desired effect
 <?php $__env->startSection('scripts'); ?>
     <?php echo $__env->make('adminlte::layouts.partials.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <?php echo $__env->yieldContent('code-footer'); ?>
-<<<<<<< HEAD
-
-=======
->>>>>>> 8a28bc7915b37b5d338160ad5facbf7f38d6ac50
 <?php echo $__env->yieldSection(); ?>
 
 </body>

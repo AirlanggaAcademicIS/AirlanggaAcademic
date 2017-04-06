@@ -7,71 +7,99 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
-use App\Biodata;
-use Intervention\Image\ImageManagerStatic as Image;
 use Session;
-use Input;
-use DB;
 use Validator;
 use Response;
+// Tambahkan model yang ingin dipakai
+use App\Biodata;
 
 
 class BiodataController extends Controller
 {
 
+    // Function untuk menampilkan tabel
     public function index()
     {
         $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'biodata',
+            // Memanggil semua isi dari tabel biodata
             'biodata' => Biodata::all()
         ];
+
+        // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('mahasiswa.biodata.index',$data);
     }
 
     public function create()
     {
         $data = [
-            'page' => 'stok_barang',
-            'stok_barang' => StokBarang::all()
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'biodata',
         ];
-    	return view('admin.stok_barang.tambah',$data);
+
+        // Memanggil tampilan form create
+    	return view('mahasiswa.biodata.create',$data);
     }
 
-    public function postTambah(Request $request)
+    public function createAction(Request $request)
     {
-        StokBarang::create($request->input());
-        Session::put('alert-success', 'Barang "'.$request->input('barang_id').'" berhasil ditambahkan');
-        return Redirect::to('stok_barang');
+        // Menginsertkan apa yang ada di form ke dalam tabel biodata
+        Biodata::create($request->input());
+
+        // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'Biodata berhasil ditambahkan');
+
+        // Kembali ke halaman mahasiswa/biodata
+        return Redirect::to('mahasiswa/biodata');
     }
 
-    public function hapus($id)
+    public function delete($id)
     {
-        $stokbarang = StokBarang::find($id);
-        $stokbarang->delete();
-    	Session::put('alert-success', 'Barang '.$stokbarang->barang_id.' berhasil dihapus');
+        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
+        $biodata = Biodata::find($id);
+
+        // Menghapus biodata yang dicari tadi
+        $biodata->delete();
+
+        // Menampilkan notifikasi pesan sukses
+    	Session::put('alert-success', 'Biodata berhasil dihapus');
+
+        // Kembali ke halaman sebelumnya
       	return Redirect::back();	 
     }
 
    public function edit($id)
     {
         $data = [
-            'page' => 'stok_barang',
-            'stok_barang' => StokBarang::find($id)
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'biodata',
+            // Mencari biodata berdasarkan id
+            'biodata' => Biodata::find($id)
         ];
-        return view('admin.stok_barang.edit',$data);
+
+        // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
+        return view('mahasiswa.biodata.edit',$data);
     }
 
-    public function postEdit(Request $request)
+    public function editAction($id, Request $request)
     {
-        $stokbarang = StokBarang::find($request->input('id'));
-        $stokbarang->satuan_stok = $request->input('satuan_stok');
-        $stokbarang->jumlah_stok = $request->input('jumlah_stok');
-        $stokbarang->barang_id    = $request->input('barang_id');
-        $stokbarang->save();        
-        $namaBarang = Barang::where('id', $request->input('barang_id'))->first()->nama_barang;
+        // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
+        $biodata = Biodata::find($id);
 
-        Session::put('alert-success', 'Barang "'.$namaBarang.'" berhasil diedit');
-        return Redirect::to('stok_barang');
+        // Mengupdate $biodata tadi dengan isi dari form edit tadi
+        $biodata->nim = $request->input('nim');
+        $biodata->nama = $request->input('nama');
+        $biodata->alamat = $request->input('alamat');
+        $biodata->provinsi = $request->input('provinsi');
+        $biodata->tanggal_masuk = $request->input('tanggal_masuk');
+        $biodata->save();
+
+        // Notifikasi sukses
+        Session::put('alert-success', 'Biodata berhasil diedit');
+
+        // Kembali ke halaman mahasiswa/biodata
+        return Redirect::to('mahasiswa/biodata');
     }
 
 }
