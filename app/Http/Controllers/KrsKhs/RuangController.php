@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Mahasiswa;
+namespace App\Http\Controllers\KrsKhs;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -21,20 +21,20 @@ class RuangController extends Controller
     public function index()
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar ruang
             'page' => 'ruang',
-            // Memanggil semua isi dari tabel biodata
+            // Memanggil semua isi dari tabel ruang
             'ruang' => Ruang::all()
         ];
 
-        // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
+        // Memanggil tampilan index di folder krs-khs/ruang dan juga menambahkan $data tadi di view
         return view('krs-khs.ruang.index',$data);
     }
 
     public function create()
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar ruang
             'page' => 'ruang',
         ];
 
@@ -44,22 +44,22 @@ class RuangController extends Controller
 
     public function createAction(Request $request)
     {
-        // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        Biodata::create($request->input());
+        // Menginsertkan apa yang ada di form ke dalam tabel ruang
+        Ruang::create($request->input());
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Ruang berhasil ditambahkan');
 
-        // Kembali ke halaman mahasiswa/biodata
+        // Kembali ke halaman krs-khs/ruang
         return Redirect::to('krs-khs/ruang/view');
     }
 
     public function delete($id)
     {
-        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
+        // Mencari ruang berdasarkan id dan memasukkannya ke dalam variabel $ruang
         $ruang = Ruang::find($id);
 
-        // Menghapus biodata yang dicari tadi
+        // Menghapus ruang yang dicari tadi
         $ruang->delete();
 
         // Menampilkan notifikasi pesan sukses
@@ -72,9 +72,9 @@ class RuangController extends Controller
    public function edit($id)
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar ruang
             'page' => 'ruang',
-            // Mencari biodata berdasarkan id
+            // Mencari ruang berdasarkan id
             'ruang' => Ruang::find($id)
         ];
 
@@ -84,13 +84,13 @@ class RuangController extends Controller
 
     public function editAction($id, Request $request)
     {
-        // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
+        // Mencari ruang yang akan di update dan menaruhnya di variabel $ruang
         $ruang = Ruang::find($id);
 
-        // Mengupdate $biodata tadi dengan isi dari form edit tadi
+        // Mengupdate $ruang tadi dengan isi dari form edit tadi
         $ruang->nama_ruang = $request->input('nama_ruang');
         $ruang->kapasitas = $request->input('kapasitas');
-        $biodata->save();
+        $ruang->save();
 
         // Notifikasi sukses
         Session::put('alert-success', 'Ruang berhasil diedit');

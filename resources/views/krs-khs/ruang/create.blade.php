@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Biodata
+Tambah Ruang
 @endsection
 
 @section('contentheader_title')
-Tambah Biodata
+Tambah Ruang
 @endsection
 
 @section('code-header')
@@ -51,9 +51,9 @@ Tambah Biodata
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama Ruang</label>
+					<label for="nama_ruang" class="col-sm-2 control-label">Nama Ruang</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama Ruang" required>
+						<input type="text" class="form-control input-lg" id="nama_ruang" name="nama_ruang" placeholder="Masukkan Nama Ruang" required>
 					</div>
 				</div>
 

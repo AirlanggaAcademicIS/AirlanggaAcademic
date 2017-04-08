@@ -58,13 +58,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('create','KrsKhs\RuangController@createAction');
 
         // Menghapus biodata sesuai id yang dipilih
-        Route::get('{id}/delete','KrsKhs\RuangController@delete');
+        Route::get('/{id}/delete','KrsKhs\RuangController@delete');
 
         // Menampilkan form edit biodata dari id yg dipilih
-        Route::get('{id}/edit','KrsKhs\RuangController@edit');
+        Route::get('/{id}/edit','KrsKhs\RuangController@edit');
 
         // Mengupdate biodata dengan isi dari form
-        Route::post('{id}/edit','KrsKhs\RuangController@editAction');
+        Route::post('/{id}/edit','KrsKhs\RuangController@editAction');
 
     });
         

@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Biodata
+Ruang
 @endsection
 
 @section('contentheader_title')
-Biodata
+Ruang
 @endsection
 
 @section('main-content')
@@ -28,7 +28,7 @@ Biodata
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('/khs-krs/ruang/create')}}" type="button" class="btn btn-info btn-md" >
+  <a href="{{url('/krs-khs/ruang/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Ruang</a>
 </div>
 <div style="overflow: auto">
@@ -47,9 +47,9 @@ Biodata
       <td>{{ $i+1 }}</td>
       <td width="20%" style="text-align:center">{{$r->nama_ruang}}</td>
       <td width="15%" style="text-align:center">{{$r->kapasitas}}</td>
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus ruang ini?');" href="{{url('/khs-krs/ruang/'.$r->id.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus ruang ini?');" href="{{url('/krs-khs/ruang/'.$r->id_ruang.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('/khs-krs/ruang/'.$r->id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('/krs-khs/ruang/'.$r->id_ruang.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
     </tr>

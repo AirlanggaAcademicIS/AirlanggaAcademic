@@ -79,13 +79,13 @@
             <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
             <ul class="treeview-menu">
                 <li
-            @if($page == 'biodata')
-            {!! 'class="active"'!!}
-            @endif
-            >
-            <!-- Href menuju ke url mahasiswa/biodata -->
-            <a href="{{ url('mahasiswa/biodata') }}"><i class='fa fa-book'></i> <span> Ruang</span></a>
-            </li>    
+                @if($page == 'ruang')
+                {!! 'class="active"'!!}
+                @endif
+                >
+            <!-- Href menuju ke url krs-khs/ruang/view -->
+                <a href="{{ url('krs-khs/ruang/view') }}"><i class='fa fa-book'></i> <span> Ruang</span></a>
+                </li>    
             <!-- Sidebarnya ditaruh dibawah sini -->
 
             </ul>

@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Edit Biodata
+Edit Ruang
 @endsection
 
 @section('contentheader_title')
-Edit Biodata
+Edit Ruang
 @endsection
 
 @section('code-header')
@@ -45,14 +45,14 @@ Edit Biodata
 			</div>
 			@endif
 			<br>
-			<form id="tambahRuang" method="post" action="{{url('/krs-khs/ruang/'.$ruang->id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahRuang" method="post" action="{{url('/krs-khs/ruang/'.$ruang->id_ruang.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama Ruang</label>
+					<label for="nama_ruang" class="col-sm-2 control-label">Nama Ruang</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama Ruang" value="{{$ruang->nama_ruang}}" required>
+						<input type="text" class="form-control input-lg" id="nama_ruang" name="nama_ruang" placeholder="Masukkan Nama Ruang" value="{{$ruang->nama_ruang}}" required>
 					</div>
 				</div>
 
