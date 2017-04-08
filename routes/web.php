@@ -19,7 +19,6 @@ Route::get('/', function () {
 
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('biodata','Mahasiswa\BiodataController@index');
     // Modul Mahasiswa
     Route::group(['prefix' => 'mahasiswa'], function() {
     // Url CRUD
