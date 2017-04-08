@@ -124,7 +124,9 @@
             <a href=""><i class='fa fa-users'></i> <span> Inventaris</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-
+                <li><a href="{{ url('/index-asset')}}">all asset</a></li>
+                <li><a href="{{url('/inventaris/index-peminjaman')}}">peminjaman</a></li>
+                <li><a href="{{url('/index-maintenance')}}">maintenance</a></li>
             </ul>
             </li>
         </ul><!-- /.sidebar-menu -->

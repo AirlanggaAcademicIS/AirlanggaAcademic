@@ -84,8 +84,20 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Inventaris
     Route::group(['prefix' => 'inventaris'], function() {
+        Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
+        Route::get('index-maintenance', 'MaintenanceController@index');
+        Route::get('view-maintenance', 'MaintenanceController@viewDetail');
 
-            
+        Route::get('input-peminjaman', 'Inventaris\PeminjamanController@inputPeminjaman');
+        Route::post('post-input-peminjaman', 'Inventaris\PeminjamanController@postInputPeminjaman');
+        Route::post('/{id}/post-edit-peminjaman', 'Inventaris\PeminjamanController@postEditPeminjaman');
+        Route::get('index-peminjaman', 'Inventaris\PeminjamanController@index');
+        Route::get('/{id}/view-peminjaman', 'Inventaris\PeminjamanController@viewDetail');
+        Route::get('/{id}/edit-peminjaman', 'Inventaris\PeminjamanController@edit');
+        Route::get('/{id}/delete', 'Inventaris\PeminjamanController@delete');
+
+        Route::get('add-asset', 'HomeController@input');
+        Route::get('view-asset', 'HomeController@index');
     });
   
         

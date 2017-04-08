@@ -126,7 +126,9 @@
             <a href=""><i class='fa fa-users'></i> <span> Inventaris</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-
+                <li><a href="<?php echo e(url('/index-asset')); ?>">all asset</a></li>
+                <li><a href="<?php echo e(url('/inventaris/index-peminjaman')); ?>">peminjaman</a></li>
+                <li><a href="<?php echo e(url('/index-maintenance')); ?>">maintenance</a></li>
             </ul>
             </li>
         </ul><!-- /.sidebar-menu -->
