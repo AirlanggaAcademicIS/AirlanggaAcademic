@@ -46,6 +46,28 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul KRS & KHS
     Route::group(['prefix' => 'krs-khs'], function() {
+        Route::group(['prefix' => 'ruang'], function() {
+    // Url CRUD
+
+        // Menampilkan tabel
+        Route::get('view','KrsKhs\RuangController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('create','KrsKhs\RuangController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('create','KrsKhs\RuangController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('{id}/delete','KrsKhs\RuangController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('{id}/edit','KrsKhs\RuangController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('{id}/edit','KrsKhs\RuangController@editAction');
+
+    });
         
 
     });
