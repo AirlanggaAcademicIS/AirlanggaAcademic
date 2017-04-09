@@ -46,7 +46,7 @@ Tambah KBK
 			</div>
 			@endif
 			<br>
-			<form id="tambahKBK" method="post" action="{{url('/monsi/KBK/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahKBK" method="post" action="{{url('/monitoring-skripsi/KBK/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan dropdown -->

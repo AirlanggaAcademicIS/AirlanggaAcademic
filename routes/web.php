@@ -117,7 +117,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     // Modul Monitoring Skripsi
-    Route::group(['prefix' => 'monsi'], function() {
+    Route::group(['prefix' => 'monitoring-skripsi'], function() {
 
         // Menampilkan tabel
         Route::get('skripsi','MonitoringSkripsi\SkripsiController@index');

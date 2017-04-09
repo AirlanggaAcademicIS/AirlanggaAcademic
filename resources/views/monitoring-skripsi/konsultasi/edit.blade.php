@@ -45,7 +45,7 @@ Edit Konsultasi
 			</div>
 			@endif
 			<br>
-			<form id="tambahKonsultasi" method="post" action="{{url('/monsi/konsultasi/'.$konsultasi->id_konsultasi.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahKonsultasi" method="post" action="{{url('/monitoring-skripsi/konsultasi/'.$konsultasi->id_konsultasi.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->

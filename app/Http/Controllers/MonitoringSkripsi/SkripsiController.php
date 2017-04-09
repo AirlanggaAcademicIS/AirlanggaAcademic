@@ -39,7 +39,7 @@ class SkripsiController extends Controller
         ];
 
         // Memanggil tampilan form create
-    	return view('monitoring-skripsi.skripsi.create',$data);
+        return view('monitoring-skripsi.skripsi.create',$data);
 
     }
 
@@ -54,7 +54,7 @@ class SkripsiController extends Controller
         Session::put('alert-success', 'Data Skripsi berhasil ditambahkan');
 
         // Kembali ke halaman monitoring-skripsi/skripsi
-        return Redirect::to('monsi/skripsi');
+        return Redirect::to('monitoring-skripsi/skripsi');
     }
 
     public function delete($id)
@@ -66,10 +66,10 @@ class SkripsiController extends Controller
         $skripsi->delete();
 
         // Menampilkan notifikasi pesan sukses
-    	Session::put('alert-success', 'Data Skripsi berhasil dihapus');
+        Session::put('alert-success', 'Data Skripsi berhasil dihapus');
 
         // Kembali ke halaman sebelumnya
-      	return Redirect::back();	 
+        return Redirect::back();     
     }
 
    public function edit($id)
@@ -116,7 +116,7 @@ class SkripsiController extends Controller
         Session::put('alert-success', 'Data Skripsi berhasil diedit');
 
         // Kembali ke halaman monitoring-skripsi/skripsi
-        return Redirect::to('monsi/skripsi');
+        return Redirect::to('monitoring-skripsi/skripsi');
     }
 
 }

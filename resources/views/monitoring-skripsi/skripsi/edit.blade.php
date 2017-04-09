@@ -45,43 +45,43 @@ Edit Biodata
 			</div>
 			@endif
 			<br>
-			<form id="tambahSkripsi" method="post" action="{{url('/monsi/skripsi/'.$skripsi->id_skripsi.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahSkripsi" method="post" action="{{url('/monitoring-skripsi/skripsi/'.$skripsi->id_skripsi.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 			<!-- Menampilkan input text biasa -->
 				<div class="form-group">
 					<label for="NIM" class="col-sm-2 control-label">NIM</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="NIM" name="NIM" placeholder="Masukkan NIM" value="{{$skripsi->NIM}}" required>
+						<input type="text" class="form-control input-md" id="NIM" name="NIM" placeholder="Masukkan NIM" value="{{$skripsi->NIM}}" required>
 					</div>
 				</div>
 				<div class="form-group">
                   <label for="id_kbk" class="col-sm-2 control-label">KBK</label>
                   <div class="col-md-8">
                   <select name="id_kbk" class="form-control" value="{{$skripsi->id_kbk}}">
-                    <option id="id_kbk" name="id_kbk" value="1">Data Mining</option>
-                    <option id="id_kbk" name="id_kbk" value="2">Sistem Pengambilan Keputusan</option>
-                    <option id="id_kbk" name="id_kbk" value="3">Information System Engineering</option>
+                    <option id="id_kbk" name="id_kbk"  value="1" <?php if($skripsi->id_kbk=="1") echo "selected"; ?> >Data Mining</option>
+                    <option id="id_kbk" name="id_kbk" value="2" <?php if($skripsi->id_kbk=="2") echo "selected"; ?> >Sistem Pengambilan Keputusan</option>
+                    <option id="id_kbk" name="id_kbk" value="3" <?php if($skripsi->id_kbk=="3") echo "selected"; ?> >Information System Engineering</option>
                   </select>
                   </div>
                 </div>
                 <div class="form-group">
 					<label for="Judul" class="col-sm-2 control-label">Judul</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="Judul" name="Judul" placeholder="Masukkan Judul" value="{{$skripsi->Judul}}" required>
+						<input type="text" class="form-control input-md" id="Judul" name="Judul" placeholder="Masukkan Judul" value="{{$skripsi->Judul}}" required>
 					</div>
 					</div>
 				 <div class="form-group">
 					<label for="upload_berkas_proposal" class="col-sm-2 control-label">File Proposal</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="upload_berkas_proposal" name="upload_berkas_proposal" placeholder="Masukkan Link File" value="{{$skripsi->upload_berkas_proposal}}" required>
+						<input type="text" class="form-control input-md" id="upload_berkas_proposal" name="upload_berkas_proposal" placeholder="Masukkan Link File" value="{{$skripsi->upload_berkas_proposal}}" required>
 					</div>
 					</div>
                
                  <div class="form-group">
 					<label for=" tanggal_pengumpulan_proposal" class="col-sm-2 control-label">Tanggal Pengumpulan Proposal</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name=" tanggal_pengumpulan_proposal" placeholder="Masukkan Tanggal" value="{{$skripsi->tanggal_pengumpulan_proposal}}" required>
+						<input type="text" class="form-control input-md" id="datepicker" name=" tanggal_pengumpulan_proposal" placeholder="Masukkan Tanggal" value="{{$skripsi->tanggal_pengumpulan_proposal}}" required>
 					</div>
 				</div>
 
@@ -89,7 +89,7 @@ Edit Biodata
                 <div class="form-group">
 					<label for="tgl_sidangpro" class="col-sm-2 control-label">Tanggal Sidang Proposal</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tgl_sidangpro" placeholder="Masukkan Tanggal" value="{{$skripsi->tgl_sidangpro}}" required>
+						<input type="text" class="form-control input-md" id="datepicker" name="tgl_sidangpro" placeholder="Masukkan Tanggal" value="{{$skripsi->tgl_sidangpro}}" required>
 					</div>
 				</div>
 
@@ -114,7 +114,7 @@ Edit Biodata
 				<div class="form-group">
 					<label for="tempat_sidangpro" class="col-sm-2 control-label">Tempat Sidang Proposal</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="tempat_sidangpro" name="tempat_sidangpro" placeholder="Masukkan Tempat" value="{{$skripsi->tempat_sidangpro}}" required>
+						<input type="text" class="form-control input-md" id="tempat_sidangpro" name="tempat_sidangpro" placeholder="Masukkan Tempat" value="{{$skripsi->tempat_sidangpro}}" required>
 					</div>
 					</div>
 
@@ -122,9 +122,9 @@ Edit Biodata
                   <label for="id_statusprop" class="col-sm-2 control-label">Status Proposal</label>
                   <div class="col-md-8">
                   <select name="id_statusprop" class="form-control" value="{{$skripsi->id_statusprop}}">
-                    <option id="id_statusprop" name="id_statusprop" value="1">BELUM</option>
-                    <option id="id_statusprop" name="id_statusprop" value="2">REVISI</option>
-                    <option id="id_statusprop" name="id_statusprop" value="3">LULUS</option>
+                    <option id="id_statusprop" name="id_statusprop" value="1" <?php if($skripsi->id_statusprop=="1") echo "selected"; ?> >BELUM</option>
+                    <option id="id_statusprop" name="id_statusprop" value="2" <?php if($skripsi->id_statusprop=="2") echo "selected"; ?>>REVISI</option>
+                    <option id="id_statusprop" name="id_statusprop" value="3" <?php if($skripsi->id_statusprop=="3") echo "selected"; ?>>LULUS</option>
                   </select>
                 </div>
                 </div>
@@ -132,21 +132,21 @@ Edit Biodata
                 <div class="form-group">
 					<label for="nilai_sidangpro" class="col-sm-2 control-label">Nilai Sidang Proposal</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nilai_sidangpro" name="nilai_sidangpro" placeholder="Masukkan Nilai" value="{{$skripsi->nilai_sidangpro}}" required>
+						<input type="text" class="form-control input-md" id="nilai_sidangpro" name="nilai_sidangpro" placeholder="Masukkan Nilai" value="{{$skripsi->nilai_sidangpro}}" required>
 					</div>
 					</div>
 
 					<div class="form-group">
 					<label for="upload_berkas_skripsi" class="col-sm-2 control-label">File Skripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="upload_berkas_skripsi" name="upload_berkas_skripsi" placeholder="Masukkan Link File" value="{{$skripsi->upload_berkas_skripsi}}" required>
+						<input type="text" class="form-control input-md" id="upload_berkas_skripsi" name="upload_berkas_skripsi" placeholder="Masukkan Link File" value="{{$skripsi->upload_berkas_skripsi}}" required>
 					</div>
 					</div>
                
                  <div class="form-group">
 					<label for=" tanggal_pengumpulan_skripsi" class="col-sm-2 control-label">Tanggal Pengumpulan Skripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name=" tanggal_pengumpulan_skripsi" placeholder="Masukkan Tanggal" value="{{$skripsi->tanggal_pengumpulan_skripsi}}" required>
+						<input type="text" class="form-control input-md" id="datepicker" name=" tanggal_pengumpulan_skripsi" placeholder="Masukkan Tanggal" value="{{$skripsi->tanggal_pengumpulan_skripsi}}" required>
 					</div>
 				</div>
 
@@ -154,7 +154,7 @@ Edit Biodata
                 <div class="form-group">
 					<label for="tgl_sidangskrip" class="col-sm-2 control-label">Tanggal Sidang Skripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tgl_sidangskrip" placeholder="Masukkan Tanggal" value="{{$skripsi->tgl_sidangskrip}}" required>
+						<input type="text" class="form-control input-md" id="datepicker" name="tgl_sidangskrip" placeholder="Masukkan Tanggal" value="{{$skripsi->tgl_sidangskrip}}" required>
 					</div>
 				</div>
 
@@ -179,7 +179,7 @@ Edit Biodata
 				<div class="form-group">
 					<label for="tempat_sidangskrip" class="col-sm-2 control-label">Tempat Sidang Skripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="tempat_sidangskrip" name="tempat_sidangskrip" placeholder="Masukkan Tempat" value="{{$skripsi->tempat_sidangskrip}}" required>
+						<input type="text" class="form-control input-md" id="tempat_sidangskrip" name="tempat_sidangskrip" placeholder="Masukkan Tempat" value="{{$skripsi->tempat_sidangskrip}}" required>
 					</div>
 					</div>
 
@@ -187,9 +187,9 @@ Edit Biodata
                   <label for="id_statusskrip" class="col-sm-2 control-label">Status Skripsi</label>
                   <div class="col-md-8">
                   <select name="id_statusskrip" class="form-control" value="{{$skripsi->id_statusskrip}}">
-                    <option id="id_statusskrip" name="id_statusskrip" value="1">BELUM</option>
-                    <option id="id_statusskrip" name="id_statusskrip" value="2">REVISI</option>
-                    <option id="id_statusskrip" name="id_statusskrip" value="3">LULUS</option>
+                    <option id="id_statusskrip" name="id_statusskrip" value="1" <?php if($skripsi->id_statusskrip=="1") echo "selected"; ?>>BELUM</option>
+                    <option id="id_statusskrip" name="id_statusskrip" value="2" <?php if($skripsi->id_statusskrip=="2") echo "selected"; ?>>REVISI</option>
+                    <option id="id_statusskrip" name="id_statusskrip" value="3" <?php if($skripsi->id_statusskrip=="3") echo "selected"; ?>>LULUS</option>
                   </select>
                   </div>
                 </div>
@@ -197,7 +197,7 @@ Edit Biodata
                 <div class="form-group">
 					<label for="nilai_sidangskrip" class="col-sm-2 control-label">Nilai Sidang Skripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nilai_sidangskrip" name="nilai_sidangskrip" placeholder="Masukkan Nilai" value="{{$skripsi->nilai_sidangskrip}}" required>
+						<input type="text" class="form-control input-md" id="nilai_sidangskrip" name="nilai_sidangskrip" placeholder="Masukkan Nilai" value="{{$skripsi->nilai_sidangskrip}}" required>
 					</div>
 					</div>
 
@@ -205,8 +205,8 @@ Edit Biodata
                   <label for="is_verified" class="col-sm-2 control-label">Status Konsultasi</label>
                   <div class="col-md-8">
                   <select name="is_verified" class="form-control" value="{{$skripsi->is_verified}}">
-                    <option id="is_verified" name="is_verified" value="1">BELUM</option>
-                    <option id="is_verified" name="is_verified" value="2">VERIFIKASI</option>
+                    <option id="is_verified" name="is_verified" value="1" <?php if($skripsi->id_verified=="1") echo "selected"; ?>>BELUM</option>
+                    <option id="is_verified" name="is_verified" value="2" <?php if($skripsi->id_verified=="2") echo "selected"; ?>>VERIFIKASI</option>
                   </select>
                   </div>
                 </div>
@@ -214,7 +214,7 @@ Edit Biodata
 				<div class="form-group">
 					<label for="nip_petugas" class="col-sm-2 control-label">NIP</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nip_petugas" name="nip_petugas" placeholder="Masukkan NIP" value="{{$skripsi->nip_petugas}}" required>
+						<input type="text" class="form-control input-md" id="nip_petugas" name="nip_petugas" placeholder="Masukkan NIP" value="{{$skripsi->nip_petugas}}" required>
 					</div>
 				</div>
 

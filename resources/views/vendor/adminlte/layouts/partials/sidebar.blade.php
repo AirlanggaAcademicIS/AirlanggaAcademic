@@ -108,24 +108,21 @@
             <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-<<<<<<< HEAD
             <li
             @if($page == 'skripsi')
-            {
-            !!'class="active"'!!}
+            {!! 'class="active"'!!}
             @endif>
 
-            <a href="{{ url('monsi/skripsi') }}">
-            <i class='fa fa-book'></i> <span> Skripsi</span></a>
-=======
-            <li>
+            <a href="{{ url('monitoring-skripsi/skripsi') }}"><i class='fa fa-book'></i><span> Skripsi</span></a>
+            </li>
+
+            <li
                 @if($page == 'KBK')
                 {!! 'class="active"'!!}
                 @endif
                 >
 
-                <a href="{{ url('monsi/KBK') }}"><i class='fa fa-book'></i><span> KBK </span></a>
->>>>>>> 6d7c00deb94cc42be50f08d01e1471f613b56f53
+                <a href="{{ url('monitoring-skripsi/KBK') }}"><i class='fa fa-book'></i><span> KBK </span></a>
             </li>
 
             <li
@@ -133,7 +130,7 @@
             {!! 'class="active"'!!}
             @endif
             >
-            <a href="{{url('monsi/konsultasi')}}"><i class='fa-fa-book'></i>
+            <a href="{{url('monitoring-skripsi/konsultasi')}}"><i class='fa fa-book'></i>
             <span>Konsultasi</span></a>
             </li>
             </ul>

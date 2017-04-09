@@ -44,43 +44,43 @@ Edit Biodata
 			</div>
 			<?php endif; ?>
 			<br>
-			<form id="tambahSkripsi" method="post" action="<?php echo e(url('/monsi/skripsi/'.$skripsi->id_skripsi.'/edit')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahSkripsi" method="post" action="<?php echo e(url('/monitoring-skripsi/skripsi/'.$skripsi->id_skripsi.'/edit')); ?>" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
 			<!-- Menampilkan input text biasa -->
 				<div class="form-group">
 					<label for="NIM" class="col-sm-2 control-label">NIM</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="NIM" name="NIM" placeholder="Masukkan NIM" value="<?php echo e($skripsi->NIM); ?>" required>
+						<input type="text" class="form-control input-md" id="NIM" name="NIM" placeholder="Masukkan NIM" value="<?php echo e($skripsi->NIM); ?>" required>
 					</div>
 				</div>
 				<div class="form-group">
                   <label for="id_kbk" class="col-sm-2 control-label">KBK</label>
                   <div class="col-md-8">
                   <select name="id_kbk" class="form-control" value="<?php echo e($skripsi->id_kbk); ?>">
-                    <option id="id_kbk" name="id_kbk" value="1">Data Mining</option>
-                    <option id="id_kbk" name="id_kbk" value="2">Sistem Pengambilan Keputusan</option>
-                    <option id="id_kbk" name="id_kbk" value="3">Information System Engineering</option>
+                    <option id="id_kbk" name="id_kbk"  value="1" <?php if($skripsi->id_kbk=="1") echo "selected"; ?> >Data Mining</option>
+                    <option id="id_kbk" name="id_kbk" value="2" <?php if($skripsi->id_kbk=="2") echo "selected"; ?> >Sistem Pengambilan Keputusan</option>
+                    <option id="id_kbk" name="id_kbk" value="3" <?php if($skripsi->id_kbk=="3") echo "selected"; ?> >Information System Engineering</option>
                   </select>
                   </div>
                 </div>
                 <div class="form-group">
 					<label for="Judul" class="col-sm-2 control-label">Judul</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="Judul" name="Judul" placeholder="Masukkan Judul" value="<?php echo e($skripsi->Judul); ?>" required>
+						<input type="text" class="form-control input-md" id="Judul" name="Judul" placeholder="Masukkan Judul" value="<?php echo e($skripsi->Judul); ?>" required>
 					</div>
 					</div>
 				 <div class="form-group">
 					<label for="upload_berkas_proposal" class="col-sm-2 control-label">File Proposal</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="upload_berkas_proposal" name="upload_berkas_proposal" placeholder="Masukkan Link File" value="<?php echo e($skripsi->upload_berkas_proposal); ?>" required>
+						<input type="text" class="form-control input-md" id="upload_berkas_proposal" name="upload_berkas_proposal" placeholder="Masukkan Link File" value="<?php echo e($skripsi->upload_berkas_proposal); ?>" required>
 					</div>
 					</div>
                
                  <div class="form-group">
 					<label for=" tanggal_pengumpulan_proposal" class="col-sm-2 control-label">Tanggal Pengumpulan Proposal</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name=" tanggal_pengumpulan_proposal" placeholder="Masukkan Tanggal" value="<?php echo e($skripsi->tanggal_pengumpulan_proposal); ?>" required>
+						<input type="text" class="form-control input-md" id="datepicker" name=" tanggal_pengumpulan_proposal" placeholder="Masukkan Tanggal" value="<?php echo e($skripsi->tanggal_pengumpulan_proposal); ?>" required>
 					</div>
 				</div>
 
@@ -88,7 +88,7 @@ Edit Biodata
                 <div class="form-group">
 					<label for="tgl_sidangpro" class="col-sm-2 control-label">Tanggal Sidang Proposal</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tgl_sidangpro" placeholder="Masukkan Tanggal" value="<?php echo e($skripsi->tgl_sidangpro); ?>" required>
+						<input type="text" class="form-control input-md" id="datepicker" name="tgl_sidangpro" placeholder="Masukkan Tanggal" value="<?php echo e($skripsi->tgl_sidangpro); ?>" required>
 					</div>
 				</div>
 
@@ -113,7 +113,7 @@ Edit Biodata
 				<div class="form-group">
 					<label for="tempat_sidangpro" class="col-sm-2 control-label">Tempat Sidang Proposal</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="tempat_sidangpro" name="tempat_sidangpro" placeholder="Masukkan Tempat" value="<?php echo e($skripsi->tempat_sidangpro); ?>" required>
+						<input type="text" class="form-control input-md" id="tempat_sidangpro" name="tempat_sidangpro" placeholder="Masukkan Tempat" value="<?php echo e($skripsi->tempat_sidangpro); ?>" required>
 					</div>
 					</div>
 
@@ -131,21 +131,21 @@ Edit Biodata
                 <div class="form-group">
 					<label for="nilai_sidangpro" class="col-sm-2 control-label">Nilai Sidang Proposal</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nilai_sidangpro" name="nilai_sidangpro" placeholder="Masukkan Nilai" value="<?php echo e($skripsi->nilai_sidangpro); ?>" required>
+						<input type="text" class="form-control input-md" id="nilai_sidangpro" name="nilai_sidangpro" placeholder="Masukkan Nilai" value="<?php echo e($skripsi->nilai_sidangpro); ?>" required>
 					</div>
 					</div>
 
 					<div class="form-group">
 					<label for="upload_berkas_skripsi" class="col-sm-2 control-label">File Skripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="upload_berkas_skripsi" name="upload_berkas_skripsi" placeholder="Masukkan Link File" value="<?php echo e($skripsi->upload_berkas_skripsi); ?>" required>
+						<input type="text" class="form-control input-md" id="upload_berkas_skripsi" name="upload_berkas_skripsi" placeholder="Masukkan Link File" value="<?php echo e($skripsi->upload_berkas_skripsi); ?>" required>
 					</div>
 					</div>
                
                  <div class="form-group">
 					<label for=" tanggal_pengumpulan_skripsi" class="col-sm-2 control-label">Tanggal Pengumpulan Skripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name=" tanggal_pengumpulan_skripsi" placeholder="Masukkan Tanggal" value="<?php echo e($skripsi->tanggal_pengumpulan_skripsi); ?>" required>
+						<input type="text" class="form-control input-md" id="datepicker" name=" tanggal_pengumpulan_skripsi" placeholder="Masukkan Tanggal" value="<?php echo e($skripsi->tanggal_pengumpulan_skripsi); ?>" required>
 					</div>
 				</div>
 
@@ -153,7 +153,7 @@ Edit Biodata
                 <div class="form-group">
 					<label for="tgl_sidangskrip" class="col-sm-2 control-label">Tanggal Sidang Skripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tgl_sidangskrip" placeholder="Masukkan Tanggal" value="<?php echo e($skripsi->tgl_sidangskrip); ?>" required>
+						<input type="text" class="form-control input-md" id="datepicker" name="tgl_sidangskrip" placeholder="Masukkan Tanggal" value="<?php echo e($skripsi->tgl_sidangskrip); ?>" required>
 					</div>
 				</div>
 
@@ -178,7 +178,7 @@ Edit Biodata
 				<div class="form-group">
 					<label for="tempat_sidangskrip" class="col-sm-2 control-label">Tempat Sidang Skripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="tempat_sidangskrip" name="tempat_sidangskrip" placeholder="Masukkan Tempat" value="<?php echo e($skripsi->tempat_sidangskrip); ?>" required>
+						<input type="text" class="form-control input-md" id="tempat_sidangskrip" name="tempat_sidangskrip" placeholder="Masukkan Tempat" value="<?php echo e($skripsi->tempat_sidangskrip); ?>" required>
 					</div>
 					</div>
 
@@ -196,7 +196,7 @@ Edit Biodata
                 <div class="form-group">
 					<label for="nilai_sidangskrip" class="col-sm-2 control-label">Nilai Sidang Skripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nilai_sidangskrip" name="nilai_sidangskrip" placeholder="Masukkan Nilai" value="<?php echo e($skripsi->nilai_sidangskrip); ?>" required>
+						<input type="text" class="form-control input-md" id="nilai_sidangskrip" name="nilai_sidangskrip" placeholder="Masukkan Nilai" value="<?php echo e($skripsi->nilai_sidangskrip); ?>" required>
 					</div>
 					</div>
 
@@ -213,7 +213,7 @@ Edit Biodata
 				<div class="form-group">
 					<label for="nip_petugas" class="col-sm-2 control-label">NIP</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nip_petugas" name="nip_petugas" placeholder="Masukkan NIP" value="<?php echo e($skripsi->nip_petugas); ?>" required>
+						<input type="text" class="form-control input-md" id="nip_petugas" name="nip_petugas" placeholder="Masukkan NIP" value="<?php echo e($skripsi->nip_petugas); ?>" required>
 					</div>
 				</div>
 

@@ -28,7 +28,7 @@ Konsultasi
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('/monsi/konsultasi/create')}}" type="button" class="btn btn-info btn-md" >
+  <a href="{{url('/monitoring-skripsi/konsultasi/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Konsultasi</a>
 </div>
 <div style="overflow: auto">
@@ -51,9 +51,9 @@ Konsultasi
       <td width="20%" style="text-align:center">{{$konsul->catatan_konsul}}</td>
      
       <td width="20%" style="text-align:center" >
-      <a onclick="return confirm('Anda yakin untuk menghapus konsultasi ini?');" href="{{url('/monsi/konsultasi/'.$konsul->id_konsultasi.'/delete/')}}" class="btn btn-danger btn-xs">
+      <a onclick="return confirm('Anda yakin untuk menghapus konsultasi ini?');" href="{{url('/monitoring-skripsi/konsultasi/'.$konsul->id_konsultasi.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('/monsi/konsultasi/'.$konsul->id_konsultasi.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('/monitoring-skripsi/konsultasi/'.$konsul->id_konsultasi.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
     </tr>

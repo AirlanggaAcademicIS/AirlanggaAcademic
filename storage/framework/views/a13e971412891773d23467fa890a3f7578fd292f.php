@@ -27,7 +27,7 @@ Biodata
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="<?php echo e(url('/monsi/skripsi/create')); ?>" type="button" class="btn btn-info btn-md" >
+  <a href="<?php echo e(url('/monitoring-skripsi/skripsi/create')); ?>" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Skripsi</a>
 </div>
 <div style="overflow: auto">
@@ -80,9 +80,9 @@ Biodata
       <td width="10%" style="text-align:center"><?php echo e($skrip->nilai_sidangskrip); ?></td>
       <td width="5%" style="text-align:center"><?php echo e($skrip->is_verified); ?></td>
       <td width="10%" style="text-align:center"><?php echo e($skrip->nip_petugas); ?></td>
-      <td width="10%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus data skripsi ini?');" href="<?php echo e(url('/monsi/skripsi/'.$skrip->id_skripsi.'/delete/')); ?>" class="btn btn-danger btn-xs">
+      <td width="10%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus data skripsi ini?');" href="<?php echo e(url('/monitoring-skripsi/skripsi/'.$skrip->id_skripsi.'/delete/')); ?>" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="<?php echo e(url('/monsi/skripsi/'.$skrip->id_skripsi.'/edit/')); ?>" class="btn btn-warning btn-xs">
+        <a href="<?php echo e(url('/monitoring-skripsi/skripsi/'.$skrip->id_skripsi.'/edit/')); ?>" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
     </tr>
