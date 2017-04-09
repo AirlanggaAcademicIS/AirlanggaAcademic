@@ -52,6 +52,23 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Kurikulum
     Route::group(['prefix' => 'kurikulum'], function() {
+                // Menampilkan tabel
+        Route::get('universitas','Kurikulum\UniversitasController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('universitas/create','Kurikulum\UniversitasController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('universitas/create','Kurikulum\UniversitasController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('universitas/{id}/delete','Kurikulum\UniversitasController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('universitas/{id}/edit','Kurikulum\UniversitasController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('universitas/{id}/edit','Kurikulum\UniversitasController@editAction');
 
     });
 
