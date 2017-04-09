@@ -78,6 +78,14 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
             <ul class="treeview-menu">
+                <li
+                @if($page == 'ruang')
+                {!! 'class="active"'!!}
+                @endif
+                >
+            <!-- Href menuju ke url krs-khs/ruang/view -->
+                <a href="{{ url('krs-khs/ruang/view') }}"><i class='fa fa-book'></i> <span> Ruang</span></a>
+                </li>    
             <!-- Sidebarnya ditaruh dibawah sini -->
 
             </ul>
@@ -131,7 +139,9 @@
             <a href=""><i class='fa fa-users'></i> <span> Inventaris</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-
+                <li><a href="{{ url('/index-asset')}}">all asset</a></li>
+                <li><a href="{{url('/inventaris/index-peminjaman')}}">peminjaman</a></li>
+                <li><a href="{{url('/index-maintenance')}}">maintenance</a></li>
             </ul>
             </li>
         </ul><!-- /.sidebar-menu -->

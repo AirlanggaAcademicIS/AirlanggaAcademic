@@ -19,8 +19,9 @@ Route::get('/', function () {
 
 
 Route::group(['middleware' => ['auth']], function () {
+
     Route::get('biodata','Mahasiswa\BiodataController@index');
-    Route::get('notulen','Notulensi\NotulensiController@index');
+    
     // Modul Mahasiswa
     Route::group(['prefix' => 'mahasiswa'], function() {
     // Url CRUD
@@ -47,6 +48,28 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul KRS & KHS
     Route::group(['prefix' => 'krs-khs'], function() {
+        Route::group(['prefix' => 'ruang'], function() {
+    // Url CRUD
+
+        // Menampilkan tabel
+        Route::get('view','KrsKhs\RuangController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('create','KrsKhs\RuangController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('create','KrsKhs\RuangController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('/{id}/delete','KrsKhs\RuangController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('/{id}/edit','KrsKhs\RuangController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('/{id}/edit','KrsKhs\RuangController@editAction');
+
+    });
         
 
     });
@@ -75,6 +98,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Modul Notulensi
 
     Route::group(['prefix' => 'notulensi'], function() {
+    Route::get('notulen','Notulensi\NotulensiController@index');
 
         // Menampilkan tabel
         Route::get('notulen','Notulensi\NotulensiController@index');
@@ -104,8 +128,20 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Inventaris
     Route::group(['prefix' => 'inventaris'], function() {
+        Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
+        Route::get('index-maintenance', 'MaintenanceController@index');
+        Route::get('view-maintenance', 'MaintenanceController@viewDetail');
 
-            
+        Route::get('input-peminjaman', 'Inventaris\PeminjamanController@inputPeminjaman');
+        Route::post('post-input-peminjaman', 'Inventaris\PeminjamanController@postInputPeminjaman');
+        Route::post('/{id}/post-edit-peminjaman', 'Inventaris\PeminjamanController@postEditPeminjaman');
+        Route::get('index-peminjaman', 'Inventaris\PeminjamanController@index');
+        Route::get('/{id}/view-peminjaman', 'Inventaris\PeminjamanController@viewDetail');
+        Route::get('/{id}/edit-peminjaman', 'Inventaris\PeminjamanController@edit');
+        Route::get('/{id}/delete', 'Inventaris\PeminjamanController@delete');
+
+        Route::get('add-asset', 'HomeController@input');
+        Route::get('view-asset', 'HomeController@index');
     });
   
         
