@@ -88,6 +88,14 @@
             <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+            <li>
+                @if($page == 'KBK')
+                {!! 'class="active"'!!}
+                @endif
+                >
+
+                <a href="{{ url('monsi/KBK') }}"><i class='fa fa-book'></i><span> KBK </span></a>
+            </li>
 
             </ul>
             </li>

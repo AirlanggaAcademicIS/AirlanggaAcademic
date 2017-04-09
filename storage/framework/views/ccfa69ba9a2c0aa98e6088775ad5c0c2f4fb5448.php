@@ -90,6 +90,15 @@
             <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+            <li>
+                <?php if($page == 'KBK'): ?>
+                <?php echo 'class="active"'; ?>
+
+                <?php endif; ?>
+                >
+
+                <a href="<?php echo e(url('monsi/KBK')); ?>"><i class='fa fa-book'></i><span> KBK </span></a>
+            </li>
 
             </ul>
             </li>

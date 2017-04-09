@@ -78,6 +78,22 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Monitoring Skripsi
     Route::group(['prefix' => 'monsi'], function() {
+        Route::get('KBK','MonitoringSkripsi\KBKController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('KBK/create','MonitoringSkripsi\KBKController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('KBK/create','MonitoringSkripsi\KBKController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('KBK/{id_kbk}/delete','MonitoringSkripsi\KBKController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('KBK/{id_kbk}/edit','MonitoringSkripsi\KBKController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('KBK/{id_kbk}/edit','MonitoringSkripsi\KBKController@editAction');
 
           
     });
