@@ -66,6 +66,8 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('/{id}/edit','KrsKhs\RuangController@editAction');
 
+
+
     });
         
 
@@ -78,6 +80,22 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Dosen
     Route::group(['prefix' => 'dosen'], function() {
+         Route::get('penelitian','Dosen\PenelitianController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('penelitian/create','Dosen\PenelitianController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('penelitian/create','Dosen\PenelitianController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('penelitian/{id}/delete','Dosen\PenelitianController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('penelitian/{id}/edit','Dosen\PenelitianController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('penelitian/{id}/edit','Dosen\PenelitianController@editAction');
             
     });
 
@@ -100,6 +118,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Monitoring Skripsi
     Route::group(['prefix' => 'monsi'], function() {
+
         // Menampilkan tabel
         Route::get('skripsi','MonitoringSkripsi\SkripsiController@index');
 
@@ -117,8 +136,23 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Mengupdate  dengan isi dari form
         Route::post('skripsi/{id_skripsi}/edit','MonitoringSkripsi\SkripsiController@editAction');
+         // Menampilkan tabel
+        Route::get('konsultasi','MonitoringSkripsi\KonsultasiController@index');
 
-          
+        // Menampilkan form tambah biodata
+        Route::get('konsultasi/create','MonitoringSkripsi\KonsultasiController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('konsultasi/create','MonitoringSkripsi\KonsultasiController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('konsultasi/{id}/delete','MonitoringSkripsi\KonsultasiController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('konsultasi/{id}/edit','MonitoringSkripsi\KonsultasiController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('konsultasi/{id}/edit','MonitoringSkripsi\KonsultasiController@editAction');        
     });
 
     // Modul Inventaris
