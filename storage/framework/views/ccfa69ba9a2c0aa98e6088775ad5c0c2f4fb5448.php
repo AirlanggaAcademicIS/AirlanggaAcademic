@@ -131,17 +131,24 @@
                 <a href="<?php echo e(url('monitoring-skripsi/KBK')); ?>"><i class='fa fa-book'></i><span> KBK </span></a>
             </li>
 
+
+            <li
+                <?php if($page == 'dosbing'): ?>
+                <?php echo 'class="active"'; ?>
+
+                <?php endif; ?>
+                >
+
+                <a href="<?php echo e(url('monitoring-skripsi/index-dosbing')); ?>"><i class='fa fa-book'></i><span>Dosen Pembimbing </span></a>
+            </li>
+
             <li
             <?php if($page == 'konsultasi'): ?>
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
             >
-<<<<<<< HEAD
             <a href="<?php echo e(url('monitoring-skripsi/konsultasi')); ?>"><i class='fa fa-book'></i>
-=======
-            <a href="<?php echo e(url('monsi/konsultasi')); ?>"><i class='fa-fa-book'></i>
->>>>>>> 7edf160bd383377ba36222613463d7f432164114
             <span>Konsultasi</span></a>
             </li>
             </ul>

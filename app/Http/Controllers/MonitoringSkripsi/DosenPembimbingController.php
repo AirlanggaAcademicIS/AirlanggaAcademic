@@ -86,7 +86,7 @@ class DosenPembimbingController extends Controller
     	
     }
 
-	return redirect('/monsi/index-dosbing');
+	return redirect('/monitoring-skripsi/index-dosbing');
 
 		
 	}
@@ -105,7 +105,7 @@ class DosenPembimbingController extends Controller
 			Session::flash('status_delete','0');
 		}
 
-    	return redirect('/monsi/index-dosbing');
+    	return redirect('/monitoring-skripsi/index-dosbing');
 	}
 
 	public function manipulate(Request $request)
@@ -131,7 +131,7 @@ class DosenPembimbingController extends Controller
 			Session::flash('status_edit','0');
 		}
 
-		return redirect('/monsi/index-dosbing');
+		return redirect('/monitoring-skripsi/index-dosbing');
 	}
 
 }

@@ -66,7 +66,7 @@ Dosen Pembimbing
       
       <div class="panel-body">
       
-      <form action="/monsi/tambah-dosbing" method="POST">
+      <form action="/monitoring-skripsi/tambah-dosbing" method="POST">
 
        <?php echo e(csrf_field()); ?>
 
@@ -150,7 +150,7 @@ Dosen Pembimbing
 
       			 	<td>
 
-      			 		<form action="/monsi/hapus-dosbing/<?php echo e($item->id); ?>" >
+      			 		<form action="/monitoring-skripsi/hapus-dosbing/<?php echo e($item->id); ?>" >
 
       			 		<?php echo e(csrf_field()); ?>
 
@@ -163,7 +163,7 @@ Dosen Pembimbing
       			 	</td>
 
       			 	<td>
-      			 		<form action="/monsi/edit-dosbing/<?php echo e($item->id); ?>" >
+      			 		<form action="/monitoring-skripsi/edit-dosbing/<?php echo e($item->id); ?>" >
 
       			 		<?php echo e(csrf_field()); ?>
 
