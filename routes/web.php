@@ -51,7 +51,20 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Kurikulum
     Route::group(['prefix' => 'kurikulum'], function() {
+        // Menampilkan tabel
+        Route::group(['prefix' => 'kategori-media-pembelajaran'], function() {
+            Route::get('/','Kurikulum\KategoriMediaPembelajaranController@index');
 
+            Route::get('create','Kurikulum\KategoriMediaPembelajaranController@create');
+
+            Route::post('create','Kurikulum\KategoriMediaPembelajaranController@createAction');
+
+            Route::get('{id}/delete','Kurikulum\KategoriMediaPembelajaranController@delete');
+
+            Route::get('{id}/edit','Kurikulum\KategoriMediaPembelajaranController@edit');
+
+            Route::post('{id}/edit','Kurikulum\KategoriMediaPembelajaranController@editAction');
+            });
     });
 
     // Modul Dosen

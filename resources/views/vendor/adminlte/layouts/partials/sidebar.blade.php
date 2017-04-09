@@ -70,6 +70,14 @@
             <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+            <li
+            @if($page == 'kategori-media-pembelajaran')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="{{ url('kurikulum/kategori-media-pembelajaran') }}"><i class='fa fa-book'></i> <span>Kategori Media Pembelajaran</span></a>
+            </li>
 
             </ul>
             </li>
