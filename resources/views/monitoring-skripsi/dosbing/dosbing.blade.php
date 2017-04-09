@@ -68,7 +68,7 @@ Dosen Pembimbing
       
       <div class="panel-body">
       
-      <form action="/monsi/tambah-dosbing" method="POST">
+      <form action="/monitoring-skripsi/tambah-dosbing" method="POST">
 
        {{ csrf_field() }}
 
@@ -149,7 +149,7 @@ Dosen Pembimbing
 
       			 	<td>
 
-      			 		<form action="/monsi/hapus-dosbing/{{$item->id}}" >
+      			 		<form action="/monitoring-skripsi/hapus-dosbing/{{$item->id}}" >
 
       			 		{{ csrf_field() }}
             			
@@ -161,7 +161,7 @@ Dosen Pembimbing
       			 	</td>
 
       			 	<td>
-      			 		<form action="/monsi/edit-dosbing/{{$item->id}}" >
+      			 		<form action="/monitoring-skripsi/edit-dosbing/{{$item->id}}" >
 
       			 		{{ csrf_field() }}
             			

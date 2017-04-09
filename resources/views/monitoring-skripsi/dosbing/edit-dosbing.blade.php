@@ -38,7 +38,7 @@ Edit Dosen Pembimbing
 
       
       
-      <form action="/monsi/manipulate-dosbing" method="POST">
+      <form action="/monitoring-skripsi/manipulate-dosbing" method="POST">
 
        {{ csrf_field() }}
 
