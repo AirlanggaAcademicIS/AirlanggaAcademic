@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('biodata','Mahasiswa\BiodataController@index');
+    Route::get('notulen','Notulensi\NotulensiController@index');
     // Modul Mahasiswa
     Route::group(['prefix' => 'mahasiswa'], function() {
     // Url CRUD
@@ -72,8 +73,26 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     // Modul Notulensi
+
     Route::group(['prefix' => 'notulensi'], function() {
 
+        // Menampilkan tabel
+        Route::get('notulen','Notulensi\NotulensiController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('notulen/create','Notulensi\NotulensiController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('notulen/create','Notulensi\NotulensiController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('notulen/{id_notulen}/delete','Notulensi\NotulensiController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('notulen/{id_notulen}/edit','Notulensi\NotulensiController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('notulen/{id_notulen}/edit','Notulensi\NotulensiController@editAction');
             
     });
 
