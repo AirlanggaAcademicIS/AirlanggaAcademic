@@ -95,6 +95,18 @@ Route::group(['middleware' => ['auth']], function () {
         
     // Modul Kurikulum
     Route::group(['prefix' => 'kurikulum'], function() {
+    // Menampilkan tabel
+        Route::get('prodi','Kurikulum\ProdiController@index');
+    // Menampilkan form tambah biodata
+        Route::get('prodi/create','Kurikulum\ProdiController@create'); 
+    // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('prodi/create','Kurikulum\ProdiController@createAction'); 
+    // Menghapus biodata sesuai id yang dipilih
+        Route::get('prodi/{id_prodi}/delete','Kurikulum\ProdiController@delete');
+    // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('prodi/{id_prodi}/edit','Kurikulum\ProdiController@edit');  
+    // Mengupdate biodata dengan isi dari form
+        Route::post('prodi/{id_prodi}/edit','Kurikulum\ProdiController@editAction');       
 
                 // Menampilkan tabel
         Route::get('universitas','Kurikulum\UniversitasController@index');
@@ -119,6 +131,25 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Dosen
     Route::group(['prefix' => 'dosen'], function() {
+
+            // Menampilkan tabel
+        Route::get('konferensi','Dosen\KonferensiController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('konferensi/create','Dosen\KonferensiController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('konferensi/create','Dosen\KonferensiController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('konferensi/{id}/delete','Dosen\KonferensiController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('konferensi/{id}/edit','Dosen\KonferensiController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('konferensi/{id}/edit','Dosen\KonferensiController@editAction');
+
          Route::get('penelitian','Dosen\PenelitianController@index');
 
         // Menampilkan form tambah biodata
