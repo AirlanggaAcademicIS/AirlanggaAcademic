@@ -1,9 +1,9 @@
 <?php $__env->startSection('htmlheader_title'); ?>
-Tambah Peminjaman
+Tambah Konsultasi
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-Tambah Peminjaman
+Tambah Konsultasi
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('code-header'); ?>
@@ -14,7 +14,6 @@ Tambah Peminjaman
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('main-content'); ?>
-
 <style>
 	.form-group label{
 		text-align: left !important;
@@ -46,39 +45,30 @@ Tambah Peminjaman
 			</div>
 			<?php endif; ?>
 			<br>
-			<div class="container-fluid spark-screen">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<div class="box box-warning">
-					            <div class="box-header with-border">
-					              <h3 class="box-title">Tambah Peminjaman</h3>
-					            </div>
-					            <!-- /.box-header -->
-					            <div class="box-body">
-
-			<form id="tambahBiodata" method="post" action="<?php echo e(url('/inventaris/post-input-peminjaman')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahBimbingan" method="post" action="<?php echo e(url('/monsi/konsultasi/create')); ?>" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">Nomor Induk Peminjam</label>
+					<label for="nim" class="col-sm-2 control-label">id skripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim_nip_peminjam" name="nim_nip_peminjam" placeholder="Masukkan NIM" required>
+						<input type="text" class="form-control input-lg" id="id_skripsi" name="id_skripsi" placeholder="Masukkan id skripsi" required>
 					</div>
 				</div>
 
+	<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Asset yang Dipinjam</label>
+					<label for="tgl_konsul" class="col-sm-2 control-label">Tanggal Konsultasi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="asset_yang_dipinjam" name="asset_yang_dipinjam" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tgl_konsul" placeholder="Masukkan Tanggal" required>
 					</div>
 				</div>
 
-				<!-- Menampilkan tanggal dengan datepicker -->
+			<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Expected Checkin Date</label>
+					<label for="catatan_konsul" class="col-sm-2 control-label">Catatan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="expected_checkin_date" placeholder="Masukkan Tanggal" required>
+						<textarea id="catatan_konsul" name="catatan_konsul" placeholder=" Masukkan Catatan " required cols="82" rows="5"></textarea>
 					</div>
 				</div>
 
@@ -90,12 +80,6 @@ Tambah Peminjaman
 					</div>
 				</div>
 			</form>
-            </div>
-            <!-- /.box-body -->
-          </div>       
-</div>
-					</div>
-			</div>		          
 		</div>
 	</div>
 </div>

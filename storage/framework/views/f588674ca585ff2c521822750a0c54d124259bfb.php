@@ -1,9 +1,9 @@
 <?php $__env->startSection('htmlheader_title'); ?>
-Edit Biodata
+Edit Konsultasi
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-Edit Biodata
+Edit Konsultasi
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('code-header'); ?>
@@ -44,52 +44,33 @@ Edit Biodata
 			</div>
 			<?php endif; ?>
 			<br>
-			<form id="tambahBiodata" method="post" action="<?php echo e(url('/mahasiswa/biodata/'.$biodata->id.'/edit')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahKonsultasi" method="post" action="<?php echo e(url('/monsi/konsultasi/'.$konsultasi->id_konsultasi.'/edit')); ?>" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">NIM</label>
+					<label for="nim" class="col-sm-2 control-label">id skripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" value="<?php echo e($biodata->nim); ?>" required>
-					</div>
-				</div>
-
-				<!-- Menampilkan input text biasa -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" value="<?php echo e($biodata->nama); ?>" required>
-					</div>
-				</div>
-
-				<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Alamat</label>
-					<div class="col-md-8">
-						<textarea id="alamat" name="alamat" placeholder=" Masukkan Alamat" required cols="82" rows="5"><?php echo e($biodata->alamat); ?>
-
-						</textarea>
-					</div>
-				</div>
-
-				<!-- Menampilkan dropdown -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Provinsi</label>
-					<div class="col-md-8">
-						<select name="provinsi" required>
-							<option value="Jawa Timur">Jawa Timur</option>
-							<option value="Jawa Tengah">Jawa Tengah</option>
-							<option value="Jawa Barat">Jawa Barat</option>
-						</select>
+						<input value="<?php echo e($konsultasi->id_skripsi); ?>" type="text" class="form-control input-lg" id="id_skripsi" name="id_skripsi" placeholder="Masukkan id skripsi" required>
 					</div>
 				</div>
 
 				<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Masuk</label>
+					<label for="nama" class="col-sm-2 control-label">Tanggal Konsultasi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_masuk" placeholder="Masukkan Tanggal" required>
+						<input value="<?php echo e($konsultasi->tgl_konsul); ?>" type="text" class="form-control input-lg" id="datepicker" name="tgl_konsul" placeholder="Masukkan Tanggal" required>
+					</div>
+				</div>
+				
+				<!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Catatan</label>
+					<div class="col-md-8">
+						<textarea id="catatan_konsul" name="catatan_konsul" placeholder=" Masukkan Catatan " required cols="82" rows="5">
+						<?php echo e($konsultasi->catatan_konsul); ?>
+
+						</textarea>
 					</div>
 				</div>
 

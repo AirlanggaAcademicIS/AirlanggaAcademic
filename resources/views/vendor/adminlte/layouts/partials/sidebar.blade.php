@@ -89,6 +89,14 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
 
+            <li
+            @if($page == 'konsultasi')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <a href="{{url('monsi/konsultasi')}}"><i class='fa-fa-book'></i>
+            <span>Konsultasi</span></a>
+            </li>
             </ul>
             </li>
 

@@ -91,6 +91,15 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
 
+            <li
+            <?php if($page == 'konsultasi'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <a href="<?php echo e(url('monsi/konsultasi')); ?>"><i class='fa-fa-book'></i>
+            <span>Konsultasi</span></a>
+            </li>
             </ul>
             </li>
 
