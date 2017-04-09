@@ -100,6 +100,23 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Monitoring Skripsi
     Route::group(['prefix' => 'monsi'], function() {
+        // Menampilkan tabel
+        Route::get('skripsi','MonitoringSkripsi\SkripsiController@index');
+
+        // Menampilkan form tambah 
+        Route::get('skripsi/create','MonitoringSkripsi\SkripsiController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('skripsi/create','MonitoringSkripsi\SkripsiController@createAction');
+
+        // Menghapus  sesuai id yang dipilih
+        Route::get('skripsi/{id_skripsi}/delete','MonitoringSkripsi\SkripsiController@delete');
+
+        // Menampilkan form edit dari id yg dipilih
+        Route::get('skripsi/{id_skripsi}/edit','MonitoringSkripsi\SkripsiController@edit');
+
+        // Mengupdate  dengan isi dari form
+        Route::post('skripsi/{id_skripsi}/edit','MonitoringSkripsi\SkripsiController@editAction');
 
           
     });
