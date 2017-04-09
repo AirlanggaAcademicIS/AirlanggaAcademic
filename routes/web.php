@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 
 Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('biodata','Mahasiswa\BiodataController@index');
+    
     // Modul Mahasiswa
     Route::group(['prefix' => 'mahasiswa'], function() {
     // Url CRUD
@@ -113,7 +116,23 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('penelitian/{id}/edit','Dosen\PenelitianController@editAction');
             
 
-    });
+       Route::get('pengmas/','Dosen\PengmasController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('pengmas/create','Dosen\PengmasController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('pengmas/create','Dosen\PengmasController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('pengmas/{id}/delete','Dosen\PengmasController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('pengmas/{id}/edit','Dosen\PengmasController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('pengmas/{id}/edit','Dosen\PengmasController@editAction');     
+   });
 
     // Modul Kegiatan
     Route::group(['prefix' => 'kegiatan'], function() {
@@ -127,7 +146,14 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     // Modul Notulensi
+
     Route::group(['prefix' => 'notulensi'], function() {
+
+    Route::get('notulen','Notulensi\NotulensiController@index');
+
+        // Menampilkan tabel
+        Route::get('notulen','Notulensi\NotulensiController@index');
+
         // Menampilkan tabel
         Route::get('dosenrapat','Notulensi\DosenRapatController@index');
 
@@ -146,6 +172,20 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate dosen rapat dengan isi dari form
         Route::post('dosenrapat/{id}/edit','Notulensi\DosenRapatController@editAction');
 
+        // Menampilkan form tambah notulensi rapat
+        Route::get('notulen/create','Notulensi\NotulensiController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel notulensi rapat
+        Route::post('notulen/create','Notulensi\NotulensiController@createAction');
+
+        // Menghapus notulensi rapat sesuai id yang dipilih
+        Route::get('notulen/{id_notulen}/delete','Notulensi\NotulensiController@delete');
+
+        // Menampilkan form edit notulensi rapat dari id yg dipilih
+        Route::get('notulen/{id_notulen}/edit','Notulensi\NotulensiController@edit');
+
+        // Mengupdate notulensi rapat dengan isi dari form
+        Route::post('notulen/{id_notulen}/edit','Notulensi\NotulensiController@editAction');
             
     });
 

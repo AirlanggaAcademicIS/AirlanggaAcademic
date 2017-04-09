@@ -61,6 +61,12 @@
             <a href=""><i class='fa fa-users'></i> <span> Dosen</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+
+            <li @if($page == 'pengmas')
+            {!! 'class="active"'!!}
+            @endif
+            ><a href="{{url('/dosen/pengmas')}}">Pengabdian Masyarakat</a></li>
+
            <li
             @if($page == 'konferensi')
             {!! 'class="active"'!!}
@@ -70,7 +76,7 @@
             <a href="{{ url('dosen/konferensi') }}"><i class='fa fa-book'></i> <span> Konferensi</span></a>
             </li> 
 
-            <li><a href="{{url('/dosen/pengmas/index')}}">Pengabdian Masyarakat</a></li>
+          
             <li><a href="{{ url('/dosen/konferensi/index') }}">Konferensi</a></li>
             <li
             @if($page == 'penelitian')
@@ -184,6 +190,15 @@
             <!-- Sidebarnya ditaruh dibawah sini -->
 
             <li
+            @if($page == 'notulen')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url notulensi/notulensi rapat -->
+            <a href="{{ url('notulensi/notulen') }}"><i class='fa fa-book'></i> <span> Notulensi Rapat</span></a>
+            </li>
+
+            <li
             @if($page == 'dosenrapat')
             {!! 'class="active"'!!}
             @endif
@@ -191,7 +206,6 @@
             <!-- Href menuju ke url notulensi/dosenrapat -->
             <a href="{{ url('notulensi/dosenrapat') }}"><i class='fa fa-book'></i> <span>Dosen Rapat</span></a>
             </li>        
-
             </ul>
             </li>
 
