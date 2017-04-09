@@ -50,10 +50,55 @@
             {!! 'class="active"'!!}
             @endif
             >
-            <!-- Href menuju ke url mahasiswa/biodata -->
-            <a href="{{ url('/biodata') }}"><i class='fa fa-book'></i> <span> Biodata</span></a>
-            </li>        
-            </ul>
+            <a href="{{url('/biodata')}}"><i class="fa fa-book"></i> Biodata</a>
+            </li>
+
+
+            <li
+            @if($page == 'kemahasiswaan')
+            {!! 'class="active"'!!}
+            @endif
+            >
+                <a href="#"><i class="fa fa-user-secret"></i> Kemahasiswaan
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                    <ul class="treeview-menu">
+                        <!-- Href menuju ke url mahasiswa/kemahasiswaan/penelitian -->
+                        <li 
+                        @if($page == 'penelitian')
+                        {!! 'class="active"'!!}
+                        @endif
+                        ><a href="{{url('/mahasiswa/penelitian')}}"><i class="fa fa-edit"></i> Penelitian
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                                <ul class="treeview-menu">
+                                    <!-- Href menuju ke url mahasiswa/kemahasiswaan/penelitian -->
+                                    <li
+                                    @if($page == 'detailpenelitian')
+                                    {!! 'class="active"'!!}
+                                    @endif
+                                    ><a href="{{url('/mahasiswa/detailpenelitian')}}"><i class="fa fa-edit"></i>Detail Penelitian</a></li>
+                                    <li><a href="{{url('/mahasiswa/detailanggota')}}"><i class="fa fa-edit"></i>Detail Anggota</a></li>
+                                </ul>
+                        </li>
+                        <!-- Href menuju ke url mahasiswa/kemahasiswaan/prestasi -->
+                        <li><a href="{{url('/mahasiswa/prestasi')}}"><i class="fa fa-edit"></i> Prestasi</a></li>
+                    </ul>
+                </li>
+                <!-- $page nya sesuaiin sama yang di controller -->
+            <li
+            @if($page == 'biodata')
+            {!! 'class="active"'!!}
+            @endif
+            >
+                <a href="{{url('/mahasiswa/akun')}}"><i class="fa fa-book"></i> Akun Mahasiswa</a>
+            </li>
+                  
+                </ul>
             </li>
 
             <!-- Modul Dosen -->
@@ -84,7 +129,13 @@
             @endif
             ><a href="{{url('/dosen/penelitian')}}">Penelitian</a>
             </li>                 
-            <li><a href="{{url('/dosen/jurnal/index')}}">Jurnal</a></li>  
+            <li
+            @if($page == 'jurnal')
+            {!! 'class="active"'!!}
+            @endif
+            ><a href="{{url('/dosen/jurnal')}}">Jurnal</a>
+            </li>  
+
             <li><a href="{{url('/dosen/sktugas/index')}}">SK Tugas</a></li>
             <li><a href="{{url('/dosen/biodata/index')}}">Biodata</a></li>
 

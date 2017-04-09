@@ -1,3 +1,4 @@
+
     <?php
 
 /*
@@ -43,6 +44,27 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Mengupdate biodata dengan isi dari form
         Route::post('biodata/{id}/edit','Mahasiswa\BiodataController@editAction');
+
+        //Penelitian
+        // Menampilkan tabel
+        Route::get('penelitian','Mahasiswa\PenelitianController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('penelitian/create','Mahasiswa\PenelitianController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('penelitian/create','Mahasiswa\PenelitianController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('penelitian/{kode_penelitian}/delete','Mahasiswa\PenelitianController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('penelitian/{kode_penelitian}/edit','Mahasiswa\PenelitianController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('penelitian/{kode_penelitian}/edit','Mahasiswa\PenelitianController@editAction');
+
+
 
     });
 
@@ -145,6 +167,25 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Mengupdate biodata dengan isi dari form
         Route::post('penelitian/{id}/edit','Dosen\PenelitianController@editAction');
+       
+       Route::get('jurnal','Dosen\JurnalController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('jurnal/create','Dosen\JurnalController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('jurnal/create','Dosen\JurnalController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('jurnal/{id}/delete','Dosen\JurnalController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('jurnal/{id}/edit','Dosen\JurnalController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('jurnal/{id}/edit','Dosen\JurnalController@editAction');     
+    });
+
             
 
        Route::get('pengmas/','Dosen\PengmasController@index');
@@ -164,6 +205,7 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('pengmas/{id}/edit','Dosen\PengmasController@editAction');     
    });
+
 
     // Modul Kegiatan
     Route::group(['prefix' => 'kegiatan'], function() {
