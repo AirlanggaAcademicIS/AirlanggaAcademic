@@ -45,32 +45,28 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul KRS & KHS
     Route::group(['prefix' => 'krs-khs'], function() {
-        Route::group(['prefix' => 'ruang'], function() {
     // Url CRUD
 
         // Menampilkan tabel
-        Route::get('view','KrsKhs\RuangController@index');
+        Route::get('JenisPenilaian','KrsKhs\JenisPenilaianController@index');
 
         // Menampilkan form tambah biodata
-        Route::get('create','KrsKhs\RuangController@create');
+        Route::get('JenisPenilaian/create','KrsKhs\JenisPenilaianController@create');
 
         // Menambahkan form yg di isi tadi ke tabel biodata
-        Route::post('create','KrsKhs\RuangController@createAction');
+        Route::post('JenisPenilaian/create','KrsKhs\JenisPenilaianController@createAction');
 
         // Menghapus biodata sesuai id yang dipilih
-        Route::get('/{id}/delete','KrsKhs\RuangController@delete');
+        Route::get('JenisPenilaian/{id}/delete','KrsKhs\JenisPenilaianController@delete');
 
         // Menampilkan form edit biodata dari id yg dipilih
-        Route::get('/{id}/edit','KrsKhs\RuangController@edit');
+        Route::get('JenisPenilaian/{id}/edit','KrsKhs\JenisPenilaianController@edit');
 
         // Mengupdate biodata dengan isi dari form
-        Route::post('/{id}/edit','KrsKhs\RuangController@editAction');
+        Route::post('JenisPenilaian/{id}/edit','KrsKhs\JenisPenilaianController@editAction');
 
     });
         
-
-    });
-
     // Modul Kurikulum
     Route::group(['prefix' => 'kurikulum'], function() {
 
