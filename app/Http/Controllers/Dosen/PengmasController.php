@@ -57,7 +57,7 @@ class PengmasController extends Controller
     public function delete($id_kegiatan)
     {
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $pengmas = Pengmas::find($id_kegiatan);
+        $pengmas = PengmasDosen::find($id_kegiatan);
 
         // Menghapus biodata yang dicari tadi
         $pengmas->delete();
