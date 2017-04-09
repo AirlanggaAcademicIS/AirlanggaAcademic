@@ -192,6 +192,15 @@
             <!-- Sidebarnya ditaruh dibawah sini -->
 
             <li
+            @if($page == 'notulen')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url notulensi/notulensi rapat -->
+            <a href="{{ url('notulensi/notulen') }}"><i class='fa fa-book'></i> <span> Notulensi Rapat</span></a>
+            </li>
+
+            <li
             @if($page == 'dosenrapat')
             {!! 'class="active"'!!}
             @endif
@@ -199,7 +208,6 @@
             <!-- Href menuju ke url notulensi/dosenrapat -->
             <a href="{{ url('notulensi/dosenrapat') }}"><i class='fa fa-book'></i> <span>Dosen Rapat</span></a>
             </li>        
-
             </ul>
             </li>
 
