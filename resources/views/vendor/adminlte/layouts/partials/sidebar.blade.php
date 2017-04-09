@@ -61,7 +61,10 @@
             <a href=""><i class='fa fa-users'></i> <span> Dosen</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-            <li><a href="{{url('/dosen/pengmas/index')}}">Pengabdian Masyarakat</a></li>
+            <li @if($page == 'pengmas')
+            {!! 'class="active"'!!}
+            @endif
+            ><a href="{{url('/dosen/pengmas')}}">Pengabdian Masyarakat</a></li>
             <li><a href="{{ url('/dosen/konferensi/index') }}">Konferensi</a></li>
             <li
             @if($page == 'penelitian')
