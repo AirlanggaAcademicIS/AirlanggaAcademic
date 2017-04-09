@@ -137,7 +137,11 @@
 
             <?php endif; ?>
             >
+<<<<<<< HEAD
             <a href="<?php echo e(url('monitoring-skripsi/konsultasi')); ?>"><i class='fa fa-book'></i>
+=======
+            <a href="<?php echo e(url('monsi/konsultasi')); ?>"><i class='fa-fa-book'></i>
+>>>>>>> 7edf160bd383377ba36222613463d7f432164114
             <span>Konsultasi</span></a>
             </li>
             </ul>

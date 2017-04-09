@@ -171,7 +171,24 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('konsultasi/{id}/edit','MonitoringSkripsi\KonsultasiController@edit');
 
         // Mengupdate biodata dengan isi dari form
-        Route::post('konsultasi/{id}/edit','MonitoringSkripsi\KonsultasiController@editAction');        
+        Route::post('konsultasi/{id}/edit','MonitoringSkripsi\KonsultasiController@editAction'); 
+
+        //Menampilkan list dosen pembimbing dan form untuk menambahkan
+           Route::get('index-dosbing','MonitoringSkripsi\DosenPembimbingController@index');
+
+         //Action untuk menambahkan dosbing  
+
+            Route::post('tambah-dosbing','MonitoringSkripsi\DosenPembimbingController@store');
+
+        //Action untuk menghapus dosbing
+            Route::get('hapus-dosbing/{id}','MonitoringSkripsi\DosenPembimbingController@destroy');
+
+        //Page untuk menampilkan edit form sesuai data yang dipilih
+            Route::get('edit-dosbing/{id}','MonitoringSkripsi\DosenPembimbingController@edit_dosbing');
+            
+        // Action untuk mengupdate dosbing    
+            Route::post('manipulate-dosbing','MonitoringSkripsi\DosenPembimbingController@manipulate');
+           
     });
 
     // Modul Inventaris
