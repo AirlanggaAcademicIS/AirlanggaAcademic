@@ -49,16 +49,38 @@ Edit Notulensi
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
+					<label for="id_permohonan_ruang" class="col-sm-2 control-label">ID Permohonan Ruang</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="id_permohonan_ruang" name="id_permohonan_ruang" placeholder="Masukkan ID Permohonan Ruang" value="<?php echo e($notulen->id_permohonan_ruang); ?>" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nip_petugas" class="col-sm-2 control-label">NIP Petugas</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nip_petugas" name="nip_petugas" placeholder="Masukkan NIP Petugas" value="<?php echo e($notulen->nip_petugas); ?>" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nip" class="col-sm-2 control-label">NIP</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nip" name="nip" placeholder="Masukkan NIP" value="<?php echo e($notulen->nip); ?>" required>
+					</div>
+				</div>
+
+				<div class="form-group">
 					<label for="nama_rapat" class="col-sm-2 control-label">Nama Rapat</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_rapat" name="nama_rapat" placeholder="Masukkan Nama Rapat" required>
+						<input type="text" class="form-control input-lg" id="nama_rapat" name="nama_rapat" placeholder="Masukkan Nama Rapat" value="<?php echo e($notulen->nama_rapat); ?>" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="agenda_rapat" class="col-sm-2 control-label">Agenda Rapat</label>
 					<div class="col-md-8">
-						<textarea id="agenda_rapat" name="agenda_rapat" placeholder=" Masukkan Agenda Rapat" required cols="82" rows="5">
+						<textarea id="agenda_rapat" name="agenda_rapat" placeholder=" Masukkan Agenda Rapat" required cols="82" rows="5"><?php echo e($notulen->agenda_rapat); ?>
+
 						</textarea>
 					</div>
 				</div>
@@ -67,7 +89,7 @@ Edit Notulensi
 				<div class="form-group">
 					<label for="waktu_pelaksanaan" class="col-sm-2 control-label">Waktu Pelaksanaan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="waktu_pelaksanaan" placeholder="Masukkan Tanggal Pelaksanaan" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="waktu_pelaksanaan" placeholder="Masukkan Tanggal Pelaksanaan" value="<?php echo e($notulen->waktu_pelaksanaan); ?>" required>
 					</div>
 				</div>
 
@@ -75,15 +97,24 @@ Edit Notulensi
 				<div class="form-group">
 					<label for="hasil_pembahasan" class="col-sm-2 control-label">Hasil Pembahasan</label>
 					<div class="col-md-8">
-						<textarea id="hasil_pembahasan" name="hasil_pembahasan" placeholder=" Masukkan Hasil Pembahasan" required cols="82" rows="5">
+						<textarea id="hasil_pembahasan" name="hasil_pembahasan" placeholder=" Masukkan Hasil Pembahasan" required cols="82" rows="5"><?php echo e($notulen->hasil_pembahasan); ?>
+
 						</textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="id_verifikasi" class="col-sm-2 control-label">ID Verifikasi</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="id_verifikasi" name="id_verifikasi" placeholder="Masukkan ID Verifikasi" value="<?php echo e($notulen->id_verifikasi); ?>" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="deskripsi_rapat" class="col-sm-2 control-label">Deskripsi Rapat</label>
 					<div class="col-md-8">
-						<textarea id="deskripsi_rapat" name="deskripsi_rapat" placeholder=" Masukkan Deskripsi Rapat" required cols="82" rows="5">
+						<textarea id="deskripsi_rapat" name="deskripsi_rapat" placeholder=" Masukkan Deskripsi Rapat" required cols="82" rows="5"><?php echo e($notulen->deskripsi_rapat); ?>
+
 						</textarea>
 					</div>
 				</div>

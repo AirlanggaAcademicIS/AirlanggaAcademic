@@ -4,11 +4,11 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('htmlheader_title'); ?>
-Notulensi
+Notulensi Rapat
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-Notulensi
+Notulensi Rapat
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('main-content'); ?>

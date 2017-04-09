@@ -88,10 +88,14 @@ class NotulensiController extends Controller
         $notulen = Notulensi::find($id_notulen);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
+        $notulen->id_permohonan_ruang = $request->input('id_permohonan_ruang');
+        $notulen->nip_petugas = $request->input('nip_petugas');
+        $notulen->nip = $request->input('nip');
         $notulen->nama_rapat = $request->input('nama_rapat');
         $notulen->agenda_rapat = $request->input('agenda_rapat');
         $notulen->waktu_pelaksanaan = $request->input('waktu_pelaksanaan');
         $notulen->hasil_pembahasan = $request->input('hasil_pembahasan');
+        $notulen->id_verifikasi = $request->input('id_verifikasi');
         $notulen->deskripsi_rapat = $request->input('deskripsi_rapat');
         $notulen->save();
 

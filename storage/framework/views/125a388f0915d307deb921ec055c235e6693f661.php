@@ -50,6 +50,27 @@ Tambah Notulensi
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
+					<label for="id_permohonan_ruang" class="col-sm-2 control-label">ID Permohonan Ruang</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="id_permohonan_ruang" name="id_permohonan_ruang" placeholder="Masukkan ID Permohonan Ruang" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nip_petugas" class="col-sm-2 control-label">NIP Petugas</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nip_petugas" name="nip_petugas" placeholder="Masukkan NIP Petugas" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nip" class="col-sm-2 control-label">NIP</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nip" name="nip" placeholder="Masukkan NIP" required>
+					</div>
+				</div>
+
+				<div class="form-group">
 					<label for="nama_rapat" class="col-sm-2 control-label">Nama Rapat</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control input-lg" id="nama_rapat" name="nama_rapat" placeholder="Masukkan Nama Rapat" required>
@@ -78,6 +99,13 @@ Tambah Notulensi
 					<div class="col-md-8">
 						<textarea id="hasil_pembahasan" name="hasil_pembahasan" placeholder=" Masukkan Hasil Pembahasan" required cols="82" rows="5">
 						</textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="id_verifikasi" class="col-sm-2 control-label">ID Verifikasi</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="id_verifikasi" name="id_verifikasi" placeholder="Masukkan ID Verifikasi" required>
 					</div>
 				</div>
 

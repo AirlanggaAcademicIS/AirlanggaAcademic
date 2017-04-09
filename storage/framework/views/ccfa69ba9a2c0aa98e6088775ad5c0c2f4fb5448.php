@@ -115,7 +115,7 @@
             <?php endif; ?>
             >
             <!-- Href menuju ke url notulensi/notulensi rapat -->
-            <a href="<?php echo e(url('notulensi/notulen')); ?>"><i class='fa fa-book'></i> <span> Notulensi</span></a>
+            <a href="<?php echo e(url('notulensi/notulen')); ?>"><i class='fa fa-book'></i> <span> Notulensi Rapat</span></a>
             </li>
             </ul>
             </li>
