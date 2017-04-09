@@ -111,7 +111,7 @@
             @endif
             >
             <!-- Href menuju ke url notulensi/notulensi rapat -->
-            <a href="{{ url('notulensi/notulen') }}"><i class='fa fa-book'></i> <span> Notulensi</span></a>
+            <a href="{{ url('notulensi/notulen') }}"><i class='fa fa-book'></i> <span> Notulensi Rapat</span></a>
             </li>
             </ul>
             </li>

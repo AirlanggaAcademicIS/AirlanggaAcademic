@@ -80,6 +80,15 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
             <ul class="treeview-menu">
+                <li
+                <?php if($page == 'ruang'): ?>
+                <?php echo 'class="active"'; ?>
+
+                <?php endif; ?>
+                >
+            <!-- Href menuju ke url krs-khs/ruang/view -->
+                <a href="<?php echo e(url('krs-khs/ruang/view')); ?>"><i class='fa fa-book'></i> <span> Ruang</span></a>
+                </li>    
             <!-- Sidebarnya ditaruh dibawah sini -->
 
             </ul>
@@ -134,7 +143,9 @@
             <a href=""><i class='fa fa-users'></i> <span> Inventaris</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-
+                <li><a href="<?php echo e(url('/index-asset')); ?>">all asset</a></li>
+                <li><a href="<?php echo e(url('/inventaris/index-peminjaman')); ?>">peminjaman</a></li>
+                <li><a href="<?php echo e(url('/index-maintenance')); ?>">maintenance</a></li>
             </ul>
             </li>
         </ul><!-- /.sidebar-menu -->

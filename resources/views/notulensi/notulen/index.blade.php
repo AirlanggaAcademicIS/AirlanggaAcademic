@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Notulensi
+Notulensi Rapat
 @endsection
 
 @section('contentheader_title')
-Notulensi
+Notulensi Rapat
 @endsection
 
 @section('main-content')
