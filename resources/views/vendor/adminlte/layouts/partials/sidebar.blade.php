@@ -108,6 +108,7 @@
             <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
             <li
             @if($page == 'skripsi')
             {
@@ -116,6 +117,15 @@
 
             <a href="{{ url('monsi/skripsi') }}">
             <i class='fa fa-book'></i> <span> Skripsi</span></a>
+=======
+            <li>
+                @if($page == 'KBK')
+                {!! 'class="active"'!!}
+                @endif
+                >
+
+                <a href="{{ url('monsi/KBK') }}"><i class='fa fa-book'></i><span> KBK </span></a>
+>>>>>>> 6d7c00deb94cc42be50f08d01e1471f613b56f53
             </li>
 
             <li

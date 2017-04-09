@@ -80,6 +80,7 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
             <ul class="treeview-menu">
+<<<<<<< HEAD
                 <li
                 <?php if($page == 'ruang'): ?>
                 <?php echo 'class="active"'; ?>
@@ -89,6 +90,8 @@
             <!-- Href menuju ke url krs-khs/ruang/view -->
                 <a href="<?php echo e(url('krs-khs/ruang/view')); ?>"><i class='fa fa-book'></i> <span> Ruang</span></a>
                 </li>    
+=======
+>>>>>>> 6d7c00deb94cc42be50f08d01e1471f613b56f53
             <!-- Sidebarnya ditaruh dibawah sini -->
 
             </ul>
@@ -99,6 +102,7 @@
             <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
             <li
             <?php if($page == 'skripsi'): ?>
             {
@@ -107,6 +111,16 @@
 
             <a href="<?php echo e(url('monsi/skripsi')); ?>">
             <i class='fa fa-book'></i> <span> Skripsi</span></a>
+=======
+            <li>
+                <?php if($page == 'KBK'): ?>
+                <?php echo 'class="active"'; ?>
+
+                <?php endif; ?>
+                >
+
+                <a href="<?php echo e(url('monsi/KBK')); ?>"><i class='fa fa-book'></i><span> KBK </span></a>
+>>>>>>> 6d7c00deb94cc42be50f08d01e1471f613b56f53
             </li>
 
             </ul>
@@ -117,7 +131,11 @@
             <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 6d7c00deb94cc42be50f08d01e1471f613b56f53
             </ul>
             </li>
 
