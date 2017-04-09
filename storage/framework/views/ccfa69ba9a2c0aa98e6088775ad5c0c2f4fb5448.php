@@ -95,16 +95,39 @@
             <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
             <li 
             <?php if($page == 'prodi'): ?>
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
             ><a href="<?php echo e(url('/kurikulum/prodi')); ?>"><i class='fa fa-book'></i> <span> Prodi</span></a></li>
+=======
+            <!-- $page nya sesuaiin sama yang di controller -->
+            <li
+            <?php if($page == 'prodi'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <li
+            <?php if($page == 'universitas'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="<?php echo e(url('kurikulum/prodi')); ?>"><i class='fa fa-book'></i> <span> Prodi</span></a>
+>>>>>>> 8a5bfe760be116e924e64cd18cd2fbec9c85770b
             </li> 
             <a href="<?php echo e(url('/kurikulum/universitas')); ?>"><i class='fa fa-book'></i> <span> Universitas</span></a>
             </li>        
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8a5bfe760be116e924e64cd18cd2fbec9c85770b
             </ul>
             </li>
 
@@ -139,11 +162,19 @@
 
             <a href="<?php echo e(url('monitoring-skripsi/skripsi')); ?>"><i class='fa fa-book'></i><span> Skripsi</span></a>
             </li>
+<<<<<<< HEAD
 
             <li
                 <?php if($page == 'KBK'): ?>
                 <?php echo 'class="active"'; ?>
 
+=======
+
+            <li
+                <?php if($page == 'KBK'): ?>
+                <?php echo 'class="active"'; ?>
+
+>>>>>>> 8a5bfe760be116e924e64cd18cd2fbec9c85770b
                 <?php endif; ?>
                 >
 
@@ -178,9 +209,24 @@
             <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
             
+=======
+
+            <li
+            <?php if($page == 'dosenrapat'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url notulensi/dosenrapat -->
+            <a href="<?php echo e(url('notulensi/dosenrapat')); ?>"><i class='fa fa-book'></i> <span>Dosen Rapat</span></a>
+            </li>        
+
+>>>>>>> 8a5bfe760be116e924e64cd18cd2fbec9c85770b
             </ul>
             </li>
+
 
             <!-- Modul Pengelolaan Kegiatan -->
             <li>
