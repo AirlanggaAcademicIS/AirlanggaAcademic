@@ -94,7 +94,7 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('universitas/{id}/edit','Kurikulum\UniversitasController@editAction');
 
->>>>>>> 4ecee856ad9da34203da408e2113a99d7dd55ee3
+
     });
 
     // Modul Dosen
