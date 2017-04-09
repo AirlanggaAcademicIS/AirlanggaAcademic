@@ -30,7 +30,7 @@ class DosenPembimbingController extends Controller
 		
 		];
 
-		return view('monitoring-skripsi.dosbing',$data);
+		return view('monitoring-skripsi.dosbing.dosbing',$data);
 	}
 
 	public function edit_dosbing(Request $request)
@@ -58,7 +58,7 @@ class DosenPembimbingController extends Controller
 		'nip_dosbing'=>$nip_dosen,
 		'status_dosbing'=>$status_dosbing
 		];
-		return view('monitoring-skripsi.edit-dosbing',$data);
+		return view('monitoring-skripsi.dosbing.edit-dosbing',$data);
 	}
 
 	public function store(Request $request)
@@ -86,7 +86,7 @@ class DosenPembimbingController extends Controller
     	
     }
 
-	return redirect('/monsi/index-dosbing');
+	return redirect('/monitoring-skripsi/index-dosbing');
 
 		
 	}
@@ -105,7 +105,7 @@ class DosenPembimbingController extends Controller
 			Session::flash('status_delete','0');
 		}
 
-    	return redirect('/monsi/index-dosbing');
+    	return redirect('/monitoring-skripsi/index-dosbing');
 	}
 
 	public function manipulate(Request $request)
@@ -131,7 +131,7 @@ class DosenPembimbingController extends Controller
 			Session::flash('status_edit','0');
 		}
 
-		return redirect('/monsi/index-dosbing');
+		return redirect('/monitoring-skripsi/index-dosbing');
 	}
 
 }
