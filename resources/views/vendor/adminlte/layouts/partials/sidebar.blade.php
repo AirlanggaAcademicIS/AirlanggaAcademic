@@ -69,7 +69,13 @@
             @endif
             ><a href="{{url('/dosen/penelitian')}}">Penelitian</a>
             </li>                 
-            <li><a href="{{url('/dosen/jurnal/index')}}">Jurnal</a></li>  
+            <li
+            @if($page == 'jurnal')
+            {!! 'class="active"'!!}
+            @endif
+            ><a href="{{url('/dosen/jurnal')}}">Jurnal</a>
+            </li>  
+
             <li><a href="{{url('/dosen/sktugas/index')}}">SK Tugas</a></li>
             <li><a href="{{url('/dosen/biodata/index')}}">Biodata</a></li>
 
