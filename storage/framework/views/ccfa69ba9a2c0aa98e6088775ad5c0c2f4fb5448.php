@@ -63,6 +63,7 @@
             <a href=""><i class='fa fa-users'></i> <span> Dosen</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
             <li><a href="<?php echo e(url('/dosen/pengmas/index')); ?>">Pengabdian Masyarakat</a></li>
             <li><a href="<?php echo e(url('/dosen/konferensi/index')); ?>">Konferensi</a></li>
             <li
@@ -76,6 +77,8 @@
             <li><a href="<?php echo e(url('/dosen/sktugas/index')); ?>">SK Tugas</a></li>
             <li><a href="<?php echo e(url('/dosen/biodata/index')); ?>">Biodata</a></li>
 
+=======
+>>>>>>> 91f1bab657f929cdc6263d60640147f66519ae0f
 
             </ul>
             </li>

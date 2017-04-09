@@ -66,6 +66,8 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('/{id}/edit','KrsKhs\RuangController@editAction');
 
+
+
     });
         
 
@@ -117,6 +119,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Modul Monitoring Skripsi
     Route::group(['prefix' => 'monsi'], function() {
 
+            
           
     });
 
