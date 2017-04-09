@@ -1,17 +1,16 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Konferensi
+Edit Penelitian
 @endsection
 
 @section('contentheader_title')
-Tambah Konferensi
+Edit Penelitian
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -21,7 +20,7 @@ Tambah Konferensi
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -46,50 +45,40 @@ Tambah Konferensi
 			</div>
 			@endif
 			<br>
-			<form id="tambahKonferensi" method="post" action="{{url('/dosen/penelitian/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahpenelitian" method="post" action="{{url('/dosen/penelitian/'.$penelitian->id_penelitian.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="judul_penelitian" class="col-sm-2 control-label">Judul Penelitian</label>
+					<label for="nama" class="col-sm-2 control-label">Judul Penelitian</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="judul_penelitian" name="judul_penelitian" placeholder="Masukkan Judul Penelitian" required>
+						<input type="text" class="form-control input-lg" id="penelitian" name="penelitian" placeholder="Masukkan nama" value="{{$penelitian->judul_penelitian}}" required>
+					</div>
+				</div>
+
+				<!-- Menampilkan input text biasa -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Nama Ketua</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan tempat" value="{{$penelitian->nama_ketua}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="nama_ketua" class="col-sm-2 control-label">Nama Ketua</label>
+					<label for="nama" class="col-sm-2 control-label">Bidang Penelitian</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_ketua" name="nama_ketua" placeholder="Masukkan Nama Ketua" required>
-					</div>
-				</div>
-
-
-				<div class="form-group">
-					<label for="bidang_koferensi" class="col-sm-2 control-label">Bidang Konferensi</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="bidang_koferensi" name="bidang_koferensi" placeholder="Masukkan bidang Koferensi" required>
-					</div>
-				</div>
-
-				
-
-				<!-- Menampilkan tanggal dengan datepicker -->
-				<div class="form-group">
-					<label for="tanggal_konferensi" class="col-sm-2 control-label">Tanggal Konferensi</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_penelitian" placeholder="Masukkan Tanggal Penelitian" required>
+						<input type="text" class="form-control input-lg" id="bidang" name="bidang" placeholder="Masukkan tempat" value="{{$penelitian->bidang_penelitian}}" required>
 					</div>
 				</div>
 
 
 				<div class="form-group">
-					<label for="materi_konferensi" class="col-sm-2 control-label">Materi Konferensi</label>
+					<label for="nama" class="col-sm-2 control-label">Tanggal kegiatan</label>
 					<div class="col-md-8">
-						<textarea id="materi_konferensi" name="materi_konferensi" placeholder=" Masukkan Materi Konferensi" required cols="82" rows="5">
-						</textarea>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_kegiatan" placeholder="Masukkan Tanggal" required>
 					</div>
 				</div>
+
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
