@@ -72,6 +72,23 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Notulensi
     Route::group(['prefix' => 'notulensi'], function() {
+        // Menampilkan tabel
+        Route::get('dosenrapat','Notulensi\DosenRapatController@index');
+
+        // Menampilkan form tambah dosen rapat
+        Route::get('dosenrapat/create','Notulensi\DosenRapatController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel dosen rapat
+        Route::post('dosenrapat/create','Notulensi\DosenRapatController@createAction');
+
+        // Menghapus dosen rapat sesuai id yang dipilih
+        Route::get('dosenrapat/{id}/delete','Notulensi\DosenRapatController@delete');
+
+        // Menampilkan form edit dosen rapat dari id yg dipilih
+        Route::get('dosenrapat/{id}/edit','Notulensi\DosenRapatController@edit');
+
+        // Mengupdate dosen rapat dengan isi dari form
+        Route::post('dosenrapat/{id}/edit','Notulensi\DosenRapatController@editAction');
 
             
     });

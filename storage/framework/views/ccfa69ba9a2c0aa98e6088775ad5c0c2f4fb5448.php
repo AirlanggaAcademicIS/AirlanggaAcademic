@@ -99,9 +99,18 @@
             <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+            <li
+            <?php if($page == 'dosenrapat'): ?>
+            <?php echo 'class="active"'; ?>
 
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url notulensi/dosenrapat -->
+            <a href="<?php echo e(url('notulensi/dosenrapat')); ?>"><i class='fa fa-book'></i> <span>Dosen Rapat</span></a>
+            </li>        
             </ul>
             </li>
+
 
             <!-- Modul Pengelolaan Kegiatan -->
             <li>
