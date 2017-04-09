@@ -63,6 +63,29 @@
             <a href=""><i class='fa fa-users'></i> <span> Dosen</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+           <li
+            <?php if($page == 'konferensi'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="<?php echo e(url('dosen/konferensi')); ?>"><i class='fa fa-book'></i> <span> Konferensi</span></a>
+            </li> 
+
+            <li><a href="<?php echo e(url('/dosen/pengmas/index')); ?>">Pengabdian Masyarakat</a></li>
+            <li><a href="<?php echo e(url('/dosen/konferensi/index')); ?>">Konferensi</a></li>
+            <li
+            <?php if($page == 'penelitian'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            ><a href="<?php echo e(url('/dosen/penelitian')); ?>">Penelitian</a>
+            </li>                 
+            <li><a href="<?php echo e(url('/dosen/jurnal/index')); ?>">Jurnal</a></li>  
+            <li><a href="<?php echo e(url('/dosen/sktugas/index')); ?>">SK Tugas</a></li>
+            <li><a href="<?php echo e(url('/dosen/biodata/index')); ?>">Biodata</a></li>
+
 
             </ul>
             </li>
@@ -72,16 +95,15 @@
             <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-            <li
-            <?php if($page == 'universitas'): ?>
+            <li 
+            <?php if($page == 'prodi'): ?>
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
-            >
-            <!-- Href menuju ke url mahasiswa/biodata -->
+            ><a href="<?php echo e(url('/kurikulum/prodi')); ?>"><i class='fa fa-book'></i> <span> Prodi</span></a></li>
+            </li> 
             <a href="<?php echo e(url('/kurikulum/universitas')); ?>"><i class='fa fa-book'></i> <span> Universitas</span></a>
             </li>        
-
 
             </ul>
             </li>
@@ -90,6 +112,15 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
             <ul class="treeview-menu">
+                <li
+                <?php if($page == 'ruang'): ?>
+                <?php echo 'class="active"'; ?>
+
+                <?php endif; ?>
+                >
+            <!-- Href menuju ke url krs-khs/ruang/view -->
+                <a href="<?php echo e(url('krs-khs/ruang/view')); ?>"><i class='fa fa-book'></i> <span> Ruang</span></a>
+                </li>    
             <!-- Sidebarnya ditaruh dibawah sini -->
 
             </ul>
@@ -100,7 +131,45 @@
             <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+            <li
+            <?php if($page == 'skripsi'): ?>
+            <?php echo 'class="active"'; ?>
 
+            <?php endif; ?>>
+
+            <a href="<?php echo e(url('monitoring-skripsi/skripsi')); ?>"><i class='fa fa-book'></i><span> Skripsi</span></a>
+            </li>
+
+            <li
+                <?php if($page == 'KBK'): ?>
+                <?php echo 'class="active"'; ?>
+
+                <?php endif; ?>
+                >
+
+                <a href="<?php echo e(url('monitoring-skripsi/KBK')); ?>"><i class='fa fa-book'></i><span> KBK </span></a>
+            </li>
+
+
+            <li
+                <?php if($page == 'dosbing'): ?>
+                <?php echo 'class="active"'; ?>
+
+                <?php endif; ?>
+                >
+
+                <a href="<?php echo e(url('monitoring-skripsi/index-dosbing')); ?>"><i class='fa fa-book'></i><span>Dosen Pembimbing </span></a>
+            </li>
+
+            <li
+            <?php if($page == 'konsultasi'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <a href="<?php echo e(url('monitoring-skripsi/konsultasi')); ?>"><i class='fa fa-book'></i>
+            <span>Konsultasi</span></a>
+            </li>
             </ul>
             </li>
 
@@ -109,7 +178,7 @@
             <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-
+            
             </ul>
             </li>
 
@@ -136,7 +205,9 @@
             <a href=""><i class='fa fa-users'></i> <span> Inventaris</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-
+                <li><a href="<?php echo e(url('/index-asset')); ?>">all asset</a></li>
+                <li><a href="<?php echo e(url('/inventaris/index-peminjaman')); ?>">peminjaman</a></li>
+                <li><a href="<?php echo e(url('/index-maintenance')); ?>">maintenance</a></li>
             </ul>
             </li>
         </ul><!-- /.sidebar-menu -->

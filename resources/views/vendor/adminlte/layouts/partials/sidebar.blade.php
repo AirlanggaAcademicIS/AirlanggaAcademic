@@ -91,25 +91,15 @@
             <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-            <!-- $page nya sesuaiin sama yang di controller -->
-            <li
+            <li 
             @if($page == 'prodi')
             {!! 'class="active"'!!}
             @endif
-            >
-            <li
-            @if($page == 'universitas')
-            {!! 'class="active"'!!}
-            @endif
-            >
-            <!-- Href menuju ke url mahasiswa/biodata -->
-            <a href="{{ url('kurikulum/prodi') }}"><i class='fa fa-book'></i> <span> Prodi</span></a>
+            ><a href="{{ url('/kurikulum/prodi') }}"><i class='fa fa-book'></i> <span> Prodi</span></a></li>
             </li> 
             <a href="{{ url('/kurikulum/universitas') }}"><i class='fa fa-book'></i> <span> Universitas</span></a>
             </li>        
 
-
->>>>>>> 4ecee856ad9da34203da408e2113a99d7dd55ee3
             </ul>
             </li>
 
