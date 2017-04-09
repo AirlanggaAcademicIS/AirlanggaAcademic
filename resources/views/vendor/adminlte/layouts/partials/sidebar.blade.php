@@ -118,9 +118,7 @@
             <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-            <li>
-            <a href=""><i class='fa fa-users'></i> <span> JenisPenilaian</span></a>
-            <ul class="treeview-menu">
+            
             <!-- Sidebarnya ditaruh dibawah sini -->
             <li
             @if($page == 'JenisPenilaian')
@@ -133,7 +131,7 @@
             </ul>
             </li>
 
-            </ul>
+           
             </li>
 
             <!-- Modul Monitoring Skripsi -->
