@@ -52,7 +52,18 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Kurikulum
     Route::group(['prefix' => 'kurikulum'], function() {
-
+    // Menampilkan tabel
+        Route::get('prodi','Kurikulum\ProdiController@index');
+    // Menampilkan form tambah biodata
+        Route::get('prodi/create','Kurikulum\ProdiController@create'); 
+    // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('prodi/create','Kurikulum\ProdiController@createAction'); 
+    // Menghapus biodata sesuai id yang dipilih
+        Route::get('prodi/{id_prodi}/delete','Kurikulum\ProdiController@delete');
+    // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('prodi/{id_prodi}/edit','Kurikulum\ProdiController@edit');  
+    // Mengupdate biodata dengan isi dari form
+        Route::post('prodi/{id_prodi}/edit','Kurikulum\ProdiController@editAction');        
     });
 
     // Modul Dosen
