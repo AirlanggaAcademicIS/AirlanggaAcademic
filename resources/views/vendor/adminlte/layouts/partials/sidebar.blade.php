@@ -61,6 +61,18 @@
             <a href=""><i class='fa fa-users'></i> <span> Dosen</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+            <li><a href="{{url('/dosen/pengmas/index')}}">Pengabdian Masyarakat</a></li>
+            <li><a href="{{ url('/dosen/konferensi/index') }}">Konferensi</a></li>
+            <li
+            @if($page == 'penelitian')
+            {!! 'class="active"'!!}
+            @endif
+            ><a href="{{url('/dosen/penelitian')}}">Penelitian</a>
+            </li>                 
+            <li><a href="{{url('/dosen/jurnal/index')}}">Jurnal</a></li>  
+            <li><a href="{{url('/dosen/sktugas/index')}}">SK Tugas</a></li>
+            <li><a href="{{url('/dosen/biodata/index')}}">Biodata</a></li>
+
 
             </ul>
             </li>
@@ -78,6 +90,14 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
             <ul class="treeview-menu">
+                <li
+                @if($page == 'ruang')
+                {!! 'class="active"'!!}
+                @endif
+                >
+            <!-- Href menuju ke url krs-khs/ruang/view -->
+                <a href="{{ url('krs-khs/ruang/view') }}"><i class='fa fa-book'></i> <span> Ruang</span></a>
+                </li>    
             <!-- Sidebarnya ditaruh dibawah sini -->
 
             </ul>
@@ -97,6 +117,14 @@
                 <a href="{{ url('monsi/KBK') }}"><i class='fa fa-book'></i><span> KBK </span></a>
             </li>
 
+            <li
+            @if($page == 'konsultasi')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <a href="{{url('monsi/konsultasi')}}"><i class='fa-fa-book'></i>
+            <span>Konsultasi</span></a>
+            </li>
             </ul>
             </li>
 
