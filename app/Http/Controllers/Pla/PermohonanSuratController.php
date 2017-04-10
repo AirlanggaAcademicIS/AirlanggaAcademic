@@ -17,7 +17,6 @@ use App\Biodata;
 
 class PermohonanSuratController extends Controller
 {
-
     // Function untuk menampilkan tabel
     public function showMhs()
     {

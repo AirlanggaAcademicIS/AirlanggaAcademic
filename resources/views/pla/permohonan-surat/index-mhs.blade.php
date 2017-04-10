@@ -61,7 +61,6 @@ Daftar Pemohon Surat Keluar
   </tbody>
 </table>
 </div>
-
 @endsection
 
 @section('code-footer')

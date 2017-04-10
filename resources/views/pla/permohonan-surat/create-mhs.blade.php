@@ -49,7 +49,6 @@ Tambah Pemohon Surat
 			<form id="tambahBiodata" method="post" action="{{url('pla/TambahPermohonanSuratMhs')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-				
 
 				<!-- Menampilkan dropdown -->
 				<div class="form-group">

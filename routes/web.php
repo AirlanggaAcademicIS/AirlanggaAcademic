@@ -94,7 +94,6 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('detailpenelitian/{id}/edit','Mahasiswa\DetailPenelitianController@editAction');
 
-
     //Fitur Biodata Mahasiswa
         // Menampilkan tabel
         Route::get('biodata-mahasiswa','Mahasiswa\BiodataMahasiswaController@index');

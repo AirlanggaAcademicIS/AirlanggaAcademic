@@ -10,5 +10,5 @@ class Mhs_pemohon_surat extends Model
   protected $fillable = [
 		'NIM', 
 		'id_surat_keluar',	
-   ];
+   ]; 
 }
