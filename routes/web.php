@@ -45,7 +45,6 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('biodata/{id}/edit','Mahasiswa\BiodataController@editAction');
 
-<<<<<<< HEAD
         // Menampilkan tabel
         Route::get('detailanggota','Mahasiswa\DetailAnggotaController@index');
 
@@ -63,7 +62,6 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Mengupdate biodata dengan isi dari form
         Route::post('detailanggota/{id}/edit','Mahasiswa\DetailAnggotaController@editAction');
-=======
 
     //Detail Penelitian
 
@@ -125,8 +123,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('penelitian/{kode_penelitian}/edit','Mahasiswa\PenelitianController@editAction');
 
 
->>>>>>> fcd98f1f1265bf7aa81c42cd68bd909c3edc20dc
-
     });
 
     // Modul KRS & KHS
@@ -150,13 +146,8 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Mengupdate biodata dengan isi dari form
         Route::post('JenisPenilaian/{id}/edit','KrsKhs\JenisPenilaianController@editAction');
-
-<<<<<<< HEAD
     });
        
-      
-=======
->>>>>>> fcd98f1f1265bf7aa81c42cd68bd909c3edc20dc
 
 
     });
@@ -348,6 +339,27 @@ Route::group(['middleware' => ['auth']], function () {
 
     });
 
+<<<<<<< HEAD
+    // Modul Pengelolaan Kegiatan
+    Route::group(['prefix' => 'pengelolaan-kegiatan'], function() {
+
+        // Menampilkan tabel
+        Route::get('rincian-dana','PengelolaanKegiatan\RincianDanaController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('rincian-dana/create','PengelolaanKegiatan\RincianDanaController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('rincian-dana/create','PengelolaanKegiatan\RincianDanaController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('rincian-dana/{kode_rincian}/delete','PengelolaanKegiatan\RincianDanaController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('rincian-dana/{kode_rincian}/edit','PengelolaanKegiatan\RincianDanaController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('rincian-dana/{kode_rincian}/edit','PengelolaanKegiatan\RincianDanaController@editAction');
             
 
        Route::get('pengmas/','Dosen\PengmasController@index');

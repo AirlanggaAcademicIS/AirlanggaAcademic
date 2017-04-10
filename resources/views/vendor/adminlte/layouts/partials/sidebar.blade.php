@@ -50,9 +50,7 @@
             {!! 'class="active"'!!}
             @endif
             >
-<<<<<<< HEAD
                 <a href="{{url('/biodata')}}"><i class="fa fa-book"></i> Biodata</a>
-=======
 
             <!-- Href menuju ke url mahasiswa/biodata -->
             <a href="{{ url('mahasiswa/biodata') }}"><i class='fa fa-book'></i> <span> Biodata</span>
@@ -120,7 +118,7 @@
             </li>
                   
                 </ul>
->>>>>>> fcd98f1f1265bf7aa81c42cd68bd909c3edc20dc
+
             </li>
              
             <!-- Sidebar Kemahasiswaan -->
@@ -237,10 +235,8 @@
             <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-<<<<<<< HEAD
             <li
             @if($page == 'sistem_pembelajaran')
-=======
 
             <li
             @if($page == 'capaian-program')
@@ -252,15 +248,13 @@
 
             <li
             @if($page == 'kategori-media-pembelajaran')
->>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
             {!! 'class="active"'!!}
             @endif
             >
             <!-- Href menuju ke url mahasiswa/biodata -->
-<<<<<<< HEAD
+
             <a href="{{ url('kurikulum/sistem-pembelajaran') }}"><i class='fa fa-book'></i> <span> Sistem Pembelajaran</span></a>
             </li> 
-=======
             <a href="{{ url('kurikulum/kategori-media-pembelajaran') }}"><i class='fa fa-book'></i> <span>Kategori Media Pembelajaran</span></a>
 
             </li>
@@ -273,7 +267,6 @@
             </li> 
             <a href="{{ url('/kurikulum/universitas') }}"><i class='fa fa-book'></i> <span> Universitas</span></a>
             </li>        
->>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
             </ul>
             </li>
 
@@ -372,6 +365,7 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan</span></a>
             <ul class="treeview-menu">
+<<<<<<< HEAD
             <!-- Sidebar Jabatan -->
             <!-- $page nya sesuaiin sama yang di controller -->
             <li
@@ -382,6 +376,16 @@
             <!-- Href menuju ke url pengelolaan kegiatan/jabatan -->
             <a href="{{ url('pengelolaan-kegiatan/jabatan') }}"><i class='fa fa-book'></i> <span> Jabatan</span></a>
             </li>        
+=======
+            <!-- Sidebarnya ditaruh dibawah sini -->
+            <li
+            @if($page == 'rinciandana')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <a href="{{ url('pengelolaan-kegiatan/rincian-dana') }}"><i class='fafa-book'></i>i> <span> Rincian Dana </span></a>
+            </li>
+>>>>>>> da273a32c4a3875035ecd0320fc9d8b3a19f3738
             </ul>
             </li>
 
@@ -408,8 +412,6 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
 
-<<<<<<< HEAD
-=======
             <!-- Sidebarnya Asset -->
             <li
             @if($page == 'asset')
@@ -423,7 +425,6 @@
                 <li><a href="{{ url('/index-asset')}}">all asset</a></li>
                 <li><a href="{{url('/inventaris/index-peminjaman')}}">peminjaman</a></li>
                 <li><a href="{{url('/index-maintenance')}}">maintenance</a></li>
->>>>>>> fcd98f1f1265bf7aa81c42cd68bd909c3edc20dc
             </ul>
             </li>
 
