@@ -265,6 +265,16 @@
                 <a href="{{ url('monitoring-skripsi/index-dosbing') }}"><i class='fa fa-book'></i><span>Dosen Pembimbing </span></a>
             </li>
 
+
+            <li
+                @if($page == 'dosen_penguji')
+                {!! 'class="active"'!!}
+                @endif
+                >
+
+                <a href="{{ url('monitoring-skripsi/index-dosen-penguji') }}"><i class='fa fa-book'></i><span>Dosen Penguji </span></a>
+            </li>
+
             <li
             @if($page == 'konsultasi')
             {!! 'class="active"'!!}

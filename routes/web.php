@@ -557,6 +557,23 @@ Route::group(['middleware' => ['auth']], function () {
             
         // Action untuk mengupdate dosbing    
             Route::post('manipulate-dosbing','MonitoringSkripsi\DosenPembimbingController@manipulate');
+
+            //Menampilkan list dosen penguji dan form untuk menambahkan
+             Route::get('index-dosen-penguji','MonitoringSkripsi\DosenPengujiController@index');
+
+             //Action untuk menambahkan dosen penguji
+             Route::post('tambah-dosen-penguji','MonitoringSkripsi\DosenPengujiController@store');
+
+             //Action untuk menghapus dosen penguji
+
+             Route::get('hapus-dosen-penguji/{id}','MonitoringSkripsi\DosenPengujiController@destroy');
+
+             //Page untuk menampilkan edit form sesuai data yang dipilih
+            Route::get('edit-dosen-penguji/{id}','MonitoringSkripsi\DosenPengujiController@edit_dosen_penguji');
+
+              // Action untuk mengupdate dosbing    
+            Route::post('manipulate-dosen-penguji','MonitoringSkripsi\DosenPengujiController@manipulate');
+
            
     });
 
