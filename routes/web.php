@@ -45,6 +45,25 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('biodata/{id}/edit','Mahasiswa\BiodataController@editAction');
 
+            //akun mahasiswa
+         // Menampilkan tabel akun
+        Route::get('akun','Mahasiswa\AkunMahasiswaController@index');
+
+        // Menampilkan form tambah akun
+        Route::get('akun/create','Mahasiswa\AkunMahasiswaController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel akun
+        Route::post('akun/create','Mahasiswa\AkunMahasiswaController@createAction');
+
+        // Menghapus akun sesuai id yang dipilih
+        Route::get('akun/{id}/delete','Mahasiswa\AkunMahasiswaController@delete');
+
+        // Menampilkan form edit akun dari id yg dipilih
+        Route::get('akun/{id}/edit','Mahasiswa\AkunMahasiswaController@edit');
+
+        // Mengupdate akun dengan isi dari form
+        Route::post('akun/{id}/edit','Mahasiswa\AkunMahasiswaController@editAction');
+
         // Menampilkan tabel
         Route::get('detailanggota','Mahasiswa\DetailAnggotaController@index');
 
@@ -122,6 +141,24 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('penelitian/{kode_penelitian}/edit','Mahasiswa\PenelitianController@editAction');
 
+        // prestasi
+     // Menampilkan tabel
+        Route::get('prestasi','Mahasiswa\PrestasiController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('prestasi/create','Mahasiswa\PrestasiController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('prestasi/create','Mahasiswa\PrestasiController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('prestasi/{id}/delete','Mahasiswa\PrestasiController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('prestasi/{id}/edit','Mahasiswa\PrestasiController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('prestasi/{id}/edit','Mahasiswa\PrestasiController@editAction');
 
     });
 
@@ -147,54 +184,11 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('JenisPenilaian/{id}/edit','KrsKhs\JenisPenilaianController@editAction');
     });
-       
-
-
-    });
-
-    // Jam
-        Route::group(['prefix' => 'jam'], function() {
-
-            // Menampilkan tabel
-        Route::get('view','KrsKhs\JamController@index');
-
-        // Menampilkan form tambah biodata
-        Route::get('create','KrsKhs\JamController@create');
-
-        // Menambahkan form yg di isi tadi ke tabel biodata
-        Route::post('create','KrsKhs\JamController@createAction');
-
-        // Menghapus biodata sesuai id yang dipilih
-        Route::get('/{id}/delete','KrsKhs\JamController@delete');
-
-        // Menampilkan form edit biodata dari id yg dipilih
-        Route::get('/{id}/edit','KrsKhs\JamController@edit');
-
-        // Mengupdate biodata dengan isi dari form
-        Route::post('/{id}/edit','KrsKhs\JamController@editAction');
-    });
         
     // Modul Kurikulum
     Route::group(['prefix' => 'kurikulum'], function() {
 
         // Menampilkan tabel
-        Route::get('capaian-pembelajaran','Kurikulum\CapaianPembelajaranController@index');
-
-        // Menampilkan form tambah biodata
-        Route::get('capaian-pembelajaran/create','Kurikulum\CapaianPembelajaranController@create');
-
-        // Menambahkan form yg di isi tadi ke tabel biodata
-        Route::post('capaian-pembelajaran/create','Kurikulum\CapaianPembelajaranController@createAction');
-
-        // Menghapus biodata sesuai id yang dipilih
-        Route::get('capaian-pembelajaran/{id}/delete','Kurikulum\CapaianPembelajaranController@delete');
-
-        // Menampilkan form edit biodata dari id yg dipilih
-        Route::get('capaian-pembelajaran/{id}/edit','Kurikulum\CapaianPembelajaranController@edit');
-
-        // Mengupdate biodata dengan isi dari form
-        Route::post('capaian-pembelajaran/{id}/edit','Kurikulum\CapaianPembelajaranController@editAction');
-
         Route::get('sistem-pembelajaran','Kurikulum\SistemPembelajaranController@index');
 
         // Menampilkan form tambah biodata
@@ -264,7 +258,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('{id}/delete','Kurikulum\KategoriMediaPembelajaranController@delete');
 
             Route::get('{id}/edit','Kurikulum\KategoriMediaPembelajaranController@edit');
-
+            });
         // Menampilkan tabel
             Route::get('prodi','Kurikulum\ProdiController@index');
         // Menampilkan form tambah biodata
@@ -376,29 +370,6 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('jurnal/{id}/edit','Dosen\JurnalController@editAction');     
 
-    });
-    // Modul Pengelolaan Kegiatan
-    Route::group(['prefix' => 'pengelolaan-kegiatan'], function() {
-
-        // Menampilkan tabel
-        Route::get('rincian-dana','PengelolaanKegiatan\RincianDanaController@index');
-
-        // Menampilkan form tambah biodata
-        Route::get('rincian-dana/create','PengelolaanKegiatan\RincianDanaController@create');
-
-        // Menambahkan form yg di isi tadi ke tabel biodata
-        Route::post('rincian-dana/create','PengelolaanKegiatan\RincianDanaController@createAction');
-
-        // Menghapus biodata sesuai id yang dipilih
-        Route::get('rincian-dana/{kode_rincian}/delete','PengelolaanKegiatan\RincianDanaController@delete');
-
-        // Menampilkan form edit biodata dari id yg dipilih
-        Route::get('rincian-dana/{kode_rincian}/edit','PengelolaanKegiatan\RincianDanaController@edit');
-
-        // Mengupdate biodata dengan isi dari form
-        Route::post('rincian-dana/{kode_rincian}/edit','PengelolaanKegiatan\RincianDanaController@editAction');
-            
-
        Route::get('pengmas/','Dosen\PengmasController@index');
 
         // Menampilkan form tambah biodata
@@ -419,45 +390,12 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     // Modul Kegiatan
-    Route::group(['prefix' => 'pengelolaan-kegiatan'], function() {
-    // Url CRUD
+    Route::group(['prefix' => 'kegiatan'], function() {
 
-        // Menampilkan tabel
-        Route::get('jabatan','PengelolaanKegiatan\JabatanController@index');
-
-        // Menampilkan form tambah jabatan
-        Route::get('jabatan/create','PengelolaanKegiatan\JabatanController@create');
-
-        // Menambahkan form yg di isi tadi ke tabel jabatan
-        Route::post('jabatan/create','PengelolaanKegiatan\JabatanController@createAction');
-
-        // Menghapus jabatan sesuai id yang dipilih
-        Route::get('jabatan/{id}/delete','PengelolaanKegiatan\JabatanController@delete');
-
-        // Menampilkan form edit jabatan dari id yg dipilih
-        Route::get('jabatan/{id}/edit','PengelolaanKegiatan\JabatanController@edit');
-
-        // Mengupdate jabatan dengan isi dari form
-        Route::post('jabatan/{id}/edit','PengelolaanKegiatan\JabatanController@editAction');
     });
 
     // Modul PLA
     Route::group(['prefix' => 'pla'], function() {
-
-        // Menampilkan tabel
-        Route::get('/petugas_tu','Pla\Petugas_TU_Controller@index');
-         // Menampilkan form tambah biodata
-        Route::get('petugas_tu/create','Pla\Petugas_TU_Controller@create');
-        // Menambahkan form yg di isi tadi ke tabel biodata
-        Route::post('petugas_tu/create','Pla\Petugas_TU_Controller@createAction');
-         // Menghapus biodata sesuai id yang dipilih
-        Route::get('petugas_tu/{id_tu}/delete','Pla\Petugas_TU_Controller@delete');
-        // Menampilkan form edit biodata dari id yg dipilih
-        Route::get('petugas_tu/{id_tu}/edit','Pla\Petugas_TU_Controller@edit');
-        // Mengupdate biodata dengan isi dari form
-        Route::post('petugas_tu/{id_tu}/edit','Pla\Petugas_TU_Controller@editAction');
-                
-
 
     // Menampilkan tabel
         Route::get('/surat-masuk','pla\Surat_MasukController@index');           
@@ -477,7 +415,6 @@ Route::group(['middleware' => ['auth']], function () {
     // Mengupdate biodata dengan isi dari form
         Route::post('surat-masuk/{id}/edit','pla\Surat_MasukController@editAction');
  
-
 
     });
 
@@ -597,25 +534,6 @@ Route::group(['middleware' => ['auth']], function () {
             
         // Action untuk mengupdate dosbing    
             Route::post('manipulate-dosbing','MonitoringSkripsi\DosenPembimbingController@manipulate');
-
-            // Status Monitoring Skripsi
-            // Menampilkan tabel
-        Route::get('status','MonitoringSkripsi\StatusController@index');
-
-        // Menampilkan form tambah 
-        Route::get('status/create','MonitoringSkripsi\StatusController@create');
-
-        // Menambahkan form yg di isi tadi ke tabel biodata
-        Route::post('status/create','MonitoringSkripsi\StatusController@createAction');
-
-        // Menghapus  sesuai id yang dipilih
-        Route::get('status/{id}/delete','MonitoringSkripsi\StatusController@delete');
-
-        // Menampilkan form edit dari id yg dipilih
-        Route::get('status/{id}/edit','MonitoringSkripsi\StatusController@edit');
-
-        // Mengupdate  dengan isi dari form
-        Route::post('status/{id}/edit','MonitoringSkripsi\StatusController@editAction');
            
     });
 
@@ -705,6 +623,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('view-asset', 'HomeController@index');
 
     });
+  
         
         
 });
