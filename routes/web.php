@@ -151,11 +151,53 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     });
+
+    // Jam
+        Route::group(['prefix' => 'jam'], function() {
+
+            // Menampilkan tabel
+        Route::get('view','KrsKhs\JamController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('create','KrsKhs\JamController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('create','KrsKhs\JamController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('/{id}/delete','KrsKhs\JamController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('/{id}/edit','KrsKhs\JamController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('/{id}/edit','KrsKhs\JamController@editAction');
+    });
         
     // Modul Kurikulum
     Route::group(['prefix' => 'kurikulum'], function() {
 
         // Menampilkan tabel
+
+        Route::get('capaian-pembelajaran','Kurikulum\CapaianPembelajaranController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('capaian-pembelajaran/create','Kurikulum\CapaianPembelajaranController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('capaian-pembelajaran/create','Kurikulum\CapaianPembelajaranController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('capaian-pembelajaran/{id}/delete','Kurikulum\CapaianPembelajaranController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('capaian-pembelajaran/{id}/edit','Kurikulum\CapaianPembelajaranController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('capaian-pembelajaran/{id}/edit','Kurikulum\CapaianPembelajaranController@editAction');
+
+ 
+
         Route::get('sistem-pembelajaran','Kurikulum\SistemPembelajaranController@index');
 
         // Menampilkan form tambah biodata
