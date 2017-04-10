@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Biodata
+Tambah Jurnal
 @endsection
 
 @section('contentheader_title')
-Tambah Biodata
+Tambah Jurnal
 @endsection
 
 @section('code-header')
@@ -46,45 +46,30 @@ Tambah Biodata
 			</div>
 			@endif
 			<br>
-			<form id="tambahBiodata" method="post" action="{{url('/mahasiswa/biodata/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahJurnal" method="post" action="{{url('/dosen/jurnal/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">NIM</label>
+					<label for="nama_jurnal" class="col-sm-2 control-label">Judul Jurnal</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" required>
+						<input type="text" class="form-control input-lg" id="nama_jurnal" name="nama_jurnal" placeholder="Masukkan Judul Jurnal" required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<label for="halaman_jurnal" class="col-sm-2 control-label">Halaman</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="halaman_jurnal" name="halaman_jurnal" placeholder="Masukkan Halaman" required>
 					</div>
 				</div>
 
-			<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Alamat</label>
+					<label for="bidang_jurnal" class="col-sm-2 control-label">Bidang Jurnal</label>
 					<div class="col-md-8">
-						<textarea id="alamat" name="alamat" placeholder=" Masukkan Alamat" required cols="82" rows="5">
-						</textarea>
+						<input type="text" class="form-control input-lg" id="bidang_jurnal" name="bidang_jurnal" placeholder="Masukkan Bidang Jurnal" required>
 					</div>
 				</div>
-
-				<!-- Menampilkan dropdown -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Provinsi</label>
-					<div class="col-md-8">
-						<select name="provinsi" required>
-							<option value="Jawa Timur">Jawa Timur</option>
-							<option value="Jawa Tengah">Jawa Tengah</option>
-							<option value="Jawa Barat">Jawa Barat</option>
-						</select>
-					</div>
-				</div>
-
 				<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Tanggal Masuk</label>
@@ -92,6 +77,20 @@ Tambah Biodata
 						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_masuk" placeholder="Masukkan Tanggal" required>
 					</div>
 				</div>
+				<div class="form-group">
+					<label for="volume_jurnal" class="col-sm-2 control-label">Volume Jurnal</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="volume_jurnal" name="volume_jurnal" placeholder="Masukkan Volume Jurnal" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="penulis_ke" class="col-sm-2 control-label">Penulis Ke</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="penulis_ke" name="penulis_ke" placeholder="Masukkan Penulis Ke" required>
+					</div>
+				</div>
+
+				
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
