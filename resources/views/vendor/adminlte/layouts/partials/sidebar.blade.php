@@ -326,6 +326,18 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
             <ul class="treeview-menu">
+
+
+                <li
+                @if($page == 'jadwal-permohonan')
+                {!! 'class="active"'!!}
+                @endif
+                >
+            <!-- Href menuju ke url pla/jadwal-permohonan-ruangan/view -->
+                <a href="{{ url('pla/jadwal-permohonan/view') }}"><i class='fa fa-book'></i> <span>Jadwal Permohonan</span></a>
+                </li>    
+
+
             <li
                 @if($page == 'suratmasuk')
                 {!! 'class="active"'!!}
