@@ -285,17 +285,6 @@
                 <a href="<?php echo e(url('monitoring-skripsi/index-dosbing')); ?>"><i class='fa fa-book'></i><span>Dosen Pembimbing </span></a>
             </li>
 
-
-            <li
-                <?php if($page == 'dosen_penguji'): ?>
-                <?php echo 'class="active"'; ?>
-
-                <?php endif; ?>
-                >
-
-                <a href="<?php echo e(url('monitoring-skripsi/index-dosen-penguji')); ?>"><i class='fa fa-book'></i><span>Dosen Penguji </span></a>
-            </li>
-
             <li
             <?php if($page == 'konsultasi'): ?>
             <?php echo 'class="active"'; ?>

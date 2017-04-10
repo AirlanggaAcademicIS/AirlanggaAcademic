@@ -46,35 +46,35 @@ Edit Detail Nilai
 			</div>
 			@endif
 			<br>
-			<form id="editDetailNilai" method="post" action="{{url('/krs-khs/Khs/'.$detail_nilai->id_detail_nilai.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="editDetailNilai" method="post" action="{{url('/krs-khs/khs/'.$detail_nilai->id_detail_nilai.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
 					<label for="id_mk_ditawarkan" class="col-sm-2 control-label">ID MK Ditawarkan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_mk_ditawarkan" name="id_mk_ditawarkan" placeholder="Masukkan ID MK Ditawarkan" required>
+						<input type="text" class="form-control input-lg" id="id_mk_ditawarkan" name="id_mk_ditawarkan" placeholder="Masukkan ID MK Ditawarkan" value="{{$detail_nilai->id_mk_ditawarkan}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="NIM" class="col-sm-2 control-label">NIM</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="NIM" name="NIM" placeholder="Masukkan NIM Mahasiswa" required>
+						<input type="text" class="form-control input-lg" id="NIM" name="NIM" placeholder="Masukkan NIM Mahasiswa" value="{{$detail_nilai->NIM}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="id_jenis_penilaian" class="col-sm-2 control-label">Jenis Penilaian</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_jenis_penilaian" name="id_jenis_penilaian" placeholder="Masukkan ID Jenis Penilaian" required>
+						<input type="text" class="form-control input-lg" id="id_jenis_penilaian" name="id_jenis_penilaian" placeholder="Masukkan ID Jenis Penilaian" value="{{$detail_nilai->id_jenis_penilaian}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="detail_nilai" class="col-sm-2 control-label">Nilai</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="detail_nilai" name="detail_nilai" placeholder="Masukkan Nilai" required>
+						<input type="text" class="form-control input-lg" id="Nilai" name="Nilai" placeholder="Masukkan Detail Nilai" value="{{$detail_nilai->Detail_nilai}}" required>
 					</div>
 				</div>
 

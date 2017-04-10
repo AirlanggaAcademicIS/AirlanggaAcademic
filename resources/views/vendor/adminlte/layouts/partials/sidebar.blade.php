@@ -206,6 +206,16 @@
             <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+             <li
+            @if($page == 'JadwalKuliah')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url notulensi/dosenrapat -->
+            <a href="{{ url('krs-khs/JadwalKuliah') }}"><i class='fa fa-book'></i> <span>Jadwal Kuliah</span></a>
+            </li>        
+            </ul>
+            </li>
             
             <!-- Sidebarnya ditaruh dibawah sini -->
             <li
@@ -317,8 +327,16 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan</span></a>
             <ul class="treeview-menu">
-            <!-- Sidebarnya ditaruh dibawah sini -->
-
+            <!-- Sidebar Biodata -->
+            <!-- $page nya sesuaiin sama yang di controller -->
+            <li
+            @if($page == 'pengajuan')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="{{ url('pengelolaan-kegiatan/pengajuan') }}"><i class='fa fa-book'></i> <span> Pengajuan Kegiatan</span></a>
+            </li>        
             </ul>
             </li>
 
@@ -326,6 +344,18 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
             <ul class="treeview-menu">
+
+
+                <li
+                @if($page == 'jadwal-permohonan')
+                {!! 'class="active"'!!}
+                @endif
+                >
+            <!-- Href menuju ke url pla/jadwal-permohonan-ruangan/view -->
+                <a href="{{ url('pla/jadwal-permohonan/view') }}"><i class='fa fa-book'></i> <span>Jadwal Permohonan</span></a>
+                </li>    
+
+
             <li
                 @if($page == 'suratmasuk')
                 {!! 'class="active"'!!}
@@ -335,7 +365,14 @@
                 <a href="{{ url('pla/surat-masuk') }}"><i class='fa fa-book'></i> <span> Surat Masuk</span></a>
                 </li>   
             <!-- Sidebarnya ditaruh dibawah sini -->
-
+            <li
+            @if($page == 'PermohonanRuang')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="{{ url('pla/PermohonanRuang') }}"><i class='fa fa-book'></i> <span> Permohonan Ruang</span></a>
+            </li>  
             </ul>
             </li>
 
