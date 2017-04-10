@@ -49,9 +49,9 @@ Detail Nilai
       <td width="25%" style="text-align:center">{{$a->id_mk_ditawarkan}}</td>
       <td width="25%" style="text-align:center">{{$a->NIM}}</td>
       <td width="25%" style="text-align:center">{{$a->detail_nilai}}</td>
-      <td width="25%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus detail nilai ini?');" href="{{url('/krs-khs/khs/'.$a->id_mk_ditawarkan.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="25%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus detail nilai ini?');" href="{{url('/krs-khs/khs/'.$a->id_detail_nilai.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Delete </a>
-        <a href="{{url('/krs-khs/khs/'.$a->id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('/krs-khs/khs/'.$a->id_detail_nilai.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
     </tr>

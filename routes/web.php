@@ -191,16 +191,16 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('khs/create','KrsKhs\DetailNilaiController@create');
 
         // Menambahkan form yg di isi tadi ke tabel detail nilai
-        Route::post('Khs/create','KrsKhs\DetailNilaiController@createAction');
+        Route::post('khs/create','KrsKhs\DetailNilaiController@createAction');
 
         // Menghapus detail nilai sesuai id yang dipilih
-        Route::get('Khs/{id}/delete','KrsKhs\DetailNilaiController@delete');
+        Route::get('khs/{id}/delete','KrsKhs\DetailNilaiController@delete');
 
         // Menampilkan form edit detail nilai dari id yg dipilih
-        Route::get('Khs/{id}/edit','KrsKhs\DetailNilaiController@edit');
+        Route::get('khs/{id}/edit','KrsKhs\DetailNilaiController@edit');
 
         // Mengupdate detail nilai dengan isi dari form
-        Route::post('Khs/{id}/edit','KrsKhs\DetailNilaiController@editAction');
+        Route::post('khs/{id}/edit','KrsKhs\DetailNilaiController@editAction');
 
     });
         
