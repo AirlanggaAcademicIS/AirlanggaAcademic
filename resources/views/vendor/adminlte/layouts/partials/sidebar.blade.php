@@ -106,7 +106,15 @@
             <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-
+            <!-- $page nya sesuaiin sama yang di controller -->
+            <li
+            @if($page == 'rundown')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="{{ url('pengelolaan-kegiatan/rundown') }}"><i class='fa fa-book'></i> <span> Rundown</span></a>
+            </li>
             </ul>
             </li>
 

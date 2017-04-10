@@ -108,7 +108,16 @@
             <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+            <!-- $page nya sesuaiin sama yang di controller -->
+            <li
+            <?php if($page == 'rundown'): ?>
+            <?php echo 'class="active"'; ?>
 
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="<?php echo e(url('pengelolaan-kegiatan/rundown')); ?>"><i class='fa fa-book'></i> <span> Rundown</span></a>
+            </li>
             </ul>
             </li>
 

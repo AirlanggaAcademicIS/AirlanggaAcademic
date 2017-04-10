@@ -60,7 +60,20 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     // Modul Kegiatan
-    Route::group(['prefix' => 'kegiatan'], function() {
+    Route::group(['prefix' => 'pengelolaan-kegiatan'], function() {
+
+        // Menampilkan tabel
+        Route::get('rundown','PengelolaanKegiatan\RundownController@index');
+        // Menampilkan form tambah biodata
+        Route::get('rundown/create','PengelolaanKegiatan\RundownController@create');
+         // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('rundown/create','PengelolaanKegiatan\RundownController@createAction');
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('rundown/{kode_rundown}/delete','PengelolaanKegiatan\RundownController@delete');
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('rundown/{kode_rundown}/edit','PengelolaanKegiatan\RundownController@edit');
+        // Mengupdate biodata dengan isi dari form
+        Route::post('rundown/{kode_rundown}/edit','PengelolaanKegiatan\RundownController@editAction');
 
     });
 
