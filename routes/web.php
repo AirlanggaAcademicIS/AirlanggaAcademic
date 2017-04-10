@@ -653,12 +653,12 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     
-    // Menampilkan tabel
-    Route::get('asset','Inventaris\AssetController@index');
-
-
-    
         // Menampilkan tabel
+        Route::get('asset','Inventaris\AssetController@index');
+
+
+        
+            // Menampilkan tabel
         Route::get('asset','Inventaris\AssetController@index');
         
         // Menampilkan form tambah asset
@@ -676,28 +676,28 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate asset dengan isi dari form
         Route::post('asset/{id}/edit','Inventaris\AssetController@editAction');
 
-        
-       
+            
+           
 
 
-    Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
-    Route::get('index-maintenance', 'MaintenanceController@index');
-    Route::get('view-maintenance', 'MaintenanceController@viewDetail');
+        Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
+        Route::get('index-maintenance', 'MaintenanceController@index');
+        Route::get('view-maintenance', 'MaintenanceController@viewDetail');
 
 
-    Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
-    Route::get('index-peminjaman', 'PeminjamanController@index');
-    Route::get('view-peminjaman', 'PeminjamanController@viewDetail');
+        Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
+        Route::get('index-peminjaman', 'PeminjamanController@index');
+        Route::get('view-peminjaman', 'PeminjamanController@viewDetail');
 
-    Route::get('add-asset', 'DashboardController@input');
-    Route::get('/view-asset', 'Inventaris\DashboardController@index');
-    //tugas fakultas
-    Route::get('/tugas-fakultas', 'Inventaris\TugasFakultasController@index');
-    Route::get('/tugas-create', 'Inventaris\TugasFakultasController@create');
-    Route::post('/tugas-create', 'Inventaris\TugasFakultasController@createAction');
-    Route::get('/tugas-fakultas/{id}/tugas-edit', 'Inventaris\TugasFakultasController@edit');
-    Route::post('{id}/post-tugas-edit', 'Inventaris\TugasFakultasController@editAction');
-    Route::get('/tugas-fakultas/{id}/delete','Inventaris\TugasFakultasController@delete');
+        Route::get('add-asset', 'DashboardController@input');
+        Route::get('/view-asset', 'Inventaris\DashboardController@index');
+        //tugas fakultas
+        Route::get('/tugas-fakultas', 'Inventaris\TugasFakultasController@index');
+        Route::get('/tugas-create', 'Inventaris\TugasFakultasController@create');
+        Route::post('/tugas-create', 'Inventaris\TugasFakultasController@createAction');
+        Route::get('/tugas-fakultas/{id}/tugas-edit', 'Inventaris\TugasFakultasController@edit');
+        Route::post('{id}/post-tugas-edit', 'Inventaris\TugasFakultasController@editAction');
+        Route::get('/tugas-fakultas/{id}/delete','Inventaris\TugasFakultasController@delete');
 
 
 
@@ -732,3 +732,5 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('view-asset', 'HomeController@index');
 
     });
+
+});
