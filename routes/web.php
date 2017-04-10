@@ -84,7 +84,30 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     // Modul Inventaris
+
+
     Route::group(['prefix' => 'inventaris'], function() {
+    
+    // Menampilkan tabel
+    Route::get('asset','Inventaris\AssetController@index');
+    
+    // Menampilkan form tambah asset
+    Route::get('asset/create','Inventaris\AssetController@create');
+    
+    // Menambahkan form yg di isi tadi ke tabel asset
+    Route::post('asset/create','Inventaris\AssetController@createAction');
+    
+    // Menghapus asset sesuai id yang dipilih
+    Route::get('asset/{id}/delete','Inventaris\AssetController@delete');
+
+    // Menampilkan form edit asset dari id yg dipilih
+    Route::get('asset/{id}/edit','Inventaris\AssetController@edit');
+
+    // Mengupdate asset dengan isi dari form
+    Route::post('asset/{id}/edit','Inventaris\AssetController@editAction');
+
+        
+       
 
             
     });
