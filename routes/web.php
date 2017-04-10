@@ -82,7 +82,27 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     // Modul Kegiatan
-    Route::group(['prefix' => 'kegiatan'], function() {
+    
+        Route::group(['prefix'=>'pengelolaan-kegiatan'], function(){
+            
+             // Menampilkan tabel
+        Route::get('pengajuan','PengelolaanKegiatan\PengajuanController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('pengajuan/create','PengelolaanKegiatan\PengajuanController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('pengajuan/create','PengelolaanKegiatan\PengajuanController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('pengajuan/{id}/delete','PengelolaanKegiatan\PengajuanController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('pengajuan/{id}/edit','PengelolaanKegiatan\PengajuanController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('pengajuan/{id}/edit','PengelolaanKegiatan\PengajuanController@editAction');
+
 
     });
 
