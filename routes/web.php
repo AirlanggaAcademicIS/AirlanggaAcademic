@@ -60,8 +60,26 @@ Route::group(['middleware' => ['auth']], function () {
             
     });
 
-    // Modul Kegiatan
-    Route::group(['prefix' => 'kegiatan'], function() {
+    // Modul Pengelolaan Kegiatan
+    Route::group(['prefix' => 'pengelolaan-kegiatan'], function() {
+
+        // Menampilkan tabel
+        Route::get('rincian-dana','PengelolaanKegiatan\RincianDanaController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('rincian-dana/create','PengelolaanKegiatan\RincianDanaController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('rincian-dana/create','PengelolaanKegiatan\RincianDanaController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('rincian-dana/{kode_rincian}/delete','PengelolaanKegiatan\RincianDanaController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('rincian-dana/{kode_rincian}/edit','PengelolaanKegiatan\RincianDanaController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('rincian-dana/{kode_rincian}/edit','PengelolaanKegiatan\RincianDanaController@editAction');
 
     });
 

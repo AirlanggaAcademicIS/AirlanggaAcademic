@@ -5,23 +5,23 @@
     <section class="sidebar">
 
         <!-- Sidebar user panel (optional) -->
-        @if (! Auth::guest())
+        <?php if(! Auth::guest()): ?>
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{ Gravatar::get($user->email) }}" class="img-circle" alt="User Image" />
+                    <img src="<?php echo e(Gravatar::get($user->email)); ?>" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
-                    <p>{{ Auth::user()->name }}</p>
+                    <p><?php echo e(Auth::user()->name); ?></p>
                     <!-- Status -->
-                    <a href="#"><i class="fa fa-circle text-success"></i> {{ trans('adminlte_lang::message.online') }}</a>
+                    <a href="#"><i class="fa fa-circle text-success"></i> <?php echo e(trans('adminlte_lang::message.online')); ?></a>
                 </div>
             </div>
-        @endif
+        <?php endif; ?>
 
         <!-- search form (Optional) -->
         <form action="#" method="get" class="sidebkuar-form">
             <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="{{ trans('adminlte_lang::message.search') }}..."/>
+                <input type="text" name="q" class="form-control" placeholder="<?php echo e(trans('adminlte_lang::message.search')); ?>..."/>
               <span class="input-group-btn">
                 <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
               </span>
@@ -31,13 +31,14 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
+            <li class="header"><?php echo e(trans('adminlte_lang::message.header')); ?></li>
             <!-- Optionally, you can add icons to the links -->
             <li 
-            @if($page == 'home')
-            {!! 'class="active"'!!}
-            @endif
-            ><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
+            <?php if($page == 'home'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            ><a href="<?php echo e(url('home')); ?>"><i class='fa fa-link'></i> <span><?php echo e(trans('adminlte_lang::message.home')); ?></span></a></li>
             
             <!-- Modul Mahasiswa -->
             <li>
@@ -46,12 +47,13 @@
             <!-- Sidebar Biodata -->
             <!-- $page nya sesuaiin sama yang di controller -->
             <li
-            @if($page == 'biodata')
-            {!! 'class="active"'!!}
-            @endif
+            <?php if($page == 'biodata'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
             >
             <!-- Href menuju ke url mahasiswa/biodata -->
-            <a href="{{ url('mahasiswa/biodata') }}"><i class='fa fa-book'></i> <span> Biodata</span></a>
+            <a href="<?php echo e(url('mahasiswa/biodata')); ?>"><i class='fa fa-book'></i> <span> Biodata</span></a>
             </li>        
             </ul>
             </li>
@@ -107,11 +109,12 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
             <li
-            @if($page == 'rinciandana')
-            {!! 'class="active"'!!}
-            @endif
+            <?php if($page == 'rinciandana'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
             >
-            <a href="{{ url('pengelolaan-kegiatan/rincian-dana') }}"><i class='fafa-book'></i>i> <span> Rincian Dana </span></a>
+            <a href="<?php echo e(url('pengelolaan-kegiatan/rincian-dana')); ?>"><i class='fafa-book'></i>i> <span> Rincian Dana </span></a>
             </li>
             </ul>
             </li>
