@@ -1,14 +1,15 @@
 <?php $__env->startSection('htmlheader_title'); ?>
-Edit Permohonan Ruang
+Tambah Gambar
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-Edit Permohonan Ruang
+Tambah Gambar
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('code-header'); ?>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+<link rel="stylesheet" href="<?php echo e(asset('/css/dropzone.css')); ?>">
 
 <?php $__env->stopSection(); ?>
 
@@ -18,7 +19,7 @@ Edit Permohonan Ruang
 		text-align: left !important;
 	}
 </style>
-
+	<!-- Ini buat menampilkan notifikasi -->
 	<?php $__currentLoopData = ['danger', 'warning', 'success', 'info']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $msg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	<?php if(Session::has('alert-' . $msg)): ?>
 <div class="alert alert-<?php echo e($msg); ?>">
@@ -44,41 +45,37 @@ Edit Permohonan Ruang
 			</div>
 			<?php endif; ?>
 			<br>
-			<form id="tambahPermohonanRuang" method="post" action="<?php echo e(url('/pla/PermohonanRuang/'.$PermohonanRuang->id_permohonan_ruang.'/edit')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahBiodata" method="post" action="<?php echo e(url('/kegiatan/dokumentasi/create')); ?>" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
 				<!-- Menampilkan input text biasa -->
+				
 				<div class="form-group">
-					<label for="nip_petugas" class="col-sm-2 control-label">NIP Petugas</label>
+					<label for="nama" class="col-sm-2 control-label">Nama Dokumentasi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nip_petugas" name="nip_petugas" placeholder="Masukkan NIP" value="<?php echo e($PermohonanRuang->nip_petugas); ?>" required>
+						<input type="text" class="form-control input-lg" id="nama_dokumentasi" name="nama_dokumentasi" placeholder="Masukkan Nama Gambar" required>
 					</div>
 				</div>
 
+			<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<label for="nama" class="col-sm-2 control-label">Deskripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" value="<?php echo e($PermohonanRuang->nama); ?>" required>
+						<textarea id="deskripsi" name="deskripsi" placeholder=" Masukkan Deskripsi Gambar" required cols="82" rows="5">
+						</textarea>
 					</div>
 				</div>
 
-			<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Verifikasi</label>
-					<div class="col-md-8">
-						<select name="atribut_verifikasi" required>
-							<option value="0">Belum Konfirmasi</option>
-							<option value="1">Konfirmasi</option>
-						</select>
-					</div>
-				</div>
-
+				<!-- Menampilkan Deskripsi -->
 				<div class="form-group">
-					<label for="nim_nip" class="col-sm-2 control-label">NIM/NIP Peminjam</label>
+					<label for="nama" class="col-sm-2 control-label">Gambar</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim_nip" name="nim_nip" placeholder="NIP/NIM Peminjam" value="<?php echo e($PermohonanRuang->nim_nip); ?>" required>
+						<input type="text" class="form-control input-lg" id="gambar" name="gambar" placeholder="Masukkan URL Gambar" required>
 					</div>
 				</div>
-
+				
+				<!-- Menampilkan tanggal dengan datepicker -->
+				
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">

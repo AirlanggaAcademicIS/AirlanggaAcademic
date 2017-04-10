@@ -1,9 +1,9 @@
 <?php $__env->startSection('htmlheader_title'); ?>
-Edit Jadwal Permohonan
+Edit Rundown
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-Edit Jadwal Permohonan
+Edit Rundown
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('code-header'); ?>
@@ -44,58 +44,28 @@ Edit Jadwal Permohonan
 			</div>
 			<?php endif; ?>
 			<br>
-			<form id="tambahJadwalPermohonan" method="post" action="<?php echo e(url('/pla/jadwal-permohonan/'.$jadwalpermohonan->id.'/edit')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahRundown" method="post" action="<?php echo e(url('/pengelolaan-kegiatan/rundown/'.$rundown->kode_rundown.'/edit')); ?>" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
-				<!-- Menampilkan input text biasa -->
+				<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
-					<label for="id_permohonan_ruang" class="col-sm-2 control-label">ID Permohonan Ruang</label>
+					<label for="durasi_rundown" class="col-sm-2 control-label">Durasi Acara</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_permohonan_ruang" name="id_permohonan_ruang" value="<?php echo e($jadwalpermohonan->id_permohonan_ruang); ?>" placeholder="Masukkan ID Permohonan Ruang" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="durasi_rundown" placeholder="Masukkan Tanggal Acara" required>
 					</div>
 				</div>
 
+				<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="id_ruang" class="col-sm-2 control-label">ID Ruang</label>
+					<label for="deskripsi_rundown" class="col-sm-2 control-label">Deskripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_ruang" name="id_ruang" value="<?php echo e($jadwalpermohonan->id_ruang); ?>" placeholder="Masukkan ID Ruang" required>
+						<textarea id="deskripsi_rundown" name="deskripsi_rundown" placeholder=" Masukkan Deskripsi" required cols="82" rows="5"><?php echo e($rundown->deskripsi_rundown); ?>
+
+						</textarea>
 					</div>
 				</div>
 
-				<!-- Menampilkan dropdown -->
-				<div class="form-group">
-					<label for="id_hari" class="col-sm-2 control-label">ID Hari</label>
-					<div class="col-md-8">
-						<select name="id_hari" required>
-							<option value="1">Senin</option>
-							<option value="2">Selasa</option>
-							<option value="3">Rabu</option>
-							<option value="4">Kamis</option>
-							<option value="5">Jumat</option>
-							<option value="6">Sabtu</option>
-						</select>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="id_jam" class="col-sm-2 control-label">ID Jam</label>
-					<div class="col-md-8">
-						<select name="id_jam" required>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-						</select>
-					</div>
-				</div>
+				
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
@@ -120,6 +90,7 @@ $( function() {
   } );
   </script>
 <?php $__env->stopSection(); ?>
+
 
 
 <?php echo $__env->make('adminlte::layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

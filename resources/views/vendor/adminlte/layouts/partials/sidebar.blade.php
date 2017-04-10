@@ -83,7 +83,6 @@
             </li>
              
 
-
             <!-- Modul Dosen -->
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Dosen</span></a>
@@ -188,14 +187,23 @@
             <!-- Href menuju ke url notulensi/dosenrapat -->
             <a href="{{ url('krs-khs/JenisPenilaian') }}"><i class='fa fa-book'></i> <span>JenisPenilaian</span></a>
             </li>
+
             <li
+            @if($page == 'TahunAkademik')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url notulensi/dosenrapat -->
+            <a href="{{ url('krs-khs/TahunAkademik') }}"><i class='fa fa-book'></i> <span>TahunAjaran</span></a>
+            </li>
+                        <li
             @if($page == 'khs')
             {!! 'class="active"'!!}
             @endif
             >
             <!-- Href menuju ke url krs-khs/Khs -->
             <a href="{{ url('krs-khs/khs') }}"><i class='fa fa-book'></i> <span>Khs</span></a>
-            </li> 
+            </li>     
             </ul>
             </li>
 
@@ -283,6 +291,11 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan</span></a>
             <ul class="treeview-menu">
+                <li><a href="{{url('/kegiatan/dokumentasi')}}">Dokumentasi</a></li>
+                <li><a href="{{url('/pengelolaan-kegiatan/uploadDokumentasi')}}">Upload</a></li>
+            <!-- Sidebarnya ditaruh dibawah sini -->
+            <!-- $page nya sesuaiin sama yang di controller -->
+
             <!-- Sidebar Biodata -->
             <!-- $page nya sesuaiin sama yang di controller -->
             <li
@@ -291,6 +304,10 @@
             @endif
             >
             <!-- Href menuju ke url mahasiswa/biodata -->
+
+            <a href="{{ url('pengelolaan-kegiatan/rundown') }}"><i class='fa fa-book'></i> <span> Rundown</span></a>
+            </li>
+
             <a href="{{ url('pengelolaan-kegiatan/pengajuan') }}"><i class='fa fa-book'></i> <span> Pengajuan Kegiatan</span></a>
             </li>        
             </ul>
@@ -300,8 +317,15 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
             <ul class="treeview-menu">
-
-
+            <!-- Sidebarnya ditaruh dibawah sini -->
+            <li
+            @if($page == 'surat_mhs')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="{{ url('pla/PermohonanSuratMhs') }}"><i class='fa fa-book'></i> <span> Permohonan Surat Mhs</span></a>
+            </li> 
                 <li
                 @if($page == 'jadwal-permohonan')
                 {!! 'class="active"'!!}

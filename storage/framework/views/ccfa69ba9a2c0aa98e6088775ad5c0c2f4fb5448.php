@@ -45,16 +45,6 @@
                         <!-- Href menuju ke url mahasiswa/kemahasiswaan/prestasi -->
                         <li><a href="<?php echo e(url('/mahasiswa/prestasi')); ?>"><i class="fa fa-edit"></i> Prestasi</a></li>
                 <!-- $page nya sesuaiin sama yang di controller -->
-            <li
-            <?php if($page == 'biodata'): ?>
-            <?php echo 'class="active"'; ?>
-
-            <?php endif; ?>
-            >
-            <!-- Href menuju ke url mahasiswa/biodata -->
-            <a href="<?php echo e(url('mahasiswa/biodata')); ?>"><i class='fa fa-book'></i> <span> Biodata</span>
-            </a>
-            </li>
 
             <li
             <?php if($page == 'biodatamahasiswa'): ?>
@@ -98,7 +88,6 @@
                 </ul>
             </li>
              
-
 
             <!-- Modul Dosen -->
             <li>
@@ -213,7 +202,17 @@
             <!-- Href menuju ke url notulensi/dosenrapat -->
             <a href="<?php echo e(url('krs-khs/JenisPenilaian')); ?>"><i class='fa fa-book'></i> <span>JenisPenilaian</span></a>
             </li>
+
             <li
+            <?php if($page == 'TahunAkademik'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url notulensi/dosenrapat -->
+            <a href="<?php echo e(url('krs-khs/TahunAkademik')); ?>"><i class='fa fa-book'></i> <span>TahunAjaran</span></a>
+            </li>
+                        <li
             <?php if($page == 'khs'): ?>
             <?php echo 'class="active"'; ?>
 
@@ -221,7 +220,7 @@
             >
             <!-- Href menuju ke url krs-khs/Khs -->
             <a href="<?php echo e(url('krs-khs/khs')); ?>"><i class='fa fa-book'></i> <span>Khs</span></a>
-            </li> 
+            </li>     
             </ul>
             </li>
 
@@ -316,6 +315,11 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan</span></a>
             <ul class="treeview-menu">
+                <li><a href="<?php echo e(url('/kegiatan/dokumentasi')); ?>">Dokumentasi</a></li>
+                <li><a href="<?php echo e(url('/pengelolaan-kegiatan/uploadDokumentasi')); ?>">Upload</a></li>
+            <!-- Sidebarnya ditaruh dibawah sini -->
+            <!-- $page nya sesuaiin sama yang di controller -->
+
             <!-- Sidebar Biodata -->
             <!-- $page nya sesuaiin sama yang di controller -->
             <li
@@ -325,6 +329,10 @@
             <?php endif; ?>
             >
             <!-- Href menuju ke url mahasiswa/biodata -->
+
+            <a href="<?php echo e(url('pengelolaan-kegiatan/rundown')); ?>"><i class='fa fa-book'></i> <span> Rundown</span></a>
+            </li>
+
             <a href="<?php echo e(url('pengelolaan-kegiatan/pengajuan')); ?>"><i class='fa fa-book'></i> <span> Pengajuan Kegiatan</span></a>
             </li>        
             </ul>
@@ -334,8 +342,16 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
             <ul class="treeview-menu">
+            <!-- Sidebarnya ditaruh dibawah sini -->
+            <li
+            <?php if($page == 'surat_mhs'): ?>
+            <?php echo 'class="active"'; ?>
 
-
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="<?php echo e(url('pla/PermohonanSuratMhs')); ?>"><i class='fa fa-book'></i> <span> Permohonan Surat Mhs</span></a>
+            </li> 
                 <li
                 <?php if($page == 'jadwal-permohonan'): ?>
                 <?php echo 'class="active"'; ?>

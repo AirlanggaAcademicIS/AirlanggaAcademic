@@ -1,9 +1,9 @@
 <?php $__env->startSection('htmlheader_title'); ?>
-Tambah Permohonan Ruang
+Tambah Biodata
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-Tambah Permohonan Ruang
+Tambah Pemohon Surat
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('code-header'); ?>
@@ -45,38 +45,40 @@ Tambah Permohonan Ruang
 			</div>
 			<?php endif; ?>
 			<br>
-			<form id="tambahPermohonanRuang" method="post" action="<?php echo e(url('/pla/PermohonanRuang/create')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahBiodata" method="post" action="<?php echo e(url('pla/'.$nim_mhs.'/'.$id_surat.'/edit')); ?>" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
-				<!-- Menampilkan input text biasa -->
+				
+
+				<!-- Menampilkan dropdown -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">NIP Petugas</label>
+					<label for="nama" class="col-sm-2 control-label">Mahasiswa :</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nip_petugas" name="nip_petugas" placeholder="Masukkan NIP" required>
+						<select  id="NIM" name="NIM" class="form-control" disabled>
+						<option value="no" >Pilih Mahasiswa</option>
+						<?php $__currentLoopData = $mhs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+
+							<option 
+							<?php if ($nim_mhs==$i->nim)
+							echo 'selected';?>
+
+							value="<?php echo e($i->nim); ?>" ><?php echo e($i->nama); ?></option>
+							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+						</select>
 					</div>
 				</div>
-
+				<!-- Menampilkan dropdown -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<label for="nama" class="col-sm-2 control-label">Surat Kepada :</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" required>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Verifikasi</label>
-					<div class="col-md-8">
-						<select name="atribut_verifikasi" required>
-							<option value="0">Belum Konfirmasi</option>
-							<option value="1">Konfirmasi</option>
-							</select>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">NIM/NIP Peminjam</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim_nip" name="nim_nip" placeholder="Masukkan NIP/NIM" required>
+						<select id="id_surat_keluar" name="id_surat_keluar" class="form-control" required>
+						<option value="no" >Pilih Surat</option>
+						<?php $__currentLoopData = $surat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+							<option <?php if ($id_surat==$p->id_surat_keluar)
+							echo 'selected';?>
+							value="<?php echo e($p->id_surat_keluar); ?>"><?php echo e($p->nama_lembaga); ?></option>
+							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+						</select>
 					</div>
 				</div>
 

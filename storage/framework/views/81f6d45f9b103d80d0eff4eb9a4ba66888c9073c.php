@@ -1,15 +1,14 @@
 <?php $__env->startSection('htmlheader_title'); ?>
-Tambah Jadwal Permohonan
+Edit Biodata
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-Tambah Jadwal Permohonan
+Edit Biodata
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('code-header'); ?>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="<?php echo e(asset('/css/dropzone.css')); ?>">
 
 <?php $__env->stopSection(); ?>
 
@@ -19,7 +18,7 @@ Tambah Jadwal Permohonan
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	<?php $__currentLoopData = ['danger', 'warning', 'success', 'info']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $msg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	<?php if(Session::has('alert-' . $msg)): ?>
 <div class="alert alert-<?php echo e($msg); ?>">
@@ -45,59 +44,54 @@ Tambah Jadwal Permohonan
 			</div>
 			<?php endif; ?>
 			<br>
-			<form id="tambahJadwalPermohonan" method="post" action="<?php echo e(url('/pla/jadwal-permohonan/create')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahBiodata" method="post" action="<?php echo e(url('/mahasiswa/biodata/'.$biodata->id.'/edit')); ?>" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="id_permohonan_ruang" class="col-sm-2 control-label">ID Permohonan Ruang</label>
+					<label for="nim" class="col-sm-2 control-label">NIM</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_permohonan_ruang" name="id_permohonan_ruang" placeholder="Masukkan ID Permohonan Ruang" required>
+						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" value="<?php echo e($biodata->nim); ?>" required>
 					</div>
 				</div>
 
+				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="id_ruang" class="col-sm-2 control-label">ID Ruang</label>
+					<label for="nama" class="col-sm-2 control-label">Nama</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_ruang" name="id_ruang" placeholder="Masukkan ID Ruang" required>
+						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" value="<?php echo e($biodata->nama); ?>" required>
+					</div>
+				</div>
+
+				<!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Alamat</label>
+					<div class="col-md-8">
+						<textarea id="alamat" name="alamat" placeholder=" Masukkan Alamat" required cols="82" rows="5"><?php echo e($biodata->alamat); ?>
+
+						</textarea>
 					</div>
 				</div>
 
 				<!-- Menampilkan dropdown -->
 				<div class="form-group">
-					<label for="id_hari" class="col-sm-2 control-label">ID Hari</label>
+					<label for="nama" class="col-sm-2 control-label">Provinsi</label>
 					<div class="col-md-8">
-						<select name="id_hari" required>
-							<option value="1">Senin</option>
-							<option value="2">Selasa</option>
-							<option value="3">Rabu</option>
-							<option value="4">Kamis</option>
-							<option value="5">Jumat</option>
-							<option value="6">Sabtu</option>
+						<select name="provinsi" required>
+							<option value="Jawa Timur">Jawa Timur</option>
+							<option value="Jawa Tengah">Jawa Tengah</option>
+							<option value="Jawa Barat">Jawa Barat</option>
 						</select>
 					</div>
 				</div>
 
+				<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
-					<label for="id_jam" class="col-sm-2 control-label">ID Jam</label>
+					<label for="nama" class="col-sm-2 control-label">Tanggal Masuk</label>
 					<div class="col-md-8">
-						<select name="id_jam" required>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-						</select>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_masuk" placeholder="Masukkan Tanggal" required>
 					</div>
 				</div>
-
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">

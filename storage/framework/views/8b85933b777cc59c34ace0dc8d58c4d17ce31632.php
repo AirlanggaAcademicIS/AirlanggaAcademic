@@ -4,11 +4,11 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('htmlheader_title'); ?>
-Jadwal Permohonan
+Biodata
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-Jadwal Permohonan
+Daftar Pemohon Surat Keluar
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('main-content'); ?>
@@ -27,38 +27,34 @@ Jadwal Permohonan
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="<?php echo e(url('/pla/jadwal-permohonan/create')); ?>" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah Jadwal Permohonan</a>
+  <a href="<?php echo e(url('pla/TambahPermohonanSuratMhs')); ?>" type="button" class="btn btn-info btn-md" >
+    <i class="fa fa-plus-square"></i> Tambah Pemohon Surat</a>
 </div>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">ID Permohonan Ruang</th>      
-      <th style="text-align:center">ID Ruang</th>
-      <th style="text-align:center">ID Hari</th>
-      <th style="text-align:center">ID Jam</th>
-      <th style="text-align:center">ID Action</th>
+      <th style="text-align:center">NIM</th>      
+      <th style="text-align:center">Surat Kepada</th>
+      <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
-   <?php $__empty_1 = true; $__currentLoopData = $jadwalpermohonan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $r): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?> 
+   <?php $__empty_1 = true; $__currentLoopData = $biodata; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $bio): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?> 
     <tr>
-      <td><?php echo e($i+1); ?></td>
-      <td width="20%" style="text-align:center"><?php echo e($r->id_permohonan_ruang); ?></td>
-      <td width="20%" style="text-align:center"><?php echo e($r->id_ruang); ?></td>
-      <td width="20%" style="text-align:center"><?php echo e($r->id_hari); ?></td>
-      <td width="20%" style="text-align:center"><?php echo e($r->id_jam); ?></td>
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus jadwal permohonan ini?');" href="<?php echo e(url('/pla/jadwal-permohonan/'.$r->id.'/delete/')); ?>" class="btn btn-danger btn-xs">
+      <td width="5%" ><?php echo e($i+1); ?></td>
+      <td width="20%" style="text-align:center"><?php echo e($bio->nama); ?></td>
+      <td width="15%" style="text-align:center"><?php echo e($bio->nama_lembaga); ?></td>
+      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus Data ini?');" href="<?php echo e(url('/pla/'.$bio->nim.'/'.$bio->id_surat_keluar.'/deletePemohon/')); ?>" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="<?php echo e(url('/pla/jadwal-permohonan/'.$r->id.'/edit/')); ?>" class="btn btn-warning btn-xs">
+        <a href="<?php echo e(url('/pla/'.$bio->nim.'/'.$bio->id_surat_keluar.'/editPemohon/')); ?>" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
     </tr>
      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
         <tr>
-          <td colspan="6"><center>Belum ada jadwal permohonan</center></td>
+          <td colspan="6"><center>Belum ada Data</center></td>
         </tr>
     <?php endif; ?>
   </tbody>
