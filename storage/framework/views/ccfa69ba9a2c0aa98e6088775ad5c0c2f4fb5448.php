@@ -54,31 +54,16 @@
             >
 <<<<<<< HEAD
             <!-- Href menuju ke url mahasiswa/biodata -->
-<<<<<<< HEAD
-            <a href="<?php echo e(url('mahasiswa/biodata')); ?>"><i class='fa fa-book'></i> <span> Biodata</span></a>
-            </li>        
-            </ul>
-=======
             <a href="<?php echo e(url('mahasiswa/biodata')); ?>"><i class='fa fa-book'></i> <span> Biodata</span>
             </a>
             </li>
 
             <li
             <?php if($page == 'biodatamahasiswa'): ?>
->>>>>>> 2e768dbefd0be37b1e2b8eeacd7d644a0b10e9a1
-=======
-            <a href="<?php echo e(url('/biodata')); ?>"><i class="fa fa-book"></i> Biodata</a>
-            </li>
-
-
-            <li
-            <?php if($page == 'kemahasiswaan'): ?>
->>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
             >
-<<<<<<< HEAD
             <!-- Href menuju ke url mahasiswa/biodata -->
             <a href="<?php echo e(url('mahasiswa/biodata-mahasiswa')); ?>"><i class='fa fa-book'></i> <span> Biodata Mahasiswa</span></a>
           
@@ -86,6 +71,16 @@
 
             </ul>
 =======
+            <a href="<?php echo e(url('/biodata')); ?>"><i class="fa fa-book"></i> Biodata</a>
+            </li>
+
+
+            <li
+            <?php if($page == 'kemahasiswaan'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
                 <a href="#"><i class="fa fa-user-secret"></i> Kemahasiswaan
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -138,8 +133,6 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
 
-<<<<<<< HEAD
-=======
 <<<<<<< HEAD
             <li
 =======
@@ -203,7 +196,6 @@
 
 
 >>>>>>> 000842d2541ed97447077cb5fea4543b96c2eafd
->>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             </ul>
             </li>
 
@@ -212,9 +204,6 @@
             <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-<<<<<<< HEAD
-
-=======
 <<<<<<< HEAD
             <li
             <?php if($page == 'kategori-media-pembelajaran'): ?>
@@ -237,7 +226,6 @@
             <a href="<?php echo e(url('/kurikulum/universitas')); ?>"><i class='fa fa-book'></i> <span> Universitas</span></a>
             </li>        
 >>>>>>> a587dff1289e6620570ccf90b11dfb9062638e55
->>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             </ul>
             </li>
 
@@ -245,29 +233,7 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
             <ul class="treeview-menu">
-<<<<<<< HEAD
-                <li
-                <?php if($page == 'ruang'): ?>
-                <?php echo 'class="active"'; ?>
-
-                <?php endif; ?>
-                >
-            <!-- Href menuju ke url krs-khs/ruang/view -->
-                <a href="<?php echo e(url('krs-khs/ruang/view')); ?>"><i class='fa fa-book'></i> <span> Ruang</span></a>
-                </li>    
             <!-- Sidebarnya ditaruh dibawah sini -->
-
-            </ul>
-            </li>
-
-=======
-            <!-- Sidebarnya ditaruh dibawah sini -->
-<<<<<<< HEAD
-
-            </ul>
-            </li>
-
-=======
             
             <!-- Sidebarnya ditaruh dibawah sini -->
             <li
@@ -285,15 +251,11 @@
            
             </li>
 
->>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             <!-- Modul Monitoring Skripsi -->
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-<<<<<<< HEAD
-
-=======
             <li
             <?php if($page == 'skripsi'): ?>
             <?php echo 'class="active"'; ?>
@@ -333,7 +295,6 @@
             <a href="<?php echo e(url('monitoring-skripsi/konsultasi')); ?>"><i class='fa fa-book'></i>
             <span>Konsultasi</span></a>
             </li>
->>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             </ul>
             </li>
 
@@ -343,11 +304,6 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
 
-<<<<<<< HEAD
-            </ul>
-            </li>
-
-=======
             <li
             <?php if($page == 'notulen'): ?>
             <?php echo 'class="active"'; ?>
@@ -371,7 +327,6 @@
             </li>
 
 
->>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             <!-- Modul Pengelolaan Kegiatan -->
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan</span></a>
@@ -385,8 +340,6 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
             <ul class="treeview-menu">
-<<<<<<< HEAD
-=======
             <li
                 <?php if($page == 'suratmasuk'): ?>
                 <?php echo 'class="active"'; ?>
@@ -396,7 +349,6 @@
             <!-- Href menuju ke url -->
                 <a href="<?php echo e(url('pla/surat-masuk')); ?>"><i class='fa fa-book'></i> <span> Surat Masuk</span></a>
                 </li>   
->>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             <!-- Sidebarnya ditaruh dibawah sini -->
 
             </ul>
@@ -418,17 +370,15 @@
             <!-- Href menuju ke url inventaris/asset -->
             <a href="<?php echo e(url('inventaris/asset')); ?>"><i class='fa fa-book'></i> <span> Asset</span></a>
             </li>        
-            </ul>
-            </li>
-
-            
 =======
                 <li><a href="<?php echo e(url('/index-asset')); ?>">all asset</a></li>
                 <li><a href="<?php echo e(url('/inventaris/index-peminjaman')); ?>">peminjaman</a></li>
                 <li><a href="<?php echo e(url('/index-maintenance')); ?>">maintenance</a></li>
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             </ul>
             </li>
->>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
+
+            
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

@@ -45,7 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('biodata/{id}/edit','Mahasiswa\BiodataController@editAction');
 
-<<<<<<< HEAD
+
     //Fitur Biodata Mahasiswa
         // Menampilkan tabel
         Route::get('biodata-mahasiswa','Mahasiswa\BiodataMahasiswaController@index');
@@ -64,7 +64,7 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Mengupdate biodata dengan isi dari form
         Route::post('biodata-mahasiswa/{id}/edit','Mahasiswa\BiodataMahasiswaController@editAction');
-=======
+
         //Penelitian
         // Menampilkan tabel
         Route::get('penelitian','Mahasiswa\PenelitianController@index');
@@ -85,7 +85,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('penelitian/{kode_penelitian}/edit','Mahasiswa\PenelitianController@editAction');
 
 
->>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
+
 
     });
 
@@ -415,7 +415,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     Route::group(['prefix' => 'inventaris'], function() {
-<<<<<<< HEAD
+
     
     // Menampilkan tabel
     Route::get('asset','Inventaris\AssetController@index');
@@ -437,12 +437,11 @@ Route::group(['middleware' => ['auth']], function () {
 
         
        
-=======
-<<<<<<< HEAD
+
     Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
     Route::get('index-maintenance', 'MaintenanceController@index');
     Route::get('view-maintenance', 'MaintenanceController@viewDetail');
->>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
+
 
     Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
     Route::get('index-peminjaman', 'PeminjamanController@index');
@@ -458,7 +457,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('{id}/post-tugas-edit', 'Inventaris\TugasFakultasController@editAction');
     Route::get('/tugas-fakultas/{id}/delete','Inventaris\TugasFakultasController@delete');
 
-=======
+
         Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
         Route::get('index-maintenance', 'MaintenanceController@index');
         Route::get('view-maintenance', 'MaintenanceController@viewDetail');
@@ -473,7 +472,7 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('add-asset', 'HomeController@input');
         Route::get('view-asset', 'HomeController@index');
->>>>>>> b68becaf5d308f2144c3b0aa54890213d87b193f
+
     });
   
         
