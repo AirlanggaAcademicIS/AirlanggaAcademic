@@ -82,8 +82,26 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     // Modul Kegiatan
-    Route::group(['prefix' => 'kegiatan'], function() {
+    Route::group(['prefix' => 'pengelolaan-kegiatan'], function() {
+    // Url CRUD
 
+        // Menampilkan tabel
+        Route::get('jabatan','PengelolaanKegiatan\JabatanController@index');
+
+        // Menampilkan form tambah jabatan
+        Route::get('jabatan/create','PengelolaanKegiatan\JabatanController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel jabatan
+        Route::post('jabatan/create','PengelolaanKegiatan\JabatanController@createAction');
+
+        // Menghapus jabatan sesuai id yang dipilih
+        Route::get('jabatan/{id}/delete','PengelolaanKegiatan\JabatanController@delete');
+
+        // Menampilkan form edit jabatan dari id yg dipilih
+        Route::get('jabatan/{id}/edit','PengelolaanKegiatan\JabatanController@edit');
+
+        // Mengupdate jabatan dengan isi dari form
+        Route::post('jabatan/{id}/edit','PengelolaanKegiatan\JabatanController@editAction');
     });
 
     // Modul PLA
