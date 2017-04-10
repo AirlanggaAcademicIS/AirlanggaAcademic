@@ -97,7 +97,9 @@
                 >
             <!-- Href menuju ke url krs-khs/ruang/view -->
                 <a href="{{ url('krs-khs/ruang/view') }}"><i class='fa fa-book'></i> <span> Ruang</span></a>
-                </li>    
+                </li>  
+                <a href="{{ url('krs-khs/jam/view') }}"><i class='fa fa-clock-o'></i> <span> Jam</span></a>
+                </li>   
             <!-- Sidebarnya ditaruh dibawah sini -->
 
             </ul>

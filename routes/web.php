@@ -69,6 +69,28 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     });
+
+    // Jam
+        Route::group(['prefix' => 'jam'], function() {
+
+            // Menampilkan tabel
+        Route::get('view','KrsKhs\JamController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('create','KrsKhs\JamController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('create','KrsKhs\JamController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('/{id}/delete','KrsKhs\JamController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('/{id}/edit','KrsKhs\JamController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('/{id}/edit','KrsKhs\JamController@editAction');
+    });
         
 
     });
