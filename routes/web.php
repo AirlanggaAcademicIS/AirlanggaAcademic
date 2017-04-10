@@ -452,10 +452,13 @@ Route::group(['middleware' => ['auth']], function () {
         // Menampilkan form edit biodata dari id yg dipilih
         Route::get('PermohonanRuang/{id_permohonan_ruang}/edit','pla\PermohonanRuangController@edit');
 
+<<<<<<< HEAD
         // Mengupdate biodata dengan isi dari form
         Route::post('PermohonanRuang/{id_permohonan_ruang}/edit','pla\PermohonanRuangController@editAction');
  
 
+=======
+>>>>>>> 3cd4a0b5dc85d17d0ad19ea7c97f93106d57910b
     });
 
     // Modul Notulensi

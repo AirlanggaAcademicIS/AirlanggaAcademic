@@ -333,7 +333,6 @@
             <!-- Href menuju ke url mahasiswa/biodata -->
             <a href="{{ url('pla/PermohonanRuang') }}"><i class='fa fa-book'></i> <span> Permohonan Ruang</span></a>
             </li>  
-
             </ul>
             </li>
 
