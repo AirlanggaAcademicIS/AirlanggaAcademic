@@ -444,6 +444,21 @@ Route::group(['middleware' => ['auth']], function () {
     // Modul PLA
     Route::group(['prefix' => 'pla'], function() {
 
+        // Menampilkan tabel
+        Route::get('/petugas_tu','Pla\Petugas_TU_Controller@index');
+         // Menampilkan form tambah biodata
+        Route::get('petugas_tu/create','Pla\Petugas_TU_Controller@create');
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('petugas_tu/create','Pla\Petugas_TU_Controller@createAction');
+         // Menghapus biodata sesuai id yang dipilih
+        Route::get('petugas_tu/{id_tu}/delete','Pla\Petugas_TU_Controller@delete');
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('petugas_tu/{id_tu}/edit','Pla\Petugas_TU_Controller@edit');
+        // Mengupdate biodata dengan isi dari form
+        Route::post('petugas_tu/{id_tu}/edit','Pla\Petugas_TU_Controller@editAction');
+                
+
+
     // Menampilkan tabel
         Route::get('/surat-masuk','pla\Surat_MasukController@index');           
 
@@ -462,6 +477,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Mengupdate biodata dengan isi dari form
         Route::post('surat-masuk/{id}/edit','pla\Surat_MasukController@editAction');
  
+
 
     });
 
