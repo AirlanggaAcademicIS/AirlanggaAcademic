@@ -334,6 +334,25 @@ Route::group(['middleware' => ['auth']], function () {
             
         // Action untuk mengupdate dosbing    
             Route::post('manipulate-dosbing','MonitoringSkripsi\DosenPembimbingController@manipulate');
+
+            // Status Monitoring Skripsi
+            // Menampilkan tabel
+        Route::get('status','MonitoringSkripsi\StatusController@index');
+
+        // Menampilkan form tambah 
+        Route::get('status/create','MonitoringSkripsi\StatusController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('status/create','MonitoringSkripsi\StatusController@createAction');
+
+        // Menghapus  sesuai id yang dipilih
+        Route::get('status/{id}/delete','MonitoringSkripsi\StatusController@delete');
+
+        // Menampilkan form edit dari id yg dipilih
+        Route::get('status/{id}/edit','MonitoringSkripsi\StatusController@edit');
+
+        // Mengupdate  dengan isi dari form
+        Route::post('status/{id}/edit','MonitoringSkripsi\StatusController@editAction');
            
     });
 
@@ -354,6 +373,3 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('add-asset', 'HomeController@input');
         Route::get('view-asset', 'HomeController@index');
     });
-  
-        
-});

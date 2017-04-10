@@ -212,6 +212,15 @@
                 <a href="{{ url('monitoring-skripsi/index-dosbing') }}"><i class='fa fa-book'></i><span>Dosen Pembimbing </span></a>
             </li>
 
+             <li
+                @if($page == 'status')
+                {!! 'class="active"'!!}
+                @endif
+                >
+
+                <a href="{{ url('monitoring-skripsi/status') }}"><i class='fa fa-book'></i><span>Status </span></a>
+            </li>
+
             <li
             @if($page == 'konsultasi')
             {!! 'class="active"'!!}
@@ -237,6 +246,8 @@
             <!-- Href menuju ke url notulensi/notulensi rapat -->
             <a href="{{ url('notulensi/notulen') }}"><i class='fa fa-book'></i> <span> Notulensi Rapat</span></a>
             </li>
+
+           
 
             <li
             @if($page == 'dosenrapat')
