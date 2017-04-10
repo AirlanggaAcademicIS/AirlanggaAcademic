@@ -54,9 +54,18 @@
             >
 <<<<<<< HEAD
             <!-- Href menuju ke url mahasiswa/biodata -->
+<<<<<<< HEAD
             <a href="<?php echo e(url('mahasiswa/biodata')); ?>"><i class='fa fa-book'></i> <span> Biodata</span></a>
             </li>        
             </ul>
+=======
+            <a href="<?php echo e(url('mahasiswa/biodata')); ?>"><i class='fa fa-book'></i> <span> Biodata</span>
+            </a>
+            </li>
+
+            <li
+            <?php if($page == 'biodatamahasiswa'): ?>
+>>>>>>> 2e768dbefd0be37b1e2b8eeacd7d644a0b10e9a1
 =======
             <a href="<?php echo e(url('/biodata')); ?>"><i class="fa fa-book"></i> Biodata</a>
             </li>
@@ -64,10 +73,19 @@
 
             <li
             <?php if($page == 'kemahasiswaan'): ?>
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
             >
+<<<<<<< HEAD
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="<?php echo e(url('mahasiswa/biodata-mahasiswa')); ?>"><i class='fa fa-book'></i> <span> Biodata Mahasiswa</span></a>
+          
+            </li>
+
+            </ul>
+=======
                 <a href="#"><i class="fa fa-user-secret"></i> Kemahasiswaan
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -227,6 +245,22 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
             <ul class="treeview-menu">
+<<<<<<< HEAD
+                <li
+                <?php if($page == 'ruang'): ?>
+                <?php echo 'class="active"'; ?>
+
+                <?php endif; ?>
+                >
+            <!-- Href menuju ke url krs-khs/ruang/view -->
+                <a href="<?php echo e(url('krs-khs/ruang/view')); ?>"><i class='fa fa-book'></i> <span> Ruang</span></a>
+                </li>    
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            </ul>
+            </li>
+
+=======
             <!-- Sidebarnya ditaruh dibawah sini -->
 <<<<<<< HEAD
 

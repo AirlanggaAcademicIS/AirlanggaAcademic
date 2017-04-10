@@ -50,6 +50,24 @@
             {!! 'class="active"'!!}
             @endif
             >
+<<<<<<< HEAD
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="{{ url('mahasiswa/biodata') }}"><i class='fa fa-book'></i> <span> Biodata</span>
+            </a>
+            </li>
+
+            <li
+            @if($page == 'biodatamahasiswa')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="{{ url('mahasiswa/biodata-mahasiswa') }}"><i class='fa fa-book'></i> <span> Biodata Mahasiswa</span></a>
+          
+            </li>
+
+            </ul>
+=======
             <a href="{{url('/biodata')}}"><i class="fa fa-book"></i> Biodata</a>
             </li>
 
@@ -99,6 +117,7 @@
             </li>
                   
                 </ul>
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             </li>
 
             <!-- Modul Dosen -->
