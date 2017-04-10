@@ -88,7 +88,26 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul PLA
     Route::group(['prefix' => 'pla'], function() {
-                
+    // Url CRUD
+
+        // Menampilkan tabel
+        Route::get('PermohonanRuang','pla\PermohonanRuangController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('PermohonanRuang/create','pla\PermohonanRuangController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('PermohonanRuang/create','pla\PermohonanRuangController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('PermohonanRuang/{id_permohonan_ruang}/delete','pla\PermohonanRuangController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('PermohonanRuang/{id_permohonan_ruang}/edit','pla\PermohonanRuangController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('PermohonanRuang/{id_permohonan_ruang}/edit','pla\PermohonanRuangController@editAction');
+
 
     });
 
