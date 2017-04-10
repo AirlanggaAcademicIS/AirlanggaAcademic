@@ -80,6 +80,7 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
             <ul class="treeview-menu">
+<<<<<<< HEAD
                 <li
                 <?php if($page == 'ruang'): ?>
                 <?php echo 'class="active"'; ?>
@@ -89,6 +90,8 @@
             <!-- Href menuju ke url krs-khs/ruang/view -->
                 <a href="<?php echo e(url('krs-khs/ruang/view')); ?>"><i class='fa fa-book'></i> <span> Ruang</span></a>
                 </li>    
+=======
+>>>>>>> bc487658186cc5c6b5c09d20d98e029aa1ff028f
             <!-- Sidebarnya ditaruh dibawah sini -->
 
             </ul>
@@ -116,10 +119,24 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan</span></a>
             <ul class="treeview-menu">
+<<<<<<< HEAD
                 <li><a href="<?php echo e(url('/kegiatan/dokumentasi')); ?>">Show</a></li>
                 <li><a href="<?php echo e(url('/pengelolaan-kegiatan/uploadDokumentasi')); ?>">Upload</a></li>
             <!-- Sidebarnya ditaruh dibawah sini -->
 
+=======
+            <!-- Sidebarnya ditaruh dibawah sini -->
+            <!-- $page nya sesuaiin sama yang di controller -->
+            <li
+            <?php if($page == 'rundown'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="<?php echo e(url('pengelolaan-kegiatan/rundown')); ?>"><i class='fa fa-book'></i> <span> Rundown</span></a>
+            </li>
+>>>>>>> bc487658186cc5c6b5c09d20d98e029aa1ff028f
             </ul>
             </li>
 
