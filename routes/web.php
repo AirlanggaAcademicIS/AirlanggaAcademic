@@ -142,7 +142,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 
             Route::post('{id}/edit','Kurikulum\KategoriMediaPembelajaranController@editAction');
-            });
+            
     });
 
     // Modul Dosen
