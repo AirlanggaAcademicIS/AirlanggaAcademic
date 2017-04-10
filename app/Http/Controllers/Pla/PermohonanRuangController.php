@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\KrsKhs;
+namespace App\Http\Controllers\Pla;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -11,10 +11,10 @@ use Session;
 use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
-use App\JenisPenilaian;
+use App\PermohonanRuang;
 
 
-class JenisPenilaianController extends Controller
+class PermohonanRuangController extends Controller
 {
 
     // Function untuk menampilkan tabel
@@ -22,45 +22,45 @@ class JenisPenilaianController extends Controller
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'jenispenilaian',
+            'page' => 'PermohonanRuang',
             // Memanggil semua isi dari tabel biodata
-            'jenispenilaian' => JenisPenilaian::all()
+            'PermohonanRuang' => PermohonanRuang::all()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('krs-khs.JenisPenilaian.index',$data);
+        return view('pla.PermohonanRuang.index',$data);
     }
 
     public function create()
-    {  // Menginsertkan apa yang ada di form ke dalam tabel biodata
-         $data = [
+    {
+        $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'jenispenilaian',
+            'page' => 'PermohonanRuang',
         ];
 
         // Memanggil tampilan form create
-        return view('krs-khs.JenisPenilaian.create',$data);
+    	return view('pla.PermohonanRuang.create',$data);
     }
 
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        JenisPenilaian::create($request->input());
+        PermohonanRuang::create($request->input());
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Jenis Penilaian berhasil ditambahkan');
+        Session::put('alert-success', 'Permohonan berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('krs-khs/JenisPenilaian');
+        return Redirect::to('pla/PermohonanRuang');
     }
 
-    public function delete($id_jenis_penilaian)
+    public function delete($id_permohonan_ruang)
     {
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $jenispenilaian = JenisPenilaian::find($id_jenis_penilaian);
+        $PermohonanRuang = PermohonanRuang::find($id_permohonan_ruang);
 
         // Menghapus biodata yang dicari tadi
-        $jenispenilaian->delete();
+        $PermohonanRuang->delete();
 
         // Menampilkan notifikasi pesan sukses
     	Session::put('alert-success', 'Biodata berhasil dihapus');
@@ -69,33 +69,36 @@ class JenisPenilaianController extends Controller
       	return Redirect::back();	 
     }
 
-   public function edit($id_jenis_penilaian)
+   public function edit($id_permohonan_ruang)
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'jenispenilaian',
+            'page' => 'PermohonanRuang',
             // Mencari biodata berdasarkan id
-            'jenispenilaian' => JenisPenilaian::find($id_jenis_penilaian)
+            'PermohonanRuang' => PermohonanRuang::find($id_permohonan_ruang)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('krs-khs.JenisPenilaian.edit',$data);
+        return view('pla.PermohonanRuang.edit',$data);
     }
 
-    public function editAction($id_jenis_penilaian, Request $request)
+    public function editAction($id_permohonan_ruang, Request $request)
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $jenispenilaian = JenisPenilaian::find($id_jenis_penilaian);
+        $permohonan_ruang = PermohonanRuang::find($id_permohonan_ruang);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $jenispenilaian->nama_jenis = $request->input('nama_jenis');
-        $jenispenilaian->save();
+        $permohonan_ruang->nip_petugas = $request->input('nip_petugas');
+        $permohonan_ruang->nama = $request->input('nama');
+        $permohonan_ruang->atribut_verifikasi = $request->input('atribut_verifikasi');
+        $permohonan_ruang->nim_nip = $request->input('nim_nip');
+        $permohonan_ruang->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Jenis Penilaian berhasil diedit');
+        Session::put('alert-success', 'Biodata berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('krs-khs/JenisPenilaian');
+        return Redirect::to('pla/PermohonanRuang');
     }
 
 }
