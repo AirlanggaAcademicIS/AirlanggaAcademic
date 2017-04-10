@@ -195,7 +195,6 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('capaian-pembelajaran/{id}/edit','Kurikulum\CapaianPembelajaranController@editAction');
 
- 
         Route::get('sistem-pembelajaran','Kurikulum\SistemPembelajaranController@index');
 
         // Menampilkan form tambah biodata
@@ -378,7 +377,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('jurnal/{id}/edit','Dosen\JurnalController@editAction');     
 
     });
-
     // Modul Pengelolaan Kegiatan
     Route::group(['prefix' => 'pengelolaan-kegiatan'], function() {
 
