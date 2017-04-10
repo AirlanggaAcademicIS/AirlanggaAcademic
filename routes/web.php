@@ -41,6 +41,26 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('biodata/{id}/edit','Mahasiswa\BiodataController@editAction');
 
+    //Detail Penelitian
+
+         // Menampilkan tabel
+        Route::get('detailpenelitian','Mahasiswa\DetailPenelitianController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('detailpenelitian/create','Mahasiswa\DetailPenelitianController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('detailpenelitian/create','Mahasiswa\DetailPenelitianController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('detailpenelitian/{id}/delete','Mahasiswa\DetailPenelitianController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('detailpenelitian/{id}/edit','Mahasiswa\DetailPenelitianController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('detailpenelitian/{id}/edit','Mahasiswa\DetailPenelitianController@editAction');
+
     });
 
     // Modul KRS & KHS
