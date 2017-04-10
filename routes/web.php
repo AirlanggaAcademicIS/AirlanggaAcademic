@@ -88,7 +88,15 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul PLA
     Route::group(['prefix' => 'pla'], function() {
-                
+        Route::group(['prefix' => 'jadwal-permohonan'], function() {
+    // Url CRUD
+        Route::get('view','Pla\JadwalPermohonanController@index');
+        Route::get('create','Pla\JadwalPermohonanController@create');
+        Route::post('create','Pla\JadwalPermohonanController@createAction');
+        Route::get('/{id}/delete','Pla\JadwalPermohonanController@delete');
+        Route::get('/{id}/edit','Pla\JadwalPermohonanController@edit');
+        Route::post('/{id}/edit','Pla\JadwalPermohonanController@editAction');
+    });
 
     });
 
