@@ -1,17 +1,16 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Jenis Penilaian
+Edit Akun
 @endsection
 
 @section('contentheader_title')
-Tambah Jenis Penilaian
+Edit Akun
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -21,7 +20,7 @@ Tambah Jenis Penilaian
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -46,19 +45,25 @@ Tambah Jenis Penilaian
 			</div>
 			@endif
 			<br>
-			<form id="tambahJenisPenilaian" method="post" action="{{url('/krs-khs/JenisPenilaian/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="editAkun" method="post" action="{{url('/mahasiswa/akun/'.$akunmahasiswa->id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-
 				<div class="form-group">
-					<label for="nama_jenis" class="col-sm-2 control-label">Nama Jenis Penilaian</label>
+					<label for="nim" class="col-sm-2 control-label">NIM</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_jenis" name="nama_jenis" placeholder="Masukkan Nama Jenis Penilaian" required>
+						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" value="{{$akunmahasiswa->nim}}" required>
 					</div>
 				</div>
 
-			
+				<!-- Menampilkan input text biasa -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" value="{{$akunmahasiswa->nama}}" required>
+					</div>
+				</div>
+
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">

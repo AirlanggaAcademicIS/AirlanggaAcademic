@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Jenis Penilaian
+Tambah Akun
 @endsection
 
 @section('contentheader_title')
-Tambah Jenis Penilaian
+Tambah Akun
 @endsection
 
 @section('code-header')
@@ -46,15 +46,35 @@ Tambah Jenis Penilaian
 			</div>
 			@endif
 			<br>
-			<form id="tambahJenisPenilaian" method="post" action="{{url('/krs-khs/JenisPenilaian/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahAkun" method="post" action="{{url('/mahasiswa/akun/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
+				<div class="form-group">
+					<label for="nim" class="col-sm-2 control-label">NIM</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" required>
+			 		</div>
+				</div>
 
 				<div class="form-group">
-					<label for="nama_jenis" class="col-sm-2 control-label">Nama Jenis Penilaian</label>
+					<label for="nama" class="col-sm-2 control-label">Nama</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_jenis" name="nama_jenis" placeholder="Masukkan Nama Jenis Penilaian" required>
+						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="fakultas" class="col-sm-2 control-label">Fakultas</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="fakultas" name="fakultas" value="Fakultas Sains dan Teknologi" readonly="readonly">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="program studi" class="col-sm-2 control-label">Program Studi</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="program studi" name="program studi" value="S1 Sistem Informasi" readonly="readonly">
 					</div>
 				</div>
 
