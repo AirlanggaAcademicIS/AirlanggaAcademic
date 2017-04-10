@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Edit Biodata
+Edit Surat Tugas
 @endsection
 
 @section('contentheader_title')
-Edit Biodata
+Edit Surat Tugas
 @endsection
 
 @section('code-header')
@@ -45,53 +45,50 @@ Edit Biodata
 			</div>
 			@endif
 			<br>
-			<form id="tambahBiodata" method="post" action="{{url('/mahasiswa/biodata/'.$biodata->id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahSktugas" method="post" action="{{url('/dosen/sktugas/'.$sktugas->id_sktugas.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">NIM</label>
+					<label for="nim" class="col-sm-2 control-label">Id Surat</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" value="{{$biodata->nim}}" required>
+						<input type="text" class="form-control input-lg" id="id_surat" name="id_surat" placeholder="Masukkan Id Surat" value="{{$sktugas->id_surat}}" required>
 					</div>
 				</div>
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<label for="nama" class="col-sm-2 control-label">No Surat</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" value="{{$biodata->nama}}" required>
+						<input type="text" class="form-control input-lg" id="no_surat" name="no_surat" placeholder="Masukkan No Surat" value="{{$sktugas->no_surat}}" required>
 					</div>
 				</div>
 
-				<!-- Menampilkan textarea -->
+
+				<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Alamat</label>
+					<label for="nama" class="col-sm-2 control-label">Tanggal Surat</label>
 					<div class="col-md-8">
-						<textarea id="alamat" name="alamat" placeholder=" Masukkan Alamat" required cols="82" rows="5">{{$biodata->alamat}}
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_surat" placeholder="Masukkan Tanggal Surat" required>
+					</div>
+				</div>
+<!-- Menampilkan tanggal dengan datepicker -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Tanggal Upload</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_upload" placeholder="Masukkan Tanggal upload" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Keterangan Surat</label>
+					<div class="col-md-8">
+						<textarea id="keterangan_surat" name="keterangan_surat" placeholder=" Masukkan Keterangan Surat" required cols="82" rows="5">{{$sktugas->keterangan_surat}}
 						</textarea>
 					</div>
 				</div>
 
-				<!-- Menampilkan dropdown -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Provinsi</label>
-					<div class="col-md-8">
-						<select name="provinsi" required>
-							<option value="Jawa Timur">Jawa Timur</option>
-							<option value="Jawa Tengah">Jawa Tengah</option>
-							<option value="Jawa Barat">Jawa Barat</option>
-						</select>
-					</div>
-				</div>
 
-				<!-- Menampilkan tanggal dengan datepicker -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Masuk</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_masuk" placeholder="Masukkan Tanggal" required>
-					</div>
-				</div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">

@@ -21,85 +21,84 @@ class PenelitianController extends Controller
     public function index()
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar penelitian
             'page' => 'penelitian',
-            // Memanggil semua isi dari tabel biodata
+            // Memanggil semua isi dari tabel penelitian
             'penelitian' => PenelitianDosen::all()
         ];
 
-        // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
+        // Memanggil tampilan index di folder mahasiswa/penelitian dan juga menambahkan $data tadi di view
         return view('dosen.penelitian.index',$data);
     }
 
     public function create()
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'biodata',
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar penelitian
+            'page' => 'penelitian',
         ];
 
         // Memanggil tampilan form create
-        return view('mahasiswa.biodata.create',$data);
+        return view('dosen.penelitian.create',$data);
     }
 
     public function createAction(Request $request)
     {
-        // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        Biodata::create($request->input());
+        // Menginsertkan apa yang ada di form ke dalam tabel penelitian
+        penelitian::create($request->input());
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Biodata berhasil ditambahkan');
+        Session::put('alert-success', 'penelitian berhasil ditambahkan');
 
-        // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('mahasiswa/biodata');
+        // Kembali ke halaman mahasiswa/penelitian
+        return Redirect::to('dosen/penelitian');
     }
 
-    public function delete($id)
+    public function delete($id_penelitian)
     {
-        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $biodata = Biodata::find($id);
+        // Mencari penelitian berdasarkan id dan memasukkannya ke dalam variabel $penelitian
+        $penelitian = PenelitianDosen::find($id_penelitian);
 
-        // Menghapus biodata yang dicari tadi
-        $biodata->delete();
+        // Menghapus penelitian yang dicari tadi
+        $penelitian->delete();
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Biodata berhasil dihapus');
+        Session::put('alert-success', 'penelitian berhasil dihapus');
 
         // Kembali ke halaman sebelumnya
         return Redirect::back();     
     }
 
-   public function edit($id)
+   public function edit($id_penelitian)
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'biodata',
-            // Mencari biodata berdasarkan id
-            'biodata' => Biodata::find($id)
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar penelitian
+            'page' => 'penelitian',
+            // Mencari penelitian berdasarkan id
+            'penelitian' => PenelitianDosen::find($id_penelitian)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('mahasiswa.biodata.edit',$data);
+        return view('dosen.penelitian.edit',$data);
     }
 
-    public function editAction($id, Request $request)
+    public function editAction($id_penelitian, Request $request)
     {
-        // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $biodata = Biodata::find($id);
+        // Mencari penelitian yang akan di update dan menaruhnya di variabel $penelitian
+        $penelitian = PenelitianDosen::find($id_penelitian);
 
-        // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $biodata->nim = $request->input('nim');
-        $biodata->nama = $request->input('nama');
-        $biodata->alamat = $request->input('alamat');
-        $biodata->provinsi = $request->input('provinsi');
-        $biodata->tanggal_masuk = $request->input('tanggal_masuk');
-        $biodata->save();
+        // Mengupdate $penelitian tadi dengan isi dari form edit tadi
+        $penelitian->judul_penelitian = $request->input('judul');
+        $penelitian->nama_ketua = $request->input('nama');
+        $penelitian->bidang_penelitian = $request->input('bidang');
+        $penelitian->tanggal_penelitian = $request->input('tanggal_masuk');
+        $penelitian->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Biodata berhasil diedit');
+        Session::put('alert-success', 'penelitian berhasil diedit');
 
-        // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('mahasiswa/biodata');
+        // Kembali ke halaman mahasiswa/penelitian
+        return Redirect::to('dosen/penelitian');
     }
 
 }

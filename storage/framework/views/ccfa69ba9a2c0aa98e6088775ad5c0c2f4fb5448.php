@@ -53,7 +53,11 @@
             <?php endif; ?>
             >
             <!-- Href menuju ke url mahasiswa/biodata -->
+<<<<<<< HEAD
             <a href="<?php echo e(url('/biodata')); ?>"><i class='fa fa-book'></i> <span> Biodata</span></a>
+=======
+            <a href="<?php echo e(url('mahasiswa/biodata')); ?>"><i class='fa fa-book'></i> <span> Biodata</span></a>
+>>>>>>> 6458f7765f20d5e4c9efd16f98e1117f3defb387
             </li>        
             </ul>
             </li>
@@ -63,6 +67,7 @@
             <a href=""><i class='fa fa-users'></i> <span> Dosen</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
 
             <li <?php if($page == 'pengmas'): ?>
             <?php echo 'class="active"'; ?>
@@ -81,6 +86,10 @@
             </li> 
 
           
+=======
+<<<<<<< HEAD
+            <li><a href="<?php echo e(url('/dosen/pengmas/index')); ?>">Pengabdian Masyarakat</a></li>
+>>>>>>> 6458f7765f20d5e4c9efd16f98e1117f3defb387
             <li><a href="<?php echo e(url('/dosen/konferensi/index')); ?>">Konferensi</a></li>
             <li
             <?php if($page == 'penelitian'): ?>
@@ -93,6 +102,11 @@
             <li><a href="<?php echo e(url('/dosen/sktugas/index')); ?>">SK Tugas</a></li>
             <li><a href="<?php echo e(url('/dosen/biodata/index')); ?>">Biodata</a></li>
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> aa315a25f1ed1a3b8fc46a30303a79d232c8ee1d
+>>>>>>> 6458f7765f20d5e4c9efd16f98e1117f3defb387
 
             </ul>
             </li>
@@ -102,6 +116,7 @@
             <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
             <!-- $page nya sesuaiin sama yang di controller -->
             <li
             <?php if($page == 'prodi'): ?>
@@ -122,6 +137,20 @@
             </li>        
 
 
+=======
+<<<<<<< HEAD
+=======
+            <li
+            <?php if($page == 'capaian-pembelajaran'): ?>
+            <?php echo 'class="active"'; ?>
+
+             <?php endif; ?>
+            >
+            <!-- Href menuju ke url kurikulum/capaian-pembelajaran -->
+            <a href="<?php echo e(url('kurikulum/capaian-pembelajaran')); ?>"><i class='fa fa-book'></i> <span> Capaian Pembelajaran</span></a>
+            </li>
+>>>>>>> aa315a25f1ed1a3b8fc46a30303a79d232c8ee1d
+>>>>>>> 6458f7765f20d5e4c9efd16f98e1117f3defb387
 
             </ul>
             </li>
@@ -130,6 +159,7 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
             <ul class="treeview-menu">
+<<<<<<< HEAD
             <!-- Sidebarnya ditaruh dibawah sini -->
             
             <!-- Sidebarnya ditaruh dibawah sini -->
@@ -148,11 +178,34 @@
            
             </li>
 
+=======
+                <li
+                <?php if($page == 'ruang'): ?>
+                <?php echo 'class="active"'; ?>
+
+                <?php endif; ?>
+                >
+            <!-- Href menuju ke url krs-khs/ruang/view -->
+                <a href="<?php echo e(url('krs-khs/ruang/view')); ?>"><i class='fa fa-book'></i> <span> Ruang</span></a>
+<<<<<<< HEAD
+                </li>  
+                <a href="<?php echo e(url('krs-khs/jam/view')); ?>"><i class='fa fa-clock-o'></i> <span> Jam</span></a>
+                </li>   
+=======
+                </li>    
+>>>>>>> aa315a25f1ed1a3b8fc46a30303a79d232c8ee1d
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            </ul>
+            </li>
+
+>>>>>>> 6458f7765f20d5e4c9efd16f98e1117f3defb387
             <!-- Modul Monitoring Skripsi -->
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
             <li
             <?php if($page == 'skripsi'): ?>
             <?php echo 'class="active"'; ?>
@@ -163,12 +216,27 @@
             </li>
 
             <li
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <li
+            <?php if($page == 'skripsi'): ?>
+            {
+            !!'class="active"'!!}
+            <?php endif; ?>>
+
+            <a href="<?php echo e(url('monsi/skripsi')); ?>">
+            <i class='fa fa-book'></i> <span> Skripsi</span></a>
+=======
+            <li>
+>>>>>>> 6458f7765f20d5e4c9efd16f98e1117f3defb387
                 <?php if($page == 'KBK'): ?>
                 <?php echo 'class="active"'; ?>
 
                 <?php endif; ?>
                 >
 
+<<<<<<< HEAD
                 <a href="<?php echo e(url('monitoring-skripsi/KBK')); ?>"><i class='fa fa-book'></i><span> KBK </span></a>
             </li>
 
@@ -181,6 +249,10 @@
                 >
 
                 <a href="<?php echo e(url('monitoring-skripsi/index-dosbing')); ?>"><i class='fa fa-book'></i><span>Dosen Pembimbing </span></a>
+=======
+                <a href="<?php echo e(url('monsi/KBK')); ?>"><i class='fa fa-book'></i><span> KBK </span></a>
+>>>>>>> 6d7c00deb94cc42be50f08d01e1471f613b56f53
+>>>>>>> 6458f7765f20d5e4c9efd16f98e1117f3defb387
             </li>
 
             <li
@@ -189,9 +261,18 @@
 
             <?php endif; ?>
             >
+<<<<<<< HEAD
             <a href="<?php echo e(url('monitoring-skripsi/konsultasi')); ?>"><i class='fa fa-book'></i>
             <span>Konsultasi</span></a>
             </li>
+=======
+            <a href="<?php echo e(url('monsi/konsultasi')); ?>"><i class='fa-fa-book'></i>
+            <span>Konsultasi</span></a>
+            </li>
+=======
+
+>>>>>>> aa315a25f1ed1a3b8fc46a30303a79d232c8ee1d
+>>>>>>> 6458f7765f20d5e4c9efd16f98e1117f3defb387
             </ul>
             </li>
 
@@ -200,6 +281,7 @@
             <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
 
             <li
             <?php if($page == 'notulen'): ?>
@@ -224,6 +306,16 @@
             </li>
 
 
+=======
+<<<<<<< HEAD
+            
+=======
+
+>>>>>>> aa315a25f1ed1a3b8fc46a30303a79d232c8ee1d
+            </ul>
+            </li>
+
+>>>>>>> 6458f7765f20d5e4c9efd16f98e1117f3defb387
             <!-- Modul Pengelolaan Kegiatan -->
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan</span></a>
