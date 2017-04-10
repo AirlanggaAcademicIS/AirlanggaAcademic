@@ -45,7 +45,7 @@ return [
  
       'host'      => 'localhost',
  
-      'database'  => 'inventaris',
+      'database'  => 'airlangga_academic',
  
       'username'  => 'root',
  

@@ -146,6 +146,24 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Mengupdate biodata dengan isi dari form
         Route::post('JenisPenilaian/{id}/edit','KrsKhs\JenisPenilaianController@editAction');
+       
+        // Menampilkan tabel
+        Route::get('JenisPenilaian','KrsKhs\JenisPenilaianController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('TahunAkademic/create','KrsKhs\TahunAkademikController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('TahunAkademic/create','KrsKhs\TahunAkademikController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('TahunAkademic/{id_tahun}/delete','KrsKhs\TahunAkademikController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('TahunAkademic/{id_tahun}/edit','KrsKhs\TahunAkademicController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('JenisPenilaian/{id_tahun}/edit','KrsKhs\TahunAkademikController@editAction');
     });
        
 
@@ -339,7 +357,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     });
 
-<<<<<<< HEAD
     // Modul Pengelolaan Kegiatan
     Route::group(['prefix' => 'pengelolaan-kegiatan'], function() {
 

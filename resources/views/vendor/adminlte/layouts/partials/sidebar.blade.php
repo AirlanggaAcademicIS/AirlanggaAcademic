@@ -284,12 +284,21 @@
             >
             <!-- Href menuju ke url notulensi/dosenrapat -->
             <a href="{{ url('krs-khs/JenisPenilaian') }}"><i class='fa fa-book'></i> <span>JenisPenilaian</span></a>
+            </li>
+
+            <li
+            @if($page == 'TahunAkademik')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url notulensi/dosenrapat -->
+            <a href="{{ url('krs-khs/TahunAkademik') }}"><i class='fa fa-book'></i> <span>TahunAjaran</span></a>
             </li>        
             </ul>
             </li>
 
            
-            </li>
+            
 
             <!-- Modul Monitoring Skripsi -->
             <li>
