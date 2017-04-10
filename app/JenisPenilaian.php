@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class JenisPenilaian extends Model
 {
    protected $table = 'jenispenilaian';    
-   protected $primaryKey = 'id';    
+   protected $primaryKey = 'id_jenis_penilaian';    
    protected $fillable = [
-		'id_jenis_penilaian', 
 		'nama_jenis',
    ];
 }

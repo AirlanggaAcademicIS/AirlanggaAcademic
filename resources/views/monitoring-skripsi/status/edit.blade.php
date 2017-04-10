@@ -1,17 +1,16 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Jenis Penilaian
+Edit Status
 @endsection
 
 @section('contentheader_title')
-Tambah Jenis Penilaian
+Edit Status
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -21,7 +20,7 @@ Tambah Jenis Penilaian
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -46,20 +45,24 @@ Tambah Jenis Penilaian
 			</div>
 			@endif
 			<br>
-			<form id="tambahJenisPenilaian" method="post" action="{{url('/krs-khs/JenisPenilaian/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahStatus" method="post" action="{{url('/monitoring-skripsi/status/'.$MonsiStatus->id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-
 				<div class="form-group">
-					<label for="nama_jenis" class="col-sm-2 control-label">Nama Jenis Penilaian</label>
+					<label for="id" class="col-sm-2 control-label">no</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_jenis" name="nama_jenis" placeholder="Masukkan Nama Jenis Penilaian" required>
+						<input type="text" class="form-control input-lg" id="id" name="id" placeholder="Masukkan id" value="{{$MonsiStatus->id}}" required>
 					</div>
 				</div>
 
-			
-
+				<!-- Menampilkan input text biasa -->
+				<div class="form-group">
+					<label for="keternagan" class="col-sm-2 control-label">Keterangan</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="keterangan" name="keterangan" placeholder="Masukkan Keterangan" value="{{$MonsiStatus->keterangan}}" required>
+					</div>
+				</div>
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
@@ -83,4 +86,3 @@ $( function() {
   } );
   </script>
 @endsection
-

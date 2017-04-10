@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Jenis Penilaian
+Tambah Biodata
 @endsection
 
 @section('contentheader_title')
-Tambah Jenis Penilaian
+Tambah Biodata
 @endsection
 
 @section('code-header')
@@ -46,19 +46,24 @@ Tambah Jenis Penilaian
 			</div>
 			@endif
 			<br>
-			<form id="tambahJenisPenilaian" method="post" action="{{url('/krs-khs/JenisPenilaian/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahJabatan" method="post" action="{{url('/pengelolaan-kegiatan/jabatan/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-				<!-- Menampilkan input text biasa -->
-
 				<div class="form-group">
-					<label for="nama_jenis" class="col-sm-2 control-label">Nama Jenis Penilaian</label>
+					<label for="nama" class="col-sm-2 control-label">Nama</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_jenis" name="nama_jenis" placeholder="Masukkan Nama Jenis Penilaian" required>
+						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" required>
 					</div>
 				</div>
 
-			
+			<!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Jabatan</label>
+					<div class="col-md-8">
+						<textarea id="jabatan" name="jabatan" placeholder=" Masukkan Jabatan" required cols="82" rows="5">
+						</textarea>
+					</div>
+				</div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">

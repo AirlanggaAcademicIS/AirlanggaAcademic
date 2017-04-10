@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\KrsKhs;
+namespace App\Http\Controllers\PengelolaanKegiatan;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -11,10 +11,10 @@ use Session;
 use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
-use App\JenisPenilaian;
+use App\RincianDana;
 
 
-class JenisPenilaianController extends Controller
+class RincianDanaController extends Controller
 {
 
     // Function untuk menampilkan tabel
@@ -22,80 +22,83 @@ class JenisPenilaianController extends Controller
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'jenispenilaian',
+            'page' => 'rincian_dana',
             // Memanggil semua isi dari tabel biodata
-            'jenispenilaian' => JenisPenilaian::all()
+            'rincian_dana' => RincianDana::all()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('krs-khs.JenisPenilaian.index',$data);
+        return view('pengelolaan-kegiatan.rincian-dana.index',$data);
     }
 
     public function create()
-    {  // Menginsertkan apa yang ada di form ke dalam tabel biodata
-         $data = [
+    {
+        $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'jenispenilaian',
+            'page' => 'rincian_dana',
+
         ];
 
         // Memanggil tampilan form create
-        return view('krs-khs.JenisPenilaian.create',$data);
+    return view('pengelolaan-kegiatan.rincian-dana.create',$data);
     }
 
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        JenisPenilaian::create($request->input());
+        RincianDana::create($request->input());
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Jenis Penilaian berhasil ditambahkan');
+        Session::put('alert-success', 'Rincian Dana berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('krs-khs/JenisPenilaian');
+        return Redirect::to('pengelolaan-kegiatan/rincian-dana');
     }
 
-    public function delete($id_jenis_penilaian)
+    public function delete($kode_rincian)
     {
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $jenispenilaian = JenisPenilaian::find($id_jenis_penilaian);
+        $rdadata = RincianDana::find($kode_rincian);
 
         // Menghapus biodata yang dicari tadi
-        $jenispenilaian->delete();
+        $rdadata->delete();
 
         // Menampilkan notifikasi pesan sukses
-    	Session::put('alert-success', 'Biodata berhasil dihapus');
+    	Session::put('alert-success', 'Rincian Dana berhasil dihapus');
 
         // Kembali ke halaman sebelumnya
       	return Redirect::back();	 
     }
 
-   public function edit($id_jenis_penilaian)
+   public function edit($kode_rincian)
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'jenispenilaian',
+            'page' => 'rincian_dana',
             // Mencari biodata berdasarkan id
-            'jenispenilaian' => JenisPenilaian::find($id_jenis_penilaian)
+            'rincian_dana' => RincianDana::find($kode_rincian)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('krs-khs.JenisPenilaian.edit',$data);
+        return view('pengelolaan-kegiatan.rincian-dana.edit',$data);
     }
 
-    public function editAction($id_jenis_penilaian, Request $request)
+    public function editAction($kode_rincian, Request $request)
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $jenispenilaian = JenisPenilaian::find($id_jenis_penilaian);
+        $rincian_dana = RincianDana::find($kode_rincian);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $jenispenilaian->nama_jenis = $request->input('nama_jenis');
-        $jenispenilaian->save();
+        $rincian_dana->kode_rincian = $request->input('kode_rincian');
+        $rincian_dana->qty = $request->input('qty');
+        $rincian_dana->harga = $request->input('harga');
+        $rincian_dana->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Jenis Penilaian berhasil diedit');
+        Session::put('alert-success', 'Rincian Dana berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('krs-khs/JenisPenilaian');
+        return Redirect::to('pengelolaan-kegiatan/rincian-dana');
     }
 
 }

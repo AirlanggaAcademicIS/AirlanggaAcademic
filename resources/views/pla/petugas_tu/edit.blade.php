@@ -1,17 +1,16 @@
-a@extends('adminlte::layouts.app')
+@extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Capaian Pembelajaran
+Edit Petugas
 @endsection
 
 @section('contentheader_title')
-Tambah Capaian Pembelajaran
+Edit Petugas
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -21,7 +20,7 @@ Tambah Capaian Pembelajaran
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -46,57 +45,53 @@ Tambah Capaian Pembelajaran
 			</div>
 			@endif
 			<br>
-			<form id="tambahCapaianPembelajaran" method="post" action="{{url('/Kurikulum/capaian-pembelajaran/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahPetugasTU" method="post" action="{{url('/pla/petugas_tu/'.$petugas_tu->id_tu.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">NIM</label>
+					<label for="nip" class="col-sm-2 control-label">NIP Petugas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" required>
+						<input type="text" class="form-control input-lg" id="nip_petugas" name="nip_petugas" placeholder="Masukkan NIP" value="{{$petugas_tu->nip_petugas}}" required>
 					</div>
 				</div>
 
+				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<label for="nama" class="col-sm-2 control-label">Nama Petugas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="nama_petugas" name="nama_petugas" placeholder="Masukkan Nama" value="{{$petugas_tu->nama_petugas}}" required>
 					</div>
 				</div>
 
-			<!-- Menampilkan textarea -->
+				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Alamat</label>
+					<label for="nama" class="col-sm-2 control-label">No Telp Petugas</label>
 					<div class="col-md-8">
-						<textarea id="alamat" name="alamat" placeholder=" Masukkan Alamat" required cols="82" rows="5">
-						</textarea>
+						<input type="text" class="form-control input-lg" id="no_telp_petugas" name="no_telp_petugas" placeholder="Masukkan No Telp" value="{{$petugas_tu->no_telp_petugas}}" required>
 					</div>
 				</div>
 
-				<!-- Menampilkan dropdown -->
+				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Provinsi</label>
+					<label for="nama" class="col-sm-2 control-label">Email Petugas</label>
 					<div class="col-md-8">
-						<select name="provinsi" required>
-							<option value="Jawa Timur">Jawa Timur</option>
-							<option value="Jawa Tengah">Jawa Tengah</option>
-							<option value="Jawa Barat">Jawa Barat</option>
-						</select>
+						<input type="text" class="form-control input-lg" id="email_petugas" name="email_petugas" placeholder="Masukkan Email" value="{{$petugas_tu->email_petugas}}" required>
 					</div>
 				</div>
 
-				<!-- Menampilkan tanggal dengan datepicker -->
+				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Masuk</label>
+					<label for="nama" class="col-sm-2 control-label">Password Petugas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_masuk" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="password" name="password" placeholder="Masukkan Password" value="{{$petugas_tu->password}}" required>
 					</div>
 				</div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
-							Confirm
+							Edit
 						</button>
 					</div>
 				</div>

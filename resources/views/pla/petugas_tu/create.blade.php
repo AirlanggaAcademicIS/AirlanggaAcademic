@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Jenis Penilaian
+Tambah Petugas TU
 @endsection
 
 @section('contentheader_title')
-Tambah Jenis Penilaian
+Tambah Petugas TU
 @endsection
 
 @section('code-header')
@@ -46,24 +46,49 @@ Tambah Jenis Penilaian
 			</div>
 			@endif
 			<br>
-			<form id="tambahJenisPenilaian" method="post" action="{{url('/krs-khs/JenisPenilaian/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahPetugasTU" method="post" action="{{url('/pla/petugas_tu/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-
 				<div class="form-group">
-					<label for="nama_jenis" class="col-sm-2 control-label">Nama Jenis Penilaian</label>
+					<label for="nip" class="col-sm-2 control-label">NIP Petugas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_jenis" name="nama_jenis" placeholder="Masukkan Nama Jenis Penilaian" required>
+						<input type="text" class="form-control input-lg" id="nip_petugas" name="nip_petugas" placeholder="Masukkan NIP" required>
 					</div>
 				</div>
 
-			
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Nama Petugas</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nama_petugas" name="nama_petugas" placeholder="Masukkan Nama" required>
+					</div>
+				</div>
+
+			<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">No Telp Petugas</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="no_telp_petugas" name="no_telp_petugas" placeholder="Masukkan No Telp" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Email Petugas</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="email_petugas" name="email_petugas" placeholder="Masukkan Email" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Password Petugas</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="password" name="password" placeholder="Masukkan Password" required>
+					</div>
+				</div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
-							Confirm
+							Tambah
 						</button>
 					</div>
 				</div>

@@ -1,17 +1,16 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Jenis Penilaian
+Edit Rincian Dana
 @endsection
 
 @section('contentheader_title')
-Tambah Jenis Penilaian
+Edit Rincian Dana
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -21,7 +20,7 @@ Tambah Jenis Penilaian
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -46,20 +45,39 @@ Tambah Jenis Penilaian
 			</div>
 			@endif
 			<br>
-			<form id="tambahJenisPenilaian" method="post" action="{{url('/krs-khs/JenisPenilaian/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahBiodata" method="post" action="{{url('/pengelolaan-kegiatan/rincian-dana/'.$rincian_dana->kode_rincian.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-
 				<div class="form-group">
-					<label for="nama_jenis" class="col-sm-2 control-label">Nama Jenis Penilaian</label>
+					<label for="kode_rincian" class="col-sm-2 control-label">Kode Rincian</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_jenis" name="nama_jenis" placeholder="Masukkan Nama Jenis Penilaian" required>
+						<input type="text" class="form-control input-lg" id="kode_rincian" name="kode_rincian" placeholder="Masukkan Kode Rincian" value="{{$rincian_dana->kode_rincian}}" required>
 					</div>
 				</div>
 
-			
+				<!-- Menampilkan input text biasa -->
+				<div class="form-group">
+					<label for="nama_barang" class="col-sm-2 control-label">Nama Barang</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nama_barang" name="nama_barang" placeholder="Masukkan Nama Barang" value="{{$rincian_dana->nama_barang}}" required>
+					</div>
+				</div>
 
+				<div class="form-group">
+					<label for="qty" class="col-sm-2 control-label">Qty</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="qty" name="qty" placeholder="Masukkan Qty" value="{{$rincian_dana->qty}}" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="harga" class="col-sm-2 control-label">Harga</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="harga" name="harga" placeholder="Masukkan Harga" value="{{$rincian_dana->harga}}" required>
+					</div>
+				</div>
+				
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">

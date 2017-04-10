@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\KrsKhs;
+namespace App\Http\Controllers\MonitoringSkripsi;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -11,10 +11,10 @@ use Session;
 use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
-use App\JenisPenilaian;
+use App\MonsiStatus;
 
 
-class JenisPenilaianController extends Controller
+class StatusController extends Controller
 {
 
     // Function untuk menampilkan tabel
@@ -22,80 +22,82 @@ class JenisPenilaianController extends Controller
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'jenispenilaian',
+            'page' => 'MonsiStatus',
             // Memanggil semua isi dari tabel biodata
-            'jenispenilaian' => JenisPenilaian::all()
+            'MonsiStatus' => (MonsiStatus::all())
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('krs-khs.JenisPenilaian.index',$data);
+        return view('monitoring-skripsi.status.index',$data);
     }
 
     public function create()
-    {  // Menginsertkan apa yang ada di form ke dalam tabel biodata
-         $data = [
+    {
+        $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'jenispenilaian',
+            'page' => 'MonsiStatus',
         ];
 
         // Memanggil tampilan form create
-        return view('krs-khs.JenisPenilaian.create',$data);
+    	return view('monitoring-skripsi.status.create',$data);
     }
 
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        JenisPenilaian::create($request->input());
+        MonsiStatus::create($request->input());
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Jenis Penilaian berhasil ditambahkan');
+        Session::put('alert-success', 'Status berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('krs-khs/JenisPenilaian');
+        return Redirect::to('monitoring-skripsi/status');
     }
 
-    public function delete($id_jenis_penilaian)
+    public function delete($id)
     {
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $jenispenilaian = JenisPenilaian::find($id_jenis_penilaian);
+        $MonsiStatus = MonsiStatus::find($id);
 
         // Menghapus biodata yang dicari tadi
-        $jenispenilaian->delete();
+        $MonsiStatus->delete();
 
         // Menampilkan notifikasi pesan sukses
-    	Session::put('alert-success', 'Biodata berhasil dihapus');
+    	Session::put('alert-success', 'Status berhasil dihapus');
 
         // Kembali ke halaman sebelumnya
       	return Redirect::back();	 
     }
 
-   public function edit($id_jenis_penilaian)
+   public function edit($id)
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'jenispenilaian',
+            'page' => 'MonsiStatus',
             // Mencari biodata berdasarkan id
-            'jenispenilaian' => JenisPenilaian::find($id_jenis_penilaian)
+            'MonsiStatus' => MonsiStatus::find($id)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('krs-khs.JenisPenilaian.edit',$data);
+        return view('monitoring-skripsi.status.edit',$data);
     }
 
-    public function editAction($id_jenis_penilaian, Request $request)
+    public function editAction($id, Request $request)
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $jenispenilaian = JenisPenilaian::find($id_jenis_penilaian);
+        $MonsiStatus = MonsiStatus::find($id);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $jenispenilaian->nama_jenis = $request->input('nama_jenis');
-        $jenispenilaian->save();
+        $MonsiStatus->id = $request->input('id');
+        $MonsiStatus->keterangan = $request->input('keterangan');
+
+        $MonsiStatus->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Jenis Penilaian berhasil diedit');
+        Session::put('alert-success', 'Status berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('krs-khs/JenisPenilaian');
+        return Redirect::to('monitoring-skripsi/status');
     }
 
 }
