@@ -18,7 +18,17 @@ Route::get('/', function () {
 });
 
 
+
 Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/pengelolaan-kegiatan/viewlpj', function () {
+    return view('pengelolaan-kegiatan.viewlpj');
+    });
+
+        Route::get('/pengelolaan-kegiatan/postpertama', function () {
+    return view('pengelolaan-kegiatan.postpertama');
+    });
+
     // Modul Mahasiswa
     Route::group(['prefix' => 'mahasiswa'], function() {
     // Url CRUD
@@ -69,7 +79,12 @@ Route::group(['middleware' => ['auth']], function () {
     });
         
 
+
+
     });
+
+
+
 
     // Modul Kurikulum
     Route::group(['prefix' => 'kurikulum'], function() {
@@ -83,6 +98,23 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Kegiatan
     Route::group(['prefix' => 'kegiatan'], function() {
+        // Menampilkan tabel
+        Route::get('dokumentasi','PengelolaanKegiatan\DokumentasiController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('dokumentasi/create','PengelolaanKegiatan\DokumentasiController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('dokumentasi/create','PengelolaanKegiatan\DokumentasiController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('dokumentasi/{id}/delete','PengelolaanKegiatan\DokumentasiController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('dokumentasi/{id}/edit','PengelolaanKegiatan\DokumentasiController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('dokumentasi/{id}/edit','PengelolaanKegiatan\DokumentasiController@editAction');
 
     });
 
