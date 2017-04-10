@@ -18,20 +18,8 @@
             </div>
         @endif
 
-        <!-- search form (Optional) -->
-        <form action="#" method="get" class="sidebkuar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="{{ trans('adminlte_lang::message.search') }}..."/>
-              <span class="input-group-btn">
-                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-        </form>
-        <!-- /.search form -->
-
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
             <!-- Optionally, you can add icons to the links -->
             <li 
             @if($page == 'home')
@@ -55,15 +43,6 @@
                         <!-- Href menuju ke url mahasiswa/kemahasiswaan/prestasi -->
                         <li><a href="{{url('/mahasiswa/prestasi')}}"><i class="fa fa-edit"></i> Prestasi</a></li>
                 <!-- $page nya sesuaiin sama yang di controller -->
-            <li
-            @if($page == 'biodata')
-            {!! 'class="active"'!!}
-            @endif
-            >
-            <!-- Href menuju ke url mahasiswa/biodata -->
-            <a href="{{ url('mahasiswa/biodata') }}"><i class='fa fa-book'></i> <span> Biodata</span>
-            </a>
-            </li>
 
             <li
             @if($page == 'biodatamahasiswa')
@@ -113,7 +92,7 @@
 
             <li
 
-            <li @if($page == 'pengmas')
+            @if($page == 'pengmas')
             {!! 'class="active"'!!}
             @endif
             ><a href="{{url('/dosen/pengmas')}}"><i class='fa fa-book'></i> <span> Pengabdian Masyarakat</span></a></li>
@@ -130,17 +109,7 @@
 
             <li><a href="{{ url('/dosen/konferensi/index') }}">Konferensi</a></li>
 
-            <li><a href="{{url('/dosen/pengmas/index')}}"><i class='fa fa-book'></i>Pengabdian Masyarakat</a></li>
-
-          
-            <li><a href="{{ url('/dosen/konferensi/index') }}"><i class='fa fa-book'></i>Konferensi</a></li>
-            <li
-            @if($page == 'penelitian')
-            {!! 'class="active"'!!}
-            @endif
-            ><a href="{{url('/dosen/penelitian')}}"><i class='fa fa-book'></i>Penelitian</a>
-            </li>                 
-            <li><a href="{{url('/dosen/jurnal/index')}}">Jurnal</a></li>  
+            <li><a href="{{url('/dosen/pengmas/index')}}"><i class='fa fa-book'></i>Pengabdian Masyarakat</a></li>  
             <li><a href="{{url('/dosen/jurnal/index')}}"><i class='fa fa-book'></i>Jurnal</a></li>  
             <li
 
@@ -150,19 +119,15 @@
             >
             <!-- Href menuju ke url mahasiswa/biodata -->
             <a href="{{ url('dosen/sktugas') }}"><i class='fa fa-book'></i> <span> Surat Tugas</span></a>
-            </li> 
-            <li><a href="{{url('/dosen/biodata/index')}}">Biodata</a></li>
-
+            </li>
             <li
             @if($page == 'jurnal')
             {!! 'class="active"'!!}
             @endif
             ><a href="{{url('/dosen/jurnal')}}">Jurnal</a>
             </li>  
-
             <li><a href="{{url('/dosen/sktugas/index')}}">SK Tugas</a></li>
             <li><a href="{{url('/dosen/biodata/index')}}">Biodata</a></li>
-
             </ul>
             </li>
 
@@ -195,9 +160,10 @@
             {!! 'class="active"'!!}
             @endif
             ><a href="{{ url('/kurikulum/prodi') }}"><i class='fa fa-book'></i> <span> Prodi</span></a></li>
-            </li> 
+            </li>
+            <li>
             <a href="{{ url('/kurikulum/universitas') }}"><i class='fa fa-book'></i> <span> Universitas</span></a>
-            </li>        
+            </li>       
             </ul>
             </li>
 
@@ -213,11 +179,7 @@
             >
             <!-- Href menuju ke url notulensi/dosenrapat -->
             <a href="{{ url('krs-khs/JadwalKuliah') }}"><i class='fa fa-book'></i> <span>Jadwal Kuliah</span></a>
-            </li>        
-            </ul>
             </li>
-            
-            <!-- Sidebarnya ditaruh dibawah sini -->
             <li
             @if($page == 'JenisPenilaian')
             {!! 'class="active"'!!}
@@ -225,11 +187,7 @@
             >
             <!-- Href menuju ke url notulensi/dosenrapat -->
             <a href="{{ url('krs-khs/JenisPenilaian') }}"><i class='fa fa-book'></i> <span>JenisPenilaian</span></a>
-            </li>        
-            </ul>
             </li>
-
-            <!-- Sidebarnya ditaruh dibawah sini -->
             <li
             @if($page == 'khs')
             {!! 'class="active"'!!}
@@ -237,10 +195,8 @@
             >
             <!-- Href menuju ke url krs-khs/Khs -->
             <a href="{{ url('krs-khs/khs') }}"><i class='fa fa-book'></i> <span>Khs</span></a>
-            </li>        
+            </li> 
             </ul>
-            </li>
-           
             </li>
 
             <!-- Modul Monitoring Skripsi -->
