@@ -150,20 +150,25 @@ Route::group(['middleware' => ['auth']], function () {
         // Menampilkan tabel
         Route::get('JenisPenilaian','KrsKhs\JenisPenilaianController@index');
 
+        Route::get('TahunAkademik/','KrsKhs\TahunAkademikController@index');
+
         // Menampilkan form tambah biodata
-        Route::get('TahunAkademic/create','KrsKhs\TahunAkademikController@create');
+        Route::get('TahunAkademik/create','KrsKhs\TahunAkademikController@create');
 
         // Menambahkan form yg di isi tadi ke tabel biodata
-        Route::post('TahunAkademic/create','KrsKhs\TahunAkademikController@createAction');
+        Route::post('TahunAkademik/create','KrsKhs\TahunAkademikController@createAction');
 
         // Menghapus biodata sesuai id yang dipilih
-        Route::get('TahunAkademic/{id_tahun}/delete','KrsKhs\TahunAkademikController@delete');
+        Route::get('TahunAkademik/{id_tahun}/delete','KrsKhs\TahunAkademikController@delete');
 
         // Menampilkan form edit biodata dari id yg dipilih
-        Route::get('TahunAkademic/{id_tahun}/edit','KrsKhs\TahunAkademicController@edit');
+        Route::get('TahunAkademik/{id_tahun}/edit','KrsKhs\TahunAkademikController@edit');
 
         // Mengupdate biodata dengan isi dari form
-        Route::post('JenisPenilaian/{id_tahun}/edit','KrsKhs\TahunAkademikController@editAction');
+        Route::post('TahunAkademik/{id_tahun}/edit','KrsKhs\TahunAkademikController@editAction');
+
+
+
     });
        
 

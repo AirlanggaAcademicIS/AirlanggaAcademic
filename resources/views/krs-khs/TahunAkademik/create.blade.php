@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Ruang
+Tambah Tahun Akademik
 @endsection
 
 @section('contentheader_title')
-Tambah Ruang
+Tambah Tahun Akademik
 @endsection
 
 @section('code-header')

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2017 at 02:20 PM
+-- Generation Time: Apr 10, 2017 at 12:17 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.0.15
 
@@ -27,8 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `jenispenilaian` (
-  `id` int(11) NOT NULL,
-  `id_jenis_penilaian` varchar(30) NOT NULL,
+  `id_jenis_penilaian` int(11) NOT NULL,
   `nama_jenis` varchar(30) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -38,8 +37,9 @@ CREATE TABLE `jenispenilaian` (
 -- Dumping data for table `jenispenilaian`
 --
 
-INSERT INTO `jenispenilaian` (`id`, `id_jenis_penilaian`, `nama_jenis`, `created_at`, `updated_at`) VALUES
-(3, '1234', 'kiki', '2017-04-09 11:44:42', '2017-04-09 04:44:42');
+INSERT INTO `jenispenilaian` (`id_jenis_penilaian`, `nama_jenis`, `created_at`, `updated_at`) VALUES
+(3, 'kiki', '2017-04-09 11:44:42', '2017-04-09 04:44:42'),
+(4, '1111', '2017-04-10 10:00:07', '2017-04-10 03:00:07');
 
 --
 -- Indexes for dumped tables
@@ -49,7 +49,7 @@ INSERT INTO `jenispenilaian` (`id`, `id_jenis_penilaian`, `nama_jenis`, `created
 -- Indexes for table `jenispenilaian`
 --
 ALTER TABLE `jenispenilaian`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_jenis_penilaian`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -59,7 +59,7 @@ ALTER TABLE `jenispenilaian`
 -- AUTO_INCREMENT for table `jenispenilaian`
 --
 ALTER TABLE `jenispenilaian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_jenis_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

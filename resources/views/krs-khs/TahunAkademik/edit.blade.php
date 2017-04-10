@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Edit Ruang
+Edit Tahun Akademik
 @endsection
 
 @section('contentheader_title')
-Edit Ruang
+Edit Tahun Akademik
 @endsection
 
 @section('code-header')
@@ -45,7 +45,7 @@ Edit Ruang
 			</div>
 			@endif
 			<br>
-			<form id="tambahTahun" method="post" action="{{url('/krs-khs/ruang/'.$tahun->id_tahun.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahTahun" method="post" action="{{url('/krs-khs/TahunAkademik/'.$tahun->id_tahun.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->

@@ -21,82 +21,81 @@ class TahunAkademikController extends Controller
     public function index()
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar ruang
-            'page' => 'thn_akademik',
-            // Memanggil semua isi dari tabel ruang
-            'thn_akademik' => TahunAkademik::all()
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar TahunAkademik
+            'page' => 'TahunAkademik',
+            // Memanggil semua isi dari tabel TahunAkademik
+            'tahun' => TahunAkademik::all()
         ];
 
-        // Memanggil tampilan index di folder krs-khs/ruang dan juga menambahkan $data tadi di view
-        return view('krs-khs.ruang.index',$data);
+        // Memanggil tampilan index di folder krs-khs/TahunAkademik dan juga menambahkan $data tadi di view
+        return view('krs-khs.TahunAkademik.index',$data);
     }
 
     public function create()
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar ruang
-            'page' => 'thn_ajaran',
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar TahunAkademik
+            'page' => 'TahunAkademik',
         ];
 
         // Memanggil tampilan form create
-    	return view('krs-khs.ruang.create',$data);
+    	return view('krs-khs.TahunAkademik.create',$data);
     }
 
     public function createAction(Request $request)
     {
-        // Menginsertkan apa yang ada di form ke dalam tabel ruang
-        Ruang::create($request->input());
+        // Menginsertkan apa yang ada di form ke dalam tabel TahunAkademik
+        TahunAkademik::create($request->input());
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Ruang berhasil ditambahkan');
+        Session::put('alert-success', 'Tahun Akademik berhasil ditambahkan');
 
-        // Kembali ke halaman krs-khs/ruang
-        return Redirect::to('krs-khs/ruang/view');
+        // Kembali ke halaman krs-khs/TahunAkademik
+        return Redirect::to('krs-khs/TahunAkademik/');
     }
 
-    public function delete($id)
+    public function delete($id_tahun)
     {
-        // Mencari ruang berdasarkan id dan memasukkannya ke dalam variabel $ruang
-        $ruang = Ruang::find($id);
+        // Mencari TahunAkademik berdasarkan id dan memasukkannya ke dalam variabel $TahunAkademik
+        $tahun = TahunAkademik::find($id_tahun);
 
-        // Menghapus ruang yang dicari tadi
-        $ruang->delete();
+        // Menghapus TahunAkademik yang dicari tadi
+        $tahun->delete();
 
         // Menampilkan notifikasi pesan sukses
-    	Session::put('alert-success', 'Ruang berhasil dihapus');
+    	Session::put('alert-success', 'Tahun Akademik berhasil dihapus');
 
         // Kembali ke halaman sebelumnya
       	return Redirect::back();	 
     }
 
-   public function edit($id)
+   public function edit($id_tahun)
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar ruang
-            'page' => 'ruang',
-            // Mencari ruang berdasarkan id
-            'ruang' => Ruang::find($id)
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar TahunAkademik
+            'page' => 'TahunAkademik',
+            // Mencari TahunAkademik berdasarkan id
+            'tahun' => TahunAkademik::find($id_tahun)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('krs-khs.ruang.edit',$data);
+        return view('krs-khs.TahunAkademik.edit',$data);
     }
 
-    public function editAction($id, Request $request)
+    public function editAction($id_tahun, Request $request)
     {
-        // Mencari ruang yang akan di update dan menaruhnya di variabel $ruang
-        $ruang = Ruang::find($id);
+        // Mencari TahunAkademik yang akan di update dan menaruhnya di variabel $TahunAkademik
+        $tahun = TahunAkademik::find($id_tahun);
 
-        // Mengupdate $ruang tadi dengan isi dari form edit tadi
-        $ruang->nama_ruang = $request->input('nama_ruang');
-        $ruang->kapasitas = $request->input('kapasitas');
-        $ruang->save();
+        // Mengupdate $TahunAkademik tadi dengan isi dari form edit tadi
+        $tahun->semester_periode = $request->input('semester_periode');
+        $tahun->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Ruang berhasil diedit');
+        Session::put('alert-success', 'Tahun Akademik berhasil diedit');
 
-        // Kembali ke halaman krs-khs/ruang/view
-        return Redirect::to('krs-khs/ruang/view');
+        // Kembali ke halaman krs-khs/TahunAkademik/view
+        return Redirect::to('krs-khs/TahunAkademik/');
     }
 
 }
