@@ -54,12 +54,44 @@
             >
 <<<<<<< HEAD
             <!-- Href menuju ke url mahasiswa/biodata -->
+<<<<<<< HEAD
+=======
+            <a href="<?php echo e(url('mahasiswa/biodata')); ?>"><i class='fa fa-book'></i> <span> Biodata</span></a>
+            </li>        
+            </ul>
+=======
+<<<<<<< HEAD
+            <!-- Href menuju ke url mahasiswa/biodata -->
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> c3d5fe24c57a4b3906251c22ed7ead9bcb2d72c1
+            <a href="<?php echo e(url('mahasiswa/biodata')); ?>"><i class='fa fa-book'></i> <span> Biodata</span></a>
+            </li>        
+            </ul>
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
             <a href="<?php echo e(url('mahasiswa/biodata')); ?>"><i class='fa fa-book'></i> <span> Biodata</span>
             </a>
             </li>
 
             <li
             <?php if($page == 'biodatamahasiswa'): ?>
+<<<<<<< HEAD
+=======
+>>>>>>> 2e768dbefd0be37b1e2b8eeacd7d644a0b10e9a1
+=======
+>>>>>>> c3d5fe24c57a4b3906251c22ed7ead9bcb2d72c1
+            <a href="<?php echo e(url('/biodata')); ?>"><i class="fa fa-book"></i> Biodata</a>
+            </li>
+
+
+            <li
+            <?php if($page == 'kemahasiswaan'): ?>
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
@@ -125,6 +157,7 @@
                   
                 </ul>
 >>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
+>>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
             </li>
 
             <!-- Modul Dosen -->
@@ -134,6 +167,13 @@
             <!-- Sidebarnya ditaruh dibawah sini -->
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
             <li
 =======
             <li <?php if($page == 'pengmas'): ?>
@@ -196,6 +236,11 @@
 
 
 >>>>>>> 000842d2541ed97447077cb5fea4543b96c2eafd
+<<<<<<< HEAD
+=======
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
+>>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
             </ul>
             </li>
 
@@ -205,12 +250,39 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            <li
+            <?php if($page == 'sistem_pembelajaran'): ?>
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
+            <li
+            <?php if($page == 'capaian-program'): ?>
+=======
+<<<<<<< HEAD
             <li
             <?php if($page == 'kategori-media-pembelajaran'): ?>
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
+>>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
             >
+<<<<<<< HEAD
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="<?php echo e(url('kurikulum/sistem-pembelajaran')); ?>"><i class='fa fa-book'></i> <span> Sistem Pembelajaran</span></a>
+            </li> 
+=======
+<<<<<<< HEAD
+            <!-- Href menuju ke url kurikulum/capaian-program -->
+            <a href="<?php echo e(url('kurikulum/capaian-program')); ?>"><i class='fa fa-book'></i> <span> Capaian Program</span></a>
+            </li>
+
+=======
             <!-- Href menuju ke url mahasiswa/biodata -->
             <a href="<?php echo e(url('kurikulum/kategori-media-pembelajaran')); ?>"><i class='fa fa-book'></i> <span>Kategori Media Pembelajaran</span></a>
             </li>
@@ -226,6 +298,11 @@
             <a href="<?php echo e(url('/kurikulum/universitas')); ?>"><i class='fa fa-book'></i> <span> Universitas</span></a>
             </li>        
 >>>>>>> a587dff1289e6620570ccf90b11dfb9062638e55
+<<<<<<< HEAD
+=======
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
+>>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
             </ul>
             </li>
 
@@ -233,6 +310,35 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
             <ul class="treeview-menu">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            </ul>
+            </li>
+
+=======
+<<<<<<< HEAD
+                <li
+                <?php if($page == 'ruang'): ?>
+                <?php echo 'class="active"'; ?>
+
+                <?php endif; ?>
+                >
+            <!-- Href menuju ke url krs-khs/ruang/view -->
+                <a href="<?php echo e(url('krs-khs/ruang/view')); ?>"><i class='fa fa-book'></i> <span> Ruang</span></a>
+                </li>    
+<<<<<<< HEAD
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            </ul>
+            </li>
+
+=======
+=======
+>>>>>>> c3d5fe24c57a4b3906251c22ed7ead9bcb2d72c1
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
             <!-- Sidebarnya ditaruh dibawah sini -->
             
             <!-- Sidebarnya ditaruh dibawah sini -->
@@ -251,11 +357,25 @@
            
             </li>
 
+<<<<<<< HEAD
+=======
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
+>>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
             <!-- Modul Monitoring Skripsi -->
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
             <li
             <?php if($page == 'skripsi'): ?>
             <?php echo 'class="active"'; ?>
@@ -295,6 +415,11 @@
             <a href="<?php echo e(url('monitoring-skripsi/konsultasi')); ?>"><i class='fa fa-book'></i>
             <span>Konsultasi</span></a>
             </li>
+<<<<<<< HEAD
+=======
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
+>>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
             </ul>
             </li>
 
@@ -304,6 +429,19 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            </ul>
+            </li>
+
+=======
+<<<<<<< HEAD
+            </ul>
+            </li>
+
+=======
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
             <li
             <?php if($page == 'notulen'): ?>
             <?php echo 'class="active"'; ?>
@@ -327,6 +465,11 @@
             </li>
 
 
+<<<<<<< HEAD
+=======
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
+>>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
             <!-- Modul Pengelolaan Kegiatan -->
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan</span></a>
@@ -340,6 +483,13 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
             <ul class="treeview-menu">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
             <li
                 <?php if($page == 'suratmasuk'): ?>
                 <?php echo 'class="active"'; ?>
@@ -349,6 +499,11 @@
             <!-- Href menuju ke url -->
                 <a href="<?php echo e(url('pla/surat-masuk')); ?>"><i class='fa fa-book'></i> <span> Surat Masuk</span></a>
                 </li>   
+<<<<<<< HEAD
+=======
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
+>>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
             <!-- Sidebarnya ditaruh dibawah sini -->
 
             </ul>
@@ -359,6 +514,11 @@
             <a href=""><i class='fa fa-users'></i> <span> Inventaris</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
+
+            </ul>
+            </li>
+=======
 <<<<<<< HEAD
             <!-- Sidebarnya Asset -->
             <li
@@ -377,8 +537,13 @@
 >>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             </ul>
             </li>
+<<<<<<< HEAD
 
             
+=======
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
+>>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
+>>>>>>> f862cce6df55be718d84b0f1aed0cf772d477f0b
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

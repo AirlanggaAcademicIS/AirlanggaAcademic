@@ -50,7 +50,7 @@
             {!! 'class="active"'!!}
             @endif
             >
-<<<<<<< HEAD
+
             <!-- Href menuju ke url mahasiswa/biodata -->
             <a href="{{ url('mahasiswa/biodata') }}"><i class='fa fa-book'></i> <span> Biodata</span>
             </a>
@@ -67,7 +67,7 @@
             </li>
 
             </ul>
-=======
+
             <a href="{{url('/biodata')}}"><i class="fa fa-book"></i> Biodata</a>
             </li>
 
@@ -117,7 +117,6 @@
             </li>
                   
                 </ul>
->>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             </li>
 
             <!-- Modul Dosen -->
@@ -126,16 +125,14 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
 
-<<<<<<< HEAD
             <li
-=======
+
             <li @if($page == 'pengmas')
             {!! 'class="active"'!!}
             @endif
             ><a href="{{url('/dosen/pengmas')}}">Pengabdian Masyarakat</a></li>
 
            <li
->>>>>>> 000842d2541ed97447077cb5fea4543b96c2eafd
             @if($page == 'konferensi')
             {!! 'class="active"'!!}
             @endif
@@ -143,20 +140,16 @@
             <!-- Href menuju ke url mahasiswa/biodata -->
             <a href="{{ url('dosen/konferensi') }}"><i class='fa fa-book'></i> <span> Konferensi</span></a>
             </li> 
-<<<<<<< HEAD
             <li><a href="{{url('/dosen/pengmas/index')}}">Pengabdian Masyarakat</a></li>
-=======
 
           
             <li><a href="{{ url('/dosen/konferensi/index') }}">Konferensi</a></li>
->>>>>>> 000842d2541ed97447077cb5fea4543b96c2eafd
             <li
             @if($page == 'penelitian')
             {!! 'class="active"'!!}
             @endif
             ><a href="{{url('/dosen/penelitian')}}">Penelitian</a>
             </li>                 
-<<<<<<< HEAD
             <li><a href="{{url('/dosen/jurnal/index')}}">Jurnal</a></li>  
             <li
 
@@ -171,7 +164,6 @@
 
 
 
-=======
             <li
             @if($page == 'jurnal')
             {!! 'class="active"'!!}
@@ -183,7 +175,6 @@
             <li><a href="{{url('/dosen/biodata/index')}}">Biodata</a></li>
 
 
->>>>>>> 000842d2541ed97447077cb5fea4543b96c2eafd
             </ul>
             </li>
 
@@ -194,15 +185,32 @@
             <!-- Sidebarnya ditaruh dibawah sini -->
 <<<<<<< HEAD
             <li
+            @if($page == 'sistem_pembelajaran')
+=======
+
+            <li
+            @if($page == 'capaian-program')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url kurikulum/capaian-program -->
+            <a href="{{ url('kurikulum/capaian-program') }}"><i class='fa fa-book'></i> <span> Capaian Program</span></a>
+
+            <li
             @if($page == 'kategori-media-pembelajaran')
+>>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
             {!! 'class="active"'!!}
             @endif
             >
             <!-- Href menuju ke url mahasiswa/biodata -->
+<<<<<<< HEAD
+            <a href="{{ url('kurikulum/sistem-pembelajaran') }}"><i class='fa fa-book'></i> <span> Sistem Pembelajaran</span></a>
+            </li> 
+=======
             <a href="{{ url('kurikulum/kategori-media-pembelajaran') }}"><i class='fa fa-book'></i> <span>Kategori Media Pembelajaran</span></a>
+
             </li>
 
-=======
             <li 
             @if($page == 'prodi')
             {!! 'class="active"'!!}
@@ -211,7 +219,7 @@
             </li> 
             <a href="{{ url('/kurikulum/universitas') }}"><i class='fa fa-book'></i> <span> Universitas</span></a>
             </li>        
->>>>>>> a587dff1289e6620570ccf90b11dfb9062638e55
+>>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
             </ul>
             </li>
 
@@ -337,7 +345,7 @@
             <a href=""><i class='fa fa-users'></i> <span> Inventaris</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-<<<<<<< HEAD
+
             <!-- Sidebarnya Asset -->
             <li
             @if($page == 'asset')
@@ -347,11 +355,10 @@
             <!-- Href menuju ke url inventaris/asset -->
             <a href="{{ url('inventaris/asset') }}"><i class='fa fa-book'></i> <span> Asset</span></a>
             </li>        
-=======
+
                 <li><a href="{{ url('/index-asset')}}">all asset</a></li>
                 <li><a href="{{url('/inventaris/index-peminjaman')}}">peminjaman</a></li>
                 <li><a href="{{url('/index-maintenance')}}">maintenance</a></li>
->>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             </ul>
             </li>
 
