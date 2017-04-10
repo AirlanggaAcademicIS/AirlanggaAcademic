@@ -178,6 +178,26 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'kurikulum'], function() {
 
         // Menampilkan tabel
+<<<<<<< HEAD
+        Route::get('capaian-pembelajaran','Kurikulum\CapaianPembelajaranController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('capaian-pembelajaran/create','Kurikulum\CapaianPembelajaranController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('capaian-pembelajaran/create','Kurikulum\CapaianPembelajaranController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('capaian-pembelajaran/{id}/delete','Kurikulum\CapaianPembelajaranController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('capaian-pembelajaran/{id}/edit','Kurikulum\CapaianPembelajaranController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('capaian-pembelajaran/{id}/edit','Kurikulum\CapaianPembelajaranController@editAction');
+
+ 
+=======
         Route::get('sistem-pembelajaran','Kurikulum\SistemPembelajaranController@index');
 
         // Menampilkan form tambah biodata
@@ -283,6 +303,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('{id}/edit','Kurikulum\KategoriMediaPembelajaranController@editAction');
             
 
+>>>>>>> 7c83ec3496cbd971ce57b5e6ae79ef5692345591
     });
 
     // Modul Dosen

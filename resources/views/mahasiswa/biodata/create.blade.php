@@ -1,11 +1,11 @@
-@extends('adminlte::layouts.app')
+a@extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Biodata
+Tambah Capaian Pembelajaran
 @endsection
 
 @section('contentheader_title')
-Tambah Biodata
+Tambah Capaian Pembelajaran
 @endsection
 
 @section('code-header')
@@ -46,7 +46,7 @@ Tambah Biodata
 			</div>
 			@endif
 			<br>
-			<form id="tambahBiodata" method="post" action="{{url('/mahasiswa/biodata/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahCapaianPembelajaran" method="post" action="{{url('/Kurikulum/capaian-pembelajaran/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
