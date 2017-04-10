@@ -339,7 +339,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     });
 
-<<<<<<< HEAD
+
     // Modul Pengelolaan Kegiatan
     Route::group(['prefix' => 'pengelolaan-kegiatan'], function() {
 
