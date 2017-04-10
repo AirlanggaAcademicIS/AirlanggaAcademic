@@ -50,12 +50,6 @@ Tambah Jenis Penilaian
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-				<div class="form-group">
-					<label for="id_jenis_penilaian" class="col-sm-2 control-label">ID</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_jenis_penilaian" name="id_jenis_penilaian" placeholder="Masukkan ID " required>
-					</div>
-				</div>
 
 				<div class="form-group">
 					<label for="nama_jenis" class="col-sm-2 control-label">Nama Jenis Penilaian</label>

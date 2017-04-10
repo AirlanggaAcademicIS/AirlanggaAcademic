@@ -35,8 +35,7 @@ Jenis Penilaian
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
-      <th style="text-align:center">No.</th>
-      <th style="text-align:center">ID Jenis Penilaian</th>      
+      <th style="text-align:center">No.</th>     
       <th style="text-align:center">Nama Jenis Penilaian</th>
       <th style="text-align:center">Action</th>
     </tr>
@@ -45,11 +44,10 @@ Jenis Penilaian
    @forelse($jenispenilaian as $i => $a) 
     <tr>
       <td>{{ $i+1 }}</td>
-      <td width="40%" style="text-align:center">{{$a->id_jenis_penilaian}}</td>
-      <td width="25%" style="text-align:center">{{$a->nama_jenis}}</td>
-      <td width="25%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus jenis penilaian ini?');" href="{{url('/krs-khs/JenisPenilaian/'.$a->id.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="60%" style="text-align:center">{{$a->nama_jenis}}</td>
+      <td width="30%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus jenis penilaian ini?');" href="{{url('/krs-khs/JenisPenilaian/'.$a->id_jenis_penilaian.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('/krs-khs/JenisPenilaian/'.$a->id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('/krs-khs/JenisPenilaian/'.$a->id_jenis_penilaian.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
     </tr>
