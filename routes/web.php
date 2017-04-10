@@ -80,7 +80,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Dosen
     Route::group(['prefix' => 'dosen'], function() {
-<<<<<<< HEAD
             // Menampilkan tabel
         Route::get('konferensi','Dosen\KonferensiController@index');
 
@@ -98,7 +97,7 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Mengupdate biodata dengan isi dari form
         Route::post('konferensi/{id}/edit','Dosen\KonferensiController@editAction');
-=======
+
          Route::get('penelitian','Dosen\PenelitianController@index');
 
         // Menampilkan form tambah biodata
@@ -115,8 +114,23 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Mengupdate biodata dengan isi dari form
         Route::post('penelitian/{id}/edit','Dosen\PenelitianController@editAction');
-            
->>>>>>> c42712a0c13bb0dd36158084581ce0d8be86511f
+// Menampilkan tabel
+        Route::get('sktugas','Dosen\SktugasController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('sktugas/create','Dosen\SktugasController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('sktugas/create','Dosen\SktugasController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('sktugas/{id}/delete','Dosen\SktugasController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('sktugas/{id}/edit','Dosen\SktugasController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('sktugas/{id}/edit','Dosen\SktugasController@editAction');            
     });
 
     // Modul Kegiatan
