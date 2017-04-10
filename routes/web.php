@@ -161,6 +161,7 @@ Route::group(['middleware' => ['auth']], function () {
         // Menghapus biodata sesuai id yang dipilih
         Route::get('TahunAkademik/{id_tahun}/delete','KrsKhs\TahunAkademikController@delete');
 
+<<<<<<< HEAD
         // Menampilkan form edit biodata dari id yg dipilih
         Route::get('TahunAkademik/{id_tahun}/edit','KrsKhs\TahunAkademikController@edit');
 
@@ -172,6 +173,49 @@ Route::group(['middleware' => ['auth']], function () {
     });
        
 
+=======
+
+          // Menampilkan tabel
+        Route::get('JadwalKuliah','KrsKhs\JadwalKuliahController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('JadwalKuliah/create','KrsKhs\JadwalKuliahController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('JadwalKuliah/create','KrsKhs\JadwalKuliahController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('JadwalKuliah/{id}/delete','KrsKhs\JadwalKuliahController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('JadwalKuliah/{id}/edit','KrsKhs\JadwalKuliahController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('JadwalKuliah/{id}/edit','KrsKhs\JadwalKuliahController@editAction');
+
+    
+
+       
+
+        // Menampilkan tabel detail nilai
+        Route::get('khs','KrsKhs\DetailNilaiController@index');
+
+
+        // Menampilkan form tambah detail nilai
+        Route::get('khs/create','KrsKhs\DetailNilaiController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel detail nilai
+        Route::post('khs/create','KrsKhs\DetailNilaiController@createAction');
+
+        // Menghapus detail nilai sesuai id yang dipilih
+        Route::get('khs/{id}/delete','KrsKhs\DetailNilaiController@delete');
+
+        // Menampilkan form edit detail nilai dari id yg dipilih
+        Route::get('khs/{id}/edit','KrsKhs\DetailNilaiController@edit');
+
+        // Mengupdate detail nilai dengan isi dari form
+        Route::post('khs/{id}/edit','KrsKhs\DetailNilaiController@editAction');
+>>>>>>> cb9c0e3adaeb50c67469feebcf7a6fcc8ad9e354
 
     });
         
@@ -384,6 +428,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('rincian-dana/{kode_rincian}/edit','PengelolaanKegiatan\RincianDanaController@editAction');
             
 
+
        Route::get('pengmas/','Dosen\PengmasController@index');
 
         // Menampilkan form tambah biodata
@@ -404,7 +449,27 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     // Modul Kegiatan
-    Route::group(['prefix' => 'kegiatan'], function() {
+    
+        Route::group(['prefix'=>'pengelolaan-kegiatan'], function(){
+            
+             // Menampilkan tabel
+        Route::get('pengajuan','PengelolaanKegiatan\PengajuanController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('pengajuan/create','PengelolaanKegiatan\PengajuanController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('pengajuan/create','PengelolaanKegiatan\PengajuanController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('pengajuan/{id}/delete','PengelolaanKegiatan\PengajuanController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('pengajuan/{id}/edit','PengelolaanKegiatan\PengajuanController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('pengajuan/{id}/edit','PengelolaanKegiatan\PengajuanController@editAction');
+
 
     });
 
@@ -548,6 +613,23 @@ Route::group(['middleware' => ['auth']], function () {
             
         // Action untuk mengupdate dosbing    
             Route::post('manipulate-dosbing','MonitoringSkripsi\DosenPembimbingController@manipulate');
+
+            //Menampilkan list dosen penguji dan form untuk menambahkan
+             Route::get('index-dosen-penguji','MonitoringSkripsi\DosenPengujiController@index');
+
+             //Action untuk menambahkan dosen penguji
+             Route::post('tambah-dosen-penguji','MonitoringSkripsi\DosenPengujiController@store');
+
+             //Action untuk menghapus dosen penguji
+
+             Route::get('hapus-dosen-penguji/{id}','MonitoringSkripsi\DosenPengujiController@destroy');
+
+             //Page untuk menampilkan edit form sesuai data yang dipilih
+            Route::get('edit-dosen-penguji/{id}','MonitoringSkripsi\DosenPengujiController@edit_dosen_penguji');
+
+              // Action untuk mengupdate dosbing    
+            Route::post('manipulate-dosen-penguji','MonitoringSkripsi\DosenPengujiController@manipulate');
+
            
     });
 
@@ -637,7 +719,17 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('view-asset', 'HomeController@index');
 
     });
+<<<<<<< HEAD
   
         
         
 });
+=======
+
+  
+    
+   
+});
+   
+
+>>>>>>> cb9c0e3adaeb50c67469feebcf7a6fcc8ad9e354

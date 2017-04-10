@@ -1,53 +1,52 @@
-@extends('adminlte::layouts.app')
-
-@section('htmlheader_title')
+<?php $__env->startSection('htmlheader_title'); ?>
 Tambah Detail Nilai
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('contentheader_title')
+<?php $__env->startSection('contentheader_title'); ?>
 Tambah Detail Nilai
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('code-header')
+<?php $__env->startSection('code-header'); ?>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
+<link rel="stylesheet" href="<?php echo e(asset('/css/dropzone.css')); ?>">
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('main-content')
+<?php $__env->startSection('main-content'); ?>
 <style>
 	.form-group label{
 		text-align: left !important;
 	}
 </style>
 	<!-- Ini buat menampilkan notifikasi -->
-	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
-	@if(Session::has('alert-' . $msg))
-<div class="alert alert-{{ $msg }}">
-	<p class="" style="border-radius: 0">{{ Session::get('alert-' . $msg) }}</p>
+	<?php $__currentLoopData = ['danger', 'warning', 'success', 'info']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $msg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+	<?php if(Session::has('alert-' . $msg)): ?>
+<div class="alert alert-<?php echo e($msg); ?>">
+	<p class="" style="border-radius: 0"><?php echo e(Session::get('alert-' . $msg)); ?></p>
 </div>
-	{!!Session::forget('alert-' . $msg)!!}
-	@endif
-	@endforeach
+	<?php echo Session::forget('alert-' . $msg); ?>
+
+	<?php endif; ?>
+	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
 <div class="row">
 	<div class="col-md-12">
 		<div class="">
 
-			@if (count($errors) > 0)
+			<?php if(count($errors) > 0): ?>
 			<div class="alert alert-danger">
 				<ul>
-					@foreach ($errors->all() as $error)
-					<li>{{ $error }}</li>
-					@endforeach
+					<?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+					<li><?php echo e($error); ?></li>
+					<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 				</ul>
 			</div>
-			@endif
+			<?php endif; ?>
 			<br>
-			<form id="tambahDetailNilai" method="post" action="{{url('/krs-khs/khs/create')}}" enctype="multipart/form-data"  class="form-horizontal">
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			<form id="tambahDetailNilai" method="post" action="<?php echo e(url('/krs-khs/Khs/create')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
@@ -89,8 +88,10 @@ Tambah Detail Nilai
 		</div>
 	</div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('code-footer')
-@endsection
+<?php $__env->startSection('code-footer'); ?>
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('adminlte::layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
