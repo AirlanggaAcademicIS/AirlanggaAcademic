@@ -107,16 +107,15 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
 
-<<<<<<< HEAD
+
             <li
-=======
+
             <li @if($page == 'pengmas')
             {!! 'class="active"'!!}
             @endif
             ><a href="{{url('/dosen/pengmas')}}">Pengabdian Masyarakat</a></li>
 
            <li
->>>>>>> 000842d2541ed97447077cb5fea4543b96c2eafd
             @if($page == 'konferensi')
             {!! 'class="active"'!!}
             @endif
@@ -124,20 +123,16 @@
             <!-- Href menuju ke url mahasiswa/biodata -->
             <a href="{{ url('dosen/konferensi') }}"><i class='fa fa-book'></i> <span> Konferensi</span></a>
             </li> 
-<<<<<<< HEAD
             <li><a href="{{url('/dosen/pengmas/index')}}">Pengabdian Masyarakat</a></li>
-=======
 
-          
             <li><a href="{{ url('/dosen/konferensi/index') }}">Konferensi</a></li>
->>>>>>> 000842d2541ed97447077cb5fea4543b96c2eafd
+
             <li
             @if($page == 'penelitian')
             {!! 'class="active"'!!}
             @endif
             ><a href="{{url('/dosen/penelitian')}}">Penelitian</a>
             </li>                 
-<<<<<<< HEAD
             <li><a href="{{url('/dosen/jurnal/index')}}">Jurnal</a></li>  
             <li
 
@@ -150,9 +145,6 @@
             </li> 
             <li><a href="{{url('/dosen/biodata/index')}}">Biodata</a></li>
 
-
-
-=======
             <li
             @if($page == 'jurnal')
             {!! 'class="active"'!!}
@@ -163,8 +155,6 @@
             <li><a href="{{url('/dosen/sktugas/index')}}">SK Tugas</a></li>
             <li><a href="{{url('/dosen/biodata/index')}}">Biodata</a></li>
 
-
->>>>>>> 000842d2541ed97447077cb5fea4543b96c2eafd
             </ul>
             </li>
 
@@ -173,7 +163,6 @@
             <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-<<<<<<< HEAD
             <li
             @if($page == 'kategori-media-pembelajaran')
             {!! 'class="active"'!!}
@@ -183,7 +172,6 @@
             <a href="{{ url('kurikulum/kategori-media-pembelajaran') }}"><i class='fa fa-book'></i> <span>Kategori Media Pembelajaran</span></a>
             </li>
 
-=======
             <li 
             @if($page == 'prodi')
             {!! 'class="active"'!!}
@@ -192,7 +180,6 @@
             </li> 
             <a href="{{ url('/kurikulum/universitas') }}"><i class='fa fa-book'></i> <span> Universitas</span></a>
             </li>        
->>>>>>> a587dff1289e6620570ccf90b11dfb9062638e55
             </ul>
             </li>
 
@@ -214,6 +201,17 @@
             </ul>
             </li>
 
+            <!-- Sidebarnya ditaruh dibawah sini -->
+            <li
+            @if($page == 'khs')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url krs-khs/Khs -->
+            <a href="{{ url('krs-khs/khs') }}"><i class='fa fa-book'></i> <span>Khs</span></a>
+            </li>        
+            </ul>
+            </li>
            
             </li>
 
