@@ -6,11 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class JurnalDosen extends Model
 {
-   protected $table = 'jurnal_dosen';    
-   protected $primaryKey = 'id';    
+   protected $table = 'jurnal';    
+   protected $primaryKey = 'id_jurnal';    
    protected $fillable = [
-		'judul', 
-		'tahun',
-		'deskripsi',		
+		'nama_jurnal', 
+		'halaman_jurnal',
+		'bidang_jurnal',		
+		'tanggal_jurnal',
+		'status_jurnal',
+		'volume_jurnal',
+		'penulis_ke',	
    ];
 }
