@@ -28,7 +28,7 @@ Surat Masuk
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
   <a href="<?php echo e(url('/pla/surat-masuk/create')); ?>" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah Biodata</a>
+    <i class="fa fa-plus-square"></i> Tambah Surat</a>
 </div>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
@@ -63,7 +63,7 @@ Surat Masuk
     </tr>
      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
         <tr>
-          <td colspan="6"><center>Belum ada biodata</center></td>
+          <td colspan="6"><center>Belum ada surat</center></td>
         </tr>
     <?php endif; ?>
   </tbody>
