@@ -41,6 +41,24 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('biodata/{id}/edit','Mahasiswa\BiodataController@editAction');
 
+        // Menampilkan tabel
+        Route::get('detailanggota','Mahasiswa\DetailAnggotaController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('detailanggota/create','Mahasiswa\DetailAnggotaController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('detailanggota/create','Mahasiswa\DetailAnggotaController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('detailanggota/{id}/delete','Mahasiswa\DetailAnggotaController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('detailanggota/{id}/edit','Mahasiswa\DetailAnggotaController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('detailanggota/{id}/edit','Mahasiswa\DetailAnggotaController@editAction');
+
     });
 
     // Modul KRS & KHS
@@ -67,7 +85,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/{id}/edit','KrsKhs\RuangController@editAction');
 
     });
-        
+       
+      
 
     });
 
@@ -122,5 +141,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('view-asset', 'HomeController@index');
     });
   
+        
         
 });
