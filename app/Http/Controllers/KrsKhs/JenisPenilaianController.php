@@ -54,10 +54,10 @@ class JenisPenilaianController extends Controller
         return Redirect::to('krs-khs/JenisPenilaian');
     }
 
-    public function delete($id)
+    public function delete($id_jenis_penilaian)
     {
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $jenispenilaian = JenisPenilaian::find($id);
+        $jenispenilaian = JenisPenilaian::find($id_jenis_penilaian);
 
         // Menghapus biodata yang dicari tadi
         $jenispenilaian->delete();
@@ -69,26 +69,25 @@ class JenisPenilaianController extends Controller
       	return Redirect::back();	 
     }
 
-   public function edit($id)
+   public function edit($id_jenis_penilaian)
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'jenispenilaian',
             // Mencari biodata berdasarkan id
-            'jenispenilaian' => JenisPenilaian::find($id)
+            'jenispenilaian' => JenisPenilaian::find($id_jenis_penilaian)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
         return view('krs-khs.JenisPenilaian.edit',$data);
     }
 
-    public function editAction($id, Request $request)
+    public function editAction($id_jenis_penilaian, Request $request)
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $jenispenilaian = JenisPenilaian::find($id);
+        $jenispenilaian = JenisPenilaian::find($id_jenis_penilaian);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $jenispenilaian->id_jenis_penilaian = $request->input('id_jenis_penilaian');
         $jenispenilaian->nama_jenis = $request->input('nama_jenis');
         $jenispenilaian->save();
 

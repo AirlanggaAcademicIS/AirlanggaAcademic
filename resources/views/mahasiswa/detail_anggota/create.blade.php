@@ -1,16 +1,17 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Edit Biodata
+Tambah Biodata
 @endsection
 
 @section('contentheader_title')
-Edit Biodata
+Tambah Biodata
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -20,7 +21,7 @@ Edit Biodata
 		text-align: left !important;
 	}
 </style>
-
+	<!-- Ini buat menampilkan notifikasi -->
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -45,53 +46,43 @@ Edit Biodata
 			</div>
 			@endif
 			<br>
-			<form id="tambahBiodata" method="post" action="{{url('/mahasiswa/biodata/'.$biodata->id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="TambahDetailAnggota" method="post" action="{{url('/mahasiswa/detailanggota/create')}}" 
+			enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">NIM</label>
+				<!-- <div class="form-group">
+					<label for="kode_penelitian" class="col-sm-2 control-label">Kode Penelitian</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" value="{{$biodata->nim}}" required>
+						<input type="text" class="form-control input-lg" id="kode_penelitian" name="kode_penelitian" 
+						placeholder="Masukkan Kode" required>
+					</div>
+				</div> -->
+
+				<!-- <div class="form-group">
+					<label for="id_anggota" class="col-sm-2 control-label">ID Anggota</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="id_anggota" name="id_anggota" 
+						placeholder="Masukkan ID Anggota" required>
+					</div>
+				</div>
+ -->
+				<div class="form-group">
+					<label for="anggota" class="col-sm-2 control-label">Anggota</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="anggota" name="anggota" 
+						placeholder="Masukkan Anggota" required>
 					</div>
 				</div>
 
-				<!-- Menampilkan input text biasa -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+				<!-- <div class="form-group">
+					<label for="status" class="col-sm-2 control-label">Status</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" value="{{$biodata->nama}}" required>
+						<input type="text" class="form-control input-lg" id="status" name="status" 
+						placeholder="Masukkan Status" required>
 					</div>
-				</div>
+				</div> -->
 
-				<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Alamat</label>
-					<div class="col-md-8">
-						<textarea id="alamat" name="alamat" placeholder=" Masukkan Alamat" required cols="82" rows="5">{{$biodata->alamat}}
-						</textarea>
-					</div>
-				</div>
-
-				<!-- Menampilkan dropdown -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Provinsi</label>
-					<div class="col-md-8">
-						<select name="provinsi" required>
-							<option value="Jawa Timur">Jawa Timur</option>
-							<option value="Jawa Tengah">Jawa Tengah</option>
-							<option value="Jawa Barat">Jawa Barat</option>
-						</select>
-					</div>
-				</div>
-
-				<!-- Menampilkan tanggal dengan datepicker -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Masuk</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_masuk" placeholder="Masukkan Tanggal" required>
-					</div>
-				</div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">

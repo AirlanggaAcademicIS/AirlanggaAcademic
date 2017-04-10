@@ -1,17 +1,16 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Biodata
+Edit Status
 @endsection
 
 @section('contentheader_title')
-Tambah Biodata
+Edit Status
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -21,7 +20,7 @@ Tambah Biodata
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -46,53 +45,24 @@ Tambah Biodata
 			</div>
 			@endif
 			<br>
-			<form id="tambahBiodata" method="post" action="{{url('/mahasiswa/biodata/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahStatus" method="post" action="{{url('/monitoring-skripsi/status/'.$MonsiStatus->id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">NIM</label>
+					<label for="id" class="col-sm-2 control-label">no</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" required>
+						<input type="text" class="form-control input-lg" id="id" name="id" placeholder="Masukkan id" value="{{$MonsiStatus->id}}" required>
 					</div>
 				</div>
 
+				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<label for="keternagan" class="col-sm-2 control-label">Keterangan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="keterangan" name="keterangan" placeholder="Masukkan Keterangan" value="{{$MonsiStatus->keterangan}}" required>
 					</div>
 				</div>
-
-			<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Alamat</label>
-					<div class="col-md-8">
-						<textarea id="alamat" name="alamat" placeholder=" Masukkan Alamat" required cols="82" rows="5">
-						</textarea>
-					</div>
-				</div>
-
-				<!-- Menampilkan dropdown -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Provinsi</label>
-					<div class="col-md-8">
-						<select name="provinsi" required>
-							<option value="Jawa Timur">Jawa Timur</option>
-							<option value="Jawa Tengah">Jawa Tengah</option>
-							<option value="Jawa Barat">Jawa Barat</option>
-						</select>
-					</div>
-				</div>
-
-				<!-- Menampilkan tanggal dengan datepicker -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Masuk</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_masuk" placeholder="Masukkan Tanggal" required>
-					</div>
-				</div>
-
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
@@ -116,4 +86,3 @@ $( function() {
   } );
   </script>
 @endsection
-
