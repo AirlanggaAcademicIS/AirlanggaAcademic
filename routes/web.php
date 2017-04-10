@@ -287,6 +287,7 @@ Route::group(['middleware' => ['auth']], function () {
             
 
     });
+        });
 
     // Modul Dosen
     Route::group(['prefix' => 'dosen'], function() {
@@ -728,7 +729,6 @@ Route::group(['middleware' => ['auth']], function () {
   
         
         
-});
 });
 
 
