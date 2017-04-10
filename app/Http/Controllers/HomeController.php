@@ -33,7 +33,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('inventaris.dashboard');
+        $data = [
+        'page' => 'home'
+        ];
+        return view('dashboard',$data);
     }
 
     public function input()

@@ -11,6 +11,8 @@ class Biodata extends Model
    protected $fillable = [
 		'nim', 
 		'nama',
-		'alamat',		
+		'alamat',
+		'provinsi',
+		'tanggal_masuk',	
    ];
 }

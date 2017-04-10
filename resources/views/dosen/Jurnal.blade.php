@@ -6,7 +6,7 @@
 @endsection
 
 @section('htmlheader_title')
-<!-- Nama konten -->
+!-- Nama konten -->
 <title></title>
 <head></head>
 Nama konten 

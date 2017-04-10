@@ -1,74 +1,98 @@
 @extends('adminlte::layouts.app')
 
-@section('code-header')
-
-
-@endsection
-
 @section('htmlheader_title')
-<!-- Nama konten -->
-Edit Data pengmas
+Edit Pengmas
 @endsection
 
 @section('contentheader_title')
-<!-- Nama konten -->
-Edit Data pengmas
+Edit Pengmas
+@endsection
+
+@section('code-header')
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+
 @endsection
 
 @section('main-content')
-<!-- Kodingan HTML ditaruh di sini -->
-<section class="content">
-      <div class="row">
-        <!-- left column -->
-        <div class="col-md-12">
-          <!-- general form elements -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Data pengmas</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Nama Kegiatan</label>
-                  <input type="type" class="form-control" id="exampleInputPassword1" placeholder="Nama">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Tempat Kegiatan</label>
-                  <input type="type" class="form-control" id="exampleInputPassword1" placeholder="Tempat Kegiatan">
-                </div>
-               
-        <div class="form-group">
-                <label>tanggal kegiatan:</label>
-                <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
-                </div>
-                <!-- /.input group -->
-              </div>
-              <!-- /.form group -->
+<style>
+	.form-group label{
+		text-align: left !important;
+	}
+</style>
 
-                <div class="form-group">
-                  <label for="exampleInputFile">File pengmas</label>
-                  <input type="file" id="exampleInputFile">
+	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
+	@if(Session::has('alert-' . $msg))
+<div class="alert alert-{{ $msg }}">
+	<p class="" style="border-radius: 0">{{ Session::get('alert-' . $msg) }}</p>
+</div>
+	{!!Session::forget('alert-' . $msg)!!}
+	@endif
+	@endforeach
 
-                  <p class="help-block">Unggah Dokumen pengmas Disini</p>
-                </div>
-                </div>
 
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>S
-          </div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="">
+
+			@if (count($errors) > 0)
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+					<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+			@endif
+			<br>
+			<form id="tambahpengmas" method="post" action="{{url('/dosen/pengmas/'.$pengmas->id_kegiatan.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+				<!-- Menampilkan input text biasa -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">nama kegiatan</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nama_kegiatan" name="nama_kegiatan" placeholder="Masukkan nama" value="{{$pengmas->nama_kegiatan}}" required>
+					</div>
+				</div>
+
+				<!-- Menampilkan input text biasa -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">tempat kegiatan </label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan tempat" value="{{$pengmas->tempat_kegiatan}}" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Tanggal kegiatan</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_kegiatan" placeholder="Masukkan Tanggal" required>
+					</div>
+				</div>
+
+
+				<div class="form-group text-center">
+					<div class="col-md-8 col-md-offset-2">
+					<button type="submit" class="btn btn-primary btn-lg">
+							Confirm
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 @endsection
 
 @section('code-footer')
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+$( function() {
+    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
 
-
-
-
+  } );
+  </script>
 @endsection
+

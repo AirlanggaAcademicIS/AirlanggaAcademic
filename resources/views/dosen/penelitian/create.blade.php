@@ -1,78 +1,117 @@
 @extends('adminlte::layouts.app')
 
-@section('code-header')
-
-
-@endsection
-
 @section('htmlheader_title')
-<!-- Nama konten -->
-Tambah Data Penelitian
+Tambah Konferensi
 @endsection
 
 @section('contentheader_title')
-<!-- Nama konten -->
-Tambah Data Penelitian
+Tambah Konferensi
+@endsection
+
+@section('code-header')
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
+
 @endsection
 
 @section('main-content')
-<!-- Kodingan HTML ditaruh di sini -->
-<section class="content">
-      <div class="row">
-        <!-- left column -->
-        <div class="col-md-12">
-          <!-- general form elements -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Data Penelitian</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Judul Penelitian</label>
-                  <input type="type" class="form-control" id="exampleInputPassword1" placeholder="Judul">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Ketua Penelitian</label>
-                  <input type="type" class="form-control" id="exampleInputPassword1" placeholder="Nama Ketua Penelitian">
-                </div>
-                 <div class="form-group">
-                  <label for="exampleInputPassword1">Bidang Penelitian</label>
-                  <input type="type" class="form-control" id="exampleInputPassword1" placeholder="Nama Bidang Penelitian">
-                </div>
+<style>
+	.form-group label{
+		text-align: left !important;
+	}
+</style>
+	<!-- Ini buat menampilkan notifikasi -->
+	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
+	@if(Session::has('alert-' . $msg))
+<div class="alert alert-{{ $msg }}">
+	<p class="" style="border-radius: 0">{{ Session::get('alert-' . $msg) }}</p>
+</div>
+	{!!Session::forget('alert-' . $msg)!!}
+	@endif
+	@endforeach
 
-        <div class="form-group">
-                <label>tanggal penelitian:</label>
-                <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
-                </div>
-                <!-- /.input group -->
-              </div>
-              <!-- /.form group -->
 
-                <div class="form-group">
-                  <label for="exampleInputFile">File input</label>
-                  <input type="file" id="exampleInputFile">
+<div class="row">
+	<div class="col-md-12">
+		<div class="">
 
-                  <p class="help-block">Unggah Dokumen Penelitian Disini</p>
-                </div>
-                </div>
+			@if (count($errors) > 0)
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+					<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+			@endif
+			<br>
+			<form id="tambahKonferensi" method="post" action="{{url('/dosen/penelitian/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
+				<!-- Menampilkan input text biasa -->
+				<div class="form-group">
+					<label for="judul_penelitian" class="col-sm-2 control-label">Judul Penelitian</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="judul_penelitian" name="judul_penelitian" placeholder="Masukkan Judul Penelitian" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nama_ketua" class="col-sm-2 control-label">Nama Ketua</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nama_ketua" name="nama_ketua" placeholder="Masukkan Nama Ketua" required>
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label for="bidang_koferensi" class="col-sm-2 control-label">Bidang Konferensi</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="bidang_koferensi" name="bidang_koferensi" placeholder="Masukkan bidang Koferensi" required>
+					</div>
+				</div>
+
+				
+
+				<!-- Menampilkan tanggal dengan datepicker -->
+				<div class="form-group">
+					<label for="tanggal_konferensi" class="col-sm-2 control-label">Tanggal Konferensi</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_penelitian" placeholder="Masukkan Tanggal Penelitian" required>
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label for="materi_konferensi" class="col-sm-2 control-label">Materi Konferensi</label>
+					<div class="col-md-8">
+						<textarea id="materi_konferensi" name="materi_konferensi" placeholder=" Masukkan Materi Konferensi" required cols="82" rows="5">
+						</textarea>
+					</div>
+				</div>
+
+				<div class="form-group text-center">
+					<div class="col-md-8 col-md-offset-2">
+					<button type="submit" class="btn btn-primary btn-lg">
+							Confirm
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 @endsection
 
 @section('code-footer')
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+$( function() {
+    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
 
-
-
-
+  } );
+  </script>
 @endsection
+
