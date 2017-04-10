@@ -28,7 +28,7 @@ KBK
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('/monsi/KBK/create')}}" type="button" class="btn btn-info btn-md" >
+  <a href="{{url('/monitoring-skripsi/KBK/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah KBK</a>
 </div>
 <div style="overflow: auto">
@@ -46,9 +46,9 @@ KBK
       <td witdh="20%" style="text-align:center">{{$kbk->id_kbk}}</td>
       <td width="40%" style="text-align:center">{{$kbk->jenis_kbk}}</td>
       <td width="40%" style="text-align:center" >
-        <a onclick="return confirm('Anda yakin untuk menghapus KBK ini?');" href="{{url('/monsi/KBK/'.$kbk->id_kbk.'/delete/')}}" class="btn btn-danger btn-xs">
+        <a onclick="return confirm('Anda yakin untuk menghapus KBK ini?');" href="{{url('/monitoring-skripsi/KBK/'.$kbk->id_kbk.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('/monsi/KBK/'.$kbk->id_kbk.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('/monitoring-skripsi/KBK/'.$kbk->id_kbk.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
     </tr>

@@ -51,7 +51,7 @@ class KonsultasiController extends Controller
         Session::put('alert-success', 'Konsultasi berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('monsi/konsultasi');
+        return Redirect::to('monitoring-skripsi/konsultasi');
     }
 
     public function delete($id)
@@ -97,6 +97,6 @@ class KonsultasiController extends Controller
         Session::put('alert-success', 'Konsultasi berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('monsi/konsultasi');
+        return Redirect::to('monitoring-skripsi/konsultasi');
     }
 }

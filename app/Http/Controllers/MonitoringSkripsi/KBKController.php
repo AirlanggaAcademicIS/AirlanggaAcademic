@@ -51,7 +51,7 @@ class KBKController extends Controller
         Session::put('alert-success', 'KBK berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('monsi/KBK');
+        return Redirect::to('monitoring-skripsi/KBK');
     }
 
     public function delete($id_kbk)
@@ -95,7 +95,7 @@ class KBKController extends Controller
         Session::put('alert-success', 'KBK berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('monsi/KBK');
+        return Redirect::to('monitoring-skripsi/KBK');
     }
 
 }
