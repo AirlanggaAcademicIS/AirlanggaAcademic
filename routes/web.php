@@ -183,6 +183,25 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Mengupdate biodata dengan isi dari form
         Route::post('JenisPenilaian/{id}/edit','KrsKhs\JenisPenilaianController@editAction');
+
+        // Menampilkan tabel detail nilai
+        Route::get('khs','KrsKhs\DetailNilaiController@index');
+
+        // Menampilkan form tambah detail nilai
+        Route::get('khs/create','KrsKhs\DetailNilaiController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel detail nilai
+        Route::post('Khs/create','KrsKhs\DetailNilaiController@createAction');
+
+        // Menghapus detail nilai sesuai id yang dipilih
+        Route::get('Khs/{id}/delete','KrsKhs\DetailNilaiController@delete');
+
+        // Menampilkan form edit detail nilai dari id yg dipilih
+        Route::get('Khs/{id}/edit','KrsKhs\DetailNilaiController@edit');
+
+        // Mengupdate detail nilai dengan isi dari form
+        Route::post('Khs/{id}/edit','KrsKhs\DetailNilaiController@editAction');
+
     });
         
     // Modul Kurikulum
@@ -368,7 +387,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('jurnal/{id}/edit','Dosen\JurnalController@edit');
 
         // Mengupdate biodata dengan isi dari form
+
+        Route::post('jurnal/{id}/edit','Dosen\JurnalController@editAction');    
+
         Route::post('jurnal/{id}/edit','Dosen\JurnalController@editAction');     
+
 
        Route::get('pengmas/','Dosen\PengmasController@index');
 
@@ -623,7 +646,5 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('view-asset', 'HomeController@index');
 
     });
-  
-        
-        
+
 });

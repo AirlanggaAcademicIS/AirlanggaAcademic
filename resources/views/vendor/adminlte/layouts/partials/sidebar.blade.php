@@ -111,6 +111,8 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
 
+            <li
+
             <li @if($page == 'pengmas')
             {!! 'class="active"'!!}
             @endif
@@ -124,6 +126,10 @@
             <!-- Href menuju ke url mahasiswa/biodata -->
             <a href="{{ url('dosen/konferensi') }}"><i class='fa fa-book'></i> <span> Konferensi</span></a>
             </li> 
+            <li><a href="{{url('/dosen/pengmas/index')}}">Pengabdian Masyarakat</a></li>
+
+            <li><a href="{{ url('/dosen/konferensi/index') }}">Konferensi</a></li>
+
             <li><a href="{{url('/dosen/pengmas/index')}}"><i class='fa fa-book'></i>Pengabdian Masyarakat</a></li>
 
           
@@ -134,6 +140,7 @@
             @endif
             ><a href="{{url('/dosen/penelitian')}}"><i class='fa fa-book'></i>Penelitian</a>
             </li>                 
+            <li><a href="{{url('/dosen/jurnal/index')}}">Jurnal</a></li>  
             <li><a href="{{url('/dosen/jurnal/index')}}"><i class='fa fa-book'></i>Jurnal</a></li>  
             <li
 
@@ -146,8 +153,6 @@
             </li> 
             <li><a href="{{url('/dosen/biodata/index')}}">Biodata</a></li>
 
-
-
             <li
             @if($page == 'jurnal')
             {!! 'class="active"'!!}
@@ -158,7 +163,6 @@
             <li><a href="{{url('/dosen/sktugas/index')}}">SK Tugas</a></li>
             <li><a href="{{url('/dosen/biodata/index')}}">Biodata</a></li>
 
-
             </ul>
             </li>
 
@@ -167,6 +171,7 @@
             <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+
             <li
             @if($page == 'capaian-program')
             {!! 'class="active"'!!}
@@ -214,6 +219,17 @@
             </ul>
             </li>
 
+            <!-- Sidebarnya ditaruh dibawah sini -->
+            <li
+            @if($page == 'khs')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url krs-khs/Khs -->
+            <a href="{{ url('krs-khs/khs') }}"><i class='fa fa-book'></i> <span>Khs</span></a>
+            </li>        
+            </ul>
+            </li>
            
             </li>
 
