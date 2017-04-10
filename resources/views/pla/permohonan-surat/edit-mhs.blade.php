@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Detail Nilai
+Tambah Biodata
 @endsection
 
 @section('contentheader_title')
-Tambah Detail Nilai
+Tambah Pemohon Surat
 @endsection
 
 @section('code-header')
@@ -46,38 +46,44 @@ Tambah Detail Nilai
 			</div>
 			@endif
 			<br>
-			<form id="tambahDetailNilai" method="post" action="{{url('/krs-khs/khs/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahBiodata" method="post" action="{{url('pla/'.$nim_mhs.'/'.$id_surat.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-				<!-- Menampilkan input text biasa -->
+				
+
+				<!-- Menampilkan dropdown -->
 				<div class="form-group">
-					<label for="id_mk_ditawarkan" class="col-sm-2 control-label">ID MK Ditawarkan</label>
+					<label for="nama" class="col-sm-2 control-label">Mahasiswa :</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_mk_ditawarkan" name="id_mk_ditawarkan" placeholder="Masukkan ID MK Ditawarkan" required>
+						<select  id="NIM" name="NIM" class="form-control" disabled>
+						<option value="no" >Pilih Mahasiswa</option>
+						@foreach($mhs as $i) 
+
+							<option 
+							<?php if ($nim_mhs==$i->nim)
+							echo 'selected';?>
+
+							value="{{$i->nim}}" >{{$i->nama}}</option>
+							@endforeach
+						</select>
+					</div>
+				</div>
+				<!-- Menampilkan dropdown -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Surat Kepada :</label>
+					<div class="col-md-8">
+						<select id="id_surat_keluar" name="id_surat_keluar" class="form-control" required>
+						<option value="no" >Pilih Surat</option>
+						@foreach($surat as $p) 
+							<option <?php if ($id_surat==$p->id_surat_keluar)
+							echo 'selected';?>
+							value="{{$p->id_surat_keluar}}">{{$p->nama_lembaga}}</option>
+							@endforeach
+						</select>
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="NIM" class="col-sm-2 control-label">NIM</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="NIM" name="NIM" placeholder="Masukkan NIM Mahasiswa" required>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="id_jenis_penilaian" class="col-sm-2 control-label">Jenis Penilaian</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_jenis_penilaian" name="id_jenis_penilaian" placeholder="Masukkan ID Jenis Penilaian" required>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="detail_nilai" class="col-sm-2 control-label">Nilai</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="detail_nilai" name="detail_nilai" placeholder="Masukkan Nilai" required>
-					</div>
-				</div>
-
+			
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
@@ -92,5 +98,13 @@ Tambah Detail Nilai
 @endsection
 
 @section('code-footer')
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+$( function() {
+    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
+
+  } );
+  </script>
 @endsection
 

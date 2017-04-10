@@ -1,17 +1,16 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Detail Nilai
+Edit Biodata
 @endsection
 
 @section('contentheader_title')
-Tambah Detail Nilai
+Edit Biodata
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -21,7 +20,7 @@ Tambah Detail Nilai
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -46,35 +45,31 @@ Tambah Detail Nilai
 			</div>
 			@endif
 			<br>
-			<form id="tambahDetailNilai" method="post" action="{{url('/krs-khs/khs/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahBiodata" method="post" action="{{url('/kegiatan/dokumentasi/'.$dokumentasi->id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="id_mk_ditawarkan" class="col-sm-2 control-label">ID MK Ditawarkan</label>
+					<label for="nama" class="col-sm-2 control-label">Nama Dokumentasi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_mk_ditawarkan" name="id_mk_ditawarkan" placeholder="Masukkan ID MK Ditawarkan" required>
+						<input type="text" class="form-control input-lg" id="nama_dokumentasi" name="nama_dokumentasi" placeholder="Masukkan Nama Gambar" value="{{$dokumentasi->nama_dokumentasi}}" required>
 					</div>
 				</div>
 
+			<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="NIM" class="col-sm-2 control-label">NIM</label>
+					<label for="nama" class="col-sm-2 control-label">Deskripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="NIM" name="NIM" placeholder="Masukkan NIM Mahasiswa" required>
+						<textarea id="deskripsi" name="deskripsi" placeholder=" Masukkan Deskripsi Gambar" required cols="82" rows="5">{{$dokumentasi->deskripsi}}
+						</textarea>
 					</div>
 				</div>
 
+				<!-- Menampilkan Deskripsi -->
 				<div class="form-group">
-					<label for="id_jenis_penilaian" class="col-sm-2 control-label">Jenis Penilaian</label>
+					<label for="nama" class="col-sm-2 control-label">Gambar</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_jenis_penilaian" name="id_jenis_penilaian" placeholder="Masukkan ID Jenis Penilaian" required>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="detail_nilai" class="col-sm-2 control-label">Nilai</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="detail_nilai" name="detail_nilai" placeholder="Masukkan Nilai" required>
+						<input type="text" class="form-control input-lg" id="gambar" name="gambar" placeholder="Masukkan URL Gambar" value="{{$dokumentasi->gambar}}" required>
 					</div>
 				</div>
 
@@ -92,5 +87,13 @@ Tambah Detail Nilai
 @endsection
 
 @section('code-footer')
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+$( function() {
+    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
+
+  } );
+  </script>
 @endsection
 

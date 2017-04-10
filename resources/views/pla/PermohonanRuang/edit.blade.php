@@ -1,17 +1,16 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Detail Nilai
+Edit Permohonan Ruang
 @endsection
 
 @section('contentheader_title')
-Tambah Detail Nilai
+Edit Permohonan Ruang
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -21,7 +20,7 @@ Tambah Detail Nilai
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -46,37 +45,41 @@ Tambah Detail Nilai
 			</div>
 			@endif
 			<br>
-			<form id="tambahDetailNilai" method="post" action="{{url('/krs-khs/khs/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahPermohonanRuang" method="post" action="{{url('/pla/PermohonanRuang/'.$PermohonanRuang->id_permohonan_ruang.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="id_mk_ditawarkan" class="col-sm-2 control-label">ID MK Ditawarkan</label>
+					<label for="nip_petugas" class="col-sm-2 control-label">NIP Petugas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_mk_ditawarkan" name="id_mk_ditawarkan" placeholder="Masukkan ID MK Ditawarkan" required>
+						<input type="text" class="form-control input-lg" id="nip_petugas" name="nip_petugas" placeholder="Masukkan NIP" value="{{$PermohonanRuang->nip_petugas}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="NIM" class="col-sm-2 control-label">NIM</label>
+					<label for="nama" class="col-sm-2 control-label">Nama</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="NIM" name="NIM" placeholder="Masukkan NIM Mahasiswa" required>
+						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" value="{{$PermohonanRuang->nama}}" required>
+					</div>
+				</div>
+
+			<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Verifikasi</label>
+					<div class="col-md-8">
+						<select name="atribut_verifikasi" required>
+							<option value="0">Belum Konfirmasi</option>
+							<option value="1">Konfirmasi</option>
+						</select>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="id_jenis_penilaian" class="col-sm-2 control-label">Jenis Penilaian</label>
+					<label for="nim_nip" class="col-sm-2 control-label">NIM/NIP Peminjam</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_jenis_penilaian" name="id_jenis_penilaian" placeholder="Masukkan ID Jenis Penilaian" required>
+						<input type="text" class="form-control input-lg" id="nim_nip" name="nim_nip" placeholder="NIP/NIM Peminjam" value="{{$PermohonanRuang->nim_nip}}" required>
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="detail_nilai" class="col-sm-2 control-label">Nilai</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="detail_nilai" name="detail_nilai" placeholder="Masukkan Nilai" required>
-					</div>
-				</div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
@@ -92,5 +95,13 @@ Tambah Detail Nilai
 @endsection
 
 @section('code-footer')
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+$( function() {
+    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
+
+  } );
+  </script>
 @endsection
 

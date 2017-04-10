@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Detail Nilai
+Tambah Rundown
 @endsection
 
 @section('contentheader_title')
-Tambah Detail Nilai
+Tambah Rundown
 @endsection
 
 @section('code-header')
@@ -46,35 +46,23 @@ Tambah Detail Nilai
 			</div>
 			@endif
 			<br>
-			<form id="tambahDetailNilai" method="post" action="{{url('/krs-khs/khs/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahRundown" method="post" action="{{url('/pengelolaan-kegiatan/rundown/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-				<!-- Menampilkan input text biasa -->
+			<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
-					<label for="id_mk_ditawarkan" class="col-sm-2 control-label">ID MK Ditawarkan</label>
+					<label for="durasi_rundown" class="col-sm-2 control-label">Durasi Acara</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_mk_ditawarkan" name="id_mk_ditawarkan" placeholder="Masukkan ID MK Ditawarkan" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="durasi_rundown" placeholder="Masukkan Tanggal Acara" required>
 					</div>
 				</div>
 
+			<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="NIM" class="col-sm-2 control-label">NIM</label>
+					<label for="deskripsi_rundown" class="col-sm-2 control-label">Deskripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="NIM" name="NIM" placeholder="Masukkan NIM Mahasiswa" required>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="id_jenis_penilaian" class="col-sm-2 control-label">Jenis Penilaian</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_jenis_penilaian" name="id_jenis_penilaian" placeholder="Masukkan ID Jenis Penilaian" required>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="detail_nilai" class="col-sm-2 control-label">Nilai</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="detail_nilai" name="detail_nilai" placeholder="Masukkan Nilai" required>
+						<textarea id="deskripsi_rundown" name="deskripsi_rundown" placeholder=" Masukkan Deskripsi" required cols="82" rows="5">
+						</textarea>
 					</div>
 				</div>
 
@@ -92,5 +80,13 @@ Tambah Detail Nilai
 @endsection
 
 @section('code-footer')
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+$( function() {
+    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
+
+  } );
+  </script>
 @endsection
 

@@ -39,7 +39,7 @@ class DetailNilaiController extends Controller
         ];
 
         // Memanggil tampilan form create
-    	return view('krs-khs.Khs.create',$data);
+    	return view('krs-khs.khs.create',$data);
     }
 
     public function createAction(Request $request)
@@ -51,7 +51,7 @@ class DetailNilaiController extends Controller
         Session::put('alert-success', 'Detail Nilai berhasil ditambahkan');
 
         // Kembali ke halaman krs-khs/Khs
-        return Redirect::to('krs-khs/Khs/view');
+        return Redirect::to('krs-khs/khs');
     }
 
     public function delete($id)
@@ -89,14 +89,17 @@ class DetailNilaiController extends Controller
 
         // Mengupdate $detail_nilai tadi dengan isi dari form edit tadi
         $detail_nilai->id_detail_nilai = $request->input('id_detail_nilai');
-        $detail_nilai->detail_nilai = $request->input('detail_nilai');
+        $detail_nilai->id_mk_ditawarkan = $request->input('id_mk_ditawarkan');
+        $detail_nilai->NIM = $request->input('NIM');
+        $detail_nilai->id_jenis_penilaian = $request->input('id_jenis_penilaian');
+        $detail_nilai->Detail_nilai = $request->input('Detail_nilai');
         $detail_nilai->save();
 
         // Notifikasi sukses
         Session::put('alert-success', 'Detail Nilai berhasil diedit');
 
         // Kembali ke halaman krs-khs/Khs/view
-        return Redirect::to('krs-khs/khs/view');
+        return Redirect::to('krs-khs/khs');
     }
 
 }
