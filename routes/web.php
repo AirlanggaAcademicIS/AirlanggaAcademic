@@ -88,7 +88,22 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul PLA
     Route::group(['prefix' => 'pla'], function() {
-                
+         // Menampilkan Permohonan Surat MHs
+        Route::get('PermohonanSuratMhs','pla\PermohonanSuratController@showMhs');     
+        // Menampilkan form tambah permohonan
+        Route::get('TambahPermohonanSuratMhs','pla\PermohonanSuratController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel mhs_pemohon_surat
+        Route::post('TambahPermohonanSuratMhs','pla\PermohonanSuratController@createAction');
+
+        // Menghapus data sesuai id yang dipilih
+        Route::get('/{id}/{id2}/deletePemohon','pla\PermohonanSuratController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('/{id}/{id2}/editPemohon','pla\PermohonanSuratController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('/{id}/{id2}/edit','pla\PermohonanSuratController@editAction');   
 
     });
 
