@@ -1,15 +1,14 @@
 <?php $__env->startSection('htmlheader_title'); ?>
-Tambah Biodata
+Edit Fakultas
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-Tambah Biodata
+Edit Fakultas
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('code-header'); ?>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="<?php echo e(asset('/css/dropzone.css')); ?>">
 
 <?php $__env->stopSection(); ?>
 
@@ -19,7 +18,7 @@ Tambah Biodata
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	<?php $__currentLoopData = ['danger', 'warning', 'success', 'info']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $msg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	<?php if(Session::has('alert-' . $msg)): ?>
 <div class="alert alert-<?php echo e($msg); ?>">
@@ -45,54 +44,43 @@ Tambah Biodata
 			</div>
 			<?php endif; ?>
 			<br>
-			<form id="tambahBiodata" method="post" action="<?php echo e(url('/mahasiswa/biodata/create')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tugascreate" method="post" action="<?php echo e(url('inventaris/'.$fakultas->id_fakultas.'/post-tugas-edit')); ?>" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">NIM</label>
+					<label for="nim" class="col-sm-2 control-label">id_fakultas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" required>
+						<input type="text" class="form-control input-lg" id="id_fakultas" name="id_fakultas" placeholder="Masukkan ID" value="<?php echo e($fakultas->id_fakultas); ?>" required>
 					</div>
 				</div>
 
+				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<label for="nim" class="col-sm-2 control-label">id_universitas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="id_universitas" name="id_universitas" placeholder="Masukkan ID" value="<?php echo e($fakultas->id_universitas); ?>" required>
 					</div>
 				</div>
 
-			<!-- Menampilkan textarea -->
+								<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Alamat</label>
+					<label for="nim" class="col-sm-2 control-label">kode_fakultas</label>
 					<div class="col-md-8">
-						<textarea id="alamat" name="alamat" placeholder=" Masukkan Alamat" required cols="82" rows="5">
-						</textarea>
+						<input type="text" class="form-control input-lg" id="kode_fakultas" name="kode_fakultas" placeholder="Masukkan Kode" value="<?php echo e($fakultas->kode_fakultas); ?>" required>
 					</div>
 				</div>
 
-				<!-- Menampilkan dropdown -->
+								<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Provinsi</label>
+					<label for="nim" class="col-sm-2 control-label">nama_fakultas</label>
 					<div class="col-md-8">
-						<select name="provinsi" required>
-							<option value="Jawa Timur">Jawa Timur</option>
-							<option value="Jawa Tengah">Jawa Tengah</option>
-							<option value="Jawa Barat">Jawa Barat</option>
-						</select>
+						<input type="text" class="form-control input-lg" id="nama_fakultas" name="nama_fakultas" placeholder="Masukkan ID" value="<?php echo e($fakultas->nama_fakultas); ?>" required>
 					</div>
 				</div>
 
-				<!-- Menampilkan tanggal dengan datepicker -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Masuk</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_masuk" placeholder="Masukkan Tanggal" required>
-					</div>
-				</div>
 
-				<div class="form-group text-center">
+					<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
 							Confirm
@@ -111,7 +99,6 @@ Tambah Biodata
   <script>
 $( function() {
     var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
-    $("#datepicker").datepicker("setDate", new Date());
 
   } );
   </script>

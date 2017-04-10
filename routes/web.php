@@ -85,8 +85,24 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Inventaris
     Route::group(['prefix' => 'inventaris'], function() {
+    Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
+    Route::get('index-maintenance', 'MaintenanceController@index');
+    Route::get('view-maintenance', 'MaintenanceController@viewDetail');
 
-            
+    Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
+    Route::get('index-peminjaman', 'PeminjamanController@index');
+    Route::get('view-peminjaman', 'PeminjamanController@viewDetail');
+
+    Route::get('add-asset', 'DashboardController@input');
+    Route::get('/view-asset', 'Inventaris\DashboardController@index');
+    //tugas fakultas
+    Route::get('/tugas-fakultas', 'Inventaris\TugasFakultasController@index');
+    Route::get('/tugas-create', 'Inventaris\TugasFakultasController@create');
+    Route::post('/tugas-create', 'Inventaris\TugasFakultasController@createAction');
+    Route::get('/tugas-fakultas/{id}/tugas-edit', 'Inventaris\TugasFakultasController@edit');
+    Route::post('{id}/post-tugas-edit', 'Inventaris\TugasFakultasController@editAction');
+    Route::get('/tugas-fakultas/{id}/delete','Inventaris\TugasFakultasController@delete');
+
     });
   
         

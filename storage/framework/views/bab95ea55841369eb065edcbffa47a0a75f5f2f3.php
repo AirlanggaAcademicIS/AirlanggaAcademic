@@ -1,14 +1,15 @@
 <?php $__env->startSection('htmlheader_title'); ?>
-Edit Biodata
+Tambah Fakultas
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-Edit Biodata
+Tambah Fakultas
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('code-header'); ?>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+<link rel="stylesheet" href="<?php echo e(asset('/css/dropzone.css')); ?>">
 
 <?php $__env->stopSection(); ?>
 
@@ -18,7 +19,7 @@ Edit Biodata
 		text-align: left !important;
 	}
 </style>
-
+	<!-- Ini buat menampilkan notifikasi -->
 	<?php $__currentLoopData = ['danger', 'warning', 'success', 'info']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $msg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	<?php if(Session::has('alert-' . $msg)): ?>
 <div class="alert alert-<?php echo e($msg); ?>">
@@ -44,52 +45,35 @@ Edit Biodata
 			</div>
 			<?php endif; ?>
 			<br>
-			<form id="tambahBiodata" method="post" action="<?php echo e(url('/mahasiswa/biodata/'.$biodata->id.'/edit')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahFakultas" method="post" action="<?php echo e(url('/inventaris/tugas-create')); ?>" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">NIM</label>
+					<label for="id_fakultas" class="col-sm-2 control-label">id_fakultas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" value="<?php echo e($biodata->nim); ?>" required>
+						<input type="text" class="form-control input-lg" id="id_fakultas" name="id_fakultas" placeholder="Masukkan id_fakultas" required>
 					</div>
 				</div>
 
-				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<label for="id_universitas" class="col-sm-2 control-label">id_universitas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" value="<?php echo e($biodata->nama); ?>" required>
+						<input type="text" class="form-control input-lg" id="id_universitas" name="id_universitas" placeholder="Masukkan id_universitas" required>
 					</div>
 				</div>
 
-				<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Alamat</label>
+					<label for="kode_fakultas" class="col-sm-2 control-label">kode_fakultas</label>
 					<div class="col-md-8">
-						<textarea id="alamat" name="alamat" placeholder=" Masukkan Alamat" required cols="82" rows="5"><?php echo e($biodata->alamat); ?>
-
-						</textarea>
+						<input type="text" class="form-control input-lg" id="kode_fakultas" name="kode_fakultas" placeholder="Masukkan kode_fakultas" required>
 					</div>
 				</div>
 
-				<!-- Menampilkan dropdown -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Provinsi</label>
+					<label for="nama_fakultas" class="col-sm-2 control-label">nama_fakultas</label>
 					<div class="col-md-8">
-						<select name="provinsi" required>
-							<option value="Jawa Timur">Jawa Timur</option>
-							<option value="Jawa Tengah">Jawa Tengah</option>
-							<option value="Jawa Barat">Jawa Barat</option>
-						</select>
-					</div>
-				</div>
-
-				<!-- Menampilkan tanggal dengan datepicker -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Masuk</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_masuk" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="nama_fakultas" name="nama_fakultas" placeholder="Masukkan nama_fakultas" required>
 					</div>
 				</div>
 
