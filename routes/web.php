@@ -732,8 +732,3 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('view-asset', 'HomeController@index');
 
     });
-
-  
-        
-        
-});

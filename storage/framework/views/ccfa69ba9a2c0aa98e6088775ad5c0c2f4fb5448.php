@@ -145,6 +145,7 @@
             <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
 
             <li
             <?php if($page == 'biodata'): ?>
@@ -156,6 +157,9 @@
             <a href="<?php echo e(url('kurikulum/kodecpmatkul')); ?>"><i class='fa fa-book'></i> <span> Kode CP Matkul</span></a>
             </li>
 
+=======
+
+>>>>>>> 77af1278244e14d96346cf660240e4319ac363e3
             <li
             <?php if($page == 'capaian-program'): ?>
             <?php echo 'class="active"'; ?>
@@ -248,7 +252,10 @@
             <a href="<?php echo e(url('monitoring-skripsi/skripsi')); ?>"><i class='fa fa-book'></i><span> Skripsi</span></a>
             </li>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 77af1278244e14d96346cf660240e4319ac363e3
             <li
                 <?php if($page == 'KBK'): ?>
                 <?php echo 'class="active"'; ?>
@@ -328,6 +335,7 @@
                 <li><a href="<?php echo e(url('/pengelolaan-kegiatan/uploadDokumentasi')); ?>">Upload</a></li>
             <!-- Sidebarnya ditaruh dibawah sini -->
             <!-- $page nya sesuaiin sama yang di controller -->
+<<<<<<< HEAD
 
             <!-- Sidebar Biodata -->
             <!-- $page nya sesuaiin sama yang di controller -->
@@ -335,6 +343,15 @@
             <?php if($page == 'pengajuan'): ?>
             <?php echo 'class="active"'; ?>
 
+=======
+
+            <!-- Sidebar Biodata -->
+            <!-- $page nya sesuaiin sama yang di controller -->
+            <li
+            <?php if($page == 'pengajuan'): ?>
+            <?php echo 'class="active"'; ?>
+
+>>>>>>> 77af1278244e14d96346cf660240e4319ac363e3
             <?php endif; ?>
             >
             <!-- Href menuju ke url mahasiswa/biodata -->
@@ -370,6 +387,11 @@
             <!-- Href menuju ke url pla/jadwal-permohonan-ruangan/view -->
                 <a href="<?php echo e(url('pla/jadwal-permohonan/view')); ?>"><i class='fa fa-book'></i> <span>Jadwal Permohonan</span></a>
                 </li>    
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 77af1278244e14d96346cf660240e4319ac363e3
             <li
                 <?php if($page == 'suratmasuk'): ?>
                 <?php echo 'class="active"'; ?>

@@ -52,22 +52,32 @@
 
             <?php endif; ?>
             >
-            <a href="<?php echo e(url('/biodata')); ?>"><i class="fa fa-book"></i> Biodata</a>
+                <a href="<?php echo e(url('/mahasiswa/biodata')); ?>"><i class="fa fa-book"></i> Biodata</a>
             </li>
-
-
+                        <!-- Href menuju ke url mahasiswa/kemahasiswaan/prestasi -->
+                        <li><a href="<?php echo e(url('/mahasiswa/prestasi')); ?>"><i class="fa fa-edit"></i> Prestasi</a></li>
+                <!-- $page nya sesuaiin sama yang di controller -->
             <li
-            <?php if($page == 'kemahasiswaan'): ?>
+            <?php if($page == 'biodata'): ?>
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
             >
-                <a href="#"><i class="fa fa-user-secret"></i> Kemahasiswaan
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                    <ul class="treeview-menu">
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="<?php echo e(url('mahasiswa/biodata')); ?>"><i class='fa fa-book'></i> <span> Biodata</span>
+            </a>
+            </li>
+
+            <li
+            <?php if($page == 'biodatamahasiswa'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="<?php echo e(url('mahasiswa/biodata-mahasiswa')); ?>"><i class='fa fa-book'></i> <span> Biodata Mahasiswa</span></a>
+          
+            </li>
                         <!-- Href menuju ke url mahasiswa/kemahasiswaan/penelitian -->
                         <li 
                         <?php if($page == 'penelitian'): ?>
@@ -75,11 +85,8 @@
 
                         <?php endif; ?>
                         ><a href="<?php echo e(url('/mahasiswa/penelitian')); ?>"><i class="fa fa-edit"></i> Penelitian
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
                             </a>
-                                <ul class="treeview-menu">
+                            </li>
                                     <!-- Href menuju ke url mahasiswa/kemahasiswaan/penelitian -->
                                     <li
                                     <?php if($page == 'detailpenelitian'): ?>
@@ -88,12 +95,8 @@
                                     <?php endif; ?>
                                     ><a href="<?php echo e(url('/mahasiswa/detailpenelitian')); ?>"><i class="fa fa-edit"></i>Detail Penelitian</a></li>
                                     <li><a href="<?php echo e(url('/mahasiswa/detailanggota')); ?>"><i class="fa fa-edit"></i>Detail Anggota</a></li>
-                                </ul>
-                        </li>
                         <!-- Href menuju ke url mahasiswa/kemahasiswaan/prestasi -->
                         <li><a href="<?php echo e(url('/mahasiswa/prestasi')); ?>"><i class="fa fa-edit"></i> Prestasi</a></li>
-                    </ul>
-                </li>
                 <!-- $page nya sesuaiin sama yang di controller -->
             <li
             <?php if($page == 'biodata'): ?>
@@ -106,6 +109,8 @@
                   
                 </ul>
             </li>
+             
+
 
             <!-- Modul Dosen -->
             <li>
@@ -113,14 +118,13 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
 
-
             <li
 
             <li <?php if($page == 'pengmas'): ?>
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
-            ><a href="<?php echo e(url('/dosen/pengmas')); ?>">Pengabdian Masyarakat</a></li>
+            ><a href="<?php echo e(url('/dosen/pengmas')); ?>"><i class='fa fa-book'></i> <span> Pengabdian Masyarakat</span></a></li>
 
            <li
             <?php if($page == 'konferensi'): ?>
@@ -135,14 +139,19 @@
 
             <li><a href="<?php echo e(url('/dosen/konferensi/index')); ?>">Konferensi</a></li>
 
+            <li><a href="<?php echo e(url('/dosen/pengmas/index')); ?>"><i class='fa fa-book'></i>Pengabdian Masyarakat</a></li>
+
+          
+            <li><a href="<?php echo e(url('/dosen/konferensi/index')); ?>"><i class='fa fa-book'></i>Konferensi</a></li>
             <li
             <?php if($page == 'penelitian'): ?>
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
-            ><a href="<?php echo e(url('/dosen/penelitian')); ?>">Penelitian</a>
+            ><a href="<?php echo e(url('/dosen/penelitian')); ?>"><i class='fa fa-book'></i>Penelitian</a>
             </li>                 
             <li><a href="<?php echo e(url('/dosen/jurnal/index')); ?>">Jurnal</a></li>  
+            <li><a href="<?php echo e(url('/dosen/jurnal/index')); ?>"><i class='fa fa-book'></i>Jurnal</a></li>  
             <li
 
             <?php if($page == 'sktugas'): ?>
@@ -174,6 +183,16 @@
             <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+
+            <li
+            <?php if($page == 'capaian-program'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url kurikulum/capaian-program -->
+            <a href="<?php echo e(url('kurikulum/capaian-program')); ?>"><i class='fa fa-book'></i> <span> Capaian Program</span></a>
+
             <li
             <?php if($page == 'kategori-media-pembelajaran'): ?>
             <?php echo 'class="active"'; ?>
@@ -182,6 +201,7 @@
             >
             <!-- Href menuju ke url mahasiswa/biodata -->
             <a href="<?php echo e(url('kurikulum/kategori-media-pembelajaran')); ?>"><i class='fa fa-book'></i> <span>Kategori Media Pembelajaran</span></a>
+
             </li>
 
             <li 
@@ -319,6 +339,15 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
             <ul class="treeview-menu">
+            <li
+                <?php if($page == 'suratmasuk'): ?>
+                <?php echo 'class="active"'; ?>
+
+                <?php endif; ?>
+                >
+            <!-- Href menuju ke url -->
+                <a href="<?php echo e(url('pla/surat-masuk')); ?>"><i class='fa fa-book'></i> <span> Surat Masuk</span></a>
+                </li>   
             <!-- Sidebarnya ditaruh dibawah sini -->
 
             </ul>
@@ -329,11 +358,25 @@
             <a href=""><i class='fa fa-users'></i> <span> Inventaris</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+
+            <!-- Sidebarnya Asset -->
+            <li
+            <?php if($page == 'asset'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url inventaris/asset -->
+            <a href="<?php echo e(url('inventaris/asset')); ?>"><i class='fa fa-book'></i> <span> Asset</span></a>
+            </li>        
+
                 <li><a href="<?php echo e(url('/index-asset')); ?>">all asset</a></li>
                 <li><a href="<?php echo e(url('/inventaris/index-peminjaman')); ?>">peminjaman</a></li>
                 <li><a href="<?php echo e(url('/index-maintenance')); ?>">maintenance</a></li>
             </ul>
             </li>
+
+            
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

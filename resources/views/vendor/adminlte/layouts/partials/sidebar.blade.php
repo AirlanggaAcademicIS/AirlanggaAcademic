@@ -303,9 +303,6 @@
                 <li><a href="{{url('/pengelolaan-kegiatan/uploadDokumentasi')}}">Upload</a></li>
             <!-- Sidebarnya ditaruh dibawah sini -->
             <!-- $page nya sesuaiin sama yang di controller -->
-
-            <!-- Sidebar Biodata -->
-            <!-- $page nya sesuaiin sama yang di controller -->
             <li
             @if($page == 'pengajuan')
             {!! 'class="active"'!!}
@@ -341,7 +338,7 @@
                 >
             <!-- Href menuju ke url pla/jadwal-permohonan-ruangan/view -->
                 <a href="{{ url('pla/jadwal-permohonan/view') }}"><i class='fa fa-book'></i> <span>Jadwal Permohonan</span></a>
-                </li>    
+                </li>
             <li
                 @if($page == 'suratmasuk')
                 {!! 'class="active"'!!}
