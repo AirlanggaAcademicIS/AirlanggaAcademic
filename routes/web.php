@@ -178,7 +178,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'kurikulum'], function() {
 
         // Menampilkan tabel
-
         Route::get('capaian-pembelajaran','Kurikulum\CapaianPembelajaranController@index');
 
         // Menampilkan form tambah biodata
@@ -195,8 +194,6 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Mengupdate biodata dengan isi dari form
         Route::post('capaian-pembelajaran/{id}/edit','Kurikulum\CapaianPembelajaranController@editAction');
-
- 
 
         Route::get('sistem-pembelajaran','Kurikulum\SistemPembelajaranController@index');
 
@@ -380,8 +377,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('jurnal/{id}/edit','Dosen\JurnalController@editAction');     
 
     });
-
-
     // Modul Pengelolaan Kegiatan
     Route::group(['prefix' => 'pengelolaan-kegiatan'], function() {
 
