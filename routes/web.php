@@ -73,7 +73,23 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Kurikulum
     Route::group(['prefix' => 'kurikulum'], function() {
+         // Menampilkan tabel
+        Route::get('capaian-program','Kurikulum\CapaianProgramController@index');
 
+        // Menampilkan form tambah biodata
+        Route::get('capaian-program/create','Kurikulum\CapaianProgramController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('capaian-program/create','Kurikulum\CapaianProgramController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('capaian-program/{id}/delete','Kurikulum\CapaianProgramController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('capaian-program/{id}/edit','Kurikulum\CapaianProgramController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('capaian-program/{id}/edit','Kurikulum\CapaianProgramController@editAction');
     });
 
     // Modul Dosen
