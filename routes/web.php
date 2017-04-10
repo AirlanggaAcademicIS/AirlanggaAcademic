@@ -45,6 +45,26 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('biodata/{id}/edit','Mahasiswa\BiodataController@editAction');
 
+<<<<<<< HEAD
+    //Fitur Biodata Mahasiswa
+        // Menampilkan tabel
+        Route::get('biodata-mahasiswa','Mahasiswa\BiodataMahasiswaController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('biodata-mahasiswa/create','Mahasiswa\BiodataMahasiswaController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('biodata-mahasiswa/create','Mahasiswa\BiodataMahasiswaController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('biodata-mahasiswa/{id}/delete','Mahasiswa\BiodataMahasiswaController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('biodata-mahasiswa/{id}/edit','Mahasiswa\BiodataMahasiswaController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('biodata-mahasiswa/{id}/edit','Mahasiswa\BiodataMahasiswaController@editAction');
+=======
         //Penelitian
         // Menampilkan tabel
         Route::get('penelitian','Mahasiswa\PenelitianController@index');
@@ -65,6 +85,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('penelitian/{kode_penelitian}/edit','Mahasiswa\PenelitianController@editAction');
 
 
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
 
     });
 
@@ -410,11 +431,37 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     // Modul Inventaris
+
+
     Route::group(['prefix' => 'inventaris'], function() {
+<<<<<<< HEAD
+    
+    // Menampilkan tabel
+    Route::get('asset','Inventaris\AssetController@index');
+    
+    // Menampilkan form tambah asset
+    Route::get('asset/create','Inventaris\AssetController@create');
+    
+    // Menambahkan form yg di isi tadi ke tabel asset
+    Route::post('asset/create','Inventaris\AssetController@createAction');
+    
+    // Menghapus asset sesuai id yang dipilih
+    Route::get('asset/{id}/delete','Inventaris\AssetController@delete');
+
+    // Menampilkan form edit asset dari id yg dipilih
+    Route::get('asset/{id}/edit','Inventaris\AssetController@edit');
+
+    // Mengupdate asset dengan isi dari form
+    Route::post('asset/{id}/edit','Inventaris\AssetController@editAction');
+
+        
+       
+=======
 <<<<<<< HEAD
     Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
     Route::get('index-maintenance', 'MaintenanceController@index');
     Route::get('view-maintenance', 'MaintenanceController@viewDetail');
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
 
     Route::get('input-peminjaman', 'PeminjamanController@inputPeminjaman');
     Route::get('index-peminjaman', 'PeminjamanController@index');

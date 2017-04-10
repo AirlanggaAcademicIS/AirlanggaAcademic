@@ -50,6 +50,24 @@
             {!! 'class="active"'!!}
             @endif
             >
+<<<<<<< HEAD
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="{{ url('mahasiswa/biodata') }}"><i class='fa fa-book'></i> <span> Biodata</span>
+            </a>
+            </li>
+
+            <li
+            @if($page == 'biodatamahasiswa')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="{{ url('mahasiswa/biodata-mahasiswa') }}"><i class='fa fa-book'></i> <span> Biodata Mahasiswa</span></a>
+          
+            </li>
+
+            </ul>
+=======
             <a href="{{url('/biodata')}}"><i class="fa fa-book"></i> Biodata</a>
             </li>
 
@@ -99,6 +117,7 @@
             </li>
                   
                 </ul>
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             </li>
 
             <!-- Modul Dosen -->
@@ -328,11 +347,25 @@
             <a href=""><i class='fa fa-users'></i> <span> Inventaris</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
+            <!-- Sidebarnya Asset -->
+            <li
+            @if($page == 'asset')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url inventaris/asset -->
+            <a href="{{ url('inventaris/asset') }}"><i class='fa fa-book'></i> <span> Asset</span></a>
+            </li>        
+=======
                 <li><a href="{{ url('/index-asset')}}">all asset</a></li>
                 <li><a href="{{url('/inventaris/index-peminjaman')}}">peminjaman</a></li>
                 <li><a href="{{url('/index-maintenance')}}">maintenance</a></li>
+>>>>>>> 0fb901520af6cfcf518ac53dc66592c40b1bde38
             </ul>
             </li>
+
+            
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
