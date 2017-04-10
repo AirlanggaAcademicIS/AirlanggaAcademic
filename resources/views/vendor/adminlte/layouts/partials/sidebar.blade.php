@@ -236,14 +236,14 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
             <li
-<<<<<<< HEAD
+
             @if($page == 'capaian-pembelajaran')
             {!! 'class="active"'!!}
              @endif
             >
             <!-- Href menuju ke url kurikulum/capaian-pembelajaran -->
             <a href="{{ url('kurikulum/capaian-pembelajaran') }}"><i class='fa fa-book'></i> <span> Capaian Pembelajaran</span></a>
-=======
+
             @if($page == 'sistem_pembelajaran')
 
             <li
@@ -265,7 +265,6 @@
             </li> 
             <a href="{{ url('kurikulum/kategori-media-pembelajaran') }}"><i class='fa fa-book'></i> <span>Kategori Media Pembelajaran</span></a>
 
->>>>>>> 7c83ec3496cbd971ce57b5e6ae79ef5692345591
             </li>
 
             <li 
@@ -374,7 +373,7 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan</span></a>
             <ul class="treeview-menu">
-<<<<<<< HEAD
+
             <!-- Sidebar Jabatan -->
             <!-- $page nya sesuaiin sama yang di controller -->
             <li
@@ -385,7 +384,7 @@
             <!-- Href menuju ke url pengelolaan kegiatan/jabatan -->
             <a href="{{ url('pengelolaan-kegiatan/jabatan') }}"><i class='fa fa-book'></i> <span> Jabatan</span></a>
             </li>        
-=======
+
             <!-- Sidebarnya ditaruh dibawah sini -->
             <li
             @if($page == 'rinciandana')
@@ -394,7 +393,6 @@
             >
             <a href="{{ url('pengelolaan-kegiatan/rincian-dana') }}"><i class='fafa-book'></i>i> <span> Rincian Dana </span></a>
             </li>
->>>>>>> da273a32c4a3875035ecd0320fc9d8b3a19f3738
             </ul>
             </li>
 
