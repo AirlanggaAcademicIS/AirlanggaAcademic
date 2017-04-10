@@ -52,7 +52,23 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul Kurikulum
     Route::group(['prefix' => 'kurikulum'], function() {
+        // Menampilkan tabel
+        Route::get('sistem-pembelajaran','Kurikulum\SistemPembelajaranController@index');
 
+        // Menampilkan form tambah biodata
+        Route::get('sistem-pembelajaran/create','Kurikulum\SistemPembelajaranController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('sistem-pembelajaran/create','Kurikulum\SistemPembelajaranController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('sistem-pembelajaran/{id}/delete','Kurikulum\SistemPembelajaranController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('sistem-pembelajaran/{id}/edit','Kurikulum\SistemPembelajaranController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('sistem-pembelajaran/{id}/edit','Kurikulum\SistemPembelajaranController@editAction');
     });
 
     // Modul Dosen
