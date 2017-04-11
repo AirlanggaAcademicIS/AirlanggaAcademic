@@ -88,6 +88,23 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Modul PLA
     Route::group(['prefix' => 'pla'], function() {
+        // Menampilkan tabel
+        Route::get('surat-keluar-mhs','pla\SuratKeluarMhsController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('surat-keluar-mhs/create','pla\SuratKeluarMhsController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('surat-keluar-mhs/create','pla\SuratKeluarMhsController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('surat-keluar-mhs/{id}/delete','pla\SuratKeluarMhsController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('surat-keluar-mhs/{id}/edit','pla\SuratKeluarMhsController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('surat-keluar-mhs/{id}/edit','pla\SuratKeluarMhsController@editAction');
                 
 
     });
