@@ -50,10 +50,16 @@
             {!! 'class="active"'!!}
             @endif
             >
-<<<<<<< HEAD
-                <a href="{{url('/biodata')}}"><i class="fa fa-book"></i> Biodata</a>
-=======
-
+                <a href="{{url('/mahasiswa/biodata')}}"><i class="fa fa-book"></i> Biodata</a>
+            </li>
+                        <!-- Href menuju ke url mahasiswa/kemahasiswaan/prestasi -->
+                        <li><a href="{{url('/mahasiswa/prestasi')}}"><i class="fa fa-edit"></i> Prestasi</a></li>
+                <!-- $page nya sesuaiin sama yang di controller -->
+            <li
+            @if($page == 'biodata')
+            {!! 'class="active"'!!}
+            @endif
+            >
             <!-- Href menuju ke url mahasiswa/biodata -->
             <a href="{{ url('mahasiswa/biodata') }}"><i class='fa fa-book'></i> <span> Biodata</span>
             </a>
@@ -68,35 +74,14 @@
             <a href="{{ url('mahasiswa/biodata-mahasiswa') }}"><i class='fa fa-book'></i> <span> Biodata Mahasiswa</span></a>
           
             </li>
-
-            </ul>
-
-            <a href="{{url('/biodata')}}"><i class="fa fa-book"></i> Biodata</a>
-            </li>
-
-
-            <li
-            @if($page == 'kemahasiswaan')
-            {!! 'class="active"'!!}
-            @endif
-            >
-                <a href="#"><i class="fa fa-user-secret"></i> Kemahasiswaan
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                    <ul class="treeview-menu">
                         <!-- Href menuju ke url mahasiswa/kemahasiswaan/penelitian -->
                         <li 
                         @if($page == 'penelitian')
                         {!! 'class="active"'!!}
                         @endif
                         ><a href="{{url('/mahasiswa/penelitian')}}"><i class="fa fa-edit"></i> Penelitian
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
                             </a>
-                                <ul class="treeview-menu">
+                            </li>
                                     <!-- Href menuju ke url mahasiswa/kemahasiswaan/penelitian -->
                                     <li
                                     @if($page == 'detailpenelitian')
@@ -104,12 +89,8 @@
                                     @endif
                                     ><a href="{{url('/mahasiswa/detailpenelitian')}}"><i class="fa fa-edit"></i>Detail Penelitian</a></li>
                                     <li><a href="{{url('/mahasiswa/detailanggota')}}"><i class="fa fa-edit"></i>Detail Anggota</a></li>
-                                </ul>
-                        </li>
                         <!-- Href menuju ke url mahasiswa/kemahasiswaan/prestasi -->
                         <li><a href="{{url('/mahasiswa/prestasi')}}"><i class="fa fa-edit"></i> Prestasi</a></li>
-                    </ul>
-                </li>
                 <!-- $page nya sesuaiin sama yang di controller -->
             <li
             @if($page == 'biodata')
@@ -120,58 +101,9 @@
             </li>
                   
                 </ul>
->>>>>>> fcd98f1f1265bf7aa81c42cd68bd909c3edc20dc
             </li>
              
-            <!-- Sidebar Kemahasiswaan -->
-            <!-- $page nya sesuaiin sama yang di controller -->
-            <li
-            @if($page == 'kemahasiswaan')
-            {!! 'class="active"'!!}
-            @endif
-            >
-                <a href="#"><i class="fa fa-user-secret"></i> Kemahasiswaan
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                    <ul class="treeview-menu">
-                        <!-- Href menuju ke url mahasiswa/kemahasiswaan/penelitian -->
-                        <li 
-                        @if($page == 'penelitian')
-                        {!! 'class="active"'!!}
-                        @endif
-                        ><a href="{{url('/mahasiswa/penelitian')}}"><i class="fa fa-edit"></i> Penelitian
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                                <ul class="treeview-menu">
-                                    <!-- Href menuju ke url mahasiswa/kemahasiswaan/penelitian -->
-                                    <li
-                                    @if($page == 'detailpenelitian')
-                                    {!! 'class="active"'!!}
-                                    @endif
-                                    ><a href="{{url('/mahasiswa/detailpenelitian')}}"><i class="fa fa-edit"></i>Detail Penelitian</a></li>
-                                    <!-- Href menuju ke url mahasiswa/kemahasiswaan/prestasi -->
-                                    <li><a href="{{url('/mahasiswa/detailanggota')}}"><i class="fa fa-edit"></i>Detail Anggota</a></li>
-                                </ul>
-                        </li>
-                        <!-- Href menuju ke url mahasiswa/kemahasiswaan/prestasi -->
-                        <li><a href="{{url('/mahasiswa/prestasi')}}"><i class="fa fa-edit"></i> Prestasi</a></li>
-                    </ul>
-                </li>
-                <!-- $page nya sesuaiin sama yang di controller -->
-            <li
-            @if($page == 'biodata')
-            {!! 'class="active"'!!}
-            @endif
-            >
-                <a href="{{url('/mahasiswa/akun')}}"><i class="fa fa-book"></i> Akun Mahasiswa</a>
-            </li>
-                  
-                </ul>
-            </li>  
+
 
             <!-- Modul Dosen -->
             <li>
@@ -179,12 +111,10 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
 
-            <li
-
             <li @if($page == 'pengmas')
             {!! 'class="active"'!!}
             @endif
-            ><a href="{{url('/dosen/pengmas')}}">Pengabdian Masyarakat</a></li>
+            ><a href="{{url('/dosen/pengmas')}}"><i class='fa fa-book'></i> <span> Pengabdian Masyarakat</span></a></li>
 
            <li
             @if($page == 'konferensi')
@@ -194,17 +124,17 @@
             <!-- Href menuju ke url mahasiswa/biodata -->
             <a href="{{ url('dosen/konferensi') }}"><i class='fa fa-book'></i> <span> Konferensi</span></a>
             </li> 
-            <li><a href="{{url('/dosen/pengmas/index')}}">Pengabdian Masyarakat</a></li>
+            <li><a href="{{url('/dosen/pengmas/index')}}"><i class='fa fa-book'></i>Pengabdian Masyarakat</a></li>
 
           
-            <li><a href="{{ url('/dosen/konferensi/index') }}">Konferensi</a></li>
+            <li><a href="{{ url('/dosen/konferensi/index') }}"><i class='fa fa-book'></i>Konferensi</a></li>
             <li
             @if($page == 'penelitian')
             {!! 'class="active"'!!}
             @endif
-            ><a href="{{url('/dosen/penelitian')}}">Penelitian</a>
+            ><a href="{{url('/dosen/penelitian')}}"><i class='fa fa-book'></i>Penelitian</a>
             </li>                 
-            <li><a href="{{url('/dosen/jurnal/index')}}">Jurnal</a></li>  
+            <li><a href="{{url('/dosen/jurnal/index')}}"><i class='fa fa-book'></i>Jurnal</a></li>  
             <li
 
             @if($page == 'sktugas')
@@ -237,11 +167,6 @@
             <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
-<<<<<<< HEAD
-            <li
-            @if($page == 'sistem_pembelajaran')
-=======
-
             <li
             @if($page == 'capaian-program')
             {!! 'class="active"'!!}
@@ -252,15 +177,10 @@
 
             <li
             @if($page == 'kategori-media-pembelajaran')
->>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
             {!! 'class="active"'!!}
             @endif
             >
             <!-- Href menuju ke url mahasiswa/biodata -->
-<<<<<<< HEAD
-            <a href="{{ url('kurikulum/sistem-pembelajaran') }}"><i class='fa fa-book'></i> <span> Sistem Pembelajaran</span></a>
-            </li> 
-=======
             <a href="{{ url('kurikulum/kategori-media-pembelajaran') }}"><i class='fa fa-book'></i> <span>Kategori Media Pembelajaran</span></a>
 
             </li>
@@ -273,7 +193,6 @@
             </li> 
             <a href="{{ url('/kurikulum/universitas') }}"><i class='fa fa-book'></i> <span> Universitas</span></a>
             </li>        
->>>>>>> 5fba53132d09ee9087a2b352f59267c50b2061ae
             </ul>
             </li>
 
@@ -284,6 +203,14 @@
             <!-- Sidebarnya ditaruh dibawah sini -->
             
             <!-- Sidebarnya ditaruh dibawah sini -->
+             <li
+            @if($page == 'Hari')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url notulensi/dosenrapat -->
+            <a href="{{ url('krs-khs/Hari') }}"><i class='fa fa-book'></i> <span>Hari</span></a>
+            </li>        
             <li
             @if($page == 'JenisPenilaian')
             {!! 'class="active"'!!}
@@ -400,8 +327,6 @@
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
 
-<<<<<<< HEAD
-=======
             <!-- Sidebarnya Asset -->
             <li
             @if($page == 'asset')
@@ -415,7 +340,6 @@
                 <li><a href="{{ url('/index-asset')}}">all asset</a></li>
                 <li><a href="{{url('/inventaris/index-peminjaman')}}">peminjaman</a></li>
                 <li><a href="{{url('/index-maintenance')}}">maintenance</a></li>
->>>>>>> fcd98f1f1265bf7aa81c42cd68bd909c3edc20dc
             </ul>
             </li>
 

@@ -45,7 +45,6 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('biodata/{id}/edit','Mahasiswa\BiodataController@editAction');
 
-<<<<<<< HEAD
         // Menampilkan tabel
         Route::get('detailanggota','Mahasiswa\DetailAnggotaController@index');
 
@@ -63,7 +62,7 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Mengupdate biodata dengan isi dari form
         Route::post('detailanggota/{id}/edit','Mahasiswa\DetailAnggotaController@editAction');
-=======
+
 
     //Detail Penelitian
 
@@ -125,7 +124,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('penelitian/{kode_penelitian}/edit','Mahasiswa\PenelitianController@editAction');
 
 
->>>>>>> fcd98f1f1265bf7aa81c42cd68bd909c3edc20dc
 
     });
 
@@ -151,16 +149,29 @@ Route::group(['middleware' => ['auth']], function () {
         // Mengupdate biodata dengan isi dari form
         Route::post('JenisPenilaian/{id}/edit','KrsKhs\JenisPenilaianController@editAction');
 
-<<<<<<< HEAD
+
+        // Menampilkan tabel
+        Route::get('Hari','KrsKhs\HariController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('Hari/create','KrsKhs\HariController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('Hari/create','KrsKhs\HariController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('Hari/{id}/delete','KrsKhs\HariController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('Hari/{id}/edit','KrsKhs\HariController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('Hari/{id}/edit','KrsKhs\HariController@editAction');
+
     });
        
-      
-=======
->>>>>>> fcd98f1f1265bf7aa81c42cd68bd909c3edc20dc
 
-
-    });
-        
+           
     // Modul Kurikulum
     Route::group(['prefix' => 'kurikulum'], function() {
 
