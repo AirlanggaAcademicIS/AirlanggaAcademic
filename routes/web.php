@@ -726,11 +726,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/{id}/{id2}/editPemohon','pla\PermohonanSuratController@edit');
 
         // Mengupdate biodata dengan isi dari form
-        Route::post('/{id}/{id2}/edit','pla\PermohonanSuratController@editAction');   
-    // Menampilkan tabel
+        Route::post('/{id}/{id2}/edit','pla\PermohonanSuratController@editAction');  
+
+        // Menampilkan tabel
         Route::get('/surat-masuk','pla\Surat_MasukController@index');           
 
-    // Menampilkan form tambah biodata
+        // Menampilkan form tambah biodata
         Route::get('surat-masuk/create','pla\Surat_MasukController@create');
     // Menambahkan form yg di isi tadi ke tabel biodata
         Route::post('surat-masuk/create','pla\Surat_MasukController@createAction');
@@ -744,18 +745,26 @@ Route::group(['middleware' => ['auth']], function () {
     // Menampilkan form tambah biodata
         Route::get('surat-masuk/create','pla\Surat_MasukController@create');
 
-    // Menambahkan form yg di isi tadi ke tabel biodata
+        // Menambahkan form yg di isi tadi ke tabel biodata
         Route::post('surat-masuk/create','pla\Surat_MasukController@createAction');
 
-    // Menghapus biodata sesuai id yang dipilih
+        // Menghapus biodata sesuai id yang dipilih
         Route::get('surat-masuk/{id}/delete','pla\Surat_MasukController@delete');
 
-    // Menampilkan form edit biodata dari id yg dipilih
+        // Menampilkan form edit biodata dari id yg dipilih
         Route::get('surat-masuk/{id}/edit','pla\Surat_MasukController@edit');
 
-    // Mengupdate biodata dengan isi dari form
+        // Mengupdate biodata dengan isi dari form
         Route::post('surat-masuk/{id}/edit','pla\Surat_MasukController@editAction');
 
+
+        // Menampilkan tabel surat keluar dosen
+        Route::get('surat-keluar-dosen','pla\SuratKeluarDosenController@index');
+
+        // Menampilkan tabel surat keluar dosen
+        Route::get('surat-keluar-dosen/create','pla\SuratKeluarDosenController@create');
+
+    });
 
     });
     // Modul Notulensi
