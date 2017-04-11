@@ -1,9 +1,9 @@
 <?php $__env->startSection('htmlheader_title'); ?>
-Tambah Biodata
+Tambah Capaian Pembelajaran
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-Tambah Biodata
+Tambah Capaian Pembelajaran
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('code-header'); ?>
@@ -45,7 +45,7 @@ Tambah Biodata
 			</div>
 			<?php endif; ?>
 			<br>
-			<form id="tambahBiodata" method="post" action="<?php echo e(url('/mahasiswa/biodata/create')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahCapaianPembelajaran" method="post" action="<?php echo e(url('/Kurikulum/capaian-pembelajaran/create')); ?>" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
 				<!-- Menampilkan input text biasa -->

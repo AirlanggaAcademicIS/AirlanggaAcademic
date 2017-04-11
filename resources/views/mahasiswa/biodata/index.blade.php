@@ -52,7 +52,7 @@ Biodata
       <td width="15%" style="text-align:center">{{$bio->nama}}</td>
       <td width="20%" style="text-align:center">{{$bio->alamat}}</td>
       <td width="10%" style="text-align:center">{{$bio->provinsi}}</td>
-      <td width="10%" style="text-align:center">{{$bio->tanggal_masuk}}</td>
+      <td width="10%" style="text-align:center"> {!!App\Helpers\GeneralHelper::indonesianDateFormat($bio->tanggal_masuk)!!}</td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus biodata ini?');" href="{{url('/mahasiswa/biodata/'.$bio->id.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/mahasiswa/biodata/'.$bio->id.'/edit/')}}" class="btn btn-warning btn-xs">

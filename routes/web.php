@@ -138,6 +138,22 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'krs-khs'], function() {
     // Url CRUD
 
+        Route::group(['prefix' => 'ruang'], function() {
+    // Url CRUD
+        // Menampilkan tabel
+        Route::get('view','KrsKhs\RuangController@index');
+        // Menampilkan form tambah biodata
+        Route::get('create','KrsKhs\RuangController@create');
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('create','KrsKhs\RuangController@createAction');
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('/{id}/delete','KrsKhs\RuangController@delete');
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('/{id}/edit','KrsKhs\RuangController@edit');
+        // Mengupdate biodata dengan isi dari form
+        Route::post('/{id}/edit','KrsKhs\RuangController@editAction');
+    });
+
         // Menampilkan tabel
         Route::get('JenisPenilaian','KrsKhs\JenisPenilaianController@index');
 
@@ -175,6 +191,27 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Mengupdate biodata dengan isi dari form
         Route::post('TahunAkademik/{id_tahun}/edit','KrsKhs\TahunAkademikController@editAction');
+            // Jam
+        Route::group(['prefix' => 'jam'], function() {
+
+            // Menampilkan tabel
+        Route::get('view','KrsKhs\JamController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('create','KrsKhs\JamController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('create','KrsKhs\JamController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('/{id}/delete','KrsKhs\JamController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('/{id}/edit','KrsKhs\JamController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('/{id}/edit','KrsKhs\JamController@editAction');
+    });
     });
         
     // Modul Kurikulum
@@ -250,7 +287,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('{id}/delete','Kurikulum\KategoriMediaPembelajaranController@delete');
 
             Route::get('{id}/edit','Kurikulum\KategoriMediaPembelajaranController@edit');
-
+            });
         // Menampilkan tabel
             Route::get('prodi','Kurikulum\ProdiController@index');
         // Menampilkan form tambah biodata
@@ -284,9 +321,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 
             Route::post('{id}/edit','Kurikulum\KategoriMediaPembelajaranController@editAction');
-            
-
-    });
+ 
         });
 
     // Modul Dosen

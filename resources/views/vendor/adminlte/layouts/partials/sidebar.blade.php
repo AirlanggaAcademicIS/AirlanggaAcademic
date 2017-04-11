@@ -171,6 +171,17 @@
             <a href=""><i class='fa fa-users'></i> <span> Krs-Khs</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+            <li    
+               @if($page == 'ruang')
+                 {!! 'class="active"'!!}
+               @endif
+                 >
+             <!-- Href menuju ke url krs-khs/ruang/view -->
+                 <a href="{{ url('krs-khs/ruang/view') }}"><i class='fa fa-book'></i> <span> Ruang</span></a>
+                </li>
+                <li>
+                <a href="{{ url('krs-khs/jam/view') }}"><i class='fa fa-clock-o'></i> <span> Jam</span></a>
+                </li>  
              <li
             @if($page == 'JadwalKuliah')
             {!! 'class="active"'!!}
