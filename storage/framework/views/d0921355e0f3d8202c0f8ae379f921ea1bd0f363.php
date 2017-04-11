@@ -1,9 +1,9 @@
 <?php $__env->startSection('htmlheader_title'); ?>
-Tambah Biodata
+Tambah Rincian Dana
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-Tambah Biodata
+Tambah Rincian Dana
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('code-header'); ?>
@@ -45,52 +45,33 @@ Tambah Biodata
 			</div>
 			<?php endif; ?>
 			<br>
-			<form id="tambahBiodata" method="post" action="<?php echo e(url('/mahasiswa/biodata/create')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahRincianDana" method="post" action="<?php echo e(url('/pengelolaan-kegiatan/rincian_dana/create')); ?>" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">NIM</label>
+					<label for="kode_rincian" class="col-sm-2 control-label">Kode Rincian</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" required>
+						<input type="text" class="form-control input-lg" id="kode_rincian" name="kode_rincian" placeholder="Masukkan Kode Rincian" required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<label for="nama_barang" class="col-sm-2 control-label">Nama Barang</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="nama_barang" name="nama_barang" placeholder="Masukkan Nama Barang" required>
 					</div>
 				</div>
 
 			<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Alamat</label>
+					<label for="quantity" class="col-sm-2 control-label">Quantity</label>
 					<div class="col-md-8">
-						<textarea id="alamat" name="alamat" placeholder=" Masukkan Alamat" required cols="82" rows="5">
-						</textarea>
+						<input type="text" class="form-control input-lg" id="quantity" name="quantity" placeholder=" Masukkan Quantity" required>
+						
 					</div>
 				</div>
-
-				<!-- Menampilkan dropdown -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Provinsi</label>
-					<div class="col-md-8">
-						<select name="provinsi" required>
-							<option value="Jawa Timur">Jawa Timur</option>
-							<option value="Jawa Tengah">Jawa Tengah</option>
-							<option value="Jawa Barat">Jawa Barat</option>
-						</select>
-					</div>
-				</div>
-
-				<!-- Menampilkan tanggal dengan datepicker -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Masuk</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_masuk" placeholder="Masukkan Tanggal" required>
-					</div>
-				</div>
+				
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
@@ -109,8 +90,6 @@ Tambah Biodata
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-$( function() {
-    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
 
   } );
   </script>

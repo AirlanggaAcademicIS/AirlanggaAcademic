@@ -1,15 +1,14 @@
 <?php $__env->startSection('htmlheader_title'); ?>
-Tambah Biodata
+Edit Surat Keluar
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-Tambah Biodata
+Edit Surat Keluar
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('code-header'); ?>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="<?php echo e(asset('/css/dropzone.css')); ?>">
 
 <?php $__env->stopSection(); ?>
 
@@ -19,7 +18,7 @@ Tambah Biodata
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	<?php $__currentLoopData = ['danger', 'warning', 'success', 'info']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $msg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	<?php if(Session::has('alert-' . $msg)): ?>
 <div class="alert alert-<?php echo e($msg); ?>">
@@ -45,35 +44,45 @@ Tambah Biodata
 			</div>
 			<?php endif; ?>
 			<br>
-			<form id="tambahBiodata" method="post" action="<?php echo e(url('/mahasiswa/biodata/create')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahBiodata" method="post" action="<?php echo e(url('/pla/surat-keluar-mhs/'.$surat_keluar_mhs->id.'/edit')); ?>" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">NIM</label>
+					<label for="nim" class="col-sm-2 control-label">NIP Petugas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" required>
+						<input type="text" class="form-control input-lg" id="nip_petugas" name="nip_petugas" placeholder="Masukkan NIP" value="<?php echo e($surat_keluar_mhs->nip_petugas); ?>" required>
 					</div>
 				</div>
 
+				<!-- Menampilkan input text biasa -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Nama Lembaga</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nama_lembaga" name="nama_lembaga" placeholder="Masukkan Nama Lembaga" value="<?php echo e($surat_keluar_mhs->nama_lembaga); ?>" required>
+					</div>
+				</div>
+
+				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Nama</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" value="<?php echo e($surat_keluar_mhs->nama); ?>" required>
 					</div>
 				</div>
 
-			<!-- Menampilkan textarea -->
+				<!-- Menampilkan textarea -->
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Alamat</label>
 					<div class="col-md-8">
-						<textarea id="alamat" name="alamat" placeholder=" Masukkan Alamat" required cols="82" rows="5">
+						<textarea id="alamat" name="alamat" placeholder=" Masukkan Alamat" required cols="82" rows="5"><?php echo e($surat_keluar_mhs->alamat); ?>
+
 						</textarea>
 					</div>
 				</div>
 
 				<!-- Menampilkan dropdown -->
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Provinsi</label>
 					<div class="col-md-8">
 						<select name="provinsi" required>
@@ -82,13 +91,21 @@ Tambah Biodata
 							<option value="Jawa Barat">Jawa Barat</option>
 						</select>
 					</div>
-				</div>
+				</div> -->
 
 				<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Masuk</label>
+					<label for="nama" class="col-sm-2 control-label">Tanggal Upload</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_masuk" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tgl_upload" placeholder="Masukkan Tanggal" value="<?php echo e($surat_keluar_mhs->tgl_upload); ?>" required>
+					</div>
+				</div>
+
+				<!-- Menampilkan input text biasa -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">NIM/NIP</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nim_nip" name="nim_nip" placeholder="Masukkan NIM/NIP" value="<?php echo e($surat_keluar_mhs->nim_nip); ?>" required>
 					</div>
 				</div>
 
