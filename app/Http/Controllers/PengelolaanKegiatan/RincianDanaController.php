@@ -21,6 +21,7 @@ class RincianDanaController extends Controller
     public function index()
     {
         $data = [
+<<<<<<< HEAD
             // Buat di sidebar, biar ketika diklik yg aktif sidebar rincian_dana
             'page' => 'rincian_dana',
             // Memanggil semua isi dari tabel rincian_dana
@@ -29,27 +30,52 @@ class RincianDanaController extends Controller
 
         // Memanggil tampilan index di folder mahasiswa/rincian_dana dan juga menambahkan $data tadi di view
         return view('pengelolaan-kegiatan.rincian_dana.index',$data);
+=======
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'rincian_dana',
+            // Memanggil semua isi dari tabel biodata
+            'rincian_dana' => RincianDana::all()
+        ];
+
+        // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
+        return view('pengelolaan-kegiatan.rincian-dana.index',$data);
+>>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
     }
 
     public function create()
     {
         $data = [
+<<<<<<< HEAD
             // Buat di sidebar, biar ketika diklik yg aktif sidebar rincian_dana
             'page' => 'rincian_dana',
         ];
 
         // Memanggil tampilan form create
     	return view('pengelolaan-kegiatan.rincian_dana.create',$data);
+=======
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'rincian_dana',
+
+        ];
+
+        // Memanggil tampilan form create
+    return view('pengelolaan-kegiatan.rincian-dana.create',$data);
+>>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
     }
 
     public function createAction(Request $request)
     {
+<<<<<<< HEAD
         // Menginsertkan apa yang ada di form ke dalam tabel rincian_dana
+=======
+        // Menginsertkan apa yang ada di form ke dalam tabel biodata
+>>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
         RincianDana::create($request->input());
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Rincian Dana berhasil ditambahkan');
 
+<<<<<<< HEAD
         // Kembali ke halaman mahasiswa/rincian_dana
         return Redirect::to('pengelolaan-kegiatan/rincian_dana');
     }
@@ -61,6 +87,19 @@ class RincianDanaController extends Controller
 
         // Menghapus rincian_dana yang dicari tadi
         $rincian_dana->delete();
+=======
+        // Kembali ke halaman mahasiswa/biodata
+        return Redirect::to('pengelolaan-kegiatan/rincian-dana');
+    }
+
+    public function delete($kode_rincian)
+    {
+        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
+        $rdadata = RincianDana::find($kode_rincian);
+
+        // Menghapus biodata yang dicari tadi
+        $rdadata->delete();
+>>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
 
         // Menampilkan notifikasi pesan sukses
     	Session::put('alert-success', 'Rincian Dana berhasil dihapus');
@@ -69,6 +108,7 @@ class RincianDanaController extends Controller
       	return Redirect::back();	 
     }
 
+<<<<<<< HEAD
    public function edit($id)
     {
         $data = [
@@ -91,13 +131,42 @@ class RincianDanaController extends Controller
         $rincian_dana->kode_rincian = $request->input('kode_rincian');
         $rincian_dana->nama_barang = $request->input('nama_barang');
         $rincian_dana->quantity = $request->input('quantity');        
+=======
+   public function edit($kode_rincian)
+    {
+        $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'rincian_dana',
+            // Mencari biodata berdasarkan id
+            'rincian_dana' => RincianDana::find($kode_rincian)
+        ];
+
+        // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
+        return view('pengelolaan-kegiatan.rincian-dana.edit',$data);
+    }
+
+    public function editAction($kode_rincian, Request $request)
+    {
+        // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
+        $rincian_dana = RincianDana::find($kode_rincian);
+
+        // Mengupdate $biodata tadi dengan isi dari form edit tadi
+        $rincian_dana->kode_rincian = $request->input('kode_rincian');
+        $rincian_dana->qty = $request->input('qty');
+        $rincian_dana->harga = $request->input('harga');
+>>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
         $rincian_dana->save();
 
         // Notifikasi sukses
         Session::put('alert-success', 'Rincian Dana berhasil diedit');
 
+<<<<<<< HEAD
         // Kembali ke halaman mahasiswa/rincian_dana
         return Redirect::to('pengelolaan-kegiatan/rincian_dana');
+=======
+        // Kembali ke halaman mahasiswa/biodata
+        return Redirect::to('pengelolaan-kegiatan/rincian-dana');
+>>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
     }
 
 }
