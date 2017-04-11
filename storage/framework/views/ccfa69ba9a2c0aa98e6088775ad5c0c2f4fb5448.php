@@ -315,26 +315,59 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan</span></a>
             <ul class="treeview-menu">
-                <li><a href="<?php echo e(url('/kegiatan/dokumentasi')); ?>">Dokumentasi</a></li>
-                <li><a href="<?php echo e(url('/pengelolaan-kegiatan/uploadDokumentasi')); ?>">Upload</a></li>
-            <!-- Sidebarnya ditaruh dibawah sini -->
-            <!-- $page nya sesuaiin sama yang di controller -->
 
-            <!-- Sidebar Biodata -->
-            <!-- $page nya sesuaiin sama yang di controller -->
+               <!-- Sidebar dokumentasi -->
+
+            <li
+            <?php if($page == 'dokumentasi'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url pengelolaan-kegiatan/dokumentasi -->
+            
+            <li><a href="<?php echo e(url('/pengelolaan-kegiatan/dokumentasi')); ?>"><i class='fa fa-book'></i><span> Dokumentasi</span></a></li>
+            <li><a href="<?php echo e(url('/pengelolaan-kegiatan/uploadDokumentasi')); ?>"><i class='fa fa-book'></i><span>Upload</span></a></li>
+
+             <!-- Sidebar rundown -->
+
+            <li
+            <?php if($page == 'rundown'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url pengelolaan-kegiatan/rundown -->
+            
+            <a href="<?php echo e(url('pengelolaan-kegiatan/rundown')); ?>"><i class='fa fa-book'></i> <span> Rundown</span></a>
+            </li>
+
+             <!-- Sidebar pengajuan -->
+
             <li
             <?php if($page == 'pengajuan'): ?>
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
             >
-            <!-- Href menuju ke url mahasiswa/biodata -->
 
-            <a href="<?php echo e(url('pengelolaan-kegiatan/rundown')); ?>"><i class='fa fa-book'></i> <span> Rundown</span></a>
-            </li>
+            <!-- Href menuju ke url pengelolaan-kegiatan/pengajuan -->
 
             <a href="<?php echo e(url('pengelolaan-kegiatan/pengajuan')); ?>"><i class='fa fa-book'></i> <span> Pengajuan Kegiatan</span></a>
-            </li>        
+            </li>    
+
+             <!-- Sidebar laporan pelaksanaan -->
+            <li
+            <?php if($page == 'laporan_pelaksanaan'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url pengelolaan-kegiatan/laporan_pelaksanaan -->
+
+            <a href="<?php echo e(url('pengelolaan-kegiatan/laporan_pelaksanaan')); ?>"><i class='fa fa-book'></i> <span> Laporan Pelaksanaan</span></a>
+            </li>
+
             </ul>
             </li>
 

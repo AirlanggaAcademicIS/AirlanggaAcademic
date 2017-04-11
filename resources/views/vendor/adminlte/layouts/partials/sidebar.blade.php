@@ -291,25 +291,55 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan</span></a>
             <ul class="treeview-menu">
-                <li><a href="{{url('/kegiatan/dokumentasi')}}">Dokumentasi</a></li>
-                <li><a href="{{url('/pengelolaan-kegiatan/uploadDokumentasi')}}">Upload</a></li>
-            <!-- Sidebarnya ditaruh dibawah sini -->
-            <!-- $page nya sesuaiin sama yang di controller -->
 
-            <!-- Sidebar Biodata -->
-            <!-- $page nya sesuaiin sama yang di controller -->
+               <!-- Sidebar dokumentasi -->
+
+            <li
+            @if($page == 'dokumentasi')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url pengelolaan-kegiatan/dokumentasi -->
+            
+            <li><a href="{{url('/pengelolaan-kegiatan/dokumentasi')}}"><i class='fa fa-book'></i><span> Dokumentasi</span></a></li>
+            <li><a href="{{url('/pengelolaan-kegiatan/uploadDokumentasi')}}"><i class='fa fa-book'></i><span>Upload</span></a></li>
+
+             <!-- Sidebar rundown -->
+
+            <li
+            @if($page == 'rundown')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url pengelolaan-kegiatan/rundown -->
+            
+            <a href="{{ url('pengelolaan-kegiatan/rundown') }}"><i class='fa fa-book'></i> <span> Rundown</span></a>
+            </li>
+
+             <!-- Sidebar pengajuan -->
+
             <li
             @if($page == 'pengajuan')
             {!! 'class="active"'!!}
             @endif
             >
-            <!-- Href menuju ke url mahasiswa/biodata -->
 
-            <a href="{{ url('pengelolaan-kegiatan/rundown') }}"><i class='fa fa-book'></i> <span> Rundown</span></a>
-            </li>
+            <!-- Href menuju ke url pengelolaan-kegiatan/pengajuan -->
 
             <a href="{{ url('pengelolaan-kegiatan/pengajuan') }}"><i class='fa fa-book'></i> <span> Pengajuan Kegiatan</span></a>
-            </li>        
+            </li>    
+
+             <!-- Sidebar laporan pelaksanaan -->
+            <li
+            @if($page == 'laporan_pelaksanaan')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url pengelolaan-kegiatan/laporan_pelaksanaan -->
+
+            <a href="{{ url('pengelolaan-kegiatan/laporan_pelaksanaan') }}"><i class='fa fa-book'></i> <span> Laporan Pelaksanaan</span></a>
+            </li>
+
             </ul>
             </li>
 

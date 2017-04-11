@@ -427,6 +427,7 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Mengupdate biodata dengan isi dari form
         Route::post('dokumentasi/{id}/edit','PengelolaanKegiatan\DokumentasiController@editAction');
+
         });
 
     Route::group(['prefix' => 'pengelolaan-kegiatan'], function() {
@@ -463,6 +464,24 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('pengajuan/{id}/edit','PengelolaanKegiatan\PengajuanController@editAction');
 
 
+        
+        // Menampilkan tabel laporan pelaksanaan
+        Route::get('laporan_pelaksanaan','PengelolaanKegiatan\LaporanPelaksanaanController@index');
+
+         // Menampilkan form tambah laporan pelaksanaan
+        Route::get('laporan_pelaksanaan/create','PengelolaanKegiatan\LaporanPelaksanaanController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel laporan_pelaksanaan
+        Route::post('laporan_pelaksanaan/create','PengelolaanKegiatan\LaporanPelaksanaanController@createAction');
+
+        // Menampilkan form edit laporan_pelaksanaan dari id yg dipilih
+        Route::get('laporan_pelaksanaan/{id}/edit','PengelolaanKegiatan\LaporanPelaksanaanController@edit');
+
+        // Mengupdate laporan_pelaksanaan dengan isi dari form
+        Route::post('laporan_pelaksanaan/{id}/edit','PengelolaanKegiatan\LaporanPelaksanaanController@editAction');
+        
+        // Menghapus laporan_pelaksanaan sesuai id yang dipilih
+        Route::get('laporan_pelaksanaan/{id}/delete','PengelolaanKegiatan\LaporanPelaksanaanController@delete');
     });
 
     // Modul PLA
