@@ -52,7 +52,6 @@
             <!-- Href menuju ke url mahasiswa/biodata -->
             <a href="{{ url('mahasiswa/biodata-mahasiswa') }}"><i class='fa fa-book'></i> <span> Biodata Mahasiswa</span></a>
           
-<<<<<<< HEAD
             </li>
                         <!-- Href menuju ke url mahasiswa/kemahasiswaan/penelitian -->
                         <li 
@@ -82,7 +81,6 @@
                   
                 </ul>
             </li>
-=======
             </li>
                         <!-- Href menuju ke url mahasiswa/kemahasiswaan/penelitian -->
                         <li 
@@ -112,7 +110,6 @@
                   
                 </ul>
             </li>
->>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
              
 
             <!-- Modul Dosen -->
@@ -278,13 +275,7 @@
 
                 <a href="{{ url('monitoring-skripsi/index-dosbing') }}"><i class='fa fa-book'></i><span>Dosen Pembimbing </span></a>
             </li>
-<<<<<<< HEAD
 
-
-=======
-
-
->>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
             <li
                 @if($page == 'dosen_penguji')
                 {!! 'class="active"'!!}
@@ -341,7 +332,6 @@
             <!-- Sidebarnya ditaruh dibawah sini -->
             <!-- $page nya sesuaiin sama yang di controller -->
             <li
-<<<<<<< HEAD
             @if($page == 'rincian_dana')
             {!! 'class="active"'!!}
             @endif
@@ -350,8 +340,7 @@
             <a href="{{ url('pengelolaan-kegiatan/rincian_dana') }}"><i class='fa fa-book'></i> <span>Rincian Dana</span></a>
             </li>       
             <li
-=======
->>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
+
             @if($page == 'pengajuan')
             {!! 'class="active"'!!}
             @endif
@@ -360,10 +349,6 @@
 
             <a href="{{ url('pengelolaan-kegiatan/rundown') }}"><i class='fa fa-book'></i> <span> Rundown</span></a>
             </li>
-<<<<<<< HEAD
-
-=======
->>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
 
             <a href="{{ url('pengelolaan-kegiatan/pengajuan') }}"><i class='fa fa-book'></i> <span> Pengajuan Kegiatan</span></a>
             </li>        

@@ -69,7 +69,6 @@ Tambah Rincian Dana
 					<label for="quantity" class="col-sm-2 control-label">Quantity</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control input-lg" id="quantity" name="quantity" placeholder=" Masukkan Quantity" required>
-						
 					</div>
 				</div>
 				
