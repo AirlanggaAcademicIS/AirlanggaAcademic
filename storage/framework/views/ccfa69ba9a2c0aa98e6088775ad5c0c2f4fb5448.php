@@ -145,7 +145,27 @@
             <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
 
+            <li
+            <?php if($page == 'biodata'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="<?php echo e(url('kurikulum/kodecpmatkul')); ?>"><i class='fa fa-book'></i> <span> Kode CP Matkul</span></a>
+            </li>
+
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> 77af1278244e14d96346cf660240e4319ac363e3
+>>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
             <li
             <?php if($page == 'capaian-program'): ?>
             <?php echo 'class="active"'; ?>
@@ -250,6 +270,14 @@
             <a href="<?php echo e(url('monitoring-skripsi/skripsi')); ?>"><i class='fa fa-book'></i><span> Skripsi</span></a>
             </li>
 
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 77af1278244e14d96346cf660240e4319ac363e3
+>>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
             <li
                 <?php if($page == 'KBK'): ?>
                 <?php echo 'class="active"'; ?>
@@ -259,8 +287,6 @@
 
                 <a href="<?php echo e(url('monitoring-skripsi/KBK')); ?>"><i class='fa fa-book'></i><span> KBK </span></a>
             </li>
-
-
             <li
                 <?php if($page == 'dosbing'): ?>
                 <?php echo 'class="active"'; ?>
@@ -331,6 +357,18 @@
                 <li><a href="<?php echo e(url('/pengelolaan-kegiatan/uploadDokumentasi')); ?>">Upload</a></li>
             <!-- Sidebarnya ditaruh dibawah sini -->
             <!-- $page nya sesuaiin sama yang di controller -->
+<<<<<<< HEAD
+            <li
+            <?php if($page == 'rincian_dana'): ?>
+            <?php echo 'class="active"'; ?>
+
+            <?php endif; ?>
+            >
+            <!-- Href menuju ke url mahasiswa/biodata -->
+            <a href="<?php echo e(url('pengelolaan-kegiatan/rincian_dana')); ?>"><i class='fa fa-book'></i> <span>Rincian Dana</span></a>
+            </li>       
+=======
+<<<<<<< HEAD
 
             <!-- Sidebar Biodata -->
             <!-- $page nya sesuaiin sama yang di controller -->
@@ -338,6 +376,19 @@
             <?php if($page == 'pengajuan'): ?>
             <?php echo 'class="active"'; ?>
 
+=======
+
+            <!-- Sidebar Biodata -->
+            <!-- $page nya sesuaiin sama yang di controller -->
+>>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
+            <li
+            <?php if($page == 'pengajuan'): ?>
+            <?php echo 'class="active"'; ?>
+
+<<<<<<< HEAD
+=======
+>>>>>>> 77af1278244e14d96346cf660240e4319ac363e3
+>>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
             <?php endif; ?>
             >
             <!-- Href menuju ke url mahasiswa/biodata -->
@@ -345,6 +396,10 @@
             <a href="<?php echo e(url('pengelolaan-kegiatan/rundown')); ?>"><i class='fa fa-book'></i> <span> Rundown</span></a>
             </li>
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
             <a href="<?php echo e(url('pengelolaan-kegiatan/pengajuan')); ?>"><i class='fa fa-book'></i> <span> Pengajuan Kegiatan</span></a>
             </li>        
             </ul>
@@ -372,9 +427,16 @@
                 >
             <!-- Href menuju ke url pla/jadwal-permohonan-ruangan/view -->
                 <a href="<?php echo e(url('pla/jadwal-permohonan/view')); ?>"><i class='fa fa-book'></i> <span>Jadwal Permohonan</span></a>
+<<<<<<< HEAD
+                </li>
+=======
                 </li>    
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 77af1278244e14d96346cf660240e4319ac363e3
+>>>>>>> e70533c973b5d483bf0cfa9919751e4a9bbb5ee5
             <li
                 <?php if($page == 'suratmasuk'): ?>
                 <?php echo 'class="active"'; ?>

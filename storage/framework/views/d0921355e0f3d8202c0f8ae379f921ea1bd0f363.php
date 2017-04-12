@@ -1,14 +1,23 @@
 <?php $__env->startSection('htmlheader_title'); ?>
-Edit Biodata
+<<<<<<< HEAD:storage/framework/views/08558c4f3d217434ebf1fa831400302c2938984c.php
+Tambah Capaian Pembelajaran
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-Edit Biodata
+Tambah Capaian Pembelajaran
+=======
+Tambah Rincian Dana
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('contentheader_title'); ?>
+Tambah Rincian Dana
+>>>>>>> 811ff23a5082ee82c748905620869fcc9fb7e65f:storage/framework/views/d0921355e0f3d8202c0f8ae379f921ea1bd0f363.php
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('code-header'); ?>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+<link rel="stylesheet" href="<?php echo e(asset('/css/dropzone.css')); ?>">
 
 <?php $__env->stopSection(); ?>
 
@@ -18,7 +27,7 @@ Edit Biodata
 		text-align: left !important;
 	}
 </style>
-
+	<!-- Ini buat menampilkan notifikasi -->
 	<?php $__currentLoopData = ['danger', 'warning', 'success', 'info']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $msg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	<?php if(Session::has('alert-' . $msg)): ?>
 <div class="alert alert-<?php echo e($msg); ?>">
@@ -44,54 +53,37 @@ Edit Biodata
 			</div>
 			<?php endif; ?>
 			<br>
-			<form id="tambahBiodata" method="post" action="<?php echo e(url('/mahasiswa/biodata/'.$biodata->id.'/edit')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+<<<<<<< HEAD:storage/framework/views/08558c4f3d217434ebf1fa831400302c2938984c.php
+			<form id="tambahCapaianPembelajaran" method="post" action="<?php echo e(url('/Kurikulum/capaian-pembelajaran/create')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+=======
+			<form id="tambahRincianDana" method="post" action="<?php echo e(url('/pengelolaan-kegiatan/rincian_dana/create')); ?>" enctype="multipart/form-data"  class="form-horizontal">
+>>>>>>> 811ff23a5082ee82c748905620869fcc9fb7e65f:storage/framework/views/d0921355e0f3d8202c0f8ae379f921ea1bd0f363.php
 				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">NIM</label>
+					<label for="kode_rincian" class="col-sm-2 control-label">Kode Rincian</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" value="<?php echo e($biodata->nim); ?>" required>
+						<input type="text" class="form-control input-lg" id="kode_rincian" name="kode_rincian" placeholder="Masukkan Kode Rincian" required>
 					</div>
 				</div>
 
-				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<label for="nama_barang" class="col-sm-2 control-label">Nama Barang</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" value="<?php echo e($biodata->nama); ?>" required>
+						<input type="text" class="form-control input-lg" id="nama_barang" name="nama_barang" placeholder="Masukkan Nama Barang" required>
 					</div>
 				</div>
 
-				<!-- Menampilkan textarea -->
+			<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Alamat</label>
+					<label for="quantity" class="col-sm-2 control-label">Quantity</label>
 					<div class="col-md-8">
-						<textarea id="alamat" name="alamat" placeholder=" Masukkan Alamat" required cols="82" rows="5"><?php echo e($biodata->alamat); ?>
-
-						</textarea>
+						<input type="text" class="form-control input-lg" id="quantity" name="quantity" placeholder=" Masukkan Quantity" required>
+						
 					</div>
 				</div>
-
-				<!-- Menampilkan dropdown -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Provinsi</label>
-					<div class="col-md-8">
-						<select name="provinsi" required>
-							<option value="Jawa Timur">Jawa Timur</option>
-							<option value="Jawa Tengah">Jawa Tengah</option>
-							<option value="Jawa Barat">Jawa Barat</option>
-						</select>
-					</div>
-				</div>
-
-				<!-- Menampilkan tanggal dengan datepicker -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Masuk</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_masuk" placeholder="Masukkan Tanggal" required>
-					</div>
-				</div>
+				
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
@@ -110,8 +102,6 @@ Edit Biodata
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-$( function() {
-    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
 
   } );
   </script>
