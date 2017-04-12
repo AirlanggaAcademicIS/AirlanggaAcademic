@@ -31,8 +31,6 @@
             <li>
             <a href=""><i class='fa fa-users'></i> <span> Mahasiswa</span></a>
             <ul class="treeview-menu">
-            <!-- Sidebar Biodata -->
-            <!-- $page nya sesuaiin sama yang di controller -->
             <li
             @if($page == 'biodata')
             {!! 'class="active"'!!}
@@ -77,37 +75,7 @@
             @endif
             >
                 <a href="{{url('/mahasiswa/akun')}}"><i class="fa fa-book"></i> Akun Mahasiswa</a>
-            </li>
-                  
-                </ul>
-            </li>
-            </li>
-                        <!-- Href menuju ke url mahasiswa/kemahasiswaan/penelitian -->
-                        <li 
-                        @if($page == 'penelitian')
-                        {!! 'class="active"'!!}
-                        @endif
-                        ><a href="{{url('/mahasiswa/penelitian')}}"><i class="fa fa-edit"></i> Penelitian
-                            </a>
-                            </li>
-                                    <!-- Href menuju ke url mahasiswa/kemahasiswaan/penelitian -->
-                                    <li
-                                    @if($page == 'detailpenelitian')
-                                    {!! 'class="active"'!!}
-                                    @endif
-                                    ><a href="{{url('/mahasiswa/detailpenelitian')}}"><i class="fa fa-edit"></i>Detail Penelitian</a></li>
-                                    <li><a href="{{url('/mahasiswa/detailanggota')}}"><i class="fa fa-edit"></i>Detail Anggota</a></li>
-                        <!-- Href menuju ke url mahasiswa/kemahasiswaan/prestasi -->
-                        <li><a href="{{url('/mahasiswa/prestasi')}}"><i class="fa fa-edit"></i> Prestasi</a></li>
-                <!-- $page nya sesuaiin sama yang di controller -->
-            <li
-            @if($page == 'biodata')
-            {!! 'class="active"'!!}
-            @endif
-            >
-                <a href="{{url('/mahasiswa/akun')}}"><i class="fa fa-book"></i> Akun Mahasiswa</a>
-            </li>
-                  
+            </li> 
                 </ul>
             </li>
              
@@ -368,7 +336,12 @@
 
             <a href="{{ url('pengelolaan-kegiatan/rundown') }}"><i class='fa fa-book'></i> <span> Rundown</span></a>
             </li>
+            <li
 
+            @if($page == 'pengajuan')
+            {!! 'class="active"'!!}
+            @endif
+            >
             <a href="{{ url('pengelolaan-kegiatan/pengajuan') }}"><i class='fa fa-book'></i> <span> Pengajuan Kegiatan</span></a>
             </li>
              <!-- Sidebar laporan pelaksanaan -->
