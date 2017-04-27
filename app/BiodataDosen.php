@@ -4,13 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Biodata extends Model
+class BiodataDosen extends Model
 {
-   protected $table = 'biodata';    
+   protected $table = 'biodata_dosen';    
    protected $primaryKey = 'id';    
    protected $fillable = [
+		'id', 
 		'nama',
 		'alamat',
-		'tanggal_masuk',	
+		'ttl',	
    ];
 }
