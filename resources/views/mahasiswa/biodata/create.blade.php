@@ -1,4 +1,4 @@
-a@extends('adminlte::layouts.app')
+@extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
 Tambah Capaian Pembelajaran

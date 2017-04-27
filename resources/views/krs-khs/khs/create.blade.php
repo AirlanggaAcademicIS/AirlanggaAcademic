@@ -46,7 +46,7 @@ Tambah Detail Nilai
 			</div>
 			@endif
 			<br>
-			<form id="tambahDetailNilai" method="post" action="{{url('/krs-khs/Khs/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahDetailNilai" method="post" action="{{url('/krs-khs/khs/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->

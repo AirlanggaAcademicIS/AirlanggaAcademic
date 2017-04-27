@@ -36,22 +36,24 @@ Detail Nilai
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">NIM</th>      
-      <th style="text-align:center">Mata Kuliah</th>
-      <th style="text-align:center">Nilai</th>
+      <th style="text-align:center">ID Mata Kuliah</th>
+      <th style="text-align:center">NIM</th>
+      <th style="text-align:center">ID Jenis Penilaian</th>
       <th style="text-align:center">Detail Nilai</th>
+      <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
    @forelse($detail_nilai as $i => $a) 
     <tr>
-      <td>{{ $i+1 }}</td>
+      <td>{{ $i+1 }}</td>      
       <td width="25%" style="text-align:center">{{$a->id_mk_ditawarkan}}</td>
       <td width="25%" style="text-align:center">{{$a->NIM}}</td>
-      <td width="25%" style="text-align:center">{{$a->detail_nilai}}</td>
-      <td width="25%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus detail nilai ini?');" href="{{url('/krs-khs/khs/'.$a->id_mk_ditawarkan.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="25%" style="text-align:center">{{$a->id_jenis_penilaian}}</td>
+      <td width="25%" style="text-align:center">{{$a->Detail_nilai}}</td>
+      <td width="25%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus detail nilai ini?');" href="{{url('/krs-khs/khs/'.$a->id_detail_nilai.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Delete </a>
-        <a href="{{url('/krs-khs/khs/'.$a->id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('/krs-khs/khs/'.$a->id_detail_nilai.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
     </tr>
