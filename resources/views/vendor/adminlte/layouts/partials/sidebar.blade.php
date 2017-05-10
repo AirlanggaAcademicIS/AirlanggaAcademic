@@ -35,7 +35,6 @@
             @include('sidebar_dosen')
             @endif
                   
-        </ul><!-- /.sidebar-menu
+        </ul>
     </section>
-    <!-- /.sidebar -->
 </aside>
