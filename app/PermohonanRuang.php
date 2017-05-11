@@ -13,6 +13,7 @@ class PermohonanRuang extends Model
 		'nama',
 		'atribut_verifikasi',
 		'nim_nip',
+
 			
    ];
 }
