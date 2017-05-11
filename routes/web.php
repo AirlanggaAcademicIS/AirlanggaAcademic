@@ -37,6 +37,27 @@ Route buat dosen ditaruh dibawah sini
 Route::group(['prefix' => 'inventaris'], function() {
     Route::get('view-asset', 'HomeController@index');
 });
+Route::group(['prefix' => 'dosen'], function() {
+
+          
+
+         Route::get('penelitian','Dosen\PenelitianController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('penelitian/create','Dosen\PenelitianController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('penelitian/create','Dosen\PenelitianController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('penelitian/{id}/delete','Dosen\PenelitianController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('penelitian/{id}/edit','Dosen\PenelitianController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('penelitian/{id}/edit','Dosen\PenelitianController@editAction');   
+    });
 
 
 /*
