@@ -1,4 +1,4 @@
-<!-- Left side column. contains the logo and sidebar -->
+ <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
 
     <!-- sidebar: style can be found in sidebar.less -->
@@ -17,16 +17,27 @@
                 </div>
             </div>
         <?php endif; ?>
+<<<<<<< HEAD
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">            
             <li
             <?php if($page == 'dashboard'): ?>
+=======
+                <!-- Sidebar Menu -->
+        <ul class="sidebar-menu">
+            <li 
+            <?php if($page == 'dasboard'): ?>
+>>>>>>> 0d5b2f1938f264dfab9548ad3f560aa4ea9536cb
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
             >
+<<<<<<< HEAD
                 <a href="<?php echo e(url('home')); ?>"><i class='fa fa-home'></i> <span>Dashboard</span></a>
+=======
+                ><a href="<?php echo e(url('home')); ?>"><i class='fa fa-home'></i> <span>Dasboard</span></a>
+>>>>>>> 0d5b2f1938f264dfab9548ad3f560aa4ea9536cb
             </li>
             <?php if(Auth::user()->role == 'karyawan'): ?>
             <?php echo $__env->make('sidebar_karyawan', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -35,7 +46,10 @@
             <?php else: ?>
             <?php echo $__env->make('sidebar_dosen', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php endif; ?>
+<<<<<<< HEAD
                   
+=======
+>>>>>>> 0d5b2f1938f264dfab9548ad3f560aa4ea9536cb
         </ul>
     </section>
 </aside>
