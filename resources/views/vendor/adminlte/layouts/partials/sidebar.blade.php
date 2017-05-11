@@ -17,15 +17,14 @@
                 </div>
             </div>
         @endif
-
-        <!-- Sidebar Menu -->
-        <ul class="sidebar-menu">            
-            <li
-            @if($page == 'dashboard')
+                <!-- Sidebar Menu -->
+        <ul class="sidebar-menu">
+            <li 
+            @if($page == 'dasboard')
             {!! 'class="active"'!!}
             @endif
             >
-                <a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>Dashboard</span></a>
+                ><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>Dasboard</span></a>
             </li>
             @if(Auth::user()->role == 'karyawan')
             @include('sidebar_karyawan')
@@ -34,7 +33,7 @@
             @else
             @include('sidebar_dosen')
             @endif
-                  
-        </ul>
-    </section>
-</aside>
+
+            </ul>
+            </section>
+            </aside>
