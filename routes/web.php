@@ -37,7 +37,7 @@ Route buat dosen ditaruh dibawah sini
 Route buat karyawan ditaruh dibawah sini
 =========================================
 */
-
+Route::get('karyawan/krs-khs/input_dosen_mk','Karyawan\krs_khs\InputDosenMKController@index');
 
 
 });
