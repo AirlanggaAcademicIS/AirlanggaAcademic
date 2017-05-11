@@ -29,7 +29,20 @@ Route buat mahasiswa ditaruh dibawah sini
 Route buat dosen ditaruh dibawah sini
 =========================================
 */
+// Modul Kurikulum
+Route::group(['prefix' => 'dosen'], function(){
+	Route::group(['prefix' => 'kurikulum'], function(){
+		Route::group(['prefix' => 'silabus'], function(){
 
+			Route::get('/','Dosen\Kurikulum\SilabusController@index');
+			Route::get('create','Dosen\Kurikulum\SilabusController@create');			
+			Route::post('create','Dosen\Kurikulum\SilabusController@createAction');
+			Route::get('kode/{id}/delete','Dosen\Kurikulum\SilabusController@delete');
+			Route::get('kode/{id}/edit','Dosen\Kurikulum\SilabusController@edit');
+			Route::get('kode/{id}/edit','Dosen\Kurikulum\SilabusController@editAction');
+	});
+	});
+});
 
 
 /*
