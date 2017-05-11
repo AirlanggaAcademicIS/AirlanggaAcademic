@@ -1,11 +1,12 @@
 <!-- Contoh -->
-<!-- <li
+<!--  <li
 @if($page == 'transaksi')
 {!! 'class="active"'!!}
 @endif
 >
 <a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
 </li> -->
+
 
 	<li>
             <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
@@ -18,5 +19,17 @@
 
             <a href="{{ url('mahasiswa/monitoring-skripsi/konsultasi') }}"><i class='fa fa-book'></i><span> Konsultasi</span></a>
             </li>
-    </ul>
-    </li>
+    
+<li
+@if($page == 'skripsi')
+{!! 'class="active"'!!}
+@endif>
+
+<a href="{{ url('mahasiswa/monitoring-skripsi/skripsi') }}"><i class='fa fa-book'></i><span> Data Skripsi</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Peminjaman</a>
+</li>
+
