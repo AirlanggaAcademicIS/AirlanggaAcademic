@@ -13,6 +13,8 @@
 @endif
 >
 <a href="{{ url('mahasiswa/biodata-mahasiswa') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Biodata Mahasiswa</a>
+<a href="{{url('kegiatan/dokumentasi')}}">Dokumentasi</a>
+<a href="{{url('/pengelolaan-kegiatan/uploadDokumentasi')}}">Upload</a>
 </li>
 <li
 @if($page == 'penelitian')
