@@ -168,6 +168,12 @@ Route buat karyawan ditaruh dibawah sini
 
     // Mengupdate biodata dengan isi dari form
         Route::post('surat-masuk/{id}/edit','karyawan\Surat_MasukController@editAction');
+
+    // Form memmohon ruangan
+        Route::get('memohon-ruangan','Karyawan\MohonRuanganController@create');
+
+        Route::get('memohon-ruangan','Karyawan\MohonRuanganController@createAction');
+
     Route::group( ['prefix'=>'karyawan'], function(){
 	    Route::group( ['prefix'=>'kurikulum'], function(){
 	
