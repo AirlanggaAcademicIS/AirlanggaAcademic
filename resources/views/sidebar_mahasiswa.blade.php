@@ -54,3 +54,11 @@
 <li>
 <a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Peminjaman</a>
 </li>
+
+<li
+@if($page == 'memohon-ruangan')
+{!! 'class="active"'!!}
+@endif
+>
+<a href="{{ url('memohon-ruangan') }}"><i class="fa fa-book" aria-hidden="true"></i>Memohon Ruangan</a>
+</li>

@@ -14,6 +14,13 @@
 >
 <a href="{{ url('/dosen/konferensi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Konferensi</a>
 </li> 		
+<li
+@if($page == 'pengmas')
+{!! 'class="active"'!!}
+@endif
+>
+<a href="{{ url('/dosen/pengmas') }}"><i class="fa fa-calculator" aria-hidden="true"></i> Pengmas</a>
+</li> 
 			<li
             @if($page == 'jurnal')
             {!! 'class="active"'!!}
