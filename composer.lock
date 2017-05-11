@@ -5,6 +5,8 @@
         "This file is @generated automatically"
     ],
     "hash": "34ab64bf49364175f2168cd0db5de1c1",
+    "hash": "baad013a9c7fe1975fb17b5eed0f4d07",
+    "content-hash": "422986d39725f375f845c18165de49c9",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -899,6 +901,37 @@
                 "phpdocumentor/phpdocumentor": "2.*"
             },
             "type": "library",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/php-webdriver.git",
+                "reference": "eadb0b7a7c3e6578185197fd40158b08c3164c83"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/eadb0b7a7c3e6578185197fd40158b08c3164c83",
+                "reference": "eadb0b7a7c3e6578185197fd40158b08c3164c83",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-zip": "*",
+                "php": "^5.5 || ~7.0",
+                "symfony/process": "^2.8 || ^3.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "php-mock/php-mock-phpunit": "^1.1",
+                "phpunit/phpunit": "4.6.* || ~5.0",
+                "satooshi/php-coveralls": "^1.0",
+                "squizlabs/php_codesniffer": "^2.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-community": "1.5-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Facebook\\WebDriver\\": "lib/"
@@ -909,6 +942,7 @@
                 "Apache-2.0"
             ],
             "description": "A PHP client for WebDriver",
+            "description": "A PHP client for Selenium WebDriver",
             "homepage": "https://github.com/facebook/php-webdriver",
             "keywords": [
                 "facebook",
@@ -917,6 +951,7 @@
                 "webdriver"
             ],
             "time": "2015-12-31 15:58:49"
+            "time": "2017-04-28 14:54:49"
         },
         {
             "name": "jakub-onderka/php-console-color",
