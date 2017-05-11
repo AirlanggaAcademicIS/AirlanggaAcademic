@@ -90,10 +90,10 @@ class PenelitianController extends Controller
         $penelitian = PenelitianDosen::find($penelitian_id);
 
         // Mengupdate $penelitian tadi dengan isi dari form edit tadi
-        $penelitian->judul_penelitian = $request->input('judul');
-        $penelitian->nama_ketua = $request->input('nama');
-        $penelitian->bidang_penelitian = $request->input('bidang');
-        $penelitian->tanggal_penelitian = $request->input('tanggal_masuk');
+        $penelitian->judul_penelitian = $request->input('judul_penelitian');
+        $penelitian->nama_ketua = $request->input('nama_ketua');
+        $penelitian->bidang_penelitian = $request->input('bidang_penelitian');
+        $penelitian->tanggal_penelitian = $request->input('tanggal_penelitian');
         $penelitian->save();
 
         // Notifikasi sukses

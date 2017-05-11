@@ -45,14 +45,14 @@ Edit Penelitian
 			</div>
 			@endif
 			<br>
-			<form id="tambahpenelitian" method="post" action="{{url('/dosen/penelitian/'.$penelitian->id_penelitian.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahpenelitian" method="post" action="{{url('/dosen/penelitian/'.$penelitian->penelitian_id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Judul Penelitian</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="penelitian" name="penelitian" placeholder="Masukkan nama" value="{{$penelitian->judul_penelitian}}" required>
+						<input type="text" class="form-control input-lg" id="penelitian" name="judul_penelitian" placeholder="Masukkan nama" value="{{$penelitian->judul_penelitian}}" required>
 					</div>
 				</div>
 
@@ -60,14 +60,14 @@ Edit Penelitian
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Nama Ketua</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan tempat" value="{{$penelitian->nama_ketua}}" required>
+						<input type="text" class="form-control input-lg" id="nama" name="nama_ketua" placeholder="Masukkan tempat" value="{{$penelitian->nama_ketua}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Bidang Penelitian</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="bidang" name="bidang" placeholder="Masukkan tempat" value="{{$penelitian->bidang_penelitian}}" required>
+						<input type="text" class="form-control input-lg" id="bidang" name="bidang_penelitian" placeholder="Masukkan tempat" value="{{$penelitian->bidang_penelitian}}" required>
 					</div>
 				</div>
 
@@ -75,7 +75,7 @@ Edit Penelitian
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Tanggal kegiatan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_kegiatan" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_penelitian" placeholder="Masukkan Tanggal" required>
 					</div>
 				</div>
 
