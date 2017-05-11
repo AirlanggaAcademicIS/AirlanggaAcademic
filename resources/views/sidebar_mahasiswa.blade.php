@@ -1,8 +1,8 @@
 <!-- Contoh -->
-<!-- <li
+ <li
 @if($page == 'transaksi')
 {!! 'class="active"'!!}
 @endif
 >
-<a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
-</li> -->
+<a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Peminjaman</a>
+</li>
