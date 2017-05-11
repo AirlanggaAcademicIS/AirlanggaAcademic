@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+    "hash": "34ab64bf49364175f2168cd0db5de1c1",
     "hash": "baad013a9c7fe1975fb17b5eed0f4d07",
     "content-hash": "422986d39725f375f845c18165de49c9",
     "packages": [
@@ -234,6 +235,58 @@
                 "user"
             ],
             "time": "2016-12-05 13:39:37"
+        },
+        {
+            "name": "barryvdh/laravel-snappy",
+            "version": "v0.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-snappy.git",
+                "reference": "dea728426bd867652c2f3a307a9cbea3f1ed7dff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-snappy/zipball/dea728426bd867652c2f3a307a9cbea3f1ed7dff",
+                "reference": "dea728426bd867652c2f3a307a9cbea3f1ed7dff",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "5.0.x|5.1.x|5.2.x|5.3.x|5.4.x",
+                "illuminate/support": "5.0.x|5.1.x|5.2.x|5.3.x|5.4.x",
+                "knplabs/knp-snappy": "*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\Snappy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "Snappy PDF/Image for Laravel 4",
+            "keywords": [
+                "image",
+                "laravel",
+                "pdf",
+                "snappy",
+                "wkhtmltoimage",
+                "wkhtmltopdf"
+            ],
+            "time": "2017-02-09 23:18:54"
         },
         {
             "name": "creativeorange/gravatar",
@@ -826,6 +879,28 @@
         },
         {
             "name": "facebook/webdriver",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/php-webdriver.git",
+                "reference": "1c98108ba3eb435b681655764de11502a0653705"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/1c98108ba3eb435b681655764de11502a0653705",
+                "reference": "1c98108ba3eb435b681655764de11502a0653705",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.19"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.6.*"
+            },
+            "suggest": {
+                "phpdocumentor/phpdocumentor": "2.*"
+            },
+            "type": "library",
             "version": "1.4.1",
             "source": {
                 "type": "git",
@@ -866,6 +941,7 @@
             "license": [
                 "Apache-2.0"
             ],
+            "description": "A PHP client for WebDriver",
             "description": "A PHP client for Selenium WebDriver",
             "homepage": "https://github.com/facebook/php-webdriver",
             "keywords": [
@@ -874,6 +950,7 @@
                 "selenium",
                 "webdriver"
             ],
+            "time": "2015-12-31 15:58:49"
             "time": "2017-04-28 14:54:49"
         },
         {
@@ -962,6 +1039,71 @@
                 }
             ],
             "time": "2015-04-20 18:58:01"
+        },
+        {
+            "name": "knplabs/knp-snappy",
+            "version": "0.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/snappy.git",
+                "reference": "44f7a9b37d5686fd7db4c1e9569a802a5d16923f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/snappy/zipball/44f7a9b37d5686fd7db4c1e9569a802a5d16923f",
+                "reference": "44f7a9b37d5686fd7db4c1e9569a802a5d16923f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/process": "~2.3|~3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.7"
+            },
+            "suggest": {
+                "h4cc/wkhtmltoimage-amd64": "Provides wkhtmltoimage-amd64 binary for Linux-compatible machines, use version `~0.12` as dependency",
+                "h4cc/wkhtmltoimage-i386": "Provides wkhtmltoimage-i386 binary for Linux-compatible machines, use version `~0.12` as dependency",
+                "h4cc/wkhtmltopdf-amd64": "Provides wkhtmltopdf-amd64 binary for Linux-compatible machines, use version `~0.12` as dependency",
+                "h4cc/wkhtmltopdf-i386": "Provides wkhtmltopdf-i386 binary for Linux-compatible machines, use version `~0.12` as dependency",
+                "wemersonjanuario/wkhtmltopdf-windows": "Provides wkhtmltopdf executable for Windows, use version `~0.12` as dependency"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Snappy": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://github.com/KnpLabs/snappy/contributors"
+                }
+            ],
+            "description": "PHP5 library allowing thumbnail, snapshot or PDF generation from a url or a html page. Wrapper for wkhtmltopdf/wkhtmltoimage.",
+            "homepage": "http://github.com/KnpLabs/snappy",
+            "keywords": [
+                "knp",
+                "knplabs",
+                "pdf",
+                "snapshot",
+                "thumbnail",
+                "wkhtmltopdf"
+            ],
+            "time": "2015-11-17 13:16:27"
         },
         {
             "name": "laravel/browser-kit-testing",

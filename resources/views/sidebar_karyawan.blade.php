@@ -7,7 +7,35 @@
 <<<<<<< HEAD
 <a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
 </li> -->
- <li>
+<li
+            @if($page == 'notulensi')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <a href="{{ url('kalender') }}"><i class='fa fa-book'></i> <span>Kalender</span></a>
+            </li>
+<li               
+                @if($page == 'suratmasuk')
+                {!! 'class="active"'!!}
+                @endif
+                >
+            <!-- Href menuju ke url -->
+                <a href="{{ url('surat-masuk') }}"><i class='fa fa-envelope'></i> <span> Surat Masuk</span></a>
+                </li> 
+
+<li class="treeview" id="scrollspy-components">
+	<a href="#"><i class="fa fa-circle-o"></i> Kurikulum</a>
+	<ul class="nav treeview-menu">
+		<li
+		@if($page == 'mata-kuliah')
+		{!! 'class="active"'!!}
+		@endif
+		>
+		<a href="{{ url('karyawan/kurikulum/mata-kuliah') }}"><i class="fa fa-circle-o" aria-hidden="true"></i>Mata Kuliah</a>
+		</li>
+	</ul>
+</li>
+<li>
             <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
             <ul class="treeview-menu">
             <!-- Sidebarnya ditaruh dibawah sini -->
@@ -66,3 +94,4 @@
 
             </ul>
             </li>
+

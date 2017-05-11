@@ -7,6 +7,28 @@
 <a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
 </li> -->
 
+<li
+@if($page == 'biodata-mahasiswa')
+{!! 'class="active"'!!}
+@endif
+>
+<a href="{{ url('mahasiswa/biodata-mahasiswa') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Biodata Mahasiswa</a>
+</li>
+<li
+@if($page == 'penelitian')
+{!! 'class="active"'!!}
+@endif
+>
+<!-- Href menuju ke url mahasiswa/biodata -->
+<a href="{{ url('/mahasiswa/penelitian') }}"><i class='fa fa-book'></i> <span> Penelitian</span></a>
+</li>
+<li
+@if($page == 'prestasi')
+{!! 'class="active"'!!}
+@endif
+>
+<a href="{{ url('mahasiswa/prestasi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Prestasi</a>
+</li>
 
 	<li>
             <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
@@ -33,3 +55,10 @@
 <a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Peminjaman</a>
 </li>
 
+<li
+@if($page == 'memohon-ruangan')
+{!! 'class="active"'!!}
+@endif
+>
+<a href="{{ url('memohon-ruangan') }}"><i class="fa fa-book" aria-hidden="true"></i>Memohon Ruangan</a>
+</li>
