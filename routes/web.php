@@ -133,6 +133,24 @@ Route::group(['prefix' => 'dosen'], function() {
 	        Route::post('{id}/edit','Dosen\Kurikulum\CapaianProgramController@editAction');
 	});
 });
+
+Route::group(['prefix' => 'dosen'], function() {
+
+	Route::group(['prefix' => 'kurikulum'], function() {
+
+// Modul Kurikulum
+Route::group(['prefix' => 'dosen'], function(){
+	Route::group(['prefix' => 'kurikulum'], function(){
+		Route::group(['prefix' => 'silabus'], function(){
+
+			Route::get('/','Dosen\Kurikulum\SilabusController@index');
+			Route::get('create','Dosen\Kurikulum\SilabusController@create');			
+			Route::post('create','Dosen\Kurikulum\SilabusController@createAction');
+			Route::get('kode/{id}/delete','Dosen\Kurikulum\SilabusController@delete');
+			Route::get('kode/{id}/edit','Dosen\Kurikulum\SilabusController@edit');
+			Route::get('kode/{id}/edit','Dosen\Kurikulum\SilabusController@editAction');
+	});
+	});
 Route::group(['prefix' => 'dosen'], function() {
 	
 	Route::get('pengmas/','Dosen\PengmasController@index');
@@ -152,6 +170,8 @@ Route::group(['prefix' => 'dosen'], function() {
         // Mengupdate biodata dengan isi dari form
         Route::post('pengmas/{id}/edit','Dosen\PengmasController@editAction');     
    });
+
+
   // Modul Dosen
     Route::group(['prefix' => 'dosen'], function() {
 
@@ -181,7 +201,22 @@ Route::get('kalender','Dosen\NotulensiKalenderController@index');
 Route::get('dosen/monitoring-skripsi/skripsi','Dosen\monitoringskripsi\SkripsiController@index');
 Route::group(['prefix' => 'inventaris'], function() {
     Route::get('view-asset', 'HomeController@index');
+
 });
+
+
+		Route::group(['prefix' => 'rps'], function() {
+	        Route::get('/','Dosen\Kurikulum\RPSController@index');
+	        Route::get('create','Dosen\Kurikulum\RPSController@create');
+	        Route::post('create','Dosen\Kurikulum\RPSController@createAction');
+	        Route::get('/{id}/delete','Dosen\Kurikulum\RPSController@delete');
+	        Route::get('/{id}/edit','Dosen\Kurikulum\RPSController@edit');
+	        Route::post('/{id}/edit','Dosen\Kurikulum\RPSController@editAction');
+    });
+
+		});
+
+	});
 
             // Menampilkan tabel
         Route::get('konferensi','Dosen\KonferensiController@index');
@@ -309,4 +344,5 @@ Route::group(['prefix' => 'inventaris'], function() {
 
     Route::get('add-asset', 'HomeController@input');
     Route::get('view-asset', 'HomeController@index');
+});
 });
