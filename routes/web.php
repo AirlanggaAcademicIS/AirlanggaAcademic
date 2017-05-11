@@ -278,9 +278,9 @@ Route::group(['prefix' => 'cp_pembelajaran'], function() {
 Route buat karyawan ditaruh dibawah sini
 =========================================
 */
-<<<<<<< HEAD
+
 		
-		Route::group(['prefix' => 'karyawan'], function() {
+Route::group(['prefix' => 'karyawan'], function() {
 		
 		// Menampilkan tabel
         Route::get('akun','Karyawan\AkunMahasiswaController@index');
@@ -294,10 +294,7 @@ Route buat karyawan ditaruh dibawah sini
         Route::get('akun/{nim}/edit','Karyawan\AkunMahasiswaController@edit');
         // Mengupdate biodata dengan isi dari form
         Route::post('akun/{nim}/edit','Karyawan\AkunMahasiswaController@editAction');
-        });
-
 });
-=======
 
 Route::get('dosenrapat','Karyawan\notulensi\daftarDosenRapatController@index');
 
@@ -320,6 +317,7 @@ Route::group(['prefix' => 'inventaris'], function() {
         Route::post('petugas_tu/{nip_petugas}/edit','Karyawan\PLA\Petugas_TU_Controller@editAction');
 });
 });
+    });
 
 Route::group(['prefix' => 'karyawan'], function() {
 	// Menampilkan tabel
@@ -481,7 +479,3 @@ Route::group(['prefix' => 'inventaris'], function() {
   
         
 });
-
-});
-
->>>>>>> 7e40f8251ee92d9161caad6f025e88bbd7ff5386
