@@ -55,8 +55,7 @@ Biodata Mahasiswa
       <td width="10%" style="text-align:center">{{$bio->angkatan}}</td>
       <td width="15%" style="text-align:center">{{$bio->ttl}}</td>
       <td width="20%" style="text-align:center">{{$bio->alamat_tinggal}}</td>
-      <td width="15%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus biodata ini?');" href="{{url('/mahasiswa/biodata-mahasiswa/'.$bio->id_bio.'/delete/')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-trash-o"></i> Hapus</a>
+      <td width="15%" style="text-align:center" >
         <a href="{{url('/mahasiswa/biodata-mahasiswa/'.$bio->id_bio.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
