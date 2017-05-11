@@ -16,6 +16,13 @@
 <a href="{{ url('dosen/kurikulum/silabus') }}"><i class="fa fa-book" aria-hidden="true"></i>Silabus</a>
 </li>
 
+@if($page == 'pengmas')
+{!! 'class="active"'!!}
+@endif
+>
+<a href="{{ url('/dosen/pengmas') }}"><i class="fa fa-calculator" aria-hidden="true"></i> Pengmas</a>
+</li> 
+
             @if($page == 'jurnal')
             {!! 'class="active"'!!}
             @endif
