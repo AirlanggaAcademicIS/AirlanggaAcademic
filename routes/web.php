@@ -29,7 +29,25 @@ Route buat mahasiswa ditaruh dibawah sini
 Route buat dosen ditaruh dibawah sini
 =========================================
 */
+Route::group(['prefix' => 'dosen'], function() {
+	
+	Route::get('pengmas/','Dosen\PengmasController@index');
 
+        // Menampilkan form tambah biodata
+        Route::get('pengmas/create','Dosen\PengmasController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('pengmas/create','Dosen\PengmasController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('pengmas/{id}/delete','Dosen\PengmasController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('pengmas/{id}/edit','Dosen\PengmasController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('pengmas/{id}/edit','Dosen\PengmasController@editAction');     
+   });
 
 
 /*
