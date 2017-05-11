@@ -57,12 +57,12 @@ class PeminjamanController extends Controller
         return view('karyawan.inventaris.peminjaman.create', $data);
     }
 
-    /* 
-        STILL NOT DONE, BUG
-        WAITING FOR ASSET MODULE
+    
 
     public function postInputPeminjaman(Request $request)
     {   
+    // STILL NOT DONE, BUG
+    // WAITING FOR ASSET MODULE
         $peminjaman = Transaksi_Peminjaman::create([
             'nip_petugas_id' => Auth::User()->name, 
             'nim_nip_peminjam' => $request->input('nim_nip_peminjam'),
@@ -75,8 +75,7 @@ class PeminjamanController extends Controller
 
         return Redirect::to('inventaris/index-peminjaman');
     }
-    */
-
+    
     public function viewDetail($id)
     {
         $peminjaman = Transaksi_Peminjaman::where('id_peminjaman', $id)->first();
