@@ -13,9 +13,26 @@
 </ul>
 </li>
 
-<a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
-</li> -->
-<<<<<<< HEAD
+
+<li
+@if($page == 'mk_ditawarkan')
+{!! 'class="active"'!!}
+@endif
+>
+<a href="{{ url('krs-khs/mk_ditawarkan') }}"><i class="fa fa-calculator" aria-hidden="true"></i>MK Ditawarkan</a>
+</li>
+
+ <li
+            @if($page == 'PermohonanRuang')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            
+            <a href="{{ url('karyawan/PermohonanRuang') }}"><i class='fa fa-book'></i> <span>Permohonan Ruang</span></a>
+            </li>  
+            </ul>
+            </li>
+
 <li
 @if($page == 'AkunMahasiswa')
 {!! 'class="active"'!!}
@@ -23,7 +40,7 @@
 >
 <a href="{{ url('karyawan/akun') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Akun Mahasiswa</a>
 </li>
-=======
+
 <li>
             <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
             <ul class="treeview-menu">
@@ -40,6 +57,7 @@
             <a href="{{ url('dosenrapat') }}"><i class='fa fa-book'></i> <span>Kehadiran Rapat</span></a>
             <a href="#"><i class='fa fa-book'></i> <span>Kalender</span></a>
             </li>
+
 
 <li
 @if($page == 'verifikasi')
@@ -135,4 +153,3 @@
             </ul>
             </li>
 
->>>>>>> 7e40f8251ee92d9161caad6f025e88bbd7ff5386

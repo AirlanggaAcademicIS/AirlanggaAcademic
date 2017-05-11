@@ -46,7 +46,16 @@
 @endif
 >
 <a href="{{ url('/dosen/konferensi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Konferensi</a>
-</li> 		
+</li> 
+
+<li
+@if($page == 'penelitian')
+{!! 'class="active"'!!}
+@endif
+>
+<a href="{{ url('/dosen/penelitian') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Penelitian</a>
+</li>
+
 <li
 
 @if($page == 'pengmas')
@@ -84,6 +93,8 @@
 @endif>
 <a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Peminjaman</a>
 </li>
+
+
 <li
 @if($page == 'capaian-pembelajaran')
 {!! 'class="active"'!!}
@@ -91,4 +102,5 @@
 >
 <!-- Href menuju ke url kurikulum/capaian-pembelajaran -->
 <a href="{{ url('dosen/kurikulum/cp_pembelajaran') }}"><i class='fa fa-book'></i> <span> Capaian Pembelajaran</span></a>
+
 </li>

@@ -216,6 +216,27 @@ Route::group(['prefix' => 'inventaris'], function() {
     Route::get('view-asset', 'HomeController@index');
 
 });
+Route::group(['prefix' => 'dosen'], function() {
+
+          
+
+         Route::get('penelitian','Dosen\PenelitianController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('penelitian/create','Dosen\PenelitianController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('penelitian/create','Dosen\PenelitianController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('penelitian/{id}/delete','Dosen\PenelitianController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('penelitian/{id}/edit','Dosen\PenelitianController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('penelitian/{id}/edit','Dosen\PenelitianController@editAction');   
+    });
 
 
 Route::group(['prefix' => 'dosen'], function() {
@@ -278,8 +299,11 @@ Route::group(['prefix' => 'cp_pembelajaran'], function() {
 Route buat karyawan ditaruh dibawah sini
 =========================================
 */
-		
-		Route::group(['prefix' => 'karyawan'], function() {
+
+ Route::group(['prefix' => 'krs-khs'], function() {
+        Route::get('mk_ditawarkan', 'Karyawan\KrsKhs\MKDitawarkanController@index');
+    });		
+Route::group(['prefix' => 'karyawan'], function() {
 		
 		// Menampilkan tabel
         Route::get('akun','Karyawan\AkunMahasiswaController@index');
@@ -293,9 +317,28 @@ Route buat karyawan ditaruh dibawah sini
         Route::get('akun/{nim}/edit','Karyawan\AkunMahasiswaController@edit');
         // Mengupdate biodata dengan isi dari form
         Route::post('akun/{nim}/edit','Karyawan\AkunMahasiswaController@editAction');
+});
         });
+Route::group(['prefix' => 'karyawan'], function() {
+//menampilkan tabel
+	Route::get('PermohonanRuang','karyawan\PermohonanRuangController@index');
+// Menampilkan form tambah 
+	Route::get('PermohonanRuang/create','karyawan\PermohonanRuangController@create');
+// Menambahkan form yg di isi tadi ke tabel 
+	Route::post('PermohonanRuang/create','karyawan\PermohonanRuangController@createAction');
+// Menghapus  sesuai id yang dipilih
+	Route::get('PermohonanRuang/{id}/delete','karyawan\PermohonanRuangController@delete'); 
+// Menampilkan form edit dari id yg dipilih
+	Route::get('PermohonanRuang/{id}/edit','karyawan\PermohonanRuangController@edit');
+// Mengupdate  dengan isi dari form
+	Route::post('PermohonanRuang/{id}/edit','karyawan\PermohonanRuangController@editAction');
+
+
+Route::group(['prefix' => 'inventaris'], function() {
+
 
 Route::get('dosenrapat','Karyawan\notulensi\daftarDosenRapatController@index');
+
  // Modul PLA
     Route::group(['prefix' => 'karyawan'], function() {
         Route::group(['prefix' => 'pla'], function() {
@@ -314,6 +357,7 @@ Route::get('dosenrapat','Karyawan\notulensi\daftarDosenRapatController@index');
         Route::post('petugas_tu/{nip_petugas}/edit','Karyawan\PLA\Petugas_TU_Controller@editAction');
 });
 });
+    });
 
 Route::group(['prefix' => 'karyawan'], function() {
 	// Menampilkan tabel
@@ -371,6 +415,7 @@ Route::group(['prefix' => 'karyawan'], function() {
 
 
         Route::get('verifikasi/{id}/penelitian','Karyawan\VerifikasiController@editPenelitian');
+
 
         Route::post('verifikasi/{id}/penelitian','Karyawan\VerifikasiController@editPenelitianAction');
 
@@ -475,4 +520,3 @@ Route::group(['prefix' => 'inventaris'], function() {
   
         
 });
-
