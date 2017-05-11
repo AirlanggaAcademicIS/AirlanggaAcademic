@@ -29,8 +29,22 @@ Route buat mahasiswa ditaruh dibawah sini
 Route buat dosen ditaruh dibawah sini
 =========================================
 */
+Route::group(['prefix' => 'dosen'], function() {
 
+	Route::group(['prefix' => 'kurikulum'], function() {
 
+		Route::group(['prefix' => 'rps'], function() {
+	        Route::get('/','Dosen\Kurikulum\RPSController@index');
+	        Route::get('create','Dosen\Kurikulum\RPSController@create');
+	        Route::post('create','Dosen\Kurikulum\RPSController@createAction');
+	        Route::get('/{id}/delete','Dosen\Kurikulum\RPSController@delete');
+	        Route::get('/{id}/edit','Dosen\Kurikulum\RPSController@edit');
+	        Route::post('/{id}/edit','Dosen\Kurikulum\RPSController@editAction');
+    });
+
+		});
+
+	});
 
 /*
 ==========================================
