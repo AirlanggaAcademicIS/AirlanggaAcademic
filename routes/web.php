@@ -37,7 +37,8 @@ Route buat dosen ditaruh dibawah sini
 Route buat karyawan ditaruh dibawah sini
 =========================================
 */
-
+Route::get('dosenrapat','Karyawan\notulensi\daftarDosenRapatController@index');
 
 
 });
+
