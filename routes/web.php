@@ -37,7 +37,8 @@ Route buat dosen ditaruh dibawah sini
 Route buat karyawan ditaruh dibawah sini
 =========================================
 */
-
-
+ Route::group(['prefix' => 'krs-khs'], function() {
+        Route::get('mk_ditawarkan', 'Karyawan\KrsKhs\MKDitawarkanController@index');
+    });
 
 });
