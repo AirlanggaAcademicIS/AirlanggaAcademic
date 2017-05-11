@@ -44,4 +44,25 @@
         <li><a href="<?php echo e(url('/index-maintenance')); ?>">maintenance</a></li>
     </ul>
 </li>
->>>>>>> b9b8998391cda319ee7e983143468250fe40d3a5
+
+<li>
+            <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
+            <ul class="treeview-menu">
+            <li
+
+    <!-- Modul PLA -->
+            <li>
+            <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
+            <ul class="treeview-menu">
+            <li
+    <li
+                @if($page == 'petugas_tu')
+                {!! 'class="active"'!!}
+                @endif
+                >
+            <!-- Href menuju ke url krs-khs/ruang/view -->
+                <a href="{{ url('karyawan/pla/petugas_tu') }}"><i class='fa fa-book'></i> <span> Petugas TU</span></a>
+                </li>
+
+            </ul>
+            </li>

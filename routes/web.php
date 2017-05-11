@@ -64,6 +64,25 @@ Route::group(['prefix' => 'inventaris'], function() {
 Route buat karyawan ditaruh dibawah sini
 =========================================
 */
+ // Modul PLA
+    Route::group(['prefix' => 'karyawan'], function() {
+        Route::group(['prefix' => 'pla'], function() {
+
+        // Menampilkan tabel
+        Route::get('petugas_tu','Karyawan\PLA\Petugas_TU_Controller@index');
+         // Menampilkan form tambah biodata
+        Route::get('petugas_tu/create','Karyawan\PLA\Petugas_TU_Controller@create');
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('petugas_tu/create','Karyawan\PLA\Petugas_TU_Controller@createAction');
+         // Menghapus biodata sesuai id yang dipilih
+        Route::get('petugas_tu/{nip_petugas}/delete','Karyawan\PLA\Petugas_TU_Controller@delete');
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('petugas_tu/{nip_petugas}/edit','Karyawan\PLA\Petugas_TU_Controller@edit');
+        // Mengupdate biodata dengan isi dari form
+        Route::post('petugas_tu/{nip_petugas}/edit','Karyawan\PLA\Petugas_TU_Controller@editAction');
+});
+});
+
 		Route::get('karyawan/monitoring-skripsi/status','karyawan\monitoringskripsi\StatusController@index');
  // Menampilkan form tambah biodata
         Route::get('karyawan/monitoring-skripsi/status/create','karyawan\monitoringskripsi\StatusController@create');
@@ -129,6 +148,8 @@ Route::group(['prefix' => 'inventaris'], function() {
 
     Route::get('add-asset', 'HomeController@input');
     Route::get('view-asset', 'HomeController@index');
-});
 
+   
+
+});
 });
