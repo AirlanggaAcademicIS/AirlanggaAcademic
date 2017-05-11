@@ -253,6 +253,14 @@ Route buat karyawan ditaruh dibawah sini
 });
 });
 
+Route::group(['prefix' => 'karyawan'], function() {
+	// Menampilkan tabel
+        Route::get('verifikasi','Karyawan\VerifikasiController@index');
+        Route::get('verifikasi/penelitian','Karyawan\VerifikasiController@createPenelitian');
+
+        Route::get('verifikasi/prestasi','Karyawan\VerifikasiController@createPrestasi');
+
+
 // Menampilkan tabel
         Route::get('surat-masuk','karyawan\Surat_MasukController@index');           
 
@@ -296,9 +304,22 @@ Route buat karyawan ditaruh dibawah sini
         // Menambahkan form yg di isi tadi ke tabel biodata
         Route::post('karyawan/monitoring-skripsi/status/create','karyawan\monitoringskripsi\StatusController@createAction');
 
+
         // Menghapus biodata sesuai id yang dipilih
         Route::get('karyawan/monitoring-skripsi/status/{id_kbk}/delete','karyawan\monitoringskripsi\StatusController@delete');
 
+
+        Route::get('verifikasi/{id}/penelitian','Karyawan\VerifikasiController@editPenelitian');
+
+        Route::post('verifikasi/{id}/penelitian','Karyawan\VerifikasiController@editPenelitianAction');
+
+        Route::get('verifikasi/{id}/prestasi','Karyawan\VerifikasiController@editPrestasi');
+        Route::post('verifikasi/{id}/prestasi','Karyawan\VerifikasiController@editPrestasiAction');
+
+
+        Route::get('verifikasi/download/{id}','Karyawan\VerifikasiController@download');
+
+	});
         // Menampilkan form edit biodata dari id yg dipilih
         Route::get('karyawan/monitoring-skripsi/status/{id_kbk}/edit','karyawan\monitoringskripsi\StatusController@edit');
 

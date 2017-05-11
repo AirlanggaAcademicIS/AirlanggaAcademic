@@ -17,15 +17,27 @@
                 </div>
             </div>
         <?php endif; ?>
+<<<<<<< HEAD
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu">            
+            <li
+            <?php if($page == 'dashboard'): ?>
+=======
                 <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li 
             <?php if($page == 'dasboard'): ?>
+>>>>>>> 474ddbc2638e322a7565f0685027afda62770450
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
             >
+<<<<<<< HEAD
+                <a href="<?php echo e(url('home')); ?>"><i class='fa fa-home'></i> <span>Dashboard</span></a>
+=======
                 ><a href="<?php echo e(url('home')); ?>"><i class='fa fa-home'></i> <span>Dasboard</span></a>
+>>>>>>> 474ddbc2638e322a7565f0685027afda62770450
             </li>
             <?php if(Auth::user()->role == 'karyawan'): ?>
             <?php echo $__env->make('sidebar_karyawan', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -34,6 +46,10 @@
             <?php else: ?>
             <?php echo $__env->make('sidebar_dosen', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php endif; ?>
+<<<<<<< HEAD
+                  
+=======
+>>>>>>> 474ddbc2638e322a7565f0685027afda62770450
         </ul>
     </section>
 </aside>
