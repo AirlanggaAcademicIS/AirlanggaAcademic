@@ -295,7 +295,7 @@ Route buat karyawan ditaruh dibawah sini
         Route::post('akun/{nim}/edit','Karyawan\AkunMahasiswaController@editAction');
         });
 
-<<<<<<< HEAD
+
 Route::group(['prefix' => 'karyawan'], function() {
 //menampilkan tabel
 	Route::get('PermohonanRuang','karyawan\PermohonanRuangController@index');
@@ -313,9 +313,9 @@ Route::group(['prefix' => 'karyawan'], function() {
 
 Route::group(['prefix' => 'inventaris'], function() {
 
-=======
+
 Route::get('dosenrapat','Karyawan\notulensi\daftarDosenRapatController@index');
->>>>>>> 7117fcb0c0d7c2b45f207326344a09ac7f7e9500
+
  // Modul PLA
     Route::group(['prefix' => 'karyawan'], function() {
         Route::group(['prefix' => 'pla'], function() {
@@ -497,8 +497,3 @@ Route::group(['prefix' => 'inventaris'], function() {
         
 });
 
-<<<<<<< HEAD
-});
-});
-=======
->>>>>>> 7117fcb0c0d7c2b45f207326344a09ac7f7e9500
