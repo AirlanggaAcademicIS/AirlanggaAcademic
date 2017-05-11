@@ -114,7 +114,7 @@ Route::group(['prefix' => 'mahasiswa'], function() {
         // Menghapus biodata sesuai id yang dipilih
         Route::get('mahasiswa/monitoring-skripsi/konsultasi/{id}/delete','mahasiswa\monitoringskripsi\KonsultasiController@delete');
 
-<<<<<<< HEAD
+
 
 //Route buat dosen ditaruh dibawah sini
 Route::group(['prefix' => 'notulensi'], function() {
@@ -126,7 +126,7 @@ Route::get('notulensi/{id_notulen}/LihatHasilRapat','Dosen\NotulensiController@e
 Route::post('notulensi/{id_notulen}/LihatHasilRapat','Dosen\NotulensiController@editAction');
 
 
-=======
+
         // Menampilkan form edit biodata dari id yg dipilih
         Route::get('mahasiswa/monitoring-skripsi/konsultasi/{id}/edit','mahasiswa\monitoringskripsi\KonsultasiController@edit');
 
@@ -159,9 +159,8 @@ Route buat dosen ditaruh dibawah sini
          Route::get('notulensi/{id_notulen}/edit','Karyawan\NotulensiKaryawanController@edit');
 
         Route::post('notulensi/{id_notulen}/edit','Karyawan\NotulensiKaryawanController@editAction');
-=======
-*/
->>>>>>> 0d102a388d7971698ff7c88f24080165fde93eea
+
+
 
 // Modul Kurikulum
 Route::group(['prefix' => 'dosen'], function() {
@@ -221,13 +220,13 @@ Route::group(['prefix' => 'dosen'], function(){
   // Modul Dosen
     Route::group(['prefix' => 'dosen'], function() {
 
-<<<<<<< HEAD
+
 
 //Route buat karyawan ditaruh dibawah sini
 Route::group(['prefix' => 'notulensi'], function() {
 //Lihat daftar hasil rapat
 Route::get('','Karyawan\NotulensiController@index');
-=======
+
         // Menampilkan tabel
        Route::get('jurnal','Dosen\JurnalController@index');
 
@@ -309,7 +308,7 @@ Route::group(['prefix' => 'cp_pembelajaran'], function() {
 
         // Menambahkan form yg di isi tadi ke tabel biodata
         Route::post('create','Dosen\Kurikulum\CapaianPembelajaranController@createAction');
->>>>>>> dbb61662f9561b24d6d03ab77b8352a896db4069
+
 
         // Menghapus biodata sesuai id yang dipilih
         Route::get('cp_pembelajaran/{id_cpem}/delete','dosen\Kurikulum\CapaianPembelajaranController@delete');
@@ -401,17 +400,17 @@ Route::group(['prefix' => 'karyawan'], function() {
 // Mengupdate  dengan isi dari form
 	Route::post('PermohonanRuang/{id}/edit','karyawan\PermohonanRuangController@editAction');
 
->>>>>>> 0d102a388d7971698ff7c88f24080165fde93eea
+
 
 Route::group(['prefix' => 'inventaris'], function() {
 
 
-<<<<<<< HEAD
+
 });
 });
 });
 
-=======
+
 Route::get('dosenrapat','Karyawan\notulensi\daftarDosenRapatController@index');
 
  // Modul PLA
@@ -595,8 +594,7 @@ Route::group(['prefix' => 'inventaris'], function() {
   
         
 });
-<<<<<<< HEAD
+
 });
-=======
->>>>>>> 0d102a388d7971698ff7c88f24080165fde93eea
->>>>>>> dbb61662f9561b24d6d03ab77b8352a896db4069
+
+
