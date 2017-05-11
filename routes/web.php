@@ -43,6 +43,27 @@ Route buat mahasiswa ditaruh dibawah sini
         // Mengupdate biodata dengan isi dari form
         Route::post('biodata-mahasiswa/{id_bio}/edit','Mahasiswa\BiodataMahasiswaController@editAction');
     });
+
+   Route::group(['prefix' => 'kegiatan'], function() {
+        // Menampilkan tabel
+        Route::get('dokumentasi','Mahasiswa\DokumentasiController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('dokumentasi/create','Mahasiswa\DokumentasiController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('dokumentasi/create','Mahasiswa\DokumentasiController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('dokumentasi/{id}/delete','Mahasiswa\DokumentasiController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('dokumentasi/{id}/edit','Mahasiswa\DokumentasiController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('dokumentasi/{id}/edit','Mahasiswa\DokumentasiController@editAction');
+        });
+
 Route::group(['prefix' => 'mahasiswa'], function() {
 		//Penelitian Mahasiswa
         // Menampilkan tabel
