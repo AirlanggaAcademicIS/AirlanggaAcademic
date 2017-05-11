@@ -168,15 +168,17 @@ Route::group(['prefix' => 'dosen'], function() {
 
         // Mengupdate biodata dengan isi dari form
         Route::post('jurnal/{id}/edit','Dosen\JurnalController@editAction');     
-    
+    });
             
 
+Route::get('dosen/monitoring-skripsi/skripsi','Dosen\monitoringskripsi\SkripsiController@index');
+
+Route::group(['prefix' => 'dosen'], function() {
       
-   });
+
 
 //Route buat dosen ditaruh dibawah sini
 Route::get('kalender','Dosen\NotulensiKalenderController@index');
-
 
 Route::get('dosen/monitoring-skripsi/skripsi','Dosen\monitoringskripsi\SkripsiController@index');
 Route::group(['prefix' => 'inventaris'], function() {
@@ -184,7 +186,26 @@ Route::group(['prefix' => 'inventaris'], function() {
 
 });
 
+            // Menampilkan tabel
+        Route::get('konferensi','Dosen\KonferensiController@index');
 
+        // Menampilkan form tambah biodata
+        Route::get('konferensi/create','Dosen\KonferensiController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('konferensi/create','Dosen\KonferensiController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('konferensi/{id}/delete','Dosen\KonferensiController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('konferensi/{id}/edit','Dosen\KonferensiController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('konferensi/{id}/edit','Dosen\KonferensiController@editAction');
+
+             
+   });
 
 /*
 ==========================================
@@ -244,6 +265,7 @@ Route buat karyawan ditaruh dibawah sini
 
 		Route::get('karyawan/monitoring-skripsi/KBK','karyawan\monitoringskripsi\KBKController@index');
 
+ });
         // Menampilkan form tambah biodata
         Route::get('karyawan/monitoring-skripsi/KBK/create','karyawan\monitoringskripsi\KBKController@create');
 
@@ -292,6 +314,7 @@ Route::group(['prefix' => 'inventaris'], function() {
     Route::get('add-asset', 'HomeController@input');
     Route::get('view-asset', 'HomeController@index');
 });
+
 
 });
 });
