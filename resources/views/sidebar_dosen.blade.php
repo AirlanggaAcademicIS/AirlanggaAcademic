@@ -7,7 +7,34 @@
 >
 <a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
 </li> -->
+            <li
+            @if($page == 'capaian-program')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url kurikulum/capaian-program -->
+            <a href="{{ url('dosen/kurikulum/cp_program') }}"><i class='fa fa-book'></i> <span> Capaian Program</span></a>
+            </li>
+	<li
+	@if($page == 'rps')
+	{!! 'class="active"'!!}
+	@endif
+	>
+
+	<a href="{{ url('dosen/kurikulum/rps') }}"><i class='fa fa-book'></i> <span>RPS</span></a>
+
+	</li>
 <li
+
+
+@if($page == 'silabus')
+{!! 'class="active"'!!}
+@endif
+>
+<a href="{{ url('dosen/kurikulum/silabus') }}"><i class="fa fa-book" aria-hidden="true"></i>Silabus</a>
+</li>
+<li
+
 @if($page == 'konferensi')
 {!! 'class="active"'!!}
 @endif
@@ -15,17 +42,19 @@
 <a href="{{ url('/dosen/konferensi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Konferensi</a>
 </li> 		
 <li
+
 @if($page == 'pengmas')
 {!! 'class="active"'!!}
 @endif
 >
 <a href="{{ url('/dosen/pengmas') }}"><i class="fa fa-calculator" aria-hidden="true"></i> Pengmas</a>
 </li> 
+
 			<li
             @if($page == 'jurnal')
             {!! 'class="active"'!!}
             @endif
-            ><a href="{{url('/dosen/jurnal')}}"><i class="fa fa-calculator" aria-hidden="true"></i>Jurnal</a>
+            ><a href="{{url('/dosen/jurnal')}}"><i class="fa fa-calculator" aria-hidden="true"></i> Jurnal</a>
             </li>  
             <li
             @if($page == 'notulensi')
@@ -49,15 +78,11 @@
 @endif>
 <a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Peminjaman</a>
 </li>
-<<<<<<< HEAD
-
 <li
-
 @if($page == 'capaian-pembelajaran')
 {!! 'class="active"'!!}
  @endif
 >
 <!-- Href menuju ke url kurikulum/capaian-pembelajaran -->
 <a href="{{ url('dosen/kurikulum/cp_pembelajaran') }}"><i class='fa fa-book'></i> <span> Capaian Pembelajaran</span></a>
-=======
->>>>>>> e9eb603fc7f35550e7def08924eb430aa01c873f
+</li>
