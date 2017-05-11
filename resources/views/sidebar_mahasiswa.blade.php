@@ -8,7 +8,13 @@
 </li> -->
 
 <li
-<<<<<<< HEAD
+@if($page == 'biodata-mahasiswa')
+{!! 'class="active"'!!}
+@endif
+>
+<a href="{{ url('mahasiswa/biodata-mahasiswa') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Biodata Mahasiswa</a>
+</li>
+<li
 @if($page == 'penelitian')
 {!! 'class="active"'!!}
 @endif
@@ -16,7 +22,7 @@
 <!-- Href menuju ke url mahasiswa/biodata -->
 <a href="{{ url('/mahasiswa/penelitian') }}"><i class='fa fa-book'></i> <span> Penelitian</span></a>
 </li>
-=======
+<li
 @if($page == 'prestasi')
 {!! 'class="active"'!!}
 @endif
@@ -48,6 +54,3 @@
 <li>
 <a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Peminjaman</a>
 </li>
-
->>>>>>> 13842271f9761d763bf1963d5386248b51b45b5f
->>>>>>> 2baa988ce1121506641e30627c99a92fa4135d4b

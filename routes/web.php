@@ -21,9 +21,27 @@ Route::get('/logout', 'Auth\LoginController@logout');
 ==========================================
 Route buat mahasiswa ditaruh dibawah sini
 =========================================
-<<<<<<< HEAD
-*/ 
+*/
+   Route::group(['prefix' => 'mahasiswa'], function() {
+//Fitur Biodata Mahasiswa
+        // Menampilkan tabel
+        Route::get('biodata-mahasiswa','Mahasiswa\BiodataMahasiswaController@index');
 
+        // Menampilkan form tambah biodata
+        Route::get('biodata-mahasiswa/create','Mahasiswa\BiodataMahasiswaController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('biodata-mahasiswa/create','Mahasiswa\BiodataMahasiswaController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('biodata-mahasiswa/{id_bio}/delete','Mahasiswa\BiodataMahasiswaController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('biodata-mahasiswa/{id_bio}/edit','Mahasiswa\BiodataMahasiswaController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('biodata-mahasiswa/{id_bio}/edit','Mahasiswa\BiodataMahasiswaController@editAction');
+    });
 Route::group(['prefix' => 'mahasiswa'], function() {
 		//Penelitian Mahasiswa
         // Menampilkan tabel

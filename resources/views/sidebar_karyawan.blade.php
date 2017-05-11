@@ -1,15 +1,3 @@
-            <li>
-            <a href=""><i class='fa fa-users'></i> <span>Surat Menyurat</span></a>
-            <ul class="treeview-menu">
-            <!-- Sidebarnya ditaruh dibawah sini -->
-            <li               
-                @if($page == 'suratmasuk')
-                {!! 'class="active"'!!}
-                @endif
-                >
-            <!-- Href menuju ke url -->
-                <a href="{{ url('surat-masuk') }}"><i class='fa fa-book'></i> <span> Surat Masuk</span></a>
-                </li>   
 <!-- Contoh -->
 <!-- <li
 @if($page == 'transaksi')
@@ -20,13 +8,16 @@
 <a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
 </li> -->
 
+<li               
+                @if($page == 'suratmasuk')
+                {!! 'class="active"'!!}
+                @endif
+                >
+            <!-- Href menuju ke url -->
+                <a href="{{ url('surat-masuk') }}"><i class='fa fa-envelope'></i> <span> Surat Masuk</span></a>
+                </li> 
 
-<li class="treeview" id="scrollspy-components"
-@if($page == 'mata-kuliah')
-{!! 'class="active"'!!}
-@endif
->
->
+<li class="treeview" id="scrollspy-components">
 	<a href="#"><i class="fa fa-circle-o"></i> Kurikulum</a>
 	<ul class="nav treeview-menu">
 		<li
