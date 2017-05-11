@@ -40,6 +40,31 @@ Route::group(['prefix' => 'inventaris'], function() {
     Route::get('view-asset', 'HomeController@index');
 });
 
+Route::group(['prefix' => 'dosen'], function() {
+Route::group(['prefix' => 'kurikulum'], function() {
+Route::group(['prefix' => 'cp_pembelajaran'], function() {
+
+        // Menampilkan tabel
+        Route::get('/','Dosen\Kurikulum\CapaianPembelajaranController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('create','dosen\Kurikulum\CapaianPembelajaranController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('create','Dosen\Kurikulum\CapaianPembelajaranController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('cp_pembelajaran/{id_cpem}/delete','dosen\Kurikulum\CapaianPembelajaranController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('cp_pembelajaran/{id_cpem}/edit','dosen\Kurikulum\CapaianPembelajaranController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('cp_pembelajaran/{id_cpem}/edit','dosen\Kurikulum\CapaianPembelajaranController@editAction');
+});
+});
+});
+      
 
 /*
 ==========================================

@@ -20,3 +20,12 @@
 </ul>
 <a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Peminjaman</a>
 </li>
+
+<li
+
+@if($page == 'capaian-pembelajaran')
+{!! 'class="active"'!!}
+ @endif
+>
+<!-- Href menuju ke url kurikulum/capaian-pembelajaran -->
+<a href="{{ url('dosen/kurikulum/cp_pembelajaran') }}"><i class='fa fa-book'></i> <span> Capaian Pembelajaran</span></a>
