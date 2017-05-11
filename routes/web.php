@@ -24,11 +24,10 @@ Route buat mahasiswa ditaruh dibawah sini
 
 
 
-/*
-==========================================
-Route buat dosen ditaruh dibawah sini
-=========================================
-*/
+
+//Route buat dosen ditaruh dibawah sini
+Route::get('kalender','Dosen\NotulensiKalenderController@index');
+
 
 
 
