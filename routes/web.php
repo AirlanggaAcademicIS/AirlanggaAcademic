@@ -102,7 +102,10 @@ Route::get('mahasiswa/monitoring-skripsi/skripsi','Mahasiswa\monitoringskripsi\S
 Route::group(['prefix' => 'inventaris'], function() {
     Route::get('view-asset', 'HomeController@index');
 });
+// Form memmohon ruangan
+        Route::get('memohon-ruangan','Mahasiswa\MohonRuanganController@create');
 
+        Route::get('memohon-ruangan','Mahasiswa\MohonRuanganController@createAction');
 /*
 ==========================================
 Route buat dosen ditaruh dibawah sini
@@ -169,10 +172,7 @@ Route buat karyawan ditaruh dibawah sini
     // Mengupdate biodata dengan isi dari form
         Route::post('surat-masuk/{id}/edit','karyawan\Surat_MasukController@editAction');
 
-    // Form memmohon ruangan
-        Route::get('memohon-ruangan','Karyawan\MohonRuanganController@create');
-
-        Route::get('memohon-ruangan','Karyawan\MohonRuanganController@createAction');
+    
 
     Route::group( ['prefix'=>'karyawan'], function(){
 	    Route::group( ['prefix'=>'kurikulum'], function(){
