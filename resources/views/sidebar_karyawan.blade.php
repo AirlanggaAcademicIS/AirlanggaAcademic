@@ -4,7 +4,6 @@
 {!! 'class="active"'!!}
 @endif
 >
-<<<<<<< HEAD
 <a href="{{ url('/inventaris/asset') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Inventaris</a>
 <ul class="treeview-menu">
 
@@ -13,11 +12,10 @@
 
 </ul>
 </li>
-=======
 
 <a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
 </li> -->
-<<<<<<< HEAD
+
  <li
             @if($page == 'PermohonanRuang')
             {!! 'class="active"'!!}
@@ -28,7 +26,33 @@
             </li>  
             </ul>
             </li>
+
+<li
+@if($page == 'AkunMahasiswa')
+{!! 'class="active"'!!}
+@endif
+>
+<a href="{{ url('karyawan/akun') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Akun Mahasiswa</a>
+</li>
 =======
+<li>
+            <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
+            <ul class="treeview-menu">
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            <li
+            @if($page == 'dosenrapat')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url notulensi/notulensi rapat -->
+            <a href="#"><i class='fa fa-book'></i> <span>Undangan</span></a>
+            <a href="#"><i class='fa fa-book'></i> <span>Notulensi</span></a>
+            <a href="{{ url('dosenrapat') }}"><i class='fa fa-book'></i> <span>Kehadiran Rapat</span></a>
+            <a href="#"><i class='fa fa-book'></i> <span>Kalender</span></a>
+            </li>
+
+
 <li
 @if($page == 'verifikasi')
 {!! 'class="active"'!!}
@@ -112,7 +136,6 @@
             <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
             <ul class="treeview-menu">
             <li
-    <li
                 @if($page == 'petugas_tu')
                 {!! 'class="active"'!!}
                 @endif
@@ -124,5 +147,3 @@
             </ul>
             </li>
 
->>>>>>> 0d5b2f1938f264dfab9548ad3f560aa4ea9536cb
->>>>>>> b4dd21102b44752081926cd589a026e593d8f38c

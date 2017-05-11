@@ -278,7 +278,24 @@ Route::group(['prefix' => 'cp_pembelajaran'], function() {
 Route buat karyawan ditaruh dibawah sini
 =========================================
 */
+		
+		Route::group(['prefix' => 'karyawan'], function() {
+		
+		// Menampilkan tabel
+        Route::get('akun','Karyawan\AkunMahasiswaController@index');
+        // Menampilkan form tambah biodata
+        Route::get('akun/create','Karyawan\AkunMahasiswaController@create');
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('akun/create','Karyawan\AkunMahasiswaController@createAction');
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('akun/{nim}/delete','Karyawan\AkunMahasiswaController@delete');
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('akun/{nim}/edit','Karyawan\AkunMahasiswaController@edit');
+        // Mengupdate biodata dengan isi dari form
+        Route::post('akun/{nim}/edit','Karyawan\AkunMahasiswaController@editAction');
+        });
 
+<<<<<<< HEAD
 Route::group(['prefix' => 'karyawan'], function() {
 //menampilkan tabel
 	Route::get('PermohonanRuang','karyawan\PermohonanRuangController@index');
@@ -296,6 +313,9 @@ Route::group(['prefix' => 'karyawan'], function() {
 
 Route::group(['prefix' => 'inventaris'], function() {
 
+=======
+Route::get('dosenrapat','Karyawan\notulensi\daftarDosenRapatController@index');
+>>>>>>> 7117fcb0c0d7c2b45f207326344a09ac7f7e9500
  // Modul PLA
     Route::group(['prefix' => 'karyawan'], function() {
         Route::group(['prefix' => 'pla'], function() {
@@ -477,5 +497,8 @@ Route::group(['prefix' => 'inventaris'], function() {
         
 });
 
+<<<<<<< HEAD
 });
 });
+=======
+>>>>>>> 7117fcb0c0d7c2b45f207326344a09ac7f7e9500
