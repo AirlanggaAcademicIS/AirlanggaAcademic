@@ -41,6 +41,6 @@ class HomeController extends Controller
 
     public function input()
     {
-        return view('inventaris.asset.input');
+        return view('.inventarisasset.input');
     }
 }
