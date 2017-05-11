@@ -17,15 +17,14 @@
                 </div>
             </div>
         <?php endif; ?>
-        <!-- Sidebar Menu -->
-        <ul class="sidebar-menu">            
-            <li
-            <?php if($page == 'dashboard'): ?>
+                <!-- Sidebar Menu -->
+        <ul class="sidebar-menu">
+            <li 
+            <?php if($page == 'dasboard'): ?>
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
             >
-                <a href="<?php echo e(url('home')); ?>"><i class='fa fa-home'></i> <span>Dashboard</span></a>
                 ><a href="<?php echo e(url('home')); ?>"><i class='fa fa-home'></i> <span>Dasboard</span></a>
             </li>
             <?php if(Auth::user()->role == 'karyawan'): ?>
