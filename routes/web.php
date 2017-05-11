@@ -22,6 +22,28 @@ Route buat mahasiswa ditaruh dibawah sini
 =========================================
 */
 
+Route::group(['prefix' => 'mahasiswa'], function() {
+// prestasi
+     // Menampilkan tabel
+        Route::get('prestasi','Mahasiswa\PrestasiController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('prestasi/create','Mahasiswa\PrestasiController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::post('prestasi/create','Mahasiswa\PrestasiController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('prestasi/{id_prestasi}/delete','Mahasiswa\PrestasiController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('prestasi/{id_prestasi}/edit','Mahasiswa\PrestasiController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('prestasi/{id_prestasi}/edit','Mahasiswa\PrestasiController@editAction');
+
+    });
+
 
 
 /*
