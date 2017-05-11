@@ -34,7 +34,6 @@
             <?php else: ?>
             <?php echo $__env->make('sidebar_dosen', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php endif; ?>
-
-            </ul>
-            </section>
-            </aside>
+        </ul>
+    </section>
+</aside>

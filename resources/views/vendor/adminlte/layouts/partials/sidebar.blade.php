@@ -33,7 +33,6 @@
             @else
             @include('sidebar_dosen')
             @endif
-
-            </ul>
-            </section>
-            </aside>
+        </ul>
+    </section>
+</aside>
