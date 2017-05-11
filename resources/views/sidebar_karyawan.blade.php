@@ -4,10 +4,17 @@
 {!! 'class="active"'!!}
 @endif
 >
-<<<<<<< HEAD
+
 <a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
 </li> -->
 <li
+@if($page == 'verifikasi')
+{!! 'class="active"'!!}
+@endif
+>
+<a href="{{ url('karyawan/verifikasi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Verifikasi Mahasiswa</a>
+</li>
+			<li
             @if($page == 'notulensi')
             {!! 'class="active"'!!}
             @endif
@@ -72,3 +79,26 @@
         <li><a href="<?php echo e(url('/index-maintenance')); ?>">maintenance</a></li>
     </ul>
 </li>
+
+<li>
+            <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
+            <ul class="treeview-menu">
+            <li
+
+    <!-- Modul PLA -->
+            <li>
+            <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
+            <ul class="treeview-menu">
+            <li
+    <li
+                @if($page == 'petugas_tu')
+                {!! 'class="active"'!!}
+                @endif
+                >
+            <!-- Href menuju ke url krs-khs/ruang/view -->
+                <a href="{{ url('karyawan/pla/petugas_tu') }}"><i class='fa fa-book'></i> <span> Petugas TU</span></a>
+                </li>
+
+            </ul>
+            </li>
+
