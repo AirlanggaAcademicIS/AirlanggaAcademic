@@ -279,8 +279,6 @@ Route buat karyawan ditaruh dibawah sini
 =========================================
 */
 
-Route::group(['prefix' => 'inventaris'], function() {
-=======
  // Modul PLA
     Route::group(['prefix' => 'karyawan'], function() {
         Route::group(['prefix' => 'pla'], function() {
@@ -461,4 +459,3 @@ Route::group(['prefix' => 'inventaris'], function() {
         
 });
 
-});
