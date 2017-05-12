@@ -1,6 +1,7 @@
 
 <!-- Contoh -->
-<<<<<<< HEAD
+
+
 			<li>
             <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
             <ul class="treeview-menu">
@@ -12,14 +13,18 @@
             @endif
             >
             <!-- Href menuju ke url notulensi/notulensi rapat -->
+
+            <a href="{{ url('undangan') }}"><i class='fa fa-book'></i> <span>Undangan</span></a>
+
             <a href="#"><i class='fa fa-book'></i> <span>Undangan</span></a>
+
             <a href="{{ url('notulensi') }}"><i class='fa fa-book'></i> <span>Notulensi</span></a>
             <a href="#"><i class='fa fa-book'></i> <span>Kalender</span></a>
             </li>
 <!-- <li
-=======
+
 <!-- <<li
->>>>>>> 0d102a388d7971698ff7c88f24080165fde93eea
+
 @if($page == 'transaksi')
 {!! 'class="active"'!!}
 @endif

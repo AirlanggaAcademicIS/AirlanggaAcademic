@@ -118,6 +118,7 @@ Route::group(['prefix' => 'mahasiswa'], function() {
 
 //Route buat dosen ditaruh dibawah sini
 Route::group(['prefix' => 'notulensi'], function() {
+
 //Lihat daftar hasil rapat
 Route::get('','Dosen\NotulensiController@index');
 // Menampilkan form edit notulensi rapat dari id yg dipilih
@@ -130,10 +131,22 @@ Route::post('notulensi/{id_notulen}/LihatHasilRapat','Dosen\NotulensiController@
         // Menampilkan form edit biodata dari id yg dipilih
         Route::get('mahasiswa/monitoring-skripsi/konsultasi/{id}/edit','mahasiswa\monitoringskripsi\KonsultasiController@edit');
 
-        // Mengupdate biodata dengan isi dari form
-        Route::post('mahasiswa/monitoring-skripsi/konsultasi/{id}/edit','mahasiswa\monitoringskripsi\KonsultasiController@editAction'); 
+    //Lihat daftar hasil rapat
+    Route::get('','Dosen\NotulensiController@index');
+    // Menampilkan form edit notulensi rapat dari id yg dipilih
+    Route::get('notulensi/{id_notulen}/LihatHasilRapat','Dosen\NotulensiController@edit');
+    // Mengupdate notulensi rapat dengan isi dari form
+    Route::post('notulensi/{id_notulen}/LihatHasilRapat','Dosen\NotulensiController@editAction');
+});
+
+
+// Menampilkan form edit biodata dari id yg dipilih
+Route::get('mahasiswa/monitoring-skripsi/konsultasi/{id}/edit','mahasiswa\monitoringskripsi\KonsultasiController@edit');
+// Mengupdate biodata dengan isi dari form
+Route::post('mahasiswa/monitoring-skripsi/konsultasi/{id}/edit','mahasiswa\monitoringskripsi\KonsultasiController@editAction'); 
 
 Route::get('mahasiswa/monitoring-skripsi/skripsi','Mahasiswa\monitoringskripsi\SkripsiController@index');
+
 Route::group(['prefix' => 'inventaris'], function() {
     Route::get('view-asset', 'HomeController@index');
 });
@@ -145,6 +158,7 @@ Route::group(['prefix' => 'inventaris'], function() {
 ==========================================
 Route buat dosen ditaruh dibawah sini
 =========================================
+<<<<<<< HEAD
 <<<<<<< HEAD
 */Route::group(['prefix' => '/notulensi'], function() {
 		// Menampilkan tabel notulensi
@@ -159,6 +173,7 @@ Route buat dosen ditaruh dibawah sini
          Route::get('notulensi/{id_notulen}/edit','Karyawan\NotulensiKaryawanController@edit');
 
         Route::post('notulensi/{id_notulen}/edit','Karyawan\NotulensiKaryawanController@editAction');
+
 
 
 
@@ -310,11 +325,32 @@ Route::group(['prefix' => 'cp_pembelajaran'], function() {
         Route::post('create','Dosen\Kurikulum\CapaianPembelajaranController@createAction');
 
 
+
+//Index
+Route::get('undangan','Dosen\notulensi\DosenRapatController@index');
+
+// Menampilkan form tambah dosen rapat
+Route::get('undangan/create','Dosen\notulensi\DosenRapatController@create');
+
+// Menambahkan form yg di isi tadi ke tabel dosen rapat
+Route::post('undangan/create','Dosen\notulensi\DosenRapatController@createAction');
+
+// Menghapus dosen rapat sesuai id yang dipilih
+Route::get('undangan/{nip}/delete','Dosen\notulensi\DosenRapatController@delete');
+
+// Menampilkan form edit dosen rapat dari id yg dipilih
+Route::get('undangan/{nip}/edit','Dosen\notulensi\DosenRapatController@edit');
+
+// Mengupdate dosen rapat dengan isi dari form
+Route::post('undangan/{nip}/edit','Dosen\notulensi\DosenRapatController@editAction');
+
+
         // Menghapus biodata sesuai id yang dipilih
         Route::get('cp_pembelajaran/{id_cpem}/delete','dosen\Kurikulum\CapaianPembelajaranController@delete');
 
         // Menampilkan form edit biodata dari id yg dipilih
         Route::get('cp_pembelajaran/{id_cpem}/edit','dosen\Kurikulum\CapaianPembelajaranController@edit');
+
 
         // Mengupdate biodata dengan isi dari form
         Route::post('cp_pembelajaran/{id_cpem}/edit','dosen\Kurikulum\CapaianPembelajaranController@editAction');
@@ -595,6 +631,8 @@ Route::group(['prefix' => 'inventaris'], function() {
         
 });
 
+
 });
+
 
 
