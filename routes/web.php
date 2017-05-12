@@ -24,24 +24,14 @@ Route buat mahasiswa ditaruh dibawah sini
 
 */
 
+
         // Menampilkan tabel
 
    Route::group(['prefix' => 'mahasiswa'], function() {
 //Fitur Biodata Mahasiswa
+
         // Menampilkan tabel
-        Route::get('biodata-mahasiswa','Mahasiswa\BiodataMahasiswaController@index');
-
-        // Menampilkan form tambah biodata
-        Route::get('biodata-mahasiswa/create','Mahasiswa\BiodataMahasiswaController@create');
-
-        // Menambahkan form yg di isi tadi ke tabel biodata
-        Route::post('biodata-mahasiswa/create','Mahasiswa\BiodataMahasiswaController@createAction');
-
-        // Menghapus biodata sesuai id yang dipilih
-        Route::get('biodata-mahasiswa/{id_bio}/delete','Mahasiswa\BiodataMahasiswaController@delete');
-
-        // Menampilkan form edit biodata dari id yg dipilih
-        Route::get('biodata-mahasiswa/{id_bio}/edit','Mahasiswa\BiodataMahasiswaController@edit');
+        Route::get('mahasiswa/monitoring-skripsi/konsultasi','mahasiswa\monitoringskripsi\KonsultasiController@index');
 
         // Mengupdate biodata dengan isi dari form
         Route::post('biodata-mahasiswa/{id_bio}/edit','Mahasiswa\BiodataMahasiswaController@editAction');
@@ -70,6 +60,7 @@ Route buat mahasiswa ditaruh dibawah sini
 Route::group(['prefix' => 'mahasiswa'], function() {
 		//Penelitian Mahasiswa
         // Menampilkan tabel
+
         Route::get('penelitian','Mahasiswa\PenelitianController@index');
         // Menampilkan form tambah penelitian
         Route::get('penelitian/create','Mahasiswa\PenelitianController@create');
@@ -87,6 +78,9 @@ Route::group(['prefix' => 'mahasiswa'], function() {
 
         Route::get('mahasiswa/monitoring-skripsi/konsultasi','mahasiswa\monitoringskripsi\KonsultasiController@index');
 
+        Route::get('mahasiswa/pengelolaan-kegiatan/dokumentasi','mahasiswa\pengelolaankegiatan\DokumentasiController@index');
+
+
         // Menampilkan tabel
         Route::get('mahasiswa/pengelolaan-kegiatan/dokumentasi','mahasiswa\pengelolaankegiatan\DokumentasiController@index');
 
@@ -97,27 +91,6 @@ Route::group(['prefix' => 'mahasiswa'], function() {
         // Menambahkan form yg di isi tadi ke tabel biodata
         Route::post('mahasiswa/monitoring-skripsi/konsultasi/create','mahasiswa\monitoringskripsi\KonsultasiController@createAction');
 
-Route::group(['prefix' => 'mahasiswa'], function() {
-// prestasi
-     // Menampilkan tabel
-        Route::get('prestasi','Mahasiswa\PrestasiController@index');
-
-        // Menampilkan form tambah biodata
-        Route::get('prestasi/create','Mahasiswa\PrestasiController@create');
-
-        // Menambahkan form yg di isi tadi ke tabel biodata
-        Route::post('prestasi/create','Mahasiswa\PrestasiController@createAction');
-
-        // Menghapus biodata sesuai id yang dipilih
-        Route::get('prestasi/{id_prestasi}/delete','Mahasiswa\PrestasiController@delete');
-
-        // Menampilkan form edit biodata dari id yg dipilih
-        Route::get('prestasi/{id_prestasi}/edit','Mahasiswa\PrestasiController@edit');
-
-        // Mengupdate biodata dengan isi dari form
-        Route::post('prestasi/{id_prestasi}/edit','Mahasiswa\PrestasiController@editAction');
-
-    });
         // Menghapus biodata sesuai id yang dipilih
         Route::get('mahasiswa/monitoring-skripsi/konsultasi/{id}/delete','mahasiswa\monitoringskripsi\KonsultasiController@delete');
 
@@ -157,21 +130,21 @@ Route::get('mahasiswa/monitoring-skripsi/skripsi','Mahasiswa\monitoringskripsi\S
 Route::group(['prefix' => 'inventaris'], function() {
     Route::get('view-asset', 'HomeController@index');
 });
-// Form memmohon ruangan
-        Route::get('memohon-ruangan','Mahasiswa\MohonRuanganController@create');
 
-        Route::get('memohon-ruangan','Mahasiswa\MohonRuanganController@createAction');
+
 /*
 ==========================================
 Route buat dosen ditaruh dibawah sini
 =========================================
 <<<<<<< HEAD
 */
+
         // Menampilkan tabel
         Route::get('dosen/pengelolaan-kegiatan/dokumentasi','dosen\pengelolaankegiatan\DokumentasiController@index');
 
 
-*/Route::group(['prefix' => '/notulensi'], function() {
+
+Route::group(['prefix' => '/notulensi'], function() {
 		// Menampilkan tabel notulensi
         Route::get('','Karyawan\NotulensiKaryawanController@index');
                 // Menampilkan form tambah biodata
@@ -252,53 +225,14 @@ Route::group(['prefix' => 'dosen'], function(){
 Route::group(['prefix' => 'notulensi'], function() {
 //Lihat daftar hasil rapat
 Route::get('','Karyawan\NotulensiController@index');
-
         // Menampilkan tabel
-       Route::get('jurnal','Dosen\JurnalController@index');
+        Route::get('dosen/pengelolaan-kegiatan/dokumentasi','dosen\pengelolaankegiatan\DokumentasiController@index');
 
-        // Menampilkan form tambah biodata
-        Route::get('jurnal/create','Dosen\JurnalController@create');
-
-        // Menambahkan form yg di isi tadi ke tabel biodata
-        Route::post('jurnal/create','Dosen\JurnalController@createAction');
-
-        // Menghapus biodata sesuai id yang dipilih
-        Route::get('jurnal/{id}/delete','Dosen\JurnalController@delete');
-
-        // Menampilkan form edit biodata dari id yg dipilih
-        Route::get('jurnal/{id}/edit','Dosen\JurnalController@edit');
-
-        // Mengupdate biodata dengan isi dari form
-        Route::post('jurnal/{id}/edit','Dosen\JurnalController@editAction');     
-    });
-Route::get('dosen/monitoring-skripsi/skripsi','Dosen\monitoringskripsi\SkripsiController@index');
-Route::group(['prefix' => 'dosen'], function() {
-      
-        Route::group(['prefix' => 'kurikulum'], function() {
-
-		Route::group(['prefix' => 'kodecppem'], function() {
-
-		    Route::get('/','Dosen\Kurikulum\KodeController@index');
-
-		    Route::post('create','Dosen\Kurikulum\KodeController@createAction');
-
-		    Route::get('/delete/{id}','Dosen\Kurikulum\KodeController@delete');
-
-		    Route::get('/edit/{id}','Dosen\Kurikulum\KodeController@edit');
-
-		    Route::post('/edit/{id}','Dosen\Kurikulum\KodeController@editAction');
-		});
-
-	});
-});
-//Route buat dosen ditaruh dibawah sini
-Route::get('kalender','Dosen\NotulensiKalenderController@index');
 
 
 Route::get('dosen/monitoring-skripsi/skripsi','Dosen\monitoringskripsi\SkripsiController@index');
 Route::group(['prefix' => 'inventaris'], function() {
     Route::get('view-asset', 'HomeController@index');
-
 });
 Route::group(['prefix' => 'dosen'], function() {
 
@@ -399,11 +333,9 @@ Route::post('undangan/{nip}/edit','Dosen\notulensi\DosenRapatController@editActi
 
              
    });
-/*
 
-==========================================
+/*
 Route buat karyawan ditaruh dibawah sini
-=========================================
 */
 
 		Route::get('karyawan/pengelolaan-kegiatan/dokumentasi','karyawan\pengelolaankegiatan\DokumentasiController@index');
@@ -550,18 +482,18 @@ Route::group(['prefix' => 'karyawan'], function() {
 		        Route::get('/delete{id}',['as'=>'karyawan.kurikulum.mata-kuliah.index', 'uses'=>'Karyawan\Kurikulum\MataKuliahController@delete']);		        		        		        
 		    });
 
-	    });
-    });
+    Route::get('karyawan/pengelolaan-kegiatan/pengajuan-kegiatan','Karyawan\pengelolaankegiatan\PengajuanKegiatanController@index');
 
-		Route::get('karyawan/monitoring-skripsi/status','karyawan\monitoringskripsi\StatusController@index');
- // Menampilkan form tambah biodata
-        Route::get('karyawan/monitoring-skripsi/status/create','karyawan\monitoringskripsi\StatusController@create');
+    Route::get('karyawan/pengelolaan-kegiatan/dokumentasi','karyawan\pengelolaankegiatan\DokumentasiController@index');
 
-        // Menambahkan form yg di isi tadi ke tabel biodata
-        Route::post('karyawan/monitoring-skripsi/status/create','karyawan\monitoringskripsi\StatusController@createAction');
+        // Menampilkan form tambah biodata
+        Route::get('karyawan/pengelolaan-kegiatan/dokumentasi/create','karyawan\pengelolaankegiatan\DokumentasiController@create');
 
+        // Menambahkan form yg di isi tadi ke tabel biodata 
+        Route::post('karyawan/pengelolaan-kegiatan/dokumentasi/create','karyawan\pengelolaankegiatan\DokumentasiController@createAction');
 
         // Menghapus biodata sesuai id yang dipilih
+        Route::get('karyawan/pengelolaan-kegiatan/dokumentasi/{id_dokumentasi}/delete','karyawan\pengelolaankegiatan\DokumentasiController@delete');
         Route::get('karyawan/monitoring-skripsi/status/{id_kbk}/delete','karyawan\monitoringskripsi\StatusController@delete');
 
 
@@ -577,18 +509,21 @@ Route::group(['prefix' => 'karyawan'], function() {
         Route::get('verifikasi/download/{id}','Karyawan\VerifikasiController@download');
 
         // Menampilkan form edit biodata dari id yg dipilih
-        Route::get('karyawan/monitoring-skripsi/status/{id_kbk}/edit','karyawan\monitoringskripsi\StatusController@edit');
+        Route::get('karyawan/pengelolaan-kegiatan/dokumentasi/{id_dokumentasi}/edit','karyawan\pengelolaankegiatan\DokumentasiController@edit');
 
         // Mengupdate biodata dengan isi dari form
-        Route::post('karyawan/monitoring-skripsi/status/{id_kbk}/edit','karyawan\monitoringskripsi\StatusController@editAction');
+        Route::post('karyawan/pengelolaan-kegiatan/dokumentasi/{id_dokumentasi}/edit','karyawan\pengelolaankegiatan\DokumentasiController@editAction');
+        // Menampilkan tabel
+        Route::get('karyawan/pengelolaan-kegiatan/dokumentasi','Karyawan\pengelolaankegiatan\DokumentasiController@index');
 
-		Route::get('karyawan/monitoring-skripsi/KBK','karyawan\monitoringskripsi\KBKController@index');
+
+        Route::get('karyawan/monitoring-skripsi/KBK','karyawan\monitoringskripsi\KBKController@index');
 
 
         // Menampilkan form tambah biodata
         Route::get('karyawan/monitoring-skripsi/KBK/create','karyawan\monitoringskripsi\KBKController@create');
 
-        // Menambahkan form yg di isi tadi ke tabel biodata	
+        // Menambahkan form yg di isi tadi ke tabel biodata 
         Route::post('karyawan/monitoring-skripsi/KBK/create','karyawan\monitoringskripsi\KBKController@createAction');
 
         // Menghapus biodata sesuai id yang dipilih
@@ -622,7 +557,6 @@ Route::group(['prefix' => 'inventaris'], function() {
     Route::get('index-maintenance', 'MaintenanceController@index');
     Route::get('view-maintenance', 'MaintenanceController@viewDetail');
 
-
     Route::get('input-peminjaman', 'Karyawan\PeminjamanController@inputPeminjaman');
     Route::post('post-input-peminjaman', 'Karyawan\PeminjamanController@postInputPeminjaman');
     Route::post('/{id}/post-edit-peminjaman', 'Karyawan\PeminjamanController@postEditPeminjaman');
@@ -631,48 +565,11 @@ Route::group(['prefix' => 'inventaris'], function() {
     Route::get('/{id}/edit-peminjaman', 'Karyawan\PeminjamanController@edit');
     Route::get('/{id}/delete', 'Karyawan\PeminjamanController@delete');
 
-    
-    // Menampilkan tabel
-    Route::get('asset','Karyawan\AssetController@index');
-
     Route::get('add-asset', 'HomeController@input');
     Route::get('view-asset', 'HomeController@index');
-
-
-    
-        // Menampilkan tabel
-        Route::get('asset','Karyawan\AssetController@index');
-        
-        // Menampilkan form tambah asset
-        Route::get('asset/create','Karyawan\AssetController@create');
-        
-        // Menambahkan form yg di isi tadi ke tabel asset
-        Route::post('asset/create','Karyawan\AssetController@createAction');
-        
-        // Menghapus asset sesuai id yang dipilih
-        Route::get('asset/{id}/delete','Karyawan\AssetController@delete');
-
-        // Menampilkan form edit asset dari id yg dipilih
-        Route::get('asset/{id}/edit','Karyawan\AssetController@edit');
-
-        // Mengupdate asset dengan isi dari form
-        Route::post('asset/{id}/edit','Karyawan\AssetController@editAction');
-
-        //
-
-
-    	Route::get('add-asset', 'DashboardController@input');
-    	Route::get('/view-asset', 'Inventaris\DashboardController@index');
-    
-         
-        Route::get('add-asset', 'HomeController@input');
-        Route::get('view-asset', 'HomeController@index');
-
-    });
-  
-        
 });
 
+});
 
 });
 
