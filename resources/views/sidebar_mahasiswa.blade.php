@@ -33,3 +33,17 @@
 <a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Peminjaman</a>
 </li>
 
+<li>
+<a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan </span></a>
+<ul class="treeview-menu">
+<!-- Sidebarnya ditaruh dibawah sini -->
+<li
+@if($page == 'dokumentasi')
+{!! 'class="active"'!!}
+@endif>
+
+<a href="{{ url('dosen/pengelolaan-kegiatan/dokumentasi') }}"><i class='fa fa-book'></i><span> View Dokumentasi </span></a>
+</li>
+</ul>
+</li>
+

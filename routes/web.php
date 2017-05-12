@@ -22,8 +22,11 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route buat mahasiswa ditaruh dibawah sini
 =========================================
 */
-// Menampilkan tabel
+        // Menampilkan tabel
         Route::get('mahasiswa/monitoring-skripsi/konsultasi','mahasiswa\monitoringskripsi\KonsultasiController@index');
+
+        // Menampilkan tabel
+        Route::get('mahasiswa/pengelolaan-kegiatan/dokumentasi','mahasiswa\pengelolaankegiatan\DokumentasiController@index');
 
         // Menampilkan form tambah biodata
         Route::get('mahasiswa/monitoring-skripsi/konsultasi/create','mahasiswa\monitoringskripsi\KonsultasiController@create');
@@ -52,6 +55,9 @@ Route::group(['prefix' => 'inventaris'], function() {
 Route buat dosen ditaruh dibawah sini
 =========================================
 */
+        // Menampilkan tabel
+        Route::get('dosen/pengelolaan-kegiatan/dokumentasi','dosen\pengelolaankegiatan\DokumentasiController@index');
+
 
 Route::get('dosen/monitoring-skripsi/skripsi','Dosen\monitoringskripsi\SkripsiController@index');
 Route::group(['prefix' => 'inventaris'], function() {
@@ -64,7 +70,26 @@ Route::group(['prefix' => 'inventaris'], function() {
 Route buat karyawan ditaruh dibawah sini
 =========================================
 */
-		Route::get('karyawan/monitoring-skripsi/KBK','karyawan\monitoringskripsi\KBKController@index');
+		Route::get('karyawan/pengelolaan-kegiatan/dokumentasi','karyawan\pengelolaankegiatan\DokumentasiController@index');
+
+        // Menampilkan form tambah biodata
+        Route::get('karyawan/pengelolaan-kegiatan/dokumentasi/create','karyawan\pengelolaankegiatan\DokumentasiController@create');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata 
+        Route::post('karyawan/pengelolaan-kegiatan/dokumentasi/create','karyawan\pengelolaankegiatan\DokumentasiController@createAction');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('karyawan/pengelolaan-kegiatan/dokumentasi/{id_dokumentasi}/delete','karyawan\pengelolaankegiatan\DokumentasiController@delete');
+
+        // Menampilkan form edit biodata dari id yg dipilih
+        Route::get('karyawan/pengelolaan-kegiatan/dokumentasi/{id_dokumentasi}/edit','karyawan\pengelolaankegiatan\DokumentasiController@edit');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::post('karyawan/pengelolaan-kegiatan/dokumentasi/{id_dokumentasi}/edit','karyawan\pengelolaankegiatan\DokumentasiController@editAction');
+        
+
+
+        Route::get('karyawan/monitoring-skripsi/KBK','karyawan\monitoringskripsi\KBKController@index');
 
         // Menampilkan form tambah biodata
         Route::get('karyawan/monitoring-skripsi/KBK/create','karyawan\monitoringskripsi\KBKController@create');
@@ -80,7 +105,7 @@ Route buat karyawan ditaruh dibawah sini
 
         // Mengupdate biodata dengan isi dari form
         Route::post('karyawan/monitoring-skripsi/KBK/{id_kbk}/edit','karyawan\monitoringskripsi\KBKController@editAction');
-// Menampilkan tabel
+        // Menampilkan tabel
         Route::get('karyawan/monitoring-skripsi/skripsi','Karyawan\monitoringskripsi\SkripsiController@index');
 
         // Menampilkan form tambah 
