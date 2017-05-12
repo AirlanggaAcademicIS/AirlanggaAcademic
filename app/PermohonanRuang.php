@@ -12,7 +12,8 @@ class PermohonanRuang extends Model
 		'nip_petugas_id', 
 		'nama',
 		'atribut_verifikasi',
-		'nim_nip'
+		'nim_nip',
+
 			
    ];
 }
