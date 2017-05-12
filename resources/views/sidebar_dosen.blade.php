@@ -1,12 +1,54 @@
 
 <!-- Contoh -->
+
+
+			<li>
+            <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
+            <ul class="treeview-menu">
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            <li
+            @if($page == 'notulensi')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url notulensi/notulensi rapat -->
+
+            <a href="{{ url('undangan') }}"><i class='fa fa-book'></i> <span>Undangan</span></a>
+
+            <a href="#"><i class='fa fa-book'></i> <span>Undangan</span></a>
+
+            <a href="{{ url('notulensi') }}"><i class='fa fa-book'></i> <span>Notulensi</span></a>
+            <a href="#"><i class='fa fa-book'></i> <span>Kalender</span></a>
+            </li>
+<!-- <li
+
 <!-- <<li
+
 @if($page == 'transaksi')
 {!! 'class="active"'!!}
 @endif
 >
 <a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
 </li> -->
+<<<<<<< HEAD
+
+<li>
+            <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
+            <ul class="treeview-menu">
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
+            <li
+            @if($page == 'notulen')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url notulensi/notulensi rapat -->
+            <a href="#"><i class='fa fa-book'></i> <span>Undangan</span></a>
+            <a href="#"><i class='fa fa-book'></i> <span>Notulensi</span></a>
+            <a href="#"><i class='fa fa-book'></i> <span>Kalender</span></a>
+            </li>
+=======
             <li
             @if($page == 'capaian-program')
             {!! 'class="active"'!!}
@@ -46,7 +88,16 @@
 @endif
 >
 <a href="{{ url('/dosen/konferensi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Konferensi</a>
-</li> 		
+</li> 
+
+<li
+@if($page == 'penelitian')
+{!! 'class="active"'!!}
+@endif
+>
+<a href="{{ url('/dosen/penelitian') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Penelitian</a>
+</li>
+
 <li
 
 @if($page == 'pengmas')
@@ -84,6 +135,8 @@
 @endif>
 <a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Peminjaman</a>
 </li>
+
+
 <li
 @if($page == 'capaian-pembelajaran')
 {!! 'class="active"'!!}
@@ -91,4 +144,6 @@
 >
 <!-- Href menuju ke url kurikulum/capaian-pembelajaran -->
 <a href="{{ url('dosen/kurikulum/cp_pembelajaran') }}"><i class='fa fa-book'></i> <span> Capaian Pembelajaran</span></a>
+
 </li>
+>>>>>>> dbb61662f9561b24d6d03ab77b8352a896db4069

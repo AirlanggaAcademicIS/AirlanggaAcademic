@@ -33,9 +33,11 @@
 }
 .bootstrap-timepicker-widget.dropdown-menu {
   padding: 2px 3px 2px 2px;
+
 }
 .bootstrap-timepicker-widget.dropdown-menu.open {
-  display: inline-block;
+ display: inline-block;
+   z-index: 10000;
 }
 .bootstrap-timepicker-widget.dropdown-menu:before {
   border-bottom: 7px solid rgba(0, 0, 0, 0.2);
