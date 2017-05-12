@@ -37,7 +37,13 @@ Route buat dosen ditaruh dibawah sini
 Route buat karyawan ditaruh dibawah sini
 =========================================
 */
+Route::group(['prefix' => 'Karyawan'], function() {
 
+ 
+           Route::get('manage-hasil-sidang-proposal','Karyawan\SkripsiController@view_manage_hasil_sidang_proposal');
+           Route::get('view-tambah-hasil-sidang-proposal','Karyawan\SkripsiController@view_tambah_hasil_sidang_proposal');
+
+});
 
 
 });
