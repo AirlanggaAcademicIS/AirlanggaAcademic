@@ -18,7 +18,7 @@
   <a href="{{url('karyawan/monitoring-skripsi/KBK')}}"><i class='fa fa-book'></i><span> KBK</span>
   </a>
 </li>
-</li>
+
 			<li>
             <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
             <ul class="treeview-menu">
@@ -57,6 +57,34 @@
 	{!! 'class="active"'!!}
 	@endif
 	> <a href="#"><i class="fa fa-circle-o"></i>Skripsi</a></li>
+
+<li>
+
+ <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
+ <ul class="treeview-menu">
+  <li
+  @if($page == 'skripsi')
+  {!! 'claass="active"'!!}
+  @endif>
+
+  <a href="{{url('karyawan/monitoring-skripsi/KBK')}}"><i class='fa fa-book'></i><span> KBK</span>
+  </a>
+</li>
+<li
+@if($page == 'skripsi')
+{!! 'class="active"'!!}
+@endif>
+
+<a href="{{ url('karyawan/monitoring-skripsi/skripsi') }}"><i class='fa fa-book'></i><span> Data Skripsi</span></a>
+</li>
+</ul>
+</li>
+
+
+            <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
+            <ul class="treeview-menu">
+            <!-- Sidebarnya ditaruh dibawah sini -->
+
 <li
 @if($page == 'jadwal-sidang')
 {!! 'class="active"'!!}
@@ -78,8 +106,6 @@
 	{!! 'class="active"'!!}
 	@endif
 	> <a href="#"><i class="fa fa-circle-o"></i>Skripsi</a></li>
-
-
 </ul>
 
 </li>
@@ -123,6 +149,28 @@
 >
 <a href="{{ url('karyawan/akun') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Akun Mahasiswa</a>
 </li>
+
+<li>
+            <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
+            <ul class="treeview-menu">
+
+            <li
+            @if($page == 'dosenrapat')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <!-- Href menuju ke url notulensi/notulensi rapat -->
+            <a href="#"><i class='fa fa-book'></i> <span>Undangan</span></a>
+
+            <a href="{{url('notulensi')}}"><i class='fa fa-book'></i> <span>Notulensi</span></a>
+			<a href="#"><i class='fa fa-book'></i> <span>Kehadiran Rapat</span></a>
+            <a href="#"><i class='fa fa-book'></i> <span>Kalender</span></a>
+            </li>
+
+            <a href="#"><i class='fa fa-book'></i> <span>Notulensi</span></a>
+            <a href="{{ url('dosenrapat') }}"><i class='fa fa-book'></i> <span>Kehadiran Rapat</span></a>
+            <a href="#"><i class='fa fa-book'></i> <span>Kalender</span></a>
+            </li>
 <li
 @if($page == 'skripsi')
 {!! 'class="active"'!!}
@@ -130,6 +178,7 @@
 
 <a href="{{ url('karyawan/monitoring-skripsi/skripsi') }}"><i class='fa fa-book'></i><span> Data Skripsi</span></a>
 </li>
+
 
 
 <li>
@@ -144,6 +193,7 @@
 </li>
 
 <li>
+
 <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan </span></a>
 <ul class="treeview-menu">
 <!-- Sidebarnya ditaruh dibawah sini -->
@@ -152,6 +202,17 @@
 {!! 'class="active"'!!}
 @endif>
 
+
+<a href="{{ url('karyawan/pengelolaan-kegiatan/dokumentasi') }}"><i class='fa fa-book'></i><span> Imput Dokumentasi </span></a>
+</li>
+</ul>
+</li>
+
+            <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
+            <ul class="treeview-menu">
+            <li
+
+
 <a href="{{ url('dosen/pengelolaan-kegiatan/dokumentasi') }}"><i class='fa fa-book'></i><span> Input Dokumentasi </span></a>
 </li>
 <!-- Sidebarnya ditaruh dibawah sini -->
@@ -159,6 +220,9 @@
 @if($page == 'pengajuan-kegiatan')
 {!! 'class="active"'!!}
 @endif>
+
+
+
 
 <a href="{{ url('karyawan/pengelolaan-kegiatan/pengajuan-kegiatan') }}"><i class='fa fa-book'></i><span> Konfirmasi Pengajuan Kegiatan </span></a>
 </li>

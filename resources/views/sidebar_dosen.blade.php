@@ -31,7 +31,6 @@
 >
 <a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
 </li> -->
-<<<<<<< HEAD
 
 <li>
             <a href=""><i class='fa fa-users'></i> <span> Notulensi</span></a>
@@ -48,7 +47,7 @@
             <a href="#"><i class='fa fa-book'></i> <span>Notulensi</span></a>
             <a href="#"><i class='fa fa-book'></i> <span>Kalender</span></a>
             </li>
-=======
+
             <li
             @if($page == 'capaian-program')
             {!! 'class="active"'!!}
@@ -146,4 +145,21 @@
 <a href="{{ url('dosen/kurikulum/cp_pembelajaran') }}"><i class='fa fa-book'></i> <span> Capaian Pembelajaran</span></a>
 
 </li>
->>>>>>> dbb61662f9561b24d6d03ab77b8352a896db4069
+</ul>
+<a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Peminjaman</a>
+</li>
+
+<li>
+<a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan </span></a>
+<ul class="treeview-menu">
+<!-- Sidebarnya ditaruh dibawah sini -->
+<li
+@if($page == 'dokumentasi')
+{!! 'class="active"'!!}
+@endif>
+
+<a href="{{ url('dosen/pengelolaan-kegiatan/dokumentasi') }}"><i class='fa fa-book'></i><span> View Dokumentasi </span></a>
+</li>
+</ul>
+</li>
+

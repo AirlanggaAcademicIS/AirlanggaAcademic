@@ -1,8 +1,7 @@
 <!-- Contoh -->
-<<<<<<< HEAD
+
 <li
-=======
-<<<<<<< HEAD
+
 <li
 @if($page == 'jadwal-sidang')
 {!! 'class="active"'!!}
@@ -28,15 +27,14 @@
 
 </ul>
 
-=======
+
 <!--  <li
->>>>>>> aca8e6c67014e4dcaacdbabe0f0c7e94ea046771
+
 @if($page == 'transaksi')
 {!! 'class="active"'!!}
 @endif
 >
 <a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
-<<<<<<< HEAD
 </li>
 
 
@@ -65,7 +63,7 @@
 
 </ul>
 
-=======
+
 </li> -->
 
 <li
@@ -118,12 +116,28 @@
 <a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Peminjaman</a>
 </li>
 
+<<<<<<< HEAD
+<li>
+<a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan </span></a>
+<ul class="treeview-menu">
+<!-- Sidebarnya ditaruh dibawah sini -->
+<li
+@if($page == 'dokumentasi')
+{!! 'class="active"'!!}
+@endif>
+
+<a href="{{ url('dosen/pengelolaan-kegiatan/dokumentasi') }}"><i class='fa fa-book'></i><span> View Dokumentasi </span></a>
+</li>
+</ul>
+</li>
+
+
 <li
 @if($page == 'memohon-ruangan')
 {!! 'class="active"'!!}
 @endif
 >
 <a href="{{ url('memohon-ruangan') }}"><i class="fa fa-book" aria-hidden="true"></i>Memohon Ruangan</a>
->>>>>>> e21acc7da72d96e6ce26f2a5d8b100fa53d9e969
->>>>>>> aca8e6c67014e4dcaacdbabe0f0c7e94ea046771
+
 </li>
+
