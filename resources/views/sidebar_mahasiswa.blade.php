@@ -1,8 +1,6 @@
 <!-- Contoh -->
 
 <li
-
-<li
 @if($page == 'jadwal-sidang')
 {!! 'class="active"'!!}
 @endif
@@ -15,56 +13,18 @@
 	@if($page == 'jadwal-sidang')
 	{!! 'class="active"'!!}
 	@endif
-	> <a href="#"><i class="fa fa-circle-o"></i>Proposal</a>/li>
+	> <a href="#"><i class="fa fa-circle-o"></i>Proposal</a></li>
 
 	<!-- Sub menu jadwal sidang skripsi -->
 	<li
 	@if($page == 'jadwal-sidang')
 	{!! 'class="active"'!!}
 	@endif
-	> <a href="#"><i class="fa fa-circle-o"></i>Skripsi</a>/li>
+	> <a href="#"><i class="fa fa-circle-o"></i>Skripsi</a></li>
 
 
 </ul>
-
-
-<!--  <li
-
-@if($page == 'transaksi')
-{!! 'class="active"'!!}
-@endif
->
-<a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
 </li>
-
-
-<li
-@if($page == 'hasil-sidang')
-{!! 'class="active"'!!}
-@endif
->
-<a href="#"><i class="fa fa-file-text-o" aria-hidden="true"></i>Hasil Sidang</a>
-<!-- sub menu -->
-<ul class="treeview-menu">
-	<!-- hasil sidang proposal -->
-	<li
-	@if($page == 'hasil-sidang-proposal')
-	{!! 'class="active"'!!}
-	@endif
-	> <a href="#"><i class="fa fa-circle-o"></i>Proposal</a>/li>
-
-	<!-- hasil sidang skripsi -->
-	<li
-	@if($page == 'jadwal-sidang-skripsi')
-	{!! 'class="active"'!!}
-	@endif
-	> <a href="#"><i class="fa fa-circle-o"></i>Skripsi</a>/li>
-
-
-</ul>
-
-
-</li> -->
 
 <li
 @if($page == 'biodata-mahasiswa')
@@ -72,7 +32,19 @@
 @endif
 >
 <a href="{{ url('mahasiswa/biodata-mahasiswa') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Biodata Mahasiswa</a>
+</li>
+<li
+@if($page == 'biodata-mahasiswa')
+{!! 'class="active"'!!}
+@endif
+>
 <a href="{{url('kegiatan/dokumentasi')}}">Dokumentasi</a>
+</li>
+<li
+@if($page == 'biodata-mahasiswa')
+{!! 'class="active"'!!}
+@endif
+>
 <a href="{{url('/pengelolaan-kegiatan/uploadDokumentasi')}}">Upload</a>
 </li>
 <li
@@ -116,7 +88,6 @@
 <a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Peminjaman</a>
 </li>
 
-<<<<<<< HEAD
 <li>
 <a href=""><i class='fa fa-users'></i> <span> Pengelolaan Kegiatan </span></a>
 <ul class="treeview-menu">
