@@ -26,11 +26,11 @@ Peminjaman Inventaris
   @endif
   @endforeach
 </div>
-<div style="margin-bottom: 10px">
+<!-- <div style="margin-bottom: 10px"> -->
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('/inventaris/input-peminjaman')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah Peminjaman</a>
-</div>
+  <!-- <a href="{{url('/inventaris/input-peminjaman')}}" type="button" class="btn btn-info btn-md" > -->
+    <!-- <i class="fa fa-plus-square"></i> Tambah Peminjaman</a> -->
+<!-- </div> -->
 <div style="overflow: auto">
   <table id="myTable1" class="table table-bordered table-striped">
     <thead>
