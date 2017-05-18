@@ -14,26 +14,33 @@ Jadwal Permohonan
 @endsection
 
 @section('main-content')
-<!-- include summernote css/js-->
-<form id="tambahPermohonanRuang" method="post" action="{{url('/memohon-ruangan')}}" enctype="multipart/form-data"  class="form-horizontal">
+
+<div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Form Permohonan Ruangan</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form id="tambahPermohonanRuang" method="post" action="{{url('/memohon-ruangan/create')}}" enctype="multipart/form-data"  class="form-horizontal">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <!-- Menampilkan input text biasa --> 
-
+      <div class="box-body">
         <div class="form-group">
-          <label for="ruang" class="col-sm-2 control-label">Ruang</label>
+          <label for="ruang_id" class="col-sm-2 control-label">Ruang</label>
           <div class="col-md-8">
-            <select name="ruang" required>
-              <option value="?">?</option>
-              <option value="?">?</option>
+            <select name="ruang_id" required>
+               @foreach($ruang as $r)
+               <option value="{{$r->id_ruang}}">{{$r->nama_ruang}}</option>
+               @endforeach
               </select>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="hari" class="col-sm-2 control-label">Hari</label>
+          <label for="hari_id" class="col-sm-2 control-label">Hari</label>
           <div class="col-md-8">
-            <select name="hari" required>
+            <select name="hari_id" required>
               <option value="1">Senin</option>
               <option value="2">Selasa</option>
               <option value="3">Rabu</option>
@@ -45,9 +52,9 @@ Jadwal Permohonan
         </div>
 
         <div class="form-group">
-          <label for="jam" class="col-sm-2 control-label">Jam</label>
+          <label for="jam_id" class="col-sm-2 control-label">Jam</label>
           <div class="col-md-8">
-            <select name="jam" required>
+            <select name="jam_id" required>
               <option value="1">07:00</option>
               <option value="2">07:50</option>
               <option value="3">08:50</option>
@@ -83,10 +90,11 @@ Jadwal Permohonan
             </button>
           </div>
         </div>
+        </div>
       </form>
     </div>
-  </div>
-</div>
+
+
 
 @endsection
 

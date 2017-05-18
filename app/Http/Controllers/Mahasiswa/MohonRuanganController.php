@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 use App\JadwalPermohonan;
 use App\PermohonanRuang;
 use App\Ruang;
+use Auth;
 
 class MohonRuanganController extends Controller
 {
@@ -34,15 +35,23 @@ class MohonRuanganController extends Controller
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel jadwal permohonan dan permohonan ruang
+        $permohonan = PermohonanRuang::create([
+            'nama' => Auth::user()->name,
+            'atribut_verifikasi' => '0',
+            'nim_nip' => Auth::user()->username,
+            ]);
 
-        JadwalPermohonan::create($request->input());
-        PermohonanRuang::create($request->input());
-
+        JadwalPermohonan::create([
+            'permohonan_ruang_id' => $permohonan->id_permohonan_ruang,
+            'ruang_id' => $request->input('ruang_id'),
+            'hari_id' => $request->input('hari_id'),
+            'jam_id' => $request->input('jam_id'),
+            ]);
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Permohonan berhasil ditambahkan');
 
-        // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('mahasiswa.memohon-ruangan.index');
+        // Kembali ke halaman
+        return Redirect::to('/memohon-ruangan');
     }
 
 

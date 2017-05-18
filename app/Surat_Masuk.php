@@ -16,4 +16,9 @@ class Surat_Masuk extends Model
 		'nim_nip',
 		'status',	
    ];
+
+   public function petugas()
+   {
+   		return $this->belongsTo('App\Petugas_Tu', 'nip_petugas_id');
+   }
 }

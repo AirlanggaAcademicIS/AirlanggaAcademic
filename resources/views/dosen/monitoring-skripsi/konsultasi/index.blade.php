@@ -26,11 +26,7 @@ Konsultasi
   @endif
   @endforeach
 </div>
-<div style="margin-bottom: 10px">
-  <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('/dosen/monitoring-skripsi/konsultasi/create')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah Konsultasi</a>
-</div>
+
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
@@ -46,13 +42,11 @@ Konsultasi
    @forelse($konsultasi as $i => $konsul) 
     <tr>
       <td width="5%">{{ $i+1 }}</td>
-      <td width="10%" style="text-align:center">{{$konsul->id_skripsi}}</td>
+      <td width="10%" style="text-align:center">{{$konsul->skripsi_id}}</td>
       <td width="15%" style="text-align:center">{{$konsul->tgl_konsul}}</td>
       <td width="20%" style="text-align:center">{{$konsul->catatan_konsul}}</td>
      
       <td width="20%" style="text-align:center" >
-      <a onclick="return confirm('Anda yakin untuk menghapus konsultasi ini?');" href="{{url('/dosen/monitoring-skripsi/konsultasi/'.$konsul->id_konsultasi.'/delete/')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/dosen/monitoring-skripsi/konsultasi/'.$konsul->id_konsultasi.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
