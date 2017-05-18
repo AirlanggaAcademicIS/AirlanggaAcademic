@@ -13,7 +13,10 @@ use Response;
 // Tambahkan model yang ingin dipakai
 use App\RPS_Matkul;
 use App\RPS_Matkul_Prasyarat;
-
+use App\RPS_CP_Matkul;
+use App\RPS_CPL_Prodi;
+use App\RPS_Koor_Matkul;
+use App\Status_Team_Teaching;
 
 class RPSController extends Controller
 {
@@ -54,7 +57,7 @@ class RPSController extends Controller
         Session::put('alert-success', 'RPS berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('kurikulum/rps');
+        return Redirect::to('dosen/kurikulum/rps');
     }
 
     public function delete($id)
@@ -78,7 +81,12 @@ class RPSController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'rps',
             // Mencari biodata berdasarkan id
-            'mata_kuliah' => RPS_Matkul::find($id)
+            'mata_kuliah' => RPS_Matkul::find($id),
+            'mk_prasyarat' => RPS_Matkul_Prasyarat::where('mk_id', '=', $id)->get(),
+            'cp_mata_kuliah' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get(),
+            'cp_prodi' => RPS_CPL_Prodi::where('mk_id', '=', $id)->get(),
+            'koor' => RPS_Koor_Matkul::where('mk_id', '=', $id)->get()
+            
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
@@ -95,7 +103,7 @@ class RPSController extends Controller
         // Notifikasi sukses
         Session::put('alert-success', 'Kategori berhasil diedit');
 
-        return Redirect::to('kurikulum/kategori-media-pembelajaran');
+        return Redirect::to('dosen/kurikulum/index');
     }
 
 }
