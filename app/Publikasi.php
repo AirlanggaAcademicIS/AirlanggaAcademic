@@ -4,14 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Dokumentasi extends Model
+class Publikasi extends Model
 {
 
    protected $table = 'pengajuan_kegiatan';
    protected $primaryKey = 'id_kegiatan';    
    protected $fillable = [
-		'kegiatan_id',
-		'lesson_learned',
-		'url_foto',
+		'nomer_kegiatan',
+		'nama_kegiatan',
+		'url_poster',
+		'tempat',
+		'tanggal',
       ];
 }
