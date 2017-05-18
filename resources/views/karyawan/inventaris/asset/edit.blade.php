@@ -1,17 +1,16 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Asset
+Edit Asset
 @endsection
 
 @section('contentheader_title')
-Tambah Asset
+Edit Asset
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -21,7 +20,7 @@ Tambah Asset
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -46,14 +45,22 @@ Tambah Asset
 			</div>
 			@endif
 			<br>
-			<form id_asset="tambahAsset" method="post" action="{{url('inventaris/asset/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahAsset" method="post" action="{{url('/inventaris/asset/'.$asset->id_asset.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-				<!-- Menampilkan input text biasa -->
-                <div class="form-group">
+
+
+				<div class="form-group">
+					
+					<div class="col-md-8">
+						<input type="hidden" class="form-control input-lg" id="id_asset" name="id_asset" placeholder="Masukkan Nama Supplier" value="{{$asset->id_asset}}" required>
+					</div>
+				</div>
+				
+				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Kategori</label>
 					<div class="col-md-8">
-						<select class="form-control" name="kategori" required>
+						<select class="form-control" name="kategori_id" required>
 		            	<option value="">-- Pilih Kategori --</option>
 		                <option value="1">Dokumen</option>
 		                <option value="2">Furniture</option>
@@ -65,7 +72,7 @@ Tambah Asset
 				 <div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Status</label>
 					<div class="col-md-8">
-						<select class="form-control" name="status" required>
+						<select class="form-control" name="status_id" required>
 		            	<option value="">-- Pilih Status --</option>
 		                <option value="1">Ready</option>
 		                <option value="2">Not Ready</option>
@@ -75,45 +82,47 @@ Tambah Asset
 
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama Asset</label>
+					<label for="nama_asset" class="col-sm-2 control-label">Nama Asset</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_asset" name="nama_asset" placeholder="Masukkan Nama Asset" required>
+						<input type="text" class="form-control input-lg" id="nama_asset" name="nama_asset" placeholder="Masukkan Nama Asset" value="{{$asset->nama_asset}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Lokasi</label>
+					<label for="lokasi" class="col-sm-2 control-label">Lokasi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="lokasi" name="lokasi" placeholder="Masukkan Lokasi" required>
+						<input type="text" class="form-control input-lg" id="lokasi" name="lokasi" placeholder="Masukkan Lokasi" value="{{$asset->lokasi}}" required>
 					</div>
 				</div>
+
+
 
 				<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Expired Date</label>
+					<label for="expired_date" class="col-sm-2 control-label">Expired Date</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="expired_date" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="expired_date" placeholder="Masukkan Tanggal" value="{{$asset->expired_date}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama Supplier</label>
+					<label for="nama_supplier" class="col-sm-2 control-label">Nama Supplier</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_supplier" name="nama_supplier" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="nama_supplier" name="nama_supplier" placeholder="Masukkan Nama Supplier" value="{{$asset->nama_supplier}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Harga Satuan</label>
+					<label for="harga_satuan" class="col-sm-2 control-label">Harga Satuan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="harga_satuan" name="harga_satuan" placeholder="Masukkan Harga" required>
+						<input type="text" class="form-control input-lg" id="harga_satuan" name="harga_satuan" placeholder="Masukkan Harga" value="{{$asset->harga_satuan}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Jumlah Barang</label>
+					<label for="jumlah_barang" class="col-sm-2 control-label">Jumlah Barang</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="jumlah_barang" name="jumlah_barang" placeholder="Masukkan Jumlah Barang" required>
+						<input type="text" class="form-control input-lg" id="jumlah_barang" name="jumlah_barang" placeholder="Masukkan Jumlah Barang" value="{{$asset->jumlah_barang}}" required>
 					</div>
 				</div>
 
@@ -128,8 +137,6 @@ Tambah Asset
 		</div>
 	</div>
 </div>
-
-				
 @endsection
 
 @section('code-footer')
@@ -142,3 +149,5 @@ $( function() {
   } );
   </script>
 @endsection
+
+
