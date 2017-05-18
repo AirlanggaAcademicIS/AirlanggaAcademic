@@ -45,14 +45,28 @@ Hasil Rapat
       </div>
       @endif
       <br>
-      <form id="lihatHasilRapat" method="post" action="{{url('notulensi/'.$notulensi->id_notulen.'/LihatHasilRapat')}}" enctype="multipart/form-data"  class="form-horizontal">
+      <form id="DaftarHasilRapat" method="post" action="{{url('notulensi/konfirmasi/'.$notulensi->id_notulen.'/DaftarHasilRapat')}}" enctype="multipart/form-data"  class="form-horizontal">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <!-- Menampilkan input text biasa -->
         <div class="form-group">
           <label for="permohonan_ruang_id" class="col-sm-2 control-label">Ruangan</label>
           <div class="col-md-8">
-            <input type="text" disabled class="form-control input-lg" id="id_permohonan_ruang" name="id_permohonan_ruang" placeholder="Ruangan" value="{{$notulen->permohonan_ruang_id}}" required>
+            <input type="text" disabled class="form-control input-lg" id="permohonan_ruang_id" name="permohonan_ruang_id" placeholder="Ruangan" value="{{$notulen->permohonan_ruang_id}}" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="nip_petugas_id" class="col-sm-2 control-label">Nama Petugas</label>
+          <div class="col-md-8">
+            <input type="text" disabled class="form-control input-lg" id="nip_petugas_id" name="nip_petugas_id" placeholder="Nama Petugas" value="{{$notulen->nip_petugas_id}}" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="nip_petugas_id" class="col-sm-2 control-label">Nama Dosen</label>
+          <div class="col-md-8">
+            <input type="text" disabled class="form-control input-lg" id="nip_petugas_id" name="nip_petugas_id" placeholder="NIP Petugas" value="{{$notulen->permohonan_ruang_id}}" required>
           </div>
         </div>
 
