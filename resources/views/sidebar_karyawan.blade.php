@@ -1,3 +1,4 @@
+
 <!-- Contoh -->
 <!-- <li
 @if($page == 'transaksi')
@@ -7,3 +8,4 @@
 <<<<<<< HEAD
 <a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
 </li> -->
+
