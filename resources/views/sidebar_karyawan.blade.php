@@ -31,7 +31,7 @@
 		@endif>
 
 		<a href="{{ url('karyawan/monitoring-skripsi/skripsi') }}"><i class='fa fa-book'></i><span> Data Skripsi</span></a>
-		</li>
+		
 	</ul>
 </li>
 
