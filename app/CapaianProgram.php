@@ -14,4 +14,9 @@ class CapaianProgram extends Model
 		'dimensi_capaian_umum',
 			
    ];
+
+   public function prodi ()
+   {
+	   	return $this->belongsTo('App\Prodi', 'prodi_id');
+ 	  }
 }

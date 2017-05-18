@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Biodata
+Jadwal Kuliah
 @endsection
 
 @section('contentheader_title')
-Biodata
+Jadwal Kuliah
 @endsection
 
 @section('main-content')
@@ -28,36 +28,34 @@ Biodata
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('/mahasiswa/biodata/create')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah Gambar</a>
+  <a href="{{url('/krs-khs/jadwal_kuliah/create')}}" type="button" class="btn btn-info btn-md" >
+    <i class="fa fa-plus-square"></i> Tambah Jadwal</a>
 </div>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">Nama Dokumentasi</th>      
-      <th style="text-align:center">Deskripsi</th>
-      <th style="text-align:center">Gambar</th>
+      <th style="text-align:center">Mata Kuliah</th>
+      <th style="text-align:center">Jam</th>      
+      <th style="text-align:center">Hari</th>
+      <th style="text-align:center">Ruang</th>
+
       <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
-   @forelse($dokumentasi as $i => $dok) 
+   @forelse($jadwal as $i => $j) 
     <tr>
       <td>{{ $i+1 }}</td>
-      <td width="20%" style="text-align:center">{{$dok->nama_dokumentasi}}</td>
-      <td width="15%" style="text-align:center">{{$dok->deskripsi}}</td>
-      <td width="20%" style="text-align:center">{{$dok->gambar}}</td>
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus biodata ini?');" href="{{url('/mahasiswa/biodata/'.$bio->id.'/delete/')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('/mahasiswa/biodata/'.$bio->id.'/edit/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Edit</a>
-        </td>
+      <td width="20%" style="text-align:center">{{$j->mkDitawarkan->mk->nama_matkul}}</td>
+      <td width="15%" style="text-align:center">{{$j->jam->waktu}}</td>
+      <td width="20%" style="text-align:center">{{$j->hari->nama_hari}}</td>
+      <td width="20%" style="text-align:center">{{$j->ruang->nama_ruang}}</td>
     </tr>
      @empty
         <tr>
-          <td colspan="6"><center>Belum ada Dokumentasi</center></td>
+          <td colspan="6"><center>Belum ada jadwal</center></td>
         </tr>
     @endforelse
   </tbody>
