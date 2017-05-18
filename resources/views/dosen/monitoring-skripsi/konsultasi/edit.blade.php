@@ -1,17 +1,16 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Capaian Program
+Edit Konsultasi
 @endsection
 
 @section('contentheader_title')
-Tambah Capaian Program
+Edit Konsultasi
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -21,7 +20,7 @@ Tambah Capaian Program
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -46,35 +45,31 @@ Tambah Capaian Program
 			</div>
 			@endif
 			<br>
-			<form id="tambahCapaianProgram" method="post" action="{{url('/dosen/kurikulum/cp_program/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahKonsultasi" method="post" action="{{url('/dosen/monitoring-skripsi/konsultasi/'.$konsultasi->id_konsultasi.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="id_prodi" class="col-sm-2 control-label">Nama Prodi</label>
-					<div class="col-md-3">
-				    	<select name="prodi_id" class="form-control">
-				    		@foreach($prodis as $prodi)
-				      		<option value="{{$prodi->id_prodi}}">{{$prodi->nama_prodi}}</option>
-				      		@endforeach
-				        </select>
-    				</div>
-    			</div>
-
-				<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="capaian_program_spesifik" class="col-sm-2 control-label">Capaian Program Spesifik</label>
+					<label for="nim" class="col-sm-2 control-label">id skripsi</label>
 					<div class="col-md-8">
-						<textarea id="capaian_program_spesifik" name="capaian_program_spesifik" placeholder=" capaian Program Spesifik" required cols="82" rows="5">
-						</textarea>
+						<input value="{{$konsultasi->skripsi_id}}" type="text" class="form-control input-lg" id="skripsi_id" name="skripsi_id" placeholder="Masukkan id skripsi" required readonly>
 					</div>
 				</div>
 
-			<!-- Menampilkan textarea -->
+				<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
-					<label for="dimensi_capaian_umum" class="col-sm-2 control-label">Dimensi Capaian Umum</label>
+					<label for="nama" class="col-sm-2 control-label">Tanggal Konsultasi</label>
 					<div class="col-md-8">
-						<textarea id="dimensi_capaian_umum" name="dimensi_capaian_umum" placeholder=" Masukkan Dimensi Capaian Umum" required cols="82" rows="5">
+						<input value="{{$konsultasi->tgl_konsul}}" type="text" class="form-control input-lg" id="datepicker" name="tgl_konsul" placeholder="Masukkan Tanggal" required readonly>
+					</div>
+				</div>
+				
+				<!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Catatan</label>
+					<div class="col-md-8">
+						<textarea id="catatan_konsul" name="catatan_konsul" placeholder=" Masukkan Catatan " required cols="82" rows="5">
+						{{$konsultasi->catatan_konsul}}
 						</textarea>
 					</div>
 				</div>
@@ -82,7 +77,7 @@ Tambah Capaian Program
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
-							Tambah
+							Confirm
 						</button>
 					</div>
 				</div>
@@ -102,3 +97,4 @@ $( function() {
   } );
   </script>
 @endsection
+
