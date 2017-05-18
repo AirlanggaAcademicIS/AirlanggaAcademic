@@ -134,6 +134,12 @@ Route buat dosen ditaruh dibawah sini
 =========================================
 */
         // Menampilkan tabel
+Route::group(['prefix' => 'dosen'], function() {
+        Route::group(['prefix' => '/kurikulum/elearning'], function() {
+            Route::get('/','Dosen\Kurikulum\ElearningController@index');
+            Route::get('/create','Dosen\Kurikulum\ElearningController@create');
+            
+    });
         Route::get('dosen/pengelolaan-kegiatan/dokumentasi','dosen\pengelolaankegiatan\DokumentasiController@index');
         Route::group(['prefix' => '/notulensi'], function() {
 		// Menampilkan tabel notulensi
@@ -570,4 +576,5 @@ Route::group(['prefix' => 'inventaris'], function() {
         Route::get('add-asset', 'HomeController@input');
         Route::get('view-asset', 'HomeController@index');
 
+});
 });
