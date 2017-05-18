@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Konsultasi
+Jadwal Kuliah
 @endsection
 
 @section('contentheader_title')
-Konsultasi
+Jadwal Kuliah
 @endsection
 
 @section('main-content')
@@ -26,34 +26,36 @@ Konsultasi
   @endif
   @endforeach
 </div>
-
+<div style="margin-bottom: 10px">
+  <!-- Href ini biar diklik masuk ke form tambah -->
+  <a href="{{url('/krs-khs/jadwal_kuliah/create')}}" type="button" class="btn btn-info btn-md" >
+    <i class="fa fa-plus-square"></i> Tambah Jadwal</a>
+</div>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">ID Skripsi</th>
-      <th style="text-align:center">Tanggal Konsultasi</th>      
-      <th style="text-align:center">Catatan Konsultasi</th>
+      <th style="text-align:center">Mata Kuliah</th>
+      <th style="text-align:center">Jam</th>      
+      <th style="text-align:center">Hari</th>
+      <th style="text-align:center">Ruang</th>
+
       <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
-   @forelse($konsultasi as $i => $konsul) 
+   @forelse($jadwal as $i => $j) 
     <tr>
-      <td width="5%">{{ $i+1 }}</td>
-      <td width="10%" style="text-align:center">{{$konsul->skripsi_id}}</td>
-      <td width="15%" style="text-align:center">{{$konsul->tgl_konsul}}</td>
-      <td width="20%" style="text-align:center">{{$konsul->catatan_konsul}}</td>
-     
-      <td width="20%" style="text-align:center" >
-        <a href="{{url('/dosen/monitoring-skripsi/konsultasi/'.$konsul->id_konsultasi.'/edit/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Edit</a>
-        </td>
+      <td>{{ $i+1 }}</td>
+      <td width="20%" style="text-align:center">{{$j->mkDitawarkan->mk->nama_matkul}}</td>
+      <td width="15%" style="text-align:center">{{$j->jam->waktu}}</td>
+      <td width="20%" style="text-align:center">{{$j->hari->nama_hari}}</td>
+      <td width="20%" style="text-align:center">{{$j->ruang->nama_ruang}}</td>
     </tr>
      @empty
         <tr>
-          <td colspan="6"><center>Belum ada Konsultasi</center></td>
+          <td colspan="6"><center>Belum ada jadwal</center></td>
         </tr>
     @endforelse
   </tbody>

@@ -14,4 +14,5 @@ class Prodi extends Model
 		'kode_prodi',
 		'nama_prodi',
 	   ];
+
 }
