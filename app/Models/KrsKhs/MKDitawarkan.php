@@ -15,4 +15,5 @@ class MKDitawarkan extends Model
    		'thn_akademik_id',
 		'matakuliah_id',
    ];
+
 }
