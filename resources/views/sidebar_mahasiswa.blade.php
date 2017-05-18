@@ -1,31 +1,4 @@
 <!-- Contoh -->
-
-<li
-@if($page == 'jadwal-sidang')
-{!! 'class="active"'!!}
-@endif
->
-<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Jadwal Sidang</a>
-<!-- sub menu jadwal -->
-<ul class="treeview-menu">
-	<!-- Sub menu jadwal sidang proposal -->
-	<li
-	@if($page == 'jadwal-sidang')
-	{!! 'class="active"'!!}
-	@endif
-	> <a href="#"><i class="fa fa-circle-o"></i>Proposal</a></li>
-
-	<!-- Sub menu jadwal sidang skripsi -->
-	<li
-	@if($page == 'jadwal-sidang')
-	{!! 'class="active"'!!}
-	@endif
-	> <a href="#"><i class="fa fa-circle-o"></i>Skripsi</a></li>
-
-
-</ul>
-</li>
-
 <li
 @if($page == 'biodata-mahasiswa')
 {!! 'class="active"'!!}
@@ -63,27 +36,65 @@
 <a href="{{ url('mahasiswa/prestasi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Prestasi</a>
 </li>
 
+<!-- Monitoring SKripsi -->
 	<li>
-            <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
-            <ul class="treeview-menu">
-            <!-- Sidebarnya ditaruh dibawah sini -->
+        <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
+        <ul class="treeview-menu">
             <li
-            @if($page == 'skripsi')
+            @if($page == 'konsultasi')
             {!! 'class="active"'!!}
             @endif>
 
             <a href="{{ url('mahasiswa/monitoring-skripsi/konsultasi') }}"><i class='fa fa-book'></i><span> Konsultasi</span></a>
             </li>
     
-<li
-@if($page == 'skripsi')
-{!! 'class="active"'!!}
-@endif>
+			<li
+			@if($page == 'skripsi')
+			{!! 'class="active"'!!}
+			@endif>
 
-<a href="{{ url('mahasiswa/monitoring-skripsi/skripsi') }}"><i class='fa fa-book'></i><span> Data Skripsi</span></a>
-</li>
-</ul>
-</li>
+			<a href="{{ url('mahasiswa/monitoring-skripsi/skripsi') }}"><i class='fa fa-book'></i><span> Data Skripsi</span></a>
+			</li>
+
+			<li
+			@if($page == 'jadwal-sidang')
+			{!! 'class="active"'!!}
+			@endif
+			>
+			<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Jadwal Sidang</a>
+			
+			<ul class="treeview-menu">
+				
+				<li
+				@if($page == 'jadwal-sidang')
+				{!! 'class="active"'!!}
+				@endif
+				> <a href="#"><i class="fa fa-circle-o"></i>Proposal</a></li>
+
+				<li
+				@if($page == 'jadwal-sidang')
+				{!! 'class="active"'!!}
+				@endif
+				> <a href="#"><i class="fa fa-circle-o"></i>Skripsi</a></li>
+
+
+			</ul>
+			</li>
+
+			<li
+			@if($page == 'upload_berkas')
+			{!! 'class="active"'!!}
+			@endif>
+
+			<a href="{{ url('mahasiswa/monitoring-skripsi/upload_berkas') }}"><i class='fa fa-book'></i><span>Upload berkas</span></a>
+			</ul>
+			</li>
+		</ul>
+	</li>
+<!-- Akhir side bar monitoring skripsi harus ditutup dengan ul dan li jangan lupa -->
+
+
+
 <li>
 <a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Peminjaman</a>
 </li>

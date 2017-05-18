@@ -62,10 +62,7 @@ Route buat mahasiswa ditaruh dibawah sini
 
         // Mengupdate biodata dengan isi dari form
         Route::post('dokumentasi/{id}/edit','Mahasiswa\DokumentasiController@editAction');
-        });
-
-        Route::get('mahasiswa/monitoring-skripsi/konsultasi','mahasiswa\monitoringskripsi\KonsultasiController@index');
-        Route::get('mahasiswa/monitoring-skripsi/konsultasi','mahasiswa\monitoringskripsi\KonsultasiController@index');
+        });       
 
         Route::get('mahasiswa/pengelolaan-kegiatan/dokumentasi','mahasiswa\pengelolaankegiatan\DokumentasiController@index');
 
@@ -73,15 +70,7 @@ Route buat mahasiswa ditaruh dibawah sini
         // Menampilkan tabel
         Route::get('mahasiswa/pengelolaan-kegiatan/dokumentasi','mahasiswa\pengelolaankegiatan\DokumentasiController@index');
 
-        // Menampilkan form tambah biodata
-        Route::get('mahasiswa/monitoring-skripsi/konsultasi/create','mahasiswa\monitoringskripsi\KonsultasiController@create');
-
-
-        // Menambahkan form yg di isi tadi ke tabel biodata
-        Route::post('mahasiswa/monitoring-skripsi/konsultasi/create','mahasiswa\monitoringskripsi\KonsultasiController@createAction');
-
-        // Menghapus biodata sesuai id yang dipilih
-        Route::get('mahasiswa/monitoring-skripsi/konsultasi/{id}/delete','mahasiswa\monitoringskripsi\KonsultasiController@delete');
+        
 
    Route::group(['prefix' => 'kegiatan'], function() {
         // Menampilkan tabel
@@ -113,15 +102,102 @@ Route::group(['prefix' => 'notulensi'], function() {
     Route::post('notulensi/{id_notulen}/LihatHasilRapat','Dosen\NotulensiController@editAction');
 });
 
-// Menampilkan form edit biodata dari id yg dipilih
-        Route::get('mahasiswa/monitoring-skripsi/konsultasi/{id}/edit','mahasiswa\monitoringskripsi\KonsultasiController@edit');
+/*MODUL MONITORING SKRIPSI USER MHS TARUH SINI YAAA*/
+Route::group(['prefix' => 'mahasiswa'], function() {
+    Route::group(['prefix' => 'monitoring-skripsi'], function() {
 
-// Menampilkan form edit biodata dari id yg dipilih
-Route::get('mahasiswa/monitoring-skripsi/konsultasi/{id}/edit','mahasiswa\monitoringskripsi\KonsultasiController@edit');
-// Mengupdate biodata dengan isi dari form
-Route::post('mahasiswa/monitoring-skripsi/konsultasi/{id}/edit','mahasiswa\monitoringskripsi\KonsultasiController@editAction'); 
+        Route::get('konsultasi','mahasiswa\monitoringskripsi\KonsultasiController@index');
 
-Route::get('mahasiswa/monitoring-skripsi/skripsi','Mahasiswa\monitoringskripsi\SkripsiController@index');
+        Route::get('konsultasi/{id}/edit','mahasiswa\monitoringskripsi\KonsultasiController@edit');
+
+        Route::post('konsultasi/{id}/edit','mahasiswa\monitoringskripsi\KonsultasiController@editAction'); 
+
+        Route::get('konsultasi/create','mahasiswa\monitoringskripsi\KonsultasiController@create');
+
+        Route::post('konsultasi/create','mahasiswa\monitoringskripsi\KonsultasiController@createAction');
+
+        Route::get('konsultasi/{id}/delete','mahasiswa\monitoringskripsi\KonsultasiController@delete');
+
+        Route::get('skripsi','Mahasiswa\monitoringskripsi\SkripsiController@index');
+
+        Route::get('upload_berkas','Mahasiswa\monitoringskripsi\UploadBerkasController@index');
+
+
+    });
+});
+/*AKHIR MODUL MONITORING SKRIPSI USER MHS*/
+
+
+/*MODUL MONITORING SKRIPSI USER DOSEN TARUH SINI YAAA*/
+Route::group(['prefix' => 'dosen'], function() {
+    Route::group(['prefix' => 'monitoring-skripsi'], function() {
+        Route::get('skripsi','Dosen\monitoringskripsi\SkripsiController@index');
+
+        Route::get('konsultasi/','dosen\monitoringskripsi\KonsultasiController@index');
+
+        Route::get('konsultasi/{id}/edit','dosen\monitoringskripsi\KonsultasiController@edit');
+    });
+});
+/*AKHIR MODUL MONITORING SKRIPSI USER DOSEN*/
+
+
+/*MODUL MONITORING SKRIPSI USER KARYAWAN TARUH SINI YAAA*/
+Route::group(['prefix' => 'karyawan'], function() {
+    Route::group(['prefix' => 'monitoring-skripsi'], function() {
+
+        Route::get('KBK','karyawan\monitoringskripsi\KBKController@index');
+
+        Route::get('KBK/create','Karyawan\monitoringskripsi\KBKController@create');
+
+        Route::post('KBK/create','Karyawan\monitoringskripsi\KBKController@createAction');
+
+        Route::get('KBK/{id_kbk}/delete','Karyawan\monitoringskripsi\KBKController@delete');
+
+        Route::get('KBK/{id_kbk}/edit','Karyawan\monitoringskripsi\KBKController@edit');
+
+        Route::post('KBK/{id_kbk}/edit','Karyawan\monitoringskripsi\KBKController@editAction');
+
+        Route::get('skripsi','Karyawan\monitoringskripsi\SkripsiController@index');
+         
+        Route::get('skripsi/create','Karyawan\monitoringskripsi\SkripsiController@create');
+
+        Route::post('skripsi/create','Karyawan\monitoringskripsi\SkripsiController@createAction');
+
+        Route::get('skripsi/{id_skripsi}/delete','Karyawan\monitoringskripsi\SkripsiController@delete');
+
+        Route::get('skripsi/{id_skripsi}/edit','Karyawan\monitoringskripsi\SkripsiController@edit');
+
+        Route::post('skripsi/{id_skripsi}/edit','Karyawan\monitoringskripsi\SkripsiController@editAction');
+
+        Route::get('manage-jadwal-sidang-proposal','Karyawan\SkripsiController@view_manage_jadwal_sidang_proposal');
+
+        Route::post('create-jadwal-sidang-proposal','Karyawan\SkripsiController@create_jadwal_sidang_proposal');
+
+        Route::get('manage-hasil-sidang-proposal','Karyawan\SkripsiController@view_manage_hasil_sidang_proposal');
+
+        Route::get('view-tambah-hasil-sidang-proposal','Karyawan\SkripsiController@view_tambah_hasil_sidang_proposal');
+
+        Route::get('status','Karyawan\monitoringskripsi\StatusController@index');
+
+        Route::get('status/create','Karyawan\monitoringskripsi\StatusController@create');
+
+        Route::post('status/create','Karyawan\monitoringskripsi\StatusController@createAction');
+
+        Route::get('status/{id_status}/edit','Karyawan\monitoringskripsi\StatusController@edit');
+
+        Route::post('status/{id_status}/edit','Karyawan\monitoringskripsi\StatusController@editAction');
+
+        Route::get('status/{id_status}/delete','karyawan\monitoringskripsi\StatusController@delete');
+
+        Route::get('dosen/monitoring-skripsi/konsultasi/','dosen\monitoringskripsi\KonsultasiController@index');
+
+        Route::get('dosen/monitoring-skripsi/konsultasi/{id}/edit','dosen\monitoringskripsi\KonsultasiController@edit');
+
+        Route::post('dosen/monitoring-skripsi/konsultasi/{id}/edit','dosen\monitoringskripsi\KonsultasiController@editAction');
+
+    });
+});
+/*Akhiran dari modul monitoring skripsi*/
 
 Route::group(['prefix' => 'inventaris'], function() {
     Route::get('view-asset', 'HomeController@index');
@@ -212,7 +288,7 @@ Route::group(['prefix' => 'dosen'], function(){
 
 
 
-Route::get('dosen/monitoring-skripsi/skripsi','Dosen\monitoringskripsi\SkripsiController@index');
+
 Route::group(['prefix' => 'inventaris'], function() {
     Route::get('view-asset', 'HomeController@index');
 });
@@ -333,20 +409,6 @@ Route::get('karyawan/krs-khs/input_dosen_mk','Karyawan\krs_khs\InputDosenMKContr
         Route::post('karyawan/pengelolaan-kegiatan/dokumentasi/{id_dokumentasi}/edit','karyawan\pengelolaankegiatan\DokumentasiController@editAction');
         
 
-
-        Route::get('karyawan/monitoring-skripsi/KBK','karyawan\monitoringskripsi\KBKController@index');
-
-Route::group(['prefix' => 'Karyawan'], function() {
-
-
- 
-           Route::get('manage-jadwal-sidang-proposal','Karyawan\SkripsiController@view_manage_jadwal_sidang_proposal');
-
-
-           Route::post('create-jadwal-sidang-proposal','Karyawan\SkripsiController@create_jadwal_sidang_proposal');
-
-});
-
  Route::group(['prefix' => 'krs-khs'], function() {
         Route::get('mk_ditawarkan', 'Karyawan\KrsKhs\MKDitawarkanController@index');
     });		
@@ -379,13 +441,6 @@ Route::group(['prefix' => 'karyawan'], function() {
 	Route::get('PermohonanRuang/{id}/edit','karyawan\PermohonanRuangController@edit');
 // Mengupdate  dengan isi dari form
 	Route::post('PermohonanRuang/{id}/edit','karyawan\PermohonanRuangController@editAction');
-
-});
-
-Route::group(['prefix' => 'inventaris'], function() {
-
-           Route::get('manage-hasil-sidang-proposal','Karyawan\SkripsiController@view_manage_hasil_sidang_proposal');
-           Route::get('view-tambah-hasil-sidang-proposal','Karyawan\SkripsiController@view_tambah_hasil_sidang_proposal');
 
 });
 
@@ -465,8 +520,7 @@ Route::group(['prefix' => 'karyawan'], function() {
 
         // Menghapus biodata sesuai id yang dipilih
         Route::get('karyawan/pengelolaan-kegiatan/dokumentasi/{id_dokumentasi}/delete','karyawan\pengelolaankegiatan\DokumentasiController@delete');
-        Route::get('karyawan/monitoring-skripsi/status/{id_kbk}/delete','karyawan\monitoringskripsi\StatusController@delete');
-
+        
 
         Route::get('verifikasi/{id}/penelitian','Karyawan\VerifikasiController@editPenelitian');
 
@@ -488,40 +542,7 @@ Route::group(['prefix' => 'karyawan'], function() {
         Route::get('karyawan/pengelolaan-kegiatan/dokumentasi','Karyawan\pengelolaankegiatan\DokumentasiController@index');
 
 
-        Route::get('karyawan/monitoring-skripsi/KBK','karyawan\monitoringskripsi\KBKController@index');
-
-
-        // Menampilkan form tambah biodata
-        Route::get('karyawan/monitoring-skripsi/KBK/create','karyawan\monitoringskripsi\KBKController@create');
-
-        // Menambahkan form yg di isi tadi ke tabel biodata 
-        Route::post('karyawan/monitoring-skripsi/KBK/create','karyawan\monitoringskripsi\KBKController@createAction');
-
-        // Menghapus biodata sesuai id yang dipilih
-        Route::get('karyawan/monitoring-skripsi/KBK/{id_kbk}/delete','karyawan\monitoringskripsi\KBKController@delete');
-
-        // Menampilkan form edit biodata dari id yg dipilih
-        Route::get('karyawan/monitoring-skripsi/KBK/{id_kbk}/edit','karyawan\monitoringskripsi\KBKController@edit');
-
-        // Mengupdate biodata dengan isi dari form
-        Route::post('karyawan/monitoring-skripsi/KBK/{id_kbk}/edit','karyawan\monitoringskripsi\KBKController@editAction');
-        // Menampilkan tabel
-        Route::get('karyawan/monitoring-skripsi/skripsi','Karyawan\monitoringskripsi\SkripsiController@index');
-
-        // Menampilkan form tambah 
-        Route::get('karyawan/monitoring-skripsi/skripsi/create','Karyawan\monitoringskripsi\SkripsiController@create');
-
-        // Menambahkan form yg di isi tadi ke tabel biodata
-        Route::post('karyawan/monitoring-skripsi/skripsi/create','Karyawan\monitoringskripsi\SkripsiController@createAction');
-
-        // Menghapus  sesuai id yang dipilih
-        Route::get('karyawan/monitoring-skripsi/skripsi/{id_skripsi}/delete','Karyawan\monitoringskripsi\SkripsiController@delete');
-
-        // Menampilkan form edit dari id yg dipilih
-        Route::get('karyawan/monitoring-skripsi/skripsi/{id_skripsi}/edit','Karyawan\monitoringskripsi\SkripsiController@edit');
-
-        // Mengupdate  dengan isi dari form
-        Route::post('karyawan/monitoring-skripsi/skripsi/{id_skripsi}/edit','Karyawan\monitoringskripsi\SkripsiController@editAction');
+        
 // Modul Inventaris
 Route::group(['prefix' => 'inventaris'], function() {
     Route::get('input-maintenance', 'MaintenanceController@inputMaintenance');
