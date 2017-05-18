@@ -21,15 +21,19 @@ class BiodataMahasiswaController extends Controller
     // Function untuk menampilkan tabel
     public function index()
     {
+        $tahun = BiodataMahasiswa::where('nim_id',Auth::user()->username)->first();
+        $tahun = $tahun->angkatan;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'biodatamahasiswa',
             // Memanggil semua isi dari tabel biodata
-            'biodatamahasiswa' => BiodataMahasiswa::all()
+            'biodatamahasiswa' => BiodataMahasiswa::where('angkatan',$tahun)->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('mahasiswa.biodata-mahasiswa.index',$data);
+        // $username = Auth::user()->username;
+        // dd($username);
     }
 
     public function create()
@@ -46,30 +50,16 @@ class BiodataMahasiswaController extends Controller
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        $bio=$request->input();
-        $bio['nim_id']=Auth::user()->username;
-        BiodataMahasiswa::create($bio);
+       $bio=$request->input();
+       $bio['nim_id'] = Auth::user()->username;
+
+         // dd(Auth::user()->username() ;
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Biodata berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('mahasiswa/biodata-mahasiswa');
-    }
-
-    public function delete($id_bio)
-    {
-        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $biodata_mhs = BiodataMahasiswa::find($id_bio);
-
-        // Menghapus biodata yang dicari tadi
-        $biodata_mhs->delete();
-
-        // Menampilkan notifikasi pesan sukses
-    	Session::put('alert-success', 'Biodata berhasil dihapus');
-
-        // Kembali ke halaman sebelumnya
-      	return Redirect::back();	 
     }
 
    public function edit($id_bio)
@@ -92,7 +82,7 @@ class BiodataMahasiswaController extends Controller
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
 
-        $biodata_mhs->nim_id = $request->input('nim_id');
+        $biodata_mhs->nim_id = Auth::user()->username;
         $biodata_mhs->nama_mhs = $request->input('nama_mhs');
         $biodata_mhs->email_mhs = $request->input('email_mhs');
         $biodata_mhs->jenis_kelamin = $request->input('jenis_kelamin');
