@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Karyawan;
+namespace App\Http\Controllers\Karyawan\inventaris;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -27,7 +27,6 @@ class AssetController extends Controller
             // Memanggil semua isi dari tabel asset
             'asset' => Asset::all()
         ];
-
         return view('karyawan.inventaris.asset.index',$data);
 
         }
@@ -50,17 +49,17 @@ class AssetController extends Controller
         $jumlah_barang = $request->input('jumlah_barang');
         $total_harga = $harga_satuan * $jumlah_barang;
             $asset = Asset::create([
-            'kategori_id' => 1,
+            'kategori_id' => $request->input('kategori'),
             'nip_petugas_id' => 12345,
-            'status_id' => 1,
+            'status_id' => $request->input('status'),
             'serial_barcode' => 12345,
             'total_harga' => $total_harga,
-            'nama_asset',
-        'lokasi',
-        'expired_date',
-        'nama_supplier',
-        'harga_satuan',
-        'jumlah_barang',
+            'nama_asset' => $request->input('nama_asset'),
+            'lokasi' => $request->input('lokasi'),
+            'expired_date' => $request->input('expired_date'),
+            'nama_supplier' => $request->input('nama_supplier'),
+            'harga_satuan' => $request->input('harga_satuan'),
+            'jumlah_barang' => $request->input('jumlah_barang'),
        
 
            ]);
@@ -98,27 +97,31 @@ class AssetController extends Controller
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('inventaris.asset.edit',$data);
+        return view('karyawan.inventaris.asset.edit',$data);
     }
 
     public function editAction($id_asset, Request $request)
     {
+
+        $harga_satuan = $request->input('harga_satuan');
+        $jumlah_barang = $request->input('jumlah_barang');
+        $total_harga = $harga_satuan * $jumlah_barang;
         // Mencari asset yang akan di update dan menaruhnya di variabel $asset
         $asset = Asset::find($id_asset);
 
         // Mengupdate $asset tadi dengan isi dari form edit tadi
         $asset->id_asset = $request->input('id_asset');
         $asset->kategori_id = $request->input('kategori_id');
-        $asset->nip_petugas_id = $request->input('nip_petugas_id');
+        $asset->nip_petugas_id = 12345;
         $asset->status_id = $request->input('status_id');
-        $asset->serial_barcode = $request->input('serial_barcode');
+        $asset->serial_barcode = 12345;
         $asset->nama_asset = $request->input('nama_asset');
         $asset->lokasi = $request->input('lokasi');
         $asset->expired_date = $request->input('expired_date');
         $asset->nama_supplier = $request->input('nama_supplier');
         $asset->harga_satuan = $request->input('harga_satuan');
         $asset->jumlah_barang = $request->input('jumlah_barang');
-        $asset->total_harga = $request->input('total_harga');
+        $asset->total_harga = $total_harga;
         $asset->save();
 
         // Notifikasi sukses
@@ -126,6 +129,18 @@ class AssetController extends Controller
 
         // Kembali ke halaman inventaris/asset
         return Redirect::to('inventaris/asset');
+    }
+
+     public function viewDetail($id_asset)
+    {
+        $asset = Asset::where('id_asset', $id_asset)->first();
+        $data = [
+            'page'=> 'inventaris',
+            'asset' => $asset,
+
+        ];
+
+        return view('karyawan.inventaris.asset.viewDetail', $data);
     }
 
 
