@@ -15,4 +15,14 @@ class CapaianPembelajaran extends Model
 		'kode_cpem',
 		'deskripsi_cpem',
    ];
+
+   public function prodi ()
+   {
+    	return $this->belongsTo('App\Prodi', 'prodi_id');
+   }
+
+   public function kategori()
+   {
+    	return $this->belongsTo('App\KategoriCapaianPembelajaran', 'kategori_cpem_id');
+   }
 }

@@ -7,12 +7,12 @@
 
 @section('htmlheader_title')
 <!-- Nama konten -->
-Nama konten 
+Upload Berkas
 @endsection
 
 @section('contentheader_title')
 <!-- Nama konten -->
-Nama konten
+Upload Berkas
 @endsection
 
 @section('main-content')
@@ -61,16 +61,19 @@ Nama konten
 <div class="col-md-6">
   <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Upload File Proposal</h3>
+              <h3 class="box-title">Upload Berkas Proposal</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
             <form class="form-horizontal">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputFile" class="col-sm-4 control-label">Input Proposal</label>
-                  <div class="col-sm-8">
-                  <input type="file" id="exampleInputFile">
+                  <label for="file_pen" class="col-sm-2 control-label">Upload Berkas Proposal</label>
+                  <div class="col-md-8">
+                  <input type="file" id="upload_berkas" name="upload_berkas" placeholder="Pilih File" required>
+
+                  <p class="help-block">*File berformat .pdf</p>
+
                   </div>
                   </div>
                 <div class="box-footer">
@@ -84,18 +87,19 @@ Nama konten
   <div class="col-md-6">
     <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Upload File Skripsi</h3>
+              <h3 class="box-title">Upload Berkas Skripsi</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
             <form class="form-horizontal">
               <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputFile" class="col-sm-4 control-label">Input Skripsi</label>
-                  <div class="col-sm-8">
-                  <input type="file" id="exampleInputFile">
+               <div class="form-group">
+                  <label for="file_pen" class="col-sm-2 control-label">Upload Berkas Skripsi</label>
+                  <div class="col-md-8">
+                  <input type="file" id="upload_berkas" name="upload_berkas" placeholder="Pilih File" required>
 
-         
+                  <p class="help-block">*File berformat .pdf</p>
+
                 </div>
                 
               </div>

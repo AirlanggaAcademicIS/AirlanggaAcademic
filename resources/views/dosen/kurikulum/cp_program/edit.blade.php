@@ -56,12 +56,22 @@ Edit capaian program
 					</div>
 				</div> -->
 
+		
 				<div class="form-group">
-					<label for="id_prodi" class="col-sm-2 control-label">Id Prodi</label>
-					<div class="col-md-7">
-						<input type="text" class="form-control input-lg" id="id_prodi" name="id_prodi" placeholder="Masukkan ID prodi" value="{{$cp_program->id}}" required>
-					</div>
-				</div>
+					<label for="id_prodi" class="col-sm-2 control-label">Nama Prodi</label>
+					<div class="col-md-3">
+				    	<select name="prodi_id" class="form-control">
+				    		@foreach($prodis as $prodi)
+				      		<option 
+				      		@if ($prodi->id_prodi==$cp_program->prodi_id) 
+                			{{'selected'}}
+               				 @endif	
+				      		value="{{$prodi->id_prodi}}">{{$prodi->nama_prodi}}</option>
+				      		@endforeach
+				        </select>
+    				</div>
+    			</div>
+
 
 				<!-- Menampilkan textarea -->
 				<div class="form-group">

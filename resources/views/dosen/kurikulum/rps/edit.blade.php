@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Edit Kategori Media Pembelajaran
+Rencana Pembelajaran Semester
 @endsection
 
 @section('contentheader_title')
-Edit Kategori Media Pembelajaran
+Rencana Pembelajaran Semester
 @endsection
 
 @section('code-header')
@@ -45,35 +45,156 @@ Edit Kategori Media Pembelajaran
 			</div>
 			@endif
 			<br>
-			<form id="tambahRPS" method="post" action="{{url('/kurikulum/kategori-media-pembelajaran/'.$kategori_media_pembelajaran->id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			<form role="form">
+        <div class="box-header with-border">
+          <h3 class="box-title">Edit RPS</h3>
+        </div>
 
-				<!-- Menampilkan input text biasa -->
-				<div class="form-group">
-				<label for="kategori_media_pembelajaran" class="col-sm-2 control-label" >Kategori Media Pembelajaran</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="kategori_media_pembelajaran" name="kategori_media_pembelajaran" style="font-size:12px;" placeholder="Masukkan Kategori Media" value="{{$kategori_media_pembelajaran->kategori_media_pembelajaran}}" required>
-					</div>
-				</div>
+      <div class="box-body">
+<div class="form-group">
+<label for="nama-matkul"><b>Mata Kuliah</b></label>
+<input class="form-control" id="nama_matkul" name="nama_matkul" disabled="" value="{{$mata_kuliah->nama_matkul}}">
+</div><br>
 
-				<div class="form-group">
-				<label for="kategori_media_pembelajaran" class="col-sm-2 control-label" >Media Pembelajaran</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="media_pembelajaran" name="media_pembelajaran" style="font-size:12px;" placeholder="Masukkan Media Pembelajaran" value="{{$kategori_media_pembelajaran->media_pembelajaran}}" required>
-					</div>
-				</div>
+<div class="form-group">
+<label for="nama-matkul"><b>Kode Mata Kuliah</b></label>
+<input class="form-control" id="kode_matkul" name="kode_matkul" disabled="" value="{{$mata_kuliah->kode_matkul}}">
+</div><br>
 
-				<div class="form-group col-md-10">
-				<div class="form-group col-md-1" style="float:right;">
-					<button type="submit" class="btn btn-primary btn-md">
-							Edit
-						</button>
-					</div>
-					</div>
-			</form>
-		</div>
-	</div>
+<div class="form-group">
+    <label for="nama-matkul">Mata Kuliah Prasyarat</label>
+    </div>
+    <div class="form-group">
+    <input text="text" value="@foreach($mk_prasyarat as $syarat)
+    {{$syarat->matkul['nama_matkul']}}
+    @endforeach"
+    data-role="tagsinput">
+    </div><br>
+
+<div class="form-group">
+<label for="nama-matkul"><b>SKS</b></label>
+<input class="form-control" id="sks" name="sks" disabled="" value="{{$mata_kuliah->sks}}">
+</div><br>
+
+<div class="form-group">
+<p><b>Capaian Pembelajaran</b></p>
 </div>
+
+<div class="form-group">
+    <label for="nama-matkul">CPL Prodi</label>
+    </div>
+    <div class="form-group">
+    <input text="text" value="@foreach($cp_prodi as $cprodi)
+    {{$cprodi->cpem['kode_cpem']}}
+    @endforeach"
+    data-role="tagsinput">
+    </div><br>
+      
+<div class="form-group">
+    <label for="nama-matkul">Capaian Mata Kuliah</label>
+    </div>
+    <div class="form-group">
+    <input text="text" value="
+    @foreach($cp_mata_kuliah as $cpmk)
+    {{$cpmk->kode_cpmk}}
+    @endforeach
+    "
+    data-role="tagsinput">
+    </div><br>
+
+<div class="form-group">
+<label for="deskripsi-mk"><b>Deskripsi Singkat Mata Kuliah</b></label>
+<textarea class="form-control" rows="3" placeholder="">{!!$mata_kuliah->deskripsi_matkul!!}</textarea>
+</div><br>
+
+<div class="form-group">
+<label for="deskripsi-mk"><b>Pokok Pembahasan</b></label>
+<textarea class="form-control" rows="3" placeholder="">{!!$mata_kuliah->pokok_pembahasan!!}</textarea><br>
+</div>
+
+<div class="form-group">
+  <label for="deskripsi-mk"><b>Pustaka</b></label>
+  <div class="form-group">
+<label for="deskripsi-mk">Pustaka Utama</label>
+<textarea class="form-control" rows="3" placeholder="">{!!$mata_kuliah->pustaka_utama!!}</textarea>
+</div>
+ <div class="form-group">
+<label for="deskripsi-mk">Pustaka Pendukung</label>
+<textarea class="form-control" rows="3" placeholder="">{!!$mata_kuliah->pustaka_pendukung!!}</textarea><br>
+</div>
+  </div>
+  
+  <div class="form-group">
+<p><b>Media Pembelajaran</b></p>
+</div>
+
+    <div class="form-group">
+    <label for="nama-matkul">Perangkat Lunak</label>
+    </div>
+    <div class="form-group">
+    <input class="form-control" value="" data-role="tagsinput">
+    </div>
+
+     <div class="form-group">
+    <label for="nama-matkul">Perangkat Keras</label>
+    </div>
+    <div class="form-group">
+    <input class="form-control" value="" data-role="tagsinput">
+    </div><br>
+
+<div class="form-group">
+<p><b>Team Teaching</b></p>
+<label>Koordinator Mata kuliah</label>
+<select class="form-control">
+@foreach($koor as $k) 
+@if ($k->status['status_tt_id'] === 1)
+      <option selected="selected">{{$k->dosen['nip']}}</option>
+      @else
+      <option selected="selected"></option>
+      @endif
+      @endforeach
+      </select>
+    </div>
+
+<div class="form-group">
+<label for="nama-matkul">Anggota Team Teaching 1</label>
+<!-- select -->
+    <div class="form-group">
+      <select class="form-control">
+      <option></option>
+        <option selected="selected"></option>
+      </select>
+    </div>
+</div>
+
+<div class="form-group">
+<label for="nama-matkul">Anggota Team Teaching 2</label>
+<!-- select -->
+    <div class="form-group">
+      <select class="form-control">
+      <option></option>
+        <option></option>
+      </select>
+    </div>
+</div>
+
+<div class="form-group">
+<label for="nama-matkul">Anggota Team Teaching 3</label>
+<!-- select -->
+    <div class="form-group">
+      <select class="form-control">
+      	<option></option>
+        <option></option>
+      </select>
+    </div>
+
+<a href="{{{('/dosen/kurikulum/rps/index')}}}" class="btn btn-info">Kembali</a>
+
+</div>
+
+</form>
+</div>
+</form>
 @endsection
 
 @section('code-footer')
