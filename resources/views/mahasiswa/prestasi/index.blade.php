@@ -44,6 +44,7 @@ Prestasi
       <th style="text-align:center">Tingkat</th>
       <th style="text-align:center">File Prestasi</th>
       <th style="text-align:center">Status</th>
+      <th style="text-align:center">Skor</th>
       <th style="text-align:center">Action</th>
     </tr>
     </thead>
@@ -57,7 +58,9 @@ Prestasi
       <td width="20%" style="text-align:center">{{$bio->jenis_kegiatan}}</td>
       <td width="10%" style="text-align:center">{{$bio->penyelenggara}}</td>
       <td width="10%" style="text-align:center">{{$bio->tingkat}}</td>
-      <td width="10%" style="text-align:center">{{$bio->file_prestasi}}</td>
+      <td width="10%" style="text-align:center">
+         <img src="{{URL::asset('/img/prestasi/'.$bio->file_prestasi)}}" height="100px" width="100px" hspace="5px" vspace="2px" alt="gambar" style="border:2px solid gray" class="img-rounded" >
+      </td>
       @if (($bio->ps_is_verified)==0)
       <td width="10%" style="text-align:center">Process</td>
       @elseif (($bio->ps_is_verified)==1)
@@ -65,7 +68,8 @@ Prestasi
       @else
       <td width="10%" style="text-align:center">Rejected</td>
       @endif
-
+      
+      <td width="10%" style="text-align:center">{{$bio->skor}}</td>
        @if (($bio->ps_is_verified)==0)
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus data prestasi ini?');" href="{{url('/mahasiswa/prestasi/'.$bio->id_prestasi.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
