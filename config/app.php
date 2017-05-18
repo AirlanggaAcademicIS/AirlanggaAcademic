@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
 
+        Barryvdh\Snappy\ServiceProvider::class,
 
         
     ],

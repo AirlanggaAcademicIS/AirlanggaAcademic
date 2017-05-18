@@ -13,4 +13,6 @@ class RPS_Media_Pembelajaran extends Model
 		'cpmk_id', 
 		'sistem_pembelajaran_id',
    ];
+
+   
 }

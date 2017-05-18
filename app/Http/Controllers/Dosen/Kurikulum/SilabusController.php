@@ -12,7 +12,13 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\Silabus_Matkul;
-
+use App\Silabus_Matkul_Prasyarat;
+use App\Silabus_Atribut_Softskill;
+use App\Silabus_mk_softskill;
+use App\Silabus_cp_matkul;
+use App\Silabus_detail_media;
+use App\Silabus_Sistem_Pembelajaran;
+use App\Silabus_Koor_Matkul;
 
 class SilabusController extends Controller
 {
@@ -37,7 +43,7 @@ class SilabusController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'silabus',
-            'mata_kuliah' => Silabus_Matkul::all()
+            'mata_kuliah' => Silabus_Matkul::all()            
         ];
 
         // Memanggil tampilan form create
@@ -78,7 +84,11 @@ class SilabusController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'silabus',
             // Mencari biodata berdasarkan id
-            'mata_kuliah' => Silabus_Matkul::find($id)
+            'mata_kuliah' => Silabus_Matkul::find($id),
+            'mk_prasyarat' => Silabus_Matkul_Prasyarat::where('mk_id', '=', $id)->get(),
+            'mk_softskills' =>  Silabus_mk_softskill::where('mk_id', '=', $id)->get(),
+            'cp_matkul' => Silabus_cp_matkul::where('matakuliah_id', '=', $id)->get(),
+            'koor' => Silabus_Koor_Matkul::where('mk_id', '=', $id)->get()
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi

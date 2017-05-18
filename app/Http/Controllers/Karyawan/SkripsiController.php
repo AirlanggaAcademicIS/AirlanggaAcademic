@@ -2,33 +2,24 @@
 
 namespace App\Http\Controllers\Karyawan;
 
-<<<<<<< HEAD
-use Illuminate\Http\Request;
-=======
+
+use Request;
+
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Response;
 
-//use Illuminate\Http\Request;
-
->>>>>>> aca8e6c67014e4dcaacdbabe0f0c7e94ea046771
 use App\Skripsi;
 
 use Session;
 
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Facades\Input;
 
-use Request;
-
->>>>>>> aca8e6c67014e4dcaacdbabe0f0c7e94ea046771
 use App\Http\Controllers\Controller;
 
 class SkripsiController extends Controller
 {
-    //
-<<<<<<< HEAD
+
 public function view_manage_hasil_sidang_proposal()
    {
    	# code...
@@ -45,7 +36,6 @@ public function view_manage_hasil_sidang_proposal()
       		);
       	return view('karyawan.monitoring-skripsi.hasil-sidang.tambah-hasil-proposal',$data);
       }   
-=======
 
     public function view_manage_jadwal_sidang_proposal()
     {
@@ -153,10 +143,9 @@ public function view_manage_hasil_sidang_proposal()
 
     		
     		return response()->json([
-    'status_insert' => 1
+                'status_insert' => 1
 				]);
     	
     	}
     }
->>>>>>> aca8e6c67014e4dcaacdbabe0f0c7e94ea046771
 }
