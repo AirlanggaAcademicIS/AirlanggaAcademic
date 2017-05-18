@@ -26,11 +26,6 @@ Capaian Program
   @endif
   @endforeach
 </div>
-<div style="margin-bottom: 10px">
-  <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('dosen\kurikulum\cp_program\create')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah Capaian Program</a>
-</div>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
@@ -39,21 +34,15 @@ Capaian Program
       <th style="text-align:center">Nama Prodi</th>      
       <th style="text-align:center">Capaian Program Spesifik</th>
       <th style="text-align:center">Dimensi Capaian Umum</th>
-      <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
    @forelse($cp_program as $i => $cp) 
     <tr>
-      <td width="2%">{{ $i+1 }}</td>
-      <td width="5%" style="text-align:center">{{$cp->prodi['nama_prodi']}}</td>
-      <td width="20%" style="text-align:left">{{$cp->capaian_program_spesifik}}</td>
-      <td width="20%" style="text-align:leftr">{{$cp->dimensi_capaian_umum}}</td>
-      <td width="10%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus capaian program ini?');" href="{{url('/dosen/kurikulum/cp_program/'.$cp->id.'/delete/')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('dosen/kurikulum/cp_program/'.$cp->id.'/edit/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Edit</a>
-        </td>
+      <td style="text-align:center" width="2%">{{ $i+1 }}</td>
+      <td style="text-align:center" width="5%" style="text-align:center">{{$cp->prodi['nama_prodi']}}</td>
+      <td style="text-align:justify" width="20%" style="text-align:left">{{$cp->capaian_program_spesifik}}</td>
+      <td style="text-align:justify" width="20%" style="text-align:leftr">{{$cp->dimensi_capaian_umum}}</td>
     </tr>
      @empty
         <tr>
