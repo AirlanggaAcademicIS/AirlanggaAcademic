@@ -26,11 +26,11 @@ Biodata Mahasiswa
   @endif
   @endforeach
 </div>
-<div style="margin-bottom: 10px">
-  <!-- Href ini biar diklik masuk ke form tambah -->
+<!-- <div style="margin-bottom: 10px">
   <a href="{{url('/mahasiswa/biodata-mahasiswa/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Biodata Mahasiswa</a>
-</div>
+
+</div> -->
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
@@ -56,8 +56,10 @@ Biodata Mahasiswa
       <td width="15%" style="text-align:center">{{$bio->ttl}}</td>
       <td width="20%" style="text-align:center">{{$bio->alamat_tinggal}}</td>
       <td width="15%" style="text-align:center" >
+      @if($bio->nim_id == Auth::user()->username)
         <a href="{{url('/mahasiswa/biodata-mahasiswa/'.$bio->id_bio.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
+      @endif
         </td>
     </tr>
      @empty

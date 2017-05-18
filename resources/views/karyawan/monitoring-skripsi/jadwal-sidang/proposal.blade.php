@@ -410,7 +410,7 @@ Jadwal Sidang Proposal
 
                 var petugas = $('#daftar-tambah-nip-jadwal-sidang-proposal').val();
 
-                alert(nim+" "+kbk+" "+judul_proposal+" "+tgl+" "+waktu+" "+tempat+" "+dosbing1+" "+dosbing2+" "+penguji+" "+petugas);
+                /*alert(nim+" "+kbk+" "+judul_proposal+" "+tgl+" "+waktu+" "+tempat+" "+dosbing1+" "+dosbing2+" "+penguji+" "+petugas);*/
  
                 $.ajax({
                      url: 'create-jadwal-sidang-proposal',

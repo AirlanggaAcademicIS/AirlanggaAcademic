@@ -39,27 +39,38 @@ Tambah Kategori Media Pembelajaran
       <div class="box-body">
 
 <div class="form-group">
-<p><b>Kode Mata Kuliah</b></p>
+<p><b>Mata Kuliah</b></p>
     <div class="form-group">
       <select class="form-control" id="kode_matkul" name="kode_matkul">
       @foreach ($mata_kuliah as $mk) 
           {
-			<option></option>
-			<option value="{{$mk->kode_matkul}}">{{$mk->kode_matkul}}</option>
-			 }
+      <option value="{{$mk->kode_matkul}}">{{$mk->nama_matkul}}</option>
+       }
           @endforeach
           </select>
     </div>
 </div><br>
 
-
+<div class="form-group">
+<p><b>Kode Mata Kuliah</b></p>
+    <div class="form-group">
+      <input class="form-control" value="{{$mk->kode_matkul}}" >
+    </div>
+</div><br>
 
 <div class="form-group">
     <label for="nama-matkul">Mata Kuliah Prasyarat</label>
     </div>
     <div class="form-group">
-    <input class="form-control" value="">
+    <input class="form-control" value="" data-role="tagsinput">
     </div><br>
+
+<div class="form-group">
+<p><b>SKS</b></p>
+    <div class="form-group">
+      <input class="form-control" value="{{$mk->sks}}" disabled="">
+    </div>
+</div><br>
 
 <div class="form-group">
 <p><b>Capaian Pembelajaran</b></p>
@@ -127,10 +138,6 @@ Tambah Kategori Media Pembelajaran
       <select class="form-control">
       <option></option>
         <option>Nama Dosen 1</option>
-        <option>Nama Dosen 2</option>
-        <option>Nama Dosen 3</option>
-        <option>Nama Dosen 4</option>
-        <option>Nama Dosen 5</option>
       </select>
     </div>
 </div>
