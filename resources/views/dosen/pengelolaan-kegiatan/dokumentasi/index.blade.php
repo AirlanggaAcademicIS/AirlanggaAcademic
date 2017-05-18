@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Biodata
+Dokumentasi
 @endsection
 
 @section('contentheader_title')
-Biodata
+Dokumentasi
 @endsection
 
 @section('main-content')
@@ -26,30 +26,40 @@ Biodata
   @endif
   @endforeach
 </div>
-
+<div style="margin-bottom: 10px">
+  <!-- Href ini biar diklik masuk ke form tambah -->
+  <a href="{{url('/kegiatan/dokumentasi/create')}}" type="button" class="btn btn-info btn-md" >
+    <i class="fa fa-plus-square"></i> Tambah Gambar</a>
+</div>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">ID dokumentasi</th>
-      <th style="text-align:center">ID kegiatan</th>      
-      <th style="text-align:center">Lesson Learned</th>
-      <th style="text-align:center">Foto</th>
+      <th style="text-align:center">Kode Dokumentasi</th>      
+      <th style="text-align:center">Nomor Kegiatan</th>
+      <th style="text-align:center">Evaluasi Kegiatan</th>
+      <th style="text-align:center">Dokumentasi</th>
+      <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
-   @forelse($dokumentasi as $i => $dokumen) 
+   @forelse($dokumentasi as $i => $dok) 
     <tr>
-      <td width="10%">{{ $i+1 }}</td>
-      <td width="20%" style="text-align:center">{{$dokumen->id_dokumentasi}}</td>
-      <td width="10%" style="text-align:center">{{$dokumen->kegiatan_id}}</td>
-      <td width="20%" style="text-align:center">{{$dokumen->lesson_learned}}</td>
-      <td width="10%" style="text-align:center">{{$dokumen->url_foto}}</td>
+      <td width="20%" style="text-align:center">{{ $i+1 }}</td>
+      <td width="20%" style="text-align:center">{{$dok->id_dokumentasi}}</td>
+      <td width="15%" style="text-align:center">{{$dok->kegiatan_id}}</td>
+      <td width="15%" style="text-align:center">{{$dok->lesson_learned}}</td>
+      <td width="20%" style="text-align:center"><img src={{$dok->url_foto}} height="42" width="42"></td>
+      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus gambar ini?');" href="{{url('/kegiatan/dokumentasi/'.$dok->id_dokumentasi.'/delete/')}}" class="btn btn-danger btn-xs">
+        <i class="fa fa-trash-o"></i> Hapus</a>
+        <a href="{{url('/kegiatan/dokumentasi/'.$dok->id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Edit</a>
+        </td>
     </tr>
      @empty
         <tr>
-          <td colspan="6"><center>Belum ada dokumentasi</center></td>
+          <td colspan="6"><center>Belum ada Dokumentasi</center></td>
         </tr>
     @endforelse
   </tbody>

@@ -7,10 +7,38 @@ use Illuminate\Database\Eloquent\Model;
 class Skripsi extends Model
 {
 
-    use SoftDeletes;
+       protected $table = 'skripsi';    
+       protected $primaryKey = 'id_skripsi';    
+       protected $fillable = [
+    		'NIM_id',
+    		'kbk_id',
+    		'statusprop_id',
+    		'statusskrip_id',
+    		'Judul',
+    		'upload_berkas_proposal',
+    		'nip_petugas_id',
+    		'tgl_sidangpro',
+    		'waktu_sidangpro',
+    		'tempat_sidangpro',
+    		'nilai_sidangpro',
+    		'tgl_sidangskrip',
+    		'waktu_sidangskrip',
+    		'tempat_sidangskrip',
+    		'nilai_sidangskrip',
+    		'tanggal_pengumpulan_proposal',
+    		'tanggal_pengumpulan_skripsi',
+    		'is_verified'
 
-    protected $table = 'skripsi';
-    protected $dates = ['deleted_at'];
+    	];
+
+        public function mahasiswa()
+        {
+            return $this->belongsTo('App\BiodataMahasiswa', 'NIM_id', 'nim_id');
+        }
+
+        public function KBK(){
+            return$this->belongsTo('App\KBK', 'kbk_id');
+        }
 }
 
   

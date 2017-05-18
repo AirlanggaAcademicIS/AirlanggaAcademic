@@ -10,7 +10,7 @@ Data Mahasiswa Skripsi
 @endsection
 
 @section('contentheader_title')
-Biodata
+Data Mahasiswa Skripsi
 @endsection
 
 @section('main-content')
@@ -36,7 +36,8 @@ Biodata
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">NIM</th>      
+      <th style="text-align:center">Nama Mahasiswa</th>  
+      <th style="text-align:center">NIM</th>     
       <th style="text-align:center">KBK</th>
       <th style="text-align:center">Judul</th>
       <th style="text-align:center">NIP Petugas</th>
@@ -48,14 +49,15 @@ Biodata
   <tbody>
    @forelse($skripsi as $i => $skrip) 
     <tr>
-      <td width="10%" style="text-align:center">{{ $i+1 }}</td>
-      <td width="10%" style="text-align:center">{{$skrip->NIM_id}}</td>
-      <td width="10%" style="text-align:center">{{$skrip->kbk_id}}</td>
-      <td width="20%" style="text-align:center">{{$skrip->Judul}}</td>
-      <td width="10%" style="text-align:center">{{$skrip->nip_petugas_id}}</td>
-      <td width="10%" style="text-align:center">{{$skrip->nip_id1}}</td>
-      <td width="10%" style="text-align:center">{{$skrip->nip_id2}}</td>
-      <td width="10%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus data skripsi ini?');" href="{{url('/karyawan/monitoring-skripsi/skripsi/'.$skrip->id_skripsi.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td style="text-align:center">{{ $i+1 }}</td>
+      <td style="text-align:center">{{$skrip->mahasiswa['nama_mhs']}}</td>
+      <td style="text-align:center">{{$skrip->NIM_id}}</td>
+      <td style="text-align:center">{{$skrip->KBK['jenis_kbk']}}</td>
+      <td style="text-align:center">{{$skrip->Judul}}</td>
+      <td style="text-align:center">{{$skrip->nip_petugas_id}}</td>
+      <td style="text-align:center">{{$skrip->nip_id1}}</td>
+      <td style="text-align:center">{{$skrip->nip_id2}}</td>
+      <td style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus data skripsi ini?');" href="{{url('/karyawan/monitoring-skripsi/skripsi/'.$skrip->id_skripsi.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/karyawan/monitoring-skripsi/skripsi/'.$skrip->id_skripsi.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>

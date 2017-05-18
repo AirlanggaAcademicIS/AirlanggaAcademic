@@ -75,7 +75,12 @@ Verifikasi Penelitian
 
 @section('code-footer')
 
-
-
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example1').DataTable();
+});
+</script>
 
 @endsection

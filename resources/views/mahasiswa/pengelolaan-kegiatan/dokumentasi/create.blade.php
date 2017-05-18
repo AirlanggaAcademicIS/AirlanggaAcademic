@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Rundown
+Input dokumentasi
 @endsection
 
 @section('contentheader_title')
-Tambah Rundown
+Input Dokumen
 @endsection
 
 @section('code-header')
@@ -33,7 +33,7 @@ Tambah Rundown
 
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-12" style="background-color: white;">
 		<div class="">
 
 			@if (count($errors) > 0)
@@ -46,46 +46,53 @@ Tambah Rundown
 			</div>
 			@endif
 			<br>
-			<form id="tambahDokumentasi" method="post" action="{{url('/karyawan/pengelolaan-kegiatan/dokumentasi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahBiodata" method="post" action="{{url('/kegiatan/dokumentasi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-			<!-- Menampilkan input text biasa -->
-    <div class="form-group">
-     <label for="nim" class="col-sm-2 control-label">ID dokumentasi</label>
-     <div class="col-md-8">
-      <input type="text" class="form-control input-lg" id="id_dokumentasi" name="id_dokumentasi" placeholder="Masukkan ID dokumentasi" required>
-     </div>
-    </div>
+				<!-- Menampilkan input text biasa -->
+				
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Nomor Dokumentasi</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="id_dokumentasi" name="id_dokumentasi" placeholder="Masukkan Nama Gambar" required>
+					</div>
+				</div>
 
-    <div class="form-group">
-     <label for="nama" class="col-sm-2 control-label">ID kegiatan</label>
-     <div class="col-md-8">
-      <input type="text" class="form-control input-lg" id="kegiatan_id" name="kegiatan_id" placeholder="Masukkan ID kegiatan" required>
-     </div>
-    </div>
-
-
+				<div class="form-group">
+				<label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
+                <div class="col-md-8">
+	                <select class="form-control select2" style="width: 100%;" name = "kegiatan_id">
+	                  @foreach($kegiatan as $pk)
+	                  <option value="{{$pk->id_kegiatan}}" >{{$pk->nama}}</option>
+	                  @endforeach
+	                </select>
+	             </div>
+              </div>
+             
 			<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="lesson_learned" class="col-sm-2 control-label">Lesson Learned</label>
+					<label for="nama" class="col-sm-2 control-label">Evaluasi Kegiatan</label>
 					<div class="col-md-8">
-						<textarea id="lesson_learned" name="lesson_learned" placeholder="Masukkan Feedback" required cols="82" rows="5">
+						<textarea id="lesson_learned" name="lesson_learned" placeholder=" Masukkan Evaluasi Kegiatan" required cols="82" rows="5">
 						</textarea>
 					</div>
 				</div>
 
-
+				<!-- Menampilkan Deskripsi -->
 				<div class="form-group">
-     	<label for="url_foto" class="col-sm-2 control-label">url foto</label>
-     	<div class="col-md-8">
-      	<input type="text" class="form-control input-lg" id="url_foto" name="url_foto" placeholder="Masukkan url" required>
-     	</div>
-    	</div>
+					<label for="nama" class="col-sm-2 control-label">Masukkan Foto</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="url_gambar" name="url_foto" placeholder="Masukkan URL Gambar" required>
+					</div>
+				</div>
+				
+				<!-- Menampilkan tanggal dengan datepicker -->
+				
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
-							Publish
+							Confirm
 						</button>
 					</div>
 				</div>
