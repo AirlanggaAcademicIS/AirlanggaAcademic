@@ -47,13 +47,13 @@ Petugas TU
    @forelse($petugas_tu as $i => $bio) 
     <tr>
       <td>{{ $i+1 }}</td>
-      <td width="20%" style="text-align:center">{{$bio->nip_petugas}}</td>
+      <td style="text-align:center">{{$bio->nip_petugas}}</td>
       <td width="15%" style="text-align:center">{{$bio->nama_petugas}}</td>
       <td width="20%" style="text-align:center">{{$bio->no_telp_petugas}}</td>
       <td width="10%" style="text-align:center">{{$bio->email_petugas}}</td>
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus petugas ini?');" href="{{url('/karyawan/pla/petugas_tu/'.$bio->id_tu.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus petugas ini?');" href="{{url('/karyawan/pla/petugas_tu/'.$bio->nip_petugas.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('/karyawan/pla/petugas_tu/'.$bio->id_tu.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('/karyawan/pla/petugas_tu/'.$bio->nip_petugas.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
     </tr>
