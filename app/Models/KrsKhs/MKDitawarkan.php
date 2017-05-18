@@ -15,4 +15,9 @@ class MKDitawarkan extends Model
    		'thn_akademik_id',
 		'matakuliah_id',
    ];
+
+   public function mk()
+   {
+   return $this->belongsTo('App\Models\KrsKhs\MataKuliah','matakuliah_id');
+   }
 }
