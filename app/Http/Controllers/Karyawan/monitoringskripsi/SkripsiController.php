@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Redirect;
 // Tambahkan model yang ingin dipakai
 use App\Skripsi;
+use App\DosenPembimbing;
 use App\BiodataMhs;
 
 class SkripsiController extends Controller
@@ -46,7 +47,24 @@ class SkripsiController extends Controller
     {
         //dd($request->input());
         // Menginsertkan apa yang ada di form ke dalam tabel skripsi
-        $skripsi = Skripsi::create($request->input());
+        $skripsi = Skripsi::create([
+            'NIM_id' => $request->input('NIM_id'),
+            'kbk_id' => $request->input('kbk_id'),
+            'Judul' => $request->input('Judul'),
+            'nip_petugas_id' => $request->input('nip_petugas_id')
+            ]);
+
+        $idSkripsi = Skripsi::where('NIM_id', '=', $request->input('NIM_id'))->first()->id_skripsi;
+        $dosbing = DosenPembimbing::create([
+            'skripsi_id' => $idSkripsi,
+            'nip_id' => '12345678910',
+            'status' => 0
+            ]);
+        // $dosbing = DosenPembimbing::create([
+        //     'skripsi_id' => $idSkripsi,
+        //     'nip_id' => '12345678910',
+        //     'status' => 0
+        //     ]);
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Data Skripsi berhasil ditambahkan');

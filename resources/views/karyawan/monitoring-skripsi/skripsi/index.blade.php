@@ -41,18 +41,22 @@ Data Mahasiswa Skripsi
       <th style="text-align:center">KBK</th>
       <th style="text-align:center">Judul</th>
       <th style="text-align:center">NIP Petugas</th>
+      <th style="text-align:center">Dosen Pembimbing 1</th>
+      <th style="text-align:center">Dosen Pembimbing 2</th>
       <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
    @forelse($skripsi as $i => $skrip) 
     <tr>
-      <td>{{ $i+1 }}</td>
+      <td style="text-align:center">{{ $i+1 }}</td>
       <td style="text-align:center">{{$skrip->mahasiswa['nama_mhs']}}</td>
       <td style="text-align:center">{{$skrip->NIM_id}}</td>
       <td style="text-align:center">{{$skrip->KBK['jenis_kbk']}}</td>
       <td style="text-align:center">{{$skrip->Judul}}</td>
       <td style="text-align:center">{{$skrip->nip_petugas_id}}</td>
+      <td style="text-align:center">{{$skrip->nip_id1}}</td>
+      <td style="text-align:center">{{$skrip->nip_id2}}</td>
       <td style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus data skripsi ini?');" href="{{url('/karyawan/monitoring-skripsi/skripsi/'.$skrip->id_skripsi.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/karyawan/monitoring-skripsi/skripsi/'.$skrip->id_skripsi.'/edit/')}}" class="btn btn-warning btn-xs">

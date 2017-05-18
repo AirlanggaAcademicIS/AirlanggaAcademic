@@ -10,6 +10,7 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\CapaianProgram;
+use App\Prodi;
 
 
 class CapaianProgramController extends Controller
@@ -34,6 +35,7 @@ class CapaianProgramController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'capaian-program',
+            'prodis' => Prodi::all()
         ];
 
         // Memanggil tampilan form create
@@ -72,9 +74,11 @@ class CapaianProgramController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'capaian-program',
+            'prodis' => Prodi::all(),
             // Mencari biodata berdasarkan id
             'cp_program' => CapaianProgram::find($id)
         ];
+
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
         return view('dosen.kurikulum.cp_program.edit',$data);
@@ -86,7 +90,8 @@ class CapaianProgramController extends Controller
         $cp_program = CapaianProgram::find($id);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $cp_program->id = $request->input('id_prodi');
+        $cp_program->prodi_id = $request->input('prodi_id');
+        $cp_program->id = $id ;
         $cp_program->capaian_program_spesifik = $request->input('capaian_program_spesifik');
         $cp_program->dimensi_capaian_umum = $request->input('dimensi_capaian_umum');
         $cp_program->save();

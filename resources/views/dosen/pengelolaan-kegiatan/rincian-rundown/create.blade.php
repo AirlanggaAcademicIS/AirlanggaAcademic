@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Gambar
+Tambah Rundown
 @endsection
 
 @section('contentheader_title')
-Tambah Gambar
+Tambah Rundown
 @endsection
 
 @section('code-header')
@@ -46,37 +46,51 @@ Tambah Gambar
 			</div>
 			@endif
 			<br>
-			<form id="tambahBiodata" method="post" action="{{url('/kegiatan/dokumentasi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahRundown" method="post" action="{{url('pengelolaan-kegiatan/rincian-rundown/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama Dokumentasi</label>
+					<label for="kegiatan_id" class="col-sm-2 control-label">Nomor Kegiatan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_dokumentasi" name="nama_dokumentasi" placeholder="Masukkan Nama Gambar" required>
+						<select class="form-control select2" style="width: 100%;" name="kegiatan_id">
+						@foreach($kegiatan as $pk)
+						<option value="{{$pk->id_kegiatan}}">{{$pk->nama}}</option>
+						@endforeach
+						</select>
+						
+						<!-- <input type="text" class="form-control input-lg" id="kegiatan_id" name="kegiatan_id" placeholder="Masukkan Nomor Kegiatan" required> -->
 					</div>
 				</div>
 
-			<!-- Menampilkan textarea -->
+				<!-- Menampilkan input text biasa -->
+				
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Deskripsi</label>
-					<div class="col-md-8">
-						<textarea id="deskripsi" name="deskripsi" placeholder=" Masukkan Deskripsi Gambar" required cols="82" rows="5">
-						</textarea>
+					<label for="kategori_rundown" class="col-sm-2 control-label">Kategori Kegiatan</label>
+					<div class="col-md-8">		
+						<input type="text" class="form-control input-lg" id="kategori_rundown" name="kategori_rundown" placeholder="Masukkan Kategori Kegiatan" required>
 					</div>
 				</div>
 
-				<!-- Menampilkan Deskripsi -->
+				<!-- Menampilkan input text biasa -->
+				
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Gambar</label>
+					<label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="gambar" name="gambar" placeholder="Masukkan URL Gambar" required>
+						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama Kegiatan" required>
 					</div>
 				</div>
+
 				
 				<!-- Menampilkan tanggal dengan datepicker -->
-				
+				<div class="form-group">
+					<label for="waktu" class="col-sm-2 control-label">Waktu Kegiatan</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="datepicker" name="waktu" placeholder="Masukkan Waktu Kegiatan" required>
+					</div>
+				</div>
+
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
@@ -96,7 +110,7 @@ Tambah Gambar
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
 $( function() {
-    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
+    var date = $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd 12:00:00' }).val();
 
   } );
   </script>
