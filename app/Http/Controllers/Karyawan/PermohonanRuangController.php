@@ -24,81 +24,61 @@ class PermohonanRuangController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'PermohonanRuang',
             // Memanggil semua isi dari tabel biodata
-            'PermohonanRuang' => PermohonanRuang::all()
+            'PermohonanRuang' => PermohonanRuang::all()->where('atribut_verifikasi', '>', 0)
+
+            //where atribute_verifikasi = '1 atau 2 (selain 0)'
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('Karyawan.PermohonanRuang.index',$data);
+        return view('Karyawan.PermohonanRuang.History.index',$data);
     }
 
-    public function create()
+    public function index2() 
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'PermohonanRuang',
+            // Memanggil semua isi dari tabel biodata
+            'PermohonanRuang' => PermohonanRuang::all()->where('atribut_verifikasi', '=', 0)
+            //where atribute_verifikasi = '0'
         ];
 
-        // Memanggil tampilan form create
-    	return view('Karyawan.PermohonanRuang.create',$data);
+        // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
+        return view('Karyawan.PermohonanRuang.Konfirmasi.index',$data);
     }
 
-    public function createAction(Request $request)
-    {
-        // Menginsertkan apa yang ada di form ke dalam tabel 
-        PermohonanRuang::create($request->input());
 
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Permohonan berhasil ditambahkan');
-
-        // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/PermohonanRuang');
-    }
-
-    public function delete($id_permohonan_ruang)
+    public function accept($id_permohonan_ruang)
     {
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
         $PermohonanRuang = PermohonanRuang::find($id_permohonan_ruang);
 
         // Menghapus yang dicari tadi
-        $PermohonanRuang->delete();
+        $PermohonanRuang->atribut_verifikasi = '1';        
+        $PermohonanRuang->save();
 
         // Menampilkan notifikasi pesan sukses
-    	Session::put('alert-success', 'Daftar permohonan berhasil dihapus');
+    	Session::put('alert-success', 'permohonan diterima');
 
         // Kembali ke halaman sebelumnya
       	return Redirect::back();	 
     }
 
-   public function edit($id_permohonan_ruang)
+public function decline($id_permohonan_ruang)
     {
-        $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar 
-            'page' => 'PermohonanRuang',
-            // Mencari  berdasarkan id
-            'PermohonanRuang' => PermohonanRuang::find($id_permohonan_ruang)
-        ];
+        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
+        $PermohonanRuang = PermohonanRuang::find($id_permohonan_ruang);
 
-        // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('Karyawan.PermohonanRuang.edit',$data);
+        // Menghapus yang dicari tadi
+        $PermohonanRuang->atribut_verifikasi = '2';        
+        $PermohonanRuang->save();
+
+        // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'permohonan ditolak');
+
+        // Kembali ke halaman sebelumnya
+        return Redirect::back();     
     }
 
-    public function editAction($id_permohonan_ruang, Request $request)
-    {
-        // Mencari  yang akan di update dan menaruhnya di variabel 
-        $permohonan_ruang = PermohonanRuang::find($id_permohonan_ruang);
-
-        // Mengupdate dengan isi dari form edit tadi
-        $permohonan_ruang->nip_petugas_id = $request->input('nip_petugas_id');
-        $permohonan_ruang->nama = $request->input('nama');
-        $permohonan_ruang->atribut_verifikasi = $request->input('atribut_verifikasi');
-        $permohonan_ruang->nim_nip = $request->input('nim_nip');
-        $permohonan_ruang->save();
-
-        // Notifikasi sukses
-        Session::put('alert-success', 'berhasil');
-
-        // Kembali ke halaman awal
-        return Redirect::to('karyawan/PermohonanRuang');
-    }
 
 }

@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Karyawan\Pla;
+namespace App\Http\Controllers\dosen\monitoringskripsi;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -11,10 +11,10 @@ use Session;
 use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
-use App\Petugas_TU;
+use App\Konsultasi;
 
 
-class Petugas_TU_Controller extends Controller
+class KonsultasiController extends Controller
 {
 
     // Function untuk menampilkan tabel
@@ -22,83 +22,81 @@ class Petugas_TU_Controller extends Controller
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'petugas_tu',
+            'page' => 'konsultasi',
             // Memanggil semua isi dari tabel biodata
-            'petugas_tu' => Petugas_TU::all()
+            'konsultasi' => Konsultasi::all()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('karyawan.pla.petugas_tu.index',$data);
+        return view('dosen.monitoring-skripsi.konsultasi.index',$data);
     }
 
     public function create()
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'petugas_tu',
+            'page' => 'konsultasi',
         ];
 
         // Memanggil tampilan form create
-    	return view('karyawan.pla.petugas_tu.create',$data);
+        return view('dosen.monitoring-skripsi.konsultasi.create',$data);
     }
 
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        Petugas_TU::create($request->input());
+        Konsultasi::create($request->input());
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Petugas TU berhasil ditambahkan');
+        Session::put('alert-success', 'Konsultasi berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/pla/petugas_tu');
+        return Redirect::to('dosen/monitoring-skripsi/konsultasi');
     }
 
-    public function delete($nip_petugas)
+    public function delete($id)
     {
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $petugas_tu = Petugas_TU::find($nip_petugas);
+        $konsultasi = Konsultasi::find($id);
 
         // Menghapus biodata yang dicari tadi
-        $petugas_tu->delete();
+        $konsultasi->delete();
 
         // Menampilkan notifikasi pesan sukses
-    	Session::put('alert-success', 'Petugas berhasil dihapus');
+        Session::put('alert-success', 'Konsultasi berhasil dihapus');
 
         // Kembali ke halaman sebelumnya
-      	return Redirect::back();	 
+        return Redirect::back();     
     }
 
-   public function edit($nip_petugas)
+   public function edit($id)
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'petugas_tu',
+            'page' => 'konsultasi',
             // Mencari biodata berdasarkan id
-            'petugas_tu' => Petugas_TU::find($nip_petugas)
+            'konsultasi' => Konsultasi::find($id)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('karyawan.pla.petugas_tu.edit',$data);
+        return view('dosen.monitoring-skripsi.konsultasi.edit',$data);
     }
 
-    public function editAction($nip_petugas, Request $request)
+    public function editAction($id, Request $request)
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $petugas_tu = Petugas_TU::find($nip_petugas);
+        $konsultasi = Konsultasi::find($id);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $petugas_tu->nip_petugas = $request->input('nip_petugas');
-        $petugas_tu->nama_petugas = $request->input('nama_petugas');
-        $petugas_tu->no_telp_petugas = $request->input('no_telp_petugas');
-        $petugas_tu->email_petugas = $request->input('email_petugas');
-        $petugas_tu->save();
+        $konsultasi->skripsi_id = $request->input('skripsi_id');
+        $konsultasi->tgl_konsul = $request->input('tgl_konsul');
+        $konsultasi->catatan_konsul = $request->input('catatan_konsul');
+        $konsultasi->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Biodata berhasil diedit');
+        Session::put('alert-success', 'Konsultasi berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/pla/petugas_tu');
+        return Redirect::to('dosen/monitoring-skripsi/konsultasi');
     }
-
 }
