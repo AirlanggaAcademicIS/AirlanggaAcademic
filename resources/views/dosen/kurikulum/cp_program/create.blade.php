@@ -51,11 +51,15 @@ Tambah Capaian Program
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="id_prodi" class="col-sm-2 control-label">Id Prodi</label>
-					<div class="col-md-7">
-						<input type="text" class="form-control input-lg" id="prodi_id" name="prodi_id" placeholder="Masukkan prodi Id" required>
-					</div>
-				</div>
+					<label for="id_prodi" class="col-sm-2 control-label">Nama Prodi</label>
+					<div class="col-md-3">
+				    	<select name="prodi_id" class="form-control">
+				    		@foreach($prodis as $prodi)
+				      		<option value="{{$prodi->id_prodi}}">{{$prodi->nama_prodi}}</option>
+				      		@endforeach
+				        </select>
+    				</div>
+    			</div>
 
 				<!-- Menampilkan textarea -->
 				<div class="form-group">

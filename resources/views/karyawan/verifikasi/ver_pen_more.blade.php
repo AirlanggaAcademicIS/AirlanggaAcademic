@@ -140,7 +140,7 @@ Nama konten
         <div class="form-group">
                   <label for="file_pen" class="col-sm-2 control-label">Upload Scan PDF</label>
                   <div class="col-md-8">
-                  <a href ="{{url('/karyawan/verifikasi/download/'.$penelitian->file_pen.'')}}">{{$penelitian->file_pen}}</a>
+                  <a href ="{{url('/karyawan/verifikasi/downloadpenmhs/'.$penelitian->file_pen.'')}}">{{$penelitian->file_pen}}</a>
                   </div>
                 </div>
 
@@ -156,9 +156,16 @@ Nama konten
               </div>
 
               <div class="form-group">
+                  <label for="skor" class="col-sm-2 control-label">Skor</label>
+                  <div class="col-md-8">
+                  <input name="skor" type="number" class="form-control" rows="1" placeholder="Skor"></input>
+                  </div>
+                </div>
+
+              <div class="form-group">
                   <label for="alasan" class="col-sm-2 control-label">Alasan</label>
                   <div class="col-md-8">
-                  <textarea name="alasan_verifikasi" type="text" class="form-control" rows="1" placeholder="Alasan"></textarea>
+                  <textarea name="alasan_verified" type="text" class="form-control" rows="1" placeholder="Alasan"></textarea>
                   </div>
                 </div>
                 <div class="col-md-8 col-md-offset-2">

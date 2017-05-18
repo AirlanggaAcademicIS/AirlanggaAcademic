@@ -14,6 +14,8 @@ use Response;
 use App\MKDiajar;
 use App\MKDitawarkan;
 use App\Dosen;
+use App\Models\KrsKhs\MK;
+use App\Models\KrsKhs\BiodataDosen;
 
 
 
@@ -35,7 +37,7 @@ class InputDosenMKController extends Controller
             ->join('mata_kuliah', 'mata_kuliah.id_mk', '=', 'mk_ditawarkan.matakuliah_id')
             ->select('mk_ditawarkan.id_mk_ditawarkan', 'mata_kuliah.nama_matkul')
             ->get(),
-            'mk_diajar' => MKDiajar::all()
+            'mk_diajar' => MKDiajar::all(),
         ];
       
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
@@ -44,25 +46,40 @@ class InputDosenMKController extends Controller
 
     public function create()
     {
-        $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'biodatadosen',
+       $data = [
+        'page' => 'tabel',
+        'dosen' => BiodataDosen::all(),
+        'tabel' => MKDiajar::all(),
+            'mk_ditawarkan' => MKDitawarkan::all(),
+            'mk' => MK::all(),
         ];
-
-        // Memanggil tampilan form create
-        return view('dosen.biodata.create',$data);
+        return view('karyawan.krs-khs.input_dosen_mk.index',$data);
     }
 
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        BiodataDosen::create($request->input());
-
+        MKDiajar::create(
+            [
+            'dosen_id' => $request->input('dosen_pjmk'),
+            'status'   => '0',
+            'mk_ditawarkan_id' => $request->input('mk'),
+            ]
+            );
+        if ($request->input('dosen_pendamping') != "") {
+            MKDiajar::create(
+            [
+            'dosen_id' => $request->input('dosen_pendamping'),
+            'status'   => '1',
+            'mk_ditawarkan_id' => $request->input('mk'),
+            ]
+            );
+        }
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Biodata berhasil ditambahkan');
+        Session::put('alert-success', 'Dosen berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('dosen/biodatadosen');
+        return Redirect::to('karyawan/krs-khs/input_dosen_mk');
     }
 
     public function delete($id)
