@@ -3,14 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 class Asset extends Model
 {
-	use SoftDeletes;
-	
-   protected $table = 'peminjaman';    
-   protected $primaryKey = 'id_asset';    
+   protected $table = 'asset';
+   protected $primaryKey = 'id_asset'; 
    protected $fillable = [
    		'kategori_id', 
 		'nip_petugas_id',
@@ -26,7 +24,9 @@ class Asset extends Model
 		'total_harga',
 		'created_at',
 		'updated_at',
+		'deleted_at',
    ];
+  
 
    public function transaksi_peminjaman()
     {
