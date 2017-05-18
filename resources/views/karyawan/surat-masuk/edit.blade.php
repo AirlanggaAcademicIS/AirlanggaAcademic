@@ -45,7 +45,7 @@ Edit Surat
 			</div>
 			@endif
 			<br>
-			<form id="suratmasuk" method="post" action="{{url('/surat-masuk/'.$surat_masuk->id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="suratmasuk" method="post" action="{{url('karyawan/surat-masuk/'.$surat_masuk->id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
@@ -88,8 +88,8 @@ Edit Surat
 				<!-- Menampilkan dropdown -->
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Status</label>
-					<div class="col-md-8">
-						<select name="status" required>
+					<div class="col-md-2">
+						<select style="height: 45px;" class="form-control" name="status" required>
 							<option value="0">Belum Diambil</option>
 							<option value="1">Sudah Diambil</option>						
 						</select>
