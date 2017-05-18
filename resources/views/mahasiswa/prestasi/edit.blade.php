@@ -288,7 +288,8 @@ Edit Prestasi
 				<div class="form-group">
 					<label for="file_prestasi" class="col-sm-2 control-label">File Prestasi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="file_prestasi" name="file_prestasi" placeholder="Masukkan Nama Link Prestasi" value="{{$prestasi->file_prestasi}}" required>
+						 <img src="{{URL::asset('/img/prestasi/'.$prestasi->file_prestasi)}}" height="100px" width="100px" hspace="5px" vspace="2px" alt="gambar" style="border:2px solid gray" class="img-rounded" >
+						<input type="file" class="form-control input-lg" id="file_prestasi" name="file_prestasi" placeholder="Masukkan Nama Link Prestasi" value="{{$prestasi->file_prestasi}}">
 					</div>
 				</div>
 

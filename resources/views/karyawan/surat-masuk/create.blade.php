@@ -46,7 +46,7 @@ Tambah Surat
 			</div>
 			@endif
 			<br>
-			<form id="suratmasuk" method="post" action="{{url('surat-masuk/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="suratmasuk" method="post" action="{{url('karyawan/surat-masuk/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
@@ -58,9 +58,13 @@ Tambah Surat
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">NIP Petugas</label>
+					<label for="nama" class="col-sm-2 control-label">Nama Petugas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nip_petugas_id" name="nip_petugas_id" placeholder="Masukkan NIP Petugas" required>
+						<select style="height: 45px;" class="form-control" id="nip_petugas_id" name="nip_petugas_id">
+							@foreach($petugas as $p)
+							<option value="{{$p->nip_petugas}}">{{$p->nama_petugas}}</option>
+							@endforeach
+						</select>
 					</div>
 				</div>
 
@@ -89,8 +93,8 @@ Tambah Surat
 				<!-- Menampilkan dropdown -->
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Status</label>
-					<div class="col-md-8">
-						<select name="status" required>
+					<div class="col-md-2">
+						<select style="height: 45px;" class="form-control" name="status" required>
 							<option value="0">Belum Diambil</option>
 							<option value="1">Sudah Diambil</option>						
 						</select>

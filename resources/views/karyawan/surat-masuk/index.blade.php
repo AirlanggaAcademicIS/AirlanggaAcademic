@@ -28,7 +28,7 @@ Surat Masuk
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('/surat-masuk/create')}}" type="button" class="btn btn-info btn-md" >
+  <a href="{{url('karyawan/surat-masuk/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Surat</a>
 </div>
 <div style="overflow: auto">
@@ -37,7 +37,7 @@ Surat Masuk
     <tr>
       <th style="text-align:center">No.</th>
       <th style="text-align:center">Nomor Surat</th>      
-      <th style="text-align:center">NIP Petugas</th>
+      <th style="text-align:center">Nama Petugas</th>
       <th style="text-align:center">Nama Lembaga</th>
       <th style="text-align:center">Judul Surat</th>
       <th style="text-align:center">NIM/NIP</th>
@@ -50,15 +50,19 @@ Surat Masuk
     <tr>
       <td>{{ $i+1 }}</td>
       <td width="20%" style="text-align:center">{{$bio->no_surat_masuk}}</td>
-      <td width="15%" style="text-align:center">{{$bio->nip_petugas_id}}</td>
+      <td width="15%" style="text-align:center">{{$bio->petugas['nama_petugas']}}</td>
       <td width="20%" style="text-align:center">{{$bio->nama_lembaga}}</td>
       <td width="10%" style="text-align:center">{{$bio->judul_surat_masuk}}</td>
       <td width="10%" style="text-align:center">{{$bio->nim_nip}}</td>
-      <td width="10%" style="text-align:center">{{$bio->status}}</td>
+      @if($bio->status==0)
+      <td width="10%" style="text-align:center">Belum Diambil</td>
+      @else
+      <td width="10%" style="text-align:center">Sudah Diambil</td>
+      @endif
       <td width="20%" style="text-align:center" >
-        <a onclick="return confirm('Anda yakin untuk menghapus surat ini?');" href="{{url('/surat-masuk/'.$bio->id.'/delete/')}}" class="btn btn-danger btn-xs">
+        <a onclick="return confirm('Anda yakin untuk menghapus surat ini?');" href="{{url('karyawan/surat-masuk/'.$bio->id.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('/surat-masuk/'.$bio->id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('karyawan/surat-masuk/'.$bio->id.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
     </tr>

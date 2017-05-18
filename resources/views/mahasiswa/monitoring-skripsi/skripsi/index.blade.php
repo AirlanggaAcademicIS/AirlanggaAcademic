@@ -36,16 +36,20 @@ Biodata
       <th style="text-align:center">KBK</th>
       <th style="text-align:center">Judul</th>
       <th style="text-align:center">NIP Petugas</th>
+      <th style="text-align:center">Dosen Pembimbing 1</th>
+      <th style="text-align:center">Dosen Pembimbing 2</th>
     </tr>
     </thead>
   <tbody>
    @forelse($skripsi as $i => $skrip) 
     <tr>
       <td width="10%">{{ $i+1 }}</td>
-      <td width="20%" style="text-align:center">{{$skrip->NIM_id}}</td>
+      <td width="10%" style="text-align:center">{{$skrip->NIM_id}}</td>
       <td width="10%" style="text-align:center">{{$skrip->kbk_id}}</td>
       <td width="20%" style="text-align:center">{{$skrip->Judul}}</td>
       <td width="10%" style="text-align:center">{{$skrip->nip_petugas_id}}</td>
+      <td width="10%" style="text-align:center">{{$skrip->nip_id}}</td>
+      <td width="10%" style="text-align:center">{{$skrip->nip_id}}</td>
     </tr>
      @empty
         <tr>
