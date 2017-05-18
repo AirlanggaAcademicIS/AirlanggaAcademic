@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Mahasiswa;
+namespace App\Http\Controllers\Dosen;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -29,7 +29,7 @@ class DokumentasiController extends Controller
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('mahasiswa.pengelolaan-kegiatan.dokumentasi.index',$data);
+        return view('dosen.pengelolaan-kegiatan.dokumentasi.index',$data);
     }
 
     public function create()
@@ -41,7 +41,7 @@ class DokumentasiController extends Controller
         ];
 
         // Memanggil tampilan form create
-    	return view('mahasiswa.pengelolaan-kegiatan.dokumentasi.create',$data);
+    	return view('dosen.pengelolaan-kegiatan.dokumentasi.create',$data);
     }
 
     public function createAction(Request $request)
@@ -53,7 +53,7 @@ class DokumentasiController extends Controller
         Session::put('alert-success', 'Biodata berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('mahasiswa/dokumentasi');
+        return Redirect::to('dosen/dokumentasi');
     }
 
     public function delete($id_dokumentasi)
@@ -81,7 +81,7 @@ class DokumentasiController extends Controller
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('mahasiswa.pengelolaan-kegiatan.dokumentasi.edit',$data);
+        return view('dosen.pengelolaan-kegiatan.dokumentasi.edit',$data);
     }
 
     public function editAction($id, Request $request)
@@ -99,7 +99,7 @@ class DokumentasiController extends Controller
         Session::put('alert-success', 'Dokumentasi berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('mahasiswa/dokumentasi');
+        return Redirect::to('dosen/dokumentasi');
     }
 
 }
