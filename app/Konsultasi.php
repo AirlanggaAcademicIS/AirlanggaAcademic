@@ -13,4 +13,8 @@ class Konsultasi extends Model
 		'tgl_konsul', 
 		'catatan_konsul',	
    ];
+
+   public function Mahasiswa(){
+   	 return $this->belongsTo('App\Skripsi', 'skripsi_id');
+   }
 }
