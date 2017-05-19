@@ -6,12 +6,10 @@
 @endsection
 
 @section('htmlheader_title')
-<!-- Nama konten -->
 Rencana Pembelajaran Semester 
 @endsection
 
 @section('contentheader_title')
-<!-- Nama konten -->
 Rencana Pembelajaran Semester
 @endsection
 
@@ -51,7 +49,7 @@ Rencana Pembelajaran Semester
   @forelse($mata_kuliah as $i => $mk) 
   <tr>
    <td width="2%" style="text-align:center">{{ $i+1 }}</td>
-    <td width="15%" style="text-align:center"><a href="/kurikulum/rps/edit">{{$mk->kode_matkul}}</a></td>
+    <td width="15%" style="text-align:center"><a href="{{url('/dosen/kurikulum/rps/edit/'.$mk->id_mk)}}">{{$mk->kode_matkul}}</a></td>
     <td width="25%" style="text-align:center">{{$mk->nama_matkul}}</td>
 
     <td width="15%" style="text-align:center">

@@ -54,10 +54,10 @@ class Petugas_TU_Controller extends Controller
         return Redirect::to('karyawan/pla/petugas_tu');
     }
 
-    public function delete($id_tu)
+    public function delete($nip_petugas)
     {
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $petugas_tu = Petugas_TU::find($id_tu);
+        $petugas_tu = Petugas_TU::find($nip_petugas);
 
         // Menghapus biodata yang dicari tadi
         $petugas_tu->delete();
@@ -69,23 +69,23 @@ class Petugas_TU_Controller extends Controller
       	return Redirect::back();	 
     }
 
-   public function edit($id_tu)
+   public function edit($nip_petugas)
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'petugas_tu',
             // Mencari biodata berdasarkan id
-            'petugas_tu' => Petugas_TU::find($id_tu)
+            'petugas_tu' => Petugas_TU::find($nip_petugas)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
         return view('karyawan.pla.petugas_tu.edit',$data);
     }
 
-    public function editAction($id_tu, Request $request)
+    public function editAction($nip_petugas, Request $request)
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $petugas_tu = Petugas_TU::find($id_tu);
+        $petugas_tu = Petugas_TU::find($nip_petugas);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
         $petugas_tu->nip_petugas = $request->input('nip_petugas');

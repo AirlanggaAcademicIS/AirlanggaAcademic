@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Biodata
+Tambah Capaian Pembelajaran
 @endsection
 
 @section('contentheader_title')
-Tambah Biodata
+Tambah Capaian Pembelajaran
 @endsection
 
 @section('code-header')
@@ -46,39 +46,47 @@ Tambah Biodata
 			</div>
 			@endif
 			<br>
-			<form id="tambahBiodata" method="post" action="{{url('/dosen/kurikulum/cp_pembelajaran/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahCapaianPembelajaran" method="post" action="{{url('/dosen/kurikulum/capaian-pembelajaran/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-			 <div class="form-group">
-          <label for="id_prodi" class="col-sm-2 control-label">Id Prodi</label>
-          <div class="col-md-8">
-            <input type="text" class="form-control input-lg" id="id_prodi" name="id_prodi" placeholder="Masukkan id_prodi" required>
-          </div>
+    <div class="form-group">
+     <label for="id_prodi" class="col-sm-2 control-label">Nama Prodi</label>
+     <div class="col-md-3">
+         	<select name="prodi_id" class="form-control">
+	          	@foreach($prodis as $prodi)
+	            	<option value="{{$prodi->id_prodi}}">{{$prodi->nama_prodi}}</option>
+	           	@endforeach
+           	</select>
         </div>
+       </div>
 
         <!-- Menampilkan input text biasa -->
         <div class="form-group">
-          <label for="id_kategori_cp" class="col-sm-2 control-label">ID Kategori Capaian Pembelajaran</label>
-          <div class="col-md-8">
-            <input type="text" class="form-control input-lg" id="id_kategori_cp" name="id_kategori_cp" placeholder="Masukkan kategori capaian pembelajaran" required>
+          <label for="kategori_cpem_id" class="col-sm-2 control-label">Kategori Capaian Pembelajaran</label>
+          <div class="col-md-3">
+         	<select name="kategori_cpem_id" class="form-control">
+	          	@foreach($categories as $category)
+	            	<option value="{{$category->id_kategori_cpem}}">{{$category->nama_cpem}}</option>
+	           	@endforeach
+           	</select>
           </div>
         </div>
 
         <!-- Menampilkan textarea -->
         <div class="form-group">
-          <label for="kode_cp" class="col-sm-2 control-label">Kode Capaian Pembelajaran</label>
-          <div class="col-md-8">
-            <textarea id="kode_cp" name="kode_cp" placeholder=" Masukkan Kode Capaian Pembelajaran" required cols="82" rows="5" required>
-            </textarea>
+          <label for="kode_cpem" class="col-sm-2 control-label">Kode Capaian Pembelajaran</label>
+          <div class="col-md-3">
+            <input type="text" class="form-control input-lg" id="kode_cpem" name="kode_cpem" placeholder="Masukkan Kode" required>
           </div>
         </div>
 
                 <!-- Menampilkan input text biasa -->
         <div class="form-group">
-          <label for="deskripsi_cp" class="col-sm-2 control-label">Deskripsi Capaian Pembelajaran</label>
+          <label for="deskripsi_cpem" class="col-sm-2 control-label">Deskripsi Capaian Pembelajaran</label>
           <div class="col-md-8">
-            <input type="text" class="form-control input-lg" id="deskripsi_cp" name="deskripsi_cp" placeholder="Masukkan kategori capaian pembelajaran" required>
+            <textarea id="deskripsi_cpem" name="deskripsi_cpem" placeholder=" Masukkan Deskripsi Capaian Pembelajaran" required cols="38" rows="4" required>
+            </textarea>
           </div>
         </div>
 

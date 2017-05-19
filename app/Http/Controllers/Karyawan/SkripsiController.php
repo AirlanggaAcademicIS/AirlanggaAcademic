@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Karyawan;
 
+
+use Request;
+
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Response;
-
-//use Illuminate\Http\Request;
 
 use App\Skripsi;
 
@@ -14,13 +15,27 @@ use Session;
 
 use Illuminate\Support\Facades\Input;
 
-use Request;
-
 use App\Http\Controllers\Controller;
 
 class SkripsiController extends Controller
 {
-    //
+
+public function view_manage_hasil_sidang_proposal()
+   {
+   	# code...
+   	$data = array('page' => 'hasil-sidang-proposal');
+
+   	return view('karyawan.monitoring-skripsi.hasil-sidang.proposal',$data);
+   }
+
+   public function view_tambah_hasil_sidang_proposal()
+      {
+      	# code...
+      	$data = array(
+      		'page'=>'tambah-hasil-proposal'
+      		);
+      	return view('karyawan.monitoring-skripsi.hasil-sidang.tambah-hasil-proposal',$data);
+      }   
 
     public function view_manage_jadwal_sidang_proposal()
     {
@@ -128,7 +143,7 @@ class SkripsiController extends Controller
 
     		
     		return response()->json([
-    'status_insert' => 1
+                'status_insert' => 1
 				]);
     	
     	}
