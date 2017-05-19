@@ -29,14 +29,14 @@ Capaian Program
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
   <a href="{{url('dosen\kurikulum\cp_program\create')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah Biodata</a>
+    <i class="fa fa-plus-square"></i> Tambah Capaian Program</a>
 </div>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">Id Prodi</th>      
+      <th style="text-align:center">Nama Prodi</th>      
       <th style="text-align:center">Capaian Program Spesifik</th>
       <th style="text-align:center">Dimensi Capaian Umum</th>
       <th style="text-align:center">Action</th>
@@ -46,7 +46,7 @@ Capaian Program
    @forelse($cp_program as $i => $cp) 
     <tr>
       <td width="2%">{{ $i+1 }}</td>
-      <td width="5%" style="text-align:center">{{$cp->id}}</td>
+      <td width="5%" style="text-align:center">{{$cp->prodi['nama_prodi']}}</td>
       <td width="20%" style="text-align:left">{{$cp->capaian_program_spesifik}}</td>
       <td width="20%" style="text-align:leftr">{{$cp->dimensi_capaian_umum}}</td>
       <td width="10%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus capaian program ini?');" href="{{url('/dosen/kurikulum/cp_program/'.$cp->id.'/delete/')}}" class="btn btn-danger btn-xs">

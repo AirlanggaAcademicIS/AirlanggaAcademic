@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ruang extends Model
 {
+
 	use SoftDeletes;
    protected $table = 'ruang';    
    protected $primaryKey = 'id_ruang';   
@@ -14,5 +15,17 @@ class Ruang extends Model
    protected $fillable = [
    		'nama_ruang',
 		'kapasitas',
+
+   
+   protected $table = 'ruang';    
+   protected $primaryKey = 'id_ruang';   
+    
+   protected $fillable = [
+         'nama_ruang',
+         'kapasitas',
+
+         
+   		
+
    ];
 }
