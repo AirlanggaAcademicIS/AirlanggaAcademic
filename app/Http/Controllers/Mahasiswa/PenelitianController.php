@@ -14,8 +14,8 @@ use Response;
 use Auth;
 // Tambahkan model yang ingin dipakai
 use App\PenelitianMhs;
-
-
+use App\DetailAnggota;
+use App\DetailPenelitian;
 
 
 class PenelitianController extends Controller
@@ -28,7 +28,9 @@ class PenelitianController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'penelitian_mhs',
             // Memanggil semua isi dari tabel biodata
-            'penelitian_mhs' => PenelitianMhs::all()
+            'penelitian_mhs' => PenelitianMhs::all(),
+            'anggota' => DetailAnggota::all(),
+            'detail' => DetailPenelitian::all()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
@@ -65,6 +67,59 @@ class PenelitianController extends Controller
             
         }
 
+    public function createAnggota($kode_penelitian)
+    {
+        $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar detail_anggota
+            'page' => 'detail_anggota',
+            'detail_anggota' => PenelitianMhs::find($kode_penelitian)
+        ];
+
+        // Memanggil tampilan form create
+        return view('mahasiswa.penelitian.detail_anggota.create',$data);
+
+    
+    }
+
+    public function createAnggotaAction($kode_penelitian, Request $request)
+    {
+        // Menginsertkan apa yang ada di form ke dalam tabel detail_anggota
+        $detail_anggota = DetailAnggota::create($request->input());
+        $detail_anggota->kode_penelitian_id = $kode_penelitian;
+        $detail_anggota->save();
+        // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'detail_anggota berhasil ditambahkan');
+
+        // Kembali ke halaman mahasiswa/detail_anggota
+        return Redirect::to('mahasiswa/penelitian');
+    }
+
+    public function createDetail($kode_penelitian)
+    {
+        $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'detailpenelitian',
+            'detailpenelitian' => PenelitianMhs::find($kode_penelitian)
+        ];
+
+        // Memanggil tampilan form create
+        return view('mahasiswa.penelitian.detailPenelitian.create',$data);
+    }
+
+    public function createDetailAction($kode_penelitian, Request $request)
+    {
+        // Menginsertkan apa yang ada di form ke dalam tabel biodata
+        $detailpenelitian = DetailPenelitian::create($request->input());
+        $detailpenelitian->kode_penelitian_id = $kode_penelitian;
+        $detailpenelitian->save();
+        
+
+        // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'Detail Penelitian berhasil ditambahkan');
+
+        // Kembali ke halaman mahasiswa/biodata
+        return Redirect::to('mahasiswa/penelitian');
+    }
 
     public function delete($kode_penelitian)
     {
