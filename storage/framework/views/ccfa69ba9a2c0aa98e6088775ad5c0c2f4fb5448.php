@@ -1,4 +1,4 @@
-<!-- Left side column. contains the logo and sidebar -->
+ <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
 
     <!-- sidebar: style can be found in sidebar.less -->
@@ -17,16 +17,15 @@
                 </div>
             </div>
         <?php endif; ?>
-
-        <!-- Sidebar Menu -->
-        <ul class="sidebar-menu">            
-            <li
-            <?php if($page == 'dashboard'): ?>
+                <!-- Sidebar Menu -->
+        <ul class="sidebar-menu">
+            <li 
+            <?php if($page == 'dasboard'): ?>
             <?php echo 'class="active"'; ?>
 
             <?php endif; ?>
             >
-                <a href="<?php echo e(url('home')); ?>"><i class='fa fa-home'></i> <span>Dashboard</span></a>
+                ><a href="<?php echo e(url('home')); ?>"><i class='fa fa-home'></i> <span>Dasboard</span></a>
             </li>
             <?php if(Auth::user()->role == 'karyawan'): ?>
             <?php echo $__env->make('sidebar_karyawan', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -35,7 +34,6 @@
             <?php else: ?>
             <?php echo $__env->make('sidebar_dosen', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php endif; ?>
-                  
         </ul>
     </section>
 </aside>

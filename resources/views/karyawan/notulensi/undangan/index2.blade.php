@@ -43,16 +43,16 @@ Undangan Rapat
     </tr>
     </thead>
   <tbody>
-   @forelse($undangan as $i => $undos) 
+   @forelse($undangan as $i => $unkar) 
     <tr>
       <!-- <td>{{ $i+1 }}</td> -->
-      <td width="5%" style="text-align:center">{{$undos->id_notulen}}</td>
-      <td width="30%" style="text-align:center">{{$undos->nama_rapat}}</td>
-      <td width="20%" style="text-align:center">{{$undos->waktu_pelaksanaan}}</td>
-      <td width="25%" style="text-align:center">{{$undos->permohonan_ruang_id}}</td>
+      <td width="5%" style="text-align:center">{{$unkar->id_notulen}}</td>
+      <td width="30%" style="text-align:center">{{$unkar->nama_rapat}}</td>
+      <td width="20%" style="text-align:center">{{$unkar->waktu_pelaksanaan}}</td>
+      <td width="25%" style="text-align:center">{{$unkar->permohonan_ruang_id}}</td>
       <td width="20%" style="text-align:center" >
-        <a onclick="return confirm('Apakah anda ingin menghadiri rapat ini?');" href="{{url('/notulensi/dosenrapat/'.$undos->id.'/delete/')}}" class="btn btn-success btn-xs">
-        <i class="fa fa-book"></i> Konfirmasi Kehadiran</a>
+        <a onclick="return confirm('Anda yakin untuk menghapus dosen rapat ini?');" href="{{url('/notulensi/dosenrapat/'.$unkar->id.'/delete/')}}" class="btn btn-success btn-xs">
+        <i class="fa fa-book"></i> Undang Dosen</a>
         </td>
     </tr>
      @empty
