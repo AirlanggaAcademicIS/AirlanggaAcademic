@@ -17,21 +17,4 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/logout', 'Auth\LoginController@logout');
 
 
-/*
-==========================================
-Route buat mahasiswa ditaruh dibawah sini
-=========================================
-
-*/
-   
-/*
-
-==========================================
-Route buat karyawan ditaruh dibawah sini
-=========================================
-*/
-
-  
-        
-
-
+});
