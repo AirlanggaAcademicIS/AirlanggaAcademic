@@ -45,10 +45,13 @@ class JurnalController extends Controller
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        JurnalDosen::create($request->input());
-
+        $dosen = $request->input();
+        $dosen['status_jurnal'] = 0 ;
+        $dosen['file_jurnal'] = time() .'.'.$request->file('file_jurnal')->getClientOriginalExtension();
+        JurnalDosen::create($dosen);
+        $file = $request->file('file_jurnal')->move("img/dosen/",$dosen['file_jurnal']);
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Jurnal berhasil ditambahkan');
+        Session::put('alert-success', 'Jurnal Berhasil Ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('dosen/jurnal');
@@ -63,7 +66,7 @@ class JurnalController extends Controller
         $jurnal->delete();
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Jurnal berhasil dihapus');
+        Session::put('alert-success', 'Jurnal Berhasil Dihapus');
 
         // Kembali ke halaman sebelumnya
         return Redirect::back();     
@@ -98,7 +101,7 @@ class JurnalController extends Controller
         $jurnal->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Jurnal berhasil diedit');
+        Session::put('alert-success', 'Jurnal Berhasil Diedit');
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('dosen/jurnal');
