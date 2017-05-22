@@ -7,10 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class DosenPembimbing extends Model
 {
    protected $table = 'dosen_pembimbing';    
-   protected $primaryKey = 'nip_id';    
+   protected $primaryKey = 'nip_id';
+   public $incrementing = false;
    protected $fillable = [
 		'status',
 		'skripsi_id',		
 		'nip_id'
    ];
+
+    public function biodata()
+   {
+   	   	return $this->belongsTo('App\BiodataDosen','nip');
+   }
 }

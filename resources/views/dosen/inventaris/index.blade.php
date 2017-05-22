@@ -29,8 +29,7 @@ Asset
 <div class="row"><div class="col-sm-6">
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('inventaris/asset/create')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah Asset</a>
+
 </div>
 </div><div class="col-sm-6">
 
@@ -49,7 +48,6 @@ Asset
       <th style="text-align:center">Lokasi</th>
       <th style="text-align:center">Jumlah Barang</th>
       <th style="text-align:center">Action</th>
-      <th style="text-align:center">Maintenance</th>
       </tr>
     </thead>
   <tbody>
@@ -74,24 +72,13 @@ Asset
       <td width="10%" style="text-align:center">{{$ass->nama_asset}}</td>
       <td width="10%" style="text-align:center">{{$ass->lokasi}}</td>
       <td width="10%" style="text-align:center">{{$ass->jumlah_barang}}</td>
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus asset ini?');" href="{{url('inventaris/asset/'.$ass->id_asset.'/delete/')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-trash-o"></i> Hapus</a>
+      <td width="20%" style="text-align:center" >
 
         <a href="{{url('inventaris/asset/'.$ass->id_asset.'/viewDetail/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-eye"></i> View Detail</a>
                
-        <a href="{{url('inventaris/asset/'.$ass->id_asset.'/edit/')}}" class="btn btn-success btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Edit</a>
-
-        <a href="{{url('inventaris/input-peminjaman/'.$ass->id_asset.'')}}" class="btn btn-primary btn-xs">
-        <i class=""></i> Pinjam Asset</a>
-
         </td>
-        <td width="20%" style="text-align:center" >
-        <a href="#" class="btn btn-primary btn-xs">
-        <i class=""></i> Maintenance </a>
 
-        </td>
     </tr>
      @empty
         <tr>
