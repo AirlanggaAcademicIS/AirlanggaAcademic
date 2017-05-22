@@ -60,6 +60,15 @@ Tambah Silabus
       <!-- Pakai Checkbox -->
       <div class="form-group">
         <label for="softskill"><b>Atribut Softskill</b></label><br>    
+<<<<<<< HEAD
+        <input type="text" value=" " data-role="tagsinput">                    
+    </div>
+    <div class="form-group">
+        <label for="metode-pembelajaran"><b>Sistem Pembelajaran</b></label><br>     
+        <input type="text" value=" " data-role="tagsinput">                    
+    </div>
+    <div class="form-group">
+=======
         @foreach($atribut_softskill as $softskill)
           <label class="checkbox-inline"><input type="checkbox" value="">{{$softskill->softskill}}</label>          
         @endforeach
@@ -75,6 +84,7 @@ Tambah Silabus
 
       <!-- Pakai Checkbox -->
       <div class="form-group">
+>>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
         <label for="media-pembelajaran"><b>Media Pembelajaran</b></label><br>    
         @foreach($media_pembelajaran as $media)
           <label class="checkbox-inline"><input type="checkbox" value="">{{$media->media_pembelajaran}}</label>        

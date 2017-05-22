@@ -98,7 +98,6 @@ class SilabusController extends Controller
             'cp_matkul' => Silabus_cp_matkul::where('matakuliah_id', '=', $id)->get(),
             'koor' => Silabus_Koor_Matkul::where('mk_id', '=', $id)->get()
         ];
-
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
         return view('dosen.kurikulum.silabus.edit',$data);
     }
