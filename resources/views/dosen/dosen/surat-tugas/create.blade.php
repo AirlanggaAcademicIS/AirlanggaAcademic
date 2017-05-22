@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Konferensi
+Tambah Surat Tugas
 @endsection
 
 @section('contentheader_title')
-Tambah Konferensi
+Tambah Surat Tugas
 @endsection
 
 @section('code-header')
@@ -46,60 +46,38 @@ Tambah Konferensi
 			</div>
 			@endif
 			<br>
-			<form id="tambahKonferensi" method="post" action="{{url('/dosen/konferensi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambah_surattugas" method="post" action="{{url('/dosen/dosen/surat-tugas/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama_konferensi" class="col-sm-2 control-label">Nama Konferensi</label>
+					<label for="no_surat" class="col-sm-2 control-label">no surat</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_konferensi" name="nama_konferensi" placeholder="Masukkan Nama Konferensi" required>
+						<input type="text" class="form-control input-lg" id="no_surat" name="no_surat" placeholder="Masukkan No Surat" required>
 					</div>
 				</div>
-
+<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
-					<label for="pemapar_konferensi" class="col-sm-2 control-label">Pemapar Konferensi</label>
+					<label for="tanggal_surat" class="col-sm-2 control-label">Tanggal surat</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="pemapar_konferensi" name="pemapar_konferensi" placeholder="Masukkan Pemapar Konferensi" required>
-					</div>
-				</div>
-
-
-				<div class="form-group">
-					<label for="tempat_konferensi" class="col-sm-2 control-label">Tempat Konferensi</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="tempat_konferensi" name="tempat_konferensi" placeholder="Masukkan Tempat Konferensi" required>
-					</div>
-				</div>
-
-				
-
-				<!-- Menampilkan tanggal dengan datepicker -->
-				<div class="form-group">
-					<label for="tanggal_konferensi" class="col-sm-2 control-label">Tanggal Konferensi</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_konferensi" placeholder="Masukkan Tanggal Konferensi" required>
-					</div>
-				</div>
-
-
-
-				<div class="form-group">
-					<label for="materi_konferensi" class="col-sm-2 control-label">Materi Konferensi</label>
-					<div class="col-md-8">
-						<textarea id="materi_konferensi" name="materi_konferensi" placeholder=" Masukkan Materi Konferensi" required cols="82" rows="5">
-						</textarea>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_surat" placeholder="Masukkan Tanggal Surat" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="file_prestasi" class="col-sm-2 control-label">File Konferensi</label>
+					<label for="keterangan_sk" class="col-sm-2 control-label">Keterangan Surat</label>
 					<div class="col-md-8">
-						<input type="file" class="form-control input-lg" id="file_konferensi" name="file_konferensi" placeholder="Pilih File Prestasi" required>
+						<input type="text" class="form-control input-lg" id="keterangan_sk" name="keterangan_sk" placeholder="Masukkan Keterangan Surat" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="file_sk" class="col-sm-2 control-label">File Surat</label>
+					<div class="col-md-8">
+						<input type="file" class="form-control input-lg" id="file_sk" name="file_sk" placeholder="Pilih File Surat" required>
 
 					</div>
 				</div>
 
-				<div class="form-group text-center">
+<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
 							Confirm
