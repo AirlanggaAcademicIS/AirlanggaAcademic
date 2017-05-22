@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 /*
@@ -589,3 +590,5 @@ Route::group(['prefix' => 'inventaris'], function() {
         Route::get('view-asset', 'HomeController@index');
 
 });
+=======
+>>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608

@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Silabus_detail_media extends Model
 {
    protected $table = 'detail_media_pembelajaran';    
-   protected $primaryKey = '';    
+   protected $primaryKey = 'id_detail_media';    
    protected $fillable = [
-
+   		'cpmk_id',
+   		'sistem_pembelajaran_id',
+   		'created_at',
+   		'updated_at'
    ];
 }

@@ -19,6 +19,9 @@ use App\Silabus_cp_matkul;
 use App\Silabus_detail_media;
 use App\Silabus_Sistem_Pembelajaran;
 use App\Silabus_Koor_Matkul;
+use App\Silabus_Media_Pembelajaran;
+use App\Status_Team_Teaching;
+
 
 class SilabusController extends Controller
 {
@@ -43,7 +46,12 @@ class SilabusController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'silabus',
-            'mata_kuliah' => Silabus_Matkul::all()            
+            'mata_kuliah' => Silabus_Matkul::all(),            
+            'mk_prasyarat' => Silabus_Matkul_Prasyarat::all(),
+            'atribut_softskill' => Silabus_Atribut_Softskill::all(),
+            'media_pembelajaran' => Silabus_Media_Pembelajaran::all(),            
+            'metode_pembelajaran' => Silabus_Sistem_Pembelajaran::all(),                
+            'status_team_teaching' => Status_Team_Teaching::all()
         ];
 
         // Memanggil tampilan form create
@@ -89,7 +97,6 @@ class SilabusController extends Controller
             'mk_softskills' =>  Silabus_mk_softskill::where('mk_id', '=', $id)->get(),
             'cp_matkul' => Silabus_cp_matkul::where('matakuliah_id', '=', $id)->get(),
             'koor' => Silabus_Koor_Matkul::where('mk_id', '=', $id)->get()
-        
         ];
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
         return view('dosen.kurikulum.silabus.edit',$data);

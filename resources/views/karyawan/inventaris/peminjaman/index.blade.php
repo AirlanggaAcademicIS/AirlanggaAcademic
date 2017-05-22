@@ -36,7 +36,6 @@ Peminjaman Inventaris
     <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">ID PEMINJAMAN</th>
       <th style="text-align:center">NOMOR INDUK PEMINJAM</th>
       <th style="text-align:center">ASET YANG DIPINJAM</th>
       <th style="text-align:center">CHECK IN DATE</th>
@@ -51,7 +50,6 @@ Peminjaman Inventaris
     @forelse($peminjaman as $p)
     <tr>
       <td style="text-align:center">{{ $number }}</td>
-      <td style="text-align:center">{{ $p->id_peminjaman }}</td>
       <td style="text-align:center">{{ $p->nim_nip_peminjam }}</td>
       <td style="text-align:center">{{ $p->asset_yang_dipinjam }}</td>
       <td style="text-align:center">{!! App\Helpers\GeneralHelper::indonesianDateFormat($p->checkin_date) !!}</td>
@@ -77,7 +75,6 @@ Peminjaman Inventaris
     <tfoot>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">ID PEMINJAMAN</th>
       <th style="text-align:center">NAMA PEMINJAM</th>
       <th style="text-align:center">ASET YANG DIPINJAM</th>
       <th style="text-align:center">CHECK IN DATE</th>

@@ -48,7 +48,7 @@ Hasil Sidang Proposal
         <th>Indah Werdaningsih M.kom</th>
         <th>Lulus</th>
         <th>A</th>
-        <th><a href="{{ url('Karyawan/view-tambah-hasil-sidang-proposal') }}" class="btn btn-warning">Upload Nilai</a></th>
+        <th><a href="{{ url('karyawan/monitoring-skripsi/view-tambah-hasil-sidang-proposal') }}" class="btn btn-warning">Upload Nilai</a></th>
         <th><a href="http://google.com" class="btn btn-danger">Hapus</a></th>
         <!-- <th><button type="button" class="btn btn-warning">Edit</button></th> -->
         <!-- <th><button type="button" class="btn btn-danger">Hapus</button></th> -->

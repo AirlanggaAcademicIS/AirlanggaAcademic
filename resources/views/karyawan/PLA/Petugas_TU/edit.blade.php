@@ -45,7 +45,7 @@ Edit Petugas
 			</div>
 			@endif
 			<br>
-			<form id="tambahPetugasTU" method="post" action="{{url('/karyawan/pla/petugas_tu/'.$petugas_tu->id_tu.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahPetugasTU" method="post" action="{{url('/karyawan/pla/petugas_tu/'.$petugas_tu->nip_petugas.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->

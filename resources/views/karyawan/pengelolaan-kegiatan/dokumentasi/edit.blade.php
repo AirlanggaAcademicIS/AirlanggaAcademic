@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Edit Biodata
+Edit Daftar Dokumentasi Kegiatan
 @endsection
 
 @section('contentheader_title')
-Edit Biodata
+Edit Daftar Dokumentasi Kegiatan
 @endsection
 
 @section('code-header')
@@ -50,23 +50,23 @@ Edit Biodata
 
     <!-- Menampilkan input text biasa -->
     <div class="form-group">
-     <label for="id_dokumentasi" class="col-sm-2 control-label">ID Dokumentasi</label>
+     <label for="id_dokumentasi" class="col-sm-2 control-label">Kode Dokumentasi</label>
      <div class="col-md-8">
-      <input type="text" class="form-control input-lg" id="id_dokumentasi" name="id_dokumentasi" placeholder="Masukkan ID Dokumentasi" value="{{$dokumentasi->id_dokumentasi}}" required>
+      <input type="text" class="form-control input-lg" id="id_dokumentasi" name="id_dokumentasi" placeholder="Masukkan Kode Dokumentasi" value="{{$dokumentasi->id_dokumentasi}}" required>
      </div>
     </div>
 
     <!-- Menampilkan input text biasa -->
     <div class="form-group">
-     <label for="kegiatan_id" class="col-sm-2 control-label">ID Kegiatan</label>
+     <label for="kegiatan_id" class="col-sm-2 control-label">Nomor Kegiatan</label>
      <div class="col-md-8">
-      <input type="text" class="form-control input-lg" id="kegiatan_id" name="kegiatan_id" placeholder="Masukkan ID Kegiatan" value="{{$dokumentasi->kegiatan_id}}" required>
+      <input type="text" class="form-control input-lg" id="kegiatan_id" name="kegiatan_id" placeholder="Masukkan Nomor Kegiatan" value="{{$dokumentasi->kegiatan_id}}" readonly>
      </div>
     </div>
 
     <!-- Menampilkan textarea -->
     <div class="form-group">
-     <label for="lesson_learned" class="col-sm-2 control-label">Lesson Learned</label>
+     <label for="lesson_learned" class="col-sm-2 control-label">Evaluasi Kegiatan</label>
      <div class="col-md-8">
       <textarea id="lesson_learned" name="lesson_learned" placeholder=" Masukkan Feedback" required cols="82" rows="5">{{$dokumentasi->lesson_learned}}
       </textarea>
@@ -75,9 +75,9 @@ Edit Biodata
 
     <!-- Menampilkan input text biasa -->
     <div class="form-group">
-     <label for="url_foto" class="col-sm-2 control-label">url foto</label>
+     <label for="url_foto" class="col-sm-2 control-label">Dokumentasi</label>
      <div class="col-md-8">
-      <input type="text" class="form-control input-lg" id="url_foto" name="url_foto" placeholder="Masukkan url foto" value="{{$dokumentasi->url_foto}}" required>
+      <input type="text" class="form-control input-lg" id="url_foto" name="url_foto" placeholder="Tambahkan Dokumentasi" value="{{$dokumentasi->url_foto}}" required>
      </div>
     </div>
 

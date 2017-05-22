@@ -12,7 +12,7 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\Surat_Masuk;
-
+use App\Petugas_Tu;
 
 class Surat_MasukController extends Controller
 {
@@ -36,6 +36,7 @@ class Surat_MasukController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'surat-masuk',
+            'petugas' => Petugas_Tu::all()
         ];
 
         // Memanggil tampilan form create
@@ -51,7 +52,7 @@ class Surat_MasukController extends Controller
         Session::put('alert-success', 'Surat berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('surat-masuk');
+        return Redirect::to('karyawan/surat-masuk');
     }
 
     public function delete($id)
@@ -100,7 +101,7 @@ class Surat_MasukController extends Controller
         Session::put('alert-success', 'Surat berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('surat-masuk');
+        return Redirect::to('karyawan/surat-masuk');
     }
 
 }

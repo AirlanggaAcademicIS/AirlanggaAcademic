@@ -82,6 +82,14 @@ Tambah Penelitian
 					</div>
 				</div>
 
+				<div class="form-group">
+					<label for="file_prestasi" class="col-sm-2 control-label">File Penelitian</label>
+					<div class="col-md-8">
+						<input type="file" class="form-control input-lg" id="file_penelitian" name="file_penelitian" placeholder="Pilih File Prestasi" required>
+
+					</div>
+				</div>
+
 
 				
 

@@ -45,7 +45,9 @@ class VerifikasiController extends Controller
     public function createActionPrestasi(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        Prestasi::create($request->input());
+        $pres = $request->input();
+        $pres['nip_petugas_id'] = Auth::user()->username;
+        Prestasi::create($pres);
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Verifikasi Prestasi berhasil ditambahkan');
@@ -69,7 +71,9 @@ class VerifikasiController extends Controller
     public function createActionPenelitian(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        Prestasi::create($request->input());
+        $pen = $request->input();
+        $pen['nip_petugas_id'] = Auth::user()->username;
+        Penelitian::create($pen);
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Verifikasi Penelitian berhasil ditambahkan');
@@ -154,7 +158,13 @@ class VerifikasiController extends Controller
 
     public function downloadPrestasi(Request $request){
         $id = $request->id;
-        $file_path = public_path('downloads').'/'.$id;
+        $file_path = public_path('img/prestasi').'/'.$id;
+        return response()->download($file_path);
+    }
+
+    public function downloadPenelitian(Request $request){
+        $id = $request->id;
+        $file_path = public_path('pdf').'/'.$id;
         return response()->download($file_path);
     }
 

@@ -4,6 +4,10 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
 
+@section('contentheader_title')
+View Detail Peminjaman
+@endsection
+
 
 @section('main-content')
 <div class="container-fluid spark-screen">

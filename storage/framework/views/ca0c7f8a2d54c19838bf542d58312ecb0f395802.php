@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- REQUIRED JS SCRIPTS -->
 <!-- REQUIRED JS SCRIPTS -->
 
@@ -47,18 +48,15 @@
 <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 
 
+=======
+<script src="<?php echo e(asset('/js/app.js')); ?>" type="text/javascript"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="<?php echo e(asset('/js/plugins/timepicker/bootstrap-timepicker.min.js')); ?>"></script>
+>>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
 
-<!-- <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script> -->
-<!-- <link href="<?php echo e(asset('/css/lightbox.css')); ?>" rel="stylesheet">
-<link href="<?php echo e(asset('/css/font-awesome.css')); ?>" rel="stylesheet">
-<link href="<?php echo e(asset('/css/bootstrap-tagsinput.css')); ?>" rel="stylesheet">
-<script src="<?php echo e(asset('/js/lightbox.js')); ?>"></script> -->
-<!-- <script src="<?php echo e(asset('/js/bootstrap-tagsinput.js')); ?>"></script>
-<script src="<?php echo e(asset('/js/bootstrap-tagsinput-angular.js')); ?>"></script> -->
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-      Both of these plugins are recommended to enhance the
-      user experience. Slimscroll is required when using the
-      fixed layout. -->
+<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script>
     window.Laravel = <?php echo json_encode([
         'csrfToken' => csrf_token(),
