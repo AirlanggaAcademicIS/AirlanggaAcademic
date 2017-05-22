@@ -36,10 +36,11 @@ Pengmas
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">nama kegiatan</th>      
-      <th style="text-align:center">tempat kegiatan</th>
-      <th style="text-align:center">tanggal kegiatan</th>
-      <th style="text-align:center">Status pengmas</th>
+      <th style="text-align:center">Nama Kegiatan</th>      
+      <th style="text-align:center">Tempat Kegiatan</th>
+      <th style="text-align:center">Tanggal Kegiatan</th>
+      <th style="text-align:center">File Pengmas</th>
+      <th style="text-align:center">Status Pengmas</th>
       <th style="text-align:center">Action</th>
     </tr>
     </thead>
@@ -50,6 +51,8 @@ Pengmas
       <td width="20%" style="text-align:center">{{$pengmas->nama_kegiatan}}</td>
       <td width="15%" style="text-align:center">{{$pengmas->tempat_kegiatan}}</td>
       <td width="20%" style="text-align:center">{{$pengmas->tanggal_kegiatan}}</td>
+      <td width="20%" style="text-align:center" > <a href="{{URL::asset('/img/dosen/'.$pengmas->file_pengmas)}}" class="btn btn-primary btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Download</a> </td>
       <td width="10%" style="text-align:center">
         @if($pengmas->status_pengmas == '1')
         Verified

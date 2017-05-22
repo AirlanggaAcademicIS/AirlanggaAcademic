@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Edit Jenis Penilaian
+Edit Notulensi
 @endsection
 
 @section('contentheader_title')
-Edit Jenis Penilaian
+Edit Notulensi
 @endsection
 
 @section('code-header')
@@ -16,93 +16,106 @@ Edit Jenis Penilaian
 
 @section('main-content')
 <style>
-	.form-group label{
-		text-align: left !important;
-	}
+  .form-group label{
+    text-align: left !important;
+  }
 </style>
 
-	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
-	@if(Session::has('alert-' . $msg))
+  @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+  @if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
-	<p class="" style="border-radius: 0">{{ Session::get('alert-' . $msg) }}</p>
+  <p class="" style="border-radius: 0">{{ Session::get('alert-' . $msg) }}</p>
 </div>
-	{!!Session::forget('alert-' . $msg)!!}
-	@endif
-	@endforeach
+  {!!Session::forget('alert-' . $msg)!!}
+  @endif
+  @endforeach
 
 
 <div class="row">
-	<div class="col-md-12">
-		<div class="">
+  <div class="col-md-12">
+    <div class="">
 
-			@if (count($errors) > 0)
-			<div class="alert alert-danger">
-				<ul>
-					@foreach ($errors->all() as $error)
-					<li>{{ $error }}</li>
-					@endforeach
-				</ul>
-			</div>
-			@endif
-			<br>
-			<form id="tambahRuang" method="post" action="{{url('/notulensi/notulensi/'.$a->id_notulen.'/delete/')}}" enctype="multipart/form-data"  class="form-horizontal">
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+      @if (count($errors) > 0)
+      <div class="alert alert-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+      @endif
+      <br>
+      <form id="editNotulensi" method="post" action="{{url('/notulensi/notulensi/'.$notulensi->id_notulen.'/edit/')}}" enctype="multipart/form-data"  class="form-horizontal">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-				<!-- Menampilkan input text biasa -->
+        <!-- Menampilkan input text biasa -->
 
-				<!-- Menampilkan input text biasa -->
-			<div class="form-group">
+        <!-- Menampilkan input text biasa -->
+        
+      <div class="form-group">
     <label for="id_notulen" class="col-sm-2 control-label">ID Notulen</label>
     <div class="col-sm-9">
-      <input class="form-control" id="id_notulen" type="text" enable>
+      <input type="text" class="form-control input-lg" id="id_notulen" name="id_notulen"  value="{{$notulensi->id_notulen}}" disabled>
     </div>
   </div>
   <div class="form-group">
-    <label for="permohonan_ruang_id" class="col-sm-2 control-label">ID Permohonan Ruang</label>
+    <label for="nama_ruang" class="col-sm-2 control-label">Ruangan</label>
     <div class="col-sm-9">
-      <input class="form-control" id="permohonan_ruang_id" type="text" enable>
+      <input type="text" class="form-control input-lg" id="nama_ruang" name="nama_ruang"  value="{{$notulensi->nama_ruang}}" disabled>
     </div>
   </div>
   <div class="form-group">
     <label for="nip_petugas_id" class="col-sm-2 control-label">NIP Petugas</label>
     <div class="col-sm-9">
-      <input class="form-control" id="nip_petugas_id" type="text" enable>
+     <input type="text" class="form-control input-lg" id="nip_petugas_id" name="nip_petugas_id"  value="{{$notulensi->nip_petugas_id}}" disabled>
     </div>
   </div>
    <div class="form-group">
-    <label for="nip_id" class="col-sm-2 control-label">NIP Karyawan</label>
+   <label for="nip_id" class="col-sm-2 control-label">Ketua Rapat</label>
     <div class="col-sm-9">
-      <input class="form-control" id="nip_id" type="text" enable>
+    <select class="form-control" id="permohonan_ruang_id">
+    <label for="nip_id" class="col-sm-2 control-label">Ketua Rapat</label>
+    <div class="col-sm-9">
+      <select class="form-control" id="permohonan_ruang_id">
+    <option></option>
+    <option></option>
+   </select>
     </div>
   </div>
-  <div class="form-group">
-    <label for="id_verifikasi" class="col-sm-2 control-label">ID Verifikasi</label>
+  <!-- <div class="form-group">
+    <label for="id_verifikasi" class="col-sm-2 control-label">Status Verifikasi</label>
     <div class="col-sm-9">
-      <input class="form-control" id="id_verifikasi" type="text" enable>
+       
+      @if($notulensi->id_verifikasi==0)
+      {{'Belum Terferivikasi'}}
+      @else
+      {{'Sudah Diferivikasi'}}
+      @endif
     </div>
-  </div>
+  </div> -->
 <div class="form-group">
     <label for="nama_rapat" class="col-sm-2 control-label">Nama Rapat</label>
     <div class="col-sm-9">
-      <input class="form-control" id="nama_rapat" type="text" enable>
+      <input type="text" class="form-control input-lg" id="nama_rapat" name="nama_rapat"  value="{{$notulensi->nama_rapat}}" enable>
     </div>
-  </div>
+    </div>
+
   <div class="form-group">
     <label for="agenda_rapat"class="col-sm-2 control-label">Agenda Rapat:</label>
     <div class="col-sm-9">
-      <textarea class="form-control" rows="3" id="agenda_rapat" enable></textarea>
+      <input type="text" class="form-control input-lg" id="agenda_rapat" name="agenda_rapat"  value="{{$notulensi->agenda_rapat}}" enable>
     </div>
   </div>
      <div class="form-group">
   <label for="hasil_pembahasan"class="col-sm-2 control-label">Hasil Rapat:</label>
   <div class="col-sm-9">
-  <textarea class="form-control" rows="5" id="hasil_pembahasan" enable></textarea>
+  <input type="text" class="form-control input-lg" id="hasil_pembahasan" name="hasil_pembahasan" value="{{$notulensi->hasil_pembahasan}}" enable>
 </div>
     </div>
     <div class="form-group">
   <label for="deskripsi_rapat"class="col-sm-2 control-label">Deskripsi Rapat:</label>
   <div class="col-sm-9">
-  <textarea class="form-control" rows="5" id="deskripsi_rapat" enable></textarea>
+  <input type="text" class="form-control input-lg" id="deskripsi_rapat" name="deskripsi_rapat" value="{{$notulensi->deskripsi_rapat}}" enable>
 </div>
     </div>
       <div class="form-group">

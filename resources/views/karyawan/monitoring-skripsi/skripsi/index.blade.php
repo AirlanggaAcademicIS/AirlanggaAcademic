@@ -10,7 +10,7 @@ Data Mahasiswa Skripsi
 @endsection
 
 @section('contentheader_title')
-Biodata
+Data Mahasiswa Skripsi
 @endsection
 
 @section('main-content')
@@ -36,21 +36,51 @@ Biodata
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">NIM</th>      
+      <th style="text-align:center">NIM</th>
+      <th style="text-align:center">Nama Mahasiswa</th>      
       <th style="text-align:center">KBK</th>
       <th style="text-align:center">Judul</th>
       <th style="text-align:center">NIP Petugas</th>
+      <th style="text-align:center">Dosen Pembimbing 1</th>
+      <th style="text-align:center">Dosen Pembimbing 2</th>
       <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
-   @forelse($skripsi as $i => $skrip) 
+   @forelse($dosen1 as $i => $skrip) 
     <tr>
-      <td width="10%">{{ $i+1 }}</td>
-      <td width="20%" style="text-align:center">{{$skrip->NIM_id}}</td>
-      <td width="10%" style="text-align:center">{{$skrip->kbk_id}}</td>
+      <td width="5%" style="text-align:center">{{ $i+1 }}</td>
+      <td width="10%" style="text-align:center">{{$skrip->NIM_id}}</td>
+      <td width="15%" style="text-align:center">
+      @foreach($mhs as $m)
+      @if($skrip->NIM_id == $m->nim_id)
+      {{$m->nama_mhs}}
+      @endif
+      @endforeach
+      </td>
+      <td width="5%" style="text-align:center">
+      @foreach($kbk as $k)
+      @if($k->id_kbk == $skrip->kbk_id)
+      {{$k->jenis_kbk}}
+      @endif
+      @endforeach
+      </td>
       <td width="20%" style="text-align:center">{{$skrip->Judul}}</td>
       <td width="10%" style="text-align:center">{{$skrip->nip_petugas_id}}</td>
+      <td width="10%" style="text-align:center">
+      @foreach($dosen1 as $i => $d1)
+      @if($d1->id_skripsi == $skrip->id_skripsi && $d1->status == '0')
+      {{$d1->nama_dosen}}
+      @endif
+      @endforeach
+      </td>
+      <td width="10%" style="text-align:center">
+      @foreach($dosen2 as $i => $d2)
+      @if($d2->id_skripsi == $skrip->id_skripsi && $d2->status == '1')
+      {{$d2->nama_dosen}}
+      @endif
+      @endforeach
+      </td>
       <td width="10%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus data skripsi ini?');" href="{{url('/karyawan/monitoring-skripsi/skripsi/'.$skrip->id_skripsi.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/karyawan/monitoring-skripsi/skripsi/'.$skrip->id_skripsi.'/edit/')}}" class="btn btn-warning btn-xs">
@@ -59,7 +89,7 @@ Biodata
     </tr>
      @empty
         <tr>
-          <td colspan="6"><center>Belum ada data skripsi</center></td>
+          <td colspan="8"><center>Belum ada data skripsi</center></td>
         </tr>
     @endforelse
   </tbody>

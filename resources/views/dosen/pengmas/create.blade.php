@@ -1,4 +1,4 @@
-@extends('adminlte::layouts.app')
+`@extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
 Tambah Pengmas
@@ -51,7 +51,7 @@ Tambah Pengmas
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama_kegiatan" class="col-sm-2 control-label">nama kegiatan</label>
+					<label for="nama_kegiatan" class="col-sm-2 control-label">Nama Kegiatan</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control input-lg" id="nama_kegiatan" name="nama_kegiatan" placeholder="Masukkan Nama kegiatan" required>
 					</div>
@@ -60,7 +60,7 @@ Tambah Pengmas
 				<div class="form-group">
 					<label for="tempat_kegiatan" class="col-sm-2 control-label">Tempat Pengabdian Masyarakat</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="tempat_kegiatan" name="tempat_kegiatan" placeholder="Masukkan Nama Kegiatan" required>
+						<input type="text" class="form-control input-lg" id="tempat_kegiatan" name="tempat_kegiatan" placeholder="Masukkan Tempat Kegiatan" required>
 					</div>
 				</div>
 
@@ -76,6 +76,15 @@ Tambah Pengmas
 						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_kegiatan" placeholder="Masukkan Tanggal kegiatan" required>
 					</div>
 				</div>
+
+				<div class="form-group">
+					<label for="file_prestasi" class="col-sm-2 control-label">File Pengmas</label>
+					<div class="col-md-8">
+						<input type="file" class="form-control input-lg" id="file_pengmas" name="file_pengmas" placeholder="Pilih File Prestasi" required>
+
+					</div>
+				</div>
+
 
 <div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">

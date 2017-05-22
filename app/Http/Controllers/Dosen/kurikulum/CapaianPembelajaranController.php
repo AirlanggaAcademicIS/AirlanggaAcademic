@@ -10,7 +10,8 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\CapaianPembelajaran;
-
+use App\Prodi;
+use App\KategoriCapaianPembelajaran;
 
 class CapaianPembelajaranController extends Controller
 {
@@ -21,6 +22,7 @@ class CapaianPembelajaranController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'capaian-pembelajaran',
+
             // Memanggil semua isi dari tabel biodata
             'capaianpembelajaran' => CapaianPembelajaran::all()
         ];
@@ -34,6 +36,8 @@ class CapaianPembelajaranController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'capaian-pembelajaran',
+            'prodis' => Prodi::all(),
+            'categories' => KategoriCapaianPembelajaran::all()
         ];
 
         // Memanggil tampilan form create
@@ -49,7 +53,7 @@ class CapaianPembelajaranController extends Controller
         Session::put('alert-success', 'Berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('dosen/kurikulum/cp_pembelajaran');
+        return Redirect::to('dosen/kurikulum/capaian-pembelajaran');
     }
 
     public function delete($id_cpem)
@@ -72,12 +76,15 @@ class CapaianPembelajaranController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'cp_pembelajaran',
+            'prodis' => Prodi::all(),
+            'categories' => KategoriCapaianPembelajaran::all(),
+            
             // Mencari biodata berdasarkan id
             'cp_pembelajaran' => CapaianPembelajaran::find($id_cpem)
         ];
-
+        
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('dosen.Kurikulum.capaian-pembelajaran.edit',$data);
+        return view('dosen.kurikulum.cp_pembelajaran.edit',$data);
     }
 
     public function editAction($id_cpem, Request $request)
@@ -93,7 +100,7 @@ class CapaianPembelajaranController extends Controller
         $capaian_pembelajaran->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Biodata berhasil diedit');
+        Session::put('alert-success', 'Berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('dosen/kurikulum/capaian-pembelajaran');

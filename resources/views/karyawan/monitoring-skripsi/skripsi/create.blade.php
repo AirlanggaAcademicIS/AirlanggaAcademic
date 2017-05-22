@@ -48,14 +48,6 @@ Tambah Data Skripsi
 			<br>
 			<form id="tambahSkrispi" method="post" action="{{url('/karyawan/monitoring-skripsi/skripsi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-				<!-- Menampilkan input text biasa -->
-				<div class="form-group">
-					<label for="nama_mhs" class="col-sm-2 control-label">Nama Mahasiswa</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-md" id="nama_mhs" name="nama_mhs" placeholder="Masukkan Nama Mahasiswa" required>
-					</div>
-				</div>
 				<div class="form-group">
 					<label for="NIM_id" class="col-sm-2 control-label">NIM</label>
 					<div class="col-md-8">
@@ -66,9 +58,9 @@ Tambah Data Skripsi
                   <label for="kbk_id" class="col-sm-2 control-label">KBK</label>
                   <div class="col-md-8">
                   <select name="kbk_id" class="form-control">
-                    <option id="kbk_id" name="kbk_id" value="1">Data Mining</option>
-                    <option id="kbk_id" name="kbk_id" value="2">Sistem Pengambilan Keputusan</option>
-                    <option id="kbk_id" name="kbk_id" value="3">Information System Engineering</option>
+                    <option value="1">Data Mining</option>
+                    <option value="2">Sistem Pengambilan Keputusan</option>
+                    <option value="3">Information System Engineering</option>
                   </select>
                   </div>
                 </div>
@@ -78,17 +70,30 @@ Tambah Data Skripsi
 						<input type="text" class="form-control input-md" id="Judul" name="Judul" placeholder="Masukkan Judul" required>
 					</div>
 					</div>
-
 				<div class="form-group">
-					<label for="nip_petugas_id" class="col-sm-2 control-label">NIP</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-md" id="nip_petugas_id" name="nip_petugas_id" placeholder="Masukkan NIP" required>
-					</div>
-				</div>
+                  <label for="skripsi_id" class="col-sm-2 control-label">Dosen Pembimbing 1</label>
+                  <div class="col-md-8">
+                  <select name="nip_id1" class="form-control">
+                    @foreach($dosen as $d)
+                    <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
+                    @endforeach
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="skripsi_id" class="col-sm-2 control-label">Dosen Pembimbing 2</label>
+                  <div class="col-md-8">
+                  <select name="nip_id2" class="form-control">
+                  	@foreach($dosen as $d)
+                    <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
+                    @endforeach
+                  </select>
+                  </div>
+                </div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
-					<button type="submit" class="btn btn-primary btn-lg">
+					<button type="submit" class="btn btn-primary btn-md">
 							Confirm
 						</button>
 					</div>

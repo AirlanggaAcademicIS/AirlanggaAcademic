@@ -45,10 +45,11 @@ class PengmasController extends Controller
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        $request['status_pengmas']=0;
-        $request['file_pengmas']="tidak ada";
-        PengmasDosen::create($request->input());
-
+        $dosen = $request->input();
+        $dosen['status_pengmas'] = 0 ;
+        $dosen['file_pengmas'] = time() .'.'.$request->file('file_pengmas')->getClientOriginalExtension();
+        PengmasDosen::create($dosen);
+        $file = $request->file('file_pengmas')->move("img/dosen/",$dosen['file_pengmas']);
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Pengmas berhasil ditambahkan');
 
@@ -90,11 +91,11 @@ class PengmasController extends Controller
         $pengmas = PengmasDosen::find($kegiatan_id);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $pengmas_dosen->nama_kegiatan = $request->input('nama_kegiatan');
-        $pengmas_dosen->tempat_kegiatan = $request->input('tempat_kegiatan');
-        $pengmas_dosen->tanggal_kegiatan = $request->input('tanggal_kegiatan');
-        $pengmas_dosen->status_pengmas = $request->input('status_pengmas');
-        $pengmas_dosen->save();
+        $pengmas->nama_kegiatan = $request->input('nama_kegiatan');
+        $pengmas->tempat_kegiatan = $request->input('tempat_kegiatan');
+        $pengmas->tanggal_kegiatan = $request->input('tanggal_kegiatan');
+        $pengmas->status_pengmas = $request->input('status_pengmas');
+        $pengmas->save();
 
         // Notifikasi sukses
         Session::put('alert-success', 'dosen berhasil diedit');

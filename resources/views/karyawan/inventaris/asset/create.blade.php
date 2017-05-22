@@ -50,12 +50,14 @@ Tambah Asset
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-               <div class="form-group">
+                <div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Kategori</label>
 					<div class="col-md-8">
 						<select class="form-control" name="kategori" required>
 		            	<option value="">-- Pilih Kategori --</option>
 		                <option value="1">Dokumen</option>
+		                <option value="2">Furniture</option>
+		                <option value="3">Elektronik</option>
 		               
 					</select>
 					</div>
@@ -64,10 +66,9 @@ Tambah Asset
 				 <div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Status</label>
 					<div class="col-md-8">
-						<select class="form-control" name="kategori" required>
+						<select class="form-control" name="status" required>
 		            	<option value="">-- Pilih Status --</option>
 		                <option value="1">Ready</option>
-		                <option value="2">Not Ready</option>
 					</select>
 					</div>
 				</div>
@@ -141,8 +142,3 @@ $( function() {
   } );
   </script>
 @endsection
-
-				
-
-
-

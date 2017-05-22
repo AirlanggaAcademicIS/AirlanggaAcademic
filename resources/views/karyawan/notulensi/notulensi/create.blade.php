@@ -17,69 +17,66 @@ Tambah Notulensi
 
 @section('main-content')
 <style>
-	.form-group label{
-		text-align: left !important;
-	}
+  .form-group label{
+    text-align: left !important;
+  }
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
-	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
-	@if(Session::has('alert-' . $msg))
+  <!-- Ini buat menampilkan notifikasi -->
+  @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+  @if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
-	<p class="" style="border-radius: 0">{{ Session::get('alert-' . $msg) }}</p>
+  <p class="" style="border-radius: 0">{{ Session::get('alert-' . $msg) }}</p>
 </div>
-	{!!Session::forget('alert-' . $msg)!!}
-	@endif
-	@endforeach
+  {!!Session::forget('alert-' . $msg)!!}
+  @endif
+  @endforeach
 
 
 <div class="row">
-	<div class="col-md-12">
-		<div class="">
+  <div class="col-md-12">
+    <div class="">
 
-			@if (count($errors) > 0)
-			<div class="alert alert-danger">
-				<ul>
-					@foreach ($errors->all() as $error)
-					<li>{{ $error }}</li>
-					@endforeach
-				</ul>
-			</div>
-			@endif
-			<br>
-			<form id="tambahNotulensi" method="post" action="{{url('/notulensi/notulensi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+      @if (count($errors) > 0)
+      <div class="alert alert-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+      @endif
+      <br>
+      <form id="tambahNotulensi" method="post" action="{{url('/notulensi/notulensi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-				<!-- Menampilkan input text biasa -->
-<div class="form-group">
-    <label for="id_notulen" class="col-sm-2 control-label">ID Notulen</label>
-    <div class="col-sm-9">
-      <input class="form-control" id="id_notulen" type="text" enable>
-    </div>
-  </div>
+        <!-- Menampilkan input text biasa -->
+
   <div class="form-group">
-    <label for="permohonan_ruang_id" class="col-sm-2 control-label">ID Permohonan Ruang</label>
+
+         <label class="col-sm-2 control-label"
+         for="permohonan_ruang_id">Ruangan</label>
+         <div class="col-sm-9">
+        <select class="form-control" id="permohonan_ruang_id">
+    <option></option>
+    <option></option>
+   
+           </select>
+            </div>
+    <!-- <label for="permohonan_ruang_id" class="col-sm-2 control-label">ID Permohonan Ruang</label>
     <div class="col-sm-9">
-      <input class="form-control" id="permohonan_ruang_id" type="text" enable>
+      <input class="form-control" id="permohonan_ruang_id" type="text" enable> -->
     </div>
-  </div>
-  <div class="form-group">
-    <label for="nip_petugas_id" class="col-sm-2 control-label">NIP Petugas</label>
-    <div class="col-sm-9">
-      <input class="form-control" id="nip_petugas_id" type="text" enable>
-    </div>
-  </div>
+ 
    <div class="form-group">
-    <label for="nip_id" class="col-sm-2 control-label">NIP Karyawan</label>
+    <label for="nip_id" class="col-sm-2 control-label">Ketua Rapat</label>
     <div class="col-sm-9">
-      <input class="form-control" id="nip_id" type="text" enable>
+    <select class="form-control" id="permohonan_ruang_id">
+    <option></option>
+    <option></option>
+   </select>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="id_verifikasi" class="col-sm-2 control-label">ID Verifikasi</label>
-    <div class="col-sm-9">
-      <input class="form-control" id="id_verifikasi" type="text" enable>
-    </div>
-  </div>
+ </div>
+  
 <div class="form-group">
     <label for="nama_rapat" class="col-sm-2 control-label">Nama Rapat</label>
     <div class="col-sm-9">
@@ -111,8 +108,8 @@ Tambah Notulensi
   </div>
 </div>
 
-				
-				
+        
+        
 @endsection
 
 @section('code-footer')

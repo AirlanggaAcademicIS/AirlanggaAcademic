@@ -12,6 +12,8 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\AkunMahasiswa;
+use App\AkunBioMHS;
+use App\AkunUser;
 
 
 class AkunMahasiswaController extends Controller
