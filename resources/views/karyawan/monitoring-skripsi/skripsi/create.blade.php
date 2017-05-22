@@ -49,12 +49,6 @@ Tambah Data Skripsi
 			<form id="tambahSkrispi" method="post" action="{{url('/karyawan/monitoring-skripsi/skripsi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="form-group">
-					<label for="nip_petugas_id" class="col-sm-2 control-label">NIP Petugas</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-md" id="nip_petugas_id" name="nip_petugas_id" placeholder="Masukkan NIP petugas" required>
-					</div>
-				</div>
-				<div class="form-group">
 					<label for="NIM_id" class="col-sm-2 control-label">NIM</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control input-md" id="NIM_id" name="NIM_id" placeholder="Masukkan NIM" required>
@@ -80,10 +74,9 @@ Tambah Data Skripsi
                   <label for="skripsi_id" class="col-sm-2 control-label">Dosen Pembimbing 1</label>
                   <div class="col-md-8">
                   <select name="nip_id1" class="form-control">
-                    <option value="1">Dosen 1</option>
-                    <option value="2">Dosen 2</option>
-                    <option value="3">Dosen 3</option>
-                    <option value="4">Dosen 4</option>
+                    @foreach($dosen as $d)
+                    <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
+                    @endforeach
                   </select>
                   </div>
                 </div>
@@ -91,10 +84,9 @@ Tambah Data Skripsi
                   <label for="skripsi_id" class="col-sm-2 control-label">Dosen Pembimbing 2</label>
                   <div class="col-md-8">
                   <select name="nip_id2" class="form-control">
-                    <option value="1">Dosen 1</option>
-                    <option value="2">Dosen 2</option>
-                    <option value="3">Dosen 3</option>
-                    <option value="4">Dosen 4</option>
+                  	@foreach($dosen as $d)
+                    <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
+                    @endforeach
                   </select>
                   </div>
                 </div>

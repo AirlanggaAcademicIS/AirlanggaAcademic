@@ -12,7 +12,11 @@ use Redirect;
 // Tambahkan model yang ingin dipakai
 use App\Skripsi;
 use App\DosenPembimbing;
-use App\BiodataMhs;
+use App\BiodataMahasiswa;
+use App\BiodataDosen;
+use App\KBK;
+use Auth;
+use DB;
 
 class SkripsiController extends Controller
 {
@@ -24,9 +28,24 @@ class SkripsiController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar skripsi
             'page' => 'skripsi',
             // Memanggil semua isi dari tabel skripsi
-            'skripsi' => Skripsi::all()
+            'skripsi' => Skripsi::all(),
+            'mhs' => BiodataMahasiswa::all(),
+            'kbk' => KBK::all(),
+            // 'dosen' => BiodataDosen::all(),
+            'dosen1' => DB::table('skripsi')
+            ->join('dosen_pembimbing', 'skripsi.id_skripsi', '=', 'dosen_pembimbing.skripsi_id')
+            ->join('biodata_dosen', 'dosen_pembimbing.nip_id', '=', 'biodata_dosen.nip')
+            ->select('skripsi.*', 'biodata_dosen.nama_dosen','dosen_pembimbing.status')
+            ->where('dosen_pembimbing.status','=','0')
+            ->get(),
+            'dosen2' => DB::table('skripsi')
+            ->join('dosen_pembimbing', 'skripsi.id_skripsi', '=', 'dosen_pembimbing.skripsi_id')
+            ->join('biodata_dosen', 'dosen_pembimbing.nip_id', '=', 'biodata_dosen.nip')
+            ->select('skripsi.*', 'biodata_dosen.nama_dosen','dosen_pembimbing.status')
+            ->where('dosen_pembimbing.status','=','1')
+            ->get(),
+            'dospem' => DosenPembimbing::all()
         ];
-
         // Memanggil tampilan index di folder monitoring-skripsi/skripsi dan juga menambahkan $data tadi di view
         return view('karyawan.monitoring-skripsi.skripsi.index',$data);
     }
@@ -36,6 +55,7 @@ class SkripsiController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar skripsi
             'page' => 'skripsi',
+            'dosen' => BiodataDosen::all(),
         ];
 
         // Memanggil tampilan form create
@@ -51,20 +71,18 @@ class SkripsiController extends Controller
             'NIM_id' => $request->input('NIM_id'),
             'kbk_id' => $request->input('kbk_id'),
             'Judul' => $request->input('Judul'),
-            'nip_petugas_id' => $request->input('nip_petugas_id')
+            'nip_petugas_id' => Auth::user()->username,
             ]);
-
-        $idSkripsi = Skripsi::where('NIM_id', '=', $request->input('NIM_id'))->first()->id_skripsi;
-        $dosbing = DosenPembimbing::create([
-            'skripsi_id' => $idSkripsi,
-            'nip_id' => '12345678910',
-            'status' => 0
+        DosenPembimbing::create([
+            'skripsi_id' => $skripsi->id,
+            'nip_id' => $request->input('nip_id1'),
+            'status' => '0'
             ]);
-        // $dosbing = DosenPembimbing::create([
-        //     'skripsi_id' => $idSkripsi,
-        //     'nip_id' => '12345678910',
-        //     'status' => 0
-        //     ]);
+        DosenPembimbing::create([
+            'skripsi_id' => $skripsi->id,
+            'nip_id' => $request->input('nip_id2'),
+            'status' => '1'
+            ]);
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Data Skripsi berhasil ditambahkan');
