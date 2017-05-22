@@ -28,6 +28,7 @@ Asset
 </div>
 <div class="row"><div class="col-sm-6">
 <div style="margin-bottom: 10px">
+  <!-- Href ini biar diklik masuk ke form tambah -->
   
 </div>
 </div><div class="col-sm-6">
@@ -41,10 +42,10 @@ Asset
     <tr>
       <th style="text-align:center">No.</th>
       <th style="text-align:center">Kategori</th>
+      <th style="text-align:center">NIP Petugas</th>
       <th style="text-align:center">Status</th>
       <th style="text-align:center">Nama Asset</th>
       <th style="text-align:center">Lokasi</th>
-      <th style="text-align:center">Expired Date</th>
       <th style="text-align:center">Jumlah Barang</th>
       
       </tr>
@@ -52,13 +53,16 @@ Asset
   <tbody>
    @forelse($asset as $i => $ass) 
     <tr>
-      <td width="10%" style="text-align:center">{{ $i+1 }}</td>
+      <td>{{ $i+1 }}</td>
        @if($ass->kategori_id == 1) 
             <td width="20%" style="text-align:center">Dokumen</td>
             @elseif($ass->kategori_id == 2) 
             <td width="20%" style="text-align:center">Furniture</td>
+            @elseif($ass->kategori_id == 3) 
+            <td width="20%" style="text-align:center">Elektroni</td>
 
             @endif
+      <td width="15%" style="text-align:center">{{$ass->nip_petugas_id}}</td>
      
       @if($ass->status_id == 1) 
             <td width="20%" style="text-align:center">Ready</td>
@@ -67,8 +71,8 @@ Asset
             @endif
       <td width="10%" style="text-align:center">{{$ass->nama_asset}}</td>
       <td width="10%" style="text-align:center">{{$ass->lokasi}}</td>
-      <td width="10%" style="text-align:center">{{$ass->expired_date}}</td>
       <td width="10%" style="text-align:center">{{$ass->jumlah_barang}}</td>
+      
     </tr>
      @empty
         <tr>
