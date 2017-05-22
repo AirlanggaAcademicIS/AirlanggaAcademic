@@ -45,39 +45,35 @@ Rencana Pembelajaran Semester
       </div>
       @endif
       <br>
-       <form role="form">
+      <form role="form">
         <div class="box-header with-border">
-        <form id="editRPS" method="post" action="{{url('/dosen/kurikulum/rps/edit/'.$mata_kuliah->id_mk)}}" enctype="multipart/form-data"  class="form-horizontal">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-           
-          <h3 class="box-title">Edit RPS</h3>
+          
+          <h3 class="box-title">Detail RPS</h3>
         </div>
 
       <div class="box-body">
 <div class="form-group">
-<label for="nama_matkul"><b>Mata Kuliah</b></label>
+<label for="nama-matkul"><b>Mata Kuliah</b></label>
 <input class="form-control" id="nama_matkul" name="nama_matkul" disabled="" value="{{$mata_kuliah->nama_matkul}}">
 </div><br>
 
 <div class="form-group">
-<label for="kode_matkul"><b>Kode Mata Kuliah</b></label>
+<label for="nama-matkul"><b>Kode Mata Kuliah</b></label>
 <input class="form-control" id="kode_matkul" name="kode_matkul" disabled="" value="{{$mata_kuliah->kode_matkul}}">
 </div><br>
 
 <div class="form-group">
-<label for="mk_prasyarat"><b>Mata Kuliah Prasyarat</b></label><br>
-  @foreach($mk_prasyarat as $syarat)
-    <input type="checkbox" name="kode_cpem" value="
+    <label for="nama-matkul">Mata Kuliah Prasyarat</label>
+    </div>
+    <div class="form-group">
+    <input text="text" value="@foreach($mk_prasyarat as $syarat)
     {{$syarat->matkul['nama_matkul']}}
-    ">
-    {{$syarat->matkul['nama_matkul']}} <br> 
-  @endforeach
-</div> 
-
-<br>
+    @endforeach"
+    data-role="tagsinput" disabled="">
+    </div><br>
 
 <div class="form-group">
-<label for="sks"><b>SKS</b></label>
+<label for="nama-matkul"><b>SKS</b></label>
 <input class="form-control" id="sks" name="sks" disabled="" value="{{$mata_kuliah->sks}}">
 </div><br>
 
@@ -86,48 +82,46 @@ Rencana Pembelajaran Semester
 </div>
 
 <div class="form-group">
-<label for="cpl_prodi"><b>CPL Prodi</b></label><br>
-  @foreach($cp_prodi as $cprodi)
-    <input type="checkbox" name="kode_cpem" value="
+    <label for="nama-matkul">CPL Prodi</label>
+    </div>
+    <div class="form-group">
+    <input text="text" value="@foreach($cp_prodi as $cprodi)
     {{$cprodi->cpem['kode_cpem']}}
-    ">
-    {{$cprodi->cpem['kode_cpem']}} <br> 
-  @endforeach
-</div> 
-
-<br>
-
+    @endforeach"
+    data-role="tagsinput" disabled="">
+    </div><br>
+      
 <div class="form-group">
-<label for="cp_mk"><b>Capaian Mata Kuliah</b></label><br>
-  @foreach($cp_mata_kuliah as $cpmk)
-    <input type="checkbox" name="kode_cpmk" value="
+    <label for="nama-matkul">Capaian Mata Kuliah</label>
+    </div>
+    <div class="form-group">
+    <input text="text" value="
+    @foreach($cp_mata_kuliah as $cpmk)
     {{$cpmk->kode_cpmk}}
-    ">
-    {{$cpmk->kode_cpmk}} <br> 
-  @endforeach
-</div> 
-
-<br>
+    @endforeach
+    "
+    data-role="tagsinput" disabled="">
+    </div><br>
 
 <div class="form-group">
-<label for="deskripsi_matkul"><b>Deskripsi Singkat Mata Kuliah</b></label>
-<textarea class="form-control" name="deskripsi_matkul" id="deskripsi_matkul" rows="3" placeholder="">{!!$mata_kuliah->deskripsi_matkul!!}</textarea>
+<label for="deskripsi-mk"><b>Deskripsi Singkat Mata Kuliah</b></label>
+<textarea class="form-control" name="deskripsi_matkul" id="deskripsi_matkul" rows="3" placeholder="" disabled="">{!!$mata_kuliah->deskripsi_matkul!!}</textarea>
 </div><br>
 
 <div class="form-group">
-<label for="pokok_pembahasan"><b>Pokok Pembahasan</b></label>
-<textarea class="form-control" name="pokok_pembahasan" id="pokok_pembahasan" rows="3" placeholder="">{!!$mata_kuliah->pokok_pembahasan!!}</textarea><br>
+<label for="deskripsi-mk"><b>Pokok Pembahasan</b></label>
+<textarea class="form-control" name="pokok_pembahasan" id="pokok_pembahasan" rows="3" placeholder="" disabled="">{!!$mata_kuliah->pokok_pembahasan!!}</textarea><br>
 </div>
 
 <div class="form-group">
-  <label for="pustaka"><b>Pustaka</b></label>
+  <label for="deskripsi-mk"><b>Pustaka</b></label>
   <div class="form-group">
-<label for="pustaka_utama">Pustaka Utama</label>
-<textarea class="form-control" rows="3" id="pustaka_utama" name="pustaka_utama" placeholder="">{!!$mata_kuliah->pustaka_utama!!}</textarea>
+<label for="deskripsi-mk">Pustaka Utama</label>
+<textarea class="form-control" rows="3" placeholder="" disabled="">{!!$mata_kuliah->pustaka_utama!!}</textarea>
 </div>
  <div class="form-group">
-<label for="pustaka_pendukung">Pustaka Pendukung</label>
-<textarea class="form-control" rows="3" id="pustaka_pendukung" name="pustaka_pendukung" placeholder="">{!!$mata_kuliah->pustaka_pendukung!!}</textarea><br>
+<label for="deskripsi-mk">Pustaka Pendukung</label>
+<textarea class="form-control" rows="3" placeholder="" disabled="">{!!$mata_kuliah->pustaka_pendukung!!}</textarea><br>
 </div>
   </div>
   
@@ -136,28 +130,26 @@ Rencana Pembelajaran Semester
 </div>
 
     <div class="form-group">
-    <label for="perangkat_lunak">Perangkat Lunak</label>
+    <label for="nama-matkul">Perangkat Lunak</label>
     </div>
     <div class="form-group">
-    <input class="form-control" value="" data-role="tagsinput" id="perangkat_lunak" name="perangkat_lunak"> 
+    <input class="form-control" value="" data-role="tagsinput" disabled="">
     </div>
 
      <div class="form-group">
-    <label for="perangkat_keras">Perangkat Keras</label>
+    <label for="nama-matkul">Perangkat Keras</label>
     </div>
     <div class="form-group">
-    <input class="form-control" value="" data-role="tagsinput" id="perangkat_lunak" name="perangkat_lunak">
+    <input class="form-control" value="" data-role="tagsinput" disabled="">
     </div><br>
 
 <div class="form-group">
 <p><b>Team Teaching</b></p>
 <label for="dosen1">Koordinator Mata kuliah</label>
-<select class="form-control">
+<select class="form-control" disabled="">
 @foreach($koor as $k) 
 @if ($k->status_tt_id === 1)
       <option selected="selected">{{$k->nip_id}}</option>
-      @else
-      <option>{{$k->nip_id}}</option>
       @endif
       @endforeach
       </select>
@@ -167,12 +159,10 @@ Rencana Pembelajaran Semester
 <label for="dosen2">Anggota Team Teaching 1</label>
 <!-- select -->
     <div class="form-group">
-      <select class="form-control">
+      <select class="form-control" disabled="">
   @foreach($koor as $k) 
-  @if ($k->status_tt_id === 2)
+      @if ($k->status_tt_id === 2)
       <option selected="selected">{{$k->nip_id}}</option>
-      @else
-      <option>{{$k->nip_id}}</option>
       @endif
   @endforeach
       </select>
@@ -183,14 +173,13 @@ Rencana Pembelajaran Semester
 <label for="dosen3">Anggota Team Teaching 2</label>
 <!-- select -->
     <div class="form-group">
-      <select class="form-control">
+      <select class="form-control" disabled="">
      @foreach($koor as $k) 
       @if ($k->status_tt_id === 3)
       <option selected="selected">{{$k->nip_id}}</option>
-      @else
-      <option>{{$k->nip_id}}</option>
       @endif
   @endforeach
+        <option></option>
       </select>
     </div>
 </div>
@@ -199,7 +188,7 @@ Rencana Pembelajaran Semester
 <label for="dosen4">Anggota Team Teaching 3</label>
 <!-- select -->
     <div class="form-group">
-      <select class="form-control">
+      <select class="form-control" disabled="">
         @foreach($koor as $k) 
       @if ($k->status_tt_id === 4)
       <option selected="selected">{{$k->nip_id}}</option>
@@ -210,11 +199,9 @@ Rencana Pembelajaran Semester
 
 </div>
 <br>
-<button type="submit" class="btn btn-info pull-right">Edit</button> 
-<a href="{{{('/dosen/kurikulum/rps')}}}" class="btn btn-info">Kembali</a>
-
-</div>
+<a href="{{{('/mahasiswa/kurikulum/rps')}}}" class="btn btn-info">Kembali</a>
 </form>
+</div>
 </form>
 @endsection
 

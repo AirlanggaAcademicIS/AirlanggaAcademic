@@ -26,11 +26,7 @@ Rencana Pembelajaran Semester
   @endif
   @endforeach
 </div>
-<div style="margin-bottom: 10px">
-  <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('/dosen/kurikulum/rps/create')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah RPS</a>
-</div>
+
   <!-- Href ini biar diklik masuk ke form tambah -->
   <div class="box box-primary">
 
@@ -49,14 +45,10 @@ Rencana Pembelajaran Semester
   @forelse($mata_kuliah as $i => $mk) 
   <tr>
    <td width="2%" style="text-align:center">{{ $i+1 }}</td>
-    <td width="15%" style="text-align:center"><a href="{{url('/dosen/kurikulum/rps/edit/'.$mk->id_mk)}}">{{$mk->kode_matkul}}</a></td>
+    <td width="15%" style="text-align:center"><a href="{{url('/karyawan/kurikulum/rps/detail/'.$mk->id_mk)}}">{{$mk->kode_matkul}}</a></td>
     <td width="25%" style="text-align:center">{{$mk->nama_matkul}}</td>
 
     <td width="15%" style="text-align:center">
-    <a onclick="return confirm('Anda yakin untuk menghapus RPS ini?');" href="{{url('/dosen/kurikulum/rps/delete/'.$mk->id_mk)}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-trash-o"></i> Delete</a>
-
-
         <a class="btn btn-info btn-xs">
         <i class="fa fa-download-square-o"></i> Download</a>
         </td>

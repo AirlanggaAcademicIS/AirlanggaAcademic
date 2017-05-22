@@ -18,6 +18,7 @@ use App\RPS_CPL_Prodi;
 use App\RPS_Koor_Matkul;
 use App\Status_Team_Teaching;
 
+
 class RPSController extends Controller
 {
 
@@ -95,15 +96,15 @@ class RPSController extends Controller
 
     public function editAction($id, Request $request)
     {
-        $mk = RPS_Matkul::find($id);
-        $mk->kategori_media_pembelajaran = $request->input('kategori_media_pembelajaran');
-        $mk->media_pembelajaran = $request->input('media_pembelajaran');
-        $mk->save();
+        $mata_kuliah = RPS_Matkul::find($id);
+        $mata_kuliah->id = $id;
+        $mata_kuliah->deskripsi_matkul = $request->input('deskripsi_matkul');
+        $mata_kuliah->pokok_pembahasan = $request->input('pokok_pembahasan');
+        $mata_kuliah->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Kategori berhasil diedit');
+        Session::put('alert-success', 'RPS berhasil diedit');
 
         return Redirect::to('dosen/kurikulum/index');
     }
-
 }

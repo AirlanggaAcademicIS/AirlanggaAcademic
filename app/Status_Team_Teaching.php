@@ -11,9 +11,5 @@ class Status_Team_Teaching extends Model
    protected $fillable = [
    		'status_tt',
    ];
-   	protected $table = 'status_team_teaching';    
-   	protected $primaryKey = 'id_status_tt';    
-   	protected $fillable = [
-	   	'status_tt'
-    ];
+  
 }
