@@ -31,4 +31,5 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\BiodataMahasiswa','username');
     }
+
 }

@@ -73,13 +73,6 @@ Edit Data Skripsi
 						<input type="text" class="form-control input-md" id="Judul" name="Judul" placeholder="Masukkan Judul" value="{{$skripsi->Judul}}" required>
 					</div>
 					</div>
-
-				<div class="form-group">
-					<label for="nip_petugas_id" class="col-sm-2 control-label">NIP</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-md" id="nip_petugas_id" name="nip_petugas_id" placeholder="Masukkan NIP" value="{{$skripsi->nip_petugas_id}}"  required>
-					</div>
-				</div>
 				<div class="form-group">
                   <label for="skripsi_id" class="col-sm-2 control-label">Dosen Pembimbing 1</label>
                   <div class="col-md-8">
