@@ -74,7 +74,7 @@ Tambah Silabus
         <input type="text" value=" " data-role="tagsinput">                    
     </div>
     <div class="form-group">
-        <label for="metode-pembelajaran"><b>Metode Pembelajaran</b></label><br>     
+        <label for="metode-pembelajaran"><b>Sistem Pembelajaran</b></label><br>     
         <input type="text" value=" " data-role="tagsinput">                    
     </div>
     <div class="form-group">

@@ -35,14 +35,13 @@
     <input class="form-control" id="sks" name="sks" placeholder="Masukkan SKS" value="{{$mata_kuliah->sks}}" disabled="" required>
     </div>
     <div class="form-group">
-        <label for="mk_prasyarat"><b>Mata Kuliah Prasyarat</b></label><br>
-        @foreach($mk_prasyarat as $syarat)
-        <input type="checkbox" name="mk_prasyarat" value="
-        {{$syarat->matkul['nama_matkul']}}
-        ">
-        {{$syarat->matkul['nama_matkul']}}<br>
-        @endforeach
-        </div>
+        <label for="prasyarat"><b>Prasyarat</b></label><br>
+        <input type="text" value=
+        "@foreach($mk_prasyarat as $syarat)             
+          {{$syarat->matkul['nama_matkul']}}
+        @endforeach" 
+        data-role="tagsinput">                    
+    </div>
     <div class="form-group">
         <label for="deskripsi_cpmk"><b>Capaian Pembelajaran yang dibebankan pada matakuliah ini</b></label>
         @foreach($cp_matkul as $cp )
@@ -55,15 +54,15 @@
     </div>
     <div class="form-group">
         <label for="softskill"><b>Atribut Softskill</b></label><br>
-        @foreach($mk_softskills as $softskill)
-        <input type="checkbox" name="mk_softskill" value="
-         {{$softskill->softskill['softskill']}}
-        ">
-        {{$softskill->softskill['softskill']}}<br>
-        @endforeach
-    </div><br>
+        <input type="text" value=
+        "@foreach($mk_softskills as $softskill)
+          {{$softskill->softskill['softskill']}}
+        @endforeach" 
+        data-role="tagsinput">                    
+        <p></p>
+    </div>
     <div class="form-group">
-        <label for="metode-pembelajaran"><b>Sistem Pembelajaran</b></label><br>     
+        <label for="metode-pembelajaran"><b>Metode Pembelajaran</b></label><br>     
         <input type="text" value="ceramah,diskusi" data-role="tagsinput">                    
     </div>
     <div class="form-group">
@@ -89,8 +88,8 @@
         </textarea>
     </div>
 
-    <div class="box-footer clearfix">
-      <a href="{{{('/dosen/kurikulum/silabus')}}}" class="btn btn-info">Kembali</a>
+	<div class="box-footer clearfix">
+      <a href="{{{('/karyawan/kurikulum/silabus')}}}" class="btn btn-info">Kembali</a>
       </button>
     </div>
 

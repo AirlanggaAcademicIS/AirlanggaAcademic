@@ -103,6 +103,16 @@ Route buat mahasiswa ditaruh dibawah sini
         Route::post('dokumentasi/{id}/edit','Mahasiswa\DokumentasiController@editAction');
         });
 
+   Route::group(['prefix' => 'mahasiswa'], function(){
+    Route::group(['prefix' => 'kurikulum'], function(){
+        Route::group(['prefix' => 'silabus'], function(){
+
+            Route::get('/','Mahasiswa\Kurikulum\SilabusController@index');
+            Route::get('edit/{id}','Mahasiswa\Kurikulum\SilabusController@edit');
+    });
+    });
+    });
+
 //Route buat dosen ditaruh dibawah sini
 Route::group(['prefix' => 'notulensi'], function() {
     //Lihat daftar hasil rapat
@@ -201,9 +211,9 @@ Route::group(['prefix' => 'dosen'], function(){
             Route::get('/','Dosen\Kurikulum\SilabusController@index');
             Route::get('create','Dosen\Kurikulum\SilabusController@create');            
             Route::post('create','Dosen\Kurikulum\SilabusController@createAction');
-            Route::get('kode/{id}/delete','Dosen\Kurikulum\SilabusController@delete');
-            Route::get('kode/{id}/edit','Dosen\Kurikulum\SilabusController@edit');
-            Route::get('kode/{id}/edit','Dosen\Kurikulum\SilabusController@editAction');
+            Route::get('edit/{id}','Dosen\Kurikulum\SilabusController@edit');
+            Route::post('edit/{id}','Dosen\Kurikulum\SilabusController@editAction');
+            Route::get('delete/{id}','Dosen\Kurikulum\SilabusController@delete');
     });
     });
     });
@@ -451,7 +461,15 @@ Route::group(['prefix' => 'karyawan'], function() {
 		    });
             });
 });
-            
+       
+    Route::group(['prefix' => 'karyawan'], function(){
+    Route::group(['prefix' => 'kurikulum'], function(){
+    Route::group(['prefix' => 'silabus'], function(){
+            Route::get('/','Karyawan\Kurikulum\SilabusController@index');
+            Route::get('edit/{id}','Karyawan\Kurikulum\SilabusController@edit');
+    });
+    });
+    });     
 
     Route::get('karyawan/pengelolaan-kegiatan/pengajuan-kegiatan','Karyawan\pengelolaankegiatan\PengajuanKegiatanController@index');
 
