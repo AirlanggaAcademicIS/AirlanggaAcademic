@@ -52,7 +52,7 @@ Edit Biodata
 				<div class="form-group">
 					<label for="nim" class="col-sm-2 control-label">ID Asset</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_asset" name="id_asset" placeholder="Masukkan ID Asset" value="{{$peminjaman->id_asset}}" required>
+						<input type="text" class="form-control input-lg" id="id_asset" name="id_asset" placeholder="Masukkan ID Asset" value="{{$peminjaman->asset_id}}" required>
 					</div>
 				</div>
 
@@ -103,7 +103,7 @@ Edit Biodata
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Waktu Pinjam</label>
 					<div class="col-md-8">
-						<input type="text" value="{{$peminjaman->waktu_pinjam}}" class="form-control input-lg" id="datepicker" name="waktu_pinjam" placeholder="Masukkan Tanggal" required>
+						<input type="text" value="{{ $peminjaman->waktu_pinjam }}" class="form-control input-lg" id="datepicker" name="waktu_pinjam" placeholder="Masukkan Tanggal" required>
 					</div>
 				</div>
 

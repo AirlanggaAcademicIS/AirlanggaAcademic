@@ -46,7 +46,7 @@ Asset
       <th style="text-align:center">NIP Petugas</th>
       <th style="text-align:center">Status</th>
       <th style="text-align:center">Nama Asset</th>
-      <th style="text-align:center">Lokasi</th>
+      <th style="text-align:center">Lokasi</th> 
       <th style="text-align:center">Jumlah Barang</th>
       <th style="text-align:center">Action</th>
       <th style="text-align:center">Maintenance</th>
@@ -89,7 +89,7 @@ Asset
         </td>
         <td width="20%" style="text-align:center" >
         <a href="#" class="btn btn-primary btn-xs">
-        <i class=""></i> Maintenance </a>
+        <i class="fa fa-wrench"></i> Maintenance </a>
 
         </td>
     </tr>
