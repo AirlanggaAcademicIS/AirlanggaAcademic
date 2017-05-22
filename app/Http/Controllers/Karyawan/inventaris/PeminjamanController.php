@@ -59,22 +59,22 @@ class PeminjamanController extends Controller
 
     
 
-    public function postInputPeminjaman(Request $request)
-    {   
-    // STILL NOT DONE, BUG
-    // WAITING FOR ASSET MODULE
-        $peminjaman = Transaksi_Peminjaman::create([
-            'nip_petugas_id' => Auth::User()->name, 
-            'nim_nip_peminjam' => $request->input('nim_nip_peminjam'),
-            'asset_id' => Transaksi_Peminjaman::,
-            'asset_yang_dipinjam' => $request->input('asset_yang_dipinjam'),
-            'checkout_date' => Carbon::now(),
-            'expected_checkin_date' => $request->input('expected_checkin_date'),
-            'waktu_pinjam' => Carbon::now(),
-        ]);
+    // public function postInputPeminjaman(Request $request)
+    // {   
+    // // STILL NOT DONE, BUG
+    // // WAITING FOR ASSET MODULE
+    //     $peminjaman = Transaksi_Peminjaman::create([
+    //         'nip_petugas_id' => Auth::User()->name, 
+    //         'nim_nip_peminjam' => $request->input('nim_nip_peminjam'),
+    //         'asset_id' => Transaksi_Peminjaman::,
+    //         'asset_yang_dipinjam' => $request->input('asset_yang_dipinjam'),
+    //         'checkout_date' => Carbon::now(),
+    //         'expected_checkin_date' => $request->input('expected_checkin_date'),
+    //         'waktu_pinjam' => Carbon::now(),
+    //     ]);
 
-        return Redirect::to('inventaris/index-peminjaman');
-    }
+    //     return Redirect::to('inventaris/index-peminjaman');
+    // }
     
     public function viewDetail($id)
     {
@@ -102,7 +102,7 @@ class PeminjamanController extends Controller
     {
         $peminjaman = Transaksi_Peminjaman::find($id);
 
-        $peminjaman->nip_petugas_id = 12345; //references petugas_tu table
+        $peminjaman->nip_petugas_id = Auth::user()->username;
         $peminjaman->asset_id = $request->input('id_asset');
         $peminjaman->nim_nip_peminjam = $request->input('nim_nip_peminjam');
         $peminjaman->asset_yang_dipinjam = $request->input('asset_yang_dipinjam');
