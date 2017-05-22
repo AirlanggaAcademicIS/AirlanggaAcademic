@@ -12,20 +12,20 @@ class Skripsi extends Model
     protected $dates = ['deleted_at'];
     public $incrementing = false;
     protected $fillable = [
-		'NIM_id',
-		'nip_petugas_id',
-		'kbk_id',
-		'Judul'
+    'NIM_id',
+    'nip_petugas_id',
+    'kbk_id',
+    'Judul'
    ];
 
    public function mhs()
    {
-   	return $this->belongsTo('App\AkunMahasiswa','NIM_id');
+    return $this->belongsTo('App\AkunMahasiswa','NIM_id');
    }
 
    public function kbk()
    {
-   	   	return $this->belongsTo('App\KBK','kbk_id');
+        return $this->belongsTo('App\KBK','kbk_id');
    }
 
     public function dosen()

@@ -15,7 +15,8 @@ Input Dosen Mata Kuliah
 
 @section('main-content')
 	<div class="box box-info">
-		<form class="form-horizontal">
+		<form class="form-horizontal" method = "post" action ="{{ url('karyawan/krs-khs/input_dosen_mk') }}">
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="box-body">
                 
 
@@ -24,7 +25,7 @@ Input Dosen Mata Kuliah
                   <div class="col-sm-10">
 						<div class="form-group row">
                                 <div class="col-xs-4">
-                                    <select class="form-control">
+                                    <select class="form-control" name = "mk">
                                       @foreach($mk_ditawarkan as $i => $m) 
                                         <option>Pilih Matkul</option>
                                         <option value="{{$m->id_mk_ditawarkan}}">{{$m->nama_matkul}}</option>
@@ -38,32 +39,32 @@ Input Dosen Mata Kuliah
                
 
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Dosen : </label>
+                  <label for="inputEmail3" class="col-sm-2 control-label">Dosen PJMK : </label>
                   <div class="col-sm-10">
 						<div class="form-group row">
                                 <div class="col-xs-4">
-                                    <select class="form-control">
+                                    <select class="form-control" name = "dosen_pjmk" required>
                                         @foreach($dosen as $i => $d) 
                                         <option>Pilih Dosen</option>
                                         <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
                                       @endforeach
                                     </select>
                                 </div>
+                            </div> 
+                            </div>                  
+                        </div>
 
-                                <div class="col-xs-3">
-                                	<div class="radio">
-                    					<label>
-                      						<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" checked="">
-                      							 PJMK
-                      					</label>
-                      				</div>
-
-                                    <div class="radio">
-                    					<label>
-                      						<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-                      							Pendamping PJMK
-                      					</label>
-                      				</div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Dosen Pendamping : </label>
+                  <div class="col-sm-10">
+            <div class="form-group row">
+                                <div class="col-xs-4">
+                                    <select class="form-control" name = "dosen_pendamping" required>
+                                        @foreach($dosen as $i => $d) 
+                                        <option>Pilih Dosen</option>
+                                        <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
+                                      @endforeach
+                                    </select>
                                 </div>
                             </div> 
                             </div>                  

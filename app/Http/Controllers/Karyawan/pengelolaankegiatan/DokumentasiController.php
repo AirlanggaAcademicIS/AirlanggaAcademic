@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\karyawan\pengelolaankegiatan;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Session;
@@ -29,28 +30,6 @@ class DokumentasiController extends Controller
         return view('karyawan.pengelolaan-kegiatan.dokumentasi.index',$data);
     }
 
-    public function create()
-    {
-        $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'dokumentasi',
-        ];
-
-        // Memanggil tampilan form create
-        return view('karyawan.pengelolaan-kegiatan.dokumentasi.create',$data);
-    }
-
-    public function createAction(Request $request)
-    {
-        // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        Dokumentasi::create($request->input());
-
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Dokumentasi berhasil ditambahkan');
-
-        // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/pengelolaan-kegiatan/dokumentasi');
-    }
 
     public function delete($id_dokumentasi)
     {
@@ -61,7 +40,7 @@ class DokumentasiController extends Controller
         $dokumentasi->delete();
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Dokumentasi berhasil dihapus');
+        Session::put('alert-success', 'Daftar Dokumentasi Kegiatan berhasil dihapus');
 
         // Kembali ke halaman sebelumnya
         return Redirect::back();     
@@ -96,7 +75,7 @@ class DokumentasiController extends Controller
         Session::put('alert-success', 'Dokumentasi berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/pengelolaan-kegiatan/rundown');
+        return Redirect::to('karyawan/pengelolaan-kegiatan/dokumentasi');
     }
 
 }
