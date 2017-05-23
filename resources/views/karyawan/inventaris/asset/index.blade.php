@@ -79,7 +79,7 @@ Asset
 
         <a href="{{url('inventaris/asset/'.$ass->id_asset.'/viewDetail/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-eye"></i> View Detail</a>
-               
+              
         <a href="{{url('inventaris/asset/'.$ass->id_asset.'/edit/')}}" class="btn btn-success btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
 
@@ -88,7 +88,7 @@ Asset
 
         </td>
         <td width="20%" style="text-align:center" >
-        <a href="#" class="btn btn-primary btn-xs">
+        <a href="{{url('inventaris/maintenance/input-maintenance/'.$ass->id_asset.'')}}" class="btn btn-primary btn-xs">
         <i class="fa fa-wrench"></i> Maintenance </a>
 
         </td>
