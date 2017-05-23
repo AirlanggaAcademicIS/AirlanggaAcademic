@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Karyawan;
+namespace App\Http\Controllers\Karyawan\PLA;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -30,7 +30,7 @@ class PermohonanRuangController extends Controller
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('Karyawan.PermohonanRuang.History.index',$data);
+        return view('Karyawan.pla.PermohonanRuang.History.index',$data);
     }
 
     public function index2() 
@@ -44,7 +44,7 @@ class PermohonanRuangController extends Controller
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('Karyawan.PermohonanRuang.Konfirmasi.index',$data);
+        return view('Karyawan.pla.PermohonanRuang.Konfirmasi.index',$data);
     }
 
 

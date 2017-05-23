@@ -9,7 +9,6 @@ Edit Penelitian Mahasiswa
 @endsection
 
 @section('code-header')
-
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
 
 @endsection
@@ -30,11 +29,6 @@ Edit Penelitian Mahasiswa
 	@endif
 	@endforeach
 
-
-<div class="row">
-	<div class="col-md-12">
-		<div class="">
-
 			@if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<ul>
@@ -44,10 +38,13 @@ Edit Penelitian Mahasiswa
 				</ul>
 			</div>
 			@endif
-			<br>
-			<form id="tambahBiodata" method="post" action="{{url('/mahasiswa/penelitian/'.$penelitian_mhs->kode_penelitian.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+			<form id="penelitian" method="post" action="{{url('/mahasiswa/penelitian/'.$penelitian_mhs->kode_penelitian.'/edit')}}"   class="form-horizontal">
+			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+				<h2>Form Penelitian</h2>
+				<!-- STEP 1 -->
+    			<section data-step="0">
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
 					<label for="judul" class="col-sm-2 control-label">Judul</label>
@@ -135,7 +132,7 @@ Edit Penelitian Mahasiswa
 						</select>
 					</div>
 				</div>
-
+				
 				<div class="form-group">
                   <label for="file_pen" class="col-sm-2 control-label">Upload Scan PDF</label>
                   <div class="col-md-8">
@@ -144,14 +141,35 @@ Edit Penelitian Mahasiswa
                   <p class="help-block">*File berformat .pdf</p>
                   </div>
                 </div>
+                </section>
 
-                <!-- Menampilkan textarea -->
+
+                <h2>Anggota</h2>
+				<!-- STEP 1 -->
+    			<section data-step="1">
+
+    			<!-- Menampilkan textarea -->
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Anggota</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control input-lg" id="anggota" name="anggota" 
 						placeholder="Masukkan Anggota" value="{{$detail_anggota->anggota}}" required>
 						
+					</div>
+				</div>
+
+    			</section>
+
+
+    			<h2>Detail</h2>
+				<!-- STEP 2 -->
+    			<section data-step="2">
+
+    			<!-- Menampilkan input text biasa -->
+				<div class="form-group">
+					<label for="nim" class="col-sm-2 control-label">Kode Penelitian</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="kode_penelitian" name="kode_penelitian" placeholder="Masukkan Kode Penelitian" value="{{$penelitian_mhs->judul}}" readonly="readonly">
 					</div>
 				</div>
 
@@ -200,23 +218,21 @@ Edit Penelitian Mahasiswa
 					</div>
 				</div>
 
+    			</section>
 
-				<div class="form-group text-center">
-					<div class="col-md-8 col-md-offset-2">
-					<button type="submit" class="btn btn-primary btn-lg">
-							Confirm
-						</button>
-					</div>
-				</div>
+
+
+
+				
 			</form>
-		</div>
-	</div>
-</div>
+		
 @endsection
 
 @section('code-footer')
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{ asset('/js/jquery.steps.js') }}" type="text/javascript"></script>
 
+  
 @endsection
 
