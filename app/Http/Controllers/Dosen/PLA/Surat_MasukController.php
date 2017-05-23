@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Dosen;
+namespace App\Http\Controllers\Dosen\PLA;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -28,7 +28,7 @@ class Surat_MasukController extends Controller
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('dosen.surat-masuk.index',$data);
+        return view('dosen.pla.surat-masuk.index',$data);
     }
 
     

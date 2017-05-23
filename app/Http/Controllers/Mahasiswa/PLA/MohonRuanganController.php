@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Mahasiswa;
+namespace App\Http\Controllers\Mahasiswa\PLA;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -29,7 +29,7 @@ class MohonRuanganController extends Controller
         ];
 
         // Memanggil tampilan form create
-        return view('mahasiswa.memohon-ruangan.index',$data);
+        return view('mahasiswa.pla.memohon-ruangan.index',$data);
     }
 
     public function createAction(Request $request)

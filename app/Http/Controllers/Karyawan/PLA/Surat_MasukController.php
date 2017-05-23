@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Karyawan;
+namespace App\Http\Controllers\Karyawan\PLA;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -28,7 +28,7 @@ class Surat_MasukController extends Controller
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('karyawan.surat-masuk.index',$data);
+        return view('karyawan.pla.surat-masuk.index',$data);
     }
 
     public function create()
@@ -40,7 +40,7 @@ class Surat_MasukController extends Controller
         ];
 
         // Memanggil tampilan form create
-        return view('karyawan.surat-masuk.create',$data);
+        return view('karyawan.pla.surat-masuk.create',$data);
     }
 
     public function createAction(Request $request)
@@ -80,7 +80,7 @@ class Surat_MasukController extends Controller
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('karyawan.surat-masuk.edit',$data);
+        return view('karyawan.pla.surat-masuk.edit',$data);
     }
 
     public function editAction($id, Request $request)
