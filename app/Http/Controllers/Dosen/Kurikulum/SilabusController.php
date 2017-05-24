@@ -21,7 +21,7 @@ use App\Silabus_Sistem_Pembelajaran;
 use App\Silabus_Koor_Matkul;
 use App\Silabus_Media_Pembelajaran;
 use App\Status_Team_Teaching;
-
+use App\RPS_CP_Matkul;
 
 class SilabusController extends Controller
 {
@@ -60,15 +60,42 @@ class SilabusController extends Controller
 
     public function createAction(Request $request)
     {
-        // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        // Silabus_Matkul::create($request->input());
-       // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        Silabus_Matkul::create($request->input());
+        //update to table mata_kuliah
+        $matkul  = Silabus_Matkul::find($request->input('matkul'));
+        $matkul->capaian_matkul = $request->input('capaian_matkul');
+        $matkul->deskripsi_matkul  = $request->input('deskripsi_matkul');
+        $matkul->penilaian_matkul = $request->input('penilaian_matkul');
+        $matkul->pustaka_utama = $request->input('pustaka_utama');
+        $matkul->save();
+
+        //insert to table mk_prasyarat
+        $mk_prasyarat  = new Silabus_Matkul_Prasyarat;
+        $mk_prasyarat->mk_id = $request->input('matkul');
+        $mk_prasyarat->mk_syarat_id = $request->input('mk_syarat_id');
+        $mk_prasyarat->save();
+
+        //insert to table mk_softskill
+        $mk_softskill = new Silabus_mk_softskill;
+        $mk_softskill->mk_id = $request->input('matkul');
+        $mk_softskill->softskill_id = $request->input('softskill_id');
+        $mk_softskill->save();
+
+        //insert to table "mk-metode pembelajaran"
+        
+
+        //get capaian matakuliah where matkul chosen
+        $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $request->input('matkul'))->first();
+
+        //insert to table detail_media_pembelajaran
+        $detail_media = new Silabus_detail_media;
+        $detail_media->cpmk_id = $cpmk->id_cpmk;
+        $detail_media->save();
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Sistem pembelajaran berhasil ditambahkan');
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('kurikulum/silabus');
+        return Redirect::to('/dosen/kurikulum/silabus');
+        // dd($request->input('matkul'));
     }
 
     public function delete($id)
