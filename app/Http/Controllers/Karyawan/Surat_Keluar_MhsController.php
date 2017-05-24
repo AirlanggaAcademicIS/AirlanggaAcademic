@@ -46,10 +46,20 @@ class Surat_Keluar_MhsController extends Controller
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
+<<<<<<< HEAD:app/Http/Controllers/Karyawan/Surat_Keluar_MhsController.php
         Surat_Keluar_Mhs::create($request->input());
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Surat berhasil ditambahkan');
+=======
+        $dosen = $request->input();
+        $dosen['status_jurnal'] = 0 ;
+        $dosen['file_jurnal'] = time() .'.'.$request->file('file_jurnal')->getClientOriginalExtension();
+        JurnalDosen::create($dosen);
+        $file = $request->file('file_jurnal')->move("img/dosen/",$dosen['file_jurnal']);
+        // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'Jurnal Berhasil Ditambahkan');
+>>>>>>> 39015ce865a33a1a5a3db6a46e5339ae93879d8f:app/Http/Controllers/Dosen/JurnalController.php
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/surat-keluar-mhs');
@@ -64,7 +74,11 @@ class Surat_Keluar_MhsController extends Controller
         $surat_keluar_mhs->delete();
 
         // Menampilkan notifikasi pesan sukses
+<<<<<<< HEAD:app/Http/Controllers/Karyawan/Surat_Keluar_MhsController.php
         Session::put('alert-success', 'Surat berhasil dihapus');
+=======
+        Session::put('alert-success', 'Jurnal Berhasil Dihapus');
+>>>>>>> 39015ce865a33a1a5a3db6a46e5339ae93879d8f:app/Http/Controllers/Dosen/JurnalController.php
 
     // Kembali ke halaman sebelumnya
         return Redirect::back();     
@@ -100,7 +114,11 @@ class Surat_Keluar_MhsController extends Controller
         $surat_keluar_mhs->save();
 
         // Notifikasi sukses
+<<<<<<< HEAD:app/Http/Controllers/Karyawan/Surat_Keluar_MhsController.php
         Session::put('alert-success', 'Surat berhasil diedit');
+=======
+        Session::put('alert-success', 'Jurnal Berhasil Diedit');
+>>>>>>> 39015ce865a33a1a5a3db6a46e5339ae93879d8f:app/Http/Controllers/Dosen/JurnalController.php
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/surat-keluar-mhs');

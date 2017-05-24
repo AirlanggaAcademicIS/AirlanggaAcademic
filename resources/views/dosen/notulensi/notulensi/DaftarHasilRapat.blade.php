@@ -78,4 +78,4 @@ Notulensi Rapat
 
 @section('code-footer')
 
-@endsection5
+@endsection

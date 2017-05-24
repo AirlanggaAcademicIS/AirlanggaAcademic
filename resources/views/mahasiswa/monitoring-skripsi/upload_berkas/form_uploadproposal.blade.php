@@ -6,12 +6,10 @@
 @endsection
 
 @section('htmlheader_title')
-<!-- Nama konten -->
 Upload Berkas
 @endsection
 
 @section('contentheader_title')
-<!-- Nama konten -->
 Upload Berkas
 @endsection
 
@@ -112,11 +110,7 @@ Upload Berkas
           </div>
   </div>
   </div>
-              <!-- /.box-body -->
-
-             
- 
-
+  <!-- /.box-body -->
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">

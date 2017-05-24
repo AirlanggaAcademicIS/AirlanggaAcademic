@@ -57,6 +57,7 @@ Tambah Asset
 		            	<option value="">-- Pilih Kategori --</option>
 		                <option value="1">Dokumen</option>
 		                <option value="2">Furniture</option>
+		                <option value="3">Elektronik</option>
 		               
 					</select>
 					</div>
@@ -68,7 +69,6 @@ Tambah Asset
 						<select class="form-control" name="status" required>
 		            	<option value="">-- Pilih Status --</option>
 		                <option value="1">Ready</option>
-		                <option value="2">Not Ready</option>
 					</select>
 					</div>
 				</div>

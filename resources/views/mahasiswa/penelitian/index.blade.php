@@ -32,6 +32,7 @@ Penelitian Mahasiswa
   <a href="{{url('/mahasiswa/penelitian/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Form Penelitian</a>
 </div>
+
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
@@ -68,11 +69,6 @@ Penelitian Mahasiswa
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/mahasiswa/penelitian/'.$bio->kode_penelitian.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
-        <a href="{{url('/mahasiswa/penelitian/detailanggota/'.$bio->kode_penelitian.'/create')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Anggota</a>
-        <a href="{{url('/mahasiswa/penelitian/detailpenelitian/'.$bio->kode_penelitian.'/create/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Detail</a>
-
       </td>
       @else
       <td width="20%" style="text-align:center" >

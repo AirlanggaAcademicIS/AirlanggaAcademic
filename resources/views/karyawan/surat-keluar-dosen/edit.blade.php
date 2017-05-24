@@ -49,18 +49,36 @@ Verifikasi Surat Keluar
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
+<<<<<<< HEAD:resources/views/karyawan/surat-keluar-dosen/edit.blade.php
 
 				<!--<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">NIP Petugas</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control input-lg" id="nip_petugas_id" name="nip_petugas_id" value="{{$surat_keluar_dosen->nip_petugas_id}}" placeholder="Masukkan NIP Petugas" required>
+=======
+				<div class="form-group">
+					<label for="nim" class="col-sm-2 control-label">Asset ID</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" value="{{$asset->id_asset}}" id="asset_id" name="asset_id" placeholder="Masukkan ID" readonly required>
+>>>>>>> 39015ce865a33a1a5a3db6a46e5339ae93879d8f:resources/views/karyawan/inventaris/peminjaman/create.blade.php
 					</div>
 				</div>
 -->
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Nama</label>
 					<div class="col-md-8">
+<<<<<<< HEAD:resources/views/karyawan/surat-keluar-dosen/edit.blade.php
 						<input type="text" class="form-control input-lg" id="nama" name="nama" value="{{$surat_keluar_dosen->nama}}" placeholder="Masukkan Nama" required>
+=======
+						<input type="text" class="form-control input-lg" value="{{$asset->nama_asset}}" id="asset_yang_dipinjam" name="asset_yang_dipinjam" placeholder="Masukkan Nama" readonly required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nim" class="col-sm-2 control-label">Nomor Induk Peminjam</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nim_nip_peminjam" name="nim_nip_peminjam" placeholder="Masukkan NIM" required>
+>>>>>>> 39015ce865a33a1a5a3db6a46e5339ae93879d8f:resources/views/karyawan/inventaris/peminjaman/create.blade.php
 					</div>
 				</div>
 
