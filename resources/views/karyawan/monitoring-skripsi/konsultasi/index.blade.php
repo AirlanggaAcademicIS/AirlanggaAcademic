@@ -10,7 +10,7 @@ Konsultasi
 @endsection
 
 @section('contentheader_title')
-Konsultasi
+Data Konsultasi Mahasiswa
 @endsection
 
 @section('main-content')
@@ -26,41 +26,41 @@ Konsultasi
   @endif
   @endforeach
 </div>
-<div style="margin-bottom: 10px">
-  <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('/karyawan/monitoring-skripsi/konsultasi/create')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah Konsultasi</a>
-</div>
+
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">Mahasiswa</th>
-      <th style="text-align:center">Tanggal Konsultasi</th>      
-      <th style="text-align:center">Catatan Konsultasi</th>
+      <th style="text-align:center">NIM</th>
+      <th style="text-align:center">Status</th>
       <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
-   @forelse($konsultasi as $i => $konsul) 
+  @forelse($dis as $d)
+   @foreach($konsultasi as $i => $konsul)
+   @if($d->skripsi_id == $konsul->skripsi_id)
     <tr>
       <td width="5%">{{ $i+1 }}</td>
-      <td width="10%" style="text-align:center">{{$konsul->Mahasiswa['nama_mhs']}}</td>
-      <td width="15%" style="text-align:center">{{$konsul->tgl_konsul}}</td>
-      <td width="20%" style="text-align:center">{{$konsul->catatan_konsul}}</td>
+      <td width="10%" style="text-align:center">{{$konsul->nim_id}}</td>
+      <td width="20%" style="text-align:center">@if($konsul->is_verified==1)
+      {{'Belum Diverifikasi'}}
+      @else
+      {{'Sudah Diverifikasi'}}
+      @endif</td>
+
      
       <td width="20%" style="text-align:center" >
-      <a onclick="return confirm('Anda yakin untuk menghapus konsultasi ini?');" href="{{url('/karyawan/monitoring-skripsi/konsultasi/'.$konsul->id_konsultasi.'/delete/')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('/karyawan/monitoring-skripsi/konsultasi/'.$konsul->id_konsultasi.'/edit/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Edit</a>
+        <a href="{{url('/karyawan/monitoring-skripsi/konsultasi/'.$konsul->nim_id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Rincian</a>
         </td>
     </tr>
-     @empty
-        <tr>
-          <td colspan="6"><center>Belum ada Konsultasi</center></td>
-        </tr>
+    @break
+    @endif
+    @endforeach
+    @empty
+        
     @endforelse
   </tbody>
 </table>

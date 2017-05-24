@@ -41,10 +41,6 @@
 <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 <script src="{{asset('/plugins/bootstrap-datepicker.js')}}"></script>
 <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
-<<<<<<< HEAD
-=======
-
->>>>>>> d1777ed63d6148f51abc8d4c913f6785d88e0cf1
 <script>
     window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),

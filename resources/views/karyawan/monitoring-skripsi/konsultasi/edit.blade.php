@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Edit Konsultasi
+Riwayat Konsultasi
 @endsection
 
 @section('contentheader_title')
-Edit Konsultasi
+Riwayat Konsultasi
 @endsection
 
 @section('code-header')
@@ -45,32 +45,50 @@ Edit Konsultasi
 			</div>
 			@endif
 			<br>
-			<form id="tambahKonsultasi" method="post" action="{{url('/dosen/monitoring-skripsi/konsultasi/'.$konsultasi->id_konsultasi.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahKonsultasi" method="post" action="{{url('/karyawan/monitoring-skripsi/konsultasi/'.$mhs->id_skripsi.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input value="{{$konsultasi->skripsi_id}}" type="hidden" class="form-control input-lg" id="skripsi_id" name="skripsi_id" placeholder="Masukkan id skripsi" required readonly>
-				<!-- Menampilkan input text biasa -->
+
 				<div class="form-group">
 					<label for="nim" class="col-sm-2 control-label">NIM</label>
 					<div class="col-md-8">
-						<input value="{{$konsultasi->Mahasiswa['NIM_id']}}" type="text" class="form-control input-lg" id="" name="" placeholder="Masukkan id skripsi" required readonly>
+						<input value="{{$mhs->nim_id}}" type="text" class="form-control input-lg" id="skripsi_id" name="skripsi_id" placeholder="Masukkan id skripsi" readonly>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="nim" class="col-sm-2 control-label">Nama</label>
+					<div class="col-md-8">
+						<input value="{{$mhs->nama_mhs}}" type="text" class="form-control input-lg" id="skripsi_id" name="skripsi_id" placeholder="Masukkan id skripsi" readonly>
 					</div>
 				</div>
 
-				<!-- Menampilkan tanggal dengan datepicker -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Konsultasi</label>
-					<div class="col-md-8">
-						<input value="{{$konsultasi->tgl_konsul}}" type="text" class="form-control input-lg" name="tgl_konsul" placeholder="Masukkan Tanggal" required readonly>
-					</div>
-				</div>
-				
-				<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Catatan</label>
-					<div class="col-md-8">
-						<textarea id="catatan_konsul" name="catatan_konsul" placeholder=" Masukkan Catatan " required cols="82" rows="5">
-						{{$konsultasi->catatan_konsul}}
-						</textarea>
+				<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+  <thead>
+    <tr>
+      <th style="text-align:center">No.</th>
+      <th style="text-align:center">Tanggal Konsultasi</th>      
+      <th style="text-align:center">Catatan Konsultasi</th>
+    </tr>
+    </thead>
+  <tbody>
+   @forelse($konsultasi as $i => $konsul) 
+    <tr>
+      <td width="5%">{{ $i+1 }}</td>
+      <td width="15%" style="text-align:center">{{$konsul->tgl_konsul}}</td>
+      <td width="20%" style="text-align:center">{{$konsul->catatan_konsul}}</td>
+    </tr>
+     @empty
+        <tr>
+          <td colspan="6"><center>Belum ada Konsultasi</center></td>
+        </tr>
+    @endforelse
+  </tbody>
+</table>
+
+	<div class="form-group text-left">
+					<div class="col-md-8 col-md-offset-2">
+					<button type="submit" formmethod="get" class="btn btn-danger btn-lg" formaction="{{url('karyawan/monitoring-skripsi/konsultasi')}}">
+							Back
+						</button>
 					</div>
 				</div>
 
@@ -93,8 +111,6 @@ Edit Konsultasi
   <script>
 $( function() {
     var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
-
   } );
   </script>
 @endsection
-
