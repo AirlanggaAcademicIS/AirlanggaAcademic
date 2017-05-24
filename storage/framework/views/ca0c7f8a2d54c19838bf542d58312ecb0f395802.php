@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!-- REQUIRED JS SCRIPTS -->
 <!-- REQUIRED JS SCRIPTS -->
 
@@ -17,6 +17,9 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="<?php echo e(asset('/js/jquery-ui.js')); ?>" type="text/javascript"></script>
+<script src="<?php echo e(asset('/js/jquery.slimscroll.js')); ?>" type="text/javascript"></script>
+
 <!-- JQuery and bootstrap are required by Laravel 5.3 in resources/assets/js/bootstrap.js-->
 <!-- Laravel App -->
 
@@ -54,7 +57,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
 <script src="<?php echo e(asset('/js/plugins/timepicker/bootstrap-timepicker.min.js')); ?>"></script>
->>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
+
 
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script>
@@ -62,5 +65,31 @@
         'csrfToken' => csrf_token(),
     ]); ?>;
 </script>
+<script>
+    $(document).ready(function() {
+        function adjustIframeHeight() {
+            var $body   = $('body'),
+                $iframe = $body.data('iframe.fv');
+            if ($iframe) {
+                // Adjust the height of iframe
+                $iframe.height($body.height());
+            }
+        }
+    });
+
+    $("#penelitian").steps({
+                headerTag: "h2",
+                bodyTag: "section",
+              onFinished: function (event, currentIndex)
+            {
+                var form = $(this);
+
+                // Submit form input
+
+                form.submit();
+            }           
+    });
+
+    </script>
 
 <?php echo $__env->yieldContent('code-footer'); ?>

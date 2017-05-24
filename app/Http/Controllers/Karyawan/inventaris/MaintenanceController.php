@@ -37,7 +37,6 @@ class MaintenanceController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'index-maintenance',
             'asset' => $asset,
-            
         ];
         // Memanggil tampilan form create
         return view('karyawan.inventaris.maintenance.input',$data);
@@ -45,6 +44,7 @@ class MaintenanceController extends Controller
 
     public function createAction(Request $request)
     {
+        Asset::where('id', $id)->update(array('status' => '')); //waiting for FAIQ
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
         $maintenance = Maintenance::create([
             'nip_petugas_id' => Auth::User()->username,
@@ -104,6 +104,8 @@ class MaintenanceController extends Controller
         $maintenance->solution = $request->input('solution');
         $maintenance->waktu_maintenance = $request->input('waktu_maintenance');
         $maintenance->save();
+
+        Asset::where('id_asset', $request->input('asset_id'))->update(array('status'=>'Ready'));
 
         // Notifikasi sukses
         Session::put('alert-success', 'Data maintenance berhasil diedit');
