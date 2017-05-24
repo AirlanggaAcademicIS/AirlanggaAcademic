@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Detail Penelitian
+Tambah Data Maintenance
 @endsection
 
 @section('contentheader_title')
-Detail Penelitian
+Tambah Data Maintenance
 @endsection
 
 @section('code-header')
@@ -46,57 +46,56 @@ Detail Penelitian
 			</div>
 			@endif
 			<br>
-			<form id="tambahDetailPenelitian" method="post" action="{{url('/mahasiswa/penelitian/detailpenelitian/'.$detailpenelitian->kode_penelitian.'/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="inputMaintenance" method="post" action="{{url('/inventaris/maintenance/input-maintenance')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-				
-				
 				<!-- Menampilkan input text biasa -->
+
 				<div class="form-group">
-					<label for="abstract" class="col-sm-2 control-label">Abstrak</label>
-					<div class="col-md-8">
-						<textarea id="abstract" name="abstract" placeholder=" Masukkan abstract" required cols="115" rows="5">
-						</textarea>
+					<label for="nim" class="col-sm-2 control-label">ID Asset</label>
+					<div class="col-md-6">
+						<input type="text" class="form-control input-lg" id="asset_id" name="asset_id" placeholder="Masukkan ID Asset" value="{{$asset->id_asset}}"required>
 					</div>
 				</div>
-				
-				
-				<!-- Menampilkan textarea -->
+
 				<div class="form-group">
-					<label for="background" class="col-sm-2 control-label">Background</label>
+					<label for="nim" class="col-sm-2 control-label">Nama Asset</label>
+					<div class="col-md-6">
+						<input type="text" class="form-control input-lg" id="asset_yang_dimaintenance" name="asset_yang_dimaintenance" value="{{$asset->nama_asset}}" placeholder="Masukkan Nama Asset yang Dimaintenance" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Nama Pemaintenance</label>
+					<div class="col-md-6">
+						<input type="text" class="form-control input-lg" id="nama_pemaintenance" name="nama_pemaintenance" placeholder="Masukkan Nama Pemaintenance" required>
+					</div>
+				</div>
+
+			<!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Problem</label>
 					<div class="col-md-8">
-						<textarea id="background" name="background" placeholder=" Masukkan background" required cols="115" rows="5">
+						<textarea id="problem" name="problem" placeholder=" Masukkan Detail Problem" required cols="82" rows="5">
 						</textarea>
 					</div>
 				</div>
 
-				<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="objective" class="col-sm-2 control-label">Objective</label>
+					<label for="nama" class="col-sm-2 control-label">Solution</label>
 					<div class="col-md-8">
-						<textarea id="objective" name="objective" placeholder=" Masukkan objective" required cols="115" rows="5">
-						</textarea>
-					</div>
-				</div>
-				<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="methods" class="col-sm-2 control-label">Methods</label>
-					<div class="col-md-8">
-						<textarea id="methods" name="methods" placeholder=" Masukkan methods" required cols="115" rows="5">
+						<textarea id="solution" name="solution" placeholder=" Masukkan Detail Solution" required cols="82" rows="5">
 						</textarea>
 					</div>
 				</div>
 
-				<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="results" class="col-sm-2 control-label">Results</label>
-					<div class="col-md-8">
-						<textarea id="results" name="results" placeholder=" Masukkan results" required cols="115" rows="5">
-						</textarea>
+					<label for="nama" class="col-sm-2 control-label">Waktu Maintenance</label>
+					<div class="col-md-6">
+						<input type="text" class="form-control input-lg" id="datepicker" name="waktu_maintenance" placeholder="Masukkan Waktu Maintenance" required>
 					</div>
 				</div>
 
-			
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
@@ -118,6 +117,6 @@ $( function() {
     var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
 
   } );
-  </script>
+  </script> 
 @endsection
 
