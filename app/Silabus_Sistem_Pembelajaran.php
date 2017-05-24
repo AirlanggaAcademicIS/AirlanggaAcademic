@@ -11,4 +11,6 @@ class Silabus_Sistem_Pembelajaran extends Model
    protected $fillable = [
 		'sistem_pembelajaran',		
    ];
+
+
 }

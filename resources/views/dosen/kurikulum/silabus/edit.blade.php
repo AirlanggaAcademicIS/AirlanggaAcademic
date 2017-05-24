@@ -6,30 +6,71 @@
 @endsection
 
 @section('htmlheader_title')
+<<<<<<< HEAD
+
+  Edit Silabus
+=======
 s
   Silabus 
+>>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
 @endsection
 
 @section('contentheader_title')
 
+<<<<<<< HEAD
+    Edit Silabus
+=======
 Silabus
+>>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
 @endsection
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
+<<<<<<< HEAD
+
+<form role="form">
+<div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">Edit Silabus</h3>
+    </div>
+=======
 <form role="form">
     <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">Edit Silabus</h3>
         </div>
+>>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
 
     <div class="box-body">
 
     <div class="form-group">
+<<<<<<< HEAD
+        <label for="nama_matkul"><b>Mata Kuliah</b></label>
+    <input class="form-control" id="nama_matkul" name="nama_matkul" placeholder="Masukkan Mata Kuliah" value="{{$mata_kuliah->nama_matkul}}" disabled="" required>
+    </div>
+    <div class="form-group">
+=======
+>>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
         <label for="sks"><b>Beban Studi</b></label>
     <input class="form-control" id="sks" name="sks" placeholder="Masukkan SKS" value="{{$mata_kuliah->sks}}" disabled="" required>
     </div>
     <div class="form-group">
+<<<<<<< HEAD
+        <label for="mk_prasyarat"><b>Mata Kuliah Prasyarat</b></label><br>
+        @foreach($mk_prasyarat as $syarat)
+        <input type="checkbox" name="mk_prasyarat" value="
+        {{$syarat->matkul['nama_matkul']}}
+        ">
+        {{$syarat->matkul['nama_matkul']}}<br>
+        @endforeach
+        </div>
+    <div class="form-group">
+        <label for="deskripsi_cpmk"><b>Capaian Pembelajaran yang dibebankan pada matakuliah ini</b></label>
+        @foreach($cp_matkul as $cp )
+        <textarea class="form-control" rows="4" id="deskripsi_cpmk" name="deskripsi_cpmk" required>{!!$cp->deskripsi_cpmk!!}</textarea>
+        @endforeach
+        </div>
+=======
         <label for="prasyarat"><b>Prasyarat</b></label><br>
         <input type="text" value=
         "@foreach($mk_prasyarat as $syarat)             
@@ -42,12 +83,24 @@ Silabus
         <textarea class="form-control" rows="4">Mahasiswa dapat menggunakan konsep-konsep kalkulus dalam ilmu kehayatan.
         </textarea>
     </div>
+>>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
     <div class="form-group">
         <label for="dekripsi_matkul"><b>Deskripsi Mata Kuliah/Silabus</b></label>
         <textarea class="form-control" rows="4" id="deskripsi_matkul" name="deskripsi_matkul" required>{!!$mata_kuliah->deskripsi_matkul!!}</textarea>
     </div>
     <div class="form-group">
         <label for="softskill"><b>Atribut Softskill</b></label><br>
+<<<<<<< HEAD
+        @foreach($mk_softskills as $softskill)
+        <input type="checkbox" name="mk_softskill" value="
+         {{$softskill->softskill['softskill']}}
+        ">
+        {{$softskill->softskill['softskill']}}<br>
+        @endforeach
+    </div><br>
+    <div class="form-group">
+        <label for="metode-pembelajaran"><b>Sistem Pembelajaran</b></label><br>     
+=======
         <input type="text" value=
         "@foreach($mk_softskills as $softskill)
           {{$softskill->softskill['softskill']}}
@@ -57,6 +110,7 @@ Silabus
     </div>
     <div class="form-group">
         <label for="metode-pembelajaran"><b>Metode Pembelajaran</b></label><br>     
+>>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
         <input type="text" value="ceramah,diskusi" data-role="tagsinput">                    
     </div>
     <div class="form-group">
@@ -83,7 +137,11 @@ Silabus
     </div>
 
     <div class="box-footer clearfix">
+<<<<<<< HEAD
+      <a href="{{{('/dosen/kurikulum/silabus')}}}" class="btn btn-info">Kembali</a>
+=======
       <button type="update" class="pull-right btn btn-info btn-sm" id="update">Update
+>>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
       </button>
     </div>
 
@@ -93,9 +151,20 @@ Silabus
     <!-- /.box -->
 </div> 
 </form>
+<<<<<<< HEAD
+  
+
+=======
+>>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
 
 @endsection
 
 @section('code-footer')
+<<<<<<< HEAD
+  
+
+
+=======
+>>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
 
 @endsection
