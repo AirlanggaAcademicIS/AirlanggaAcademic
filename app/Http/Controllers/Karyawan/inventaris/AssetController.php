@@ -12,6 +12,8 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\Asset;
+use Milon\Barcode\DNS2D;
+use Milon\Barcode\DNS1D;
 
 
 class AssetController extends Controller
@@ -64,7 +66,8 @@ class AssetController extends Controller
 
            ]);
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Asset berhasil ditambahkan');
+        Session::put('alert-success', '');
+        Session::put('alert-success', 'Asset berhasil ditambahkan! QRCODE telah dicetak di: AirlanggaAcademic\public'.DNS2D::getBarcodePNGPath('AST'.$request->input('nama_asset').'',"QRCODE",20,20));
 
 
 
