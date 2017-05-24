@@ -17,6 +17,7 @@ use Auth;
 use Session;
 use Carbon\Carbon;
 
+
 /**
  * Class HomeController
  * @package App\Http\Controllers
@@ -132,4 +133,6 @@ class PeminjamanController extends Controller
         // Kembali ke halaman sebelumnya
         return Redirect::back();     
     }
+
+
 }

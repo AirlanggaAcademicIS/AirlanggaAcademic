@@ -44,8 +44,7 @@ class MaintenanceController extends Controller
 
     public function createAction(Request $request)
     {
-        Asset::where('id', $id)->update(array('status' => '')); //waiting for FAIQ
-        // Menginsertkan apa yang ada di form ke dalam tabel biodata
+        Asset::where('id_asset', $request->input('asset_id'))->update(array('status_id' => 1)); 
         $maintenance = Maintenance::create([
             'nip_petugas_id' => Auth::User()->username,
             'asset_id' => $request->input('asset_id'),
