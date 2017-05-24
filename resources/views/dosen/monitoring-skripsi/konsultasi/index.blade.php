@@ -27,39 +27,28 @@ Konsultasi
   @endforeach
 </div>
 
-<div style="overflow: auto">
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
-  <thead>
-    <tr>
-      <th style="text-align:center">No.</th>
-      <th style="text-align:center">ID Skripsi</th>
-      <th style="text-align:center">Tanggal Konsultasi</th>      
-      <th style="text-align:center">Catatan Konsultasi</th>
-      <th style="text-align:center">Action</th>
-    </tr>
-    </thead>
-  <tbody>
-   @forelse($konsultasi as $i => $konsul) 
-    <tr>
-      <td width="5%">{{ $i+1 }}</td>
-      <td width="10%" style="text-align:center">{{$konsul->skripsi_id}}</td>
-      <td width="15%" style="text-align:center">{{$konsul->tgl_konsul}}</td>
-      <td width="20%" style="text-align:center">{{$konsul->catatan_konsul}}</td>
-     
-      <td width="20%" style="text-align:center" >
-        <a href="{{url('/dosen/monitoring-skripsi/konsultasi/'.$konsul->id_konsultasi.'/edit/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Edit</a>
-        </td>
-    </tr>
-     @empty
-        <tr>
-          <td colspan="6"><center>Belum ada Konsultasi</center></td>
-        </tr>
-    @endforelse
-  </tbody>
-</table>
-</div>
-
+<div class="container">
+  <div class="row">
+  <form action="{{url('/dosen/monitoring-skripsi/konsultasi/mhs')}}" method="get">
+          <div class="col-md-3" style="padding: 0;">
+            <select class="form-control" name="mhs" id="mhs">
+            <option>--Pilih Mahasiswa--</option>
+   @foreach($dis as $d)
+   @foreach($konsultasi as $i => $konsul)
+   @if($d->skripsi_id == $konsul->skripsi_id)
+   <option value="{{ $konsul->NIM_id }}">{{ $konsul->nama_mhs }}</option>
+    @break
+    @endif
+    @endforeach
+    @endforeach 
+            </select>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-info" type="submit">Pilih</button>
+          </div>
+      </form>
+          </div>
+          </div>
 @endsection
 
 @section('code-footer')

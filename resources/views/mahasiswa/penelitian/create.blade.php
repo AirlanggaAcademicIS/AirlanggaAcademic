@@ -136,6 +136,59 @@ Tambah Penelitian Mahasiswa
                   </div>
                 </div>
 
+				<div class="form-group">
+					<label for="anggota" class="col-sm-2 control-label">Anggota</label>
+					<div class="col-md-8">
+						<textarea type="text" class="form-control input-lg" id="anggota" name="anggota" 
+						placeholder="Masukkan Anggota" required></textarea>
+					</div>
+				</div>
+
+				<!-- Menampilkan input text biasa -->
+				<div class="form-group">
+					<label for="abstract" class="col-sm-2 control-label">Abstrak</label>
+					<div class="col-md-8">
+						<textarea id="abstract" name="abstract" placeholder=" Masukkan abstract" required cols="115" rows="5">
+						</textarea>
+					</div>
+				</div>
+				
+				
+				<!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="background" class="col-sm-2 control-label">Background</label>
+					<div class="col-md-8">
+						<textarea id="background" name="background" placeholder=" Masukkan background" required cols="115" rows="5">
+						</textarea>
+					</div>
+				</div>
+
+				<!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="objective" class="col-sm-2 control-label">Objective</label>
+					<div class="col-md-8">
+						<textarea id="objective" name="objective" placeholder=" Masukkan objective" required cols="115" rows="5">
+						</textarea>
+					</div>
+				</div>
+				<!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="methods" class="col-sm-2 control-label">Methods</label>
+					<div class="col-md-8">
+						<textarea id="methods" name="methods" placeholder=" Masukkan methods" required cols="115" rows="5">
+						</textarea>
+					</div>
+				</div>
+
+				<!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="results" class="col-sm-2 control-label">Results</label>
+					<div class="col-md-8">
+						<textarea id="results" name="results" placeholder=" Masukkan results" required cols="115" rows="5">
+						</textarea>
+					</div>
+				</div>
+
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">

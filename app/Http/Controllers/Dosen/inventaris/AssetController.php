@@ -29,5 +29,18 @@ class AssetController extends Controller
         ];
         return view('Dosen.inventaris.index',$data);
 
-        }
+    }
+
+    public function viewDetail($id_asset)
+    {
+        $asset = Asset::where('id_asset', $id_asset)->first();
+        $data = [
+            'page'=> 'inventaris',
+            'asset' => $asset,
+
+        ];
+
+        return view('dosen.inventaris.viewDetail', $data);
+    }
+
 }

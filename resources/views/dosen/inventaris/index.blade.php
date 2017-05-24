@@ -74,7 +74,7 @@ Asset
       <td width="10%" style="text-align:center">{{$ass->jumlah_barang}}</td>
       <td width="20%" style="text-align:center" >
 
-        <a href="{{url('inventaris/asset/'.$ass->id_asset.'/viewDetail/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('inventaris/dosen/asset/'.$ass->id_asset.'/viewDetail/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-eye"></i> View Detail</a>
                
         </td>

@@ -93,8 +93,6 @@ Edit Konsultasi
   <script>
 $( function() {
     var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
-
   } );
   </script>
 @endsection
-
