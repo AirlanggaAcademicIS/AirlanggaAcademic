@@ -50,9 +50,8 @@ Edit Konsultasi
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">id skripsi</label>
 					<div class="col-md-8">
-						<input value="{{$konsultasi->skripsi_id}}" type="text" class="form-control input-lg" id="skripsi_id" name="skripsi_id" placeholder="Masukkan id skripsi" required>
+						<input value="{{$konsultasi->skripsi_id}}" type="hidden" class="form-control input-lg" id="skripsi_id" name="skripsi_id" placeholder="Masukkan id skripsi" required>
 					</div>
 				</div>
 
