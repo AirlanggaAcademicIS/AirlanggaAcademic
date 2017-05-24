@@ -32,6 +32,7 @@ Penelitian Mahasiswa
   <a href="{{url('/mahasiswa/penelitian/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Form Penelitian</a>
 </div>
+
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
@@ -55,21 +56,23 @@ Penelitian Mahasiswa
       <td width="10%" style="text-align:center">{{$bio->tahun}}</td>
 
       @if (($bio->is_verified)==0)
-      <td width="20%" style="text-align:center"><span class="label label-warning">Process</span></td>
+      <td width="10%" style="text-align:center"><span class="label label-warning">Process</span></td>
       @elseif (($bio->is_verified)==1)
-      <td width="20%" style="text-align:center"><span class="label label-success">Approved</span></td>
+      <td width="10%" style="text-align:center"><span class="label label-success">Approved</span></td>
       @else
-      <td width="20%" style="text-align:center"><span class="label label-danger">Rejected</span></td>
+      <td width="10%" style="text-align:center"><span class="label label-danger">Rejected</span></td>
       @endif
 
        @if (($bio->is_verified)==0)
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus penelitian ini?');" href="{{url('/mahasiswa/penelitian/'.$bio->kode_penelitian.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="30%" style="text-align:center" >
+        <a onclick="return confirm('Anda yakin untuk menghapus penelitian ini?');" href="{{url('/mahasiswa/penelitian/'.$bio->kode_penelitian.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/mahasiswa/penelitian/'.$bio->kode_penelitian.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
       </td>
       @else
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus penelitian ini?');" href="{{url('/mahasiswa/penelitian/'.$bio->kode_penelitian.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="20%" style="text-align:center" >
+        <a onclick="return confirm('Anda yakin untuk menghapus penelitian ini?');" href="{{url('/mahasiswa/penelitian/'.$bio->kode_penelitian.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
       </td>    
       @endif

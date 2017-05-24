@@ -145,6 +145,61 @@ Edit Penelitian Mahasiswa
                   </div>
                 </div>
 
+                <!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Anggota</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="anggota" name="anggota" 
+						placeholder="Masukkan Anggota" value="{{$detail_anggota->anggota}}" required>
+						
+					</div>
+				</div>
+
+				<!-- Menampilkan input text biasa -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Abstrak</label>
+					<div class="col-md-8">
+						<textarea id="abstract" name="abstract" placeholder=" Masukkan Abstract" required cols="115" rows="5">{{$detailpenelitian->abstract}}
+						</textarea>
+					</div>
+				</div>
+
+				<!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Background</label>
+					<div class="col-md-8">
+						<textarea id="background" name="background" placeholder=" Masukkan Background" required cols="115" rows="5">{{$detailpenelitian->background}}
+						</textarea>
+					</div>
+				</div>
+
+				<!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Objective</label>
+					<div class="col-md-8">
+						<textarea id="objective" name="objective" placeholder=" Masukkan Objective" required cols="115" rows="5">{{$detailpenelitian->objective}}
+						</textarea>
+					</div>
+				</div>
+				
+				<!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Methods</label>
+					<div class="col-md-8">
+						<textarea id="methods" name="methods" placeholder=" Masukkan Methods" required cols="115" rows="5">{{$detailpenelitian->methods}}
+						</textarea>
+					</div>
+				</div>
+
+				<!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Results</label>
+					<div class="col-md-8">
+						<textarea id="results" name="results" placeholder=" Masukkan Results" required cols="115" rows="5">{{$detailpenelitian->results}}
+						</textarea>
+					</div>
+				</div>
+
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
@@ -162,6 +217,6 @@ Edit Penelitian Mahasiswa
 @section('code-footer')
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  
+
 @endsection
 

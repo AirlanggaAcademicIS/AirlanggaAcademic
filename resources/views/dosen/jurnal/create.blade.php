@@ -72,9 +72,9 @@ Tambah Jurnal
 				</div>
 				<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Masuk</label>
+					<label for="nama" class="col-sm-2 control-label">Tanggal Jurnal</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_masuk" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_jurnal" placeholder="Masukkan Tanggal" required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -89,6 +89,14 @@ Tambah Jurnal
 						<input type="text" class="form-control input-lg" id="penulis_ke" name="penulis_ke" placeholder="Masukkan Penulis Ke" required>
 					</div>
 				</div>
+				<div class="form-group">
+					<label for="file_jurnal" class="col-sm-2 control-label">File Jurnal</label>
+					<div class="col-md-8">
+						<input type="file" class="form-control input-lg" id="file_jurnal" name="file_jurnal" placeholder="Pilih File Jurnal" required>
+
+					</div>
+				</div>
+
 
 				
 
