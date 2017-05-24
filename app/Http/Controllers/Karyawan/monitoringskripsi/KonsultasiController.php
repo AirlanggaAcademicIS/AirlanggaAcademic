@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\mahasiswa\monitoringskripsi;
+namespace App\Http\Controllers\karyawan\monitoringskripsi;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -11,10 +11,10 @@ use Session;
 use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
+use DB;
 use App\Konsultasi;
 use App\Skripsi;
 use Auth;
-use Illuminate\Support\Facades\DB;
 
 class KonsultasiController extends Controller
 {
@@ -22,22 +22,22 @@ class KonsultasiController extends Controller
     // Function untuk menampilkan tabel
     public function index()
     {
-        $nim= Auth::user()->username;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-
             'page' => 'konsultasi',
             // Memanggil semua isi dari tabel biodata
-            'konsultasi' => DB::table('konsultasi')
+            'dis' => DB::table('konsultasi')
+            ->select('skripsi_id')
+            ->groupBy('konsultasi.skripsi_id')
+            ->get(),
+            'konsultasi' =>DB::table('konsultasi')
             ->join('skripsi', 'skripsi.id_skripsi', '=', 'konsultasi.skripsi_id')
             ->join('biodata_mhs','biodata_mhs.nim_id','=','skripsi.NIM_id')
-            ->select('*')
-            ->where('skripsi.NIM_id','=',$nim)
-            ->get()
+            ->select('konsultasi.*','biodata_mhs.*','skripsi.*')
+            ->get(),
         ];
-
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('mahasiswa.monitoring-skripsi.konsultasi.index',$data);
+        return view('karyawan.monitoring-skripsi.konsultasi.index',$data);
     }
 
     public function create()
@@ -45,10 +45,11 @@ class KonsultasiController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'konsultasi',
-             'mhs' => Skripsi::where('NIM_id','=', Auth::user()->username)->get()
+           
         ];
+        
         // Memanggil tampilan form create
-        return view('mahasiswa.monitoring-skripsi.konsultasi.create',$data);
+        return view('karyawan.monitoring-skripsi.konsultasi.create',$data);
     }
 
     public function createAction(Request $request)
@@ -60,7 +61,7 @@ class KonsultasiController extends Controller
         Session::put('alert-success', 'Konsultasi berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('mahasiswa/monitoring-skripsi/konsultasi');
+        return Redirect::to('karyawan/monitoring-skripsi/konsultasi');
     }
 
     public function delete($id)
@@ -78,34 +79,42 @@ class KonsultasiController extends Controller
         return Redirect::back();     
     }
 
-   public function edit($id)
+   public function edit($nim_id)
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'konsultasi',
             // Mencari biodata berdasarkan id
-            'konsultasi' => Konsultasi::find($id)
+            'konsultasi' => DB::table('konsultasi')
+            ->join('skripsi', 'skripsi.id_skripsi', '=', 'konsultasi.skripsi_id')
+            ->join('biodata_mhs','biodata_mhs.nim_id','=','skripsi.NIM_id')
+            ->select('konsultasi.*','biodata_mhs.*')
+            ->where('skripsi.NIM_id',$nim_id)
+            ->get(),
+            'mhs' => DB::table('konsultasi')
+            ->join('skripsi', 'skripsi.id_skripsi', '=', 'konsultasi.skripsi_id')
+            ->join('biodata_mhs','biodata_mhs.nim_id','=','skripsi.NIM_id')
+            ->select('konsultasi.*','biodata_mhs.*','skripsi.*')
+            ->where('skripsi.NIM_id',$nim_id)
+            ->first(),
         ];
-
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('mahasiswa.monitoring-skripsi.konsultasi.edit',$data);
+        return view('karyawan.monitoring-skripsi.konsultasi.edit',$data);
     }
 
     public function editAction($id, Request $request)
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $konsultasi = Konsultasi::find($id);
+        $konsultasi = Skripsi::find($id);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $konsultasi->skripsi_id = $request->input('skripsi_id');
-        $konsultasi->tgl_konsul = $request->input('tgl_konsul');
-        $konsultasi->catatan_konsul = $request->input('catatan_konsul');
+        $konsultasi->is_verified = '2';
         $konsultasi->save();
 
         // Notifikasi sukses
         Session::put('alert-success', 'Konsultasi berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('mahasiswa/monitoring-skripsi/konsultasi');
+        return Redirect::to('karyawan/monitoring-skripsi/konsultasi');
     }
 }

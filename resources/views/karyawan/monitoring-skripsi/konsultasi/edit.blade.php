@@ -1,17 +1,16 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Konsultasi
+Riwayat Konsultasi
 @endsection
 
 @section('contentheader_title')
-Tambah Konsultasi
+Riwayat Konsultasi
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -21,7 +20,7 @@ Tambah Konsultasi
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -46,31 +45,50 @@ Tambah Konsultasi
 			</div>
 			@endif
 			<br>
-			<form id="tambahBimbingan" method="post" action="{{url('/mahasiswa/monitoring-skripsi/konsultasi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahKonsultasi" method="post" action="{{url('/karyawan/monitoring-skripsi/konsultasi/'.$mhs->id_skripsi.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
+					<label for="nim" class="col-sm-2 control-label">NIM</label>
 					<div class="col-md-8">
-					@foreach($mhs as $m)
-						<input type="hidden" class="form-control input-lg" id="skripsi_id" value="{{$m->id_skripsi}}" name="skripsi_id" placeholder="Masukkan id skripsi" required>
-					@endforeach
+						<input value="{{$mhs->nim_id}}" type="text" class="form-control input-lg" id="skripsi_id" name="skripsi_id" placeholder="Masukkan id skripsi" readonly>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="nim" class="col-sm-2 control-label">Nama</label>
+					<div class="col-md-8">
+						<input value="{{$mhs->nama_mhs}}" type="text" class="form-control input-lg" id="skripsi_id" name="skripsi_id" placeholder="Masukkan id skripsi" readonly>
 					</div>
 				</div>
 
-	<!-- Menampilkan tanggal dengan datepicker -->
-				<div class="form-group">
-					<label for="tgl_konsul" class="col-sm-2 control-label">Tanggal Konsultasi</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tgl_konsul" placeholder="Masukkan Tanggal" required>
-					</div>
-				</div>
+				<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+  <thead>
+    <tr>
+      <th style="text-align:center">No.</th>
+      <th style="text-align:center">Tanggal Konsultasi</th>      
+      <th style="text-align:center">Catatan Konsultasi</th>
+    </tr>
+    </thead>
+  <tbody>
+   @forelse($konsultasi as $i => $konsul) 
+    <tr>
+      <td width="5%">{{ $i+1 }}</td>
+      <td width="15%" style="text-align:center">{{$konsul->tgl_konsul}}</td>
+      <td width="20%" style="text-align:center">{{$konsul->catatan_konsul}}</td>
+    </tr>
+     @empty
+        <tr>
+          <td colspan="6"><center>Belum ada Konsultasi</center></td>
+        </tr>
+    @endforelse
+  </tbody>
+</table>
 
-			<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="catatan_konsul" class="col-sm-2 control-label">Catatan</label>
-					<div class="col-md-8">
-						<textarea id="catatan_konsul" name="catatan_konsul" placeholder=" Masukkan Catatan " required cols="82" rows="5"></textarea>
+	<div class="form-group text-left">
+					<div class="col-md-8 col-md-offset-2">
+					<button type="submit" formmethod="get" class="btn btn-danger btn-lg" formaction="{{url('karyawan/monitoring-skripsi/konsultasi')}}">
+							Back
+						</button>
 					</div>
 				</div>
 

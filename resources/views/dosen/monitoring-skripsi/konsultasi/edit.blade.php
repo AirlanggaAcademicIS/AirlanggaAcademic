@@ -47,12 +47,12 @@ Edit Konsultasi
 			<br>
 			<form id="tambahKonsultasi" method="post" action="{{url('/dosen/monitoring-skripsi/konsultasi/'.$konsultasi->id_konsultasi.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+<input value="{{$konsultasi->skripsi_id}}" type="hidden" class="form-control input-lg" id="skripsi_id" name="skripsi_id" placeholder="Masukkan id skripsi" required readonly>
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">id skripsi</label>
+					<label for="nim" class="col-sm-2 control-label">NIM</label>
 					<div class="col-md-8">
-						<input value="{{$konsultasi->skripsi_id}}" type="text" class="form-control input-lg" id="skripsi_id" name="skripsi_id" placeholder="Masukkan id skripsi" required readonly>
+						<input value="{{$konsultasi->Mahasiswa['NIM_id']}}" type="text" class="form-control input-lg" id="" name="" placeholder="Masukkan id skripsi" required readonly>
 					</div>
 				</div>
 
@@ -60,7 +60,7 @@ Edit Konsultasi
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Tanggal Konsultasi</label>
 					<div class="col-md-8">
-						<input value="{{$konsultasi->tgl_konsul}}" type="text" class="form-control input-lg" id="datepicker" name="tgl_konsul" placeholder="Masukkan Tanggal" required readonly>
+						<input value="{{$konsultasi->tgl_konsul}}" type="text" class="form-control input-lg" name="tgl_konsul" placeholder="Masukkan Tanggal" required readonly>
 					</div>
 				</div>
 				

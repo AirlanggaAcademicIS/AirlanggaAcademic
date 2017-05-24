@@ -6,15 +6,16 @@
 @endsection
 
 @section('htmlheader_title')
-Konsultasi
+Histori Nilai
 @endsection
 
 @section('contentheader_title')
-Data Konsultasi Mahasiswa
+Histori Nilai
 @endsection
 
 @section('main-content')
 <!-- include summernote css/js-->
+
 <div class="flash-message" style="margin-left: -16px;margin-right: -16px; margin-top: 13px;">
   @foreach (['danger', 'warning', 'success', 'info'] as $msg)
   @if(Session::has('alert-' . $msg))
@@ -32,35 +33,21 @@ Data Konsultasi Mahasiswa
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">NIM</th>
-      <th style="text-align:center">Status</th>
-      <th style="text-align:center">Action</th>
+      <th style="text-align:center">Mata Kuliah</th>      
+      <th style="text-align:center">Nilai</th>
     </tr>
     </thead>
   <tbody>
-  @forelse($dis as $d)
-   @foreach($konsultasi as $i => $konsul)
-   @if($d->skripsi_id == $konsul->skripsi_id)
+   @forelse($histori as $i => $h) 
     <tr>
-      <td width="5%">{{ $i+1 }}</td>
-      <td width="10%" style="text-align:center">{{$konsul->nim_id}}</td>
-      <td width="20%" style="text-align:center">@if($konsul->is_verified==1)
-      {{'Belum Diverifikasi'}}
-      @else
-      {{'Sudah Diverifikasi'}}
-      @endif</td>
-
-     
-      <td width="20%" style="text-align:center" >
-        <a href="{{url('/karyawan/monitoring-skripsi/konsultasi/'.$konsul->nim_id.'/edit/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Rincian</a>
-        </td>
+      <td width="5%" style="text-align:center">{{ $i+1 }}</td>
+      <td width="20%" style="text-align:center">{{$h->mk_ditawarkan_id}}</td>
+      <td width="15%" style="text-align:center">{{$h->nilai}}</td>
     </tr>
-    @break
-    @endif
-    @endforeach
-    @empty
-        
+     @empty
+        <tr>
+          <td colspan="6"><center>Histori nilai kosong</center></td>
+        </tr>
     @endforelse
   </tbody>
 </table>

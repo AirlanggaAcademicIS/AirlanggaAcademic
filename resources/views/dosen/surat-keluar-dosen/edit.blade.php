@@ -1,17 +1,16 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Konsultasi
+Edit Surat
 @endsection
 
 @section('contentheader_title')
-Tambah Konsultasi
+Edit Surat
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
-<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -21,7 +20,7 @@ Tambah Konsultasi
 		text-align: left !important;
 	}
 </style>
-	<!-- Ini buat menampilkan notifikasi -->
+
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -46,34 +45,44 @@ Tambah Konsultasi
 			</div>
 			@endif
 			<br>
-			<form id="tambahBimbingan" method="post" action="{{url('/mahasiswa/monitoring-skripsi/konsultasi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="suratkeluar" method="post" action="{{url('dosen/surat-keluar-dosen/'.$surat_keluar_dosen->id_surat_keluar.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-				<div class="form-group">
+
+				<!--<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">NIP Petugas</label>
 					<div class="col-md-8">
-					@foreach($mhs as $m)
-						<input type="hidden" class="form-control input-lg" id="skripsi_id" value="{{$m->id_skripsi}}" name="skripsi_id" placeholder="Masukkan id skripsi" required>
-					@endforeach
+						<input type="text" class="form-control input-lg" id="nip_petugas_id" name="nip_petugas_id" value="{{$surat_keluar_dosen->nip_petugas_id}}" placeholder="Masukkan NIP Petugas" required>
+					</div>
+				</div>-->
+
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nama" name="nama" value="{{$surat_keluar_dosen->nama}}" placeholder="Masukkan Nama" required>
 					</div>
 				</div>
 
-	<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
-					<label for="tgl_konsul" class="col-sm-2 control-label">Tanggal Konsultasi</label>
+					<label for="nama" class="col-sm-2 control-label">Tanggal Upload</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tgl_konsul" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tgl_upload" value="{{$surat_keluar_dosen->tgl_upload}}" placeholder="Masukkan Tanggal Upload" required>
 					</div>
 				</div>
 
-			<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="catatan_konsul" class="col-sm-2 control-label">Catatan</label>
+<!--
+				<!-- Menampilkan dropdown -->
+				 <!--<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Status</label>
 					<div class="col-md-8">
-						<textarea id="catatan_konsul" name="catatan_konsul" placeholder=" Masukkan Catatan " required cols="82" rows="5"></textarea>
+						<select name="status" required>
+							<option value="0">Belum Selesai</option>
+							<option value="1">Sudah Selesai</option>						
+						</select>
 					</div>
-				</div>
-
+				</div>-->
+				
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
@@ -93,6 +102,8 @@ Tambah Konsultasi
   <script>
 $( function() {
     var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
+
   } );
   </script>
 @endsection
+
