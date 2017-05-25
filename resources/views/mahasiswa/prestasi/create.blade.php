@@ -124,7 +124,7 @@ Tambah Prestasi
 				<div class="form-group">
 					<label for="file_prestasi" class="col-sm-2 control-label">File Prestasi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="file_prestasi" name="file_prestasi" placeholder="Pilih File Prestasi" required>
+						<input type="file" class="form-control input-lg" id="file_prestasi" name="file_prestasi" placeholder="Pilih File Prestasi" required>
 
 					</div>
 				</div>

@@ -36,10 +36,14 @@ akunmahasiswa
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">NIM</th>      
-      <th style="text-align:center">nlp_id</th>      
+      <th style="text-align:center">NIM</th>  
+      <th style="text-align:center">Nama Mahasiswa</th>     
+      <th style="text-align:center">NIP_id</th>
+      <th style="text-align:center">Angkatan</th>   
+      <th style="text-align:center">E-mail Mahasiswa</th>    
       <th style="text-align:center">Fakultas</th>
       <th style="text-align:center">Program Studi</th>
+      <th style="text-align:center">Foto Mahasiswa</th> 
       <th style="text-align:center">Action</th>
 
     </tr>
@@ -48,10 +52,14 @@ akunmahasiswa
    @forelse($akunmahasiswa as $i => $bio) 
     <tr>
       <td>{{ $i+1 }}</td>
-      <td width="20%" style="text-align:center">{{$bio->nim}}</td>
-      <td width="15%" style="text-align:center">{{$bio->nlp_id}}</td>
-      <td width="25%" style="text-align:center">Fakultas Sains dan Teknologi</td>
+      <td width="10%" style="text-align:center">{{$bio->nim}}</td>
+      <td width="10%" style="text-align:center">{{$bio->nama_mhs}}</td>
+      <td width="10%" style="text-align:center">{{$bio->nip_id}}</td>
+      <td width="10%" style="text-align:center">{{$bio->angkatan}}</td>
+      <td width="10%" style="text-align:center">{{$bio->email_mhs}}</td>
+      <td width="20%" style="text-align:center">Fakultas Sains dan Teknologi</td>
       <td width="15%" style="text-align:center">S1 Sistem Informasi</td>
+      <td width="15%" style="text-align:center"><img src="{{URL::asset('/img/foto_mhs/'.$bio->foto_mhs)}}" height="100px" width="100px" hspace="5px" vspace="2px" alt="gambar" style="border:2px solid gray" class="img-rounded" ></td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus akun ini?');" href="{{url('/karyawan/akun/'.$bio->nim.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/karyawan/akun/'.$bio->nim.'/edit/')}}" class="btn btn-warning btn-xs">
@@ -70,5 +78,13 @@ akunmahasiswa
 @endsection
 
 @section('code-footer')
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
 
+<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#myTable').DataTable();
+});
+</script>
 @endsection

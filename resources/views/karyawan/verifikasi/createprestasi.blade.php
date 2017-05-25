@@ -63,6 +63,11 @@ Verifikasi Prestasi
 @section('code-footer')
 
 
-
+<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example1').DataTable();
+});
+</script>
 
 @endsection
