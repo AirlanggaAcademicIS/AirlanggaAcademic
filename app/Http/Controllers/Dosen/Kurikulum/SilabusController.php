@@ -17,11 +17,12 @@ use App\Silabus_Atribut_Softskill;
 use App\Silabus_mk_softskill;
 use App\Silabus_cp_matkul;
 use App\Silabus_detail_media;
+use App\Silabus_detail_kategori;
 use App\Silabus_Sistem_Pembelajaran;
 use App\Silabus_Koor_Matkul;
 use App\Silabus_Media_Pembelajaran;
 use App\Status_Team_Teaching;
-
+use App\RPS_CP_Matkul;
 
 class SilabusController extends Controller
 {
@@ -46,6 +47,7 @@ class SilabusController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'silabus',
+            'matkul_silabus' => Silabus_Matkul::where('status_rps', '=', '1')->where('status_silabus', '=', '0')->get(),
             'mata_kuliah' => Silabus_Matkul::all(),            
             'mk_prasyarat' => Silabus_Matkul_Prasyarat::all(),
             'atribut_softskill' => Silabus_Atribut_Softskill::all(),
@@ -60,15 +62,64 @@ class SilabusController extends Controller
 
     public function createAction(Request $request)
     {
-        // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        // Silabus_Matkul::create($request->input());
-       // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        Silabus_Matkul::create($request->input());
+        //get cpmk first (perlu dibenahi)
+        $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $request->input('matkul'))->first();
+
+        //insert to table mk_prasyarat
+        $mkSyaratId = $request->input('mk_syarat_id');
+        for($count = 0; $count < count($mkSyaratId); $count++)
+        {   
+            $mk_prasyarat  = new Silabus_Matkul_Prasyarat;
+            $mk_prasyarat->mk_id = $request->input('matkul');
+            $mk_prasyarat->mk_syarat_id = $mkSyaratId[$count];
+            $mk_prasyarat->save();
+        }
+
+        //insert to table mk_softskill
+        $softskillId = $request->input('softskill_id');
+        for($count = 0; $count < count($softskillId); $count++)
+        {
+            $mk_softskill = new Silabus_mk_softskill;
+            $mk_softskill->mk_id = $request->input('matkul');
+            $mk_softskill->softskill_id = $softskillId[$count];
+            $mk_softskill->save();            
+        }
+
+        //insert to table detail_media_pembelajaran (sistem pembelajaran/metode pembelajaran)
+        $mksp = $request->input('sistem_pembelajaran_id');
+        for($count  = 0 ; $count < count($mksp); $count++)
+        {
+            $mk_sp = new Silabus_detail_media;        
+            $mk_sp->cpmk_id = $cpmk->id_cpmk ;
+            $mk_sp->sistem_pembelajaran_id = $mksp[$count] ;
+            $mk_sp->save();
+        }
+
+        //insert to table detail_kategori (media pembelajaran) 
+        $mdp = $request->input('media_pembelajaran_id');
+
+        for($count = 0; $count < count($mdp); $count++)
+        {
+            $detail_kategori = new Silabus_detail_kategori;
+            $detail_kategori->media_pembelajaran_id = $mdp[$count];
+            $detail_kategori->cpmk_id = $cpmk->id_cpmk;
+            $detail_kategori->save();            
+        }
+
+        //update to table mata_kuliah
+        $matkul  = Silabus_Matkul::find($request->input('matkul'));
+        $matkul->penilaian_matkul = $request->input('penilaian_matkul');
+        $matkul->pustaka_utama = $request->input('pustaka_utama');        
+        $matkul->deskripsi_mata_ajar = $request->input('deskripsi_mata_ajar');
+        $matkul->status_silabus = 1;
+        $matkul->save();
+
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Sistem pembelajaran berhasil ditambahkan');
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('kurikulum/silabus');
+        return Redirect::to('/dosen/kurikulum/silabus');
+        dd($request->input('matkul'));
     }
 
     public function delete($id)

@@ -10,7 +10,7 @@ Permohonan Ruang
 @endsection
 
 @section('contentheader_title')
-Permohonan Ruang
+Konfirmasi Peminjam
 @endsection
 
 @section('main-content')
@@ -32,9 +32,12 @@ Permohonan Ruang
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">Nama Petugas</th>      
       <th style="text-align:center">Nama</th>
       <th style="text-align:center">NIM/NIP Peminjam</th>
+      <th style="text-align:center">Ruang</th>
+      <th style="text-align:center">Tanggal Peminjam</th>
+      <th style="text-align:center">Hari</th>
+      <th style="text-align:center">Jam</th>
       <th style="text-align:center">Action</th>
       
     </tr>
@@ -43,10 +46,13 @@ Permohonan Ruang
    @forelse($PermohonanRuang as $i => $PR) 
     <tr>
       <td>{{ $i+1 }}</td>
-      <td width="25%" style="text-align:center">{{$PR->petugas_tu['nama_petugas']}}</td>
       <td width="25%" style="text-align:center">{{$PR->nama}}</td>
       <td width="20%" style="text-align:center">{{$PR->nim_nip}}</td>
-       <td width="15%" style="text-align:center" >
+      <td width="20%" style="text-align:center">{{$PR->nama_ruang}}</td>
+      <td width="20%" style="text-align:center">{{$PR->tgl_pinjam}}</td>
+      <td width="20%" style="text-align:center">{{$PR->nama_hari}}</td>
+      <td width="20%" style="text-align:center">{{$PR->waktu}}</td>
+      <td width="15%" style="text-align:center" >
       <a onclick="return confirm('Anda yakin untuk menolak ini?');" href="{{url('/karyawan/PermohonanRuang/Konfirmasi/'.$PR->id_permohonan_ruang.'/decline/')}}" class="btn btn-danger btn-xs"> 
       <i></i value="2">Tolak</a>
         <a onclick="return confirm('Anda yakin untuk menerima ini?');" href="{{url('/karyawan/PermohonanRuang/Konfirmasi/'.$PR->id_permohonan_ruang.'/accept/')}}" class="btn btn-success btn-xs">
@@ -55,7 +61,7 @@ Permohonan Ruang
     </tr>
      @empty
         <tr>
-          <td colspan="6"><center>Belum ada permohonan</center></td>
+          <td colspan="8"><center>Belum ada permohonan</center></td>
         </tr>
     @endforelse
   </tbody>

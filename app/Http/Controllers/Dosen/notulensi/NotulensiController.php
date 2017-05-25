@@ -12,7 +12,7 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\NotulensiDosen;
-
+use Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -22,94 +22,120 @@ class NotulensiController extends Controller
     // Function untuk menampilkan tabel
     public function index()
     {
+        $nip_id = Auth::user()->username;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'notulensi',
             // Memanggil semua isi dari tabel biodata
             'notulensi' => DB::table('notulen_rapat')
-            // ->join('permohonan_ruang', 'permohonan_ruang.id_permohonan_ruang', '=', 'ruang.id_ruang')
-            // ->join('ruang', 'ruang.id_ruang', '=', 'notulen_rapat.permohonan_ruang_id')
+            ->join('permohonan_ruang', 'permohonan_ruang.id_permohonan_ruang', '=', 'notulen_rapat.permohonan_ruang_id') 
+            ->join('jadwal_permohonan', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang') 
+            ->join('ruang', 'ruang.id_ruang', '=', 'jadwal_permohonan.ruang_id')
             ->join('petugas_tu', 'petugas_tu.nip_petugas', '=', 'notulen_rapat.nip_petugas_id')
             ->join('biodata_dosen', 'biodata_dosen.nip', '=', 'notulen_rapat.nip_id')
             ->select('*')
+            ->where('nip_id', '=', $nip_id)
+            ->whereNotNull('hasil_pembahasan')
             ->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('dosen.notulensi.notulensi.DaftarHasilRapat',$data);
+        return view('dosen.notulensi.notulensi.konfirmasi.index',$data);
     }
 
-    public function create()
+     public function lihat($id_notulen)
     {
+        
+        $data = [
+        'page'=> 'notulensi',
+            // Memanggil semua isi dari tabel biodata 
+            'notulensi' => DB::table('notulen_rapat') 
+            ->join('permohonan_ruang', 'permohonan_ruang.id_permohonan_ruang', '=', 'notulen_rapat.permohonan_ruang_id') 
+            ->join('jadwal_permohonan', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang') 
+            ->join('ruang', 'ruang.id_ruang', '=', 'jadwal_permohonan.ruang_id')
+            ->join('petugas_tu', 'petugas_tu.nip_petugas', '=', 'notulen_rapat.nip_petugas_id')
+            ->join('biodata_dosen', 'biodata_dosen.nip', '=', 'notulen_rapat.nip_id') 
+            ->select('*')
+            ->where('id_notulen', '=', $id_notulen)  
+            ->get()          
+
+        
+        ];
+        return view('dosen.notulensi.notulensi.konfirmasi.lihatHasil',$data);
+}
+    public function index2()
+    {
+
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'notulensi',
+            // Memanggil semua isi dari tabel biodata
+            'notulensi' => DB::table('notulen_rapat')
+            ->join('permohonan_ruang', 'permohonan_ruang.id_permohonan_ruang', '=', 'notulen_rapat.permohonan_ruang_id') 
+            ->join('jadwal_permohonan', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang')
+            ->join('ruang', 'ruang.id_ruang', '=', 'jadwal_permohonan.ruang_id')
+            ->join('petugas_tu', 'petugas_tu.nip_petugas', '=', 'notulen_rapat.nip_petugas_id')
+            ->join('biodata_dosen', 'biodata_dosen.nip', '=', 'notulen_rapat.nip_id')
+            ->where('id_verifikasi', '=', '1')
+            ->select('*')
+            ->get()
+        ];    
+                return view('dosen.notulensi.notulensi.listHasil.index2',$data);
+            }
+
+        public function lihat2($id_notulen)
+    {
+        
+        $data = [
+        'page'=> 'notulensi',
+            // Memanggil semua isi dari tabel biodata 
+            'notulensi' => DB::table('notulen_rapat') 
+            ->join('permohonan_ruang', 'permohonan_ruang.id_permohonan_ruang', '=', 'notulen_rapat.permohonan_ruang_id') 
+            ->join('jadwal_permohonan', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang') 
+            ->join('ruang', 'ruang.id_ruang', '=', 'jadwal_permohonan.ruang_id')
+            ->join('petugas_tu', 'petugas_tu.nip_petugas', '=', 'notulen_rapat.nip_petugas_id')
+            ->join('biodata_dosen', 'biodata_dosen.nip', '=', 'notulen_rapat.nip_id') 
+            ->select('*')
+            ->where('id_notulen', '=', $id_notulen)  
+            ->get()
+        ];
+
+        return view('dosen.notulensi.notulensi.listHasil.lihatHasil2',$data);
+    }
+    
+        public function konfirmasi($id_notulen)
+    {
+            $data = [
+        'page'=> 'notulensi',
+            // Memanggil semua isi dari tabel biodata 
+            'notulensi' => DB::table('notulen_rapat') 
+            ->join('permohonan_ruang', 'permohonan_ruang.id_permohonan_ruang', '=', 'notulen_rapat.permohonan_ruang_id') 
+            ->join('jadwal_permohonan', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang') 
+            ->join('ruang', 'ruang.id_ruang', '=', 'jadwal_permohonan.ruang_id')
+            ->join('petugas_tu', 'petugas_tu.nip_petugas', '=', 'notulen_rapat.nip_petugas_id')
+            ->join('biodata_dosen', 'biodata_dosen.nip', '=', 'notulen_rapat.nip_id') 
+            ->select('*')
+            ->where('id_notulen', '=', $id_notulen)  
+            ->get()          
+
         ];
 
         // Memanggil tampilan form create
-    	return view('notulensi.notulensi.create',$data);
+        return view('dosen.notulensi.notulensi.konfirmasi.konfirmasiHasil',$data);
     }
 
-    public function createAction(Request $request)
+    public function konfirmasihasil($id_notulen, Request $request)
     {
+        $notulensi = NotulensiDosen::find($id_notulen);
+        $notulensi->id_verifikasi = $request->input('id_verifikasi');
+        $notulensi->save();
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        Notulensi::create($request->input());
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Notulensi berhasil ditambahkan');
+        Session::put('alert-success', 'Verifikasi Hasil Rapat berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('notulensi/notulensi');
-    }
-
-    public function delete($id_notulen)
-    {
-        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $notulensi = Notulensi::find($id_notulen);
-
-        // Menghapus biodata yang dicari tadi
-        $notulensi->delete();
-
-        // Menampilkan notifikasi pesan sukses
-    	Session::put('alert-success', 'Notulensi berhasil dihapus');
-
-        // Kembali ke halaman sebelumnya
-      	return Redirect::back();	 
-    }
-
-   public function edit($id_notulen)
-    {
-        $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'notulensi',
-            // Mencari biodata berdasarkan id
-            'notulensi' => Notulensi::find($id_notulen)
-        ];
-
-        // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('dosen.notulensi.notulensi.LihatHasilRapat',$data);
-    }
-
-    public function editAction($id_notulen, Request $request)
-    {
-        // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $notulen = Notulensi::find($id_notulen);
-
-        // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $notulen->id_permohonan_ruang = $request->input('id_permohonan_ruang');
-        $notulen->nip_petugas = $request->input('nip_petugas');
-        $notulen->nip = $request->input('nip');
-        $notulen->nama_rapat = $request->input('nama_rapat');
-        $notulen->agenda_rapat = $request->input('agenda_rapat');
-        $notulen->waktu_pelaksanaan = $request->input('waktu_pelaksanaan');
-        $notulen->id_verifikasi = $request->input('id_verifikasi');
-        $notulen->save();
-
-        // Notifikasi sukses
-        Session::put('alert-success', 'Notulensi berhasil diedit');
-
-        // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('notulensi/notulensi');
+        return Redirect::to('notulensi/konfirmasi');
     }
 
 }
