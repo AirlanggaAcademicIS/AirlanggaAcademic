@@ -48,7 +48,7 @@ class AkunMahasiswaController extends Controller
         ];
 
         // Memanggil tampilan form create
-    	return view('karyawan.akun.create',$data);
+        return view('karyawan.akun.create',$data);
     }
 
     public function createAction(Request $request)
@@ -62,6 +62,7 @@ class AkunMahasiswaController extends Controller
         $biodata = new AkunBioMHS;
         $biodata->nim_id = $request->input("nim");
         $biodata->nama_mhs = $request->input("nama_mhs");
+        $biodata->angkatan = $request->input("angkatan");
         $biodata->email_mhs = $request->input("email");
         $biodata->foto_mhs= time() .'.'.$request->file('foto_mhs')->getClientOriginalExtension();
 
@@ -95,10 +96,10 @@ class AkunMahasiswaController extends Controller
         $akunmahasiswa->delete();
 
         // Menampilkan notifikasi pesan sukses
-    	Session::put('alert-success', 'Akun berhasil dihapus');
+        Session::put('alert-success', 'Akun berhasil dihapus');
 
         // Kembali ke halaman sebelumnya
-      	return Redirect::back();	 
+        return Redirect::back();     
     }
 
    public function edit($nim)
@@ -126,7 +127,7 @@ class AkunMahasiswaController extends Controller
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
         $akunmahasiswa->nim = $request->input('nim');
-        $akunmahasiswa->nip_id = $request->input('nip_id');
+        $akunmahasiswa->nip_id = $request->input('nlp_id');
         $akunmahasiswa->save();
 
         // Notifikasi sukses
