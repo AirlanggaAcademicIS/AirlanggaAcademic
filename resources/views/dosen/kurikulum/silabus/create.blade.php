@@ -68,6 +68,16 @@ Tambah Silabus
         <label for="softskill"><b>Atribut Softskill</b></label><br>    
 =======
       <div class="form-group">
+<<<<<<< HEAD
+        <label for="softskill"><b>Atribut Softskill</b></label><br>    
+        <input type="text" value=" " data-role="tagsinput">                    
+    </div>
+    <div class="form-group">
+        <label for="metode-pembelajaran"><b>Sistem Pembelajaran</b></label><br>     
+        <input type="text" value=" " data-role="tagsinput">                    
+    </div>
+    <div class="form-group">
+=======
         <label for="metode-pembelajaran"><b>Atribut Softskill</b></label><br>     
 >>>>>>> 090f09f1e2827b9381fce8cbf0cc327eaecfb4d1
         @foreach($atribut_softskill as $softskill)

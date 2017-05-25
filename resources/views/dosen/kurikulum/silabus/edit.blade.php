@@ -8,33 +8,33 @@
 @section('htmlheader_title')
 
 
+
   Edit Silabus
 
 @endsection
 
 @section('contentheader_title')
 
-
-    Edit Silabus
-
+  Edit Silabus
 @endsection
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
 
 <form role="form">
-    <div class="box box-danger">
-        <div class="box-header with-border">
-          <h3 class="box-title">Edit Silabus</h3>
-        </div>
+<div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">Edit Silabus</h3>
+    </div>
 
     <div class="box-body">
-
     <div class="form-group">
+
     <label for="nama_matkul"><b>Mata Kuliah</b></label>
     <input class="form-control" id="nama_matkul" name="nama_matkul" disabled="" value="
     {{$mata_kuliah->kode_matkul}} - {{$mata_kuliah->nama_matkul}} - ({{$mata_kuliah->sks}} SKS)">
     </div><br>
+
 
     <div class="form-group">
         <label for="mk_prasyarat"><b>Mata Kuliah Prasyarat</b></label><br>
@@ -53,6 +53,20 @@
         @endforeach
     </div><br>
                    
+        </div>
+        <label for="prasyarat"><b>Prasyarat</b></label><br>
+        <input type="text" value=
+        "@foreach($mk_prasyarat as $syarat)             
+          {{$syarat->matkul['nama_matkul']}}
+        @endforeach" 
+        data-role="tagsinput">                    
+    </div>
+    <div class="form-group">
+        <label for="capaian-pembelajaran"><b>Capaian Pembelajaran yang dibebankan pada matakuliah ini</b></label>
+        <textarea class="form-control" rows="4">Mahasiswa dapat menggunakan konsep-konsep kalkulus dalam ilmu kehayatan.
+        </textarea>
+    </div>
+
     <div class="form-group">
         <label for="dekripsi_matkul"><b>Deskripsi Mata Kuliah/Silabus</b></label>
         <textarea class="form-control" rows="4" id="deskripsi_matkul" name="deskripsi_matkul" required>{!!$mata_kuliah->deskripsi_matkul!!}</textarea>
@@ -77,6 +91,7 @@
           {{$softskill->softskill['softskill']}}
         @endforeach
     </div><br> 
+
     <div class="form-group">
         <label for="media_pembelajaran"><b>Media Pembelajaran</b></label><br>     
         @foreach($mk_softskills as $softskill)
@@ -101,6 +116,7 @@
 </div><br>  
     <div class="box-footer clearfix">
 
+
       <a href="{{{('/dosen/kurikulum/silabus')}}}" class="btn btn-info">Kembali</a>
 
       <button type="update" class="pull-right btn btn-info" id="update">Edit
@@ -116,9 +132,13 @@
 </form>
 
 
+
 @endsection
 
 @section('code-footer')
+
+
+  
 
 
 @endsection

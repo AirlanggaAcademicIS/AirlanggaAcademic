@@ -11,9 +11,7 @@ class Silabus_cp_matkul extends Model
    protected $fillable = [
    'matakuliah_id',
    'kode_cpmk',
-
-   'deskripsi_cpmk'
-
+   'deskripsi_cpmk',
    ];
 
    public function detail()
