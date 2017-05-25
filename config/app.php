@@ -177,8 +177,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
-        Barryvdh\Snappy\ServiceProvider::class,
+         Barryvdh\Snappy\ServiceProvider::class,
         
+
     ],
 
     /*
@@ -232,5 +233,7 @@ return [
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
-],
+    ],
+
 ];
+
