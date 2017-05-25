@@ -24,7 +24,7 @@ class Surat_Keluar_MhsController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'surat-keluar-mhs',
             // Memanggil semua isi dari tabel biodata
-            'surat_keluar_mhs' => Surat_Keluar_Mhs::all()
+            'surat_keluar_mhs' => Surat_Keluar_Mhs::orderBy('created_at', 'desc')->get(),
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view

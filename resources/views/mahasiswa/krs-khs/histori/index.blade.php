@@ -28,12 +28,13 @@ Histori Nilai
   @endforeach
 </div>
 
-<div style="overflow: auto">
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+<div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12">
+<table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">Mata Kuliah</th>      
+      <th style="text-align:center">Mata Kuliah</th>
+      <th style="text-align:center">SKS</th>      
       <th style="text-align:center">Nilai</th>
     </tr>
     </thead>
@@ -41,7 +42,8 @@ Histori Nilai
    @forelse($histori as $i => $h) 
     <tr>
       <td width="5%" style="text-align:center">{{ $i+1 }}</td>
-      <td width="20%" style="text-align:center">{{$h->mk_ditawarkan_id}}</td>
+      <td width="30%" style="text-align:center">{{$h->MKDitawarkan->MK->nama_matkul}}</td>
+      <td width="15%" style="text-align:center">{{$h->MKDitawarkan->MK->sks}}</td>
       <td width="15%" style="text-align:center">{{$h->nilai}}</td>
     </tr>
      @empty
@@ -51,6 +53,7 @@ Histori Nilai
     @endforelse
   </tbody>
 </table>
+</div>
 </div>
 
 @endsection

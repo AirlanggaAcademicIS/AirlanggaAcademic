@@ -26,4 +26,23 @@ class MKDiambil extends Model
    {
       return $this->belongsTo('App\Models\KrsKhs\MataKuliah','mk_ditawarkan_id');
    }
+   protected $primaryKey = 'mk_ditawarkan_id';   
+   protected $dates = ['deleted_at']; 
+   protected $fillable = [
+   'mk_ditawarkan_id',
+   'mhs_id',
+   'nilai',
+   'is_approve',
+   	];
+
+   public function mkDitawarkan()
+   {
+      return $this->belongsTo('App\Models\KrsKhs\MKDitawarkan','mk_ditawarkan_id');
+   }
+
+   public function mahasiswa()
+   {
+      return $this->belongsTo('App\Models\KrsKhs\Mahasiswa','mhs_id');
+   }
+
 }
