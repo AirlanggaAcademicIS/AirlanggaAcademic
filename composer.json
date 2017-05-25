@@ -12,11 +12,8 @@
         "knplabs/knp-snappy": "^0.4.3",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-<<<<<<< HEAD
-        "maddhatter/laravel-fullcalendar": "^1.2"
-=======
+        "maddhatter/laravel-fullcalendar": "^1.2",
         "milon/barcode": "^5.3"
->>>>>>> 48904a5c8a583af14bca9cea5ed7796213e0c62a
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
