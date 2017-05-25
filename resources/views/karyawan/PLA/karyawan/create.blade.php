@@ -80,8 +80,13 @@ Tambah Karyawan
 
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Prodi</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="prodi" name="prodi" placeholder="Masukkan Prodi" required>
+					<div class="col-md-2	">
+					<select class="form-control" id="prodi_id" name="prodi_id">
+      @foreach($prodi as $p)
+                    <option>{{$p->nama_prodi}}</option>
+            @endforeach
+                  </select>
+
 					</div>
 				</div>
 

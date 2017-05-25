@@ -11,7 +11,7 @@ class BiodataDosen extends Model
     protected $primaryKey = 'nip';
     public $incrementing = false;
     protected $fillable = [
-		
+	
    ];
 
  
