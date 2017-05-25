@@ -40,6 +40,7 @@ Penelitian
       <th style="text-align:center">Nama Ketua</th>
       <th style="text-align:center">Bidang Penelitian</th>
       <th style="text-align:center">Tanggal Penelitian</th>
+      <th style="text-align:center">File Penetian</th>
       <th style="text-align:center">Status</th>
       <th style="text-align:center">Action</th>
     </tr>
@@ -52,6 +53,8 @@ Penelitian
       <td width="15%" style="text-align:center">{{$penelitian->nama_ketua}}</td>
       <td width="20%" style="text-align:center">{{$penelitian->bidang_penelitian}}</td>
       <td width="10%" style="text-align:center">{{$penelitian->tanggal_penelitian}}</td>
+      <td width="20%" style="text-align:center" > <a href="{{URL::asset('/img/dosen/'.$penelitian->file_penelitian)}}" class="btn btn-primary btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Download</a> </td>
       <td width="10%" style="text-align:center">{{$penelitian->status_penelitian}}</td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus penelitian ini?');" href="{{url('/dosen/penelitian/'.$penelitian->penelitian_id.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>

@@ -28,7 +28,7 @@ class NotulensiControllerKaryawan extends Controller
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('karyawan.notulensi.notulensi.ViewDaftarHasilRapat2,$data);
+        return view('karyawan.notulensi.notulensi.ViewDaftarHasilRapat2',$data);
     }
 
     public function create()

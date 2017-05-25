@@ -16,8 +16,9 @@ class MKDitawarkan extends Model
 		'matakuliah_id',
    ];
 
-   public function mk()
+      	public function MK()
    {
-   return $this->belongsTo('App\Models\KrsKhs\MataKuliah','matakuliah_id');
+   	return $this->belongsTo('App\Models\KrsKhs\MK','matakuliah_id');
+
    }
 }

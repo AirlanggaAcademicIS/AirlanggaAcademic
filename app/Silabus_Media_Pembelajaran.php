@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Silabus_Media_Pembelajaran extends Model
 {
-   protected $table = 'detail_kategori';    
-   protected $primaryKey = 'detail_media_id';    
+   protected $table = 'kategori_media_pembelajaran';    
+   protected $primaryKey = 'id';    
    protected $fillable = [
-   'media_pembelajaran_id',
-   		'cpmk_id',
+		'kategori_media_pembelajaran',
+	   	'media_pembelajaran',
 		'sistem_pembelajaran_id',
    ];
 }

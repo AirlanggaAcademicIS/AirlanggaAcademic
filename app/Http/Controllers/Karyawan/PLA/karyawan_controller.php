@@ -1,0 +1,110 @@
+<?php 
+
+namespace App\Http\Controllers\Karyawan\Pla;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use Session;
+use Validator;
+use Response;
+// Tambahkan model yang ingin dipakai
+use App\Petugas_TU;
+use App\Prodi;
+
+
+class karyawan_controller extends Controller
+{
+
+    // Function untuk menampilkan tabel
+    public function index()
+    {
+        $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'karyawan',
+            // Memanggil semua isi dari tabel biodata
+            'karyawan' => Petugas_TU::all(),
+            'prodi' => Prodi::all()
+        ];
+        // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
+        return view('karyawan.PLA.karyawan.index',$data);
+    }
+
+    public function create()
+    {
+        $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'karyawan',
+            'karyawan' => Petugas_TU::all(),
+            'prodi' => Prodi::all()
+        ];
+
+        // Memanggil tampilan form create
+    	return view('karyawan.PLA.karyawan.create',$data);
+    }
+
+    public function createAction(Request $request)
+    {
+        // Menginsertkan apa yang ada di form ke dalam tabel biodata
+        Petugas_TU::create($request->input());
+
+        // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'Karyawan berhasil ditambahkan');
+
+        // Kembali ke halaman mahasiswa/biodata
+        return Redirect::to('karyawan/PLA/karyawan');
+    }
+
+    public function delete($nip_petugas)
+    {
+        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
+        $petugas_tu = Petugas_TU::find($nip_petugas);
+
+        // Menghapus biodata yang dicari tadi
+        $petugas_tu->delete();
+
+        // Menampilkan notifikasi pesan sukses
+    	Session::put('alert-success', 'Karyawan berhasil dihapus');
+
+        // Kembali ke halaman sebelumnya
+      	return Redirect::back();	 
+    }
+
+   public function edit($nip_petugas)
+    {
+        $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'karyawan',
+            'karyawan' => Petugas_TU::all(),
+            'prodi' => Prodi::all(),
+            // Mencari biodata berdasarkan id
+            'karyawan' => Petugas_TU::find($nip_petugas),
+        ];
+
+        // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
+        return view('karyawan.PLA.karyawan.edit',$data);
+    }
+
+    public function editAction($nip_petugas, Request $request)
+    {
+        // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
+        $petugas_tu = Petugas_TU::find($nip_petugas);
+
+        // Mengupdate $biodata tadi dengan isi dari form edit tadi
+        $petugas_tu->nip_petugas = $request->input('nip_petugas');
+        $petugas_tu->nama_petugas = $request->input('nama_petugas');
+        $petugas_tu->no_telp_petugas = $request->input('no_telp_petugas');
+        $petugas_tu->email_petugas = $request->input('email_petugas');
+        $petugas_tu->prodi_id = $request->input('prodi_id');
+        $petugas_tu->save();
+
+        // Notifikasi sukses
+        Session::put('alert-success', 'Karyawan berhasil diedit');
+
+        // Kembali ke halaman mahasiswa/biodata
+        return Redirect::to('karyawan/PLA/karyawan');
+    }
+
+}

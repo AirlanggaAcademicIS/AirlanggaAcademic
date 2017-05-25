@@ -45,9 +45,11 @@ class PenelitianController extends Controller
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel penelitian
-        $request['status_penelitian'] = 0 ;
-        $request['file_penelitian'] = "tidak ada" ;
-        PenelitianDosen::create($request->input());
+        $dosen = $request->input();
+        $dosen['status_penelitian'] = 0 ;
+        $dosen['file_penelitian'] = time() .'.'.$request->file('file_penelitian')->getClientOriginalExtension();
+        PenelitianDosen::create($dosen);
+        $file = $request->file('file_penelitian')->move("img/dosen/",$dosen['file_penelitian']);
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'penelitian berhasil ditambahkan');

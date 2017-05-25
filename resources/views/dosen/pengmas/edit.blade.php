@@ -50,7 +50,7 @@ Edit Pengmas
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">nama kegiatan</label>
+					<label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control input-lg" id="nama_kegiatan" name="nama_kegiatan" placeholder="Masukkan nama" value="{{$pengmas->nama_kegiatan}}" required>
 					</div>
@@ -58,14 +58,14 @@ Edit Pengmas
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">tempat kegiatan </label>
+					<label for="nama" class="col-sm-2 control-label">Tempat Kegiatan </label>
 					<div class="col-md-8">
 						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan tempat" value="{{$pengmas->tempat_kegiatan}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal kegiatan</label>
+					<label for="nama" class="col-sm-2 control-label">Tanggal Kegiatan</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_kegiatan" placeholder="Masukkan Tanggal" required>
 					</div>
