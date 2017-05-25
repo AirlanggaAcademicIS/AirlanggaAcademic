@@ -79,11 +79,11 @@ Edit capaian pembelajaran
         </div>
 
         <!-- Menampilkan textarea -->
+        
         <div class="form-group">
           <label for="kode_cpem" class="col-sm-2 control-label">Kode Capaian Pembelajaran</label>
-          <div class="col-md-8">
-            <textarea id="kode_cpem" name="kode_cpem" placeholder=" Masukkan Kode Capaian Pembelajaran" required cols="82" rows="5" value="" required> {{$cp_pembelajaran->kode_cpem}}
-            </textarea>
+          <div class="col-md-3">
+            <input type="text" class="form-control input-lg" id="kode_cpem" name="kode_cpem" placeholder="Masukkan kode" value="{{$cp_pembelajaran->kode_cpem}}" required>
           </div>
         </div>
 
@@ -91,14 +91,16 @@ Edit capaian pembelajaran
         <div class="form-group">
           <label for="deskripsi_cpem" class="col-sm-2 control-label">Deskripsi Capaian Pembelajaran</label>
           <div class="col-md-8">
-            <textarea id="deskripsi_cpem" name="deskripsi_cpem" placeholder=" Masukkan Deskripsi Capaian Pembelajaran" required cols="38" rows="" value="" required> {{$cp_pembelajaran->deskripsi_cpem}}
+            <textarea id="deskripsi_cpem" name="deskripsi_cpem" placeholder=" Masukkan Deskripsi Capaian Pembelajaran" required cols="38" rows="4" required>{{$cp_pembelajaran->deskripsi_cpem}}
             </textarea>
+          </div>
         </div>
 
         <div class="form-group text-center">
-          <div class="col-md-8 col-md-offset-2">
+          <div class="col-md-7 col-md-offset-2">
+          <br>
           <button type="submit" class="btn btn-primary btn-lg">
-              Confirm
+              Edit
             </button>
           </div>
         </div>

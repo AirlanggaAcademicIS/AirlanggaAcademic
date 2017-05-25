@@ -12,6 +12,10 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\Asset;
+use App\Kategori;
+use App\StatusAsset;
+use Milon\Barcode\DNS2D;
+use Milon\Barcode\DNS1D;
 
 
 class AssetController extends Controller
@@ -33,9 +37,14 @@ class AssetController extends Controller
 
     public function create()
     {
+        $status = StatusAsset::all();
+        $kategori = Kategori::all();
+
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar asset
             'page' => 'asset',
+            'status' => $status,
+            'kategori' => $kategori,
         ];
 
         // Memanggil tampilan form create
@@ -64,7 +73,8 @@ class AssetController extends Controller
 
            ]);
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Asset berhasil ditambahkan');
+        Session::put('alert-success', '');
+        Session::put('alert-success', 'Asset berhasil ditambahkan! QRCODE telah dicetak di: AirlanggaAcademic\public'.DNS2D::getBarcodePNGPath('AST'.$request->input('nama_asset').'',"QRCODE",20,20));
 
 
 
@@ -93,9 +103,8 @@ class AssetController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar asset
             'page' => 'asset',
             // Mencari asset berdasarkan id
-            'asset' => Asset::find($id_asset)
+            'asset' => Asset::find($id_asset),
         ];
-
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
         return view('karyawan.inventaris.asset.edit',$data);
     }
