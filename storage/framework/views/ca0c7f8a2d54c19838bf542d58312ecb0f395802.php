@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+<script src="<?php echo e(asset('/js/app.js')); ?>" type="text/javascript"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="<?php echo e(asset('/js/plugins/timepicker/bootstrap-timepicker.min.js')); ?>"></script>
+=======
 <!-- REQUIRED JS SCRIPTS -->
 <!-- REQUIRED JS SCRIPTS -->
 
@@ -43,6 +50,10 @@
 <script src="<?php echo e(asset('/js/app.js')); ?>" type="text/javascript"></script>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> 090f09f1e2827b9381fce8cbf0cc327eaecfb4d1
+>>>>>>> a577c686cf1f3a39fdf5bdb95c7f27e7976634c5
 
 >>>>>>> d1777ed63d6148f51abc8d4c913f6785d88e0cf1
 <script>
@@ -50,4 +61,8 @@
         'csrfToken' => csrf_token(),
     ]); ?>;
 </script>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 090f09f1e2827b9381fce8cbf0cc327eaecfb4d1
 <?php echo $__env->yieldContent('code-footer'); ?>

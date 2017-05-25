@@ -17,7 +17,6 @@ use App\JenisMataKuliah;
 
 class MataKuliahController extends Controller
 {
-
     // Function untuk menampilkan tabel
     public function index()
     {
@@ -46,10 +45,8 @@ class MataKuliahController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'mata-kuliah',
-            'jenis_matkul' => JenisMataKuliah::all()
-
+            'jenis_matkul' => JenisMataKuliah::all(),
         ];
-
         // Memanggil tampilan form create
         return view('karyawan.kurikulum.mata-kuliah.create',$data);
     }
@@ -63,7 +60,7 @@ class MataKuliahController extends Controller
         Session::put('alert-success', 'Mata Kuliah berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('kurikulum/mata-kuliah');
+        return Redirect::to('karyawan/kurikulum/mata-kuliah');
     }
 
     public function edit($id)
@@ -108,6 +105,5 @@ class MataKuliahController extends Controller
         Session::put('alert-success', 'Mata Kuliah telah berhasil dihapus.');
         return Redirect::back();     
     }
-
 
 }
