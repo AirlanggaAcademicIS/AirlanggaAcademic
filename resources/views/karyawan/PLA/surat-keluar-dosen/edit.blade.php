@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Surat Keluar
+Verifikas Surat Keluar
 @endsection
 
 @section('contentheader_title')
-Tambah Surat Keluar
+Verifikasi Surat Keluar
 @endsection
 
 @section('code-header')
@@ -46,63 +46,37 @@ Tambah Surat Keluar
 			</div>
 			@endif
 			<br>
-			<form id="suratkeluar" method="post" action="{{url('mahasiswa/surat-keluar-mhs/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="suratkeluar" method="post" action="{{url('/karyawan/pla/surat-keluar-dosen/'.$surat_keluar_dosen->id_surat_keluar.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-								
 
 				<!-- Menampilkan input text biasa -->
 				
-				<!--<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">NIP Petugas</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nip_petugas_id" name="nip_petugas_id" placeholder="Masukkan NIP Petugas" required>
-					</div>
-				</div>-->
-
-				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">Nama Lembaga</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_lembaga" name="nama_lembaga" placeholder="Nama Lembaga" required>
-					</div>
-				</div>
-
+			
 			<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<label for="nama" class="col-sm-2 control-label">Perihal Surat</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" value="{{$surat_keluar_dosen->nama}}" required>
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Alamat</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="alamat" name="alamat" placeholder="Masukkan Alamat" required>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Upload</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tgl_upload" placeholder="Masukkan Tanggal Upload" required>
-					</div>
-				</div>
-
+				
 
 				<!-- Menampilkan dropdown -->
-				<!--<div class="form-group">
+				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Status</label>
 					<div class="col-md-8">
 						<select name="status" required>
 							<option value="0">Belum Selesai</option>
-							<option value="1">Sudah Selesai</option>						
+							<option value="1">Sudah Selesai</option>
+							<option value="2">Tidak Disetujui</option>						
 						</select>
 					</div>
 				</div>
--->
+
 				
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
-					<button type="submit" class="btn btn-primary btn-lg">
+						<button type="submit" class="btn btn-primary btn-lg">
 							Confirm
 						</button>
 					</div>

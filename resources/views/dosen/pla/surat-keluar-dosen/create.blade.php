@@ -46,7 +46,7 @@ Tambah Surat Keluar
 			</div>
 			@endif
 			<br>
-			<form id="suratkeluar" method="post" action="{{url('dosen/surat-keluar-dosen/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="suratkeluar" method="post" action="{{url('dosen/pla/surat-keluar-dosen/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								
 
@@ -60,16 +60,9 @@ Tambah Surat Keluar
 				</div>
 -->
 			<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<label for="nama" class="col-sm-2 control-label">Perihal Surat</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama" required>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Upload</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tgl_upload" placeholder="Masukkan Tanggal Upload" required>
+						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Perihal Surat" required>
 					</div>
 				</div>
 
