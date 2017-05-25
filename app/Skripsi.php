@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Skripsi extends Model
@@ -10,6 +12,12 @@ class Skripsi extends Model
     protected $table = 'skripsi';
     protected $primaryKey = 'id_skripsi';
     protected $dates = ['deleted_at'];
+<<<<<<< HEAD
+    protected $fillable = [
+    'upload_berkas_proposal',
+    'upload_berkas_skripsi'
+    ];
+=======
     public $incrementing = false;
     protected $fillable = [
     'NIM_id',
@@ -32,6 +40,7 @@ class Skripsi extends Model
    {
         return $this->hasMany('App\DosenPembimbing','skripsi_id');
    }
+>>>>>>> a2d198ce38fe500edddeb86d732ec2e79f169476
 }
 
   
