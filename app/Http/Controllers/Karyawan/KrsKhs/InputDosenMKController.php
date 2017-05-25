@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Karyawan\krs_khs;
+namespace App\Http\Controllers\Karyawan\KrsKhs;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -11,9 +11,9 @@ use Session;
 use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
-use App\MKDiajar;
-use App\MKDitawarkan;
-use App\Dosen;
+use App\Models\KrsKhs\MKDiajar;
+use App\Models\KrsKhs\MKDitawarkan;
+use App\Models\KrsKhs\Dosen;
 use App\Models\KrsKhs\MK;
 use App\Models\KrsKhs\BiodataDosen;
 
@@ -25,6 +25,19 @@ class InputDosenMKController extends Controller
     // Function untuk menampilkan tabel
     public function index()
     {
+      $data = [
+        'page' => 'tabel',
+        'dosen' => BiodataDosen::all(),
+        'tabel' => MKDiajar::all(),
+            'mk_ditawarkan' => MKDitawarkan::all(),
+            'mk' => MK::all(),
+        ];
+        return view('karyawan.krs-khs.input_dosen_mk.index',$data);   
+    }
+
+    public function create()
+    {
+      
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'input_dosen_mk',
@@ -44,18 +57,6 @@ class InputDosenMKController extends Controller
         return view('karyawan.krs_khs.input_dosen_mk',$data);
     }
 
-    public function create()
-    {
-       $data = [
-        'page' => 'tabel',
-        'dosen' => BiodataDosen::all(),
-        'tabel' => MKDiajar::all(),
-            'mk_ditawarkan' => MKDitawarkan::all(),
-            'mk' => MK::all(),
-        ];
-        return view('karyawan.krs-khs.input_dosen_mk.index',$data);
-    }
-
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
@@ -66,7 +67,9 @@ class InputDosenMKController extends Controller
             'mk_ditawarkan_id' => $request->input('mk'),
             ]
             );
-        if ($request->input('dosen_pendamping') != "") {
+        $dospen=$request->input('dosen_pendamping');
+
+        if ($dospen != "Pilih Dosen") {
             MKDiajar::create(
             [
             'dosen_id' => $request->input('dosen_pendamping'),
@@ -74,12 +77,13 @@ class InputDosenMKController extends Controller
             'mk_ditawarkan_id' => $request->input('mk'),
             ]
             );
-        }
+        }   
+
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Dosen berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/krs-khs/input_dosen_mk');
+        return Redirect::to('karyawan/krs-khs/input_dosen_mk/tabel');
     }
 
     public function delete($id)

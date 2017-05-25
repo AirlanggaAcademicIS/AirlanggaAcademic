@@ -12,6 +12,7 @@ class MK extends Model
    protected $primaryKey = 'id_mk';   
    protected $dates = ['deleted_at']; 
    protected $fillable = [
+   		'id_mk',
    		'jenis_mk_id',
 		'kode_matkul',
 		'nama_matkul',
