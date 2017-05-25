@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
+use Auth;
 // Tambahkan model yang ingin dipakai
 use App\Asset;
 use App\Kategori;
@@ -56,12 +57,14 @@ class AssetController extends Controller
         // Menginsertkan apa yang ada di form ke dalam tabel asset
         $harga_satuan = $request->input('harga_satuan');
         $jumlah_barang = $request->input('jumlah_barang');
+        $serial_barcode = 'AST'.$request->input('nama_asset').'.png';
+
         $total_harga = $harga_satuan * $jumlah_barang;
             $asset = Asset::create([
             'kategori_id' => $request->input('kategori'),
-            'nip_petugas_id' => 12345,
+            'nip_petugas_id' => Auth::User()->username,
             'status_id' => $request->input('status'),
-            'serial_barcode' => 12345,
+            'serial_barcode' => $serial_barcode,
             'total_harga' => $total_harga,
             'nama_asset' => $request->input('nama_asset'),
             'lokasi' => $request->input('lokasi'),
@@ -69,14 +72,11 @@ class AssetController extends Controller
             'nama_supplier' => $request->input('nama_supplier'),
             'harga_satuan' => $request->input('harga_satuan'),
             'jumlah_barang' => $request->input('jumlah_barang'),
-       
-
            ]);
+
+            DNS2D::getBarcodePNGPath('AST'.$request->input('nama_asset').'',"QRCODE",20,20);
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', '');
-        Session::put('alert-success', 'Asset berhasil ditambahkan! QRCODE telah dicetak di: AirlanggaAcademic\public'.DNS2D::getBarcodePNGPath('AST'.$request->input('nama_asset').'',"QRCODE",20,20));
-
-
+        Session::put('alert-success', 'Asset berhasil ditambahkan! QRCODE telah dicetak!');
 
         // Kembali ke halaman inventaris/asset
         return Redirect::to('inventaris/asset');
