@@ -10,5 +10,8 @@
         'csrfToken' => csrf_token(),
     ]) !!};
 </script>
+<!-- fullCalendar 2.2.5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>
 
 @yield('code-footer')
