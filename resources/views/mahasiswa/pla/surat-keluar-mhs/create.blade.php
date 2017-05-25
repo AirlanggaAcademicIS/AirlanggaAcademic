@@ -1,16 +1,17 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Edit Surat
+Tambah Surat Keluar
 @endsection
 
 @section('contentheader_title')
-Edit Surat
+Tambah Surat Keluar
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -20,7 +21,7 @@ Edit Surat
 		text-align: left !important;
 	}
 </style>
-
+	<!-- Ini buat menampilkan notifikasi -->
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -45,48 +46,45 @@ Edit Surat
 			</div>
 			@endif
 			<br>
-			<form id="suratkeluar" method="post" action="{{url('mahasiswa/surat-keluar-mhs/'.$surat_keluar_mhs->id_surat_keluar.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="suratkeluar" method="post" action="{{url('mahasiswa/pla/surat-keluar-mhs/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								
 
 				<!-- Menampilkan input text biasa -->
-
+				
 				<!--<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">NIP Petugas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nip_petugas_id" name="nip_petugas_id" value="{{$surat_keluar_mhs->nip_petugas_id}}" placeholder="Masukkan NIP Petugas" required>
+						<input type="text" class="form-control input-lg" id="nip_petugas_id" name="nip_petugas_id" placeholder="Masukkan NIP Petugas" required>
 					</div>
 				</div>-->
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama Lembaga</label>
+					<label for="nim" class="col-sm-2 control-label">Nama Lembaga</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_lembaga" name="nama_lembaga" value="{{$surat_keluar_mhs->nama_lembaga}}" placeholder="Masukkan Nama Lembaga" required>
+						<input type="text" class="form-control input-lg" id="nama_lembaga" name="nama_lembaga" placeholder="Nama Lembaga" required>
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+			<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Perihal Surat</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" value="{{$surat_keluar_mhs->nama}}" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Perihal Surat" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Alamat</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="alamat" name="alamat" value="{{$surat_keluar_mhs->alamat}}" placeholder="Masukkan Alamat" required>
+						<input type="text" class="form-control input-lg" id="alamat" name="alamat" placeholder="Masukkan Alamat" required>
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Upload</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tgl_upload" value="{{$surat_keluar_mhs->tgl_upload}}" placeholder="Masukkan Tanggal Upload" required>
-					</div>
-				</div>
+				
+
 
 				<!-- Menampilkan dropdown -->
-				<!-- <div class="form-group">
+				<!--<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Status</label>
 					<div class="col-md-8">
 						<select name="status" required>
@@ -94,7 +92,9 @@ Edit Surat
 							<option value="1">Sudah Selesai</option>						
 						</select>
 					</div>
-				</div>-->
+				</div>
+-->
+				
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">

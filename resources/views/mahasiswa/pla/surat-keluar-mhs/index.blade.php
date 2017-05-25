@@ -28,7 +28,7 @@ Surat Keluar
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('mahasiswa/surat-keluar-mhs/create')}}" type="button" class="btn btn-info btn-md" >
+  <a href="{{url('mahasiswa/pla/surat-keluar-mhs/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Surat</a>
 </div>
 <div style="overflow: auto">
@@ -38,7 +38,7 @@ Surat Keluar
       <th width="5%" style="text-align:center">No.</th>    
       <!--<th style="text-align:center">NIP Petugas</th>-->
       <th style="text-align:center">Nama Lembaga</th>
-      <th style="text-align:center">Nama</th>
+      <th style="text-align:center">Perihal Surat</th>
       <th style="text-align:center">Alamat</th>
       <th style="text-align:center">Tanggal Upload</th>
       <th style="text-align:center">Status</th>
@@ -53,7 +53,7 @@ Surat Keluar
       <td width="20%" style="text-align:center">{{$surat->nama_lembaga}}</td>
       <td width="10%" style="text-align:center">{{$surat->nama}}</td>
       <td width="10%" style="text-align:center">{{$surat->alamat}}</td>
-      <td width="10%" style="text-align:center">{{$surat->tgl_upload}}</td>
+      <td width="10%" style="text-align:center">{{$surat->created_at}}</td>
       @if($surat->status == 0)
       <td width="10%" style="text-align:center">Belum Selesai</td>
       @elseif ($surat->status == 1)
@@ -62,9 +62,9 @@ Surat Keluar
       <td width="10%" style="text-align:center">Tidak Disetujui</td>
       @endif
       <td width="20%" style="text-align:center" >
-        <a onclick="return confirm('Anda yakin untuk menghapus surat ini?');" href="{{url('mahasiswa/surat-keluar-mhs/'.$surat->id_surat_keluar.'/delete/')}}" class="btn btn-danger btn-xs">
+        <a onclick="return confirm('Anda yakin untuk menghapus surat ini?');" href="{{url('mahasiswa/pla/surat-keluar-mhs/'.$surat->id_surat_keluar.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('mahasiswa/surat-keluar-mhs/'.$surat->id_surat_keluar.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('mahasiswa/pla/surat-keluar-mhs/'.$surat->id_surat_keluar.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
     </tr>

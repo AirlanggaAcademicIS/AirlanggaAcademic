@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Dosen;
+namespace App\Http\Controllers\Karyawan\PLA;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -12,6 +12,7 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\Surat_Keluar_Dosen;
+use Auth;
 
 
 class Surat_Keluar_DosenController extends Controller
@@ -24,11 +25,11 @@ class Surat_Keluar_DosenController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'surat-keluar-dosen',
             // Memanggil semua isi dari tabel biodata
-            'surat_keluar_dosen' => Surat_Keluar_Dosen::all()
+            'surat_keluar_dosen' => Surat_Keluar_Dosen::orderBy('created_at', 'desc')->get(),
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('dosen.surat-keluar-dosen.index',$data);
+        return view('karyawan.pla.surat-keluar-dosen.index',$data);
     }
 
     public function create()
@@ -39,7 +40,7 @@ class Surat_Keluar_DosenController extends Controller
         ];
 
         // Memanggil tampilan form create
-        return view('dosen/surat-keluar-dosen.create',$data);
+        return view('karyawan/pla/surat-keluar-dosen.create',$data);
     }
 
     public function createAction(Request $request)
@@ -54,7 +55,7 @@ class Surat_Keluar_DosenController extends Controller
         // $akun->tgl_upload = $request->input('tgl_upload');
         // $akun->save();
         $surat = Surat_Keluar_Dosen::create([
-            //'nip_petugas_id' => $request->input('nip_petugas_id'),
+            'nip_petugas_id' =>Auth::user()->username,
             'nama' => $request->input('nama'),
             'tgl_upload' => $request->input('tgl_upload'),
             'status' => 0
@@ -64,7 +65,7 @@ class Surat_Keluar_DosenController extends Controller
         Session::put('alert-success', 'Surat berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('dosen/surat-keluar-dosen');
+        return Redirect::to('karyawan/pla/surat-keluar-dosen');
     }
 
     public function delete($id_surat_keluar)
@@ -90,9 +91,8 @@ class Surat_Keluar_DosenController extends Controller
             // Mencari biodata berdasarkan id
             'surat_keluar_dosen' => Surat_Keluar_Dosen::find($id_surat_keluar)
         ];
-
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('dosen/surat-keluar-dosen.edit',$data);
+         return view('karyawan/pla/surat-keluar-dosen.edit',$data);
     }
 
     public function editAction($id_surat_keluar_dosen, Request $request)
@@ -101,17 +101,17 @@ class Surat_Keluar_DosenController extends Controller
         $surat_keluar_dosen = Surat_Keluar_Dosen::find($id_surat_keluar_dosen);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        
-        //$surat_keluar_dosen->nip_petugas_id = $request->input('nip_petugas_id');
+        $surat_keluar_dosen->nip_petugas_id = Auth::user()->username;
         $surat_keluar_dosen->nama = $request->input('nama');
         $surat_keluar_dosen->tgl_upload = $request->input('tgl_upload');
+        $surat_keluar_dosen->status = $request->input('status');
         $surat_keluar_dosen->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Surat berhasil diedit');
+        Session::put('alert-success', 'Surat berhasil diverifikasi');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('dosen/surat-keluar-dosen');
+        return Redirect::to('karyawan/pla/surat-keluar-dosen');
     }
 
 }

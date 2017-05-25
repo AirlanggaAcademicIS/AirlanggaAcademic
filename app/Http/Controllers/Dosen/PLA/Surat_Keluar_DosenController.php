@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Mahasiswa;
+namespace App\Http\Controllers\Dosen\PLA;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -11,10 +11,10 @@ use Session;
 use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
-use App\Surat_Keluar_Mhs;
+use App\Surat_Keluar_Dosen;
 
 
-class Surat_Keluar_MhsController extends Controller
+class Surat_Keluar_DosenController extends Controller
 {
 
     // Function untuk menampilkan tabel
@@ -22,24 +22,24 @@ class Surat_Keluar_MhsController extends Controller
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'surat-keluar-mhs',
+            'page' => 'surat-keluar-dosen',
             // Memanggil semua isi dari tabel biodata
-            'surat_keluar_mhs' => Surat_Keluar_Mhs::orderBy('created_at', 'desc')->get(),
+            'surat_keluar_dosen' => Surat_Keluar_Dosen::orderBy('created_at', 'desc')->get(),
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('mahasiswa.surat-keluar-mhs.index',$data);
+        return view('dosen.pla.surat-keluar-dosen.index',$data);
     }
 
     public function create()
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'surat-keluar-mhs',
+            'page' => 'surat-keluar-dosen',
         ];
 
         // Memanggil tampilan form create
-        return view('mahasiswa.surat-keluar-mhs.create',$data);
+        return view('dosen/pla/surat-keluar-dosen.create',$data);
     }
 
     public function createAction(Request $request)
@@ -53,11 +53,9 @@ class Surat_Keluar_MhsController extends Controller
         // $akun->alamat = $request->input('alamat');
         // $akun->tgl_upload = $request->input('tgl_upload');
         // $akun->save();
-        $surat = Surat_Keluar_Mhs::create([
-            'nip_petugas_id' => $request->input('nip_petugas_id'),
-            'nama_lembaga' => $request->input('nama_lembaga'),
+        $surat = Surat_Keluar_Dosen::create([
+            //'nip_petugas_id' => $request->input('nip_petugas_id'),
             'nama' => $request->input('nama'),
-            'alamat' => $request->input('alamat'),
             'tgl_upload' => $request->input('tgl_upload'),
             'status' => 0
             ]);        
@@ -66,16 +64,16 @@ class Surat_Keluar_MhsController extends Controller
         Session::put('alert-success', 'Surat berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('mahasiswa/surat-keluar-mhs');
+        return Redirect::to('dosen/pla/surat-keluar-dosen');
     }
 
     public function delete($id_surat_keluar)
     {
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $surat_keluar_mhs = Surat_Keluar_Mhs::find($id_surat_keluar);
+        $surat_keluar_dosen = Surat_Keluar_Dosen::find($id_surat_keluar);
 
         // Menghapus biodata yang dicari tadi
-        $surat_keluar_mhs->delete();
+        $surat_keluar_dosen->delete();
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Surat berhasil dihapus');
@@ -88,34 +86,32 @@ class Surat_Keluar_MhsController extends Controller
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'surat-keluar-mhs',
+            'page' => 'surat-keluar-dosen',
             // Mencari biodata berdasarkan id
-            'surat_keluar_mhs' => Surat_Keluar_Mhs::find($id_surat_keluar)
+            'surat_keluar_dosen' => Surat_Keluar_Dosen::find($id_surat_keluar)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('mahasiswa/surat-keluar-mhs.edit',$data);
+        return view('dosen/pla/surat-keluar-dosen.edit',$data);
     }
 
-    public function editAction($id_surat_keluar_mhs, Request $request)
+    public function editAction($id_surat_keluar_dosen, Request $request)
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $surat_keluar_mhs = Surat_Keluar_Mhs::find($id_surat_keluar_mhs);
+        $surat_keluar_dosen = Surat_Keluar_Dosen::find($id_surat_keluar_dosen);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
         
-        $surat_keluar_mhs->nip_petugas_id = $request->input('nip_petugas_id');
-        $surat_keluar_mhs->nama_lembaga = $request->input('nama_lembaga');
-        $surat_keluar_mhs->nama = $request->input('nama');
-        $surat_keluar_mhs->alamat = $request->input('alamat');
-        $surat_keluar_mhs->tgl_upload = $request->input('tgl_upload');
-        $surat_keluar_mhs->save();
+        //$surat_keluar_dosen->nip_petugas_id = $request->input('nip_petugas_id');
+        $surat_keluar_dosen->nama = $request->input('nama');
+        $surat_keluar_dosen->tgl_upload = $request->input('tgl_upload');
+        $surat_keluar_dosen->save();
 
         // Notifikasi sukses
         Session::put('alert-success', 'Surat berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('mahasiswa/surat-keluar-mhs');
+        return Redirect::to('dosen/pla/surat-keluar-dosen');
     }
 
 }

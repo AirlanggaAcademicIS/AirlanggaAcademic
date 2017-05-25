@@ -45,7 +45,7 @@ Edit Surat
 			</div>
 			@endif
 			<br>
-			<form id="suratkeluar" method="post" action="{{url('dosen/surat-keluar-dosen/'.$surat_keluar_dosen->id_surat_keluar.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="suratkeluar" method="post" action="{{url('mahasiswa/pla/surat-keluar-mhs/'.$surat_keluar_mhs->id_surat_keluar.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
@@ -53,27 +53,34 @@ Edit Surat
 				<!--<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">NIP Petugas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nip_petugas_id" name="nip_petugas_id" value="{{$surat_keluar_dosen->nip_petugas_id}}" placeholder="Masukkan NIP Petugas" required>
+						<input type="text" class="form-control input-lg" id="nip_petugas_id" name="nip_petugas_id" value="{{$surat_keluar_mhs->nip_petugas_id}}" placeholder="Masukkan NIP Petugas" required>
 					</div>
 				</div>-->
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama</label>
+					<label for="nama" class="col-sm-2 control-label">Nama Lembaga</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" value="{{$surat_keluar_dosen->nama}}" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="nama_lembaga" name="nama_lembaga" value="{{$surat_keluar_mhs->nama_lembaga}}" placeholder="Masukkan Nama Lembaga" required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tanggal Upload</label>
+					<label for="nama" class="col-sm-2 control-label">Perihal Surat</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tgl_upload" value="{{$surat_keluar_dosen->tgl_upload}}" placeholder="Masukkan Tanggal Upload" required>
+						<input type="text" class="form-control input-lg" id="nama" name="nama" value="{{$surat_keluar_mhs->nama}}" placeholder="Perihal Surat" required>
 					</div>
 				</div>
 
-<!--
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Alamat</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="alamat" name="alamat" value="{{$surat_keluar_mhs->alamat}}" placeholder="Masukkan Alamat" required>
+					</div>
+				</div>
+
+
 				<!-- Menampilkan dropdown -->
-				 <!--<div class="form-group">
+				<!-- <div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Status</label>
 					<div class="col-md-8">
 						<select name="status" required>
@@ -82,7 +89,6 @@ Edit Surat
 						</select>
 					</div>
 				</div>-->
-				
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
