@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/logout', 'Auth\LoginController@logout');
 
@@ -25,3 +26,4 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 	});
+
