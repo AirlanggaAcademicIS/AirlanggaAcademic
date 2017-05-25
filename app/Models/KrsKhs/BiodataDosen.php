@@ -13,6 +13,11 @@ class BiodataDosen extends Model
    protected $dates = ['deleted_at']; 
    public $incrementing = false;
    protected $fillable = [
+   'nip',
+   'nama_dosen',
+   'alamat_dosen',
+   'status_dosen',
+   'tanggal_lahir_dosen'
    	];
    
 }

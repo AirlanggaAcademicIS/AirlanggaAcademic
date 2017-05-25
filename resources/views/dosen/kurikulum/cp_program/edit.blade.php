@@ -94,9 +94,9 @@ Edit capaian program
 
 
 				<div class="form-group text-center">
-					<div class="col-md-8 col-md-offset-2">
+					<div class="col-md-7 col-md-offset-2>
 					<button type="submit" class="btn btn-primary btn-lg">
-							Confirm
+							Edit
 						</button>
 					</div>
 				</div>
