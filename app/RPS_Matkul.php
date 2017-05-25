@@ -20,7 +20,6 @@ class RPS_Matkul extends Model
 		'pustaka_pendukung',
    ];
 	protected $dates = [
-	'created_at',
 	'deleted_at'
 	];
 }

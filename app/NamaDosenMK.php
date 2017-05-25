@@ -16,4 +16,8 @@ class NamaDosenMK extends Model
    		'tanggal_lahir_dosen',
    ];
   
+  	public function dosen()
+   {
+    	return $this->belongsTo('App\Dosen', 'nip');
+   }
 }

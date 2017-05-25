@@ -78,7 +78,7 @@ Edit Biodata
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Checkin Date</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="checkin_date" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="checkin_date" value="{{$peminjaman->checkin_date}}" placeholder="Masukkan Tanggal" required>
 					</div>
 				</div>
 
@@ -86,7 +86,7 @@ Edit Biodata
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Checkout Date</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="checkout_date" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="checkout_date" placeholder="Masukkan Tanggal" value="{{$peminjaman->checkout_date}}" required>
 					</div>
 				</div>
 
@@ -95,7 +95,7 @@ Edit Biodata
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Expected Checkin Date</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="expected_checkin_date" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="expected_checkin_date" placeholder="Masukkan Tanggal" value="{{$peminjaman->expected_checkin_date}}" required>
 					</div>
 				</div>
 
@@ -103,7 +103,7 @@ Edit Biodata
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Waktu Pinjam</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="waktu_pinjam" placeholder="Masukkan Tanggal" required>
+						<input type="text" value="{{$peminjaman->waktu_pinjam}}" class="form-control input-lg" id="datepicker" name="waktu_pinjam" placeholder="Masukkan Tanggal" required>
 					</div>
 				</div>
 

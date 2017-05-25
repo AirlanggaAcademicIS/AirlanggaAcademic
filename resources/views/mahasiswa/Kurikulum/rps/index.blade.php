@@ -28,7 +28,7 @@ Rencana Pembelajaran Semester
 </div>
 
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <div class="box box-primary">
+  <div class="box box-danger">
 
 <div class="box-body">
 <table id="example1" class="table table-bordered table-striped">
@@ -55,7 +55,7 @@ Rencana Pembelajaran Semester
 
     @empty
     <tr>
-      <td colspan="6"><center>Belum ada Kategori Media Pembelajaran</center></td>
+      <td colspan="6"><center>Belum ada RPS</center></td>
     </tr>
 
     @endforelse

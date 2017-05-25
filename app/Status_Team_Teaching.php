@@ -11,5 +11,4 @@ class Status_Team_Teaching extends Model
    protected $fillable = [
    		'status_tt',
    ];
-  
 }

@@ -64,6 +64,7 @@ Edit Asset
 		            	<option value="">-- Pilih Kategori --</option>
 		                <option value="1">Dokumen</option>
 		                <option value="2">Furniture</option>
+		                <option value="3">Elektronik</option>
 		               
 					</select>
 					</div>
@@ -76,6 +77,7 @@ Edit Asset
 		            	<option value="">-- Pilih Status --</option>
 		                <option value="1">Ready</option>
 		                <option value="2">Not Ready</option>
+		                <option value="2">Dipinjam</option>
 					</select>
 					</div>
 				</div>

@@ -51,10 +51,10 @@ Rencana Pembelajaran Semester
           <h3 class="box-title">Detail RPS</h3>
         </div>
 
-      <div class="box-body">
+      ="form-control" id="nama_matkul" name="nama_matkul" disabled="" value="{{$mata_kulia<div class="box-body">
 <div class="form-group">
 <label for="nama-matkul"><b>Mata Kuliah</b></label>
-<input class="form-control" id="nama_matkul" name="nama_matkul" disabled="" value="{{$mata_kuliah->nama_matkul}}">
+<input classh->nama_matkul}}">
 </div><br>
 
 <div class="form-group">
@@ -129,19 +129,11 @@ Rencana Pembelajaran Semester
 <p><b>Media Pembelajaran</b></p>
 </div>
 
-    <div class="form-group">
-    <label for="nama-matkul">Perangkat Lunak</label>
-    </div>
-    <div class="form-group">
-    <input class="form-control" value="" data-role="tagsinput" disabled="">
-    </div>
-
-     <div class="form-group">
-    <label for="nama-matkul">Perangkat Keras</label>
-    </div>
-    <div class="form-group">
-    <input class="form-control" value="" data-role="tagsinput" disabled="">
-    </div><br>
+<div class="form-group">    
+  @foreach($media as $m)
+    <label class="checkbox-inline"><input type="checkbox" value="">{{$m->media_pembelajaran}}</label>       
+  @endforeach                                
+</div>
 
 <div class="form-group">
 <p><b>Team Teaching</b></p>

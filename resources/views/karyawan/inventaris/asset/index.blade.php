@@ -45,15 +45,11 @@ Asset
       <th style="text-align:center">Kategori</th>
       <th style="text-align:center">NIP Petugas</th>
       <th style="text-align:center">Status</th>
-      <th style="text-align:center">Serial Barcode</th>
       <th style="text-align:center">Nama Asset</th>
       <th style="text-align:center">Lokasi</th>
-      <th style="text-align:center">Expired Date</th>
-      <th style="text-align:center">Nama Supplier</th>
-      <th style="text-align:center">Harga Satuan</th>
       <th style="text-align:center">Jumlah Barang</th>
-      <th style="text-align:center">Total Harga</th>
       <th style="text-align:center">Action</th>
+      <th style="text-align:center">Maintenance</th>
       </tr>
     </thead>
   <tbody>
@@ -64,6 +60,8 @@ Asset
             <td width="20%" style="text-align:center">Dokumen</td>
             @elseif($ass->kategori_id == 2) 
             <td width="20%" style="text-align:center">Furniture</td>
+            @elseif($ass->kategori_id == 3) 
+            <td width="20%" style="text-align:center">Elektroni</td>
 
             @endif
       <td width="15%" style="text-align:center">{{$ass->nip_petugas_id}}</td>
@@ -73,14 +71,9 @@ Asset
             @elseif($ass->status_id == 2) 
             <td width="20%" style="text-align:center">Not Ready</td>
             @endif
-      <td width="20%" style="text-align:center">{{$ass->serial_barcode}}</td>
       <td width="10%" style="text-align:center">{{$ass->nama_asset}}</td>
       <td width="10%" style="text-align:center">{{$ass->lokasi}}</td>
-      <td width="10%" style="text-align:center">{{$ass->expired_date}}</td>
-      <td width="10%" style="text-align:center">{{$ass->nama_supplier}}</td>
-      <td width="10%" style="text-align:center">{{$ass->harga_satuan}}</td>
       <td width="10%" style="text-align:center">{{$ass->jumlah_barang}}</td>
-      <td width="10%" style="text-align:center">{{$ass->total_harga}}</td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus asset ini?');" href="{{url('inventaris/asset/'.$ass->id_asset.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
 
@@ -89,6 +82,15 @@ Asset
                
         <a href="{{url('inventaris/asset/'.$ass->id_asset.'/edit/')}}" class="btn btn-success btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
+
+        <a href="{{url('inventaris/input-peminjaman/'.$ass->id_asset.'')}}" class="btn btn-primary btn-xs">
+        <i class=""></i> Pinjam Asset</a>
+
+        </td>
+        <td width="20%" style="text-align:center" >
+        <a href="#" class="btn btn-primary btn-xs">
+        <i class=""></i> Maintenance </a>
+
         </td>
     </tr>
      @empty

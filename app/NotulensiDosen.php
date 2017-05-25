@@ -15,8 +15,6 @@ class NotulensiDosen extends Model
 		'nama_rapat',
 		'agenda_rapat',
 		'waktu_pelaksanaan',
-		'hasil_pembahasan',
 		'id_verifikasi',
-		'deskripsi_rapat',	
    ];
 }

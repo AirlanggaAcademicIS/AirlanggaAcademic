@@ -35,7 +35,7 @@ KBK
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
-      <th style="text-align:center">ID KBK</th>
+      <th style="text-align:center">No</th>
       <th style="text-align:center">Jenis KBK</th> 
       <th style="text-align:center">Action</th>
     </tr>
@@ -43,9 +43,9 @@ KBK
   <tbody>
    @forelse($kbk as $i => $kbk) 
     <tr>
-      <td witdh="20%" style="text-align:center">{{$kbk->id_kbk}}</td>
-      <td width="40%" style="text-align:center">{{$kbk->jenis_kbk}}</td>
-      <td width="40%" style="text-align:center" >
+      <td style="text-align:center">{{ $i+1 }}</td>
+      <td style="text-align:center">{{$kbk->jenis_kbk}}</td>
+      <td style="text-align:center" >
         <a onclick="return confirm('Anda yakin untuk menghapus KBK ini?');" href="{{url('/karyawan/monitoring-skripsi/KBK/'.$kbk->id_kbk.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/karyawan/monitoring-skripsi/KBK/'.$kbk->id_kbk.'/edit/')}}" class="btn btn-warning btn-xs">

@@ -17,6 +17,7 @@ use App\RPS_CP_Matkul;
 use App\RPS_CPL_Prodi;
 use App\RPS_Koor_Matkul;
 use App\Status_Team_Teaching;
+use App\RPS_Detail_Kategori;
 
 
 class RPSController extends Controller
@@ -46,8 +47,8 @@ class RPSController extends Controller
             'mk_prasyarat' => RPS_Matkul_Prasyarat::where('mk_id', '=', $id)->get(),
             'cp_mata_kuliah' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get(),
             'cp_prodi' => RPS_CPL_Prodi::where('mk_id', '=', $id)->get(),
-            'koor' => RPS_Koor_Matkul::where('mk_id', '=', $id)->get()
-            
+            'koor' => RPS_Koor_Matkul::where('mk_id', '=', $id)->get(),
+            // 'media' => RPS_Detail_Kategori::where($media->cpmk['matakuliah_id'], '=', $id)->get()
         ];
         return view('mahasiswa.kurikulum.rps.detail',$data);
     }

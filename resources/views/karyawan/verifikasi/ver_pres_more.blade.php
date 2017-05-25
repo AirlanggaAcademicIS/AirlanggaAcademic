@@ -288,7 +288,8 @@ Verifikasi Prestasi
         <div class="form-group">
           <label for="file_prestasi" class="col-sm-2 control-label">File Prestasi</label>
           <div class="col-md-8">
-            <a href ="{{url('/karyawan/verifikasi/download/'.$prestasi->file_prestasi.'')}}">{{$prestasi->file_prestasi}}</a>
+            <a href="{{URL::asset('/img/prestasi/'.$prestasi->file_prestasi)}}"><img clickable="true" src="{{URL::asset('/img/prestasi/'.$prestasi->file_prestasi)}}" height="100px" width="100px" hspace="5px" vspace="2px" alt="gambar" style="border:2px solid gray" class="img-rounded" > </a>
+            <a href ="{{url('/karyawan/verifikasi/downloadpresmhs/'.$prestasi->file_prestasi.'')}}">{{$prestasi->file_prestasi}}</a>
           </div>
         </div>
 
@@ -314,14 +315,14 @@ Verifikasi Prestasi
               <div class="form-group">
                   <label for="alasan" class="col-sm-2 control-label">Alasan</label>
                   <div class="col-md-8">
-                  <textarea name="alasan_verifikasi" type="text" class="form-control" rows="1" placeholder="Alasan"></textarea>
+                  <textarea name="alasan_verified" type="text" class="form-control" rows="1" placeholder="Alasan"></textarea>
                   </div>
                 </div>
                 <div class="col-md-8 col-md-offset-2">
                 <button type="button" class="btn btn-default"><a href="{{url('/karyawan/verifikasi/prestasi')}}">Cancel</a></button>
                   <button type="submit" class="btn btn-primary btn-lg">
-              Confirm
-            </button>
+                  Confirm
+                 </button>
           </div>
       </form>
     </div>

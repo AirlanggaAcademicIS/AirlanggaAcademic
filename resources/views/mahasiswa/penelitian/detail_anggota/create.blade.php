@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Rundown
+Tambah Biodata
 @endsection
 
 @section('contentheader_title')
-Tambah Rundown
+Tambah Biodata
 @endsection
 
 @section('code-header')
@@ -46,46 +46,31 @@ Tambah Rundown
 			</div>
 			@endif
 			<br>
-			<form id="tambahDokumentasi" method="post" action="{{url('/karyawan/pengelolaan-kegiatan/dokumentasi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="TambahDetailAnggota" method="post" action="{{url('/mahasiswa/penelitian/detailanggota/'.$detail_anggota->kode_penelitian.'/create')}}" 
+			enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-			<!-- Menampilkan input text biasa -->
-    <div class="form-group">
-     <label for="nim" class="col-sm-2 control-label">ID dokumentasi</label>
-     <div class="col-md-8">
-      <input type="text" class="form-control input-lg" id="id_dokumentasi" name="id_dokumentasi" placeholder="Masukkan ID dokumentasi" required>
-     </div>
-    </div>
-
-    <div class="form-group">
-     <label for="nama" class="col-sm-2 control-label">ID kegiatan</label>
-     <div class="col-md-8">
-      <input type="text" class="form-control input-lg" id="kegiatan_id" name="kegiatan_id" placeholder="Masukkan ID kegiatan" required>
-     </div>
-    </div>
-
-
-			<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="lesson_learned" class="col-sm-2 control-label">Lesson Learned</label>
+					<label for="nama" class="col-sm-2 control-label">Judul</label>
 					<div class="col-md-8">
-						<textarea id="lesson_learned" name="lesson_learned" placeholder="Masukkan Feedback" required cols="82" rows="5">
-						</textarea>
+						<input type="text" class="form-control input-lg" id="anggota" name="anggota" 
+						placeholder="Masukkan Anggota" value="{{$detail_anggota->judul}}" disabled>
+						
 					</div>
 				</div>
 
-
 				<div class="form-group">
-     	<label for="url_foto" class="col-sm-2 control-label">url foto</label>
-     	<div class="col-md-8">
-      	<input type="text" class="form-control input-lg" id="url_foto" name="url_foto" placeholder="Masukkan url" required>
-     	</div>
-    	</div>
+					<label for="anggota" class="col-sm-2 control-label">Anggota</label>
+					<div class="col-md-8">
+						<textarea type="text" class="form-control input-lg" id="anggota" name="anggota" 
+						placeholder="Masukkan Anggota" required></textarea>
+					</div>
+				</div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
-							Publish
+							Confirm
 						</button>
 					</div>
 				</div>

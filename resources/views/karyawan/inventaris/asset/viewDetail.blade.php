@@ -30,6 +30,11 @@ View Detail Asset
 		                </div>
 
 		                <div class="form-group">
+		                  <label>Nama Asset</label>
+		                  <input type="text" class="form-control" value="{{ $asset->nama_asset }}" readonly>
+		                </div>
+
+		                <div class="form-group">
 		                  <label>Status</label>
 		                  @if($asset->status_id == 1) 
 						<input  type="text" class="form-control" value="ready" readonly>
@@ -38,27 +43,17 @@ View Detail Asset
 						@endif
 		                </div>
 
-		                <div class="form-group">
-		                  <label>Nama Asset</label>
-		                  <input type="text" class="form-control" value="{{ $asset->nama_asset }}" readonly>
+		                 <div class="form-group">
+		                  <label>Updated At</label>
+		                  <input type="text" class="form-control" value="{{ $asset->updated_at }}" readonly>
 		                </div>
 
+		               
 		                <div class="form-group">
 		                  <label>Lokasi</label>
 		                  <input type="text" class="form-control" value="{{ $asset->lokasi }}" readonly>
 		                </div>
 
-		                <div class="form-group">
-			                <label>Expired Date:</label>
-			                <div class="input-group date">
-			                  <div class="input-group-addon">
-			                    <i class="fa fa-calendar"></i>
-			                  </div>
-			                  <input type="text" class="form-control pull-right" value="{!! App\Helpers\GeneralHelper::indonesianDateFormat($asset->expired_date)  !!}" readonly>
-			                </div>
-			             </div>
-
-		               
 			              <div class="form-group">
 		                  <label>Nama Supplier</label>
 		                  <input type="text" class="form-control" value="{{ $asset->nama_supplier }}" readonly>
@@ -75,10 +70,27 @@ View Detail Asset
 		                </div>
 
 
+		                 <div class="form-group">
+		                  <label>Total Harga</label>
+		                  <input type="text" class="form-control" value="{{ $asset->total_harga }}" readonly>
+		                </div>
+
+
 		                <div class="form-group">
+			                <label>Expired Date:</label>
+			                <div class="input-group date">
+			                  <div class="input-group-addon">
+			                    <i class="fa fa-calendar"></i>
+			                  </div>
+			                  <input type="text" class="form-control pull-right" value="{!! App\Helpers\GeneralHelper::indonesianDateFormat($asset->expired_date)  !!}" readonly>
+			                </div>
+			             </div>
+							
+							<div class="form-group">
                   			<a href="{{ url('/inventaris/asset') }}" type="button" class="btn btn-primary pull-right">Finish</a>
                 		</div>
 
+		              
 		              </form>
 		            </div>
 		            <!-- /.box-body -->
