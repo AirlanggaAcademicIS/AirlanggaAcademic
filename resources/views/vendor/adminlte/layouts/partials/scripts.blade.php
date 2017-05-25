@@ -46,14 +46,12 @@
 <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 <script src="{{asset('/plugins/bootstrap-datepicker.js')}}"></script>
 <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
-<<<<<<< HEAD
-=======
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 
 
-=======
+
 <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
@@ -62,7 +60,7 @@
 
 
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
->>>>>>> 39015ce865a33a1a5a3db6a46e5339ae93879d8f
+
 <script>
     window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),

@@ -22,11 +22,17 @@ View Detail Asset
 		                <!-- text input -->
 		                <div class="form-group">
 		                  <label>Kategori</label>
-		                   @if($asset->kategori_id == 1) 
-						<input type ="text" class="form-control" value="dokumen" readonly>
-						@elseif($asset->kategori_id == 2) 
-						<input type ="text" class="form-control" value="furniture" readonly>
-						@endif
+		                    @if($asset->kategori_id == 1) 
+							<input type ="text" class="form-control" value="Elektronik" readonly>
+							@elseif($asset->kategori_id == 2) 
+							<input type ="text" class="form-control" value="Mekanik" readonly>
+							@elseif($asset->kategori_id == 3) 
+							<input type ="text" class="form-control" value="Furniture" readonly>
+							@elseif($asset->kategori_id == 4) 
+							<input type ="text" class="form-control" value="Dokumen" readonly>
+							@elseif($asset->kategori_id == 5) 
+							<input type ="text" class="form-control" value="Kendaraan" readonly>	
+							@endif
 		                </div>
 
 		                <div class="form-group">
@@ -36,11 +42,17 @@ View Detail Asset
 
 		                <div class="form-group">
 		                  <label>Status</label>
-		                  @if($asset->status_id == 1) 
-						<input  type="text" class="form-control" value="ready" readonly>
-						@elseif($asset->status_id == 2) 
-						<input type="text" class="form-control" value="not ready" readonly>
-						@endif
+		                    @if($asset->status_id == 1) 
+							<input  type="text" class="form-control" value="Ready" readonly>
+							@elseif($asset->status_id == 2) 
+							<input type="text" class="form-control" value="Borrowed" readonly>
+							@elseif($asset->status_id == 3) 
+							<input type="text" class="form-control" value="Maintenance" readonly>
+							@elseif($asset->status_id == 4) 
+							<input type="text" class="form-control" value="Broken" readonly>
+							@elseif($asset->status_id == 5) 
+							<input type="text" class="form-control" value="Expired" readonly>
+							@endif
 		                </div>
 
 		                 <div class="form-group">
