@@ -313,7 +313,37 @@ Route::post('undangan/{nip}/edit','Dosen\notulensi\DosenRapatController@editActi
 /*
 Route buat karyawan ditaruh dibawah sini
 */
-Route::get('karyawan/krs-khs/input_dosen_mk','Karyawan\krs_khs\InputDosenMKController@index');
+
+/*
+Route modul pengelolaan kegiatan
+*/
+
+// Menampilkan data Konfirmasi Kegiatan dari Modul Pengelolaan Kegiatan
+Route::get('karyawan/pengelolaan-kegiatan/konfirmasi-kegiatan','Karyawan\pengelolaankegiatan\KonfirmasiKegiatanController@index');
+
+// Menampilkan data Konfirmasi Kegiatan dari Modul Pengelolaan Kegiatan
+Route::get('karyawan/pengelolaan-kegiatan/konfirmasi-kegiatan/{id_kegiatan}/setujuiProposal','Karyawan\pengelolaankegiatan\KonfirmasiKegiatanController@setujuiActionProposal');
+
+// Menampilkan data Konfirmasi Kegiatan dari Modul Pengelolaan Kegiatan
+Route::post('karyawan/pengelolaan-kegiatan/konfirmasi-kegiatan/{id_kegiatan}/tolakProposal','Karyawan\pengelolaankegiatan\KonfirmasiKegiatanController@tolakActionProposal');
+
+// Menampilkan data Konfirmasi Kegiatan dari Modul Pengelolaan Kegiatan
+Route::get('karyawan/pengelolaan-kegiatan/konfirmasi-kegiatan/{id_kegiatan}/setujuiLPJ','Karyawan\pengelolaankegiatan\KonfirmasiKegiatanController@setujuiActionLPJ');
+
+// Menampilkan data Konfirmasi Kegiatan dari Modul Pengelolaan Kegiatan
+Route::post('karyawan/pengelolaan-kegiatan/konfirmasi-kegiatan/{id_kegiatan}/tolakLPJ','Karyawan\pengelolaankegiatan\KonfirmasiKegiatanController@tolakActionLPJ');
+
+ // Menampilkan data Daftar Konfirmasi Kegiatan dari Modul Pengelolaan Kegiatan
+Route::get('karyawan/pengelolaan-kegiatan/daftar-konfirmasi','Karyawan\pengelolaankegiatan\DaftarKonfirmasiController@index');
+ 
+// Menampilkan detail pengajuan kegiatan dari Modul Pengelolaan Kegiatan
+Route::get('/karyawan/pengelolaan-kegiatan/detail-pengajuan/{id_kegiatan}','Karyawan\pengelolaankegiatan\DetailPengajuanController@index');
+    
+/*
+Akhir route pengelolaan kegiatan
+*/
+
+        Route::get('karyawan/krs-khs/input_dosen_mk','Karyawan\krs_khs\InputDosenMKController@index');
 
 		Route::get('karyawan/pengelolaan-kegiatan/dokumentasi','karyawan\pengelolaankegiatan\DokumentasiController@index');
 
@@ -452,8 +482,6 @@ Route::group(['prefix' => 'karyawan'], function() {
             });
 });
             
-
-    Route::get('karyawan/pengelolaan-kegiatan/pengajuan-kegiatan','Karyawan\pengelolaankegiatan\PengajuanKegiatanController@index');
 
     Route::get('karyawan/pengelolaan-kegiatan/dokumentasi','karyawan\pengelolaankegiatan\DokumentasiController@index');
 

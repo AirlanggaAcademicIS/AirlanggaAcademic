@@ -7,6 +7,35 @@
 
 <a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
 </li> -->
+
+<!-- awal modul pengelolaan kegiatan fitur view lpj -->
+<li>
+<a href=""><i class="fa fa-users"></i> <span> Kegiatan Akademik </span></a>    
+
+<ul class="treeview-menu">
+
+<!-- Sidebarnya ditaruh dibawah sini -->
+<!-- Konfirmasi kegiatan -->
+<li
+@if($page == 'konfirmasi-kegiatan')
+{!! 'class="active"'!!}
+@endif>
+<a href="{{ url('karyawan/pengelolaan-kegiatan/konfirmasi-kegiatan') }}"><i class='fa fa-book'></i><span> Konfirmasi Kegiatan </span></a>
+</li>
+
+<!-- Daftar Konfirmasi Kegiatan -->
+<li
+@if($page == 'daftar-konfirmasi')
+{!! 'class="active"'!!}
+@endif>
+<a href="{{ url('karyawan/pengelolaan-kegiatan/daftar-konfirmasi') }}"><i class='fa fa-book'></i><span> Daftar Konfirmasi Kegiatan </span></a>
+</li>
+
+</ul>
+</li>
+
+
+
 <li>
  <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
  <ul class="treeview-menu">
@@ -209,22 +238,11 @@
 </li>
 
             <a href=""><i class='fa fa-users'></i> <span> PLA</span></a>
-            <ul class="treeview-menu">
-            <li
+           
 
 
 <a href="{{ url('dosen/pengelolaan-kegiatan/dokumentasi') }}"><i class='fa fa-book'></i><span> Input Dokumentasi </span></a>
 </li>
-<!-- Sidebarnya ditaruh dibawah sini -->
-<li
-@if($page == 'pengajuan-kegiatan')
-{!! 'class="active"'!!}
-@endif>
 
-
-
-
-<a href="{{ url('karyawan/pengelolaan-kegiatan/pengajuan-kegiatan') }}"><i class='fa fa-book'></i><span> Konfirmasi Pengajuan Kegiatan </span></a>
-</li>
 </ul>
 </li>
