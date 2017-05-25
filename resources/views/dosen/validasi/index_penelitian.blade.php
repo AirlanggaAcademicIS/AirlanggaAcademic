@@ -30,13 +30,13 @@ Penelitian
   @endforeach
 </div>
 
-<div style="margin-bottom: 10px" class="dropdown">
+<div style="margin-bottom: 20px" class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Halaman Validasi
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="dosen/Validasi/index_jurnal">Jurnal</a></li>
-      <li><a href="dosen/Validasi/index_konferensi">Konferensi</a></li>
-      <li><a href="dosen/Validasi/index_pengmas">Pengmas</a></li>
+      <li><a href="dosen/validasi/index_jurnal">Jurnal</a></li>
+      <li><a href="dosen/validasi/index_konferensi">Konferensi</a></li>
+      <li><a href="dosen/validasi/index_pengmas">Pengmas</a></li>
     </ul>
   </div>
 
