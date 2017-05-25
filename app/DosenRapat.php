@@ -20,4 +20,8 @@ class DosenRapat extends Model
 		  'deleted_at',	
 
    ];
+   public function dosen()
+   {
+      return $this->belongsTo('App\BiodataDosen');
+   }
 }
