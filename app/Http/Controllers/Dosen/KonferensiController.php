@@ -45,10 +45,11 @@ class KonferensiController extends Controller
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        $request['status_konferensi'] = 0 ;
-        $request['file_konferensi'] = "tidak ada" ;
-        Konferensi::create($request->input());
-
+        $dosen = $request->input();
+        $dosen['status_konferensi'] = 0 ;
+        $dosen['file_konferensi'] = time() .'.'.$request->file('file_konferensi')->getClientOriginalExtension();
+        Konferensi::create($dosen);
+        $file = $request->file('file_konferensi')->move("img/dosen/",$dosen['file_konferensi']);
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Konferensi berhasil ditambahkan');
 

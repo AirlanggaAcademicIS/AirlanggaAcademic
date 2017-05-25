@@ -48,14 +48,6 @@ Edit Biodata Mahasiswa
 		<form id="tambahBiodataMahasiswa" method="post" action="{{url('/mahasiswa/biodata-mahasiswa/'.$biodatamahasiswa->id_bio.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-
-				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">NIM</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim_id" name="nim_id" placeholder="Masukkan NIM" value="{{$biodatamahasiswa->nim_id}}" required>
-					</div>
-				</div>
-
 				<div class="form-group">
 					<label for="nama_mhs" class="col-sm-2 control-label">Nama Mahasiswa</label>
 					<div class="col-md-8">

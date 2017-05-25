@@ -21,11 +21,12 @@ class PrestasiController extends Controller
     // Function untuk menampilkan tabel
     public function index()
     {
+        $nim = Auth::user()->username;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'prestasi',
             // Memanggil semua isi dari tabel biodata
-            'prestasi' => Prestasi::all()
+            'prestasi' => Prestasi::where('nim_id', '=', $nim)->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
@@ -47,6 +48,7 @@ class PrestasiController extends Controller
     {
         $mhs = $request->input();
         $mhs['nim_id'] = Auth::user()->username;
+        $mhs['file_prestasi']= time() .'.'.$request->file('file_prestasi')->getClientOriginalExtension();
         //$this->validate($request, [
           //  'file_prestasi'=> 'required',]);
         //$filename = basename($_FILES["file_prestasi"]["name"]);
@@ -55,6 +57,8 @@ class PrestasiController extends Controller
         //$mhs->save();
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
         Prestasi::create($mhs);
+                $gambar = $request->file('file_prestasi')->move("img/prestasi/",$mhs['file_prestasi']);
+
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Data Prestasi berhasil ditambahkan');
@@ -103,9 +107,12 @@ class PrestasiController extends Controller
         $prestasi->kelompok_kegiatan = $request->input('kelompok_kegiatan');
         $prestasi->penyelenggara = $request->input('penyelenggara');
         $prestasi->tingkat = $request->input('tingkat');
-        $prestasi->file_prestasi = $request->input('file_prestasi');
+        if ($request->file('file_prestasi') != "") {
+        $prestasi->file_prestasi = time() .'.'.$request->file('file_prestasi')->getClientOriginalExtension();
+         $gambar = $request->file('file_prestasi')->move("img/prestasi/",$prestasi->file_prestasi);
+            # code...
+        }
         $prestasi->save();
-
         
 
         // Notifikasi sukses

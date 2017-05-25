@@ -91,6 +91,14 @@ Edit Jurnal
 						<input type="text" class="form-control input-lg" id="penulis_ke" name="penulis_ke" placeholder="Masukkan Penulis Ke" value="{{$jurnal->penulis_ke}}" required>
 					</div>
 				</div>
+				<div class="form-group">
+					<label for="file_jurnal" class="col-sm-2 control-label">File Jurnal</label>
+					<div class="col-md-8">
+					
+						<input type="file" class="form-control input-lg" id="file_jurnal" name="file_jurnal" placeholder="Pilih File Jurnal" value="{{$jurnal->file_jurnal}}" required>
+
+					</div>
+				</div>
 
 
 				<div class="form-group text-center">

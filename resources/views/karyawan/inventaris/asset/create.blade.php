@@ -50,12 +50,14 @@ Tambah Asset
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-               <div class="form-group">
+                <div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Kategori</label>
 					<div class="col-md-8">
 						<select class="form-control" name="kategori" required>
 		            	<option value="">-- Pilih Kategori --</option>
-		                <option value="1">Dokumen</option>
+		                @foreach ($kategori as $k)
+		                <option value="{{ $k->id_kategori }}">{{ $k->kategori }}</option>
+		                @endforeach
 		               
 					</select>
 					</div>
@@ -64,10 +66,11 @@ Tambah Asset
 				 <div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Status</label>
 					<div class="col-md-8">
-						<select class="form-control" name="kategori" required>
+						<select class="form-control" name="status" required>
 		            	<option value="">-- Pilih Status --</option>
-		                <option value="1">Ready</option>
-		                <option value="2">Not Ready</option>
+		                @foreach ($status as $s)
+		                <option value="{{ $s->id_status }}">{{ $s->status }}</option>
+		                @endforeach
 					</select>
 					</div>
 				</div>
@@ -109,13 +112,6 @@ Tambah Asset
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Jumlah Barang</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="jumlah_barang" name="jumlah_barang" placeholder="Masukkan Jumlah Barang" required>
-					</div>
-				</div>
-
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
@@ -141,8 +137,3 @@ $( function() {
   } );
   </script>
 @endsection
-
-				
-
-
-

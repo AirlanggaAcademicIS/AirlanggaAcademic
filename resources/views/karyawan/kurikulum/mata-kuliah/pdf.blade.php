@@ -1,88 +1,62 @@
-<form id="tambahMatkul" method="post" action="{{url('/kurikulum/mata-kuliah/'.$matkul->id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+<div class="col-md-12" style="text-align: center;">
+    <h3>Kartu Hasil Studi {{$khs->MK}}</h3>    
+</div>
 
-    <div class="form-group">
-      <label for="nim" class="col-sm-2 control-label">1. Jenis Matkul</label>
-      <div class="col-md-8">
-          @foreach($jenis_matkul as $jenis_mk)
-            @if($jenis_mk->id == $matkul->jenisMatkul['id'])
-              <h4>{{$jenis_mk->jenis_mk}}</h4>
-            @endif
-          @endforeach
-      </div>
-    </div>
-    <!-- Menampilkan input text biasa -->
-    <div class="form-group">
-        <label for="nim" class="col-sm-2 control-label">2. Kode</label>
-        <div class="col-md-8">
-          <h4>{{$matkul->kode_matkul}}</h4>
-        </div>
-    </div>
+<table style="width:100%; border: 1px solid black;">
+    <thead> 
+      <tr>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">Jenis Mata Kuliah</td>
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">
+                
+            </td>
+        </tr>  
+        <tr>
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">Kode Mata Kuliah</td>
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">{{$matkul->kode_matkul}}</td>                                        
+        </tr>
+        <tr>
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">Nama Mata Kuliah</td>                    
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">{{$matkul->nama_matkul}}</td>                                        
+        </tr>                
+        <tr>
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">Bobot SKS</td>                    
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">{{$matkul->sks}}</td>                                        
+        </tr>                                
+        <tr>
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">Deskripsi Mata Kuliah</td>                    
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">{{$matkul->deskripsi_matkul}}</td>                                        
+        </tr>                            
+        <tr>
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">Capaian Mata Kuliah</td>                    
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">{{$matkul->capaian_matkul}}</td>                                        
+        </tr>                                            
+        <tr>
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">Penilaian Mata Kuliah</td>                    
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">{{$matkul->penilaian_matkul}}</td>                                        
+        </tr>                                                            
+        <tr>
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">Pokok Pembahasan</td>                    
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">{{$matkul->pokok_pembahasan}}</td>                                        
+        </tr>                                                                            
+        <tr>
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">Pustaka Mata Kuliah</td>                    
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">
+            <p>Pustaka Utama :
+            {{$matkul->pustaka_utama}}
+            </p>
+            <p>Pustaka Pendukung :
+            {{$matkul->pustaka_pendukung}} 
+            </p>                   
+            </td>                                        
+        </tr> 
+        <tr>
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">Syarat SKS</td>                    
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">{{$matkul->syarat_sks}}</td>                                        
+        </tr>                                                  
+    </tbody>
+</table>
 
-    <div class="form-group">
-        <label for="nama" class="col-sm-2 control-label">3. Nama Mata Kuliah</label>
-        <div class="col-md-8">
-          <h4>{{$matkul->nama_matkul}}</h4  >
-        </div>
-    </div>
-
-<!-- Menampilkan textarea -->
-    <div class="form-group">
-        <label for="nama" class="col-sm-2 control-label">4. SKS</label>
-        <div class="col-md-8">
-          <h4>{{$matkul->sks}}</h4>
-        </div>
-    </div>
-
-    <!-- Menampilkan dropdown -->
-    <div class="form-group">
-        <label for="nama" class="col-sm-2 control-label">5. Deskripsi</label>
-        <div class="col-md-8">
-            <h4>{{$matkul->deskripsi_matkul}}</h4>
-        </div>
-    </div>
-
-    <!-- Menampilkan tanggal dengan datepicker -->
-    <div class="form-group">
-        <label for="nama" class="col-sm-2 control-label">6. Capaian</label>
-        <div class="col-md-8">
-            <h4>{!!$matkul->capaian_matkul!!}</h4>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="nama" class="col-sm-2 control-label">7. Penilaian</label>
-        <div class="col-md-8">
-          <h4>{!!$matkul->penilaian_matkul!!}</h4>
-        </div>
-    </div>                
-
-    <div class="form-group">
-        <label for="nama" class="col-sm-2 control-label">8. Pokok Pembahasan</label>
-        <div class="col-md-8">
-          <h4>{!!$matkul->pokok_pembahasan!!}</h4>
-        </div>
-    </div>                                
-
-    <div class="form-group">
-        <label for="nama" class="col-sm-2 control-label">9. Pustaka Utama</label>
-        <div class="col-md-8">
-          <h4>{!!$matkul->pustaka_utama!!}</h4>
-        </div>
-    </div>                                                
-
-    <div class="form-group">
-        <label for="nama" class="col-sm-2 control-label">10. Pustaka Pendukung</label>
-        <div class="col-md-8">
-          <h4>{!!$matkul->pustaka_pendukung!!}</h4>
-        </div>
-    </div>                                                
-
-    <div class="form-group">
-        <label for="nama" class="col-sm-2 control-label">11. Syarat SKS</label>
-        <div class="col-md-8">
-          <h4>{{$matkul->syarat_sks}}</h4>
-        </div>
-    </div>
-
-</form>

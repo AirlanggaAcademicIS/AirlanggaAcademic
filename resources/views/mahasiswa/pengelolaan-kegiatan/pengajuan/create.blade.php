@@ -20,6 +20,7 @@ Pengajuan Kegiatan
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
+<<<<<<< HEAD
 <section class="content">
       <div class="row">
         <!-- left column -->
@@ -29,6 +30,9 @@ Pengajuan Kegiatan
             <div class="box-header with-border">
               <h3 class="box-title"></h3>
             </div>
+=======
+
+>>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
 <!-- Ini buat menampilkan notifikasi -->
   @foreach (['danger', 'warning', 'success', 'info'] as $msg)
   @if(Session::has('alert-' . $msg))
@@ -69,6 +73,7 @@ Pengajuan Kegiatan
           </div>
         </div>
 
+<<<<<<< HEAD
         <!-- textarea -->
                 <div class="form-group">
           <label for="nama" class="col-sm-2 control-label">Kategori</label>
@@ -87,6 +92,8 @@ Pengajuan Kegiatan
           </div>
         </div>
 
+=======
+>>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
               <!-- textarea -->
                 <div class="form-group">
           <label for="nama" class="col-sm-2 control-label">Latar Belakang</label>
@@ -129,12 +136,34 @@ Pengajuan Kegiatan
           </div>
         </div>
 
+<<<<<<< HEAD
         <div class="form-group">
                   <label for="exampleInputFile">File input</label>
                   <input type="file" id="gambar" name="url_poster">
                 </div>
                
                 <button type="submit" class="btn btn-primary">Next</button>
+=======
+        <!-- textarea -->
+                <div class="form-group">
+          <label for="nama" class="col-sm-2 control-label">Url Poster</label>
+          <div class="col-md-8">
+            <textarea id="url_poster" name="url_poster" placeholder="Masukkan Url Poster" required cols="82" rows="5">
+            </textarea>
+          </div>
+        </div>
+
+        <!-- textarea -->
+                <div class="form-group">
+          <label for="nama" class="col-sm-2 control-label">Sumber Dana</label>
+          <div class="col-md-8">
+            <textarea id="sumber_id" name="sumber_id" placeholder=" Masukkan sumber dana" required cols="82" rows="5">
+            </textarea>
+          </div>
+        </div>
+               
+                <button type="submit" class="btn btn-primary">Submit</button>
+>>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
               </div>
             </form>
           </div>
@@ -153,6 +182,7 @@ $( function() {
     var date2 = $('#datepicker2').datepicker({ dateFormat: 'yy/mm/dd' }).val();
 
   } );
+<<<<<<< HEAD
 
     var elBrowse  = document.getElementById("gambar");
   elBrowse.addEventListener("change", function() {
@@ -182,6 +212,8 @@ $( function() {
     }
   });
 
+=======
+>>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
   </script>
 
 

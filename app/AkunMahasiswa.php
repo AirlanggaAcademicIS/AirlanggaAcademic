@@ -12,7 +12,10 @@ class AkunMahasiswa extends Model
    protected $fillable = [
    		'nim',
 		'nlp_id',
+		'angkatan',
 		'password',
 		
    ];
+
+
 }

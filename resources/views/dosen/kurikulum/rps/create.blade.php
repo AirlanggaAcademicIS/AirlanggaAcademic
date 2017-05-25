@@ -31,7 +31,7 @@ Tambah Kategori Media Pembelajaran
 	@endif
 	@endforeach
 <form role="form">
-<div class="box box-primary">
+<div class="box box-danger">
         <div class="box-header with-border">
           <h3 class="box-title">Form Rencana Pembelajaran Semester</h3>
         </div>
@@ -39,45 +39,31 @@ Tambah Kategori Media Pembelajaran
       <div class="box-body">
 
 <div class="form-group">
-<p><b>Kode Mata Kuliah</b></p>
-    <div class="form-group">
-      <select class="form-control" id="kode_matkul" name="kode_matkul">
-      @foreach ($mata_kuliah as $mk) 
-          {
-			<option></option>
-			<option value="{{$mk->kode_matkul}}">{{$mk->kode_matkul}}</option>
-			 }
-          @endforeach
-          </select>
-    </div>
-</div><br>
-
-
+    <label>Mata Kuliah</label>
+    <select name="nama_matkul" class="form-control select2" style="width: 100%;" required>
+      <option value="">-- Kode Mata Kuliah - Nama Mata Kuliah --</option>
+      @foreach ($mata_kuliah as $mk)
+      {
+        <option value="{{$mk->nama_matkul}}">{{$mk->kode_matkul}} - {{$mk->nama_matkul}} ({{$mk->sks}} SKS)</option>
+      }
+      @endforeach
+    </select>
+   </div>
 
 <div class="form-group">
-    <label for="nama-matkul">Mata Kuliah Prasyarat</label>
-    </div>
-    <div class="form-group">
-    <input class="form-control" value="">
-    </div><br>
-
-<div class="form-group">
-<p><b>Capaian Pembelajaran</b></p>
+  <label for="prasyarat"><b>Prasyarat</b></label><br>     
+  @foreach($mata_kuliah as $mk)
+    <label class="checkbox-inline"><input type="checkbox" value="">{{$mk->nama_matkul}}</label>          
+  @endforeach                                
 </div>
 
 <div class="form-group">
-    <label for="nama-matkul">CPL Prodi</label>
-    </div>
-    <div class="form-group">
-    <input class="form-control" value="" data-role="tagsinput">
-    </div>
-      
-<div class="form-group">
-    <label for="nama-matkul">CP MK</label>
-    </div>
-    <div class="form-group">
-    <input class="form-control" value="" data-role="tagsinput">
-    </div><br>
+  <label for="cpl_prodi"><b>CPL Prodi</b></label><br>     
+  @foreach($cpl_prodi as $cpl)
+    <label class="checkbox-inline"><input type="checkbox" value="">{{$cpl->cpem['kode_cpem']}}
+    @endforeach 
+    </label>                               
+</div>
 
 <div class="form-group">
 <label for="deskripsi-mk"><b>Deskripsi Singkat Mata Kuliah</b></label>
@@ -105,19 +91,11 @@ Tambah Kategori Media Pembelajaran
 <p><b>Media Pembelajaran</b></p>
 </div>
 
-    <div class="form-group">
-    <label for="nama-matkul">Perangkat Lunak</label>
-    </div>
-    <div class="form-group">
-    <input class="form-control" value="" data-role="tagsinput">
-    </div>
-
-     <div class="form-group">
-    <label for="nama-matkul">Perangkat Keras</label>
-    </div>
-    <div class="form-group">
-    <input class="form-control" value="" data-role="tagsinput">
-    </div><br>
+    <div class="form-group">    
+  @foreach($media as $m)
+    <label class="checkbox-inline"><input type="checkbox" value="">{{$m->media_pembelajaran}}</label>       
+  @endforeach                                
+</div>
 
 <div class="form-group">
 <p><b>Team Teaching</b></p>
@@ -125,59 +103,47 @@ Tambah Kategori Media Pembelajaran
 <!-- select -->
     <div class="form-group">
       <select class="form-control">
-      <option></option>
-        <option>Nama Dosen 1</option>
-        <option>Nama Dosen 2</option>
-        <option>Nama Dosen 3</option>
-        <option>Nama Dosen 4</option>
-        <option>Nama Dosen 5</option>
+        @foreach($dosen as $d) 
+      <option selected="selected">{{$d->nama_dosen}}</option>
+  @endforeach
       </select>
     </div>
-</div>
 
 <div class="form-group">
 <label for="nama-matkul">Anggota Team Teaching 1</label>
 <!-- select -->
     <div class="form-group">
       <select class="form-control">
-      <option></option>
-        <option>Nama Dosen 1</option>
-        <option>Nama Dosen 2</option>
-        <option>Nama Dosen 3</option>
-        <option>Nama Dosen 4</option>
-        <option>Nama Dosen 5</option>
+        @foreach($dosen as $d) 
+      <option selected="selected">{{$d->nama_dosen}}</option>
+  @endforeach
       </select>
     </div>
-</div>
+
 
 <div class="form-group">
 <label for="nama-matkul">Anggota Team Teaching 2</label>
 <!-- select -->
     <div class="form-group">
       <select class="form-control">
-      <option></option>
-        <option>Nama Dosen 1</option>
-        <option>Nama Dosen 2</option>
-        <option>Nama Dosen 3</option>
-        <option>Nama Dosen 4</option>
-        <option>Nama Dosen 5</option>
+        @foreach($dosen as $d) 
+      <option selected="selected">{{$d->nama_dosen}}</option>
+  @endforeach
       </select>
     </div>
-</div>
+
 
 <div class="form-group">
 <label for="nama-matkul">Anggota Team Teaching 3</label>
 <!-- select -->
     <div class="form-group">
       <select class="form-control">
-      	<option></option>
-        <option>Nama Dosen 1</option>
-        <option>Nama Dosen 2</option>
-        <option>Nama Dosen 3</option>
-        <option>Nama Dosen 4</option>
-        <option>Nama Dosen 5</option>
+        @foreach($dosen as $d) 
+      <option selected="selected">{{$d->nama_dosen}}</option>
+  @endforeach
       </select>
     </div>
+
 </div><br>
 <button type="submit" class="btn btn-info pull-right">Tambah</button> 
 
@@ -185,7 +151,6 @@ Tambah Kategori Media Pembelajaran
 
 </form>
 </div>
-</form>
 @endsection
 
 @section('code-footer')

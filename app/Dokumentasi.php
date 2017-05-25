@@ -14,4 +14,12 @@ class Dokumentasi extends Model
 		'lesson_learned',
 		'url_foto',
       ];
+
+      public function namaKegiatan(){
+      	return $this->belongsTo('App\PengajuanKegiatan','kegiatan_id');
+      }
+
+      public function rondown(){
+         return $this->belongsTo('App\RincianRundown','kegiatan_id');
+      }
 }

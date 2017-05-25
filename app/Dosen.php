@@ -12,4 +12,5 @@ class Dosen extends Model
 		'nip'
 			
    ];
+
 }

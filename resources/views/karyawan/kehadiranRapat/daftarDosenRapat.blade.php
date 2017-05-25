@@ -10,10 +10,11 @@ Fitur
 @endsection
 
 @section('contentheader_title')
-DAFTAR RAPAT
+DAFTAR PESERTA RAPAT
 @endsection
 
 @section('main-content')
+
 <!-- include summernote css/js-->
 <div class="flash-message" style="margin-left: -16px;margin-right: -16px; margin-top: 13px;">
   @foreach (['danger', 'warning', 'success', 'info'] as $msg)
@@ -31,22 +32,21 @@ DAFTAR RAPAT
   <thead>
     <tr>
       <th style="text-align:center">No</th>
-      <th style="text-align:center">NIP</th>
-      <th style="text-align:center">ID Notulen</th>
-      <th style="text-align:center">Created at</th>      
-      <th style="text-align:center">Updated at</th>
-      <th style="text-align:center">Deleted at</th>
+      <th style="text-align:center">Nama Rapat</th>
+      <th style="text-align:center">Tempat</th>
+      <th style="text-align:center">Tanggal</th>      
+      <th style="text-align:center">List Peserta</th>
     </tr>
     </thead>
   <tbody>
-   @forelse($dosen_rapat as $i => $dospat) 
+   @forelse($notulensi as $i => $dosen_rapat) 
     <tr>
       <td>{{ $i+1 }}</td>
-      <td width="40%" style="text-align:center">{{$dospat->nip}}</td>
-      <td width="25%" style="text-align:center">{{$dospat->notulen_id}}</td>
-      <td width="25%" style="text-align:center">{{$dospat->created_at}}</td>
-      <td width="25%" style="text-align:center">{{$dospat->updated_at}}</td>
-      <td width="25%" style="text-align:center">{{$dospat->deleted_at}}</td>
+      <td width="40%" style="text-align:center">{{$dosen_rapat->nama_rapat}}</td>
+      <td width="25%" style="text-align:center">{{$dosen_rapat->nama_ruang}}</td>
+      <td width="25%" style="text-align:center">{{$dosen_rapat->waktu_pelaksanaan}}</td>
+      <td ><a href="{{url('notulensi/cetakPDF/'.$dosen_rapat->id_notulen)}}" class="btn btn-primary btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Cetak</a></td>
     </tr>
      @empty
 
@@ -58,5 +58,5 @@ DAFTAR RAPAT
 @endsection
 
 @section('code-footer')
-	
+  
 @endsection
