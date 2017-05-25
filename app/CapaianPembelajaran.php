@@ -10,7 +10,7 @@ class CapaianPembelajaran extends Model
    protected $table = 'capaian_pembelajaran';    
    protected $primaryKey = 'id_cpem';    
    protected $fillable = [
-   		'prodi_id',
+   	'prodi_id',
 		'kategori_cpem_id',
 		'kode_cpem',
 		'deskripsi_cpem',

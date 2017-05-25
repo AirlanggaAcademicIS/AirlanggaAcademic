@@ -17,6 +17,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/logout', 'Auth\LoginController@logout');
 
 
+<<<<<<< HEAD
 /*
 ==========================================
 Route buat mahasiswa ditaruh dibawah sini
@@ -628,3 +629,5 @@ Route::group(['prefix' => 'inventaris'], function() {
         Route::get('view-asset', 'HomeController@index');
 
 });
+=======
+>>>>>>> f69f02d08a0b1873581b9675b698d0ff1297cf5b

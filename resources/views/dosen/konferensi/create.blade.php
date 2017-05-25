@@ -91,6 +91,13 @@ Tambah Konferensi
 						</textarea>
 					</div>
 				</div>
+				<div class="form-group">
+					<label for="file_prestasi" class="col-sm-2 control-label">File Konferensi</label>
+					<div class="col-md-8">
+						<input type="file" class="form-control input-lg" id="file_konferensi" name="file_konferensi" placeholder="Pilih File Prestasi" required>
+
+					</div>
+				</div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 class Asset extends Model
 {
+	use SoftDeletes;
    protected $table = 'asset';
    protected $primaryKey = 'id_asset'; 
    protected $fillable = [
@@ -20,8 +21,6 @@ class Asset extends Model
 		'expired_date',
 		'nama_supplier',
 		'harga_satuan',
-		'jumlah_barang',
-		'total_harga',
 		'created_at',
 		'updated_at',
 		'deleted_at',

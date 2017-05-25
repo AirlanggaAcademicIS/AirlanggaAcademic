@@ -62,9 +62,11 @@ Edit Asset
 					<div class="col-md-8">
 						<select class="form-control" name="kategori_id" required>
 		            	<option value="">-- Pilih Kategori --</option>
-		                <option value="1">Dokumen</option>
-		                <option value="2">Furniture</option>
-		               
+		                <option value="1" {{ $asset->kategori_id == "1" ? "selected" : ""}} >Elektronik</option>
+		                <option value="2" {{ $asset->kategori_id == "2" ? "selected" : ""}} >Mekanik</option>
+		                <option value="3" {{ $asset->kategori_id == "3" ? "selected" : ""}} >Furniture</option>
+		                <option value="4" {{ $asset->kategori_id == "4" ? "selected" : ""}} >Dokumen</option>
+		                <option value="5" {{ $asset->kategori_id == "5" ? "selected" : ""}} >Kendaraan</option>
 					</select>
 					</div>
 				</div>
@@ -74,8 +76,11 @@ Edit Asset
 					<div class="col-md-8">
 						<select class="form-control" name="status_id" required>
 		            	<option value="">-- Pilih Status --</option>
-		                <option value="1">Ready</option>
-		                <option value="2">Not Ready</option>
+		                <option value="1" {{ $asset->status_id == "1" ? "selected" : ""}} >Ready</option>
+		                <option value="2" {{ $asset->status_id == "2" ? "selected" : ""}} >Borrowed</option>
+		                <option value="3" {{ $asset->status_id == "3" ? "selected" : ""}} >Maintenance</option>
+		                <option value="4" {{ $asset->status_id == "4" ? "selected" : ""}} >Broken</option>
+		                <option value="5" {{ $asset->status_id == "5" ? "selected" : ""}} >Expired</option>
 					</select>
 					</div>
 				</div>
@@ -119,12 +124,6 @@ Edit Asset
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="jumlah_barang" class="col-sm-2 control-label">Jumlah Barang</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="jumlah_barang" name="jumlah_barang" placeholder="Masukkan Jumlah Barang" value="{{$asset->jumlah_barang}}" required>
-					</div>
-				</div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">

@@ -62,16 +62,23 @@ Tambah Peminjaman
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nim" class="col-sm-2 control-label">Nomor Induk Peminjam</label>
+					<label for="nim" class="col-sm-2 control-label">Asset ID</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim_nip_peminjam" name="nim_nip_peminjam" placeholder="Masukkan NIM" required>
+						<input type="text" class="form-control input-lg" value="{{$asset->id_asset}}" id="asset_id" name="asset_id" placeholder="Masukkan ID" readonly required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Asset yang Dipinjam</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="asset_yang_dipinjam" name="asset_yang_dipinjam" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" value="{{$asset->nama_asset}}" id="asset_yang_dipinjam" name="asset_yang_dipinjam" placeholder="Masukkan Nama" readonly required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nim" class="col-sm-2 control-label">Nomor Induk Peminjam</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nim_nip_peminjam" name="nim_nip_peminjam" placeholder="Masukkan NIM" required>
 					</div>
 				</div>
 

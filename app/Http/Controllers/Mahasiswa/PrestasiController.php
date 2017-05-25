@@ -21,11 +21,12 @@ class PrestasiController extends Controller
     // Function untuk menampilkan tabel
     public function index()
     {
+        $nim = Auth::user()->username;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'prestasi',
             // Memanggil semua isi dari tabel biodata
-            'prestasi' => Prestasi::all()
+            'prestasi' => Prestasi::where('nim_id', '=', $nim)->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view

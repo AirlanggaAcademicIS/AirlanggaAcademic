@@ -94,9 +94,10 @@ Tambah Capaian Pembelajaran
 				
 
 				<div class="form-group text-center">
-					<div class="col-md-8 col-md-offset-2">
+				<br>
+					<div class="col-md-7 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
-							Confirm
+							Tambah
 						</button>
 					</div>
 				</div>

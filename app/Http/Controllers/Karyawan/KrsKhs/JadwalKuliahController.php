@@ -43,10 +43,6 @@ class JadwalKuliahController extends Controller
             'jadwal2' =>Jam::all(),
 
              'jadwal3' =>Ruang::all()
-
-
-
-
         ];
         // Memanggil tampilan form create
         return view('karyawan.krs-khs.jadwal_kuliah.create',$data);
