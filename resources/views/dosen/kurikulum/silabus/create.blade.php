@@ -17,7 +17,7 @@ Tambah Silabus
 
 @section('main-content')
 <form role="form">
-  <div class="box box-primary">
+  <div class="box box-danger">
     <div class="box-header with-border">
       <h3 class="box-title">Tambah Silabus</h3>
     </div>
@@ -35,7 +35,6 @@ Tambah Silabus
           @endforeach
   	    </select>
   	   </div>
-
 
       <!-- Pakai Checkbox -->
       <div class="form-group">
@@ -60,15 +59,6 @@ Tambah Silabus
       <!-- Pakai Checkbox -->
       <div class="form-group">
         <label for="softskill"><b>Atribut Softskill</b></label><br>    
-<<<<<<< HEAD
-        <input type="text" value=" " data-role="tagsinput">                    
-    </div>
-    <div class="form-group">
-        <label for="metode-pembelajaran"><b>Sistem Pembelajaran</b></label><br>     
-        <input type="text" value=" " data-role="tagsinput">                    
-    </div>
-    <div class="form-group">
-=======
         @foreach($atribut_softskill as $softskill)
           <label class="checkbox-inline"><input type="checkbox" value="">{{$softskill->softskill}}</label>          
         @endforeach
@@ -84,7 +74,6 @@ Tambah Silabus
 
       <!-- Pakai Checkbox -->
       <div class="form-group">
->>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
         <label for="media-pembelajaran"><b>Media Pembelajaran</b></label><br>    
         @foreach($media_pembelajaran as $media)
           <label class="checkbox-inline"><input type="checkbox" value="">{{$media->media_pembelajaran}}</label>        
@@ -107,7 +96,7 @@ Tambah Silabus
     	</div>
     	<div class="form-group">
         <label for="referensi"><b>Referensi Wajib</b></label>
-        <textarea class="form-control" rows="4">
+        <textarea class="form-control" rows="4" placeholder="Masukan Referensi Wajib">
       	</textarea>
       </div>
 

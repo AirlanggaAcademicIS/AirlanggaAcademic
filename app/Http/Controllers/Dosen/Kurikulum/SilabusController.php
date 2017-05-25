@@ -33,7 +33,7 @@ class SilabusController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'silabus',
             // Memanggil semua isi dari tabel biodata
-            'mata_kuliah' => Silabus_Matkul::all()
+            'mata_kuliah' => Silabus_Matkul::where('status_silabus', '=', '1')->get(),
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
@@ -71,13 +71,17 @@ class SilabusController extends Controller
         return Redirect::to('kurikulum/silabus');
     }
 
-    public function delete($id)
+    public function delete($id, Request $request)
     {
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
         $mata_kuliah = Silabus_Matkul::find($id);
+        $mksoftskill = Silabus_mk_softskill::where('mk_id', $id)->delete();
+        
+        $cpmatkul= Silabus_cp_matkul::where('matakuliah_id', $id)->get();
 
         // Menghapus biodata yang dicari tadi
-        $mata_kuliah->delete();
+        $mata_kuliah->status_silabus = '0';
+        $mata_kuliah->save();
 
         // Menampilkan notifikasi pesan sukses
     	Session::put('alert-success', 'Silabus berhasil dihapus');

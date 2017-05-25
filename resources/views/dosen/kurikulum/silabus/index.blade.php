@@ -6,11 +6,6 @@
 @endsection
 
 @section('htmlheader_title')
-<<<<<<< HEAD
-
-=======
-s
->>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
   Silabus 
 @endsection
 
@@ -21,11 +16,22 @@ Silabus
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
+<div class="flash-message" style="margin-left: -16px;margin-right: -16px; margin-top: 13px;">
+  @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+  @if(Session::has('alert-' . $msg))
+<div class="alert alert-{{ $msg }}">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <p class="" style="border-radius: 0">{{ Session::get('alert-' . $msg) }}</p>
+</div>
+  {!!Session::forget('alert-' . $msg)!!}
+  @endif
+  @endforeach
+</div>
 <div class="form-group">
 <a href="{{url('/dosen/kurikulum/silabus/create')}}" class="btn btn-info btn-sm">Tambah Silabus</a>
 </div>
 
-<div class="box box-primary">
+<div class="box box-danger">
 <div class="box-body">
 
 <table class="table" id="data-table" style="width:100%">
@@ -45,7 +51,7 @@ Silabus
     <td><a href="{{url('/dosen/kurikulum/silabus/edit/'.$mk->id_mk)}}">{{$mk->kode_matkul}}</a></td>
     <td>{{$mk->nama_matkul}}</td>
     <td width="30%" style="text-align:center">
-      <a onclick="return confirm('Anda yakin untuk menghapus Kategori ini?');" href="{{url('/dosen/kurikulum/silabus/'.$mk->id_mk.'/delete/')}}" class="btn btn-danger btn-xs">
+      <a onclick="return confirm('Anda yakin untuk menghapus Kategori ini?');" href="{{url('/dosen/kurikulum/silabus/delete/'.$mk->id_mk)}}" class="btn btn-danger btn-xs">
       <i class="fa fa-trash-o"></i> Delete</a>
       <a class="btn btn-info btn-xs">
         <i class="fa fa-download-square-o"></i> Download</a>
