@@ -27,13 +27,13 @@ Notulensi Rapat
   @endforeach
 </div>
 <div style="overflow: auto">
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+<table id="data-tabel" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
-      <th style="text-align:center">Nomer</th>
+
       <th style="text-align:center">Ruangan</th>
       <th style="text-align:center">Nama Petugas</th>
-      <th style="text-align:center">Nama Dosen</th>
+      <th style="text-align:center">Nama Ketua Rapat</th>
       <th style="text-align:center">Nama Rapat</th>      
       <th style="text-align:center">Agenda Rapat</th>
       <th style="text-align:center">Waktu Pelaksanaan</th>
@@ -44,8 +44,8 @@ Notulensi Rapat
   <tbody>
    @forelse($notulensi as $i => $notulensi) 
     <tr>
-      <td width="10%" style="text-align:center">{{$notulensi->id_notulen}}</td>
-      <td width="20%" style="text-align:center">{{$notulensi->permohonan_ruang_id}}</td>
+
+      <td width="20%" style="text-align:center">{{$notulensi->nama_ruang}}</td>
       <td width="20%" style="text-align:center">{{$notulensi->nama_petugas}}</td>
       <td width="20%" style="text-align:center">{{$notulensi->nama_dosen}}</td>
       <td width="20%" style="text-align:center">{{$notulensi->nama_rapat}}</td>
@@ -55,14 +55,15 @@ Notulensi Rapat
         @if($notulensi->id_verifikasi==0)
         {{'Belum Verifikasi'}}
         @else
-        {{'Verifikasi'}}
+        {{'Sudah Verifikasi'}}
         @endif
       </td>
       <td width="30%" style="text-align:center" >
-        <a href="{{url('/notulensi/notulensi/'.$notulensi->id_notulen.'/Konfirmasi/')}}" class="btn btn-info btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Konfirmasi</a>
-        <a href="{{url('/notulensi/notulensi/'.$notulensi->id_notulen.'/Kirim/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Kirim</a>
+        <a href="{{url('/notulensi/konfirmasi/'.$notulensi->id_notulen.'/lihat/')}}" class="btn btn-primary btn-xs">
+        <i class="fa fa-pencil-square-o"></i>Lihat</a>
+        <a href="{{url('/notulensi/konfirmasi/'.$notulensi->id_notulen.'/konfirmasi/')}}" class="btn btn-info btn-xs">
+        <i class="fa fa-pencil-square-o"></i>Konfirmasi</a>
+
         </td>
     </tr>
      @empty
@@ -77,5 +78,9 @@ Notulensi Rapat
 @endsection
 
 @section('code-footer')
-
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#data-table').DataTable();
+  });
+</script>
 @endsection
