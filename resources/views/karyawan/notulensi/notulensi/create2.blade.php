@@ -16,7 +16,6 @@ Tambah Notulensi
 @endsection
 
 @section('main-content')
-
 <style>
   .form-group label{
     text-align: left !important;
@@ -55,12 +54,16 @@ Tambah Notulensi
                 <div class="form-group" > 
     <label for="nip_id" class="col-sm-1 control-label"></label> 
     <div class="col-sm-9"> 
-    
+    @foreach($rapat as $r)
     <select class="form-control" name="id_notulen"> 
     <option>Pilih Nama Rapat</option>
    @foreach($nama_rapat as $i => $m)  
-    <option 
-     
+    <option
+    @if($r->id_notulen==$m->id_notulen) 
+    {{'selected'}}
+    @else
+    {{''}}
+    @endif
     value="{{$m->id_notulen}}">{{$m->nama_rapat}}</option> 
       @endforeach 
            </select> 
@@ -78,19 +81,25 @@ Tambah Notulensi
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <!-- Menampilkan input text biasa -->
-
+<input type="hidden" name="id_notulen" value="{{$r->id_notulen}}">
+  
   <div class="form-group">
 
          <label class="col-sm-2 control-label"
-         for="permohonan_ruang_id">Ruangan</label>
+         for="permohonan_ruang_id">Ruangan:</label>
          <div class="col-sm-9">
-        <select class="form-control" name="permohonan_ruang_id">
+        <select class="form-control" >
     <option>Pilih Ruang</option>
      @foreach($ruang as $i => $m)
-    <option value="{{$m->id_ruang}}">{{$m->nama_ruang }}</option>
+    <option  @if($r->permohonan_ruang_id==$m->id_ruang) 
+    {{'selected'}}
+    @else
+    {{''}}
+    @endif
+     value="{{$m->id_ruang}}">{{$m->nama_ruang }} </option> 
       @endforeach
-           </select>
-            </div>
+           </select > 
+            </div> 
     </div>
     <!-- <l
     abel for="permohonan_ruang_id" class="col-sm-2 control-label">ID Permohonan Ruang</label>
@@ -99,15 +108,14 @@ Tambah Notulensi
     
 
     <div class="form-group">
-      <label class="control-label col-sm-2" for="waktu_pelaksanaan" >Tanggal Rapat :</label>
+      <label class="control-label col-sm-2" for="waktu_pelaksanaan" >Tanggal Pelaksanaan:</label>
         <div class="col-sm-9">
-        <input type="text" id="waktu_pelaksanaan" name="waktu_pelaksanaan" placeholder="dd-mm-yyyy" style="width: 100%; height: 16px; font-size: 16px; line-height: 18px; border: 1px solid #dddddd; padding: 17px;" 
-        value="" required>
+        <input type="text" id="waktu_pelaksanaan"  placeholder="dd-mm-yyyy" style="width: 100%; height: 16px; font-size: 16px; line-height: 18px; border: 1px solid #dddddd; padding: 17px;" 
+        value="{{$r->waktu_pelaksanaan}}" disabled>
         </div>
     </div>
-
-   <div class="form-group">
-    <label for="nip_id" class="col-sm-2 control-label">Ketua Rapat</label>
+       <div class="form-group">
+    <label for="nip_id" class="col-sm-2 control-label">Ketua Rapat:</label>
     <div class="col-sm-9">
     <select class="form-control" name="nip_id">
     @foreach($dosen as $i => $m)
@@ -117,15 +125,13 @@ Tambah Notulensi
            </select>
             </div>
     </div>
-
-  <div class="form-group">
+    <div class="form-group">
     <label for="agenda_rapat"class="col-sm-2 control-label">Agenda Rapat:</label>
     <div class="col-sm-9">
-      <textarea class="form-control" rows="3" name="agenda_rapat"  enable>
-        
-      </textarea>
+      <textarea class="form-control" rows="5" enable>{{$r->agenda_rapat}}</textarea>
     </div>
   </div>
+@endforeach
      <div class="form-group">
   <label for="hasil_pembahasan"class="col-sm-2 control-label">Hasil Rapat:</label>
   <div class="col-sm-9">
@@ -148,11 +154,10 @@ Tambah Notulensi
   </div>
 
 </form>
-
+  
 </div>
- 
+</div>
 
-      
 @endsection
 
 @section('code-footer')
@@ -173,3 +178,4 @@ $( function() {
 @endsection
 
 
+ 
