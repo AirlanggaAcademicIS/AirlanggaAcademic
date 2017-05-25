@@ -23,4 +23,14 @@ class PenelitianMhs extends Model
 		'is_verified',
 		'file_pen',	
    ];
+
+   public function anggota()
+    {
+        return $this->hasOne('App\DetailAnggota', 'kode_penelitian_id');
+    }
+
+    public function detail()
+    {
+        return $this->hasOne('App\DetailPenelitian', 'kode_penelitian_id');
+    }
 }

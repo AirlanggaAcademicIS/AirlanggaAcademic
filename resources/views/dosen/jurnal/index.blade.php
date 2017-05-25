@@ -29,7 +29,7 @@ Jurnal
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
   <a href="{{url('/dosen/jurnal/create')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah jurnal</a>
+    <i class="fa fa-plus-square"></i> Tambah Jurnal</a>
 </div>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
@@ -41,6 +41,7 @@ Jurnal
       <th style="text-align:center">Bidang Jurnal</th>
       <th style="text-align:center">Tanggal Jurnal</th>
       <th style="text-align:center">Status Jurnal</th>
+      <th style="text-align:center">File Jurnal</th>
       <th style="text-align:center">Volume</th>
       <th style="text-align:center">Penulis Ke</th>
     </tr>
@@ -54,6 +55,8 @@ Jurnal
       <td width="20%" style="text-align:center">{{$jurnal->bidang_jurnal}}</td>
       <td width="10%" style="text-align:center">{{$jurnal->tanggal_jurnal}}</td>
       <td width="10%" style="text-align:center">{{$jurnal->status_jurnal}}</td>
+      <td width="20%" style="text-align:center" > <a href="{{URL::asset('/img/dosen/'.$jurnal->file_jurnal)}}" class="btn btn-primary btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Download</a> </td>
       <td width="10%" style="text-align:center">{{$jurnal->volume_jurnal}}</td>
       <td width="10%" style="text-align:center">{{$jurnal->penulis_ke}}</td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus jurnal ini?');" href="{{url('/dosen/jurnal/'.$jurnal->jurnal_id.'/delete/')}}" class="btn btn-danger btn-xs">
@@ -64,7 +67,7 @@ Jurnal
     </tr>
      @empty
         <tr>
-          <td colspan="6"><center>Belum ada jurnal</center></td>
+          <td colspan="6"><center>Belum Ada Jurnal</center></td>
         </tr>
     @endforelse
   </tbody>

@@ -17,6 +17,7 @@ use Auth;
 use Session;
 use Carbon\Carbon;
 
+
 /**
  * Class HomeController
  * @package App\Http\Controllers
@@ -48,10 +49,12 @@ class PeminjamanController extends Controller
         return view('karyawan.inventaris.peminjaman.index', $data);
     }
 
-    public function inputPeminjaman()
+    public function inputPeminjaman($id)
     {   
+        $asset = Asset::find($id);
         $data = [
             'page' => 'inventaris',
+            'asset'=> $asset,
         ];
 
         return view('karyawan.inventaris.peminjaman.create', $data);
@@ -61,16 +64,14 @@ class PeminjamanController extends Controller
 
     public function postInputPeminjaman(Request $request)
     {   
-    // STILL NOT DONE, BUG
-    // WAITING FOR ASSET MODULE
         $peminjaman = Transaksi_Peminjaman::create([
-            'nip_petugas_id' => Auth::User()->name, 
+            'nip_petugas_id' => Auth::User()->username,
             'nim_nip_peminjam' => $request->input('nim_nip_peminjam'),
-            'asset_id' => Transaksi_Peminjaman::,
+            'asset_id' => $request->input('asset_id'),
             'asset_yang_dipinjam' => $request->input('asset_yang_dipinjam'),
             'checkout_date' => Carbon::now(),
             'expected_checkin_date' => $request->input('expected_checkin_date'),
-            'waktu_pinjam' => Carbon::now(),
+            'waktu_pinjam' => Carbon::now()->setTimezone('Asia/Phnom_Penh'),
         ]);
 
         return Redirect::to('inventaris/index-peminjaman');
@@ -102,7 +103,7 @@ class PeminjamanController extends Controller
     {
         $peminjaman = Transaksi_Peminjaman::find($id);
 
-        $peminjaman->nip_petugas_id = 12345; //references petugas_tu table
+        $peminjaman->nip_petugas_id = Auth::user()->username;
         $peminjaman->asset_id = $request->input('id_asset');
         $peminjaman->nim_nip_peminjam = $request->input('nim_nip_peminjam');
         $peminjaman->asset_yang_dipinjam = $request->input('asset_yang_dipinjam');
@@ -132,4 +133,6 @@ class PeminjamanController extends Controller
         // Kembali ke halaman sebelumnya
         return Redirect::back();     
     }
+
+
 }

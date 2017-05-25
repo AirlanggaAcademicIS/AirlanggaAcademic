@@ -16,4 +16,9 @@ class PermohonanRuang extends Model
 
 			
    ];
+
+   public function petugas_tu()
+    {
+        return $this->belongsTo('App\Petugas_TU', 'nip_petugas_id');
+    }
 }

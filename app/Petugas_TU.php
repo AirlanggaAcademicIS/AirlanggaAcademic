@@ -10,7 +10,7 @@ class Petugas_TU extends Model
    protected $primaryKey = 'nip_petugas';
    public $incrementing = false;
    protected $fillable = [
-   		'nip_petugas',
+   	'nip_petugas',
 		'nama_petugas',
 		'no_telp_petugas',
 		'email_petugas',
