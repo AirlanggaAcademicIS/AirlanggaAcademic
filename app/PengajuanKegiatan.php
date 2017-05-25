@@ -11,12 +11,16 @@ class PengajuanKegiatan extends Model
 	protected $table = 'pengajuan_kegiatan';	
 	protected $primaryKey ='id_kegiatan';
 	protected $fillable = [
-		'id_kegiatan',
+		'nama',
 		'kategori',
 		'konfirmasi',
-		'nama',
+		'history',
+		'tujuan',
+		'mekanisme',
 		'tglpengajuan',
 		'tglpelaksanaan',
-		'revisi',
+		'url_poster',
+		
 	];	
 }
+
