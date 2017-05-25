@@ -13,6 +13,7 @@ class Silabus_Matkul extends Model
 		'kode_matkul',
 		'nama_matkul',
 		'sks',
+		'deskripsi_mata_ajar',
 		'deskripsi_matkul',
 		'kode_matkul',
 		'penilaian_matkul',

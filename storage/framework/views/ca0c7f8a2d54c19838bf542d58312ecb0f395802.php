@@ -1,13 +1,11 @@
-<<<<<<< HEAD
 <!-- REQUIRED JS SCRIPTS -->
 <!-- REQUIRED JS SCRIPTS -->
 
-<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
-<!-- jQuery library -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
- -->
+
 
 <!-- JQuery and bootstrap are required by Laravel 5.3 in resources/assets/js/bootstrap.js-->
 <!-- Laravel App -->
@@ -43,24 +41,17 @@
 <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 <script src="<?php echo e(asset('/plugins/bootstrap-datepicker.js')); ?>"></script>
 <script src="<?php echo e(asset('/js/app.js')); ?>" type="text/javascript"></script>
-<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
-
-
+<<<<<<< HEAD
 =======
-<script src="<?php echo e(asset('/js/app.js')); ?>" type="text/javascript"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
-<script src="<?php echo e(asset('/js/plugins/timepicker/bootstrap-timepicker.min.js')); ?>"></script>
->>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
 
-<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+>>>>>>> d1777ed63d6148f51abc8d4c913f6785d88e0cf1
 <script>
     window.Laravel = <?php echo json_encode([
         'csrfToken' => csrf_token(),
     ]); ?>;
 </script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 090f09f1e2827b9381fce8cbf0cc327eaecfb4d1
 <?php echo $__env->yieldContent('code-footer'); ?>

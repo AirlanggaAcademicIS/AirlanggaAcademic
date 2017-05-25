@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dosen\monitoringskripsi;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
+use Auth;
 // Tambahkan model yang ingin dipakai
 use App\Konsultasi;
 
@@ -24,7 +26,15 @@ class KonsultasiController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'konsultasi',
             // Memanggil semua isi dari tabel biodata
-            'konsultasi' => Konsultasi::all()
+            'dis' => DB::table('konsultasi')
+            ->select('skripsi_id')
+            ->groupBy('konsultasi.skripsi_id')
+            ->get(),
+            'konsultasi' => DB::table('konsultasi')
+            ->join('skripsi', 'skripsi.id_skripsi', '=', 'konsultasi.skripsi_id')
+            ->join('biodata_mhs','biodata_mhs.nim_id','=','skripsi.NIM_id')
+            ->select('konsultasi.*','biodata_mhs.*','skripsi.*')
+            ->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
@@ -98,5 +108,30 @@ class KonsultasiController extends Controller
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('dosen/monitoring-skripsi/konsultasi');
+    }
+
+    public function show()
+    {
+        $nim_id = \Request::get('mhs');
+        $data = [
+        'page' => 'konsultasi',
+        'dis' => DB::table('konsultasi')
+            ->select('skripsi_id')
+            ->groupBy('konsultasi.skripsi_id')
+            ->get(),
+        'dropdown' => DB::table('konsultasi')
+            ->join('skripsi', 'skripsi.id_skripsi', '=', 'konsultasi.skripsi_id')
+            ->join('biodata_mhs','biodata_mhs.nim_id','=','skripsi.NIM_id')
+            ->select('*')
+            ->get(),
+        'konsultasi' => DB::table('konsultasi')
+            ->join('skripsi', 'skripsi.id_skripsi', '=', 'konsultasi.skripsi_id')
+            ->join('biodata_mhs','biodata_mhs.nim_id','=','skripsi.NIM_id')
+            ->select('*')
+            ->where('skripsi.NIM_id','=',$nim_id)
+            ->get()
+        ];
+        return view('dosen.monitoring-skripsi.konsultasi.show',$data);
+
     }
 }

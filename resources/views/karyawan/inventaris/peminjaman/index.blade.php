@@ -41,7 +41,6 @@ Peminjaman Inventaris
       <th style="text-align:center">CHECK IN DATE</th>
       <th style="text-align:center">CHECK OUT DATE</th>
       <th style="text-align:center">EXPECTED CHECK IN DATE</th>
-      <th style="text-align:center">WAKTU PINJAM</th>
       <th style="text-align:center">ACTION</th>
     </tr>
     </thead>
@@ -52,17 +51,16 @@ Peminjaman Inventaris
       <td style="text-align:center">{{ $number }}</td>
       <td style="text-align:center">{{ $p->nim_nip_peminjam }}</td>
       <td style="text-align:center">{{ $p->asset_yang_dipinjam }}</td>
-      <td style="text-align:center">{!! App\Helpers\GeneralHelper::indonesianDateFormat($p->checkin_date) !!}</td>
-      <td style="text-align:center">{!! App\Helpers\GeneralHelper::indonesianDateFormat($p->checkout_date)  !!}</td>
-      <td style="text-align:center">{!! App\Helpers\GeneralHelper::indonesianDateFormat($p->expected_checkin_date)  !!}</td>
-      <td style="text-align:center">{{ date("h:i", strtotime($p->waktu_pinjam)) }}</td>
+      <td style="text-align:center">{!! $p->checkin_date !!}</td>
+      <td style="text-align:center">{!! $p->checkout_date  !!}</td>
+      <td style="text-align:center">{!! $p->expected_checkin_date  !!}</td>
       <td style="text-align:center">
-        <a href="{{ url( 'inventaris/'.$p->id_peminjaman.'/view-peminjaman') }}" class="btn btn-primary btn-xs">
+        <a href="{{ url( 'inventaris/'.$p->id_peminjaman.'/view-peminjaman') }}" class="btn btn-warning btn-xs">
           <i class="fa fa-eye"></i> View Detail</a>
-        <a href="{{ url( 'inventaris/'.$p->id_peminjaman.'/edit-peminjaman') }}" class="btn btn-warning btn-xs">
+        <a href="{{ url( 'inventaris/'.$p->id_peminjaman.'/edit-peminjaman') }}" class="btn btn-success btn-xs">
           <i class="fa fa-pencil-square-o"></i> Edit</a>
-        <a href="{{ url( 'inventaris/'.$p->id_peminjaman.'/delete') }}" class="btn btn-danger btn-xs">
-          <i class="fa fa-pencil-square-o"></i> Delete</a>  
+        <a onclick="return confirm('Anda yakin untuk menghapus data peminjaman ini?');" href="{{ url( 'inventaris/'.$p->id_peminjaman.'/delete') }}" class="btn btn-danger btn-xs">
+          <i class="fa fa-trash-o"></i> Delete</a>  
       </td>
     </tr>
     <?php $number++ ?>
@@ -80,7 +78,6 @@ Peminjaman Inventaris
       <th style="text-align:center">CHECK IN DATE</th>
       <th style="text-align:center">CHECK OUT DATE</th>
       <th style="text-align:center">EXPECTED CHECK IN DATE</th>
-      <th style="text-align:center">WAKTU PINJAM</th>
       <th style="text-align:center">ACTION</th>
     </tr>
     </tfoot>

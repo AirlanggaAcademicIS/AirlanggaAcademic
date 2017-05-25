@@ -10,8 +10,13 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
+use Auth;
 // Tambahkan model yang ingin dipakai
 use App\Asset;
+use App\Kategori;
+use App\StatusAsset;
+use Milon\Barcode\DNS2D;
+use Milon\Barcode\DNS1D;
 
 
 class AssetController extends Controller
@@ -33,9 +38,14 @@ class AssetController extends Controller
 
     public function create()
     {
+        $status = StatusAsset::all();
+        $kategori = Kategori::all();
+
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar asset
             'page' => 'asset',
+            'status' => $status,
+            'kategori' => $kategori,
         ];
 
         // Memanggil tampilan form create
@@ -47,12 +57,14 @@ class AssetController extends Controller
         // Menginsertkan apa yang ada di form ke dalam tabel asset
         $harga_satuan = $request->input('harga_satuan');
         $jumlah_barang = $request->input('jumlah_barang');
+        $serial_barcode = 'AST'.$request->input('nama_asset').'.png';
+
         $total_harga = $harga_satuan * $jumlah_barang;
             $asset = Asset::create([
             'kategori_id' => $request->input('kategori'),
-            'nip_petugas_id' => 12345,
+            'nip_petugas_id' => Auth::User()->username,
             'status_id' => $request->input('status'),
-            'serial_barcode' => 12345,
+            'serial_barcode' => $serial_barcode,
             'total_harga' => $total_harga,
             'nama_asset' => $request->input('nama_asset'),
             'lokasi' => $request->input('lokasi'),
@@ -60,13 +72,11 @@ class AssetController extends Controller
             'nama_supplier' => $request->input('nama_supplier'),
             'harga_satuan' => $request->input('harga_satuan'),
             'jumlah_barang' => $request->input('jumlah_barang'),
-       
-
            ]);
+
+            DNS2D::getBarcodePNGPath('AST'.$request->input('nama_asset').'',"QRCODE",20,20);
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Asset berhasil ditambahkan');
-
-
+        Session::put('alert-success', 'Asset berhasil ditambahkan! QRCODE telah dicetak!');
 
         // Kembali ke halaman inventaris/asset
         return Redirect::to('inventaris/asset');
@@ -93,9 +103,8 @@ class AssetController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar asset
             'page' => 'asset',
             // Mencari asset berdasarkan id
-            'asset' => Asset::find($id_asset)
+            'asset' => Asset::find($id_asset),
         ];
-
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
         return view('karyawan.inventaris.asset.edit',$data);
     }

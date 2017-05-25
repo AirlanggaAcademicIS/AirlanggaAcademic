@@ -1,15 +1,12 @@
 <<<<<<< HEAD
-<!-- REQUIRED JS SCRIPTS -->
-<!-- REQUIRED JS SCRIPTS -->
+<script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="{{ asset('/js/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
 
-<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
-<!-- jQuery library -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
- -->
-
-<!-- JQuery and bootstrap are required by Laravel 5.3 in resources/assets/js/bootstrap.js-->
+<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+=======
 <!-- Laravel App -->
 <script src="{{ mix('/js/app.js') }}" type="text/javascript"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
@@ -17,6 +14,9 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{{ asset('/js/jquery-ui.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/js/jquery.slimscroll.js') }}" type="text/javascript"></script>
+
 <!-- JQuery and bootstrap are required by Laravel 5.3 in resources/assets/js/bootstrap.js-->
 <!-- Laravel App -->
 
@@ -43,24 +43,97 @@
 <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 <script src="{{asset('/plugins/bootstrap-datepicker.js')}}"></script>
 <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8a5d36fae8e494c1c6fccc7b89a4b8f0c213a374
+<script src="{{ asset('/js/jquery.steps.js') }}" type="text/javascript"></script>
+<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="{{ asset('/js/jquery-ui.js') }}" type="text/javascript"></script>
+ <script src="{{ asset('/js/jquery.slimscroll.js') }}" type="text/javascript"></script>
+ 
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+      Both of these plugins are recommended to enhance the
+      user experience. Slimscroll is required when using the
+      fixed layout. -->
+
+
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 
 
-=======
+
 <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
 <script src="{{ asset('/js/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
->>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
+
 
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8a5d36fae8e494c1c6fccc7b89a4b8f0c213a374
+>>>>>>> a12f4a8110e3f6b6d413a8846e35563e4464abe9
 <script>
     window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
     ]) !!};
 </script>
+<<<<<<< HEAD
+@yield('code-footer')
+=======
+<<<<<<< HEAD
+<!-- fullCalendar 2.2.5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>
+=======
+<script>
+    $(document).ready(function() {
+        function adjustIframeHeight() {
+            var $body   = $('body'),
+                $iframe = $body.data('iframe.fv');
+            if ($iframe) {
+                // Adjust the height of iframe
+                $iframe.height($body.height());
+            }
+        }
+    });
+
+    $("#penelitian").steps({
+                headerTag: "h2",
+                bodyTag: "section",
+              onFinished: function (event, currentIndex)
+            {
+                var form = $(this);
+
+                // Submit form input
+<<<<<<< HEAD
+
+
+                form.submit();
+            }           
+    });
+
+    </script>
+@yield('code-footer')
+
+
+
+                form.submit();
+            }           
+    });
+
+=======
+                form.submit();
+            }           
+    });
+>>>>>>> 8a5d36fae8e494c1c6fccc7b89a4b8f0c213a374
+    </script>
+>>>>>>> 48904a5c8a583af14bca9cea5ed7796213e0c62a
 
 @yield('code-footer')
+>>>>>>> a12f4a8110e3f6b6d413a8846e35563e4464abe9
