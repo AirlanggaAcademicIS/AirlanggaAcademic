@@ -6,14 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class DosenRapat extends Model
 {
-  //protected $table = 'dosen_rapat';    
+  protected $table = 'dosen_rapat';    
   //protected $primaryKey = 'nip';    
   //protected $fillable = [
 	//	'nip', 
 	//	'notulen_id',	
 
-  protected $primaryKey = 'nip';
-      public $incrementing = false;  
+  protected $primaryKey = 'nip'; 
   protected $fillable = [
       'notulen_id',
    		'created_at',
@@ -21,4 +20,8 @@ class DosenRapat extends Model
 		  'deleted_at',	
 
    ];
+   public function dosen()
+   {
+      return $this->belongsTo('App\BiodataDosen');
+   }
 }

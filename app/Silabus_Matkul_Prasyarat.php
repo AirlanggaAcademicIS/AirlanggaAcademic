@@ -15,6 +15,6 @@ class Silabus_Matkul_prasyarat extends Model
    
    public function matkul()
    {
-   	return $this->belongsTo('App\Silabus_Matkul','mk_id');
+   	return $this->belongsTo('App\Silabus_Matkul','mk_syarat_id');
    }
 }

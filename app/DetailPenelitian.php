@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class DetailPenelitian extends Model
 {
    protected $table = 'detail_penelitian';    
-   protected $primaryKey = 'id';    
+   protected $primaryKey = 'id_penelitian'; 
+   protected $foreignKey = 'kode_penelitian_id';   
    protected $fillable = [
+   		'kode_penelitian_id', 
 		'abstract',
-		'kode_penelitian', 
 		'background',
 		'objective',
 		'methods',

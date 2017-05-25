@@ -49,14 +49,6 @@ Tambah KBK
 			<form id="tambahKBK" method="post" action="{{url('/karyawan/monitoring-skripsi/KBK/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-				<!-- Menampilkan dropdown -->
-				<div class="form-group">
-					<label for="id_kbk" class="col-sm-2 control-label">ID KBK :</label>
-					<div class="col-sm-8">
-						<input type="number" class="form-control input-md" name="id_kbk" id="id_kbk" placeholder="Masukkan ID KBK">
-					</div>
-				</div>
-
 				<div class="form-group">
 					<label for="jenis_kbk" class="col-sm-2 control-label">Jenis KBK :</label>
 					<div class="col-sm-8">
