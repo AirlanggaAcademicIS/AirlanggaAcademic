@@ -43,35 +43,42 @@ class RuangController extends Controller
         'page' => 'ruang',
         'ruang' => Ruang::all()
         ];
-        return view('karyawan.krs-khs.input-ruang',$data);
+        return view('karyawan.krs-khs.ruang.index',$data);
     }
-
-    public function input(Request $request)
+    public function edit($id_ruang)
     {
-        $data = $request->input('cek');
-        return view('.inventarisasset.input');
+        $data = [
+            'page' => 'ruang',
+            'ruang' => Ruang::find($id_ruang)
+        ];
+
+        return view('karyawan.krs-khs.ruang.edit',$data);
     }
 
-     public function create(Request $request)
+     public function editAction($id_ruang, Request $request)
     {
-        Ruang::create($request->input());
+        // Mencari ruang yang akan di update dan menaruhnya di variabel $ruang
+        $ruang = Ruang::find($id_ruang);
 
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Ruang berhasil ditambahkan');
+        // Mengupdate $biodata tadi dengan isi dari form edit tadi
+        $ruang->id_ruang = $request->input('id_ruang');
+        $ruang->nama_ruang = $request->input('nama_ruang');
+        $ruang->kapasitas = $request->input('kapasitas');
+        $ruang->save();
 
-        // Kembali ke halaman krs-khs/ruang
-        return Redirect::to('ruang');
-    }
+        // Notifikasi sukses
+        Session::put('alert-success', 'Ruang berhasil diedit');
+        return Redirect::to('karyawan/krs-khs/ruang/view');
+   }
 
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel ruang
-        Ruang::create($request->input());
-
+        $create=Ruang::create($request->input());
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Jam berhasil ditambahkan');
+        Session::put('alert-success', 'Ruang berhasil ditambahkan');
 
         // Kembali ke halaman krs-khs/ruang
-        return Redirect::to('krs-khs/input-ruang');
+        return Redirect::back();
 }
 }
