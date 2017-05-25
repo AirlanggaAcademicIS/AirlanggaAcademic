@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Dosen\Krs_Khs;
+namespace App\Http\Controllers\Dosen\KrsKhs;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -11,8 +11,12 @@ use Session;
 use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
+<<<<<<< HEAD:app/Http/Controllers/Dosen/KrsKhs/MKDiajarController.php
 use App\MKDiajar;
 use App\
+=======
+use App\Models\KrsKhs\MKDiajar;
+>>>>>>> d5cedd8cf454a5a105be42446006a04237629111:app/Http/Controllers/Dosen/KrsKhs/MKDiajarController.php
 //use App\MKDitawarkan;
 //use App\Dosen;
 
@@ -33,7 +37,7 @@ class MKDiajarController extends Controller
         ];
       
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('dosen.krs_khs.mk_diajar',$data);
+        return view('dosen.krs-khs.mk_diajar.index',$data);
     }
 
     public function create()

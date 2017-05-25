@@ -22,20 +22,17 @@ View Detail Asset
 		                <!-- text input -->
 		                <div class="form-group">
 		                  <label>Kategori</label>
-		                   @if($asset->kategori_id == 1) 
-						<input type ="text" class="form-control" value="dokumen" readonly>
-						@elseif($asset->kategori_id == 2) 
-						<input type ="text" class="form-control" value="furniture" readonly>
-						@endif
-		                </div>
-
-		                <div class="form-group">
-		                  <label>Status</label>
-		                  @if($asset->status_id == 1) 
-						<input  type="text" class="form-control" value="ready" readonly>
-						@elseif($asset->status_id == 2) 
-						<input type="text" class="form-control" value="not ready" readonly>
-						@endif
+		                    @if($asset->kategori_id == 1) 
+							<input type ="text" class="form-control" value="Elektronik" readonly>
+							@elseif($asset->kategori_id == 2) 
+							<input type ="text" class="form-control" value="Mekanik" readonly>
+							@elseif($asset->kategori_id == 3) 
+							<input type ="text" class="form-control" value="Furniture" readonly>
+							@elseif($asset->kategori_id == 4) 
+							<input type ="text" class="form-control" value="Dokumen" readonly>
+							@elseif($asset->kategori_id == 5) 
+							<input type ="text" class="form-control" value="Kendaraan" readonly>	
+							@endif
 		                </div>
 
 		                <div class="form-group">
@@ -44,8 +41,39 @@ View Detail Asset
 		                </div>
 
 		                <div class="form-group">
+		                  <label>Status</label>
+		                    @if($asset->status_id == 1) 
+							<input  type="text" class="form-control" value="Ready" readonly>
+							@elseif($asset->status_id == 2) 
+							<input type="text" class="form-control" value="Borrowed" readonly>
+							@elseif($asset->status_id == 3) 
+							<input type="text" class="form-control" value="Maintenance" readonly>
+							@elseif($asset->status_id == 4) 
+							<input type="text" class="form-control" value="Broken" readonly>
+							@elseif($asset->status_id == 5) 
+							<input type="text" class="form-control" value="Expired" readonly>
+							@endif
+		                </div>
+
+		                 <div class="form-group">
+		                  <label>Updated At</label>
+		                  <input type="text" class="form-control" value="{{ $asset->updated_at }}" readonly>
+		                </div>
+
+		               
+		                <div class="form-group">
 		                  <label>Lokasi</label>
 		                  <input type="text" class="form-control" value="{{ $asset->lokasi }}" readonly>
+		                </div>
+
+			              <div class="form-group">
+		                  <label>Nama Supplier</label>
+		                  <input type="text" class="form-control" value="{{ $asset->nama_supplier }}" readonly>
+		                </div>
+
+		                 <div class="form-group">
+		                  <label>Harga Satuan</label>
+		                  <input type="text" class="form-control" value="{{ $asset->harga_satuan }}" readonly>
 		                </div>
 
 		                <div class="form-group">
@@ -57,28 +85,12 @@ View Detail Asset
 			                  <input type="text" class="form-control pull-right" value="{!! App\Helpers\GeneralHelper::indonesianDateFormat($asset->expired_date)  !!}" readonly>
 			                </div>
 			             </div>
-
-		               
-			              <div class="form-group">
-		                  <label>Nama Supplier</label>
-		                  <input type="text" class="form-control" value="{{ $asset->nama_supplier }}" readonly>
-		                </div>
-
-		                 <div class="form-group">
-		                  <label>Harga Satuan</label>
-		                  <input type="text" class="form-control" value="{{ $asset->harga_satuan }}" readonly>
-		                </div>
-
-		                 <div class="form-group">
-		                  <label>Jumlah Barang</label>
-		                  <input type="text" class="form-control" value="{{ $asset->jumlah_barang }}" readonly>
-		                </div>
-
-
-		                <div class="form-group">
+							
+							<div class="form-group">
                   			<a href="{{ url('/inventaris/asset') }}" type="button" class="btn btn-primary pull-right">Finish</a>
                 		</div>
 
+		              
 		              </form>
 		            </div>
 		            <!-- /.box-body -->

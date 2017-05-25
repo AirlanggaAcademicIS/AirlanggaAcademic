@@ -13,7 +13,8 @@ use Response;
 // Tambahkan model yang ingin dipakai
 use App\Dokumentasi;
 use App\PengajuanKegiatan;
-
+use App\RincianRundown;
+use Illuminate\Support\Facades\DB;
 
 class DokumentasiController extends Controller
 {
@@ -26,8 +27,9 @@ class DokumentasiController extends Controller
             'page' => 'dokumentasi',
             // Memanggil semua isi dari tabel biodata
             'dokumentasi' => Dokumentasi::all()
-        ];
 
+        
+        ];
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('mahasiswa.pengelolaan-kegiatan.dokumentasi.index',$data);
     }
@@ -37,6 +39,7 @@ class DokumentasiController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar Biodata
             'page' => 'dokumentasi',
+            'dokumentasi'=> array(),
             'kegiatan' => PengajuanKegiatan::all()
         ];
 
@@ -44,13 +47,47 @@ class DokumentasiController extends Controller
     	return view('mahasiswa.pengelolaan-kegiatan.dokumentasi.create',$data);
     }
 
+    public function selected($id,Request $request)
+    {
+        $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar Biodata
+            'page' => 'dokumentasi',
+            'dokumentasi'=> array(),
+            'kegiatan' => PengajuanKegiatan::find($id)
+            ];
+
+        // Memanggil tampilan form create
+        return view('mahasiswa.pengelolaan-kegiatan.dokumentasi.create',$data);
+    }
+
+    public function create2($id_kegiatan)
+    {
+        $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar Biodata
+            'page' => 'dokumentasi',
+            'dokumentasi' => DB::table('dokumentasi')
+            ->join('pengajuan_kegiatan', 'pengajuan_kegiatan.id_kegiatan', '=', 'dokumentasi.kegiatan_id')
+            ->select('*')
+            ->where('dokumentasi.kegiatan_id','=',$id_kegiatan)
+            ->get(),
+            'kegiatan' => PengajuanKegiatan::all()
+        ];
+
+        // Memanggil tampilan form create
+        return view('mahasiswa.pengelolaan-kegiatan.dokumentasi.create',$data);
+    }
+
     public function createAction(Request $request)
     {
+       
+        $dok = $request->input();
+        $dok['url_foto']= time() .'.'.$request->file('url_foto')->getClientOriginalExtension();
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        Dokumentasi::create($request->input());
+        Dokumentasi::create($dok);
+            $gambar = $request->file('url_foto')->move("img/dokumentasi/",$dok['url_foto']);
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Biodata berhasil ditambahkan');
+        Session::put('alert-success', 'Dokumentasi berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('mahasiswa/dokumentasi');
