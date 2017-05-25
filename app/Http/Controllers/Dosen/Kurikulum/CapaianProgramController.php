@@ -1,5 +1,5 @@
 <?php 
-namespace App\Http\Controllers\dosen\kurikulum;
+namespace App\Http\Controllers\dosen\/Kurikulum;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;

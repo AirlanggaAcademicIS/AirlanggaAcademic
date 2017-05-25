@@ -6,16 +6,10 @@
 @endsection
 
 @section('htmlheader_title')
-<<<<<<< HEAD
-
-=======
-s
->>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
-  Silabus 
+Silabus 
 @endsection
 
 @section('contentheader_title')
-
 Silabus
 @endsection
 
