@@ -56,6 +56,7 @@ class SkripsiController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar skripsi
             'page' => 'skripsi',
             'dosen' => BiodataDosen::all(),
+            'kbk' => KBK::all()
         ];
 
         // Memanggil tampilan form create
@@ -73,13 +74,15 @@ class SkripsiController extends Controller
             'Judul' => $request->input('Judul'),
             'nip_petugas_id' => Auth::user()->username,
             ]);
+
+        $skripsi = Skripsi::where('Judul',$skripsi->Judul)->first();
         DosenPembimbing::create([
-            'skripsi_id' => $skripsi->id,
+            'skripsi_id' => $skripsi->id_skripsi,
             'nip_id' => $request->input('nip_id1'),
             'status' => '0'
             ]);
         DosenPembimbing::create([
-            'skripsi_id' => $skripsi->id,
+            'skripsi_id' => $skripsi->id_skripsi,
             'nip_id' => $request->input('nip_id2'),
             'status' => '1'
             ]);
@@ -95,9 +98,13 @@ class SkripsiController extends Controller
     {
         // Mencari skripsi berdasarkan id dan memasukkannya ke dalam variabel $skripsi
         $skripsi = Skripsi::find($id);
+        $dosen1 = DosenPembimbing::where('skripsi_id', '=', $id)->where('status','=','0')->first();
+        $dosen2 = DosenPembimbing::where('skripsi_id', '=', $id)->where('status','=','1')->first();
 
         // Menghapus skripsi yang dicari tadi
         $skripsi->delete();
+        $dosen1->delete();
+        $dosen2->delete();
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Data Skripsi berhasil dihapus');
@@ -112,7 +119,22 @@ class SkripsiController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar skripsi
             'page' => 'skripsi',
             // Mencari skripsi berdasarkan id
-            'skripsi' => Skripsi::find($id)
+            'skripsi' => Skripsi::find($id),
+            'kbk' => KBK::all(),
+            'dosen' => BiodataDosen::all(),
+            'dosen1' => DB::table('skripsi')
+            ->join('dosen_pembimbing', 'skripsi.id_skripsi', '=', 'dosen_pembimbing.skripsi_id')
+            ->join('biodata_dosen', 'dosen_pembimbing.nip_id', '=', 'biodata_dosen.nip')
+            ->select('skripsi.*', 'dosen_pembimbing.*', 'biodata_dosen.*')
+            ->where('dosen_pembimbing.status','=','0')
+            ->get(),
+            'dosen2' => DB::table('skripsi')
+            ->join('dosen_pembimbing', 'skripsi.id_skripsi', '=', 'dosen_pembimbing.skripsi_id')
+            ->join('biodata_dosen', 'dosen_pembimbing.nip_id', '=', 'biodata_dosen.nip')
+            ->select('skripsi.*', 'dosen_pembimbing.*', 'biodata_dosen.*')
+            ->where('dosen_pembimbing.status','=','1')
+            ->get()
+            
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
@@ -123,29 +145,22 @@ class SkripsiController extends Controller
     {
         // Mencari skripsi yang akan di update dan menaruhnya di variabel $skripsi
         $skripsi = Skripsi::find($id);
+        //$kbk = KBK::find($id);
 
         // Mengupdate $skripsi tadi dengan isi dari form edit tadi
         $skripsi->nim_id = $request->input('NIM_id');
         $skripsi->kbk_id = $request->input('kbk_id');
         $skripsi->Judul = $request->input('Judul');
-        $skripsi->upload_berkas_proposal = $request->input('upload_berkas_proposal');
-        $skripsi->tanggal_pengumpulan_proposal = $request->input('tanggal_pengumpulan_proposal');
-        $skripsi->tgl_sidangpro = $request->input('tgl_sidangpro');
-        $skripsi->waktu_sidangpro = $request->input('waktu_sidangpro');
-        $skripsi->tempat_sidangpro = $request->input('tempat_sidangpro');
-        $skripsi->statusprop_id = $request->input('statusprop_id');
-        $skripsi->nilai_sidangpro = $request->input('nilai_sidangpro');
-        //$skripsi->upload_berkas_skripsi = $request->input('upload_berkas_skripsi');
-        $skripsi->tanggal_pengumpulan_skripsi = $request->input('tanggal_pengumpulan_skripsi');
-        $skripsi->tgl_sidangskrip = $request->input('tgl_sidangskrip');
-        $skripsi->waktu_sidangskrip = $request->input('waktu_sidangskrip');
-        $skripsi->tempat_sidangskrip = $request->input('tempat_sidangskrip');
-        $skripsi->statusskrip_id = $request->input('statusskrip_id');
-        $skripsi->nilai_sidangskrip = $request->input('nilai_sidangskrip');
-        $skripsi->is_verified = $request->input('is_verified');
-        $skripsi->nip_petugas_id = $request->input('nip_petugas_id');
+        $skripsi->nip_petugas_id = Auth::user()->username;
         $skripsi->save();
-        
+
+        $dosen1 = DosenPembimbing::where('skripsi_id', '=', $id)->where('status','=','0')->first();
+        $dosen1->nip_id = $request->input('nip_id1');
+        $dosen1->save();
+
+         $dosen2 = DosenPembimbing::where('skripsi_id', '=', $id)->where('status','=','1')->first();
+         $dosen2->nip_id = $request->input('nip_id2');
+         $dosen2->save();
 
         // Notifikasi sukses
         Session::put('alert-success', 'Data Skripsi berhasil diedit');

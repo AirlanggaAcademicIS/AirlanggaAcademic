@@ -29,41 +29,18 @@ Tambah Silabus
   	    <label>Mata Kuliah</label>
   	    <select name="matkul" class="form-control select2" style="width: 100%;" required>
           <option value="">-- Pilih Mata Kuliah --</option>
-          @foreach ($mata_kuliah as $mk)
+          @foreach ($matkul_silabus as $ms)
           {
-            <option value="{{$mk->id_mk}}">{{$mk->kode_matkul}} - {{$mk->nama_matkul}} ({{$mk->sks}} SKS)</option>
+            <option value="{{$ms->id_mk}}">{{$ms->kode_matkul}} - {{$ms->nama_matkul}} ({{$ms->sks}} SKS)</option>
           }
           @endforeach
   	    </select>
   	   </div>
 
-      <!-- Pakai Checkbox -->
       <div class="form-group">
-        <label for="prasyarat"><b>Prasyarat</b></label><br>     
-        @foreach($mata_kuliah as $mk)
-          <label class="checkbox-inline"><input name="mk_syarat_id" type="checkbox" value="{{$mk->id_mk}}">{{$mk->nama_matkul}}</label>            
-        @endforeach                                
-      </div>
-
-      <div class="form-group">
-        <label for="capaian_pembelajaran"><b>Capaian Mata Kuliah</b></label>
-      	<textarea class="form-control" id="" name="capaian_matkul" rows="4" placeholder="Masukan Capaian Mata Kuliah">
-      	</textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="deskripsi_matkul"><b>Deskripsi Mata Kuliah</b></label>
-      	<textarea name="deskripsi_matkul" class="form-control" rows="4" placeholder="Masukan Deskripsi Mata Kuliah">
-      	</textarea>
-      </div>
-
-    <div class="form-group">
-        <label for="metode-pembelajaran"><b>Sistem Pembelajaran</b></label><br>     
-        <input type="text" value=" " data-role="tagsinput">                    
-    </div>
-    <div class="form-group">
+        <label for="metode-pembelajaran"><b>Atribut Softskill</b></label><br>     
         @foreach($atribut_softskill as $softskill)
-          <label class="checkbox-inline"><input type="checkbox" name="softskill_id" value="{{$softskill->id_softskill}}">{{$softskill->softskill}}</label>          
+          <label class="checkbox-inline"><input type="checkbox" name="softskill_id[]" value="{{$softskill->id_softskill}}">{{$softskill->softskill}}</label>          
         @endforeach
       </div>
 
@@ -71,7 +48,7 @@ Tambah Silabus
       <div class="form-group">
         <label for="metode-pembelajaran"><b>Metode Pembelajaran</b></label><br>     
         @foreach($metode_pembelajaran as $metode)
-          <label class="checkbox-inline"><input type="checkbox" name="" value="{{$metode->id}}">{{$metode->sistem_pembelajaran}}</label>        
+          <label class="checkbox-inline"><input type="checkbox" name="sistem_pembelajaran_id[]" value="{{$metode->id}}">{{$metode->sistem_pembelajaran}}</label>        
         @endforeach
       </div>
 
@@ -79,8 +56,14 @@ Tambah Silabus
       <div class="form-group">
         <label for="media-pembelajaran"><b>Media Pembelajaran</b></label><br>    
         @foreach($media_pembelajaran as $media)
-          <label class="checkbox-inline"><input name="sistem_pembelajaran_id" type="checkbox" value="{{$media->id}}">{{$media->media_pembelajaran}}</label>        
+          <label class="checkbox-inline"><input name="media_pembelajaran_id[]" type="checkbox" value="{{$media->id}}">{{$media->media_pembelajaran}}</label>        
         @endforeach
+      </div>
+
+      <div class="form-group">
+        <label for="penilaian"><b>Deskripsi Mata Ajar</b></label>    
+        <textarea name="deskripsi_mata_ajar" class="form-control" rows="4" placeholder="Masukan Deskripsi Mata Ajar">
+        </textarea>
       </div>
 
       <div class="form-group">
@@ -91,7 +74,7 @@ Tambah Silabus
 
     	<div class="form-group">
         <label for="referensi"><b>Referensi Wajib</b></label>
-        <textarea name="pustaka_utama" class="form-control" rows="4">
+        <textarea name="pustaka_utama" id="pustaka_utama" class="form-control" rows="4" placeholder="Masukkan referensi wajib (pustaka utama)"> 
       	</textarea>
       </div>
 
