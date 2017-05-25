@@ -13,7 +13,7 @@ use Response;
 // Tambahkan model yang ingin dipakai
 use App\Surat_Masuk;
 use App\Petugas_Tu;
-
+use Auth;
 class Surat_MasukController extends Controller
 {
 
@@ -21,13 +21,13 @@ class Surat_MasukController extends Controller
     public function index()
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar surat masuk
             'page' => 'surat-masuk',
-            // Memanggil semua isi dari tabel biodata
-            'surat_masuk' => Surat_Masuk::all()
+            // Memanggil semua isi dari tabel surat masuk
+            'surat_masuk' => Surat_Masuk::where('nim_nip',Auth::user()->username)->get()
         ];
 
-        // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
+        // Memanggil tampilan index di folder dosen
         return view('dosen.pla.surat-masuk.index',$data);
     }
 
