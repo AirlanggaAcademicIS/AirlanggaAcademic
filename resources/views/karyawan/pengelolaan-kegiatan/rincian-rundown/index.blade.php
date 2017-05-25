@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Rincian Rundown
+Rincian Rundown Kegiatan
 @endsection
 
 @section('contentheader_title')
-Rincian Rundown
+Rincian Rundown Kegiatan
 @endsection
 
 @section('main-content')
@@ -34,7 +34,7 @@ Rincian Rundown
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">Nomor Kegiatan</th>
+      <th style="text-align:center">Jenis Kegiatan</th>
       <th style="text-align:center">Kategori Kegiatan</th>
       <th style="text-align:center">Nama</th>      
       <th style="text-align:center">Waktu</th>

@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Rundown
+Tambah Rincian Rundown Kegiatan
 @endsection
 
 @section('contentheader_title')
-Tambah Rundown
+Tambah Rincian Rundown Kegiatan
 @endsection
 
 @section('code-header')
@@ -52,9 +52,10 @@ Tambah Rundown
 				<!-- Menampilkan input text biasa -->
 				
 				<div class="form-group">
-					<label for="kegiatan_id" class="col-sm-2 control-label">Nomor Kegiatan</label>
+					<label for="kegiatan_id" class="col-sm-2 control-label">Jenis Kegiatan</label>
 					<div class="col-md-8">
 						<select class="form-control select2" style="width: 100%;" name="kegiatan_id">
+						<option value="">Pilih Kegiatan</option>
 						@foreach($kegiatan as $pk)
 						<option value="{{$pk->id_kegiatan}}">{{$pk->nama}}</option>
 						@endforeach
@@ -87,7 +88,8 @@ Tambah Rundown
 				<div class="form-group">
 					<label for="waktu" class="col-sm-2 control-label">Waktu Kegiatan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="waktu" placeholder="Masukkan Waktu Kegiatan" required>
+					<input type="datetime-local" name="waktu">
+						<!-- <input type="text" class="form-control input-lg" id="datepicker" name="waktu" placeholder="Masukkan Waktu Kegiatan" required> -->
 					</div>
 				</div>
 
@@ -110,7 +112,7 @@ Tambah Rundown
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
 $( function() {
-    var date = $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd 12:00:00' }).val();
+    var date = $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd H:i:s' }).val();
 
   } );
   </script>
