@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 <?php
 
 /*
@@ -18,5 +17,4 @@ Route::get('/',['as'=>'admin.index', 'uses'=>'HomeController@index']);
 Route::group(['middleware' => 'auth'], function () {
 Route::get('/logout', 'Auth\LoginController@logout');
 
-});
->>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
+
