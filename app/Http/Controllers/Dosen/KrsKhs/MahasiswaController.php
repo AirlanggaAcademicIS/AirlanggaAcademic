@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Dosen\Krs_Khs;
+namespace App\Http\Controllers\Dosen\KrsKhs;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -11,13 +11,11 @@ use Session;
 use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
-use App\MKDiajar;
-//use App\MKDitawarkan;
-//use App\Dosen;
+use App\Models\KrsKhs\Mahasiswa;
+use App\BiodataMahasiswa;
 
 
-
-class MKDiajarController extends Controller
+class MahasiswaController extends Controller
 {
 
     // Function untuk menampilkan tabel
@@ -25,21 +23,23 @@ class MKDiajarController extends Controller
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'mk_diajar',
+            'page' => 'mahasiswa',
             // Memanggil semua isi dari tabel biodata
-            'mk_diajar' => MKDiajar::all()
-            
+            'mahasiswa' => Mahasiswa::all(),
+            'mhs' => BiodataMahasiswa::all()
         ];
-      
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('dosen.krs_khs.mk_diajar',$data);
+        return view('dosen.krs-khs.approve.index',$data);
     }
 
-    public function create()
+    public function create($mhs_id)
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'biodatadosen',
+            'page' => 'mahasiswa',
+            // Memanggil semua isi dari tabel biodata
+            'mahasiswa' => Mahasiswa::all(),
+            'mhs' => BiodataMahasiswa::all()
         ];
 
         // Memanggil tampilan form create
