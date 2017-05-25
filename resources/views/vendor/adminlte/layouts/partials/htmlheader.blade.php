@@ -7,16 +7,24 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    
-        <link href="{{ asset('/css/all.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    <link href="{{ asset('/css/all.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{asset ('/css/custom.css')}}">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset ('/css/custom.css')}}">
     <link href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/css/jquery-ui.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/jquery.steps.css') }}" rel="stylesheet">
+<<<<<<< HEAD
 <style type="text/css">
+=======
+    <style type="text/css">
+>>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
       .wizard .content {
         min-height: 100px;
     }
@@ -27,6 +35,7 @@
         padding: 15px;
         position: relative;
     }
+<<<<<<< HEAD
 
     input[type=radio]{
         display: inline;
@@ -39,7 +48,16 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+=======
+>>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
 
+    input[type=radio]{
+        display: inline;
+    }
+    </style>
+   <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css"> -->
+    <link href="{{ asset('/css/bootstrap-tagsinput.css') }}" rel="stylesheet">
+    <link href="{{ asset('/js/plugins/timepicker/bootstrap-timepicker.css') }}" rel="stylesheet" type="text/css" />
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),

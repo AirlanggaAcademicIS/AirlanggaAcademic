@@ -74,14 +74,22 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="tahun" class="col-sm-2 control-label">Tahun</label>
 					<div class="col-md-8">
+<<<<<<< HEAD
 						<input type="text" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; class="form-control input-lg" id="tahun" name="tahun" maxlength="4" placeholder="Masukkan Tahun Penelitian" required>
+=======
+						<input type="text" class="form-control input-lg" id="tahun" name="tahun" placeholder="Masukkan Tahun Penelitian" required>
+>>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="halaman_naskah" class="col-sm-2 control-label">Jumlah Halaman</label>
 					<div class="col-md-8">
+<<<<<<< HEAD
 						<input type="text" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; class="form-control input-lg" id="halaman_naskah" name="halaman_naskah" placeholder="Masukkan Jumlah Halaman" required>
+=======
+						<input type="text" class="form-control input-lg" id="halaman_naskah" name="halaman_naskah" placeholder="Masukkan Jumlah Halaman" required>
+>>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
 					</div>
 				</div>
 
@@ -119,7 +127,11 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="kategori_penelitian" class="col-sm-2 control-label">Jenis Penelitian</label>
 					<div class="col-md-8">
+<<<<<<< HEAD
 						<select class="form-control input-lg" name="kategori_penelitian" required>
+=======
+						<select name="kategori_penelitian" required>
+>>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
 							<option value="PKM">PKM</option>
 							<option value="Penelitian Dosen">Penelitian Dosen</option>
 							<option value="Karya Ilmiah">Karya Ilmiah</option>

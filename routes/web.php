@@ -6,14 +6,19 @@
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
+| routes are loaded by the RouteServiceProvider within a group whichRoute::get('/', function () {
+    return view('welcome');
+});
 | contains the "web" middleware group. Now create something great!
 |
 */
 
-Route::get('/',['as'=>'admin.index', 'uses'=>'HomeController@index']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::group(['middleware' => 'auth'], function () {
+<<<<<<< HEAD
 Route::get('/logout', 'Auth\LoginController@logout');
 	
 		
@@ -39,3 +44,12 @@ Route::group(['prefix' => 'mahasiswa'], function() {
 
         });
         });
+=======
+	Route::get('/logout', 'Auth\LoginController@logout');
+
+
+
+
+
+	});
+>>>>>>> 80450abb421b0116799700011bcc0bffc938e61d

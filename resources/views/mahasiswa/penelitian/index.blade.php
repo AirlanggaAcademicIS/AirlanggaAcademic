@@ -40,7 +40,11 @@ Penelitian Mahasiswa
       <th style="text-align:center">No.</th>
       <th style="text-align:center">Judul Penelitian</th>      
       <th style="text-align:center">Jenis</th>
+<<<<<<< HEAD
       <th style="text-align:center">Nama</th>
+=======
+      <th style="text-align:center">Anggota</th>
+>>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
       <th style="text-align:center">Tahun Penelitian</th>
       <th style="text-align:center">Status</th>
       <th style="text-align:center"></th>

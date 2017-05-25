@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- Contoh -->
 <li
 @if($page == 'transaksi')
@@ -16,3 +17,5 @@
             <a href="{{ url('/mahasiswa/penelitian') }}"><i class='fa fa-book'></i> <span> Penelitian</span></a>
           
             </li>
+=======
+>>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
