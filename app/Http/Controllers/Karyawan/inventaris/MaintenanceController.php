@@ -33,19 +33,26 @@ class MaintenanceController extends Controller
     public function create($id)
     {
         $asset = Asset::find($id);
-        $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'index-maintenance',
-            'asset' => $asset,
-            
-        ];
-        // Memanggil tampilan form create
-        return view('karyawan.inventaris.maintenance.input',$data);
+        if ($asset->status_id != 4) {
+            Session::put('alert-warning', 'Asset tidak dapat dimaintenance');
+            return Redirect::back();    
+        }
+
+        else{
+            $data = [
+                // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+                'page' => 'index-maintenance',
+                'asset' => $asset,
+            ];
+            // Memanggil tampilan form create
+            Asset::where('id_asset', $id)->update(array('status_id' => 3)); 
+            return view('karyawan.inventaris.maintenance.input',$data);
+        }
     }
 
     public function createAction(Request $request)
     {
-        // Menginsertkan apa yang ada di form ke dalam tabel biodata
+        Asset::where('id_asset', $request->input('asset_id'))->update(array('status_id' => 1)); 
         $maintenance = Maintenance::create([
             'nip_petugas_id' => Auth::User()->username,
             'asset_id' => $request->input('asset_id'),
@@ -104,6 +111,8 @@ class MaintenanceController extends Controller
         $maintenance->solution = $request->input('solution');
         $maintenance->waktu_maintenance = $request->input('waktu_maintenance');
         $maintenance->save();
+
+        Asset::where('id_asset', $request->input('asset_id'))->update(array('status'=>'Ready'));
 
         // Notifikasi sukses
         Session::put('alert-success', 'Data maintenance berhasil diedit');

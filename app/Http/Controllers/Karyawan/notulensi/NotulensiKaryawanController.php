@@ -41,6 +41,9 @@ class NotulensiKaryawanController extends Controller
 
     public function create()
     {  // Menginsertkan apa yang ada di form ke dalam tabel biodata
+        $array[] =  array();
+        $array[0]['id_notulen']= 0;
+        
          $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'notulensi',
@@ -54,13 +57,49 @@ class NotulensiKaryawanController extends Controller
             ->select('*')
             ->get()
         ];
+            ->get(),
+            'nama_rapat' => DB::table('notulen_rapat')
+            ->select('*')
+            ->get(),
+            'rapat' => $array
+        ];
+       
         // Memanggil tampilan form create
         return view('karyawan.notulensi.notulensi.create',$data);
     }
-
+ public function create2(Request $request)
+    {  // Menginsertkan apa yang ada di form ke dalam tabel biodata
+         $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'notulensi',
+            'ruang' => DB::table('notulen_rapat')
+            ->join('permohonan_ruang', 'permohonan_ruang.id_permohonan_ruang', '=', 'notulen_rapat.permohonan_ruang_id')
+            ->join('jadwal_permohonan', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang')
+            ->join('ruang', 'ruang.id_ruang', '=', 'jadwal_permohonan.ruang_id')
+            ->select('*')
+            ->get(),
+            'dosen' => DB::table('biodata_dosen')
+            ->select('*')
+            ->get(),
+            'nama_rapat' => DB::table('notulen_rapat')
+            ->select('*')
+            ->get(),
+            'rapat' => DB::table('notulen_rapat')
+            ->join('permohonan_ruang', 'permohonan_ruang.id_permohonan_ruang', '=', 'notulen_rapat.permohonan_ruang_id')
+            ->join('jadwal_permohonan', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang')
+            ->join('ruang', 'ruang.id_ruang', '=', 'jadwal_permohonan.ruang_id')
+            ->select('*')
+            ->where ('id_notulen','=', $request->input('id_notulen'))
+            ->get()
+        ];
+    
+        // Memanggil tampilan form create
+        return view('karyawan.notulensi.notulensi.create2',$data);
+    }
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
+
         $notulensi = $request->input();
          //dd($notulensi);
         $notulensi['nip_petugas_id'] = Auth::user()->username;
@@ -68,6 +107,13 @@ class NotulensiKaryawanController extends Controller
         //dd($notulensi);
         NotulensiKaryawan::create($notulensi);
         
+        $notulensi = NotulensiKaryawan::find($request->input('id_notulen'));
+         //dd($notulensi);
+         $notulensi->nip_id = $request->input('nip_id');
+        $notulensi->hasil_pembahasan = $request->input('hasil_pembahasan');
+        $notulensi->deskripsi_rapat = $request->input('deskripsi_rapat');
+        //dd($notulensi);
+         $notulensi->save();
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Notulensi berhasil ditambahkan');

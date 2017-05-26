@@ -17,6 +17,7 @@ use Auth;
 use Session;
 use Carbon\Carbon;
 
+
 /**
  * Class HomeController
  * @package App\Http\Controllers
@@ -51,18 +52,25 @@ class PeminjamanController extends Controller
     public function inputPeminjaman($id)
     {   
         $asset = Asset::find($id);
-        $data = [
-            'page' => 'inventaris',
-            'asset'=> $asset,
-        ];
 
-        return view('karyawan.inventaris.peminjaman.create', $data);
+        if ($asset->status_id != 1) {
+            Session::put('alert-warning', 'Asset tidak dapat dipinjam');
+            return Redirect::back();    
+        }
+        else {
+            $data = [
+                'page' => 'inventaris',
+                'asset'=> $asset,
+            ];
+            return view('karyawan.inventaris.peminjaman.create', $data);
+        }
     }
 
     
 
     public function postInputPeminjaman(Request $request)
     {   
+        Asset::where('id_asset', $request->input('asset_id'))->update(['status_id' => 2]);
         $peminjaman = Transaksi_Peminjaman::create([
             'nip_petugas_id' => Auth::User()->username,
             'nim_nip_peminjam' => $request->input('nim_nip_peminjam'),
@@ -131,5 +139,17 @@ class PeminjamanController extends Controller
 
         // Kembali ke halaman sebelumnya
         return Redirect::back();     
+    }
+
+    public function checkin($id)
+    {
+        Transaksi_Peminjaman::where('id_peminjaman', $id)->update(['checkin_date' => Carbon::now()]);
+        $id_asset = Transaksi_Peminjaman::where('id_peminjaman', $id)->first();
+
+        Asset::where('id_asset', $id_asset->asset_id)->update(['status_id' => 1]);
+
+        Session::put('alert-success', 'asset berhasil di checkin');
+        return Redirect::back();
+             
     }
 }

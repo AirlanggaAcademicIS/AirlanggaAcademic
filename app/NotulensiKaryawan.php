@@ -18,7 +18,7 @@ class NotulensiKaryawan extends Model
 		'waktu_pelaksanaan',
 		'hasil_pembahasan',
 		'id_verifikasi',
-		'deskripsi_rapat',	
+		'deskripsi_rapat',
    ];
 
 }

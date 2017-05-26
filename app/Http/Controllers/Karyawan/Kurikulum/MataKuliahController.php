@@ -60,7 +60,7 @@ class MataKuliahController extends Controller
         Session::put('alert-success', 'Mata Kuliah berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('kurikulum/mata-kuliah');
+        return Redirect::to('karyawan/kurikulum/mata-kuliah');
     }
 
     public function edit($id)

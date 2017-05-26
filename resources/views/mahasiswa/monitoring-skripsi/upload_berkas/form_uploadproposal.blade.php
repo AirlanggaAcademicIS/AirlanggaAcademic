@@ -63,19 +63,21 @@ Upload Berkas
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="post" action="{{url('mahasiswa/monitoring-skripsi/upload-proposal')}}" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
               <div class="box-body">
                 <div class="form-group">
                   <label for="file_pen" class="col-sm-2 control-label">Upload Berkas Proposal</label>
                   <div class="col-md-8">
-                  <input type="file" id="upload_berkas" name="upload_berkas" placeholder="Pilih File" required>
+                  <input type="file" id="upload_berkas" name="upload_berkas_proposal" placeholder="Pilih File" required>
 
-                  <p class="help-block">*File berformat .pdf</p>
+                  <p class="help-block">*File berformat .pdf, .doc atau .docx</p>
 
                   </div>
                   </div>
                 <div class="box-footer">
-                <center><button type="submit" class="btn btn-primary"  data-toggle="modal" data-target="#myModal">Submit</button></center>
+                <center><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit</button></center>
               </div>
                 
               </div>
@@ -89,14 +91,15 @@ Upload Berkas
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="post" action="{{url('mahasiswa/monitoring-skripsi/upload-skripsi')}}" enctype="multipart/form-data">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="box-body">
                <div class="form-group">
                   <label for="file_pen" class="col-sm-2 control-label">Upload Berkas Skripsi</label>
                   <div class="col-md-8">
-                  <input type="file" id="upload_berkas" name="upload_berkas" placeholder="Pilih File" required>
+                  <input type="file" id="upload_berkas" name="upload_berkas_skripsi" placeholder="Pilih File" required>
 
-                  <p class="help-block">*File berformat .pdf</p>
+                  <p class="help-block">*File berformat .pdf, .doc atau .docx</p>
 
                 </div>
                 

@@ -9,9 +9,11 @@ class MK extends Model
 {
    use SoftDeletes;
    protected $table = 'mata_kuliah';    
-   protected $primaryKey = 'id_mk';   
+   protected $primaryKey = 'id_mk';  
+   public $incrementing = false; 
    protected $dates = ['deleted_at']; 
    protected $fillable = [
+   		'id_mk',
    		'jenis_mk_id',
 		'kode_matkul',
 		'nama_matkul',
