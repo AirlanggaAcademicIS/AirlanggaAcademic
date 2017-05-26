@@ -38,7 +38,7 @@ akunmahasiswa
       <th style="text-align:center">No.</th>
       <th style="text-align:center">NIM</th>  
       <th style="text-align:center">Nama Mahasiswa</th>     
-      <th style="text-align:center">NIP_id</th>   
+      <th style="text-align:center">NIP Dosen Wali</th>   
       <th style="text-align:center">E-mail Mahasiswa</th>    
       <th style="text-align:center">Fakultas</th>
       <th style="text-align:center">Program Studi</th>
