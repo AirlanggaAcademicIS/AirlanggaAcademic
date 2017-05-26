@@ -51,9 +51,10 @@ Tambah Konsultasi
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="skripsi_id" class="col-sm-2 control-label">id skripsi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="skripsi_id" name="skripsi_id" placeholder="Masukkan id skripsi" required>
+					@foreach($mhs as $m)
+						<input type="hidden" class="form-control input-lg" id="skripsi_id" value="{{$m->id_skripsi}}" name="skripsi_id" placeholder="Masukkan id skripsi" required>
+					@endforeach
 					</div>
 				</div>
 
@@ -92,8 +93,6 @@ Tambah Konsultasi
   <script>
 $( function() {
     var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
-
   } );
   </script>
 @endsection
-

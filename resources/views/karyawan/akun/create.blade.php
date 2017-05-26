@@ -58,9 +58,31 @@ Tambah Akun
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">nlp id</label>
+					<label for="nama_mhs" class="col-sm-2 control-label">Nama Mahasiswa</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nama_mhs" name="nama_mhs" placeholder="Masukkan Nama Mahasiswa" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nlp_id" class="col-sm-2 control-label">nlp id</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control input-lg" id="nlp_id" name="nlp_id" placeholder="Masukkan nlp id" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="angkatan" class="col-sm-2 control-label">angkatan</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="angkatan" name="angkatan" placeholder="Masukkan angkatan" required>
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label for="E-mail" class="col-sm-2 control-label">E-mail</label>
+					<div class="col-md-8">
+						<input type="email" class="form-control input-lg" id="email" name="email" placeholder="Masukkan e-mail" required>
 					</div>
 				</div>
 
@@ -78,7 +100,13 @@ Tambah Akun
 					</div>
 				</div>
 
-			
+				<div class="form-group">
+					<label for="foto_mhs" class="col-sm-2 control-label">Foto Mahasiswa</label>
+					<div class="col-md-8">
+						<input type="file" class="form-control input-lg" id="foto_mhs" name="foto_mhs" placeholder="Pilih Foto Mahasiswa" required>
+
+					</div>
+				</div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">

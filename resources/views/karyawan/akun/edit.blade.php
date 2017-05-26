@@ -45,25 +45,47 @@ Edit Akun
 			</div>
 			@endif
 			<br>
-			<form id="editAkun" method="post" action="{{url('/karyawan/akun/'.$akunmahasiswa->nim.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="editAkun" method="post" action="{{url('/karyawan/akun/'.$akun->nim.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
 					<label for="nim" class="col-sm-2 control-label">NIM</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" value="{{$akunmahasiswa->nim}}" required>
-					</div>
+						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" value="{{$akun->nim}}" required>
+			 		</div>
 				</div>
 
-				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">nlp id</label>
+					<label for="nama_mhs" class="col-sm-2 control-label">Nama Mahasiswa</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nlp_id" name="nlp_id" placeholder="Masukkan nlp id" value="{{$akunmahasiswa->nlp_id}}" required>
+						<input type="text" class="form-control input-lg" id="nama_mhs" name="nama_mhs" placeholder="Masukkan Nama Mahasiswa" value="{{$biodata->nama_mhs}}" required>
 					</div>
 				</div>
 
+				<div class="form-group">
+					<label for="nlp_id" class="col-sm-2 control-label">Nip id</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nip_id" name="nip_id" placeholder="Masukkan Nip id" value="{{$akun->nip_id}}" required>
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label for="E-mail" class="col-sm-2 control-label">E-mail</label>
+					<div class="col-md-8">
+						<input type="email" class="form-control input-lg" id="email" name="email" placeholder="Masukkan e-mail" value="{{$biodata->email_mhs}}" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="foto_mhs" class="col-sm-2 control-label">Ganti Foto Mahasiswa</label>
+					<div class="col-md-8">
+					<img src="{{URL::asset('/img/foto_mhs/'.$biodata->foto_mhs)}}" height="100px" width="100px" hspace="5px" vspace="2px" alt="gambar" style="border:2px solid gray" class="img-rounded" >
+						<input type="file" class="form-control input-lg" id="foto_mhs" name="foto_mhs" placeholder="Pilih Foto Mahasiswa" value="{{$biodata->foto_mhs}}" required>
+
+					</div>
+				</div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">

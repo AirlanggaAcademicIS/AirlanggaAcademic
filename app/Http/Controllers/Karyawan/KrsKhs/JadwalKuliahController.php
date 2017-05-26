@@ -45,9 +45,13 @@ class JadwalKuliahController extends Controller
 
             'jadwal2' =>Jam::all(),
 
+
              'jadwal3' =>Ruang::all(),
 
              'jadwal4' =>MKDitawarkan::all()
+
+
+             'jadwal3' =>Ruang::all()
 
         ];
         // Memanggil tampilan form create
