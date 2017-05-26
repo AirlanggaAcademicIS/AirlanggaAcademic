@@ -15,7 +15,7 @@ Input Dosen Mata Kuliah
 
 @section('main-content')
   <div class="box box-info">
-     <form id="tambahJadwal" method="post" action="{{url('krs-khs/jadwal_kuliah/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+     <form id="tambahJadwal" method="post" action="{{url('krs-khs/jadwal_kuliah/'.$jadwal->mk_ditawarkan_id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="box-body">
 
@@ -62,7 +62,7 @@ Input Dosen Mata Kuliah
                                     <select class="form-control" id="hari_id" name="hari_id" required>
                                        
                                         <option>Pilih Hari</option>
-                                        @foreach($jadwal as $i => $m)
+                                        @foreach($jadwal5 as $i => $m)
                                         <option value="{{$m->id_hari}}">{{$m->nama_hari}}</option>
                                         @endforeach
                                     </select>
@@ -89,14 +89,6 @@ Input Dosen Mata Kuliah
                         </div>
                 </div>
                 </div>
-
-
-
-              
-
-               
-
-               
               </div>
               <!-- /.box-body -->
               <div class="box-footer">

@@ -24,30 +24,28 @@ class SkripsiController extends Controller
     // Function untuk menampilkan tabel
     public function index()
     {
+        $AkunMhs = Auth::user()->username;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar skripsi
             'page' => 'skripsi',
             // Memanggil semua isi dari tabel skripsi
-            'skripsi' => DB::table('skripsi')
-            ->join('dosen_pembimbing', 'skripsi.id_skripsi', '=', 'dosen_pembimbing.skripsi_id')
-            ->join('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
-            ->select('skripsi.*', 'biodata_mhs.nama_mhs','dosen_pembimbing.*')
-            ->where('biodata_mhs.nim_id','=', Auth::user()->username)
-            ->get(),
+            'skripsi' => Skripsi::where('NIM_id',$AkunMhs)->first(),
+            'mhs' => BiodataMahasiswa::where('nim_id', $AkunMhs)->first(),
+            'kbk' => KBK::all(),
             'dosen1' => DB::table('skripsi')
             ->join('dosen_pembimbing', 'skripsi.id_skripsi', '=', 'dosen_pembimbing.skripsi_id')
             ->join('biodata_dosen', 'dosen_pembimbing.nip_id', '=', 'biodata_dosen.nip')
             ->select('skripsi.*', 'biodata_dosen.nama_dosen','dosen_pembimbing.status')
             ->where('dosen_pembimbing.status','=','0')
-            ->get(),
+            ->where('NIM_id', $AkunMhs)
+            ->first(),
             'dosen2' => DB::table('skripsi')
             ->join('dosen_pembimbing', 'skripsi.id_skripsi', '=', 'dosen_pembimbing.skripsi_id')
             ->join('biodata_dosen', 'dosen_pembimbing.nip_id', '=', 'biodata_dosen.nip')
             ->select('skripsi.*', 'biodata_dosen.nama_dosen','dosen_pembimbing.status')
             ->where('dosen_pembimbing.status','=','1')
-            ->get(),
-            'dospem' => DosenPembimbing::all(),
-            'kbk'=> KBK::where('id_kbk', '=', '$skripsi->kbk_id')
+            ->where('NIM_id', $AkunMhs)
+            ->first(),
         ];
         // Memanggil tampilan index di folder monitoring-skripsi/skripsi dan juga menambahkan $data tadi di view
         return view('mahasiswa.monitoring-skripsi.skripsi.index',$data);
