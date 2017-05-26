@@ -37,14 +37,25 @@ Pengajuan
     <tr>
       <th style="text-align:center">No.</th>
       <th style="text-align:center">Nama Kegiatan</th>
+<<<<<<< HEAD
+      <th style="text-align:center">Kategori Kegiatan</th>
+      <th style="text-align:center">Konfirmasi Kegiatan</th>
+=======
+>>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
       <th style="text-align:center">Latar Belakang</th>      
       <th style="text-align:center">Tujuan Kegiatan</th>
       <th style="text-align:center">Mekanisme Kegiatan</th>
       <th style="text-align:center">Tanggal Pengajuan</th>
+<<<<<<< HEAD
+      <th style="text-align:center">Tanggal Pelaksanaan</th>
+      <th style="text-align:center">Poster</th>
+      
+=======
       <th style="text-align:center">Tempat Pelaksanaan</th>
       <th style="text-align:center">Url Poster</th>
       <th style="text-align:center">Sumber Id</th>
       <th style="text-align:center">Action</th>
+>>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
 
     </tr>
     </thead>
@@ -53,18 +64,26 @@ Pengajuan
     <tr>
       <td>{{ $i+1 }}</td>
       <td width="15%" style="text-align:center">{{$pen->nama}}</td>
+<<<<<<< HEAD
+      <td width="15%" style="text-align:center">{{$pen->kategori}}</td>
+      <td width="15%" style="text-align:center">{{$pen->konfirmasi}}</td>
+=======
+>>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
       <td width="20%" style="text-align:center">{{$pen->history}}</td>
       <td width="10%" style="text-align:center">{{$pen->tujuan}}</td>
       <td width="10%" style="text-align:center">{{$pen->mekanisme}}</td>
       <td width="10%" style="text-align:center">{{$pen->tglpengajuan}}</td>
       <td width="10%" style="text-align:center">{{$pen->tglpelaksanaan}}</td>
       <td width="10%" style="text-align:center">{{$pen->url_poster}}</td>
+<<<<<<< HEAD
+=======
       <td width="10%" style="text-align:center">{{$pen->sumber_id}}</td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus biodata ini?');" href="{{url('/pengelolaan-kegiatan/pengajuan/'.$pen->id.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/pengelolaan-kegiatan/pengajuan/'.$pen->id.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
+>>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
     </tr>
      @empty
         <tr>

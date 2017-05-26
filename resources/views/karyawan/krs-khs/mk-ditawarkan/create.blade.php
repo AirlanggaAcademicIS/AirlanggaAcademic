@@ -19,14 +19,13 @@ Input Mata Kuliah Ditawarkan
        <div class="box-body">
             <!-- /.box-header -->
        
-              <form role="form" id="mk_ditawarkan" method="post" action="{{url('krs-khs/mk_ditawarkan/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+              <form role="form" id="mk_ditawarkan" method="post" action="{{url('karyawan/krs-khs/mk-ditawarkan/create')}}" enctype="multipart/form-data"  class="form-horizontal">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <!-- text input -->
                   <label>Tahun Akademik</label>
                 <br>
                   <div class="col-md-2">
                   <select class="form-control" id="periode" name="periode">
-                    
                     <option>Gasal</option>
                     <option>Genap</option>
                   </select>
@@ -59,10 +58,6 @@ Input Mata Kuliah Ditawarkan
 
 </div>
 </div>
-
-
-
-
 @endsection
 
 @section('code-footer')

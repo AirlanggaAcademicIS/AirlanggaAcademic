@@ -20,7 +20,19 @@ Pengajuan Kegiatan
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
+<<<<<<< HEAD
+<section class="content">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"></h3>
+            </div>
+=======
 
+>>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
 <!-- Ini buat menampilkan notifikasi -->
   @foreach (['danger', 'warning', 'success', 'info'] as $msg)
   @if(Session::has('alert-' . $msg))
@@ -61,6 +73,27 @@ Pengajuan Kegiatan
           </div>
         </div>
 
+<<<<<<< HEAD
+        <!-- textarea -->
+                <div class="form-group">
+          <label for="nama" class="col-sm-2 control-label">Kategori</label>
+          <div class="col-md-8">
+            <textarea id="kategori" name="kategori" placeholder=" Masukkan Nama" required cols="82" rows="5">
+            </textarea>
+          </div>
+        </div>
+
+        <!-- textarea -->
+                <div class="form-group">
+          <label for="nama" class="col-sm-2 control-label">Konfirmasi</label>
+          <div class="col-md-8">
+            <textarea id="konfirmasi" name="konfirmasi" placeholder=" Masukkan Nama" required cols="82" rows="5">
+            </textarea>
+          </div>
+        </div>
+
+=======
+>>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
               <!-- textarea -->
                 <div class="form-group">
           <label for="nama" class="col-sm-2 control-label">Latar Belakang</label>
@@ -103,6 +136,14 @@ Pengajuan Kegiatan
           </div>
         </div>
 
+<<<<<<< HEAD
+        <div class="form-group">
+                  <label for="exampleInputFile">File input</label>
+                  <input type="file" id="gambar" name="url_poster">
+                </div>
+               
+                <button type="submit" class="btn btn-primary">Next</button>
+=======
         <!-- textarea -->
                 <div class="form-group">
           <label for="nama" class="col-sm-2 control-label">Url Poster</label>
@@ -122,6 +163,7 @@ Pengajuan Kegiatan
         </div>
                
                 <button type="submit" class="btn btn-primary">Submit</button>
+>>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
               </div>
             </form>
           </div>
@@ -140,6 +182,38 @@ $( function() {
     var date2 = $('#datepicker2').datepicker({ dateFormat: 'yy/mm/dd' }).val();
 
   } );
+<<<<<<< HEAD
+
+    var elBrowse  = document.getElementById("gambar");
+  elBrowse.addEventListener("change", function() {
+    var files  = this.files;
+    var errors = "";
+    if (!files) {
+      errors += "File upload not supported by your browser.";
+    }
+    if (files && files[0]) 
+    {
+      for(var i=0; i<files.length; i++) 
+      {
+        var file = files[i];
+        if ( (/\.(png|jpeg|jpg|gif)$/i).test(file.name) ) 
+        {
+          readImage( file ); 
+        } 
+        else 
+        {
+          errors += file.name +" is unsupported Image extension\n";
+          document.getElementById("gambar").value = null;  
+        }
+      }
+    }
+    if (errors) {
+      alert(errors); 
+    }
+  });
+
+=======
+>>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
   </script>
 
 
