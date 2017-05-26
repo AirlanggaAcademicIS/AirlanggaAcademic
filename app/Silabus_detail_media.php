@@ -13,7 +13,9 @@ class Silabus_detail_media extends Model
    		'sistem_pembelajaran_id',
    ];
 <<<<<<< HEAD
+=======
 
+>>>>>>> 090f09f1e2827b9381fce8cbf0cc327eaecfb4d1
 	public function cpmk()
    {
    	return $this->belongsTo('App\Silabus_Sistem_Pembelajaran', 'cpmk_id');
@@ -23,7 +25,8 @@ class Silabus_detail_media extends Model
    {
    	return $this->belongsTo('App\Silabus_Sistem_Pembelajaran', 'sistem_pembelajaran_id');
    }
-
+<<<<<<< HEAD
 =======
->>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
+
+>>>>>>> 090f09f1e2827b9381fce8cbf0cc327eaecfb4d1
 }

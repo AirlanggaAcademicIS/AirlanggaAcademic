@@ -16,6 +16,8 @@ use Session;
 use Validator;
 use Response;
 use App\Models\KrsKhs\Histori;
+use App\Models\KrsKhs\MKDitawarkan;
+use App\Models\KrsKhs\MK;
 // /**
 //  * Class HomeController
 //  * @package App\Http\Controllers
@@ -41,7 +43,8 @@ class HistoriController extends Controller
     {
         $data = [
         'page' => 'histori',
-        'histori' => Histori::all()
+        'histori' => Histori::all(),
+        'mk' => MK::all()
         ];
         return view('mahasiswa.krs-khs.histori.index',$data);
     }

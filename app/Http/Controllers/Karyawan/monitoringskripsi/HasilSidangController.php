@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Karyawan;
 
-use Illuminate\Http\Request;
+use Request;
 use Illuminate\Support\Facades\DB;
 use App\Skripsi;
 
 use Session;
 
 use App\Http\Controllers\Controller;
+
+use Illuminate\Support\Facades\Input;
 
 class HasilSidangController extends Controller
 {
@@ -31,7 +33,32 @@ public function view_manage_hasil_sidang_proposal()
       		'page'=>'tambah-hasil-proposal'
       		);
       	return view('karyawan.monitoring-skripsi.hasil-sidang.tambah-hasil-proposal',$data);
-      }   
+      }
+
+      public function upload_nilai_sidang_skripsi()
+         {
+            # code...
+            if(Request::ajax()){
+
+               $data = Input::all();
+
+               $status_upload = 0;
+
+               $t = DB::table('skripsi')
+            ->where('id_skripsi', $data['id_skripsi'])
+            ->update(['nilai_sidangskrip' => $data['nilai_sidang_skripsi']]);
+
+               if($t){
+                  $status_upload = 1;
+               }
+
+               $output = array(
+                     'status_upload'=>$status_upload
+                  );
+
+               return response()->json($output);
+            }
+         }   
 
    public function view_manage_hasil_sidang_skripsi()
       {
