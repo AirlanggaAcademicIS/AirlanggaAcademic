@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Rincian Rundown
+Rincian Rundown Kegiatan
 @endsection
 
 @section('contentheader_title')
-Rincian Rundown
+Rincian Rundown Kegiatan
 @endsection
 
 @section('main-content')
@@ -29,14 +29,14 @@ Rincian Rundown
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
   <a href="{{url('dosen/pengelolaan-kegiatan/rincian-rundown/create')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah Rincian Rundown</a>
+    <i class="fa fa-plus-square"></i> Tambah Rincian Rundown Kegiatan</a>
 </div>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">Nomor Kegiatan</th>
+      <th style="text-align:center">Jenis Kegiatan</th>
       <th style="text-align:center">Kategori Kegiatan</th>
       <th style="text-align:center">Nama</th>      
       <th style="text-align:center">Waktu</th>
@@ -53,7 +53,7 @@ Rincian Rundown
       <td width="20%" style="text-align:center">{{$rundown->waktu}}</td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus rundown ini?');" href="{{url('dosen/pengelolaan-kegiatan/rincian-rundown/'.$rundown->id_rundown.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
-          <a href="{{url('dosen/pengelolaan-kegiatan/rincian-rundown/'.$rundown->id.'/edit/')}}" type="button" class="btn btn-warning btn-xs"> <i class="fa fa-pencil-square-o"></i>Edit</a></td>
+          <a href="{{url('dosen/pengelolaan-kegiatan/rincian-rundown/'.$rundown->id_rundown.'/edit/')}}" type="button" class="btn btn-warning btn-xs"> <i class="fa fa-pencil-square-o"></i>Edit</a></td>
     </tr>
      @empty
         <tr>

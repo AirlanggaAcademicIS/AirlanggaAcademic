@@ -20,11 +20,10 @@
     <link href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/css/jquery-ui.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/jquery.steps.css') }}" rel="stylesheet">
-<<<<<<< HEAD
+
 <style type="text/css">
-=======
+
     <style type="text/css">
->>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
       .wizard .content {
         min-height: 100px;
     }
@@ -35,7 +34,6 @@
         padding: 15px;
         position: relative;
     }
-<<<<<<< HEAD
 
     input[type=radio]{
         display: inline;
@@ -48,12 +46,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-=======
->>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
 
-    input[type=radio]{
-        display: inline;
-    }
     </style>
    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css"> -->
     <link href="{{ asset('/css/bootstrap-tagsinput.css') }}" rel="stylesheet">

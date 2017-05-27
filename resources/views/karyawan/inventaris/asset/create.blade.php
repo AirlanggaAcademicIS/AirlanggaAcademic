@@ -112,13 +112,6 @@ Tambah Asset
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Jumlah Barang</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="jumlah_barang" name="jumlah_barang" placeholder="Masukkan Jumlah Barang" required>
-					</div>
-				</div>
-
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">

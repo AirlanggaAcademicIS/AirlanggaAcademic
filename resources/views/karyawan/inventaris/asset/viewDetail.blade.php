@@ -76,18 +76,6 @@ View Detail Asset
 		                  <input type="text" class="form-control" value="{{ $asset->harga_satuan }}" readonly>
 		                </div>
 
-		                 <div class="form-group">
-		                  <label>Jumlah Barang</label>
-		                  <input type="text" class="form-control" value="{{ $asset->jumlah_barang }}" readonly>
-		                </div>
-
-
-		                 <div class="form-group">
-		                  <label>Total Harga</label>
-		                  <input type="text" class="form-control" value="{{ $asset->total_harga }}" readonly>
-		                </div>
-
-
 		                <div class="form-group">
 			                <label>Expired Date:</label>
 			                <div class="input-group date">
