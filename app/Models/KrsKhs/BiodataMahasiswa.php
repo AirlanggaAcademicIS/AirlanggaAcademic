@@ -1,16 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models\KrsKhs;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BiodataMahasiswa extends Model
 {
-	use SoftDeletes;
    protected $table = 'biodata_mhs';    
    protected $primaryKey = 'id_bio';    
    protected $fillable = [
-
+   		'nim_id',
 		'nama_mhs',
 		'email_mhs',
 		'jenis_kelamin',
