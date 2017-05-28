@@ -49,7 +49,7 @@ class SilabusController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'silabus',
             'matkul_silabus' => Silabus_Matkul::where('status_rps', '=', '1')->where('status_silabus', '=', '0')->get(),
-            // 'mata_kuliah' => Silabus_Matkul::all(),            
+            'mata_kuliah' => Silabus_Matkul::all(),            
             // 'mk_prasyarat' => Silabus_Matkul_Prasyarat::all(),
             'atribut_softskill' => Silabus_Atribut_Softskill::all(),
             'media_pembelajaran' => Silabus_Media_Pembelajaran::all(),            

@@ -177,15 +177,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
-<<<<<<< HEAD
-
         Barryvdh\Snappy\ServiceProvider::class,
-        
-=======
         Maatwebsite\Excel\ExcelServiceProvider::class,
-         Barryvdh\Snappy\ServiceProvider::class,        
-
->>>>>>> 8ab999b6463730213402bf5657d64e0b812f08f2
+        Barryvdh\Snappy\ServiceProvider::class,        
     ],
 
     /*
@@ -243,7 +237,3 @@ return [
     ],
 
 ];
-<<<<<<< HEAD
-=======
-
->>>>>>> 8ab999b6463730213402bf5657d64e0b812f08f2

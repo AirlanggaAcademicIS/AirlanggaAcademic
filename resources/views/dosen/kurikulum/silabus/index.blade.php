@@ -6,11 +6,7 @@
 @endsection
 
 @section('htmlheader_title')
-<<<<<<< HEAD
   Silabus 
-=======
-Silabus 
->>>>>>> 090f09f1e2827b9381fce8cbf0cc327eaecfb4d1
 @endsection
 
 @section('contentheader_title')
