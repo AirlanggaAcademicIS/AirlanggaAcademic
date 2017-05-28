@@ -16,9 +16,8 @@ Tambah Silabus
 @endsection
 
 @section('main-content')
-<form role="form">
-  <div class="box box-danger">
 <form role="form" id="tambah-silabus" method="post" action="{{url('/dosen/kurikulum/silabus/create')}}" enctype="multipart/form-data">
+  <div class="box box-primary">
 
     <div class="box-header with-border">
       <h3 class="box-title">Tambah Silabus</h3>
@@ -28,16 +27,16 @@ Tambah Silabus
       <input type="hidden" name="_token" value="{{ csrf_token() }}">    
 
       <div class="form-group">
-  	    <label>Mata Kuliah</label>
-  	    <select name="matkul" class="form-control select2" style="width: 100%;" required>
+        <label>Mata Kuliah</label>
+        <select name="matkul" id="matkul" class="form-control select2" style="width: 100%;" required>
           <option value="">-- Pilih Mata Kuliah --</option>
           @foreach ($matkul_silabus as $ms)
           {
             <option value="{{$ms->id_mk}}">{{$ms->kode_matkul}} - {{$ms->nama_matkul}} ({{$ms->sks}} SKS)</option>
           }
           @endforeach
-  	    </select>
-  	   </div>
+        </select>
+       </div>
 
       <!-- Pakai Checkbox -->
       <div class="form-group">
@@ -49,12 +48,13 @@ Tambah Silabus
 
       <div class="form-group">
         <label for="capaian_pembelajaran"><b>Capaian Mata Kuliah</b></label>
-      	<textarea class="form-control" id="" name="capaian_matkul" rows="4" placeholder="Masukan Capaian Mata Kuliah">
-      	</textarea>
+        <textarea class="form-control" id="" name="capaian_matkul" rows="4" placeholder="Masukan Capaian Mata Kuliah">
+        </textarea>
       </div>
 
       <div class="form-group">
         <label for="dekripsi-matkul"><b>Deskripsi Mata Kuliah</b></label>
+
       	<textarea name="dekripsi_matkul" class="form-control" rows="4" placeholder="Masukan Deskripsi Mata Kuliah">
       	</textarea>
       </div>
@@ -65,6 +65,10 @@ Tambah Silabus
         @foreach($atribut_softskill as $softskill)
           <label class="checkbox-inline"><input type="checkbox" name="softskill_id[]" value="{{$softskill->id_softskill}}">{{$softskill->softskill}}</label>          
         @endforeach
+
+        <textarea name="dekripsi_matkul" class="form-control" rows="4" placeholder="Masukan Deskripsi Mata Kuliah">
+        </textarea>
+
       </div>
 
       <!-- Pakai Checkbox -->
@@ -95,13 +99,17 @@ Tambah Silabus
         </textarea>
       </div>
 
-    	<div class="form-group">
+      <div class="form-group">
         <label for="referensi"><b>Referensi Wajib</b></label>
         <textarea name="pustaka_utama" id="pustaka_utama" class="form-control" rows="4" placeholder="Masukkan referensi wajib (pustaka utama)"> 
+
       	</textarea>
+
+        </textarea>
+
       </div>
 
-    	<div class="box-footer clearfix">
+      <div class="box-footer clearfix">
         <button type="tambah" class="pull-right btn btn-info btn-sm" id="tambah">Tambah
         </button>
       </div>
@@ -113,11 +121,26 @@ Tambah Silabus
 @section('code-footer')
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-$( function() {
-    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#matkul").on("change", function(){
+      var id = $("#matkul").val();      
+      $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },        
+          type: "POST",
+          url: "autofill",
+          data: {'id' : id},
+          dataType: 'json',
+          encode : true,
+          success: function (data) 
+          {
+            $("#pustaka_utama").html(data.pustaka);            
+          } // success
+      }); // ajax              
+    });
+});</script>
 
-  } );
-  </script>
 @endsection
 
