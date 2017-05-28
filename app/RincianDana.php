@@ -6,25 +6,33 @@ use Illuminate\Database\Eloquent\Model;
 /**
 * 
 */
-class RincianRundown extends Model
+class RincianDana extends Model
 {	
-	protected $table = 'rincian_rundown';	
+	protected $table = 'rincian_dana';	
 	protected $primaryKey ='id_rdana';
 	protected $fillable = [
-		'id_rundown',
+		'id_rdana',
 		'kegiatan_id',
-		'waktu',
 		'nama',
-		'kategori_rundown',
+		'kuantitas',
+		'harga',
+		'kategori',
+		'kategori_dana',
 		'created_at',
 		'updated_at',
 		'deleted_at',
-	];
+	];	
 
-public function rincianRundown()
+
+public function rincianDana()
 {
 	# code...
 	return $this->belongsTo('App\PengajuanKegiatan','kegiatan_id');
+}
+public function kategoriDana()
+{
+	# code...
+	return $this->belongsTo('App\kategoriDana','sumber_id');
 }
 
 }
