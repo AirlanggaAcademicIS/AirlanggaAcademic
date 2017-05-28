@@ -28,8 +28,8 @@ Undangan Rapat
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <!-- <a href="{{url('/notulensi/dosenrapat/create')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah Dosen Rapat</a> -->
+  <a href="{{url('tambahrapat')}}" type="button" class="btn btn-info btn-md" >
+    <i class="fa fa-plus-square"></i> Tambah Rapat</a>
 </div>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
@@ -38,21 +38,25 @@ Undangan Rapat
       <th style="text-align:center">No.</th>
       <th style="text-align:center">Nama Rapat</th>
       <th style="text-align:center">Waktu Pelaksanaan</th>
-      <th style="text-align:center">Tempat</th>      
+      <th style="text-align:center">Tempat</th>
+      <th style="text-align:center">Agenda</th>      
       <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
-   @forelse($undangan as $i => $unkar) 
+   @forelse($undangan as $i => $unkar)
     <tr>
-      <!-- <td>{{ $i+1 }}</td> -->
-      <td width="5%" style="text-align:center">{{$unkar->id_notulen}}</td>
-      <td width="30%" style="text-align:center">{{$unkar->nama_rapat}}</td>
+      <td width="5%" style="text-align:center"> {{ $i+1 }}</td>
+      <!-- <td width="5%" style="text-align:center">{{$unkar->id_notulen}}</td> -->
+      <td width="20%" style="text-align:center">{{$unkar->nama_rapat}}</td>
       <td width="20%" style="text-align:center">{{$unkar->waktu_pelaksanaan}}</td>
-      <td width="25%" style="text-align:center">{{$unkar->permohonan_ruang_id}}</td>
-      <td width="20%" style="text-align:center" >
-        <a onclick="return confirm('Anda yakin untuk menghapus dosen rapat ini?');" href="{{url('/notulensi/dosenrapat/'.$unkar->id.'/delete/')}}" class="btn btn-success btn-xs">
+      <td width="20%" style="text-align:center">{{$unkar->nama_ruang}}</td>
+      <td width="20%" style="text-align:center">{{$unkar->agenda_rapat}}</td>
+      <td width="20%" style="text-align:center">
+        <a href="{{url('formundangan/'.$unkar->id_notulen.'/undang/')}}" class="btn btn-success btn-xs">
         <i class="fa fa-book"></i> Undang Dosen</a>
+        <a onclick="return confirm('Anda yakin untuk menghapus rapat ini?');" href="{{url('formundangan/'.$unkar->id_notulen.'/delete/')}}" class="btn btn-danger btn-xs">
+        <i class="fa fa-trash"></i> Hapus Rapat</a>
         </td>
     </tr>
      @empty

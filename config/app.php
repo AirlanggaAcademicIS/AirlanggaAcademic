@@ -177,9 +177,15 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
+<<<<<<< HEAD
 
         Barryvdh\Snappy\ServiceProvider::class,
         
+=======
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+         Barryvdh\Snappy\ServiceProvider::class,        
+
+>>>>>>> 8ab999b6463730213402bf5657d64e0b812f08f2
     ],
 
     /*
@@ -231,7 +237,13 @@ return [
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
         'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
-],
+    ],
+
 ];
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8ab999b6463730213402bf5657d64e0b812f08f2
