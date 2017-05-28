@@ -61,6 +61,16 @@ class SilabusController extends Controller
     	return view('dosen.kurikulum.silabus.create',$data);
     }
 
+    public function autofill(Request $request)
+    {   
+        $id = $request->id;
+        $data = Silabus_Matkul::where('id_mk', '=', $id)->first();
+        return response()->json([
+                'success' => true,
+                'pustaka' => $data->pustaka_utama
+            ]);                    
+    }
+
     public function createAction(Request $request)
     {
         //get cpmk first (perlu dibenahi)

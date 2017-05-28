@@ -15,6 +15,7 @@ Route::get('/',['as'=>'admin.index', 'uses'=>'HomeController@index']);
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', 'Auth\LoginController@logout');
+
     Route::group(['prefix' => 'dosen'], function() {
         /*
             Awal Routing Modul Kurikulum Buat Dosen
@@ -26,8 +27,8 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/','Dosen\Kurikulum\CapaianProgramController@index');
                 Route::get('create','Dosen\Kurikulum\CapaianProgramController@create');
                 Route::post('create','Dosen\Kurikulum\CapaianProgramController@createAction');
-                Route::get('{id}/delete','Dosen\Kurikulum\CapaianProgramController@delete');
                 Route::get('{id}/edit','Dosen\Kurikulum\CapaianProgramController@edit');
+                Route::get('{id}/delete','Dosen\Kurikulum\CapaianProgramController@delete');
                 Route::post('{id}/edit','Dosen\Kurikulum\CapaianProgramController@editAction');
             });
             //fitur silabus (modul kurikulum)
@@ -35,6 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/','Dosen\Kurikulum\SilabusController@index');
                 Route::get('create','Dosen\Kurikulum\SilabusController@create');            
                 Route::post('create','Dosen\Kurikulum\SilabusController@createAction');
+                Route::post('/autofill', 'Dosen\Kurikulum\SilabusController@autofill');
                 Route::get('/delete/{id}','Dosen\Kurikulum\SilabusController@delete');
                 Route::get('/edit/{id}','Dosen\Kurikulum\SilabusController@edit');
                 Route::post('/edit/{id}','Dosen\Kurikulum\SilabusController@editAction');
