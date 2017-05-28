@@ -42,7 +42,7 @@ Silabus
       <a onclick="return confirm('Anda yakin untuk menghapus Kategori ini?');" href="{{url('/dosen/kurikulum/silabus/'.$mk->id_mk.'/delete/')}}" class="btn btn-danger btn-xs">
       <i class="fa fa-trash-o"></i> Delete</a>
       <a class="btn btn-info btn-xs">
-        <i class="fa fa-download-square-o"></i> Download</a>
+        <i class="fa fa-file-text-o" aria-hidden="true"></i> Download PDF</a>
     </td>
     @endforeach 
   </tbody>                                
