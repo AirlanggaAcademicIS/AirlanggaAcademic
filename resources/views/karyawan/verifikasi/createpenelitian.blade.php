@@ -33,6 +33,8 @@ Verifikasi Penelitian
             <div class="box-header">
               <h3 class="box-title">Tabel Penelitian Mahasiswa</h3>
             </div>
+
+          
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -77,6 +79,8 @@ Verifikasi Penelitian
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+
+<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $('#example1').DataTable();

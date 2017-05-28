@@ -33,10 +33,9 @@ Notulensi Rapat
               </div>
  
 <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="data-table" class="table" style="width:100%">
                 <thead>
                   <tr>
-                 
                   <th style="text-align:center">No</th>
                   <th style="text-align:center">Nama Rapat</th>
                   <th style="text-align:center">Waktu Pelaksanaan</th>
@@ -45,18 +44,17 @@ Notulensi Rapat
                   <th style="text-align:center">Hasil Rapat</th>
                   <th style="text-align:center">Status</th>
                   <th style="text-align:center">Action</th>
-                  <th style="text-align:center">Kirim</th>
                   </tr>
                 </thead>
-                @forelse($notulensi as $i => $a) 
                 <tbody>
+                @forelse($notulensi as $i => $a) 
                 <tr>
       <td>{{ $i+1 }}</td>
       <td width="30%" style="text-align:center">{{$a->nama_rapat}}</td>
       <td width="30%" style="text-align:center">{{$a->waktu_pelaksanaan}}</td>
       <td width="20%" style="text-align:center">{{$a->nama_ruang}}</td>
        <td width="30%" style="text-align:center">{{$a->agenda_rapat}}</td>
-       <td><button type="button" class="btn btn-link"data-toggle="modal" data-target="#myModal">Detail</button>
+       <td><button type="button" class="btn btn-link"data-toggle="modal" data-target="#myModal">Detail</button></td>
       <!-- <td width="80%" style="text-align:center">{{$a->hasil_pembahasan }}</td> -->
        <td width="20%" style="text-align:center">
       @if($a->id_verifikasi==0)
@@ -69,10 +67,19 @@ Notulensi Rapat
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/notulensi/'.$a->id_notulen.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a></td>
-        <td class="btn btn-primary btn"></i> Kirim</a>
-        </td>
 
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+     
+    </tr>
+     @empty
+        <tr>
+          <td colspan="6"><center>Belum ada Notulensi</center></td>
+        </tr>
+    @endforelse
+  </tbody>
+</table>
+</div>
+
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
      aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -85,32 +92,32 @@ Notulensi Rapat
             <!-- Modal Body -->
             <div class="modal-body">
                 <div class="form-group">
-          <label for="deskripsi_rapat " class="col-sm-6 control-label"></label>
-          <div class="col-md-8">
-            <input type="text" class="form-control input-lg" id="deskripsi_rapat" name="deskripsi_rapat" placeholder="Hasil Rapat" value="{{$a->hasil_pembahasan}}" disabled>
-          </div>
-        </div>
+          <label for="deskripsi_rapat"class="col-sm-2 control-label"></label>
+              <div class="col-sm-11">
+              <textarea class="form-control" rows="5" name="deskripsi_rapat" enable>{{$a->hasil_pembahasan}}
+              </textarea>
+            </div>
+    </div>
             <!-- Modal Footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                  
             </div>
         </div>
+
+
+
     </div>
 </div>
-    </tr>
-     @empty
-        <tr>
-          <td colspan="6"><center>Belum ada Notulensi</center></td>
-        </tr>
-    @endforelse
-  </tbody>
-</table>
 </div>
 
 
 @endsection
 
 @section('code-footer')
-
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#data-table').DataTable();
+    });
+</script>
 @endsection

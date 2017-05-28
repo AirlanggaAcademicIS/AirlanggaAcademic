@@ -47,7 +47,6 @@ Asset
       <th style="text-align:center">Status</th>
       <th style="text-align:center">Nama Asset</th>
       <th style="text-align:center">Lokasi</th> 
-      <th style="text-align:center">Jumlah Barang</th>
       <th style="text-align:center">Action</th>
       <th style="text-align:center">Maintenance</th>
       </tr>
@@ -84,7 +83,6 @@ Asset
 
       <td width="10%" style="text-align:center">{{$ass->nama_asset}}</td>
       <td width="10%" style="text-align:center">{{$ass->lokasi}}</td>
-      <td width="10%" style="text-align:center">{{$ass->jumlah_barang}}</td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus asset ini?');" href="{{url('inventaris/asset/'.$ass->id_asset.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
 
@@ -95,7 +93,10 @@ Asset
         <i class="fa fa-pencil-square-o"></i> Edit</a>
 
         <a href="{{url('inventaris/input-peminjaman/'.$ass->id_asset.'')}}" class="btn btn-primary btn-xs">
-        <i class=""></i> Pinjam Asset</a>
+        <i class="fa fa-hand-rock-o"></i> Pinjam Asset</a>
+
+        <a href="{{url('/'.$ass->serial_barcode.'')}}" class="btn btn-info btn-xs">
+        <i class="fa fa-qrcode"></i> Get QRCODE</a>
 
         </td>
         <td width="20%" style="text-align:center" >

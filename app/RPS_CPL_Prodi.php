@@ -14,7 +14,7 @@ class RPS_CPL_Prodi extends Model
 
     public function matkul()
    {
-   	return $this->belongsTo('App\RPS_CPL_Prodi','mk_id');
+   	return $this->belongsTo('App\RPS_Matkul','mk_id');
    }
    public function cpem()
    {

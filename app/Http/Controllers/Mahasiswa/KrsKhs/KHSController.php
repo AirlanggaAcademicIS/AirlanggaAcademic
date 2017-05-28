@@ -18,6 +18,7 @@ use Response;
 use App\Models\KrsKhs\KHS;
 use App\Models\KrsKhs\MKDitawarkan;
 use App\Models\KrsKhs\MK;
+use App\Models\KrsKhs\TahunAkademik;
 use PDF;    
 // /**
 //  * Class HomeController
@@ -44,7 +45,8 @@ class KHSController extends Controller
     {
         $data = [
         'page' => 'khs',
-        'khs' => KHS::all()
+        'khs' => KHS::all(),
+        'tahun' => TahunAkademik::all()
         ];
         return view('mahasiswa.krs-khs.khs.index',$data);
     }
@@ -56,9 +58,10 @@ class KHSController extends Controller
             // 'matkul' => MataKuliah::find($id),
             // 'jenis_matkul' =>JenisMataKuliah::all()
         ];
-
-        $pdf = PDF::loadView('mahasiswa.krs-khs.khs.cetak');
-        return $pdf->inline('dokumen.pdf');
+        $tahun = TahunAkademik::all();
+        $khs = KHS::all();
+        $pdf = PDF::loadView('mahasiswa.krs-khs.khs.cetak', ['khs'=>$khs] , ['tahun'=>$tahun] );
+        return $pdf->stream('dokumen.pdf');
 
     }
 

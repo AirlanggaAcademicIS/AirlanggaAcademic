@@ -70,23 +70,23 @@ class RincianRundownController extends Controller
         return Redirect::back();     
     }
 
-   public function edit($id)
+   public function edit($id_rundown)
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'rincianrundown',
             // Mencari biodata berdasarkan id
-            'rincianrundown' => RincianRundown::find($id)
+            'rincianrundown' => RincianRundown::find($id_rundown)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
         return view('mahasiswa.pengelolaan-kegiatan.rincian-rundown.edit',$data);
     }
 
-    public function editAction($id, Request $request)
+    public function editAction($id_rundown, Request $request)
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $rincianrundown = RincianRundown::find($id);
+        $rincianrundown = RincianRundown::find($id_rundown);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
         $rincianrundown->kegiatan_id = $request->input('kegiatan_id');
@@ -99,7 +99,7 @@ class RincianRundownController extends Controller
         Session::put('alert-success', 'Rincian Rundown berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('mahasiswa/pengelolaan-kegiatan/rincian-rundown');
+        return Redirect::to('pengelolaan-kegiatan/rincian-rundown');
     }
 
 }
