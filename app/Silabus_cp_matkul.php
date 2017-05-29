@@ -11,19 +11,15 @@ class Silabus_cp_matkul extends Model
    protected $fillable = [
    'matakuliah_id',
    'kode_cpmk',
-<<<<<<< HEAD
    'deskripsi_cpmk',
-=======
+<<<<<<< HEAD
    'deskripsi_cpmk'
->>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
+=======
+>>>>>>> f431483d33699cf4bdbf295ca947e24c98658770
    ];
 
    public function detail()
    {
    		return $this->belongsTo('App\Silabus_detail_media');
    }
-<<<<<<< HEAD
-=======
-
->>>>>>> cb89a76fe2b762f6a2c5f46b83efdd524bb32608
 }

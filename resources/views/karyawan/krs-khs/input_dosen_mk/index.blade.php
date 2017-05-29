@@ -44,7 +44,7 @@ Dosen MK
   <tbody>
    @forelse($tabel as $i => $r) 
     <tr>
-      <td>{{ $i+1 }}</td>
+      <td width="5%" style="text-align:center">{{ $i+1 }}</td>
       <td width="20%" style="text-align:center">
         @foreach($dosen as $d)
         @if($r->dosen_id == $d->nip)
@@ -63,7 +63,13 @@ Dosen MK
         @endif
         @endforeach
       </td>
-      <td width="20%" style="text-align:center">{{$r->status}}</td>
+      <td width="20%" style="text-align:center">
+        @if($r->status==0)
+        PJMK
+        @else
+        Pendamping
+        @endif
+      </td>
     </tr>
      @empty
         <tr>

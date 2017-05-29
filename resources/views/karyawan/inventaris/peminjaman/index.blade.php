@@ -60,7 +60,9 @@ Peminjaman Inventaris
         <a href="{{ url( 'inventaris/'.$p->id_peminjaman.'/edit-peminjaman') }}" class="btn btn-success btn-xs">
           <i class="fa fa-pencil-square-o"></i> Edit</a>
         <a onclick="return confirm('Anda yakin untuk menghapus data peminjaman ini?');" href="{{ url( 'inventaris/'.$p->id_peminjaman.'/delete') }}" class="btn btn-danger btn-xs">
-          <i class="fa fa-trash-o"></i> Delete</a>  
+          <i class="fa fa-trash-o"></i> Delete</a>
+        <a href="{{ url( 'inventaris/checkin/'.$p->id_peminjaman.'') }}" class="btn btn-primary btn-xs">
+          <i class="fa fa-hand-paper-o"></i> Check in</a>
       </td>
     </tr>
     <?php $number++ ?>

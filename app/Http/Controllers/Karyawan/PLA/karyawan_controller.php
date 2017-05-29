@@ -11,7 +11,8 @@ use Session;
 use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
-use App\Karyawan;
+use App\Petugas_TU;
+use App\Prodi;
 
 
 class karyawan_controller extends Controller
@@ -24,7 +25,8 @@ class karyawan_controller extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'karyawan',
             // Memanggil semua isi dari tabel biodata
-            'karyawan' => Karyawan::all(),
+            'karyawan' => Petugas_TU::all(),
+            'prodi' => Prodi::all()
         ];
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('karyawan.PLA.karyawan.index',$data);
@@ -35,6 +37,8 @@ class karyawan_controller extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'karyawan',
+            'karyawan' => Petugas_TU::all(),
+            'prodi' => Prodi::all()
         ];
 
         // Memanggil tampilan form create
@@ -44,7 +48,7 @@ class karyawan_controller extends Controller
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        Karyawan::create($request->input());
+        Petugas_TU::create($request->input());
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Karyawan berhasil ditambahkan');
@@ -56,10 +60,10 @@ class karyawan_controller extends Controller
     public function delete($nip_petugas)
     {
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $karyawan = Karyawan::find($nip_petugas);
+        $petugas_tu = Petugas_TU::find($nip_petugas);
 
         // Menghapus biodata yang dicari tadi
-        $karyawan->delete();
+        $petugas_tu->delete();
 
         // Menampilkan notifikasi pesan sukses
     	Session::put('alert-success', 'Karyawan berhasil dihapus');
@@ -73,8 +77,10 @@ class karyawan_controller extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'karyawan',
+            'karyawan' => Petugas_TU::all(),
+            'prodi' => Prodi::all(),
             // Mencari biodata berdasarkan id
-            'karyawan' => Karyawan::find($nip_petugas)
+            'karyawan' => Petugas_TU::find($nip_petugas),
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
@@ -84,15 +90,15 @@ class karyawan_controller extends Controller
     public function editAction($nip_petugas, Request $request)
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $karyawan = Karyawan::find($nip_petugas);
+        $petugas_tu = Petugas_TU::find($nip_petugas);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $karyawan->nip_petugas = $request->input('nip_petugas');
-        $karyawan->nama_petugas = $request->input('nama_petugas');
-        $karyawan->no_telp_petugas = $request->input('no_telp_petugas');
-        $karyawan->email_petugas = $request->input('email_petugas');
-        $karyawan->prodi = $request->input('prodi');
-        $karyawan->save();
+        $petugas_tu->nip_petugas = $request->input('nip_petugas');
+        $petugas_tu->nama_petugas = $request->input('nama_petugas');
+        $petugas_tu->no_telp_petugas = $request->input('no_telp_petugas');
+        $petugas_tu->email_petugas = $request->input('email_petugas');
+        $petugas_tu->prodi_id = $request->input('prodi_id');
+        $petugas_tu->save();
 
         // Notifikasi sukses
         Session::put('alert-success', 'Karyawan berhasil diedit');

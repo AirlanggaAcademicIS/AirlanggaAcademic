@@ -1,5 +1,5 @@
 <div class="col-md-12" style="text-align: center;">
-    <h3>Silabus Mata Kuliah {{$matkul->nama_matkul}}</h3>    
+    <h3>Kartu Hasil Studi {{$khs->MK}}</h3>    
 </div>
 
 <table style="width:100%; border: 1px solid black;">
@@ -11,15 +11,11 @@
         <tr>
             <td style="vertical-align: center; text-align: left; border: 1px solid black">Jenis Mata Kuliah</td>
             <td style="vertical-align: center; text-align: left; border: 1px solid black">
-                @foreach($jenis_matkul as $jenis_mk)
-                    @if($jenis_mk->id == $matkul->jenisMatkul['id'])
-                    {{$jenis_mk->jenis_mk}}
-                    @endif
-                @endforeach
+                
             </td>
         </tr>  
         <tr>
-            <td style="vertical-align: center; text-align: left; border: 1px solid black">Kode Mata Kuliah</td>                    
+            <td style="vertical-align: center; text-align: left; border: 1px solid black">Kode Mata Kuliah</td>
             <td style="vertical-align: center; text-align: left; border: 1px solid black">{{$matkul->kode_matkul}}</td>                                        
         </tr>
         <tr>
