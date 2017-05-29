@@ -22,20 +22,20 @@ class Surat_Keluar_MhsController extends Controller
     public function index()
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar 
             'page' => 'surat-keluar-mhs',
-            // Memanggil semua isi dari tabel biodata
+            // Memanggil semua isi dari tabel 
             'surat_keluar_mhs' => Surat_Keluar_Mhs::orderBy('created_at', 'desc')->get(),
         ];
 
-        // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
+        // Memanggil tampilan index di folder mahasiswa/ dan juga menambahkan $data tadi di view
         return view('karyawan.pla.surat-keluar-mhs.index',$data);
     }
 
     public function create()
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar 
             'page' => 'surat-keluar-mhs',
         ];
 
@@ -45,7 +45,7 @@ class Surat_Keluar_MhsController extends Controller
 
     public function createAction(Request $request)
     {
-        // Menginsertkan apa yang ada di form ke dalam tabel biodata
+        // Menginsertkan apa yang ada di form ke dalam tabel 
 
         Surat_Keluar_Mhs::create($request->input());
 
@@ -61,23 +61,23 @@ class Surat_Keluar_MhsController extends Controller
         Session::put('alert-success', 'Jurnal Berhasil Ditambahkan');
 
 
-        // Kembali ke halaman mahasiswa/biodata
+        // Kembali ke halaman mahasiswa/
         return Redirect::to('karyawan/pla/surat-keluar-mhs');
     }
 
     public function delete($id_surat_keluar)
     {
-        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
+        // Mencari  berdasarkan id dan memasukkannya ke dalam variabel $
         $surat_keluar_mhs = Surat_Keluar_Mhs::find($id_surat_keluar);
 
-        // Menghapus biodata yang dicari tadi
+        // Menghapus  yang dicari tadi
         $surat_keluar_mhs->delete();
 
         // Menampilkan notifikasi pesan sukses
 
         Session::put('alert-success', 'Surat berhasil dihapus');
 
-        Session::put('alert-success', 'Jurnal Berhasil Dihapus');
+        Session::put('alert-success', 'Surat Berhasil Dihapus');
 
 
     // Kembali ke halaman sebelumnya
@@ -87,9 +87,9 @@ class Surat_Keluar_MhsController extends Controller
    public function edit($id_surat_keluar)
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar 
             'page' => 'surat-keluar-mhs',
-            // Mencari biodata berdasarkan id
+            // Mencari  berdasarkan id
             'surat_keluar_mhs' => Surat_Keluar_Mhs::find($id_surat_keluar)
         ];
 
@@ -102,10 +102,10 @@ class Surat_Keluar_MhsController extends Controller
     public function editAction($id_surat_keluar_mhs, Request $request)
     {
 
-        // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
+        // Mencari  yang akan di update dan menaruhnya di variabel $
         $surat_keluar_mhs = Surat_Keluar_Mhs::find($id_surat_keluar_mhs);
 
-        // Mengupdate $biodata tadi dengan isi dari form edit tadi
+        // Mengupdate $ tadi dengan isi dari form edit tadi
         
         $surat_keluar_mhs->nip_petugas_id = Auth::user()->username;
         $surat_keluar_mhs->nama_lembaga = $request->input('nama_lembaga');
@@ -120,7 +120,7 @@ class Surat_Keluar_MhsController extends Controller
         Session::put('alert-success', 'Surat berhasil diverivikasi');
 
 
-        // Kembali ke halaman mahasiswa/biodata
+        // Kembali ke halaman mahasiswa/
         return Redirect::to('karyawan/pla/surat-keluar-mhs');
     }
 

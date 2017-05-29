@@ -1,4 +1,3 @@
-
 <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
@@ -46,13 +45,8 @@
 <script src="{{ asset('/js/jquery.steps.js') }}" type="text/javascript"></script>
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="{{ asset('/js/jquery-ui.js') }}" type="text/javascript"></script>
- <script src="{{ asset('/js/jquery.slimscroll.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/js/jquery.slimscroll.js') }}" type="text/javascript"></script>
  
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-      Both of these plugins are recommended to enhance the
-      user experience. Slimscroll is required when using the
-      fixed layout. -->
-
 
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
@@ -62,13 +56,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>
 
-
 <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
 <script src="{{ asset('/js/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
-
 
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
 
@@ -77,6 +69,9 @@
         'csrfToken' => csrf_token(),
     ]) !!};
 </script>
+<!-- fullCalendar 2.2.5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>
 <script>
     $(document).ready(function() {
         function adjustIframeHeight() {
@@ -95,12 +90,10 @@
               onFinished: function (event, currentIndex)
             {
                 var form = $(this);
-
                 // Submit form input
                 form.submit();
             }           
     });
-
-    </script>
+</script>
 
 @yield('code-footer')
