@@ -141,5 +141,15 @@ class PeminjamanController extends Controller
         return Redirect::back();     
     }
 
+    public function checkin($id)
+    {
+        Transaksi_Peminjaman::where('id_peminjaman', $id)->update(['checkin_date' => Carbon::now()]);
+        $id_asset = Transaksi_Peminjaman::where('id_peminjaman', $id)->first();
 
+        Asset::where('id_asset', $id_asset->asset_id)->update(['status_id' => 1]);
+
+        Session::put('alert-success', 'asset berhasil di checkin');
+        return Redirect::back();
+             
+    }
 }

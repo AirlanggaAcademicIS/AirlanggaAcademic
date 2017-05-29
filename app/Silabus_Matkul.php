@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Silabus_Matkul extends Model
 {
@@ -16,8 +17,11 @@ class Silabus_Matkul extends Model
 		'deskripsi_matkul',
 		'kode_matkul',
 		'penilaian_matkul',
-		'pustaka_utama'				
+		'pustaka_utama',
+		'status_silabus'			
    ];
-
+   protected $dates = [
+   'deleted_at'
+   ];
 
 }

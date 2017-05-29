@@ -47,7 +47,11 @@ class DokumentasiController extends Controller
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        Dokumentasi::create($request->input());
+        $dok = $request->input();
+        $dok['url_foto']= time() .'.'.$request->file('url_foto')->getClientOriginalExtension();
+        // Menginsertkan apa yang ada di form ke dalam tabel biodata
+        Dokumentasi::create($dok);
+            $gambar = $request->file('url_foto')->move("img/dokumentasi/",$dok['url_foto']);
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Biodata berhasil ditambahkan');
