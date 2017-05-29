@@ -17,7 +17,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/logout', 'Auth\LoginController@logout');
 
 
-<<<<<<< HEAD
+
 /*
 ==========================================
 Route buat mahasiswa ditaruh dibawah sini
@@ -80,9 +80,10 @@ Route buat mahasiswa ditaruh dibawah sini
         // Menampilkan form edit biodata dari id yg dipilih
         Route::get('rincian-rundown/{id_rundown}/edit','Mahasiswa\pengelolaankegiatan\RincianRundownController@edit');
 
-        // Mengupdate biodata dengan isi dari form
-        Route::post('rincian-rundown/{id_rundown}/edit','Mahasiswa\pengelolaankegiatan\RincianRundownController@editAction');
+       
         });
+    // Mengupdate biodata dengan isi dari form
+        Route::post('mahasiswa/pengelolaan-kegiatan/rincian-rundown/{id_rundown}/edit','Mahasiswa\pengelolaankegiatan\RincianRundownController@editAction');
 
         Route::get('mahasiswa/monitoring-skripsi/konsultasi','mahasiswa\monitoringskripsi\KonsultasiController@index');
         Route::get('mahasiswa/monitoring-skripsi/konsultasi','mahasiswa\monitoringskripsi\KonsultasiController@index');
@@ -629,5 +630,3 @@ Route::group(['prefix' => 'inventaris'], function() {
         Route::get('view-asset', 'HomeController@index');
 
 });
-=======
->>>>>>> f69f02d08a0b1873581b9675b698d0ff1297cf5b

@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "c58747e7321e0179f247febaa0ff409d",
-=======
-    "content-hash": "52af99c53c7677f240947846ddbc6bf9",
->>>>>>> d5cedd8cf454a5a105be42446006a04237629111
+    "content-hash": "a9441ae619ae7a74bdeefc9bb21fcc09",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -1515,7 +1511,6 @@
             "time": "2017-04-28T10:15:08+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "maatwebsite/excel",
             "version": "2.1.17",
             "source": {
@@ -1559,7 +1554,31 @@
                 ],
                 "psr-0": {
                     "Maatwebsite\\Excel\\": "src/"
-=======
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Maatwebsite.nl",
+                    "email": "patrick@maatwebsite.nl"
+                }
+            ],
+            "description": "An eloquent way of importing and exporting Excel and CSV in Laravel 4 with the power of PHPExcel",
+            "keywords": [
+                "PHPExcel",
+                "batch",
+                "csv",
+                "excel",
+                "export",
+                "import",
+                "laravel"
+            ],
+            "time": "2017-04-04T18:28:12+00:00"
+        },
+        {
             "name": "maddhatter/laravel-fullcalendar",
             "version": "v1.2.4",
             "source": {
@@ -1618,32 +1637,10 @@
             "autoload": {
                 "psr-0": {
                     "Milon\\Barcode": "src/"
->>>>>>> d5cedd8cf454a5a105be42446006a04237629111
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-<<<<<<< HEAD
-                "LGPL"
-            ],
-            "authors": [
-                {
-                    "name": "Maatwebsite.nl",
-                    "email": "patrick@maatwebsite.nl"
-                }
-            ],
-            "description": "An eloquent way of importing and exporting Excel and CSV in Laravel 4 with the power of PHPExcel",
-            "keywords": [
-                "PHPExcel",
-                "batch",
-                "csv",
-                "excel",
-                "export",
-                "import",
-                "laravel"
-            ],
-            "time": "2017-04-04T18:28:12+00:00"
-=======
                 "LGPL-3.0"
             ],
             "authors": [
@@ -1666,7 +1663,6 @@
                 "qrcode"
             ],
             "time": "2017-04-21T01:08:30+00:00"
->>>>>>> d5cedd8cf454a5a105be42446006a04237629111
         },
         {
             "name": "monolog/monolog",
@@ -3402,12 +3398,12 @@
             "version": "0.9.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mockery/mockery.git",
+                "url": "https://github.com/padraic/mockery.git",
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856",
                 "shasum": ""
             },
@@ -4214,18 +4210,6 @@
         },
         {
             "name": "sebastian/diff",
-<<<<<<< HEAD
-            "version": "1.4.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2",
-                "reference": "3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2",
-=======
             "version": "1.4.3",
             "source": {
                 "type": "git",
@@ -4236,7 +4220,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/7f066a26a962dbe58ddea9f72a4e82874a3975a4",
                 "reference": "7f066a26a962dbe58ddea9f72a4e82874a3975a4",
->>>>>>> d5cedd8cf454a5a105be42446006a04237629111
                 "shasum": ""
             },
             "require": {
@@ -4275,11 +4258,7 @@
             "keywords": [
                 "diff"
             ],
-<<<<<<< HEAD
-            "time": "2017-05-18T13:44:30+00:00"
-=======
             "time": "2017-05-22T07:24:03+00:00"
->>>>>>> d5cedd8cf454a5a105be42446006a04237629111
         },
         {
             "name": "sebastian/environment",
