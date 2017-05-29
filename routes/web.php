@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/delete/{id}','Dosen\Kurikulum\SilabusController@delete');
                 Route::get('/edit/{id}','Dosen\Kurikulum\SilabusController@edit');
                 Route::post('/edit/{id}','Dosen\Kurikulum\SilabusController@editAction');
+                Route::get('pdf/{id}','Dosen\Kurikulum\SilabusController@pdf');                           
             });
             //fitr capaian pembelejaran (modul kurikulum)
             Route::group(['prefix' => 'cp_pembelajaran'], function() {
