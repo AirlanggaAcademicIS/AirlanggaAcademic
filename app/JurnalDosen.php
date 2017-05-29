@@ -13,6 +13,7 @@ class JurnalDosen extends Model
 		'halaman_jurnal',
 		'bidang_jurnal',		
 		'tanggal_jurnal',
+		'file_jurnal',
 		'status_jurnal',
 		'volume_jurnal',
 		'penulis_ke',	

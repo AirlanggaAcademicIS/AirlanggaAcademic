@@ -12,7 +12,9 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\Konsultasi;
-
+use App\Skripsi;
+use Auth;
+use Illuminate\Support\Facades\DB;
 
 class KonsultasiController extends Controller
 {
@@ -20,11 +22,18 @@ class KonsultasiController extends Controller
     // Function untuk menampilkan tabel
     public function index()
     {
+        $nim= Auth::user()->username;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+
             'page' => 'konsultasi',
             // Memanggil semua isi dari tabel biodata
-            'konsultasi' => Konsultasi::all()
+            'konsultasi' => DB::table('konsultasi')
+            ->join('skripsi', 'skripsi.id_skripsi', '=', 'konsultasi.skripsi_id')
+            ->join('biodata_mhs','biodata_mhs.nim_id','=','skripsi.NIM_id')
+            ->select('*')
+            ->where('skripsi.NIM_id','=',$nim)
+            ->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
@@ -36,8 +45,8 @@ class KonsultasiController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'konsultasi',
+             'mhs' => Skripsi::where('NIM_id','=', Auth::user()->username)->get()
         ];
-
         // Memanggil tampilan form create
         return view('mahasiswa.monitoring-skripsi.konsultasi.create',$data);
     }

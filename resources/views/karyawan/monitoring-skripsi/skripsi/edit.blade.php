@@ -61,9 +61,13 @@ Edit Data Skripsi
                   <label for="kbk_id" class="col-sm-2 control-label">KBK</label>
                   <div class="col-md-8">
                   <select name="kbk_id" class="form-control" value="{{$skripsi->kbk_id}}">
-                    <option id="kbk_id" name="kbk_id"  value="1" <?php if($skripsi->kbk_id=="1") echo "selected"; ?> >Data Mining</option>
-                    <option id="kbk_id" name="kbk_id" value="2" <?php if($skripsi->kbk_id=="2") echo "selected"; ?> >Sistem Pengambilan Keputusan</option>
-                    <option id="kbk_id" name="kbk_id" value="3" <?php if($skripsi->kbk_id=="3") echo "selected"; ?> >Information System Engineering</option>
+                  	@foreach($kbk as $k)
+                  		@if ($skripsi->kbk_id == $k->id_kbk)
+	                    <option value="{{$k->id_kbk}}" selected="selected" >{{$k->jenis_kbk}}</option>                  
+	                    @else
+	                    <option value="{{$k->id_kbk}}">{{$k->jenis_kbk}}</option>
+	                    @endif
+                    @endforeach
                   </select>
                   </div>
                 </div>
@@ -73,17 +77,42 @@ Edit Data Skripsi
 						<input type="text" class="form-control input-md" id="Judul" name="Judul" placeholder="Masukkan Judul" value="{{$skripsi->Judul}}" required>
 					</div>
 					</div>
-
 				<div class="form-group">
-					<label for="nip_petugas_id" class="col-sm-2 control-label">NIP</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-md" id="nip_petugas_id" name="nip_petugas_id" placeholder="Masukkan NIP" value="{{$skripsi->nip_petugas_id}}"  required>
-					</div>
-				</div>
+                  <label for="skripsi_id" class="col-sm-2 control-label">Dosen Pembimbing 1</label>
+                  <div class="col-md-8">
+                  <select name="nip_id1" class="form-control">
+                  	@foreach($dosen as $d)
+                  	@foreach($dosen1 as $k)
+                  	@if ($k->nip_id == $d->nip)
+	                    <option value="{{$d->nip}}" selected="selected" >{{$d->nama_dosen}}</option>                  
+	                    @else
+	                    <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
+	                    @endif
+                  	@endforeach
+                  	@endforeach
+                  </select>
+                  </div>
+                </div>	
+                <div class="form-group">
+                  <label for="skripsi_id" class="col-sm-2 control-label">Dosen Pembimbing 2</label>
+                  <div class="col-md-8">
+                  <select name="nip_id2" class="form-control">
+                    @foreach($dosen as $d)
+                  	@foreach($dosen2 as $k)
+                  	@if ($k->nip_id == $d->nip)
+	                    <option value="{{$d->nip}}" selected="selected" >{{$d->nama_dosen}}</option>                  
+	                    @else
+	                    <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
+	                    @endif
+                  	@endforeach
+                  	@endforeach
+                  </select>
+                  </div>
+                </div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
-					<button type="submit" class="btn btn-primary btn-lg">
+					<button type="submit" class="btn btn-primary btn-md">
 							Confirm
 						</button>
 					</div>
@@ -122,4 +151,3 @@ Edit Data Skripsi
 });
  </script>
 @endsection
-

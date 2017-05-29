@@ -8,9 +8,10 @@ class VerPrestasi extends Model
 {
    protected $table = 'prestasi';    
    protected $primaryKey = 'id_prestasi';    
-   public $incrementing = false;
    protected $fillable = [
+   		'nip_petugas_id',
    		'skor',	
-		'ps_is_verified'
+		'ps_is_verified',
+		'alasan_verified',
    ];
 }

@@ -28,29 +28,36 @@ Undangan Rapat
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  
+  <!-- <a href="{{url('/notulensi/dosenrapat/create')}}" type="button" class="btn btn-info btn-md" >
+    <i class="fa fa-plus-square"></i> Tambah Dosen Rapat</a> -->
 </div>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">NIP</th>
-      <th style="text-align:center">ID Notulen</th>      
-      
+      <th style="text-align:center">Nama Rapat</th>
+      <th style="text-align:center">Waktu Pelaksanaan</th>
+      <th style="text-align:center">Tempat</th>      
+      <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
-   @forelse($dosenrapat as $i => $dospat) 
+   @forelse($undangan as $i => $undos) 
     <tr>
-      <td style="text-align:center">{{ $i+1 }}</td>
-      <td width="45%" style="text-align:center">{{$dospat->nip}}</td>
-      <td width="45%" style="text-align:center">{{$dospat->notulen_id}}</td>
-      
+      <!-- <td>{{ $i+1 }}</td> -->
+      <td width="5%" style="text-align:center">{{$undos->id_notulen}}</td>
+      <td width="30%" style="text-align:center">{{$undos->nama_rapat}}</td>
+      <td width="20%" style="text-align:center">{{$undos->waktu_pelaksanaan}}</td>
+      <td width="25%" style="text-align:center">{{$undos->permohonan_ruang_id}}</td>
+      <td width="20%" style="text-align:center" >
+        <a onclick="return confirm('Apakah anda ingin menghadiri rapat ini?');" href="{{url('/notulensi/dosenrapat/'.$undos->id.'/delete/')}}" class="btn btn-success btn-xs">
+        <i class="fa fa-book"></i> Konfirmasi Kehadiran</a>
+        </td>
     </tr>
      @empty
         <tr>
-          <td colspan="6"><center>Belum ada dosen rapat</center></td>
+          <td colspan="6"><center>Belum ada undangan</center></td>
         </tr>
     @endforelse
   </tbody>

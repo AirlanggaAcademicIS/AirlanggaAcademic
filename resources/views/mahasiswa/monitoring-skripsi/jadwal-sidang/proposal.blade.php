@@ -4,67 +4,89 @@
 @endsection
 
 @section('htmlheader_title')
-Dashboard
+Lihat Jadwal Sidang Proposal
 @endsection
 
 @section('contentheader_title')
-Jadwal Sidang Proposal
+Lihat Jadwal Sidang Proposal
 @endsection
 
 @section('main-content')
 
-<div class="row">
-
-<div class="wrapper">
-<button type="button" class="btn btn-primary">Tambah</button>
-</div>
-
-<div class="col-md-12">
-
-<table class="table table-bordered" id="tabel-jadwal-sidang-proposal">
+<div class="panel panel-info">
+      <div class="panel-heading">Jadwal Sidang Proposal</div>
+      <div class="panel-body">
+          
+          <table data-toggle="table" id="tabel-jadwal-sidang-proposal"  data-search="true" data-locale="en-US" data-toolbar="#wrapper-tombol-jadwal-sidang-proposal" >
 
 <thead>
       <tr>
-        <th>NIM</th>
-        <th>Nama</th>
-        <th>KBK</th>
-        <th>Judul Proposal</th>
+        <th data-field="state" data-radio="true"></th>
+        <th data-field="id_skripsi" data-visible="false">Id Skripsi</th>
+        <th data-field="nim">NIM</th>
+        <!-- <th>Nama</th> -->
+        <th data-field="kbk">KBK</th>
+        <th data-field="judul-proposal">Judul Proposal</th>
         <!-- <th>Status Proposal</th> -->
-        <th>Tanggal Sidang</th>
-        <th>Waktu Sidang</th>
-        <th>Tempat Sidang</th>
-        <th>Dosen Pembimbing 1</th>
-        <th>Dosen Pembimbing 2</th>
-        <th>Dosen Penguji</th>
-
-        <!-- <th>Verifikasi</th> -->
+        <th data-field="tgl-sidang">Tanggal Sidang</th>
+        <th data-field="waktu-sidang">Waktu Sidang</th>
+        <th data-field="tempat-sidang">Tempat Sidang</th>
+        <th data-field="dosbing1">Dosen Pembimbing 1</th>
+        <th data-field="dosbing2">Dosen Pembimbing 2</th>
+        <th data-field="dosji">Dosen Penguji</th>
+        <!-- <th></th> -->
+        
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>081411631044</td>
-        <td>Kenny Everest K</td>
-        <td>Sistem Pendukung Keputusan</td>
-        <td>Aplikasi Android Untuk Pengenalan Plat Kendaraan dalam Tulisan Tangan Menggunakan Hidden Markov Model</td>
-        
-        <td>20 Juni 2017</td>
-        <td>09:00</td>
-        <td>Labkom 4</td>
-        <!-- <td></td> -->
-      </tr>
+    <tbody> 
+
+    @for ($i = 0; $i < count($jadwal_sidang_proposal); $i++)
+                            <tr>
+                                <!-- Task Name -->
+                                <td></td>
+                                <td>
+                                  {{$jadwal_sidang_proposal[$i]['id_skripsi']}}
+                                </td>
+                                <td>
+                                    {{ $jadwal_sidang_proposal[$i]['nim']}}
+                                </td>
+                                <td>
+                                    <div>{{ $jadwal_sidang_proposal[$i]['jenis_kbk']}}</div>
+                                </td>
+                                <td>
+                                    <div>{{ $jadwal_sidang_proposal[$i]['Judul']}}</div>
+                                </td>
+                                <td>
+                                    <div>{{ $jadwal_sidang_proposal[$i]['tgl_sidangpro']}}</div>
+                                </td>
+                                <td>
+                                    <div>{{ $jadwal_sidang_proposal[$i]['waktu_sidangpro']}}</div>
+                                </td>
+                                <td>
+                                    <div>{{ $jadwal_sidang_proposal[$i]['ruang']}}</div>
+                                </td>
+                                <td>
+                                    <div>{{ $jadwal_sidang_proposal[$i]['dosen_pembimbing1']}}</div>
+                                </td>
+                                <td>
+                                    <div>{{ $jadwal_sidang_proposal[$i]['dosen_pembimbing2']}}</div>
+                                </td>
+                                <td>
+                                    <div>{{ $jadwal_sidang_proposal[$i]['dosen_penguji']}}</div>
+                                </td>
+                                <!-- <td class="table-text">
+                                    <div>{{ $jadwal_sidang_proposal[$i]['nim']}}</div>
+                                </td> -->
+                                </tr>
+@endfor
+
       
     </tbody>
-	
+    
 </table>
 
-</div>
-
-
-</div>
+      </div>
+    </div>
 
 @endsection
-@section('code-footer')
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
 
-@endsection

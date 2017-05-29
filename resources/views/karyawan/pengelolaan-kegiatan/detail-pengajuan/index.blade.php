@@ -322,7 +322,11 @@ Detail Pengajuan Kegiatan
           <tr>
             <td width="5%" style="text-align:center">{{$i+1}}</td>
             <td width="40%" style="text-align:center">{{$dokumen->lesson_learned}}</td>
+<<<<<<< HEAD
             <td width="55%" style="text-align:center"><img src="{{URL::asset('/img/dokumentasi/'.$dokumen->url_foto)}}" height="100px" width="100px" hspace="5px" vspace="2px"></td>
+=======
+            <td width="55%" style="text-align:center">{{$dokumen->url_foto}}</td>
+>>>>>>> 5a734d94f7e78fe35eeff1f606d98a6cdcf84e2d
           </tr>
 
     @empty

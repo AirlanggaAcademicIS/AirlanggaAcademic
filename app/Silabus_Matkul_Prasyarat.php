@@ -12,4 +12,9 @@ class Silabus_Matkul_prasyarat extends Model
 		'mk_id',
 		'mk_syarat_id',		
    ];
+   
+   public function matkul()
+   {
+       	return $this->belongsTo('App\Silabus_Matkul','mk_id', 'id_mk');
+   }
 }

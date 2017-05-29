@@ -1,3 +1,4 @@
+
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
@@ -51,17 +52,21 @@ Tambah Capaian Program
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="id_prodi" class="col-sm-2 control-label">Id Prodi</label>
-					<div class="col-md-7">
-						<input type="text" class="form-control input-lg" id="prodi_id" name="prodi_id" placeholder="Masukkan prodi Id" required>
-					</div>
-				</div>
+					<label for="id_prodi" class="col-sm-2 control-label">Nama Prodi</label>
+					<div class="col-md-3">
+				    	<select name="prodi_id" class="form-control">
+				    		@foreach($prodis as $prodi)
+				      		<option value="{{$prodi->id_prodi}}">{{$prodi->nama_prodi}}</option>
+				      		@endforeach
+				        </select>
+    				</div>
+    			</div>
 
 				<!-- Menampilkan textarea -->
 				<div class="form-group">
 					<label for="capaian_program_spesifik" class="col-sm-2 control-label">Capaian Program Spesifik</label>
 					<div class="col-md-8">
-						<textarea id="capaian_program_spesifik" name="capaian_program_spesifik" placeholder=" capaian Program Spesifik" required cols="82" rows="5">
+						<textarea id="capaian_program_spesifik" name="capaian_program_spesifik" placeholder=" Masukkan Capaian Program Spesifik" required cols="82" rows="5">
 						</textarea>
 					</div>
 				</div>
@@ -76,7 +81,7 @@ Tambah Capaian Program
 				</div>
 
 				<div class="form-group text-center">
-					<div class="col-md-8 col-md-offset-2">
+					<div class="col-md-7 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
 							Tambah
 						</button>

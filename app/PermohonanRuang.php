@@ -13,7 +13,13 @@ class PermohonanRuang extends Model
 		'nama',
 		'atribut_verifikasi',
 		'nim_nip',
+    'tgl_pinjam',
 
 			
    ];
+
+   public function petugas_tu()
+    {
+        return $this->belongsTo('App\Petugas_TU', 'nip_petugas_id');
+    }
 }
