@@ -12,5 +12,4 @@ class Silabus_Sistem_Pembelajaran extends Model
 		'sistem_pembelajaran',		
    ];
 
-
 }

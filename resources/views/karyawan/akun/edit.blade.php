@@ -64,9 +64,13 @@ Edit Akun
 				</div>
 
 				<div class="form-group">
-					<label for="nlp_id" class="col-sm-2 control-label">Nip id</label>
+					<label for="nlp_id" class="col-sm-2 control-label">NIP Dosen Wali</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nip_id" name="nip_id" placeholder="Masukkan Nip id" value="{{$akun->nip_id}}" required>
+					<select class="form-control input-lg" id="nlp_id" name="nlp_id" placeholder="Masukkan NIP Dosen Wali" required>
+						@foreach ($dosen as $k)
+						<option value="{{$k->nip}}">{{$k->nip}}</option>
+						@endforeach 
+						</select>
 					</div>
 				</div>
 
@@ -82,7 +86,7 @@ Edit Akun
 					<label for="foto_mhs" class="col-sm-2 control-label">Ganti Foto Mahasiswa</label>
 					<div class="col-md-8">
 					<img src="{{URL::asset('/img/foto_mhs/'.$biodata->foto_mhs)}}" height="100px" width="100px" hspace="5px" vspace="2px" alt="gambar" style="border:2px solid gray" class="img-rounded" >
-						<input type="file" class="form-control input-lg" id="foto_mhs" name="foto_mhs" placeholder="Pilih Foto Mahasiswa" value="{{$biodata->foto_mhs}}" required>
+						<input type="file" class="form-control input-lg" id="foto_mhs" name="foto_mhs" placeholder="Pilih Foto Mahasiswa" value="{{$biodata->foto_mhs}}">
 
 					</div>
 				</div>

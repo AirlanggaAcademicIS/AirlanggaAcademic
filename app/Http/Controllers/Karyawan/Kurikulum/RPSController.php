@@ -29,7 +29,7 @@ class RPSController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar rps
             'page' => 'rps',
             // Memanggil semua isi dari tabel
-            'mata_kuliah' => RPS_Matkul::where('status_rps','=', '1')
+            'mata_kuliah' => RPS_Matkul::where('status_rps','=', '1')->get(),
         ];
 
         // Memanggil tampilan index

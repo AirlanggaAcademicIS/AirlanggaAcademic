@@ -65,9 +65,13 @@ Tambah Akun
 				</div>
 
 				<div class="form-group">
-					<label for="nlp_id" class="col-sm-2 control-label">nlp id</label>
+					<label for="nlp_id" class="col-sm-2 control-label">NIP Dosen Wali</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nlp_id" name="nlp_id" placeholder="Masukkan nlp id" required>
+						<select class="form-control input-lg" id="nlp_id" name="nlp_id" placeholder="Masukkan NIP Dosen Wali" required>
+						@foreach ($akun as $k)
+						<option value="{{$k->nip}}">{{$k->nip}}</option>
+						@endforeach 
+						</select>
 					</div>
 				</div>
 

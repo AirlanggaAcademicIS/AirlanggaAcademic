@@ -12,6 +12,7 @@ class Silabus_cp_matkul extends Model
    'matakuliah_id',
    'kode_cpmk',
    'deskripsi_cpmk',
+   'deskripsi_cpmk'
    ];
 
    public function detail()

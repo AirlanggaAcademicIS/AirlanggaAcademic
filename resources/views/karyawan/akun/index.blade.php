@@ -38,8 +38,12 @@ akunmahasiswa
       <th style="text-align:center">No.</th>
       <th style="text-align:center">NIM</th>  
       <th style="text-align:center">Nama Mahasiswa</th>     
+<<<<<<< HEAD
+      <th style="text-align:center">NIP Dosen Wali</th>   
+=======
       <th style="text-align:center">NIP_id</th>
       <th style="text-align:center">Angkatan</th>   
+>>>>>>> 11902b4391621b4061a508563a1dd7f159dd08df
       <th style="text-align:center">E-mail Mahasiswa</th>    
       <th style="text-align:center">Fakultas</th>
       <th style="text-align:center">Program Studi</th>

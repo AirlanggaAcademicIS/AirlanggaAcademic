@@ -6,11 +6,7 @@
 @endsection
 
 @section('htmlheader_title')
-<<<<<<< HEAD
   Silabus 
-=======
-Silabus 
->>>>>>> 090f09f1e2827b9381fce8cbf0cc327eaecfb4d1
 @endsection
 
 @section('contentheader_title')
@@ -55,9 +51,9 @@ Silabus
     <td>{{$mk->nama_matkul}}</td>
     <td width="30%" style="text-align:center">
       <a onclick="return confirm('Anda yakin untuk menghapus Kategori ini?');" href="{{url('/dosen/kurikulum/silabus/delete/'.$mk->id_mk)}}" class="btn btn-danger btn-xs">
-      <i class="fa fa-trash-o"></i> Delete</a>
-      <a class="btn btn-info btn-xs">
-        <i class="fa fa-download-square-o"></i> Download</a>
+        <i class="fa fa-trash-o"></i> Delete</a>
+      <a href="{{url('/dosen/kurikulum/silabus/pdf/'.$mk->id_mk)}}" target="_blank" class="btn btn-info btn-xs">
+        <i class="fa fa-file-text-o" aria-hidden="true"></i> Download PDF</a>
     </td>
     @endforeach 
   </tbody>                                

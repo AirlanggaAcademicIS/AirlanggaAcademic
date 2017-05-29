@@ -14,6 +14,7 @@ use Response;
 // Tambahkan model yang ingin dipakai
 use App\UndanganKaryawan;
 use App\FormUndangan;
+use App\BiodataDosen;
 use Illuminate\Mail\Mailer;
 use Illuminate\Mail\Message;
 
@@ -55,6 +56,12 @@ class UndanganKaryawanController extends Controller
             ->join('permohonan_ruang', 'permohonan_ruang.id_permohonan_ruang', '=', 'notulen_rapat.permohonan_ruang_id')
             ->join('jadwal_permohonan', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang')
             ->join('ruang', 'ruang.id_ruang', '=', 'jadwal_permohonan.ruang_id')
+            ->select('*')
+            ->where('id_notulen','=',$id_notulen)
+            ->first(),
+            'dosen' => DB::table('dosen')
+            ->join('biodata_dosen', 'dosen.nip', '=', 'biodata_dosen.nip')
+            ->join('users', 'biodata_dosen.nip', '=', 'users.username')
             ->select('*')
             ->get(),
             'form' => FormUndangan::where('id_notulen',$id_notulen)->first()
@@ -138,14 +145,16 @@ class UndanganKaryawanController extends Controller
         return Redirect::to('dosen/notulensi/undangan');
     }
 
-    public function kirimUndangan()
+    public function kirimUndangan($id_notulen, Request $request)
     {
-
+        $user = $request->input('dosen');
         $message = sprintf('halo halo');
-
-        $this->mailer->raw($message, function (Message $m) use ($user) {
-            $m->to($user->email)->subject('Aktivasi akun Hai Unair');
+        foreach ($user as $u) {
+        $this->mailer->raw($message, function (Message $m) use ($u) {
+            $m->from('airlanggaacademic@gmail.com', 'Admin Airlangga Academic')->to($u)->subject('Aktivasi akun Hai Unair');
         });
+        return Redirect::to('undangankaryawan');
+        }
     }
 
 }
