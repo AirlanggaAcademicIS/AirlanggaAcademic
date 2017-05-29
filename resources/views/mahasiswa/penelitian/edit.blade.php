@@ -73,14 +73,14 @@ Edit Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="tahun" class="col-sm-2 control-label">Tahun</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="tahun" name="tahun" placeholder="Masukkan Tahun Penelitian" value="{{$penelitian_mhs->tahun}}" required>
+						<input type="text" class="form-control input-lg" id="tahun" name="tahun" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; placeholder="Masukkan Tahun Penelitian" value="{{$penelitian_mhs->tahun}}" maxlength="4" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="halaman_naskah" class="col-sm-2 control-label">Jumlah Halaman</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="halaman_naskah" name="halaman_naskah" placeholder="Masukkan Jumlah Halaman" value="{{$penelitian_mhs->halaman_naskah}}" required>
+						<input type="text" class="form-control input-lg" id="halaman_naskah" name="halaman_naskah" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; placeholder="Masukkan Jumlah Halaman" value="{{$penelitian_mhs->halaman_naskah}}" required>
 					</div>
 				</div>
 
@@ -118,7 +118,7 @@ Edit Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="kategori_penelitian" class="col-sm-2 control-label">Jenis Penelitian</label>
 					<div class="col-md-8">
-						<select name="kategori_penelitian" value="{{$penelitian_mhs->kategori_penelitian}}" required>
+						<select class="form-control input-lg" name="kategori_penelitian" value="{{$penelitian_mhs->kategori_penelitian}}" required>
 						    @if (($penelitian_mhs->kategori_penelitian)=='PKM')
 							<option value="PKM" selected="selected">PKM</option>
 							<option value="Penelitian Dosen">Penelitian Dosen</option>
@@ -149,9 +149,8 @@ Edit Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Anggota</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="anggota" name="anggota" 
-						placeholder="Masukkan Anggota" value="{{$detail_anggota->anggota}}" required>
-						
+						<textarea type="text" class="form-control input-lg" id="anggota" name="anggota" required cols="55" rows="5"
+						placeholder="Masukkan Anggota" required>{{$detail_anggota->anggota}}</textarea>
 					</div>
 				</div>
 
@@ -159,8 +158,7 @@ Edit Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Abstrak</label>
 					<div class="col-md-8">
-						<textarea id="abstract" name="abstract" placeholder=" Masukkan Abstract" required cols="115" rows="5">{{$detailpenelitian->abstract}}
-						</textarea>
+						<textarea id="abstract" class="form-control input-lg" name="abstract" placeholder=" Masukkan Abstract" required cols="115" rows="5">{{$detailpenelitian->abstract}}</textarea>
 					</div>
 				</div>
 
@@ -168,8 +166,7 @@ Edit Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Background</label>
 					<div class="col-md-8">
-						<textarea id="background" name="background" placeholder=" Masukkan Background" required cols="115" rows="5">{{$detailpenelitian->background}}
-						</textarea>
+						<textarea id="background" class="form-control input-lg" name="background" placeholder=" Masukkan Background" required cols="115" rows="5">{{$detailpenelitian->background}}</textarea>
 					</div>
 				</div>
 
@@ -177,8 +174,7 @@ Edit Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Objective</label>
 					<div class="col-md-8">
-						<textarea id="objective" name="objective" placeholder=" Masukkan Objective" required cols="115" rows="5">{{$detailpenelitian->objective}}
-						</textarea>
+						<textarea id="objective" class="form-control input-lg" name="objective" placeholder=" Masukkan Objective" required cols="115" rows="5">{{$detailpenelitian->objective}}</textarea>
 					</div>
 				</div>
 				
@@ -186,8 +182,7 @@ Edit Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Methods</label>
 					<div class="col-md-8">
-						<textarea id="methods" name="methods" placeholder=" Masukkan Methods" required cols="115" rows="5">{{$detailpenelitian->methods}}
-						</textarea>
+						<textarea id="methods" class="form-control input-lg" name="methods" placeholder=" Masukkan Methods" required cols="115" rows="5">{{$detailpenelitian->methods}}</textarea>
 					</div>
 				</div>
 
@@ -195,8 +190,7 @@ Edit Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Results</label>
 					<div class="col-md-8">
-						<textarea id="results" name="results" placeholder=" Masukkan Results" required cols="115" rows="5">{{$detailpenelitian->results}}
-						</textarea>
+						<textarea id="results" class="form-control input-lg" name="results" placeholder=" Masukkan Results" required cols="115" rows="5">{{$detailpenelitian->results}}</textarea>
 					</div>
 				</div>
 

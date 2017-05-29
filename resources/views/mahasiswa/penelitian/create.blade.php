@@ -74,14 +74,14 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="tahun" class="col-sm-2 control-label">Tahun</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="tahun" name="tahun" placeholder="Masukkan Tahun Penelitian" required>
+						<input type="text" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; class="form-control input-lg" id="tahun" name="tahun" maxlength="4" placeholder="Masukkan Tahun Penelitian" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="halaman_naskah" class="col-sm-2 control-label">Jumlah Halaman</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="halaman_naskah" name="halaman_naskah" placeholder="Masukkan Jumlah Halaman" required>
+						<input type="text" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; class="form-control input-lg" id="halaman_naskah" name="halaman_naskah" placeholder="Masukkan Jumlah Halaman" required>
 					</div>
 				</div>
 
@@ -119,7 +119,7 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="kategori_penelitian" class="col-sm-2 control-label">Jenis Penelitian</label>
 					<div class="col-md-8">
-						<select name="kategori_penelitian" required>
+						<select class="form-control input-lg" name="kategori_penelitian" required>
 							<option value="PKM">PKM</option>
 							<option value="Penelitian Dosen">Penelitian Dosen</option>
 							<option value="Karya Ilmiah">Karya Ilmiah</option>
@@ -148,8 +148,7 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="abstract" class="col-sm-2 control-label">Abstrak</label>
 					<div class="col-md-8">
-						<textarea id="abstract" name="abstract" placeholder=" Masukkan abstract" required cols="115" rows="5">
-						</textarea>
+						<textarea class="form-control input-lg" id="abstract" name="abstract" placeholder=" Masukkan abstract" required cols="115" rows="5"></textarea>
 					</div>
 				</div>
 				
@@ -158,8 +157,7 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="background" class="col-sm-2 control-label">Background</label>
 					<div class="col-md-8">
-						<textarea id="background" name="background" placeholder=" Masukkan background" required cols="115" rows="5">
-						</textarea>
+						<textarea id="background" class="form-control input-lg" name="background" placeholder=" Masukkan background" required cols="115" rows="5"></textarea>
 					</div>
 				</div>
 
@@ -167,16 +165,14 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="objective" class="col-sm-2 control-label">Objective</label>
 					<div class="col-md-8">
-						<textarea id="objective" name="objective" placeholder=" Masukkan objective" required cols="115" rows="5">
-						</textarea>
+						<textarea id="objective" class="form-control input-lg" name="objective" placeholder=" Masukkan objective" required cols="115" rows="5"></textarea>
 					</div>
 				</div>
 				<!-- Menampilkan textarea -->
 				<div class="form-group">
 					<label for="methods" class="col-sm-2 control-label">Methods</label>
 					<div class="col-md-8">
-						<textarea id="methods" name="methods" placeholder=" Masukkan methods" required cols="115" rows="5">
-						</textarea>
+						<textarea id="methods" class="form-control input-lg" name="methods" placeholder=" Masukkan methods" required cols="115" rows="5"></textarea>
 					</div>
 				</div>
 
@@ -184,8 +180,7 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="results" class="col-sm-2 control-label">Results</label>
 					<div class="col-md-8">
-						<textarea id="results" name="results" placeholder=" Masukkan results" required cols="115" rows="5">
-						</textarea>
+						<textarea id="results" class="form-control input-lg" name="results" placeholder=" Masukkan results" required cols="115" rows="5"></textarea>
 					</div>
 				</div>
 
