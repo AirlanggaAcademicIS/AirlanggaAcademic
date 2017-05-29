@@ -18,6 +18,7 @@ Tambah Silabus
 @section('main-content')
 <form role="form" id="tambah-silabus" method="post" action="{{url('/dosen/kurikulum/silabus/create')}}" enctype="multipart/form-data">
   <div class="box box-primary">
+
     <div class="box-header with-border">
       <h3 class="box-title">Tambah Silabus</h3>
     </div>
@@ -79,7 +80,11 @@ Tambah Silabus
       <div class="form-group">
         <label for="referensi"><b>Referensi Wajib</b></label>
         <textarea name="pustaka_utama" id="pustaka_utama" class="form-control" rows="4" placeholder="Masukkan referensi wajib (pustaka utama)"> 
+
+      	</textarea>
+
         </textarea>
+
       </div>
 
       <div class="box-footer clearfix">
