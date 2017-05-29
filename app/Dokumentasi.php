@@ -14,4 +14,12 @@ class Dokumentasi extends Model
 		'lesson_learned',
 		'url_foto',
       ];
+
+
+public function dokumentasi()
+{
+	# code...
+	return $this->belongsTo('App\KonfirmasiKegiatan','kegiatan_id');
+}
+	  
 }
