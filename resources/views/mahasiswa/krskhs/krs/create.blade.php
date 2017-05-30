@@ -130,7 +130,16 @@ Input Krs
             <div>
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">Total SKS :  </h3></h3>
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$sum}}</h3></h3>
-                <li></li>
+                <br>
+            </div>
+            <div>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">IPS :  </h3></h3>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$ips}}</h3></h3>
+                <br>
+            </div>
+            <div>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">Limit SKS :  </h3></h3>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$limitSks}}</h3></h3>
             </div>
             </div>
             </div>
