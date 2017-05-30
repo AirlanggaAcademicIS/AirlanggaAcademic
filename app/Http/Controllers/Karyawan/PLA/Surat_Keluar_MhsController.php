@@ -124,4 +124,31 @@ class Surat_Keluar_MhsController extends Controller
         return Redirect::to('karyawan/pla/surat-keluar-mhs');
     }
 
+    public function agree($id_surat_keluar)
+    {
+        $surat_keluar_mhs = Surat_Keluar_Mhs::find($id_surat_keluar);
+        $surat_keluar_mhs->nip_petugas_id = Auth::user()->username;
+        $surat_keluar_mhs->status = '1';
+        $surat_keluar_mhs->save();
+        // dd($data['surat_keluar_mhs']);
+
+        Session::put('alert-success', 'Surat keluar disetujui');
+        // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
+        return Redirect::back();
+    }
+
+    public function disagree($id_surat_keluar)
+    {   
+             
+        $surat_keluar = Surat_Keluar_Mhs::find($id_surat_keluar);
+        $surat_keluar->nip_petugas_id = Auth::user()->username;
+        $surat_keluar->status = '2';
+        $surat_keluar->save();
+        // dd($data['surat_keluar_mhs']);
+
+        Session::put('alert-danger', 'Surat keluar tidak setujui');
+        // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
+        return Redirect::back();
+    }
+
 }
