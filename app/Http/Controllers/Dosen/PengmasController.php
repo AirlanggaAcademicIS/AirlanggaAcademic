@@ -12,7 +12,8 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\PengmasDosen;
-
+use Illuminate\Support\Facades\DB;
+use Auth;
 
 class PengmasController extends Controller
 {
