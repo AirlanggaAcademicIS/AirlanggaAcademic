@@ -15,6 +15,8 @@ E-Learning
 
 @section('main-content')
 <!-- include summernote css/js-->
+<div class="box box-danger">
+
 <div class="flash-message" style="margin-left: -16px;margin-right: -16px; margin-top: 13px;">
   @foreach (['danger', 'warning', 'success', 'info'] as $msg)
   @if(Session::has('alert-' . $msg))
@@ -45,7 +47,8 @@ E-Learning
       <td width="5%" style="text-align:center">{{$el->mk_ditawarkan_id}}</td>
       <td width="20%" style="text-align:left">{{$el->judul}}</td>
       <td width="20%" style="text-align:leftr">{{$el->created_at}}</td>
-      <td width="20%" style="text-align:leftr">{{$el->nama_file}}</td>
+      <td width="20%" style="text-align:leftr"><a href="{{url('mahasiswa/Kurikulum/elearning/'.$el->nama_file.'/download')}}" class="btn btn-warning btn-xs">
+        <i class="fa fa-book"></i> Download </a></td>
     </tr>
      @empty
         <tr>
@@ -55,9 +58,13 @@ E-Learning
   </tbody>
 </table>
 </div>
-
+</div>
 @endsection
 
 @section('code-footer')
-
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#myTable').DataTable();
+  });
+</script>  
 @endsection
