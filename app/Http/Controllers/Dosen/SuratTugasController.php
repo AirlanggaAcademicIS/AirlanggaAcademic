@@ -28,7 +28,7 @@ class SuratTugasController extends Controller
             // Memanggil semua isi dari tabel biodata
             'surattugas' => DB::table('surat_tugas_dosen')
             ->where('surat_tugas_dosen.nip','=',$dosen)
-            ->join('surat_tugas_dosen', 'surat_tugas_dosen.surat_id', '=', 'surat_tugas.surat_id')
+            ->join('surat_tugas', 'surat_tugas_dosen.surat_id', '=', 'surat_tugas.surat_id')
             ->select('*')
             ->get()
         ];
