@@ -22,7 +22,14 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route buat mahasiswa ditaruh dibawah sini
 =========================================
 
+
 */
+
+Route::get('dosen/monitoring-skripsi/skripsi','Dosen\monitoringskripsi\SkripsiController@index');
+
+
+Route::get('dosen/monitoring-skripsi/skripsi/mhs','Dosen\monitoringskripsi\SkripsiController@show');
+
 
    Route::group(['prefix' => 'mahasiswa'], function() {
 
