@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <script src="<?php echo e(asset('/js/app.js')); ?>" type="text/javascript"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
@@ -56,6 +58,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>
 
+>>>>>>> e0176de769951ffba73e6bb47bfda76f26da12ec
 <script src="<?php echo e(asset('/js/app.js')); ?>" type="text/javascript"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
@@ -69,6 +72,8 @@
         'csrfToken' => csrf_token(),
     ]); ?>;
 </script>
+<<<<<<< HEAD
+=======
 <!-- fullCalendar 2.2.5 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>
@@ -95,5 +100,6 @@
             }           
     });
 </script>
+>>>>>>> e0176de769951ffba73e6bb47bfda76f26da12ec
 
 <?php echo $__env->yieldContent('code-footer'); ?>

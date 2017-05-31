@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <li
 @if($page == 'biodata-mahasiswa')
 {!! 'class="active"'!!}
@@ -22,3 +24,4 @@
 </li>
 
 	
+>>>>>>> e0176de769951ffba73e6bb47bfda76f26da12ec

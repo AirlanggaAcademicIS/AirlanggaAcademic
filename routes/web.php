@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <?php
 
 /*
@@ -135,3 +137,4 @@ Route::group(['prefix' => 'karyawan'], function() {
 
 
 });
+>>>>>>> e0176de769951ffba73e6bb47bfda76f26da12ec
