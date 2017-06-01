@@ -16,8 +16,8 @@ class RPS_CP_Matkul extends Model
 		'deskripsi_cpmk',
    ];
    protected $dates = [
-	'created_at',
-	'deleted_at'
+  	'created_at',
+  	'deleted_at'
 	];
 
 	public function matkul()
