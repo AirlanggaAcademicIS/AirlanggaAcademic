@@ -12,7 +12,8 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\PenelitianDosen;
-
+use Auth;
+use Illuminate\Support\Facades\DB;
 
 class PenelitianController extends Controller
 {
@@ -20,11 +21,16 @@ class PenelitianController extends Controller
     // Function untuk menampilkan tabel
     public function index()
     {
+        $dosen = Auth::user()->username;
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar penelitian
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'penelitian',
-            // Memanggil semua isi dari tabel penelitian
-            'penelitian' => PenelitianDosen::all()
+            // Memanggil semua isi dari tabel biodata
+            'penelitian' => DB::table('penelitian_milik_dosen')
+            ->where('penelitian_milik_dosen.nip','=',$dosen)
+            ->join('penelitian_dosen', 'penelitian_milik_dosen.penelitian_id', '=', 'penelitian_dosen.penelitian_id')
+            ->select('*')
+            ->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/penelitian dan juga menambahkan $data tadi di view

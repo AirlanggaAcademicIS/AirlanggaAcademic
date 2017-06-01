@@ -15,13 +15,13 @@
 
 @section('main-content')
 <form role="form" id="tambah-silabus" method="post" action="{{url('/dosen/kurikulum/silabus/edit/'.$matkul_silabus->id_mk)}}" enctype="multipart/form-data">
-    <div class="box box-primary">
+    <div class="box box-danger">
         <div class="box-header with-border">
             <h3 class="box-title">Silabus Mata Kuliah {{$matkul_silabus->nama_matkul}}</h3>
         </div>
         <div class="box-body">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">    
-
+            
             <div class="form-group">
                 <label for="metode-pembelajaran"><b>Atribut Softskill</b></label><br>     
                 @php $isSameSoftskill = false; @endphp
@@ -38,6 +38,7 @@
                     @php $isSameSoftskill = false; @endphp
                 @endforeach        
             </div>
+            
             <div class="form-group">
                 <label for="metode-pembelajaran"><b>Metode Pembelajaran</b></label><br>             
                     @php $isSameMetode = false; @endphp
@@ -56,23 +57,6 @@
             </div>
             
             <div class="form-group">
-                <label for="media-pembelajaran"><b>Media Pembelajaran</b></label><br>    
-                    @php $isSameMedia = false; @endphp
-                    @foreach($media_pembelajaran as $media)          
-                        @foreach($mk_media_pembelajaran as $mk_media)
-                            @if($media->id == $mk_media->media_pembelajaran_id)
-                                @php $isSameMedia = true; @endphp
-                                <label class="checkbox-inline"><input checked type="checkbox" name="media_pembelajaran_id[]" value="{{$media->id}}">{{$media->media_pembelajaran}}</label> 
-                            @endif
-                        @endforeach
-                            @if($isSameMedia == false)
-                                <label class="checkbox-inline"><input type="checkbox" name="media_pembelajaran_id[]" value="{{$media->id}}">{{$media->media_pembelajaran}}</label>        
-                            @endif
-                            @php $isSameMedia = false; @endphp
-                    @endforeach        
-            </div>
-            
-            <div class="form-group">
                 <label for="penilaian"><b>Deskripsi Mata Ajar</b></label>    
                 <textarea name="deskripsi_mata_ajar" class="form-control" rows="4" placeholder="Masukan Deskripsi Mata Ajar">{!!$matkul_silabus->deskripsi_matkul!!}</textarea>
             </div>
@@ -88,9 +72,11 @@
             </div>
             
             <div class="box-footer clearfix">
-                <button type="edit" class="pull-right btn btn-info btn-sm" id="edit">Edit Silabus
+                <a href="{{{('/dosen/kurikulum/silabus')}}}" class="btn btn-info">Kembali</a>
+                <button type="edit" class="pull-right btn btn-info" id="edit">Edit Silabus
                 </button>
             </div>
+
         </div>
     </div>
 </form>
