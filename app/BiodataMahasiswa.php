@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class BiodataMahasiswa extends Model
 {
-	use SoftDeletes;
    protected $table = 'biodata_mhs';    
    protected $primaryKey = 'id_bio';    
    protected $fillable = [
