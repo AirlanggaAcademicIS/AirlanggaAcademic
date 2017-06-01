@@ -74,6 +74,12 @@ Edit Akun
 					</div>
 				</div>
 
+				<div class="form-group">
+					<label for="angkatan" class="col-sm-2 control-label">Angkatan</label>
+					<div class="col-md-8">
+						<input type="number" class="form-control input-lg" id="angkatan" name="angkatan" placeholder="Masukkan angkatan" value="{{$biodata->angkatan}}" required>
+					</div>
+				</div>
 
 				<div class="form-group">
 					<label for="E-mail" class="col-sm-2 control-label">E-mail</label>
