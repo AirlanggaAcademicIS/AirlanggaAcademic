@@ -38,6 +38,7 @@
                     @php $isSameSoftskill = false; @endphp
                 @endforeach        
             </div><br>
+
             
             <div class="form-group">
                 <label for="metode-pembelajaran"><b>Metode Pembelajaran</b></label><br>             
@@ -60,7 +61,7 @@
                 <label for="capaian_matkul"><b>Capaian Mata Kuliah</b></label>    
                 <textarea name="capaian_matkul" class="form-control" rows="4" placeholder="Masukan Capaian Mata Kuliah" required>{!!$matkul_silabus->capaian_matkul!!}</textarea>
             </div><br>
-            
+
             <div class="form-group">
                 <label for="deskripsi"><b>Deskripsi Mata Ajar</b></label>    
                 <textarea name="deskripsi_mata_ajar" class="form-control" rows="4" placeholder="Masukan Deskripsi Mata Ajar" required>{!!$matkul_silabus->deskripsi_matkul!!}</textarea>

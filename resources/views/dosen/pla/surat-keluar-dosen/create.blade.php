@@ -46,7 +46,7 @@ Tambah Surat Keluar
 			</div>
 			@endif
 			<br>
-			<form id="suratkeluar" method="post" action="{{url('dosen/pla/surat-keluar-dosen/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="suratkeluar" method="post" action="{{url('dosen/surat-keluar-dosen/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				
 				<!-- Menampilkan input text biasa -->				

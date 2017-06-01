@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Biodata
+Data Bimbingan
 @endsection
 
 @section('contentheader_title')
-Biodata
+Monitoring Skripsi
 @endsection
 
 @section('main-content')
@@ -27,41 +27,28 @@ Biodata
   @endforeach
 </div>
 
-<div style="overflow: auto">
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
-  <thead>
-   <tr>
-         <th style="text-align:center">No.</th>
-         <th style="text-align:center">Nama Mahasiswa</th>  
-         <th style="text-align:center">NIM</th>     
-         <th style="text-align:center">KBK</th>
-         <th style="text-align:center">Judul</th>
-         <th style="text-align:center">NIP Petugas</th>
-         <th style="text-align:center">Dosen Pembimbing 1</th>
-         <th style="text-align:center">Dosen Pembimbing 2</th>
-       </tr>
-       </thead>
-     <tbody>
-      @forelse($skripsi as $i => $skrip) 
-       <tr>
-         <td style="text-align:center">{{ $i+1 }}</td>
-         <td style="text-align:center">{{$skrip->mahasiswa['nama_mhs']}}</td>
-         <td style="text-align:center">{{$skrip->NIM_id}}</td>
-         <td style="text-align:center">{{$skrip->KBK['jenis_kbk']}}</td>
-         <td style="text-align:center">{{$skrip->Judul}}</td>
-         <td style="text-align:center">{{$skrip->nip_petugas_id}}</td>
-         <td style="text-align:center">{{$skrip->nip_id1}}</td>
-         <td style="text-align:center">{{$skrip->nip_id2}}</td>
-       </tr>
-     @empty
-        <tr>
-          <td colspan="6"><center>Belum ada data skripsi</center></td>
-        </tr>
-    @endforelse
-  </tbody>
-</table>
-</div>
-
+<div class="container">
+  <div class="row">
+  <form action="{{url('/dosen/monitoring-skripsi/skripsi/mhs')}}" method="get">
+          <div class="col-md-3" style="padding: 0;">
+            <select class="form-control" name="mhs" id="mhs">
+            <option>--Pilih Mahasiswa--</option>
+   @foreach($dis as $d)
+   @foreach($dospem as $i => $dos)
+   @if($d->skripsi_id == $dos->skripsi_id)
+   <option value="{{ $dos->NIM_id }}">{{$dos->nama_mhs}}</option>
+    @break
+    @endif
+    @endforeach
+    @endforeach 
+            </select>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-info" type="submit">Pilih</button>
+          </div>
+      </form>
+          </div>
+          </div>
 @endsection
 
 @section('code-footer')

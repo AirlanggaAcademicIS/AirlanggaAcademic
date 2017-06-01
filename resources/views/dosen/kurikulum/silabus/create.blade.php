@@ -39,6 +39,7 @@ Tambah Silabus
        </div><br>
 
       <div class="form-group">
+
         <label for="atribut_softskill"><b>Atribut Softskill</b></label><br>     
         @foreach($atribut_softskill as $softskill)
           <label class="checkbox-inline"><input type="checkbox" name="sistem_pembelajaran_id[]" value="{{$softskill->id_softskill}}">{{$softskill->softskill}}</label>        
@@ -58,6 +59,7 @@ Tambah Silabus
         </textarea>
       </div><br>
 
+
       <div class="form-group">
         <label for="deskripsi"><b>Deskripsi Mata Ajar</b></label>    
         <textarea name="deskripsi_mata_ajar" class="form-control" rows="4" placeholder="Masukan Deskripsi Mata Ajar">
@@ -73,9 +75,10 @@ Tambah Silabus
       <div class="form-group">
         <label for="referensi"><b>Referensi Wajib</b></label>
         <textarea name="pustaka_utama" id="pustaka_utama" class="form-control" rows="4" placeholder="Masukkan referensi wajib (pustaka utama)"> 
-        </textarea>
 
         </textarea>
+
+
 
       </div>
 

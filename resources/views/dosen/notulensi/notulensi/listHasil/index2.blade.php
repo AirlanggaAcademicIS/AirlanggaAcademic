@@ -27,7 +27,7 @@ Notulensi Rapat
   @endforeach
 </div>
 <div style="overflow: auto">
-<table id="data-tabel" class="table table-striped table-bordered" cellspacing="0">
+<table id="data-table" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
 

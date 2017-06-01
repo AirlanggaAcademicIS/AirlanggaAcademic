@@ -52,7 +52,11 @@ class SilabusController extends Controller
             'mata_kuliah' => Silabus_Matkul::all(),            
             // 'mk_prasyarat' => Silabus_Matkul_Prasyarat::all(),
             'atribut_softskill' => Silabus_Atribut_Softskill::all(),
+
            // 'media_pembelajaran' => Silabus_Media_Pembelajaran::all(),            
+
+            // 'media_pembelajaran' => Silabus_Media_Pembelajaran::all(),            
+
             'metode_pembelajaran' => Silabus_Sistem_Pembelajaran::all(),                
             // 'status_team_teaching' => Status_Team_Teaching::all()
         ];
@@ -129,8 +133,10 @@ class SilabusController extends Controller
         $mata_kuliah = Silabus_Matkul::find($id);
         $mksoftskill = Silabus_mk_softskill::where('mk_id', $id)->delete();
 
+
         Silabus_detail_media::where('cpmk_id', '=' ,$id)->delete();
         // $cpmatkul = RPS_CP_Matkul::where('matakuliah_id', $id)->delete();
+
         // $cpmatkul= Silabus_cp_matkul::where('matakuliah_id', $id)->get();
 
         // Menghapus biodata yang dicari tadi
