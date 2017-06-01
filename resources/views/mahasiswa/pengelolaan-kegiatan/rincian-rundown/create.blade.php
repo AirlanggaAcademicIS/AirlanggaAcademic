@@ -70,7 +70,11 @@ Tambah Rincian Rundown Kegiatan
 				<div class="form-group">
 					<label for="kategori_rundown" class="col-sm-2 control-label">Kategori Kegiatan</label>
 					<div class="col-md-8">		
-						<input type="text" class="form-control input-lg" id="kategori_rundown" name="kategori_rundown" placeholder="Masukkan Kategori Kegiatan" required>
+						<select class="form-control select" style="width: 100%;" name="kategori_rundown" placeholder="Pilih Kategori" required>
+						<option value="">Pilih Kategori</option>
+						<option value="0">Proposal</option>
+						<option value="1">LPJ</option>
+						</select>
 					</div>
 				</div>
 

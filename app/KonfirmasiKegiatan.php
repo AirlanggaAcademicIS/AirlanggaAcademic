@@ -11,26 +11,25 @@ class KonfirmasiKegiatan extends Model
 	protected $table = 'pengajuan_kegiatan';	
 	protected $primaryKey ='id_kegiatan';
 	protected $fillable = [
-<<<<<<< HEAD:app/KonfirmasiKegiatan.php
+<<<<<<< HEAD
+=======
 		'id_kegiatan',
+>>>>>>> 5a734d94f7e78fe35eeff1f606d98a6cdcf84e2d
 		'konfirmasi_proposal',
 		'konfirmasi_lpj',
 		'revisi',
 		'nama',
+<<<<<<< HEAD
 =======
 		'nama',
-<<<<<<< HEAD
 		'kategori',
 		'konfirmasi',
-=======
->>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
->>>>>>> bc58d1387a2f89934472eed7b8d7bf9f74d6d90e:app/PengajuanKegiatan.php
+>>>>>>> 5a734d94f7e78fe35eeff1f606d98a6cdcf84e2d
 		'history',
 		'tujuan',
 		'mekanisme',
 		'tglpengajuan',
 		'tglpelaksanaan',
-<<<<<<< HEAD:app/KonfirmasiKegiatan.php
 		'rpengajuan',
 		'rpelaksanaan',
 		'url_poster',
@@ -42,15 +41,8 @@ class KonfirmasiKegiatan extends Model
 
 
 
-}
-=======
-		'url_poster',
 <<<<<<< HEAD
-=======
-		'sumber_id',
->>>>>>> 79efc128db75ccf38d4214bfecf768286b3eab4d
-		
-	];	
 }
-
->>>>>>> bc58d1387a2f89934472eed7b8d7bf9f74d6d90e:app/PengajuanKegiatan.php
+=======
+}
+>>>>>>> 5a734d94f7e78fe35eeff1f606d98a6cdcf84e2d

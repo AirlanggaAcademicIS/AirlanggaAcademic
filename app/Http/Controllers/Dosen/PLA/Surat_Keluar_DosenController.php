@@ -39,7 +39,7 @@ class Surat_Keluar_DosenController extends Controller
         ];
 
         // Memanggil tampilan form create
-        return view('dosen/pla/surat-keluar-dosen.create',$data);
+        return view('dosen.pla.surat-keluar-dosen.create',$data);
     }
 
     public function createAction(Request $request)
@@ -64,7 +64,7 @@ class Surat_Keluar_DosenController extends Controller
         Session::put('alert-success', 'Surat berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/
-        return Redirect::to('dosen/pla/surat-keluar-dosen');
+        return Redirect::to('dosen/surat-keluar-dosen');
     }
 
     public function delete($id_surat_keluar)
@@ -92,7 +92,7 @@ class Surat_Keluar_DosenController extends Controller
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('dosen/pla/surat-keluar-dosen.edit',$data);
+        return view('dosen.pla.surat-keluar-dosen.edit',$data);
     }
 
     public function editAction($id_surat_keluar_dosen, Request $request)
@@ -111,7 +111,7 @@ class Surat_Keluar_DosenController extends Controller
         Session::put('alert-success', 'Surat berhasil diedit');
 
         // Kembali ke halaman mahasiswa/
-        return Redirect::to('dosen/pla/surat-keluar-dosen');
+        return Redirect::to('dosen/surat-keluar-dosen');
     }
 
 }
