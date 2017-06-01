@@ -28,7 +28,7 @@ class JurnalController extends Controller
             // Memanggil semua isi dari tabel biodata
             'jurnal' => DB::table('jurnal_dosen')
             ->where('jurnal_dosen.nip','=',$dosen)
-            ->join('jurnal','jurnal_dosen.jurnal_id','=','jurnal.jurnal_id')
+            ->join('jurnal','jurnal.jurnal_id','=','jurnal_dosen.jurnal_id')
             ->select('=')
             ->get()
         ];
