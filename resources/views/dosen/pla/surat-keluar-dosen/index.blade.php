@@ -46,7 +46,7 @@ Surat Keluar
   <tbody>
    @forelse($surat_keluar_dosen as $i => $surat) 
     <tr>
-      <td>{{ $i+1 }}</td>
+      <td width="5%" style="text-align:center">{{ $i+1 }}</td>
       <!--<td width="15%" style="text-align:center">{{$surat->nip_petugas_id}}</td>-->
       <td width="10%" style="text-align:center">{{$surat->nama}}</td>
       <td width="10%" style="text-align:center">{{$surat->created_at}}</td>

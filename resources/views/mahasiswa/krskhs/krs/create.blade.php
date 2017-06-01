@@ -26,6 +26,19 @@ Input Krs
   @endif
   @endforeach
 </div>
+<form action="{{url('mahasiswa/krskhs/krs/create')}}" method="get">
+<div class="col-md-3" style="padding: 0;">
+<div style="overflow: auto">
+  <select class="form-control" id="periode" name="periode">
+      <option>Tahun Akademik</option>
+      @foreach($tahun as $t) 
+      <option value ="{{$t->id_thn_akademik}}">{{$t->semester_periode}}</option>
+      @endforeach
+  </select>
+            <button class="btn btn-info" type="submit">Pilih</button>
+</div>
+</div>
+</form>
 <style>
   .form-group label{
     text-align: left !important;

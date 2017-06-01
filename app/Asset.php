@@ -21,8 +21,6 @@ class Asset extends Model
 		'expired_date',
 		'nama_supplier',
 		'harga_satuan',
-		'jumlah_barang',
-		'total_harga',
 		'created_at',
 		'updated_at',
 		'deleted_at',
