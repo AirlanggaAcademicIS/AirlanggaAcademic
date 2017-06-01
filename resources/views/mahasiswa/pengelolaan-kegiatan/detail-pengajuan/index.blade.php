@@ -33,7 +33,7 @@ Detail Pengajuan Kegiatan
   
    @foreach($konfirmasiKegiatan as $i => $konfirmasi_kegiatan) 
    <h4>Deskripsi Umum</h4>
-  <form class="form-horizontal" action="{{url('karyawan/pengelolaan-kegiatan/konfirmasi-kegiatan')}}">
+  <form class="form-horizontal" action="{{url('mahasiswa/pengelolaan-kegiatan/Status')}}">
     <div class="form-group">
       <label class="control-label col-sm-2" for="nama">Nama Kegiatan</label>
       <div class="col-sm-10">
@@ -154,7 +154,7 @@ Detail Pengajuan Kegiatan
     <div class="form-group">
       <label class="control-label col-sm-2" for="poster">Publikasi Kegiatan</label>
       <div class="col-sm-10">
-        <p class="form-control-static">{{$konfirmasi_kegiatan->url_poster}}</p>
+        <p class="form-control-static"><img src="{{URL::asset('/img/pengajuan/'.$konfirmasi_kegiatan->url_poster)}}" height="100px" width="100px" hspace="5px" vspace="2px"></p>
       </div>
     </div>
 

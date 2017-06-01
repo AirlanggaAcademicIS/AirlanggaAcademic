@@ -16,11 +16,17 @@
 
 
 
+
         "maatwebsite/excel": "~2.1.0",
+
+
 
         "maddhatter/laravel-fullcalendar": "^1.2",
         
         "milon/barcode": "^5.3"
+
+
+
 
 
 

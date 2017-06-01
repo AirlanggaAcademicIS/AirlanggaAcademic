@@ -25,6 +25,9 @@ Capaian Pembelajaran
   {!!Session::forget('alert-' . $msg)!!}
   @endif
   @endforeach
+  <div class="box box-danger">
+<div class="box-body">
+
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
@@ -65,7 +68,8 @@ Capaian Pembelajaran
   </tbody>
 </table>
 </div>
-
+</div>
+</div>
 @endsection
 
 @section('code-footer')

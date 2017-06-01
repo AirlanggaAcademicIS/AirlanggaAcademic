@@ -32,6 +32,9 @@ Tambah Capaian Pembelajaran
 	@endforeach
 
 
+<div class="box box-danger">
+<div class="box-body">
+
 <div class="row">
 	<div class="col-md-12">
 		<div class="">
@@ -45,14 +48,15 @@ Tambah Capaian Pembelajaran
 				</ul>
 			</div>
 			@endif
-			<br>
+      <br>
 			<form id="tambahCapaianPembelajaran" method="post" action="{{url('/dosen/kurikulum/capaian-pembelajaran/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
+    <div class="box-header with-border">
     <div class="form-group">
      <label for="id_prodi" class="col-sm-2 control-label">Nama Prodi</label>
-     <div class="col-md-3">
+     <div class="col-md-4">
          	<select name="prodi_id" class="form-control">
 	          	@foreach($prodis as $prodi)
 	            	<option value="{{$prodi->id_prodi}}">{{$prodi->nama_prodi}}</option>
@@ -64,7 +68,7 @@ Tambah Capaian Pembelajaran
         <!-- Menampilkan input text biasa -->
         <div class="form-group">
           <label for="kategori_cpem_id" class="col-sm-2 control-label">Kategori Capaian Pembelajaran</label>
-          <div class="col-md-3">
+          <div class="col-md-4">
          	<select name="kategori_cpem_id" class="form-control">
 	          	@foreach($categories as $category)
 	            	<option value="{{$category->id_kategori_cpem}}">{{$category->nama_cpem}}</option>
@@ -76,8 +80,8 @@ Tambah Capaian Pembelajaran
         <!-- Menampilkan textarea -->
         <div class="form-group">
           <label for="kode_cpem" class="col-sm-2 control-label">Kode Capaian Pembelajaran</label>
-          <div class="col-md-3">
-            <input type="text" class="form-control input-lg" id="kode_cpem" name="kode_cpem" placeholder="Masukkan Kode" required>
+          <div class="col-md-4">
+            <input type="text" class="form-control input-md" id="kode_cpem" name="kode_cpem" placeholder="Masukkan Kode" required>
           </div>
         </div>
 
@@ -85,25 +89,67 @@ Tambah Capaian Pembelajaran
         <div class="form-group">
           <label for="deskripsi_cpem" class="col-sm-2 control-label">Deskripsi Capaian Pembelajaran</label>
           <div class="col-md-8">
-            <textarea id="deskripsi_cpem" name="deskripsi_cpem" placeholder=" Masukkan Deskripsi Capaian Pembelajaran" required cols="38" rows="4" required>
+            <textarea id="deskripsi_cpem" name="deskripsi_cpem" placeholder=" Masukkan Deskripsi Capaian Pembelajaran" required cols="135" rows="8" required>
             </textarea>
           </div>
         </div>
+				<div class="footer clearfix">
+        <button type="tambah" class="middle btn btn-info btn-sm" id="tambah" style="margin-left: 93%;">Tambah
+        </button>
+      </div>
+    </div>
+  </div>       
+</form>
+</div>
+</div>
+</div>
+</div>
 
+<div class="col-md-15">
 
-				
+          <!-- /.box -->
+          <!-- general form elements disabled -->
+          <div class="box box-primary">
+          <div class="box-header with-border">
+              <h3 class="box-title">Tabel Capaian Pembelajaran</h3>
+              <div class="box-body">
 
-				<div class="form-group text-center">
-				<br>
-					<div class="col-md-7 col-md-offset-2">
-					<button type="submit" class="btn btn-primary btn-lg">
-							Tambah
-						</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+</div>
+<div style="margin-bottom: 10px">
+  <!-- Href ini biar diklik masuk ke form tambah -->
+  
+</div>
+<div style="overflow: auto">
+<table id="myTable" class="table tabl0e-striped table-bordered" cellspacing="0">
+  <thead>
+    <tr>
+      <th style="text-align:center">No.</th>
+      <th style="text-align:center">Nama Prodi</th>      
+      <th style="text-align:center">Nama Kategori Capaian Pembelajaran</th>
+      <th style="text-align:center">Kode Capaian Pembelajaran</th>
+      <th style="text-align:center">Deskripsi</th>
+    </tr>
+    </thead>
+  <tbody>
+   @forelse($capaianpembelajaran as $i => $cp) 
+    <tr>
+      <td width="5%" style="text-align:center" >{{ $i+1 }}</td>
+      <td width="15%" style="text-align:center">{{$cp->prodi['nama_prodi']}}</td>
+      <td width="25%" style="text-align:center">{{$cp->kategori['nama_cpem']}}</td>
+      <td width="15%" style="text-align:center">{{$cp->kode_cpem}}</td>
+      <td width="30%" style="text-align:center">{{$cp->deskripsi_cpem}}</td>
+    </tr>
+     @empty
+        <tr>
+          <td colspan="6"><center>Belum ada data</center></td>
+        </tr>
+    @endforelse
+  </tbody>
+</table>
+</div>
+</div>
+          </div>
+          </div>
 </div>
 @endsection
 
@@ -116,5 +162,7 @@ $( function() {
 
   } );
   </script>
+
+
 @endsection
 

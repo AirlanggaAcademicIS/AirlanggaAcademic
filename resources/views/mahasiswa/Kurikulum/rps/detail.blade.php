@@ -158,7 +158,9 @@ Rencana Pembelajaran Semester
         </select>
     </div>
     <br> 
-    <a href="{{{('/mahasiswa/kurikulum/rps')}}}" class="btn btn-info">Kembali</a>
+    <div class="box-header">
+    <a href="{{{('/karyawan/kurikulum/rps')}}}" class="btn btn-info">Kembali</a>
+    </div>
   </form>
   </div>
   </div>

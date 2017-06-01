@@ -49,7 +49,7 @@ Rencana Pembelajaran Semester
     <input type="hidden" name="_token" value="{{ csrf_token() }}">       
   
     <div class="box-header with-border">
-      <h3 class="box-title">Input Capaian Mata Kuliah</h3>
+      <h3 class="box-title">Tambah Capaian Mata Kuliah</h3>
     </div>
 
     <div class="col-md-12">
@@ -88,7 +88,7 @@ Rencana Pembelajaran Semester
       <h3 class="box-title">Daftar Capaian Mata Kuliah</h3> 
       </div>
         <div class="box-body no-padding">
-          <table id="cpmk" name="cpmk" class="table table-striped table-bordered" cellspacing="0">
+          <table id="data-table" name="cpmk" class="table table-striped table-bordered" cellspacing="0">
             <tbody>
               <thead>
                 <tr>
@@ -109,7 +109,7 @@ Rencana Pembelajaran Semester
                   <td style="text-align:center">{{$cpmk->nama_matkul}}</td>
                   <th style="text-align:center">{{$cpmk->media_pembelajaran}}</th>
                   <td width="15%" style="text-align:center">
-                  <a onclick="return confirm('Anda yakin untuk menghapus CP MK ini?');" href="{{url('/dosen/kurikulum/rps/delete-cpmk/'.$cpmk->id_cpmk)}}" class="btn btn-danger btn-xs">
+                  <a onclick="return confirm('Anda yakin untuk menghapus CP MK ini?');" href="{{url('/dosen/kurikulum/rps/delete-cpmk/'.$cpmk->media_pembelajaran_id)}}" class="btn btn-danger btn-xs">
                   <i class="fa fa-trash-o"></i> Delete</a></td>
                 </tr>
             @endforeach
@@ -134,5 +134,11 @@ $( function() {
 
   } );
   </script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#data-table').DataTable();
+  });
+</script>
 @endsection
 

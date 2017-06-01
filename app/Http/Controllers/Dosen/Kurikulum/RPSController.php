@@ -50,7 +50,7 @@ class RPSController extends Controller
             ->select('*')
             ->get(),
             'mk' => RPS_Matkul::all(),
-            'cpmk' => RPS_CP_Matkul::all(),
+            'cpmk' => RPS_CP_Matkul::where('deleted_at', '=', '0'),
             'media' => RPS_Media_Pembelajaran::all(),
             'mp' => RPS_Detail_Kategori::all()  
         ];
@@ -81,8 +81,7 @@ class RPSController extends Controller
 
      public function cpmkDelete($id)
     {
-        $cpmk = RPS_CP_Matkul::find($id);
-        $cpmk->delete();
+        $detail = RPS_Detail_Kategori::where('media_pembelajaran_id', $id)->delete();
         Session::put('alert-success', 'CP MK berhasil dihapus');
         return Redirect::back();     
     }

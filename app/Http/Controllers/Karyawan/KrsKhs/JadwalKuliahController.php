@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
+use DB;
 // Tambahkan model yang ingin dipakai
 use App\Models\KrsKhs\JadwalKuliah;
 use App\Models\KrsKhs\MKDitawarkan;
@@ -17,6 +18,7 @@ use App\Models\KrsKhs\Jam;
 use App\Models\KrsKhs\Hari;
 use App\Models\KrsKhs\Ruang;
 use App\Models\KrsKhs\MataKuliah;
+use App\Models\KrsKhs\TahunAkademik;
 
 
 
@@ -24,17 +26,23 @@ class JadwalKuliahController extends Controller
 {
 
     // Function untuk menampilkan tabel
+
+   
     public function index()
     {
+        $thn=TahunAkademik::count();
+        $mk=MKDitawarkan::select('id_mk_ditawarkan')->where('thn_akademik_id',$thn)->get();
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar ruang
-            'page' => 'jadwal',
-            // Memanggil semua isi dari tabel ruang
-            'jadwal' => JadwalKuliah::all()
+           
+        'page' => 'jadwal_kuliah',
+        
+        'jadwal_kuliah'=>JadwalKuliah::whereIn('mk_ditawarkan_id',$mk)->get(),
         ];
         // Memanggil tampilan index di folder krs-khs/ruang dan juga menambahkan $data tadi di view
         return view('karyawan.krs-khs.jadwal_kuliah.index',$data);
     }
+     
      public function create()
     {
         $data = [
@@ -51,7 +59,6 @@ class JadwalKuliahController extends Controller
              'jadwal4' =>MKDitawarkan::all()
 
 
-             'jadwal3' =>Ruang::all()
 
         ];
         // Memanggil tampilan form create
@@ -65,7 +72,7 @@ class JadwalKuliahController extends Controller
         Session::put('alert-success', 'Jadwal Kuliah berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::back();
+        return Redirect::to('karyawan/krs-khs/jadwal_kuliah/index');
     }
      
      public function delete($mk_ditawarkan_id)
@@ -126,5 +133,6 @@ class JadwalKuliahController extends Controller
         // Kembali ke halaman krs-khs/ruang/view
         return Redirect::to('karyawan/krs-khs/jadwal_kuliah/index');
     }
+    
 
 }
