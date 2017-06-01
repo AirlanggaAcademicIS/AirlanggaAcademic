@@ -49,7 +49,7 @@ class JurnalController extends Controller
     }
 
     public function createAction(Request $request)
-    {
+    {   $dosen = Auth::user()->username;
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
         $dosen = $request->input();
         $dosen['status_jurnal'] = 0 ;
