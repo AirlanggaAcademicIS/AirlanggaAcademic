@@ -33,8 +33,9 @@ Input Dokumen
 
 
 <div class="row">
-	<div class="col-md-12" style="background-color: white;">
-		<div class="">
+	<div class="col-md-12">
+		<div class="box box-primary">
+			<div class="box-header with-border">
 
 			@if (count($errors) > 0)
 			<div class="alert alert-danger">
@@ -61,14 +62,28 @@ Input Dokumen
 				<div class="form-group">
 				<label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
                 <div class="col-md-8">
-	                <select class="form-control select2" style="width: 100%;" name = "kegiatan_id">
-	                  @foreach($kegiatan as $pk)
-	                  <option value="{{$pk->id_kegiatan}}" >{{$pk->nama}}</option>
-	                  @endforeach
+	                <select class="form-control select2" style="width: 100%;" name = "kegiatan_id" onchange="javascript:handleSelect(this)">
+	                	<option value="">Pilih Kegiatan</option>
+	                  	@foreach($kegiatan as $pk)
+	                  	<option {!!(old('id_kegiatan') == $pk->id_kegiatan)? 'selected' : ''!!} value="{{ $pk->id_kegiatan }}" >{{$pk->nama}}</option>
+	                  	@endforeach
 	                </select>
 	             </div>
               </div>
              
+             <!-- TUJUAN -->
+             <!-- <div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Tujuan</label>
+					<div class="col-md-8">
+						<textarea id="lesson_learned" placeholder=" Masukkan Evaluasi Kegiatan" required cols="82" rows="5" disabled>
+						@forelse($kegiatan as $dok)
+							{{$dok->tujuan}}
+						@empty
+						@endforelse
+						</textarea>
+					</div>
+				</div> -->
+
 			<!-- Menampilkan textarea -->
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Evaluasi Kegiatan</label>
@@ -82,8 +97,11 @@ Input Dokumen
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Masukkan Foto</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="url_gambar" name="url_foto" placeholder="Masukkan URL Gambar" required>
-					</div>
+						<input type="file" id="gambar" name="url_foto">
+
+                  		<p class="help-block">Pilih Gambar</p>
+                	</div>
+						<!-- <input type="text" class="form-control input-lg" id="url_gambar" name="url_foto" placeholder="Masukkan URL Gambar" required> -->
 				</div>
 				
 				<!-- Menampilkan tanggal dengan datepicker -->
@@ -98,6 +116,7 @@ Input Dokumen
 				</div>
 			</form>
 		</div>
+		</div>
 	</div>
 </div>
 @endsection
@@ -110,6 +129,41 @@ $( function() {
     var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
 
   } );
-  </script>
-@endsection
+    function renderHarga(t) {
+        harga_satuan = t.options[t.selectedIndex];
+        // alert( $(harga_satuan).attr("data-harga") );
+        document.getElementById('harga_satuan').value = $(harga_satuan).attr("data-harga");
+        $('#satuan').html($('option:selected', e).data('satuan'));
+    }
 
+    var elBrowse  = document.getElementById("gambar");
+	elBrowse.addEventListener("change", function() {
+		var files  = this.files;
+		var errors = "";
+		if (!files) {
+			errors += "File upload not supported by your browser.";
+		}
+		if (files && files[0]) 
+		{
+			for(var i=0; i<files.length; i++) 
+			{
+				var file = files[i];
+				if ( (/\.(png|jpeg|jpg|gif)$/i).test(file.name) ) 
+				{
+					readImage( file ); 
+				} 
+				else 
+				{
+					errors += file.name +" is unsupported Image extension\n";
+					document.getElementById("gambar").value = null;  
+				}
+			}
+		}
+		if (errors) {
+			alert(errors); 
+		}
+	});
+
+  </script>
+
+@endsection

@@ -16,7 +16,6 @@ use App\Asset;
 use App\Kategori;
 use App\StatusAsset;
 use Milon\Barcode\DNS2D;
-use Milon\Barcode\DNS1D;
 
 
 class AssetController extends Controller
@@ -55,26 +54,22 @@ class AssetController extends Controller
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel asset
-        $harga_satuan = $request->input('harga_satuan');
-        $jumlah_barang = $request->input('jumlah_barang');
-        $serial_barcode = 'AST'.$request->input('nama_asset').'.png';
-
-        $total_harga = $harga_satuan * $jumlah_barang;
+        $string = preg_replace('/\s+/', '', $request->input('nama_asset'));
+        $serial_barcode = 'AST'.$string.'.png';
+        
             $asset = Asset::create([
             'kategori_id' => $request->input('kategori'),
             'nip_petugas_id' => Auth::User()->username,
             'status_id' => $request->input('status'),
             'serial_barcode' => $serial_barcode,
-            'total_harga' => $total_harga,
             'nama_asset' => $request->input('nama_asset'),
             'lokasi' => $request->input('lokasi'),
             'expired_date' => $request->input('expired_date'),
             'nama_supplier' => $request->input('nama_supplier'),
             'harga_satuan' => $request->input('harga_satuan'),
-            'jumlah_barang' => $request->input('jumlah_barang'),
            ]);
 
-            DNS2D::getBarcodePNGPath('AST'.$request->input('nama_asset').'',"QRCODE",20,20);
+            DNS2D::getBarcodePNGPath('AST'.$string.'',"QRCODE",20,20);
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Asset berhasil ditambahkan! QRCODE telah dicetak!');
 
@@ -111,26 +106,22 @@ class AssetController extends Controller
 
     public function editAction($id_asset, Request $request)
     {
-
-        $harga_satuan = $request->input('harga_satuan');
-        $jumlah_barang = $request->input('jumlah_barang');
-        $total_harga = $harga_satuan * $jumlah_barang;
+        $string = preg_replace('/\s+/', '', $request->input('nama_asset'));
+        $serial_barcode = 'AST'.$string.'.png';
         // Mencari asset yang akan di update dan menaruhnya di variabel $asset
         $asset = Asset::find($id_asset);
 
         // Mengupdate $asset tadi dengan isi dari form edit tadi
         $asset->id_asset = $request->input('id_asset');
         $asset->kategori_id = $request->input('kategori_id');
-        $asset->nip_petugas_id = 12345;
+        $asset->nip_petugas_id = Auth::User()->username;
         $asset->status_id = $request->input('status_id');
-        $asset->serial_barcode = 12345;
+        $asset->serial_barcode = $serial_barcode;
         $asset->nama_asset = $request->input('nama_asset');
         $asset->lokasi = $request->input('lokasi');
         $asset->expired_date = $request->input('expired_date');
         $asset->nama_supplier = $request->input('nama_supplier');
         $asset->harga_satuan = $request->input('harga_satuan');
-        $asset->jumlah_barang = $request->input('jumlah_barang');
-        $asset->total_harga = $total_harga;
         $asset->save();
 
         // Notifikasi sukses
@@ -146,9 +137,7 @@ class AssetController extends Controller
         $data = [
             'page'=> 'inventaris',
             'asset' => $asset,
-
         ];
-
         return view('karyawan.inventaris.asset.viewDetail', $data);
     }
 

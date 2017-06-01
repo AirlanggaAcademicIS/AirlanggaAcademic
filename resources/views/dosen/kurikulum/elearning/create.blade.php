@@ -31,7 +31,7 @@ Tambah Capaian Program
   @endif
   @endforeach
 
-
+<div class="box box-danger">
 <div class="row">
   <div class="col-md-12">
     <div class="">
@@ -73,13 +73,6 @@ Tambah Capaian Program
             </div>
 
             <div class="form-group">
-              <label for="id_prodi" class="col-sm-2 control-label">Tanggal</label>
-              <div class="col-md-6">
-                <input type="text" class="form-control input-lg" id="prodi_id" name="prodi_id" placeholder="Tanggal Upload" required>
-              </div>
-            </div>
-
-            <div class="form-group">
               <label class="col-sm-2 control-label" for="exampleInputFile">File input</label>
               <div class="col-md-6">
                 <input id="exampleInputFile" name="direktori_file" type="file">
@@ -97,6 +90,7 @@ Tambah Capaian Program
       </form>
     </div>
   </div>
+</div>
 </div>
 @endsection
 
