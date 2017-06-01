@@ -4,11 +4,11 @@
 @endsection
 
 @section('htmlheader_title')
-Lihat Hasil Sidang Skripsi
+Hasil Sidang Skripsi
 @endsection
 
 @section('contentheader_title')
-Lihat Hasil Sidang Skripsi
+Hasil Sidang Skripsi
 @endsection
 
 @section('main-content')

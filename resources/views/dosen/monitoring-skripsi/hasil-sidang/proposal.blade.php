@@ -4,11 +4,11 @@
 @endsection
 
 @section('htmlheader_title')
-Lihat Hasil Sidang Proposal
+Hasil Sidang Proposal
 @endsection
 
 @section('contentheader_title')
-Lihat Hasil Sidang Proposal
+Hasil Sidang Proposal
 @endsection
 
 @section('main-content')
