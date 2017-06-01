@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "52af99c53c7677f240947846ddbc6bf9",
-=======
-    "content-hash": "a9441ae619ae7a74bdeefc9bb21fcc09",
->>>>>>> 8ab999b6463730213402bf5657d64e0b812f08f2
+    "content-hash": "63f22c69dcca59175b50acad4c0885bf",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -1019,8 +1015,6 @@
             "time": "2015-04-20T18:58:01+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "jeremeamia/SuperClosure",
             "version": "2.3.0",
             "source": {
@@ -1079,7 +1073,6 @@
             "time": "2016-12-07T09:37:55+00:00"
         },
         {
->>>>>>> 8ab999b6463730213402bf5657d64e0b812f08f2
             "name": "knplabs/knp-snappy",
             "version": "0.4.3",
             "source": {
@@ -1518,8 +1511,6 @@
             "time": "2017-04-28T10:15:08+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "maatwebsite/excel",
             "version": "2.1.17",
             "source": {
@@ -1588,7 +1579,6 @@
             "time": "2017-04-04T18:28:12+00:00"
         },
         {
->>>>>>> 8ab999b6463730213402bf5657d64e0b812f08f2
             "name": "maddhatter/laravel-fullcalendar",
             "version": "v1.2.4",
             "source": {
@@ -1949,8 +1939,6 @@
             "time": "2017-03-13T16:27:32+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "phpoffice/phpexcel",
             "version": "1.8.1",
             "source": {
@@ -2008,7 +1996,6 @@
             "time": "2015-05-01T07:00:55+00:00"
         },
         {
->>>>>>> 8ab999b6463730213402bf5657d64e0b812f08f2
             "name": "psr/log",
             "version": "1.0.2",
             "source": {
@@ -2797,8 +2784,6 @@
             "time": "2016-11-14T01:06:16+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "symfony/polyfill-php56",
             "version": "v1.3.0",
             "source": {
@@ -2907,7 +2892,6 @@
             "time": "2016-11-14T01:06:16+00:00"
         },
         {
->>>>>>> 8ab999b6463730213402bf5657d64e0b812f08f2
             "name": "symfony/process",
             "version": "v3.2.8",
             "source": {
@@ -3414,20 +3398,12 @@
             "version": "0.9.9",
             "source": {
                 "type": "git",
-<<<<<<< HEAD
-                "url": "https://github.com/padraic/mockery.git",
-=======
                 "url": "https://github.com/mockery/mockery.git",
->>>>>>> 8ab999b6463730213402bf5657d64e0b812f08f2
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856"
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
-=======
                 "url": "https://api.github.com/repos/mockery/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
->>>>>>> 8ab999b6463730213402bf5657d64e0b812f08f2
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856",
                 "shasum": ""
             },
