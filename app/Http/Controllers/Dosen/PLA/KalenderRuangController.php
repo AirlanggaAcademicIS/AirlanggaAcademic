@@ -1,4 +1,4 @@
-<?php 
+<?php   
 
 namespace App\Http\Controllers\Dosen\PLA;
 
@@ -14,7 +14,7 @@ use Auth;
 // Tambahkan model yang ingin dipakai
 use Illuminate\Support\Facades\DB;
 
-
+ 
 class KalenderRuangController extends Controller
 {
 

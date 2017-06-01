@@ -1,4 +1,4 @@
-<!-- fullCalendar 2.2.5 -->
+ <!-- fullCalendar 2.2.5 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>
 
@@ -9,7 +9,7 @@
 <script src="{{ asset('/js/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
 
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
-
+  
 
 <!-- Laravel App -->
 <script src="{{ mix('/js/app.js') }}" type="text/javascript"></script>

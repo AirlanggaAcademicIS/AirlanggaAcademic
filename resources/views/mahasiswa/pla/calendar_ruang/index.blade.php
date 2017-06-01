@@ -25,7 +25,7 @@ Kalender Ruang
   {!!Session::forget('alert-' . $msg)!!}
   @endif
   @endforeach
-</div>
+</div>   
  
   <!-- fullCalendar 2.2.5-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css">
