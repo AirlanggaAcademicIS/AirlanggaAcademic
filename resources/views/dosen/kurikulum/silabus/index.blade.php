@@ -6,7 +6,7 @@
 @endsection
 
 @section('htmlheader_title')
-Silabus 
+  Silabus 
 @endsection
 
 @section('contentheader_title')
@@ -15,14 +15,25 @@ Silabus
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
+<div class="flash-message" style="margin-left: -16px;margin-right: -16px; margin-top: 13px;">
+  @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+  @if(Session::has('alert-' . $msg))
+<div class="alert alert-{{ $msg }}">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <p class="" style="border-radius: 0">{{ Session::get('alert-' . $msg) }}</p>
+</div>
+  {!!Session::forget('alert-' . $msg)!!}
+  @endif
+  @endforeach
+</div>
 <div class="form-group">
 <a href="{{url('/dosen/kurikulum/silabus/create')}}" class="btn btn-info btn-sm">Tambah Silabus</a>
 </div>
 
-<div class="box box-primary">
+<div class="box box-danger">
 <div class="box-body">
 
-<table class="table" id="data-table" style="width:100%">
+<table class="table table-bordered table-striped" id="data-table" style="width:100%">
   <thead>
     <tr>
       <th>Nomer</th>
@@ -36,13 +47,13 @@ Silabus
   @foreach($mata_kuliah as $i => $mk)
   <tr>
     <td width="2%" style="text-align-center">{{$i+1}}</td>
-    <td><a href="{{url('/dosen/kurikulum/silabus/edit/'.$mk->id_mk)}}">{{$mk->kode_matkul}}</a></td>
-    <td>{{$mk->nama_matkul}}</td>
+    <td style="text-align:center"><a href="{{url('/dosen/kurikulum/silabus/edit/'.$mk->id_mk)}}">{{$mk->kode_matkul}}</a></td>
+    <td width="40%" style="text-align:center">{{$mk->nama_matkul}}</td>
     <td width="30%" style="text-align:center">
-      <a onclick="return confirm('Anda yakin untuk menghapus Kategori ini?');" href="{{url('/dosen/kurikulum/silabus/'.$mk->id_mk.'/delete/')}}" class="btn btn-danger btn-xs">
-      <i class="fa fa-trash-o"></i> Delete</a>
-      <a class="btn btn-info btn-xs">
-        <i class="fa fa-download-square-o"></i> Download</a>
+      <a onclick="return confirm('Anda yakin untuk menghapus Kategori ini?');" href="{{url('/dosen/kurikulum/silabus/delete/'.$mk->id_mk)}}" class="btn btn-danger btn-xs">
+        <i class="fa fa-trash-o"></i> Delete</a>
+      <a href="{{url('/dosen/kurikulum/silabus/pdf/'.$mk->id_mk)}}" target="_blank" class="btn btn-info btn-xs">
+        <i class="fa fa-file-text-o" aria-hidden="true"></i> Download PDF</a>
     </td>
     @endforeach 
   </tbody>                                

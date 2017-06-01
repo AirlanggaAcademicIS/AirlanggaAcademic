@@ -43,10 +43,15 @@ Krs
             <div class="tab-content">
   				    <div id="AmbilKrs" class="tab-pane fade in active">
     				  <h3>Ambil Krs</h3>
-    				  <div style="margin-bottom: 10px">
+    				  <div style="margin-: 10px">
   				    <!-- Href ini biar diklik masuk ke form tambah -->
-    				    <a href="{{url('/mahasiswa/KrsKhs/Krs/create')}}" type="button" class="btn btn-info btn-md" >
+    				    <a href="{{url('/mahasiswa/krskhs/krs/create')}}" type="button" class="btn btn-info btn-md" >
         				<i class="fa fa-plus-square"></i>Ambil</a>
+                </div>
+              <div style="margin-right: 10px">
+              <!-- Href ini biar diklik masuk ke form tambah -->
+                <a href="{{url('/mahasiswa/krskhs/krs/{}/update')}}" type="button" class="btn btn-info btn-md" >
+                <i class="fa fa-plus-square"></i>Edit</a>
                 </div>
   				    </div>
   				  <div id="LihatKrs" class="tab-pane fade">
@@ -55,23 +60,11 @@ Krs
     				  <p>Some content in menu 1.</p>
   				  </div>
             </div>
-
-            <!--Pandu, ngerjakno seng nisor yo, nggawe file cetak, isok copas teko fara-->
-            <!--Nama File PDF nak karyawan/kurikulum/mata kuliah/PDF, lek wes delete tulisan ini-->
-            <!--<div class="col-md-3">
-              <a target="_blank" style="width: 100%; margin-bottom: 5px;" href="{{url('/mahasiswa/KrsKhs/Krs/print/'}}" class="btn btn-primary btn-xs">
-              <i class="fa fa-print"></i>Cetak</a>                                
-            </div>-->
         </div>
     </div>
-    </div>
+  </div>
 @endsection
 
 @section('code-footer')
-<!-- <script src="{{asset('js/jquery.dataTables.min.js')}}"></script> -->
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#data-table').DataTable();
-    });
-</script>
+
 @endsection

@@ -42,6 +42,7 @@ Jadwal Kuliah
       <th style="text-align:center">Ruang</th>
 
       <th style="text-align:center">Action</th>
+
     </tr>
     </thead>
   <tbody>
@@ -52,6 +53,13 @@ Jadwal Kuliah
       <td width="15%" style="text-align:center">{{$j->jam->waktu}}</td>
       <td width="20%" style="text-align:center">{{$j->hari->nama_hari}}</td>
       <td width="20%" style="text-align:center">{{$j->ruang->nama_ruang}}</td>
+      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus jadwal ini?');"
+       href="{{url('/krs-khs/jadwal_kuliah/'.$j->mk_ditawarkan_id.'/delete/')}}" class="btn btn-danger btn-xs">
+        <i class="fa fa-trash-o"></i> Hapus</a>
+       
+        <a href="{{url('/krs-khs/jadwal_kuliah/'.$j->mk_ditawarkan_id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Edit</a>
+      </td>
     </tr>
      @empty
         <tr>
