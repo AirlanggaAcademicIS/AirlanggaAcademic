@@ -81,7 +81,9 @@ class DokumentasiController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'dokumentasi',
             // Mencari biodata berdasarkan id
-            'dokumentasi' => Dokumentasi::find($id)
+            'dokumentasi' => Dokumentasi::find($id),
+
+            'kegiatan' => PengajuanKegiatan::find($id)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
@@ -94,9 +96,9 @@ class DokumentasiController extends Controller
         $dokumentasi = Dokumentasi::find($id);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $dokumentasi->nama_dokumentasi = $request->input('nama_dokumentasi');
-        $dokumentasi->deskripsi = $request->input('deskripsi');
-        $dokumentasi->gambar = $request->input('gambar');
+        // $dokumentasi->nama_dokumentasi = $request->input('nama_dokumentasi');
+        $dokumentasi->lesson_learned = $request->input('lesson_learned');
+        $dokumentasi->gambar = $request->input('url_foto');
         $dokumentasi->save();
 
         // Notifikasi sukses
@@ -104,6 +106,17 @@ class DokumentasiController extends Controller
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('dosen/dokumentasi');
+    }
+
+    public function toPdf($id_kegiatan)
+    {   
+        $data = [
+            'kegiatan' => PengajuanKegiatan::find($id_kegiatan),
+            'dokumentasi' => Dokumentasi::all()
+        ];
+
+        $pdf = PDF::loadView('dosen.pengelolaan-kegiatan.detail-pengajuan.pdf', $data);
+        return $pdf->download('pengelolaan-kegiatan.pdf');
     }
 
 }

@@ -15,6 +15,7 @@ use App\RincianDana;
 use App\RincianRundown;
 use App\Dokumentasi;
 use App\KategoriDana;
+use PDF;
 
 class DetailPengajuanController extends Controller
 {
@@ -38,6 +39,10 @@ class DetailPengajuanController extends Controller
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('mahasiswa.pengelolaan-kegiatan.detail-pengajuan.index',$data);
     }
-
+    // public function toPdf()
+    // {   
+    //     $pdf = PDF::loadView('mahasiswa.pengelolaankegiatan.pdf');
+    //     return $pdf->download('pengelolaan-kegiatan.pdf');
+    // }
     
 }
