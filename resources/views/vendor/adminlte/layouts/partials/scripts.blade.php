@@ -34,11 +34,7 @@
 <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 <script src="{{asset('/plugins/bootstrap-datepicker.js')}}"></script>
 <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 8a5d36fae8e494c1c6fccc7b89a4b8f0c213a374
 <script src="{{ asset('/js/jquery.steps.js') }}" type="text/javascript"></script>
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="{{ asset('/js/jquery-ui.js') }}" type="text/javascript"></script>
@@ -64,10 +60,6 @@
 
 
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
-<<<<<<< HEAD
-=======
-
->>>>>>> 8a5d36fae8e494c1c6fccc7b89a4b8f0c213a374
 <script>
     window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
@@ -84,36 +76,5 @@
             }
         }
     });
-
-    $("#penelitian").steps({
-                headerTag: "h2",
-                bodyTag: "section",
-              onFinished: function (event, currentIndex)
-            {
-                var form = $(this);
-
-                // Submit form input
-<<<<<<< HEAD
-
-
-                form.submit();
-            }           
-    });
-
-    </script>
-@yield('code-footer')
-
-
-
-                form.submit();
-            }           
-    });
-
-=======
-                form.submit();
-            }           
-    });
->>>>>>> 8a5d36fae8e494c1c6fccc7b89a4b8f0c213a374
-    </script>
-
+</script>
 @yield('code-footer')
