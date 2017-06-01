@@ -12,7 +12,9 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\PenelitianDosen;
-
+use Auth;
+use Illuminate\Support\Facades\DB;
+use App\Penelitian_Dosen;
 
 class PenelitianController extends Controller
 {
@@ -20,11 +22,16 @@ class PenelitianController extends Controller
     // Function untuk menampilkan tabel
     public function index()
     {
+        $dosen = Auth::user()->username;
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar penelitian
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'penelitian',
-            // Memanggil semua isi dari tabel penelitian
-            'penelitian' => PenelitianDosen::all()
+            // Memanggil semua isi dari tabel biodata
+            'penelitian' => DB::table('penelitian_milik_dosen')
+            ->where('penelitian_milik_dosen.nip','=',$dosen)
+            ->join('penelitian_dosen', 'penelitian_milik_dosen.penelitian_id', '=', 'penelitian_dosen.penelitian_id')
+            ->select('*')
+            ->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/penelitian dan juga menambahkan $data tadi di view
@@ -43,14 +50,15 @@ class PenelitianController extends Controller
     }
 
     public function createAction(Request $request)
-    {
+    {   $user = Auth::user()->username;
         // Menginsertkan apa yang ada di form ke dalam tabel penelitian
         $dosen = $request->input();
         $dosen['status_penelitian'] = 0 ;
         $dosen['file_penelitian'] = time() .'.'.$request->file('file_penelitian')->getClientOriginalExtension();
         PenelitianDosen::create($dosen);
         $file = $request->file('file_penelitian')->move("img/dosen/",$dosen['file_penelitian']);
-
+        $id = PenelitianDosen::where('judul_penelitian', $request->input('judul_penelitian'))->first();
+        Penelitian_Dosen::create(['nip' => $user,'penelitian_id'  => $id->penelitian_id]);
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'penelitian berhasil ditambahkan');
 

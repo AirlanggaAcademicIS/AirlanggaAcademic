@@ -43,8 +43,12 @@ Penelitian Mahasiswa
 <<<<<<< HEAD
       <th style="text-align:center">Nama</th>
 =======
+<<<<<<< HEAD
+      <th style="text-align:center">Nama</th>
+=======
       <th style="text-align:center">Anggota</th>
 >>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
+>>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
       <th style="text-align:center">Tahun Penelitian</th>
       <th style="text-align:center">Status</th>
       <th style="text-align:center"></th>

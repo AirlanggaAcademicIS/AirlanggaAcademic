@@ -78,6 +78,7 @@ class AkunMahasiswaController extends Controller
         $user->name = $request->input("nim");        
         $password  = $request->input("nim");
         $password = Hash::make($password);
+        $user->role = "mahasiswa";
         $user->password = $password;
         $user->save();
 

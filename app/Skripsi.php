@@ -34,6 +34,13 @@ class Skripsi extends Model
     'upload_berkas_skripsi'
     ];
 
+<<<<<<< HEAD
+    public $incrementing = false;
+   
+
+=======
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
+
    public function mhs()
    {
     return $this->belongsTo('App\AkunMahasiswa','NIM_id');
@@ -43,6 +50,13 @@ class Skripsi extends Model
    {
         return $this->belongsTo('App\KBK','kbk_id');
    }
+
+
+    public function dosen()
+   {
+        return $this->hasMany('App\DosenPembimbing','skripsi_id');
+   }
+
 }
 
   

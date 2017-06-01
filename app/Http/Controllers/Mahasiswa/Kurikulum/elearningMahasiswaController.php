@@ -31,4 +31,10 @@ class elearningMahasiswaController extends Controller
         return view('mahasiswa.Kurikulum.elearning.index',$data);
     }
 
+    public function download($nama_file)
+    {
+        $pathToFile=public_path('file/'.$nama_file);
+        return response()->download($pathToFile);
+    }
+
     }

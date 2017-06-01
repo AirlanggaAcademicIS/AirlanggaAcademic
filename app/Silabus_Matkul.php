@@ -18,10 +18,16 @@ class Silabus_Matkul extends Model
 		'kode_matkul',
 		'penilaian_matkul',
 		'pustaka_utama',
-		'status_silabus'			
+		'status_silabus',			
+		'jenis_mk_id'
    ];
    protected $dates = [
    'deleted_at'
    ];
+
+   public function jenisMk()
+   {
+	   return $this->belongsTo('App\JenisMataKuliah', 'jenis_mk_id', 'id');
+   }
 
 }

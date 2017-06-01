@@ -58,7 +58,7 @@ Biodata Mahasiswa
       <td width="15%" style="text-align:center" >
       @if($bio->nim_id == Auth::user()->username)
         <a href="{{url('/mahasiswa/biodata-mahasiswa/'.$bio->id_bio.'/edit/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Edit</a>
+        <i class="fa fa-pencil-square-o"></i> Input/Edit</a>
       @endif
         </td>
     </tr>
@@ -74,5 +74,10 @@ Biodata Mahasiswa
 @endsection
 
 @section('code-footer')
-
+<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#myTable').DataTable();
+});
+</script>
 @endsection
