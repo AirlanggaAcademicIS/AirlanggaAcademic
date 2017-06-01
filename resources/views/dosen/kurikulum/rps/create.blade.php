@@ -81,23 +81,23 @@ Tambah Kategori Media Pembelajaran
 
 <div class="form-group box-header">
   <label for="deskripsi_matkul"><b>Deskripsi Singkat Mata Kuliah</b></label>
-    <textarea class="form-control" rows="3" placeholder="Masukkan deskripsi singkat tentang mata kuliah" name="deskripsi_matkul"></textarea>
+    <textarea class="form-control" rows="3" placeholder="Masukkan deskripsi singkat tentang mata kuliah" name="deskripsi_matkul" required></textarea>
 </div>
 
 <div class="form-group box-header">
   <label for="pokok_pembahasan"><b>Pokok Pembahasan</b></label>
-    <textarea class="form-control" rows="3" placeholder="Masukkan pokok pembahasan mata kuliah" name="pokok_pembahasan"></textarea><br>
+    <textarea class="form-control" rows="3" placeholder="Masukkan pokok pembahasan mata kuliah" name="pokok_pembahasan" required></textarea><br>
 </div>
 
 <div class="form-group box-header">
   <p><b>Pustaka</b></p>
     <label for="pustaka_utama">Pustaka Utama</label>
-    <textarea class="form-control" rows="3" placeholder="Masukkan pustaka utama" name="pustaka_utama"></textarea>
+    <textarea class="form-control" rows="3" placeholder="Masukkan pustaka utama" name="pustaka_utama" required></textarea>
 </div>
  
 <div class="form-group box-header">
 <label for="pustaka_pendukung">Pustaka Pendukung</label>
-  <textarea class="form-control" rows="3" placeholder="Masukkan pustaka pendukung" name="pustaka_pendukung"></textarea><br>
+  <textarea class="form-control" rows="3" placeholder="Masukkan pustaka pendukung" name="pustaka_pendukung" required></textarea><br>
 </div>
   
 <div class="form-group box-header">
@@ -123,7 +123,7 @@ Tambah Kategori Media Pembelajaran
 
 <div class="form-group box-header">
   <label for="koor_mk2">Anggota Team Teaching 2</label>
-    <select name="koor_mk2" class="form-control">
+    <select name="koor_mk2" class="form-control" required>
       <option value="">Pilih Dosen</option>
         @foreach($dosen as $d) 
           <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
@@ -133,7 +133,7 @@ Tambah Kategori Media Pembelajaran
 
 <div class="form-group box-header">
   <label for="koor_mk3">Anggota Team Teaching 3</label>
-    <select name="koor_mk3" class="form-control">
+    <select name="koor_mk3" class="form-control" required>
       <option value="">Pilih Dosen</option>
         @foreach($dosen as $d) 
           <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
