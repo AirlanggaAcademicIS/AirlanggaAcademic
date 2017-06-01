@@ -12,23 +12,17 @@
         "knplabs/knp-snappy": "^0.4.3",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-<<<<<<< HEAD
-=======
+
 
 
         "knplabs/knp-snappy": "^0.4.3",
 
         "barryvdh/laravel-snappy": "^0.3.3",
         "maatwebsite/excel": "~2.1.0",
->>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         "maddhatter/laravel-fullcalendar": "^1.2",
         "maatwebsite/excel": "~2.1.0",
         "milon/barcode": "^5.3"
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
