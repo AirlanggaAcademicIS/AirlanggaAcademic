@@ -14,7 +14,17 @@
 @endsection
 
 @section('main-content')
-<!-- include summernote css/js-->
+<div class="flash-message" style="margin-left: -16px;margin-right: -16px; margin-top: 13px;">
+  @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+    @if(Session::has('alert-' . $msg))
+      <div class="alert alert-{{ $msg }}">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <p class="" style="border-radius: 0">{{ Session::get('alert-' . $msg) }}</p>
+      </div>
+      {!!Session::forget('alert-' . $msg)!!}
+    @endif
+  @endforeach
+</div>
 
 <div class="col-md-6">
           <div class="box box-primary">
@@ -37,14 +47,16 @@
 
                 <tbody>
                  @forelse($mata_kuliah as $i => $mk) 
+                  @if(!in_array($mk->id_mk,$mk_terpilih))
                   <tr>
-                    <td>{{ $i+1 }}</td>
+                    <td style="text-align: center;">{{ $i+1 }}</td>
                     <td width="60%" style="text-align:center">{{$mk->nama_matkul}}</td>
                     <td width="35%" style="text-align:center" >
                     <a href="{{url('karyawan/kurikulum/mk-prodi/pilih/'.$mk->id_mk)}}" class="btn btn-success btn-xs">
                     <i class="fa fa-pencil-square-o"></i> Pilih</a>
                     </td>
                   </tr>
+                  @endif
                    @empty
                       <tr>
                         <td colspan="6"><center>Belum ada Kode</center></td>
@@ -60,6 +72,7 @@
           </div>
         </div>
 
+<!-- INI TABEL MATUKUL TERPILIH -->
         <div class="col-md-6">
           <div class="box box-primary">
             <div class="box-header">
@@ -80,20 +93,18 @@
                 </thead>
 
                 <tbody>
-                 @forelse($mata_kuliah as $i => $mk) 
+                 @forelse($mkprodi as $i => $mk) 
                   <tr>
-                    <td>{{ $i+1 }}</td>
-                    <td width="60%" style="text-align:center">{{$mk->nama_matkul}}</td>
-                    <td width="35%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus biodata ini?');" href="{{url('dosen/kurikulum/kodecppem/delete/'.$mk->id_kategori_cpem)}}" class="btn btn-danger btn-xs">
+                    <td style="text-align: center;">{{ $i+1 }}</td>
+                    <td width="60%  " style="text-align:center">{{$mk->nama_matkul}}</td>
+                    <td width="35%" style="text-align:center" >
+                      <a onclick="return confirm('Anda yakin untuk menghapus mata kuliah ini?');" href="{{url('karyawan/kurikulum/mk-prodi/delete/'.$mk->mk_id)}}" class="btn btn-danger btn-xs">
                     <i class="fa fa-trash-o"></i> Hapus</a>
-
-                      <a href="{{url('dosen/kurikulum/kodecppem/edit/'.$mk->id_kategori_cpem)}}" class="btn btn-success btn-xs">
-                      <i class="fa fa-pencil-square-o"></i> Edit</a>
-                      </td>
+                    </td>
                   </tr>
                    @empty
                       <tr>
-                        <td colspan="6"><center>Belum ada Kode</center></td>
+                        <td colspan="6"><center>Belum ada Mata Kuliah di Prodi</center></td>
                       </tr>
                   @endforelse
                 </tbody>

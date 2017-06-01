@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
+use Auth;
+use Illuminate\Support\Facades\DB;
+
 // Tambahkan model yang ingin dipakai
 use App\PengajuanKegiatan;
 
@@ -24,11 +27,32 @@ class PengajuanController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'pengajuan',
             // Memanggil semua isi dari tabel biodata
-            'pengajuan' => PengajuanKegiatan::all()
+            'pengajuan' => PengajuanKegiatan::where('konfirmasi_proposal','0') -> where('konfirmasi_lpj','0')-> get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('mahasiswa.pengelolaan-kegiatan.pengajuan.index',$data);
+    }
+
+    // Function untuk menampilkan tabel
+    public function indexx()
+    {
+        $nim = Auth::user()->username;
+        $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'Status',
+            // Memanggil semua isi dari tabel biodata
+            'Status' => DB::table('mhs_kegiatan')
+            ->join('pengajuan_kegiatan','pengajuan_kegiatan.id_kegiatan' , '=', 'mhs_kegiatan.kegiatan_id') 
+            ->join('biodata_mhs', 'biodata_mhs.nim_id', '=', 'mhs_kegiatan.nim_id') 
+            ->select('*')
+            ->where('biodata_mhs.nim_id', '=', $nim)
+            ->where('pengajuan_kegiatan.konfirmasi_proposal','=','0')
+            ->where('pengajuan_kegiatan.konfirmasi_lpj','=','0')
+            ->get()
+        ];
+        // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
+        return view('mahasiswa.pengelolaan-kegiatan.status.index',$data);
     }
 
     public function create()
@@ -44,9 +68,27 @@ class PengajuanController extends Controller
 
     public function createAction(Request $request)
     {
-        // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        PengajuanKegiatan::create($request->input());
 
+        
+        // Menginsertkan apa yang ada di form ke dalam tabel biodata
+        // PengajuanKegiatan::create($request->input());
+        $pen = $request->input();
+        $pen['url_poster']= time() .'.'.$request->file('url_poster')->getClientOriginalExtension();
+        // Menginsertkan apa yang ada di form ke dalam tabel biodata
+        // PengajuanKegiatan::create($pen);
+            $gambar = $request->file('url_poster')->move("img/pengajuan/",$pen['url_poster']);
+        
+        $pengajuan = new PengajuanKegiatan;
+        $pengajuan->nama = $request->input('nama');
+        $pengajuan->konfirmasi_proposal = "0";
+        $pengajuan->konfirmasi_lpj = "0";
+        $pengajuan->history = $request->input('history');
+        $pengajuan->tujuan = $request->input('tujuan');
+        $pengajuan->mekanisme = $request->input('mekanisme');
+        $pengajuan->tglpengajuan = $request->input('tglpengajuan');
+        $pengajuan->rpengajuan = $request->input('rpengajuan');
+        $pengajuan->url_poster = $pen['url_poster'];
+        $pengajuan->save();
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Pengajuan Kegiatan berhasil ditambahkan');
 
@@ -74,32 +116,36 @@ class PengajuanController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'pengajuan',
             // Mencari biodata berdasarkan id
-            'pengajuan' => Pengajuan::find($id)
+            'pengajuan' => PengajuanKegiatan::find($id)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('pengelolaan-kegiatan.pengajuan.edit',$data);
+        return view('mahasiswa.pengelolaan-kegiatan.status.edit',$data);
     }
 
     public function editAction($id, Request $request)
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $pengajuan = Pengajuan::find($id);
+        $pengajuan = PengajuanKegiatan::find($id);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $pengajuan->nama_kegiatan = $request->input('nama_kegiatan');
-        $pengajuan->latar_belakang = $request->input('latar_belakang');
-        $pengajuan->tujuan_kegiatan = $request->input('tujuan_kegiatan');
-        $pengajuan->mekanisme_kegiatan = $request->input('mekanisme_kegiatan');
-        $pengajuan->tanggal_pengajuan = $request->input('tanggal_pengajuan');
-        $pengajuan->tempat_pengajuan = $request->input('tempat_pengajuan');
+        $pengajuan->nama = $request->input('nama_kegiatan');
+        $pengajuan->konfirmasi_proposal = "0";
+        $pengajuan->konfirmasi_lpj = "0";
+        $pengajuan->konfirmasi = $request->input('konfirmasi');
+        $pengajuan->history = $request->input('historyy');
+        $pengajuan->tujuan = $request->input('tujuan');
+        $pengajuan->mekanisme = $request->input('mekanisme');
+        $pengajuan->tglpengajuan = $request->input('tglpengajuan');
+        $pengajuan->tglpelaksanaan = $request->input('tglpelaksanaan');
+        $pengajuan->url_poster = $request->input('url_poster');
         $pengajuan->save();
 
         // Notifikasi sukses
         Session::put('alert-success', 'Pengajuan Kegiatan berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('pengelolaan-kegiatan/pengajuan');
+        return Redirect::to('mahasiswa/pengelolaan-kegiatan/status');
     }
 
 }

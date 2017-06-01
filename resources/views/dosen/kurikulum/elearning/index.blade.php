@@ -15,6 +15,7 @@ E-Learning
 
 @section('main-content')
 <!-- include summernote css/js-->
+<div class="box box-danger">
 <div class="flash-message" style="margin-left: -16px;margin-right: -16px; margin-top: 13px;">
   @foreach (['danger', 'warning', 'success', 'info'] as $msg)
   @if(Session::has('alert-' . $msg))
@@ -59,9 +60,13 @@ E-Learning
   </tbody>
 </table>
 </div>
-
+</div>
 @endsection
 
 @section('code-footer')
-
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#myTable').DataTable();
+  });
+</script>  
 @endsection

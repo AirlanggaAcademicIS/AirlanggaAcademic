@@ -20,6 +20,15 @@ Pengajuan Kegiatan
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
+<section class="content">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"></h3>
+            </div>
 
 <!-- Ini buat menampilkan notifikasi -->
   @foreach (['danger', 'warning', 'success', 'info'] as $msg)
@@ -61,6 +70,7 @@ Pengajuan Kegiatan
           </div>
         </div>
 
+
               <!-- textarea -->
                 <div class="form-group">
           <label for="nama" class="col-sm-2 control-label">Latar Belakang</label>
@@ -97,31 +107,19 @@ Pengajuan Kegiatan
         </div>
 
         <div class="form-group">
-          <label for="nama" class="col-sm-2 control-label">Tanggal Pelaksanaan</label>
+          <label for="nama" class="col-sm-2 control-label">Ruang Pengajuan</label>
           <div class="col-md-7">
-            <input type="text" class="form-control input-lg" id="datepicker2" name="tglpelaksanaan" placeholder="Masukkan Tanggal" required>
+            <input type="text" class="form-control input-lg" id="rpengajuan" name="rpengajuan" placeholder="Masukkan Ruang Pengajuan" required>
           </div>
         </div>
 
-        <!-- textarea -->
-                <div class="form-group">
-          <label for="nama" class="col-sm-2 control-label">Url Poster</label>
-          <div class="col-md-8">
-            <textarea id="url_poster" name="url_poster" placeholder="Masukkan Url Poster" required cols="82" rows="5">
-            </textarea>
-          </div>
-        </div>
-
-        <!-- textarea -->
-                <div class="form-group">
-          <label for="nama" class="col-sm-2 control-label">Sumber Dana</label>
-          <div class="col-md-8">
-            <textarea id="sumber_id" name="sumber_id" placeholder=" Masukkan sumber dana" required cols="82" rows="5">
-            </textarea>
-          </div>
-        </div>
+        <div class="form-group">
+                  <label for="exampleInputFile">File input</label>
+                  <input type="file" id="gambar" name="url_poster">
+                </div>
                
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Next</button>
+
               </div>
             </form>
           </div>
@@ -140,6 +138,36 @@ $( function() {
     var date2 = $('#datepicker2').datepicker({ dateFormat: 'yy/mm/dd' }).val();
 
   } );
+
+
+    var elBrowse  = document.getElementById("gambar");
+  elBrowse.addEventListener("change", function() {
+    var files  = this.files;
+    var errors = "";
+    if (!files) {
+      errors += "File upload not supported by your browser.";
+    }
+    if (files && files[0]) 
+    {
+      for(var i=0; i<files.length; i++) 
+      {
+        var file = files[i];
+        if ( (/\.(png|jpeg|jpg|gif)$/i).test(file.name) ) 
+        {
+          readImage( file ); 
+        } 
+        else 
+        {
+          errors += file.name +" is unsupported Image extension\n";
+          document.getElementById("gambar").value = null;  
+        }
+      }
+    }
+    if (errors) {
+      alert(errors); 
+    }
+  });
+
   </script>
 
 

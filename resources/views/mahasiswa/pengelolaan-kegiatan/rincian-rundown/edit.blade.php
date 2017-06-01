@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Edit Rundown
+Edit Rincian Rundown Kegiatan
 @endsection
 
 @section('contentheader_title')
-Edit Rundown
+Edit Rincian Rundown Kegiatan
 @endsection
 
 @section('code-header')
@@ -45,22 +45,22 @@ Edit Rundown
 			</div>
 			@endif
 			<br>
-			<form id="tambahRundown" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/rincian-rundown/'.$rincianrundown->id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahRundown" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/rincian-rundown/'.$rincianrundown->id_rundown.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nomor Kegiatan</label>
+					<label for="kegiatan_id" class="col-sm-2 control-label">Jenis Kegiatan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nomor_kegiatan" name="nomor_kegiatan" placeholder="Masukkan Nomor Kegiatan" value="{{$rincianrundown->nomor_kegiatan}}" required>
+						<input type="text" class="form-control input-lg" id="kegiatan_id" name="kegiatan_id" placeholder="Masukkan Jenis Kegiatan" value="{{$rincianrundown->kegiatan_id}}" required>
 					</div>
 				</div>
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Kategori Kegiatan</label>
+					<label for="kategori_rundown" class="col-sm-2 control-label">Kategori Kegiatan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="kategori_kegiatan" name="kategori_kegiatan" placeholder="Masukkan Kategori Kegiatan" value="{{$rincianrundown->kategori_kegiatan}}" required>
+						<input type="text" class="form-control input-lg" id="kategori_rundownn" name="kategori_rundown" placeholder="Masukkan Kategori Kegiatan" value="{{$rincianrundown->kategori_rundown}}" required>
 					</div>
 				</div>
 
@@ -69,7 +69,16 @@ Edit Rundown
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_kegiatan" name="nama_kegiatan" placeholder="Masukkan Nama Kegiatan" value="{{$rincianrundown->nama_kegiatan}}" required>
+						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama Kegiatan" value="{{$rincianrundown->nama}}" required>
+					</div>
+				</div>
+
+				<!-- Menampilkan tanggal dengan datepicker -->
+				<div class="form-group">
+					<label for="waktu" class="col-sm-2 control-label">Waktu Kegiatan</label>
+					<div class="col-md-8">
+					<input type="datetime-local" name="waktu">
+						<!-- <input type="text" class="form-control input-lg" id="datepicker" name="waktu" placeholder="Masukkan Waktu Kegiatan" required> -->
 					</div>
 				</div>
 
@@ -92,7 +101,7 @@ Edit Rundown
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
 $( function() {
-    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
+    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd H:i:s' }).val();
 
   } );
   </script>

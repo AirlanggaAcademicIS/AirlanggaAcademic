@@ -37,15 +37,14 @@ Pengajuan
     <tr>
       <th style="text-align:center">No.</th>
       <th style="text-align:center">Nama Kegiatan</th>
+      <th style="text-align:center">Konfirmasi LPJ</th>
+      <th style="text-align:center">Konfirmasi Proposal</th>
       <th style="text-align:center">Latar Belakang</th>      
       <th style="text-align:center">Tujuan Kegiatan</th>
       <th style="text-align:center">Mekanisme Kegiatan</th>
       <th style="text-align:center">Tanggal Pengajuan</th>
-      <th style="text-align:center">Tempat Pelaksanaan</th>
-      <th style="text-align:center">Url Poster</th>
-      <th style="text-align:center">Sumber Id</th>
-      <th style="text-align:center">Action</th>
-
+      <th style="text-align:center">Tanggal Pelaksanaan</th>
+      <th style="text-align:center">Poster</th>
     </tr>
     </thead>
   <tbody>
@@ -53,18 +52,14 @@ Pengajuan
     <tr>
       <td>{{ $i+1 }}</td>
       <td width="15%" style="text-align:center">{{$pen->nama}}</td>
+      <td width="15%" style="text-align:center">{{$pen->konfirmasi_lpj}}</td>
+      <td width="15%" style="text-align:center">{{$pen->konfirmasi_proposal}}</td>
       <td width="20%" style="text-align:center">{{$pen->history}}</td>
       <td width="10%" style="text-align:center">{{$pen->tujuan}}</td>
       <td width="10%" style="text-align:center">{{$pen->mekanisme}}</td>
       <td width="10%" style="text-align:center">{{$pen->tglpengajuan}}</td>
       <td width="10%" style="text-align:center">{{$pen->tglpelaksanaan}}</td>
-      <td width="10%" style="text-align:center">{{$pen->url_poster}}</td>
-      <td width="10%" style="text-align:center">{{$pen->sumber_id}}</td>
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus biodata ini?');" href="{{url('/pengelolaan-kegiatan/pengajuan/'.$pen->id.'/delete/')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('/pengelolaan-kegiatan/pengajuan/'.$pen->id.'/edit/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Edit</a>
-        </td>
+      <td width="10%" style="text-align:center"><img src="{{URL::asset('/img/pengajuan/'.$pen->url_poster)}}" height="100px" width="100px" hspace="5px" vspace="2px"></td>
     </tr>
      @empty
         <tr>
