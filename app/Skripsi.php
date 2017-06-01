@@ -35,12 +35,7 @@ class Skripsi extends Model
     ];
 
     public $incrementing = false;
-    protected $fillable = [
-    'NIM_id',
-    'nip_petugas_id',
-    'kbk_id',
-    'Judul'
-   ];
+   
 
 
    public function mhs()
