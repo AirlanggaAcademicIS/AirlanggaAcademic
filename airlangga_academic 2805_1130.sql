@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2017 at 12:33 PM
+-- Generation Time: May 28, 2017 at 12:30 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -37,19 +37,17 @@ CREATE TABLE `asset` (
   `expired_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `nama_supplier` varchar(50) NOT NULL,
   `harga_satuan` int(11) NOT NULL,
-  `jumlah_barang` int(11) NOT NULL,
-  `total_harga` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `asset`
 --
 
-INSERT INTO `asset` (`id_asset`, `kategori_id`, `nip_petugas_id`, `status_id`, `serial_barcode`, `nama_asset`, `lokasi`, `expired_date`, `nama_supplier`, `harga_satuan`, `jumlah_barang`, `total_harga`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(3457, 1, '12345', 1, 'serial barcode', 'nama aset', 'lokasi', '2017-05-07 10:40:33', 'nama suplier', 30000, 2, 60000, '2017-05-07 10:40:33', NULL, '0000-00-00 00:00:00');
+INSERT INTO `asset` (`id_asset`, `kategori_id`, `nip_petugas_id`, `status_id`, `serial_barcode`, `nama_asset`, `lokasi`, `expired_date`, `nama_supplier`, `harga_satuan`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(3457, 1, '12345', 1, 'serial barcode', 'nama aset', 'lokasi', '2017-05-07 10:40:33', 'nama suplier', 30000, '2017-05-07 10:40:33', NULL, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -105,21 +103,22 @@ CREATE TABLE `biodata_mhs` (
   `nim_id` varchar(15) NOT NULL,
   `nama_mhs` varchar(70) NOT NULL,
   `email_mhs` varchar(50) NOT NULL,
-  `jenis_kelamin` varchar(15) NOT NULL,
-  `negara_asal` varchar(30) NOT NULL,
-  `provinsi_asal` varchar(30) NOT NULL,
-  `kota_asal` varchar(30) NOT NULL,
-  `kota_tinggal` varchar(30) NOT NULL,
-  `alamat_tinggal` varchar(50) NOT NULL,
-  `ttl` varchar(30) NOT NULL,
-  `angkatan` varchar(4) NOT NULL,
-  `agama` varchar(12) NOT NULL,
-  `kebangsaan` varchar(30) NOT NULL,
-  `sma_asal` varchar(30) NOT NULL,
-  `nama_ayah` varchar(70) NOT NULL,
-  `nama_ibu` varchar(70) NOT NULL,
-  `deskripsi_diri` text NOT NULL,
-  `motto` varchar(70) NOT NULL,
+  `foto_mhs` varchar(50) NOT NULL,
+  `jenis_kelamin` varchar(15) DEFAULT NULL,
+  `negara_asal` varchar(30) DEFAULT NULL,
+  `provinsi_asal` varchar(30) DEFAULT NULL,
+  `kota_asal` varchar(30) DEFAULT NULL,
+  `kota_tinggal` varchar(30) DEFAULT NULL,
+  `alamat_tinggal` varchar(50) DEFAULT NULL,
+  `ttl` varchar(30) DEFAULT NULL,
+  `angkatan` varchar(4) DEFAULT NULL,
+  `agama` varchar(12) DEFAULT NULL,
+  `kebangsaan` varchar(30) DEFAULT NULL,
+  `sma_asal` varchar(30) DEFAULT NULL,
+  `nama_ayah` varchar(70) DEFAULT NULL,
+  `nama_ibu` varchar(70) DEFAULT NULL,
+  `deskripsi_diri` text,
+  `motto` varchar(70) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -129,8 +128,8 @@ CREATE TABLE `biodata_mhs` (
 -- Dumping data for table `biodata_mhs`
 --
 
-INSERT INTO `biodata_mhs` (`id_bio`, `nim_id`, `nama_mhs`, `email_mhs`, `jenis_kelamin`, `negara_asal`, `provinsi_asal`, `kota_asal`, `kota_tinggal`, `alamat_tinggal`, `ttl`, `angkatan`, `agama`, `kebangsaan`, `sma_asal`, `nama_ayah`, `nama_ibu`, `deskripsi_diri`, `motto`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '081411631070', 'nama mhs', 'email@mhs.com', 'jenis kelamin', 'negara asal', 'provinsi asal', 'kota asal', 'kota tinggal ', 'alamat tinggal', 'surabaya, 7 juni 2015', '2014', 'agama', 'kebangsaan', 'sma asal', 'nama ayah', 'nama ibu', 'deskripsi diri', 'motto', '2017-05-07 09:22:12', NULL, NULL);
+INSERT INTO `biodata_mhs` (`id_bio`, `nim_id`, `nama_mhs`, `email_mhs`, `foto_mhs`, `jenis_kelamin`, `negara_asal`, `provinsi_asal`, `kota_asal`, `kota_tinggal`, `alamat_tinggal`, `ttl`, `angkatan`, `agama`, `kebangsaan`, `sma_asal`, `nama_ayah`, `nama_ibu`, `deskripsi_diri`, `motto`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, '081411631070', 'nama mhs', 'email@mhs.com', '', 'jenis kelamin', 'negara asal', 'provinsi asal', 'kota asal', 'kota tinggal ', 'alamat tinggal', 'surabaya, 7 juni 2015', '2014', 'agama', 'kebangsaan', 'sma asal', 'nama ayah', 'nama ibu', 'deskripsi diri', 'motto', '2017-05-07 09:22:12', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -217,6 +216,13 @@ CREATE TABLE `cp_program` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `cp_program`
+--
+
+INSERT INTO `cp_program` (`id`, `prodi_id`, `capaian_program_spesifik`, `dimensi_capaian_umum`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 'capaian program spesifik', 'dimensi capaian umum', '2017-05-28 07:40:48', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -249,8 +255,6 @@ INSERT INTO `detail_anggota` (`id_anggota`, `kode_penelitian_id`, `anggota`, `st
 CREATE TABLE `detail_kategori` (
   `media_pembelajaran_id` int(11) NOT NULL,
   `cpmk_id` int(11) NOT NULL,
-  `sistem_pembelajaran_id` int(11) NOT NULL,
-  `detail_media_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -260,8 +264,8 @@ CREATE TABLE `detail_kategori` (
 -- Dumping data for table `detail_kategori`
 --
 
-INSERT INTO `detail_kategori` (`media_pembelajaran_id`, `cpmk_id`, `sistem_pembelajaran_id`, `detail_media_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, 1, '2017-05-07 11:24:47', NULL, NULL);
+INSERT INTO `detail_kategori` (`media_pembelajaran_id`, `cpmk_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, '2017-05-07 11:24:47', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -270,7 +274,6 @@ INSERT INTO `detail_kategori` (`media_pembelajaran_id`, `cpmk_id`, `sistem_pembe
 --
 
 CREATE TABLE `detail_media_pembelajaran` (
-  `id_detail_media` int(11) NOT NULL,
   `cpmk_id` int(11) NOT NULL,
   `sistem_pembelajaran_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -282,8 +285,8 @@ CREATE TABLE `detail_media_pembelajaran` (
 -- Dumping data for table `detail_media_pembelajaran`
 --
 
-INSERT INTO `detail_media_pembelajaran` (`id_detail_media`, `cpmk_id`, `sistem_pembelajaran_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, '2017-05-07 11:24:17', NULL, NULL);
+INSERT INTO `detail_media_pembelajaran` (`cpmk_id`, `sistem_pembelajaran_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, '2017-05-07 11:24:17', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -306,7 +309,8 @@ CREATE TABLE `detail_nilai` (
 --
 
 INSERT INTO `detail_nilai` (`mk_ditawarkan_id`, `mhs_id`, `jenis_penilaian_id`, `detail_nilai`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '081411631070', 1, 67, '2017-05-07 10:23:59', NULL, NULL);
+(1, '081411631070', 1, 67, '2017-05-07 10:23:59', NULL, NULL),
+(1, '081411631070', 2, 89, '2017-05-21 14:14:36', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -454,7 +458,7 @@ INSERT INTO `dosen_pembimbing` (`skripsi_id`, `nip_id`, `status`, `created_at`, 
 CREATE TABLE `dosen_pemohon_surat` (
   `nip_id` varchar(20) NOT NULL,
   `surat_keluar_id` int(11) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -463,7 +467,7 @@ CREATE TABLE `dosen_pemohon_surat` (
 -- Dumping data for table `dosen_pemohon_surat`
 --
 
-INSERT INTO `dosen_pemohon_surat` (`nip_id`, `surat_keluar_id`, `created`, `updated_at`, `deleted_at`) VALUES
+INSERT INTO `dosen_pemohon_surat` (`nip_id`, `surat_keluar_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
 ('12345678910', 1, '2017-05-07 10:32:08', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -525,8 +529,7 @@ CREATE TABLE `elearning` (
 --
 
 INSERT INTO `elearning` (`id_elearning`, `mk_ditawarkan_id`, `nip_id`, `nama_file`, `direktori_file`, `judul`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(0, 1, '12345678910', 'nama fie elearning', 'url file elearnig', 'judul elearning', '2017-05-07 11:17:26', NULL, NULL),
-(1, 1, '12345678910', 'nama fie elearning', 'url file elearnig', 'judul elearning', '2017-05-07 11:17:39', NULL, NULL);
+(2, 1, '12345678910', 'nama fie elearning', 'url file elearnig', 'judul elearning', '2017-05-07 11:17:26', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -605,7 +608,10 @@ CREATE TABLE `jadwal_kuliah` (
 --
 
 INSERT INTO `jadwal_kuliah` (`mk_ditawarkan_id`, `jam_id`, `hari_id`, `ruang_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, 1, '2017-05-07 10:20:29', NULL, NULL);
+(1, 1, 1, 1, '2017-05-07 10:20:29', NULL, NULL),
+(1, 1, 1, 2, '2017-05-25 09:03:49', NULL, NULL),
+(1, 2, 1, 2, '2017-05-21 13:06:26', NULL, NULL),
+(1, 3, 1, 2, '2017-05-25 08:30:21', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -646,7 +652,9 @@ CREATE TABLE `jam` (
 --
 
 INSERT INTO `jam` (`id_jam`, `waktu`) VALUES
-(1, '07:00:00');
+(1, '07:00:00'),
+(2, '07:50:00'),
+(3, '08:40:00');
 
 -- --------------------------------------------------------
 
@@ -658,17 +666,18 @@ CREATE TABLE `jenis_mk` (
   `id` int(11) NOT NULL,
   `jenis_mk` varchar(10) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jenis_mk`
 --
 
-INSERT INTO `jenis_mk` (`id`, `jenis_mk`, `created_at`, `updated_at`) VALUES
-(1, 'Utama', '2017-04-08 10:28:38', NULL),
-(2, 'Pendukung', '2017-04-08 10:28:38', NULL),
-(3, 'Khusus', '2017-04-08 10:29:01', NULL);
+INSERT INTO `jenis_mk` (`id`, `jenis_mk`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Utama', '2017-04-08 10:28:38', NULL, NULL),
+(2, 'Pendukung', '2017-04-08 10:28:38', NULL, NULL),
+(3, 'Khusus', '2017-04-08 10:29:01', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -689,7 +698,8 @@ CREATE TABLE `jenis_penilaian` (
 --
 
 INSERT INTO `jenis_penilaian` (`id_jenis_penilaian`, `nama_jenis`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'UTS', '2017-05-07 09:42:56', NULL, NULL);
+(1, 'UTS', '2017-05-07 09:42:56', NULL, NULL),
+(2, 'UAS', '2017-05-21 13:51:12', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -707,17 +717,18 @@ CREATE TABLE `jurnal` (
   `volume_jurnal` varchar(15) NOT NULL,
   `penulis_ke` varchar(20) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `file_jurnal` varchar(60) NOT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `delete_at` timestamp NULL DEFAULT NULL
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jurnal`
 --
 
-INSERT INTO `jurnal` (`jurnal_id`, `nama_jurnal`, `halaman_jurnal`, `bidang_jurnal`, `tanggal_jurnal`, `status_jurnal`, `volume_jurnal`, `penulis_ke`, `created_at`, `updated_at`, `delete_at`) VALUES
-(123455677, 'Decision Support System to Majoring High School Student', '314-322', 'Information System', '2017-04-04', NULL, '3', '4', '2017-04-09 11:44:09', '2017-04-09 05:51:52', NULL),
-(123455679, 'The Decision Support System For Predicting Color Change', '122-145', 'Information System', '2017-03-08', NULL, '4', '4', '2017-04-09 05:44:16', '2017-04-09 05:58:45', NULL);
+INSERT INTO `jurnal` (`jurnal_id`, `nama_jurnal`, `halaman_jurnal`, `bidang_jurnal`, `tanggal_jurnal`, `status_jurnal`, `volume_jurnal`, `penulis_ke`, `created_at`, `file_jurnal`, `updated_at`, `deleted_at`) VALUES
+(123455677, 'Decision Support System to Majoring High School Student', '314-322', 'Information System', '2017-04-04', NULL, '3', '4', '2017-04-09 11:44:09', '', '2017-04-09 05:51:52', NULL),
+(123455679, 'The Decision Support System For Predicting Color Change', '122-145', 'Information System', '2017-03-08', NULL, '4', '4', '2017-04-09 05:44:16', '', '2017-04-09 05:58:45', NULL);
 
 -- --------------------------------------------------------
 
@@ -748,15 +759,18 @@ INSERT INTO `jurnal_dosen` (`jurnal_id`, `nip`, `created_at`, `updated_at`, `del
 
 CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL,
-  `kategori` varchar(15) NOT NULL
+  `kategori` varchar(15) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kategori`
 --
 
-INSERT INTO `kategori` (`id_kategori`, `kategori`) VALUES
-(1, 'dokumen');
+INSERT INTO `kategori` (`id_kategori`, `kategori`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'dokumen', '2017-05-27 07:33:49', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -944,8 +958,8 @@ INSERT INTO `koor_mk` (`id_koor_mk`, `nip_id`, `mk_id`, `status_tt_id`, `created
 --
 
 CREATE TABLE `mahasiswa` (
-  `nim` varchar(15) NOT NULL,
-  `nlp_id` varchar(20) NOT NULL,
+  `nim` varchar(20) NOT NULL,
+  `nip_id` varchar(20) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -955,7 +969,7 @@ CREATE TABLE `mahasiswa` (
 -- Dumping data for table `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`nim`, `nlp_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+INSERT INTO `mahasiswa` (`nim`, `nip_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
 ('081411631070', '12345678910', '2017-05-07 09:16:12', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -995,11 +1009,11 @@ CREATE TABLE `mata_kuliah` (
   `id_mk` int(11) NOT NULL,
   `jenis_mk_id` int(11) NOT NULL,
   `kode_matkul` varchar(10) NOT NULL,
-  `nama_matkul` varchar(20) NOT NULL,
+  `nama_matkul` varchar(100) NOT NULL,
   `sks` int(11) NOT NULL,
   `deskripsi_matkul` text NOT NULL,
   `capaian_matkul` text NOT NULL,
-  `penilaian_matkul` varchar(35) NOT NULL,
+  `penilaian_matkul` varchar(200) NOT NULL,
   `pokok_pembahasan` text NOT NULL,
   `pustaka_utama` text NOT NULL,
   `pustaka_pendukung` text NOT NULL,
@@ -1093,7 +1107,7 @@ CREATE TABLE `mk_diambil` (
   `nilai` varchar(2) NOT NULL,
   `is_approve` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1101,7 +1115,7 @@ CREATE TABLE `mk_diambil` (
 -- Dumping data for table `mk_diambil`
 --
 
-INSERT INTO `mk_diambil` (`mk_ditawarkan_id`, `mhs_id`, `nilai`, `is_approve`, `created_at`, `update_at`, `deleted_at`) VALUES
+INSERT INTO `mk_diambil` (`mk_ditawarkan_id`, `mhs_id`, `nilai`, `is_approve`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, '081411631070', 'AB', 0, '2017-05-07 10:22:03', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -1203,7 +1217,7 @@ CREATE TABLE `notulen_rapat` (
   `nip_id` varchar(20) NOT NULL,
   `nama_rapat` varchar(100) NOT NULL,
   `agenda_rapat` longtext NOT NULL,
-  `waktu_pelaksanaan` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `waktu_pelaksanaan` date NOT NULL,
   `hasil_pembahasan` longtext NOT NULL,
   `id_verifikasi` varchar(2) NOT NULL,
   `deskripsi_rapat` varchar(100) NOT NULL,
@@ -1217,7 +1231,7 @@ CREATE TABLE `notulen_rapat` (
 --
 
 INSERT INTO `notulen_rapat` (`id_notulen`, `permohonan_ruang_id`, `nip_petugas_id`, `nip_id`, `nama_rapat`, `agenda_rapat`, `waktu_pelaksanaan`, `hasil_pembahasan`, `id_verifikasi`, `deskripsi_rapat`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, '12345', '12345678910', 'nama rapat', 'agenda rapat', '2017-05-12 09:59:47', 'hasil_pembahasan', '0', '', '2017-05-12 10:02:18', NULL, NULL);
+(1, 1, '12345', '12345678910', 'nama rapat', 'agenda rapat', '2017-05-12', 'hasil_pembahasan', '0', '', '2017-05-12 10:02:18', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1278,9 +1292,7 @@ CREATE TABLE `penelitian_mhs` (
 --
 
 INSERT INTO `penelitian_mhs` (`kode_penelitian`, `nim_id`, `nip_petugas_id`, `judul`, `peneliti`, `fakultas`, `tahun`, `halaman_naskah`, `sumber_dana`, `besar_dana`, `sk`, `publikasi`, `kategori_penelitian`, `is_verified`, `alasan_verified`, `file_pen`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1000, '081411631070', '12345', 'Judul', 'Peneliti', 'Fakultas', '2017', 'halaman', 'sumber dana', 'besar', 'sk', 'publikasi', 'PKM', 0, '', NULL, '2017-05-11 07:58:06', NULL, NULL),
-(1001, NULL, NULL, 'judul gan', 'bejo v2', 'saintek', '2011', '55', 'mandiri', '-', '001002', 'IEEE', 'PKM', 0, '', NULL, '2017-05-11 01:11:18', '2017-05-11 01:11:18', NULL),
-(1002, NULL, NULL, 'judul gan', 'bejo v2', 'saintek', '2011', '55', 'mandiri', '-', '001002', 'IEEE', 'PKM', 0, '', NULL, '2017-05-11 01:13:38', '2017-05-11 01:13:38', NULL);
+(1000, '081411631070', '12345', 'Judul', 'Peneliti', 'Fakultas', '2017', 'halaman', 'sumber dana', 'besar', 'sk', 'publikasi', 'PKM', 0, '', NULL, '2017-05-11 07:58:06', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1336,8 +1348,8 @@ INSERT INTO `pengabdian_masyarakat` (`kegiatan_id`, `nama_kegiatan`, `tempat_keg
 
 CREATE TABLE `pengajuan_kegiatan` (
   `id_kegiatan` int(25) NOT NULL,
-  `kategori` int(5) NOT NULL,
-  `konfirmasi` int(5) NOT NULL,
+  `konfirmasi_lpj` int(5) NOT NULL,
+  `konfirmasi_proposal` int(5) NOT NULL,
   `revisi` text,
   `nama` text NOT NULL,
   `history` text NOT NULL,
@@ -1348,7 +1360,6 @@ CREATE TABLE `pengajuan_kegiatan` (
   `rpengajuan` varchar(25) NOT NULL,
   `rpelaksanaan` varchar(25) DEFAULT NULL,
   `url_poster` varchar(100) DEFAULT NULL,
-  `sumber_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -1358,8 +1369,8 @@ CREATE TABLE `pengajuan_kegiatan` (
 -- Dumping data for table `pengajuan_kegiatan`
 --
 
-INSERT INTO `pengajuan_kegiatan` (`id_kegiatan`, `kategori`, `konfirmasi`, `revisi`, `nama`, `history`, `tujuan`, `mekanisme`, `tglpengajuan`, `tglpelaksanaan`, `rpengajuan`, `rpelaksanaan`, `url_poster`, `sumber_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 0, 'revisi', 'nama', 'history', 'tujuan', 'mekanisme', '2017-05-03', '2017-05-08', 'rencana pengajuan', 'rencana pelaksanaan', 'url poster', 1, '2017-05-07 10:50:50', NULL, NULL);
+INSERT INTO `pengajuan_kegiatan` (`id_kegiatan`, `konfirmasi_lpj`, `konfirmasi_proposal`, `revisi`, `nama`, `history`, `tujuan`, `mekanisme`, `tglpengajuan`, `tglpelaksanaan`, `rpengajuan`, `rpelaksanaan`, `url_poster`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 0, 'revisi', 'nama', 'history', 'tujuan', 'mekanisme', '2017-05-03', '2017-05-08', 'rencana pengajuan', 'rencana pelaksanaan', 'url poster', '2017-05-07 10:50:50', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1392,6 +1403,7 @@ CREATE TABLE `permohonan_ruang` (
   `id_permohonan_ruang` int(11) NOT NULL,
   `nip_petugas_id` varchar(50) NOT NULL,
   `nama` varchar(64) NOT NULL,
+  `tgl_pinjam` date NOT NULL,
   `atribut_verifikasi` int(11) NOT NULL,
   `nim_nip` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -1403,8 +1415,8 @@ CREATE TABLE `permohonan_ruang` (
 -- Dumping data for table `permohonan_ruang`
 --
 
-INSERT INTO `permohonan_ruang` (`id_permohonan_ruang`, `nip_petugas_id`, `nama`, `atribut_verifikasi`, `nim_nip`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '12345', 'nama pemohon', 0, '12345678910', '2017-05-07 10:26:20', NULL, NULL);
+INSERT INTO `permohonan_ruang` (`id_permohonan_ruang`, `nip_petugas_id`, `nama`, `tgl_pinjam`, `atribut_verifikasi`, `nim_nip`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, '12345', 'nama pemohon', '2017-05-30', 1, '12345678910', '2017-05-07 10:26:20', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1438,7 +1450,8 @@ CREATE TABLE `petugas_tu` (
   `nip_petugas` varchar(50) NOT NULL,
   `nama_petugas` varchar(24) NOT NULL,
   `no_telp_petugas` varchar(12) NOT NULL,
-  `email_petugas` varchar(20) NOT NULL,
+  `email_petugas` varchar(100) NOT NULL,
+  `prodi_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -1448,8 +1461,8 @@ CREATE TABLE `petugas_tu` (
 -- Dumping data for table `petugas_tu`
 --
 
-INSERT INTO `petugas_tu` (`nip_petugas`, `nama_petugas`, `no_telp_petugas`, `email_petugas`, `created_at`, `updated_at`, `deleted_at`) VALUES
-('12345', 'nama petugas', 'telp petugas', 'email@petugas.com', '2017-05-07 09:19:15', NULL, NULL);
+INSERT INTO `petugas_tu` (`nip_petugas`, `nama_petugas`, `no_telp_petugas`, `email_petugas`, `prodi_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+('12345', 'nama petugas', 'telp petugas', 'email@petugas.com', 2, '2017-05-07 09:19:15', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1494,7 +1507,7 @@ CREATE TABLE `prodi` (
   `fakultas_id` int(11) NOT NULL,
   `nip_id` varchar(20) DEFAULT NULL,
   `kode_prodi` varchar(10) DEFAULT NULL,
-  `nama_prodi` varchar(15) DEFAULT NULL,
+  `nama_prodi` varchar(20) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -1505,8 +1518,9 @@ CREATE TABLE `prodi` (
 --
 
 INSERT INTO `prodi` (`id_prodi`, `fakultas_id`, `nip_id`, `kode_prodi`, `nama_prodi`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(0, 1, '12345678910', 'kode1', 'SI', '2017-05-07 10:58:50', NULL, NULL),
-(2, 1, '12345678910', '123', 'SI', '2017-05-07 10:59:47', NULL, NULL);
+(1, 1, '12345678910', 'kode1', 'Sistem Informasi', '2017-05-27 07:11:15', NULL, NULL),
+(2, 1, '12345678910', '123', 'Biologi', '2017-05-07 10:59:47', NULL, NULL),
+(3, 1, '12345678910', '12', 'Matematika', '2017-05-27 07:16:14', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1520,7 +1534,7 @@ CREATE TABLE `rincian_dana` (
   `nama` text NOT NULL,
   `kuantitas` int(11) NOT NULL,
   `harga` int(11) NOT NULL,
-  `kategori` int(11) NOT NULL,
+  `sumber_id` int(11) NOT NULL,
   `kategori_dana` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -1531,7 +1545,7 @@ CREATE TABLE `rincian_dana` (
 -- Dumping data for table `rincian_dana`
 --
 
-INSERT INTO `rincian_dana` (`id_rdana`, `kegiatan_id`, `nama`, `kuantitas`, `harga`, `kategori`, `kategori_dana`, `created_at`, `updated_at`, `deleted_at`) VALUES
+INSERT INTO `rincian_dana` (`id_rdana`, `kegiatan_id`, `nama`, `kuantitas`, `harga`, `sumber_id`, `kategori_dana`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 1, 'nama rincian barang', 3, 1500, 3, 0, '2017-05-07 10:53:58', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -1578,7 +1592,8 @@ CREATE TABLE `ruang` (
 --
 
 INSERT INTO `ruang` (`id_ruang`, `nama_ruang`, `kapasitas`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'nama ruang', 23, '2017-05-07 10:18:46', NULL, NULL);
+(1, 'nama ruang', 23, '2017-05-07 10:18:46', NULL, NULL),
+(2, 'nama ruang 2', 34, '2017-05-21 13:03:15', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1651,15 +1666,18 @@ INSERT INTO `skripsi` (`id_skripsi`, `NIM_id`, `kbk_id`, `statusprop_id`, `statu
 
 CREATE TABLE `status_asset` (
   `id_status` int(11) NOT NULL,
-  `status` varchar(15) NOT NULL
+  `status` varchar(15) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `status_asset`
 --
 
-INSERT INTO `status_asset` (`id_status`, `status`) VALUES
-(1, 'rusak');
+INSERT INTO `status_asset` (`id_status`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'rusak', '2017-05-27 07:36:09', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1690,7 +1708,7 @@ INSERT INTO `status_skripsi` (`id`, `keterangan`, `created_at`, `updated_at`, `d
 
 CREATE TABLE `status_team_teaching` (
   `id_status_tt` int(11) NOT NULL,
-  `status_tt` varchar(7) NOT NULL
+  `status_tt` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1892,12 +1910,12 @@ INSERT INTO `universitas` (`id_universitas`, `kode_universitas`, `nama_universit
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `username` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `username` varchar(20) CHARACTER SET latin1 NOT NULL,
+  `name` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `role` varchar(20) CHARACTER SET latin1 DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1911,9 +1929,9 @@ INSERT INTO `users` (`id`, `username`, `name`, `role`, `email`, `password`, `rem
 (2, '', 'Ramadhan Akira', '', 'akirahadian@gmail.com', '$2y$10$tAOqSqzwql2n2d3neLjCPux1XPwH7fYPDTRVhCUFDtL6DOcvtPCzy', 'zjDRh9mmCVo57Vnz0QNJ63LFtrCCh38tUwP3fEenww3HkA1q4lDsrrsnbmMK', '2017-03-05 01:23:21', '2017-03-05 01:23:21'),
 (3, '', 'hilmi', '', 'hilmi@olimpiade.id', '$2y$10$k9QR9NqivqP0yoPxTUfIdOAuFuaIaeAVXU0Uf8BtWiqL9DNz50jVa', 'PJRXO2JUzYvWR2R4x5zXEKEME3lqGZhx9ydjgTCaNXRzouR7iNsqL8AqZ8ZV', '2017-03-17 19:58:55', '2017-03-17 19:58:55'),
 (4, '081411631006', 'admin', 'mahasiswa', 'admin@psi.com', '$2y$10$9S83V93bZX74YV2V4tWRCOJeAaRMnTX0ys.5PZGiHjd3JEAmAuyv6', 'XK6BJcl4n38F5ZKtLYFcTY4eoPnFwWLzpIiafpPlXEsrGoVV7LKpisHDGj5Y', '2017-03-17 20:16:14', '2017-03-17 20:16:14'),
-(5, 'mahasiswa', 'Mahasiswa', 'mahasiswa', 'mahasiswa@email.com', '$2y$10$jOI14OJADWUUImOHnZztquz9BdO/2dFYiRPBhtyygc8DEmIbLNLNq', 'pVYK5fmtf7SSYLYTp2sqJTQraI7pUGBb5CniE4XSv8CSTdV7dQvlxL1KZLBI', '2017-05-10 03:40:14', '2017-05-10 03:40:14'),
-(6, 'dosen', 'Dosen', 'dosen', 'dosen@email.com', '$2y$10$AeNiPmUWYXL5vCE4EaQKoeR265B7d4EzZWajzJEj610EaiW7VNuZm', 'rOem6p0uegCq6vVld8QRQPvE6GNpA3DZkB5VKPWYyKFZwVyVe9UgiRQ6QSGT', '2017-05-10 03:54:39', '2017-05-10 03:54:39'),
-(7, 'karyawan', 'Karyawan', 'karyawan', '123123@gmail.com', '$2y$10$zabtKldYAuIH/KbIbYofuON3U/jlvBXIEFY/w.ItHp0WdfvfFteda', 'COEd39ZPUoatKUMjTil5ZyVZrZxCo4TaEux62h7nD1dcWkOoedCntbo6JJUl', '2017-05-10 03:55:29', '2017-05-10 03:55:29');
+(5, '081411631070', 'Mahasiswa', 'mahasiswa', 'mahasiswa@email.com', '$2y$10$jOI14OJADWUUImOHnZztquz9BdO/2dFYiRPBhtyygc8DEmIbLNLNq', 'pVYK5fmtf7SSYLYTp2sqJTQraI7pUGBb5CniE4XSv8CSTdV7dQvlxL1KZLBI', '2017-05-10 03:40:14', '2017-05-10 03:40:14'),
+(6, '12345678910', 'Dosen', 'dosen', 'dosen@email.com', '$2y$10$AeNiPmUWYXL5vCE4EaQKoeR265B7d4EzZWajzJEj610EaiW7VNuZm', 'rOem6p0uegCq6vVld8QRQPvE6GNpA3DZkB5VKPWYyKFZwVyVe9UgiRQ6QSGT', '2017-05-10 03:54:39', '2017-05-10 03:54:39'),
+(7, '12345', 'Karyawan', 'karyawan', '123123@gmail.com', '$2y$10$zabtKldYAuIH/KbIbYofuON3U/jlvBXIEFY/w.ItHp0WdfvfFteda', 'COEd39ZPUoatKUMjTil5ZyVZrZxCo4TaEux62h7nD1dcWkOoedCntbo6JJUl', '2017-05-10 03:55:29', '2017-05-10 03:55:29');
 
 --
 -- Indexes for dumped tables
@@ -1991,17 +2009,15 @@ ALTER TABLE `detail_anggota`
 -- Indexes for table `detail_kategori`
 --
 ALTER TABLE `detail_kategori`
-  ADD PRIMARY KEY (`media_pembelajaran_id`,`cpmk_id`,`sistem_pembelajaran_id`,`detail_media_id`),
+  ADD PRIMARY KEY (`media_pembelajaran_id`,`cpmk_id`),
   ADD KEY `media_pembelajaran_id` (`media_pembelajaran_id`),
-  ADD KEY `cpmk_id` (`cpmk_id`),
-  ADD KEY `sistem_pembelajaran_id` (`sistem_pembelajaran_id`),
-  ADD KEY `detail_media_id` (`detail_media_id`);
+  ADD KEY `cpmk_id` (`cpmk_id`);
 
 --
 -- Indexes for table `detail_media_pembelajaran`
 --
 ALTER TABLE `detail_media_pembelajaran`
-  ADD PRIMARY KEY (`id_detail_media`,`cpmk_id`,`sistem_pembelajaran_id`),
+  ADD PRIMARY KEY (`cpmk_id`,`sistem_pembelajaran_id`),
   ADD KEY `cpmk_id` (`cpmk_id`),
   ADD KEY `sistem_pembelajaran_id` (`sistem_pembelajaran_id`);
 
@@ -2010,9 +2026,9 @@ ALTER TABLE `detail_media_pembelajaran`
 --
 ALTER TABLE `detail_nilai`
   ADD PRIMARY KEY (`mk_ditawarkan_id`,`mhs_id`,`jenis_penilaian_id`),
-  ADD UNIQUE KEY `mhs_id` (`mhs_id`),
   ADD KEY `mk_ditawarkan_id` (`mk_ditawarkan_id`),
-  ADD KEY `jenis_penilaian_id` (`jenis_penilaian_id`);
+  ADD KEY `jenis_penilaian_id` (`jenis_penilaian_id`),
+  ADD KEY `mhs_id` (`mhs_id`) USING BTREE;
 
 --
 -- Indexes for table `detail_penelitian`
@@ -2055,9 +2071,9 @@ ALTER TABLE `dosen_kegiatan`
 -- Indexes for table `dosen_pembimbing`
 --
 ALTER TABLE `dosen_pembimbing`
-  ADD PRIMARY KEY (`skripsi_id`,`nip_id`),
-  ADD KEY `skripsi_id` (`skripsi_id`,`nip_id`),
-  ADD KEY `nip_id` (`nip_id`);
+  ADD PRIMARY KEY (`skripsi_id`,`nip_id`,`status`),
+  ADD KEY `nip_id` (`nip_id`),
+  ADD KEY `skripsi_id` (`skripsi_id`) USING BTREE;
 
 --
 -- Indexes for table `dosen_pemohon_surat`
@@ -2072,8 +2088,8 @@ ALTER TABLE `dosen_pemohon_surat`
 --
 ALTER TABLE `dosen_penguji`
   ADD PRIMARY KEY (`skripsi_id`,`nip_id`),
-  ADD KEY `skripsi_id` (`skripsi_id`,`nip_id`),
-  ADD KEY `nip_id` (`nip_id`);
+  ADD KEY `nip_id` (`nip_id`),
+  ADD KEY `skripsi_id` (`skripsi_id`) USING BTREE;
 
 --
 -- Indexes for table `dosen_rapat`
@@ -2114,21 +2130,21 @@ ALTER TABLE `jabatan`
 -- Indexes for table `jadwal_kuliah`
 --
 ALTER TABLE `jadwal_kuliah`
-  ADD PRIMARY KEY (`mk_ditawarkan_id`,`jam_id`),
-  ADD KEY `mk_ditawarkan_id` (`mk_ditawarkan_id`,`jam_id`,`hari_id`,`ruang_id`),
+  ADD PRIMARY KEY (`mk_ditawarkan_id`,`jam_id`,`hari_id`,`ruang_id`),
   ADD KEY `hari_idfk_1` (`hari_id`),
   ADD KEY `jam_idfk_1` (`jam_id`),
-  ADD KEY `ruang_idfk_1` (`ruang_id`);
+  ADD KEY `ruang_idfk_1` (`ruang_id`),
+  ADD KEY `mk_ditawarkan_id` (`mk_ditawarkan_id`);
 
 --
 -- Indexes for table `jadwal_permohonan`
 --
 ALTER TABLE `jadwal_permohonan`
-  ADD PRIMARY KEY (`permohonan_ruang_id`,`ruang_id`),
-  ADD KEY `id_permohonan_ruang` (`permohonan_ruang_id`,`ruang_id`),
-  ADD KEY `id_hari` (`hari_id`,`jam_id`),
+  ADD PRIMARY KEY (`permohonan_ruang_id`,`ruang_id`,`hari_id`,`jam_id`),
   ADD KEY `ruang_id` (`ruang_id`),
-  ADD KEY `id_jam` (`jam_id`);
+  ADD KEY `id_jam` (`jam_id`),
+  ADD KEY `id_permohonan_ruang` (`permohonan_ruang_id`) USING BTREE,
+  ADD KEY `id_hari` (`hari_id`) USING BTREE;
 
 --
 -- Indexes for table `jam`
@@ -2158,6 +2174,7 @@ ALTER TABLE `jurnal`
 -- Indexes for table `jurnal_dosen`
 --
 ALTER TABLE `jurnal_dosen`
+  ADD PRIMARY KEY (`jurnal_id`,`nip`),
   ADD KEY `jurnal_id` (`jurnal_id`),
   ADD KEY `nip` (`nip`);
 
@@ -2227,7 +2244,7 @@ ALTER TABLE `koor_mk`
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`nim`),
   ADD UNIQUE KEY `nim` (`nim`),
-  ADD KEY `nlp` (`nlp_id`);
+  ADD KEY `nlp` (`nip_id`);
 
 --
 -- Indexes for table `maintenance`
@@ -2258,33 +2275,33 @@ ALTER TABLE `mhs_kegiatan`
 --
 ALTER TABLE `mhs_pemohon_surat`
   ADD PRIMARY KEY (`nim_id`,`surat_keluar_id`),
-  ADD KEY `nim` (`nim_id`,`surat_keluar_id`),
-  ADD KEY `surat_keluar_id` (`surat_keluar_id`);
+  ADD KEY `surat_keluar_id` (`surat_keluar_id`),
+  ADD KEY `nim` (`nim_id`) USING BTREE;
 
 --
 -- Indexes for table `mk_diajar`
 --
 ALTER TABLE `mk_diajar`
   ADD PRIMARY KEY (`dosen_id`,`mk_ditawarkan_id`),
-  ADD KEY `dosen_id` (`dosen_id`,`mk_ditawarkan_id`),
-  ADD KEY `mk_ditawarkan_idfk_3` (`mk_ditawarkan_id`);
+  ADD KEY `mk_ditawarkan_idfk_3` (`mk_ditawarkan_id`),
+  ADD KEY `dosen_id` (`dosen_id`) USING BTREE;
 
 --
 -- Indexes for table `mk_diambil`
 --
 ALTER TABLE `mk_diambil`
   ADD PRIMARY KEY (`mk_ditawarkan_id`,`mhs_id`),
-  ADD KEY `mk_ditawarkan_id` (`mk_ditawarkan_id`,`mhs_id`),
-  ADD KEY `mhs_id` (`mhs_id`);
+  ADD KEY `mhs_id` (`mhs_id`),
+  ADD KEY `mk_ditawarkan_id` (`mk_ditawarkan_id`) USING BTREE;
 
 --
 -- Indexes for table `mk_ditawarkan`
 --
 ALTER TABLE `mk_ditawarkan`
   ADD PRIMARY KEY (`id_mk_ditawarkan`),
-  ADD KEY `id_mk_ditawarkan` (`id_mk_ditawarkan`,`thn_akademik_id`,`matakuliah_id`),
   ADD KEY `thn_akademik_id` (`thn_akademik_id`),
-  ADD KEY `matakuliah_id` (`matakuliah_id`);
+  ADD KEY `matakuliah_id` (`matakuliah_id`),
+  ADD KEY `id_mk_ditawarkan` (`id_mk_ditawarkan`) USING BTREE;
 
 --
 -- Indexes for table `mk_prasyarat`
@@ -2315,9 +2332,9 @@ ALTER TABLE `mk_softskill`
 --
 ALTER TABLE `notulen_rapat`
   ADD PRIMARY KEY (`id_notulen`),
-  ADD KEY `id_permohonan_ruang` (`permohonan_ruang_id`,`nip_petugas_id`,`nip_id`),
   ADD KEY `nip_petugas_id` (`nip_petugas_id`),
-  ADD KEY `nip_id` (`nip_id`);
+  ADD KEY `nip_id` (`nip_id`),
+  ADD KEY `id_permohonan_ruang` (`permohonan_ruang_id`) USING BTREE;
 
 --
 -- Indexes for table `penelitian_dosen`
@@ -2352,8 +2369,7 @@ ALTER TABLE `pengabdian_masyarakat`
 -- Indexes for table `pengajuan_kegiatan`
 --
 ALTER TABLE `pengajuan_kegiatan`
-  ADD PRIMARY KEY (`id_kegiatan`),
-  ADD KEY `sumber_id` (`sumber_id`);
+  ADD PRIMARY KEY (`id_kegiatan`);
 
 --
 -- Indexes for table `pengmas_dosen`
@@ -2375,14 +2391,15 @@ ALTER TABLE `permohonan_ruang`
 --
 ALTER TABLE `persentase_penilaian`
   ADD PRIMARY KEY (`jenis_penilaian_id`,`mk_ditawarkan_id`),
-  ADD KEY `jenis_penilaian_id` (`jenis_penilaian_id`,`mk_ditawarkan_id`),
-  ADD KEY `mk_ditawarkan_idfk_5` (`mk_ditawarkan_id`);
+  ADD KEY `mk_ditawarkan_idfk_5` (`mk_ditawarkan_id`),
+  ADD KEY `jenis_penilaian_id` (`jenis_penilaian_id`) USING BTREE;
 
 --
 -- Indexes for table `petugas_tu`
 --
 ALTER TABLE `petugas_tu`
-  ADD PRIMARY KEY (`nip_petugas`);
+  ADD PRIMARY KEY (`nip_petugas`),
+  ADD KEY `prodi_id` (`prodi_id`);
 
 --
 -- Indexes for table `prestasi`
@@ -2406,15 +2423,14 @@ ALTER TABLE `prodi`
 ALTER TABLE `rincian_dana`
   ADD PRIMARY KEY (`id_rdana`),
   ADD KEY `kegiatan_id` (`kegiatan_id`),
-  ADD KEY `kegiatan_id_2` (`kegiatan_id`);
+  ADD KEY `sumber_id` (`sumber_id`);
 
 --
 -- Indexes for table `rincian_rundown`
 --
 ALTER TABLE `rincian_rundown`
   ADD PRIMARY KEY (`id_rundown`),
-  ADD KEY `kegiatan_id` (`kegiatan_id`),
-  ADD KEY `kegiatan_id_2` (`kegiatan_id`);
+  ADD KEY `kegiatan_id` (`kegiatan_id`);
 
 --
 -- Indexes for table `ruang`
@@ -2435,17 +2451,15 @@ ALTER TABLE `skripsi`
   ADD PRIMARY KEY (`id_skripsi`),
   ADD KEY `NIM_id` (`NIM_id`),
   ADD KEY `kbk_id` (`kbk_id`),
-  ADD KEY `statusprop_id` (`statusprop_id`,`statusskrip_id`,`nip_petugas_id`),
-  ADD KEY `NIM_id_2` (`NIM_id`,`kbk_id`,`statusprop_id`,`statusskrip_id`,`nip_petugas_id`),
   ADD KEY `statusskrip_id` (`statusskrip_id`),
-  ADD KEY `nip_petugas_id` (`nip_petugas_id`);
+  ADD KEY `nip_petugas_id` (`nip_petugas_id`),
+  ADD KEY `statusprop_id` (`statusprop_id`) USING BTREE;
 
 --
 -- Indexes for table `status_asset`
 --
 ALTER TABLE `status_asset`
-  ADD PRIMARY KEY (`id_status`),
-  ADD KEY `id_status` (`id_status`);
+  ADD PRIMARY KEY (`id_status`);
 
 --
 -- Indexes for table `status_skripsi`
@@ -2464,8 +2478,7 @@ ALTER TABLE `status_team_teaching`
 --
 ALTER TABLE `surat_keluar_dosen`
   ADD PRIMARY KEY (`id_surat_keluar`),
-  ADD KEY `nip_petugas` (`nip_petugas_id`),
-  ADD KEY `nip_petugas_2` (`nip_petugas_id`);
+  ADD KEY `nip_petugas` (`nip_petugas_id`);
 
 --
 -- Indexes for table `surat_keluar_mhs`
@@ -2519,7 +2532,7 @@ ALTER TABLE `universitas`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -2559,7 +2572,7 @@ ALTER TABLE `cp_mata_kuliah`
 -- AUTO_INCREMENT for table `cp_program`
 --
 ALTER TABLE `cp_program`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `detail_anggota`
 --
@@ -2581,6 +2594,11 @@ ALTER TABLE `dokumen`
 ALTER TABLE `dokumentasi`
   MODIFY `id_dokumentasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `elearning`
+--
+ALTER TABLE `elearning`
+  MODIFY `id_elearning` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `fakultas`
 --
 ALTER TABLE `fakultas`
@@ -2599,7 +2617,7 @@ ALTER TABLE `jabatan`
 -- AUTO_INCREMENT for table `jam`
 --
 ALTER TABLE `jam`
-  MODIFY `id_jam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_jam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `jenis_mk`
 --
@@ -2609,7 +2627,7 @@ ALTER TABLE `jenis_mk`
 -- AUTO_INCREMENT for table `jenis_penilaian`
 --
 ALTER TABLE `jenis_penilaian`
-  MODIFY `id_jenis_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_jenis_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `jurnal`
 --
@@ -2696,6 +2714,11 @@ ALTER TABLE `permohonan_ruang`
 ALTER TABLE `prestasi`
   MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `prodi`
+--
+ALTER TABLE `prodi`
+  MODIFY `id_prodi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `rincian_dana`
 --
 ALTER TABLE `rincian_dana`
@@ -2709,7 +2732,7 @@ ALTER TABLE `rincian_rundown`
 -- AUTO_INCREMENT for table `ruang`
 --
 ALTER TABLE `ruang`
-  MODIFY `id_ruang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_ruang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `sistem_pembelajaran`
 --
@@ -2783,177 +2806,173 @@ ALTER TABLE `users`
 -- Constraints for table `asset`
 --
 ALTER TABLE `asset`
-  ADD CONSTRAINT `asset_ibfk_1` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`),
-  ADD CONSTRAINT `kategori` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`id_kategori`),
-  ADD CONSTRAINT `status` FOREIGN KEY (`status_id`) REFERENCES `status_asset` (`id_status`);
+  ADD CONSTRAINT `asset_ibfk_1` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `kategori` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `status` FOREIGN KEY (`status_id`) REFERENCES `status_asset` (`id_status`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `biodata_dosen`
 --
 ALTER TABLE `biodata_dosen`
-  ADD CONSTRAINT `biodata_dosen_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`);
+  ADD CONSTRAINT `biodata_dosen_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `biodata_mhs`
 --
 ALTER TABLE `biodata_mhs`
-  ADD CONSTRAINT `biodata_mhs_ibfk_1` FOREIGN KEY (`nim_id`) REFERENCES `mahasiswa` (`nim`);
+  ADD CONSTRAINT `biodata_mhs_ibfk_1` FOREIGN KEY (`nim_id`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `capaian_pembelajaran`
 --
 ALTER TABLE `capaian_pembelajaran`
-  ADD CONSTRAINT `capaian_pembelajaran_ibfk_2` FOREIGN KEY (`kategori_cpem_id`) REFERENCES `kategori_capaian_pembelajaran` (`id_kategori_cpem`),
-  ADD CONSTRAINT `capaian_pembelajaran_ibfk_3` FOREIGN KEY (`prodi_id`) REFERENCES `prodi` (`id_prodi`);
+  ADD CONSTRAINT `capaian_pembelajaran_ibfk_2` FOREIGN KEY (`kategori_cpem_id`) REFERENCES `kategori_capaian_pembelajaran` (`id_kategori_cpem`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cp_mata_kuliah`
 --
 ALTER TABLE `cp_mata_kuliah`
-  ADD CONSTRAINT `cp_mata_kuliah_ibfk_1` FOREIGN KEY (`matakuliah_id`) REFERENCES `mata_kuliah` (`id_mk`);
+  ADD CONSTRAINT `cp_mata_kuliah_ibfk_1` FOREIGN KEY (`matakuliah_id`) REFERENCES `mata_kuliah` (`id_mk`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cp_prodi`
 --
 ALTER TABLE `cp_prodi`
-  ADD CONSTRAINT `cp_prodi_ibfk_2` FOREIGN KEY (`mk_id`) REFERENCES `mata_kuliah` (`id_mk`),
-  ADD CONSTRAINT `cp_prodi_ibfk_3` FOREIGN KEY (`cpem_id`) REFERENCES `capaian_pembelajaran` (`id_cpem`);
+  ADD CONSTRAINT `cp_prodi_ibfk_2` FOREIGN KEY (`mk_id`) REFERENCES `mata_kuliah` (`id_mk`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cp_prodi_ibfk_3` FOREIGN KEY (`cpem_id`) REFERENCES `capaian_pembelajaran` (`id_cpem`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cp_program`
 --
 ALTER TABLE `cp_program`
-  ADD CONSTRAINT `cp_program_ibfk_1` FOREIGN KEY (`prodi_id`) REFERENCES `prodi` (`id_prodi`);
+  ADD CONSTRAINT `cp_program_ibfk_1` FOREIGN KEY (`prodi_id`) REFERENCES `prodi` (`id_prodi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `detail_anggota`
 --
 ALTER TABLE `detail_anggota`
-  ADD CONSTRAINT `kode_penelitian_mhs_ibfk1` FOREIGN KEY (`kode_penelitian_id`) REFERENCES `penelitian_mhs` (`kode_penelitian`);
+  ADD CONSTRAINT `kode_penelitian_mhs_ibfk1` FOREIGN KEY (`kode_penelitian_id`) REFERENCES `penelitian_mhs` (`kode_penelitian`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `detail_kategori`
 --
 ALTER TABLE `detail_kategori`
-  ADD CONSTRAINT `detail_kategori_ibfk_1` FOREIGN KEY (`media_pembelajaran_id`) REFERENCES `kategori_media_pembelajaran` (`id`),
-  ADD CONSTRAINT `detail_kategori_ibfk_2` FOREIGN KEY (`cpmk_id`) REFERENCES `cp_mata_kuliah` (`id_cpmk`),
-  ADD CONSTRAINT `detail_kategori_ibfk_3` FOREIGN KEY (`sistem_pembelajaran_id`) REFERENCES `sistem_pembelajaran` (`id`),
-  ADD CONSTRAINT `detail_kategori_ibfk_4` FOREIGN KEY (`detail_media_id`) REFERENCES `detail_media_pembelajaran` (`id_detail_media`);
+  ADD CONSTRAINT `detail_kategori_ibfk_1` FOREIGN KEY (`media_pembelajaran_id`) REFERENCES `kategori_media_pembelajaran` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detail_kategori_ibfk_2` FOREIGN KEY (`cpmk_id`) REFERENCES `cp_mata_kuliah` (`id_cpmk`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `detail_media_pembelajaran`
 --
 ALTER TABLE `detail_media_pembelajaran`
-  ADD CONSTRAINT `detail_media_pembelajaran_ibfk_1` FOREIGN KEY (`cpmk_id`) REFERENCES `cp_mata_kuliah` (`id_cpmk`),
-  ADD CONSTRAINT `detail_media_pembelajaran_ibfk_2` FOREIGN KEY (`sistem_pembelajaran_id`) REFERENCES `sistem_pembelajaran` (`id`);
+  ADD CONSTRAINT `detail_media_pembelajaran_ibfk_1` FOREIGN KEY (`cpmk_id`) REFERENCES `cp_mata_kuliah` (`id_cpmk`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detail_media_pembelajaran_ibfk_2` FOREIGN KEY (`sistem_pembelajaran_id`) REFERENCES `sistem_pembelajaran` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `detail_nilai`
 --
 ALTER TABLE `detail_nilai`
-  ADD CONSTRAINT `detail_nilai_ibfk_1` FOREIGN KEY (`mhs_id`) REFERENCES `mk_diambil` (`mhs_id`),
-  ADD CONSTRAINT `detail_nilai_ibfk_2` FOREIGN KEY (`mk_ditawarkan_id`) REFERENCES `mk_diambil` (`mk_ditawarkan_id`),
-  ADD CONSTRAINT `jenis_penilaian_idfk_1` FOREIGN KEY (`jenis_penilaian_id`) REFERENCES `jenis_penilaian` (`id_jenis_penilaian`);
+  ADD CONSTRAINT `detail_nilai_ibfk_2` FOREIGN KEY (`mk_ditawarkan_id`) REFERENCES `mk_diambil` (`mk_ditawarkan_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detail_nilai_ibfk_3` FOREIGN KEY (`mhs_id`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `jenis_penilaian_idfk_1` FOREIGN KEY (`jenis_penilaian_id`) REFERENCES `jenis_penilaian` (`id_jenis_penilaian`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `detail_penelitian`
 --
 ALTER TABLE `detail_penelitian`
-  ADD CONSTRAINT `kode_penelitian_mhs_ibfk2` FOREIGN KEY (`kode_penelitian_id`) REFERENCES `penelitian_mhs` (`kode_penelitian`);
+  ADD CONSTRAINT `kode_penelitian_mhs_ibfk2` FOREIGN KEY (`kode_penelitian_id`) REFERENCES `penelitian_mhs` (`kode_penelitian`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `dokumen`
 --
 ALTER TABLE `dokumen`
-  ADD CONSTRAINT `dokumen_ibfk_1` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`);
+  ADD CONSTRAINT `dokumen_ibfk_1` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `dokumentasi`
 --
 ALTER TABLE `dokumentasi`
-  ADD CONSTRAINT `fk_dokumentasi_kegiatan` FOREIGN KEY (`kegiatan_id`) REFERENCES `pengajuan_kegiatan` (`id_kegiatan`);
+  ADD CONSTRAINT `fk_dokumentasi_kegiatan` FOREIGN KEY (`kegiatan_id`) REFERENCES `pengajuan_kegiatan` (`id_kegiatan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `dosen_kegiatan`
 --
 ALTER TABLE `dosen_kegiatan`
-  ADD CONSTRAINT `dosen_kegiatan_ibfk_1` FOREIGN KEY (`jabatan_id`) REFERENCES `jabatan` (`id_jabatan`),
-  ADD CONSTRAINT `dosen_kegiatan_ibfk_2` FOREIGN KEY (`kegiatan_id`) REFERENCES `pengajuan_kegiatan` (`id_kegiatan`),
-  ADD CONSTRAINT `dosen_kegiatan_ibfk_3` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`);
+  ADD CONSTRAINT `dosen_kegiatan_ibfk_1` FOREIGN KEY (`jabatan_id`) REFERENCES `jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `dosen_kegiatan_ibfk_2` FOREIGN KEY (`kegiatan_id`) REFERENCES `pengajuan_kegiatan` (`id_kegiatan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `dosen_kegiatan_ibfk_3` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `dosen_pembimbing`
 --
 ALTER TABLE `dosen_pembimbing`
   ADD CONSTRAINT `dosen_pembimbing_ibfk_1` FOREIGN KEY (`skripsi_id`) REFERENCES `skripsi` (`id_skripsi`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `dosen_pembimbing_ibfk_2` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`);
+  ADD CONSTRAINT `dosen_pembimbing_ibfk_2` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `dosen_pemohon_surat`
 --
 ALTER TABLE `dosen_pemohon_surat`
-  ADD CONSTRAINT `dosen_pemohon_surat_ibfk_1` FOREIGN KEY (`surat_keluar_id`) REFERENCES `surat_keluar_dosen` (`id_surat_keluar`),
-  ADD CONSTRAINT `dosen_pemohon_surat_ibfk_2` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`);
+  ADD CONSTRAINT `dosen_pemohon_surat_ibfk_1` FOREIGN KEY (`surat_keluar_id`) REFERENCES `surat_keluar_dosen` (`id_surat_keluar`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `dosen_pemohon_surat_ibfk_2` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `dosen_penguji`
 --
 ALTER TABLE `dosen_penguji`
   ADD CONSTRAINT `dosen_penguji_ibfk_1` FOREIGN KEY (`skripsi_id`) REFERENCES `skripsi` (`id_skripsi`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `dosen_penguji_ibfk_2` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`);
+  ADD CONSTRAINT `dosen_penguji_ibfk_2` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `dosen_rapat`
 --
 ALTER TABLE `dosen_rapat`
-  ADD CONSTRAINT `dosen_rapat_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`),
-  ADD CONSTRAINT `dosen_rapat_ibfk_3` FOREIGN KEY (`notulen_id`) REFERENCES `notulen_rapat` (`id_notulen`);
+  ADD CONSTRAINT `dosen_rapat_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `dosen_rapat_ibfk_3` FOREIGN KEY (`notulen_id`) REFERENCES `notulen_rapat` (`id_notulen`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `elearning`
 --
 ALTER TABLE `elearning`
-  ADD CONSTRAINT `elearning_ibfk_1` FOREIGN KEY (`mk_ditawarkan_id`) REFERENCES `mk_ditawarkan` (`id_mk_ditawarkan`),
-  ADD CONSTRAINT `elearning_ibfk_2` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`);
+  ADD CONSTRAINT `elearning_ibfk_1` FOREIGN KEY (`mk_ditawarkan_id`) REFERENCES `mk_ditawarkan` (`id_mk_ditawarkan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `elearning_ibfk_2` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `fakultas`
 --
 ALTER TABLE `fakultas`
-  ADD CONSTRAINT `fakultas_ibfk_1` FOREIGN KEY (`universitas_id`) REFERENCES `universitas` (`id_universitas`);
+  ADD CONSTRAINT `fakultas_ibfk_1` FOREIGN KEY (`universitas_id`) REFERENCES `universitas` (`id_universitas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `jadwal_kuliah`
 --
 ALTER TABLE `jadwal_kuliah`
-  ADD CONSTRAINT `hari_idfk_1` FOREIGN KEY (`hari_id`) REFERENCES `hari` (`id_hari`),
-  ADD CONSTRAINT `jam_idfk_1` FOREIGN KEY (`jam_id`) REFERENCES `jam` (`id_jam`),
-  ADD CONSTRAINT `mk_ditawarkan_idfk` FOREIGN KEY (`mk_ditawarkan_id`) REFERENCES `mk_ditawarkan` (`id_mk_ditawarkan`),
-  ADD CONSTRAINT `mk_ditawarkan_idfk_2` FOREIGN KEY (`mk_ditawarkan_id`) REFERENCES `mk_ditawarkan` (`id_mk_ditawarkan`),
+  ADD CONSTRAINT `hari_idfk_1` FOREIGN KEY (`hari_id`) REFERENCES `hari` (`id_hari`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `jadwal_kuliah_ibfk_1` FOREIGN KEY (`mk_ditawarkan_id`) REFERENCES `mk_ditawarkan` (`id_mk_ditawarkan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `jam_idfk_1` FOREIGN KEY (`jam_id`) REFERENCES `jam` (`id_jam`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ruang_idfk_1` FOREIGN KEY (`ruang_id`) REFERENCES `ruang` (`id_ruang`);
 
 --
 -- Constraints for table `jadwal_permohonan`
 --
 ALTER TABLE `jadwal_permohonan`
-  ADD CONSTRAINT `jadwal_permohonan_ibfk_1` FOREIGN KEY (`permohonan_ruang_id`) REFERENCES `permohonan_ruang` (`id_permohonan_ruang`),
-  ADD CONSTRAINT `jadwal_permohonan_ibfk_2` FOREIGN KEY (`ruang_id`) REFERENCES `ruang` (`id_ruang`),
-  ADD CONSTRAINT `jadwal_permohonan_ibfk_3` FOREIGN KEY (`hari_id`) REFERENCES `hari` (`id_hari`),
-  ADD CONSTRAINT `jadwal_permohonan_ibfk_4` FOREIGN KEY (`jam_id`) REFERENCES `jam` (`id_jam`);
+  ADD CONSTRAINT `jadwal_permohonan_ibfk_1` FOREIGN KEY (`permohonan_ruang_id`) REFERENCES `permohonan_ruang` (`id_permohonan_ruang`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `jadwal_permohonan_ibfk_2` FOREIGN KEY (`ruang_id`) REFERENCES `ruang` (`id_ruang`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `jadwal_permohonan_ibfk_3` FOREIGN KEY (`hari_id`) REFERENCES `hari` (`id_hari`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `jadwal_permohonan_ibfk_4` FOREIGN KEY (`jam_id`) REFERENCES `jam` (`id_jam`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `jurnal_dosen`
 --
 ALTER TABLE `jurnal_dosen`
-  ADD CONSTRAINT `jurnal_dosen_ibfk_1` FOREIGN KEY (`jurnal_id`) REFERENCES `jurnal` (`jurnal_id`),
-  ADD CONSTRAINT `jurnal_dosen_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`);
+  ADD CONSTRAINT `jurnal_dosen_ibfk_1` FOREIGN KEY (`jurnal_id`) REFERENCES `jurnal` (`jurnal_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `jurnal_dosen_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `konferensi_dosen`
 --
 ALTER TABLE `konferensi_dosen`
-  ADD CONSTRAINT `konferensi_dosen_ibfk_2` FOREIGN KEY (`konferensi_id`) REFERENCES `konferensi` (`konferensi_id`),
-  ADD CONSTRAINT `konferensi_dosen_ibfk_3` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`);
+  ADD CONSTRAINT `konferensi_dosen_ibfk_2` FOREIGN KEY (`konferensi_id`) REFERENCES `konferensi` (`konferensi_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `konferensi_dosen_ibfk_3` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `konsultasi`
@@ -2965,114 +2984,201 @@ ALTER TABLE `konsultasi`
 -- Constraints for table `koor_mk`
 --
 ALTER TABLE `koor_mk`
-  ADD CONSTRAINT `koor_mk_ibfk_1` FOREIGN KEY (`mk_id`) REFERENCES `mata_kuliah` (`id_mk`),
-  ADD CONSTRAINT `koor_mk_ibfk_2` FOREIGN KEY (`status_tt_id`) REFERENCES `status_team_teaching` (`id_status_tt`),
-  ADD CONSTRAINT `koor_mk_ibfk_3` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`);
+  ADD CONSTRAINT `koor_mk_ibfk_1` FOREIGN KEY (`mk_id`) REFERENCES `mata_kuliah` (`id_mk`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `koor_mk_ibfk_2` FOREIGN KEY (`status_tt_id`) REFERENCES `status_team_teaching` (`id_status_tt`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `koor_mk_ibfk_3` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  ADD CONSTRAINT `mahasiswa_ibfk_3` FOREIGN KEY (`nlp_id`) REFERENCES `dosen` (`nip`);
+  ADD CONSTRAINT `mahasiswa_ibfk_3` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `maintenance`
 --
 ALTER TABLE `maintenance`
-  ADD CONSTRAINT `asset` FOREIGN KEY (`asset_id`) REFERENCES `asset` (`id_asset`),
-  ADD CONSTRAINT `maintenance_ibfk_1` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`);
+  ADD CONSTRAINT `asset` FOREIGN KEY (`asset_id`) REFERENCES `asset` (`id_asset`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `maintenance_ibfk_1` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `mata_kuliah`
 --
 ALTER TABLE `mata_kuliah`
-  ADD CONSTRAINT `mata_kuliah_ibfk_1` FOREIGN KEY (`jenis_mk_id`) REFERENCES `jenis_mk` (`id`);
+  ADD CONSTRAINT `mata_kuliah_ibfk_1` FOREIGN KEY (`jenis_mk_id`) REFERENCES `jenis_mk` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `mhs_kegiatan`
 --
 ALTER TABLE `mhs_kegiatan`
-  ADD CONSTRAINT `mhs_kegiatan_ibfk_1` FOREIGN KEY (`jabatan_id`) REFERENCES `jabatan` (`id_jabatan`),
-  ADD CONSTRAINT `mhs_kegiatan_ibfk_2` FOREIGN KEY (`kegiatan_id`) REFERENCES `pengajuan_kegiatan` (`id_kegiatan`),
-  ADD CONSTRAINT `mhs_kegiatan_ibfk_3` FOREIGN KEY (`nim_id`) REFERENCES `mahasiswa` (`nim`);
+  ADD CONSTRAINT `mhs_kegiatan_ibfk_1` FOREIGN KEY (`jabatan_id`) REFERENCES `jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `mhs_kegiatan_ibfk_2` FOREIGN KEY (`kegiatan_id`) REFERENCES `pengajuan_kegiatan` (`id_kegiatan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `mhs_kegiatan_ibfk_3` FOREIGN KEY (`nim_id`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `mhs_pemohon_surat`
 --
 ALTER TABLE `mhs_pemohon_surat`
-  ADD CONSTRAINT `mhs_pemohon_surat_ibfk_1` FOREIGN KEY (`surat_keluar_id`) REFERENCES `surat_keluar_mhs` (`id_surat_keluar`),
-  ADD CONSTRAINT `mhs_pemohon_surat_ibfk_2` FOREIGN KEY (`nim_id`) REFERENCES `mahasiswa` (`nim`);
+  ADD CONSTRAINT `mhs_pemohon_surat_ibfk_1` FOREIGN KEY (`surat_keluar_id`) REFERENCES `surat_keluar_mhs` (`id_surat_keluar`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `mhs_pemohon_surat_ibfk_2` FOREIGN KEY (`nim_id`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `mk_diajar`
 --
 ALTER TABLE `mk_diajar`
-  ADD CONSTRAINT `mk_diajar_ibfk_1` FOREIGN KEY (`dosen_id`) REFERENCES `dosen` (`nip`),
-  ADD CONSTRAINT `mk_ditawarkan_idfk_3` FOREIGN KEY (`mk_ditawarkan_id`) REFERENCES `mk_ditawarkan` (`id_mk_ditawarkan`);
+  ADD CONSTRAINT `mk_diajar_ibfk_1` FOREIGN KEY (`dosen_id`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `mk_ditawarkan_idfk_3` FOREIGN KEY (`mk_ditawarkan_id`) REFERENCES `mk_ditawarkan` (`id_mk_ditawarkan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `mk_diambil`
 --
 ALTER TABLE `mk_diambil`
-  ADD CONSTRAINT `mk_diambil_ibfk_1` FOREIGN KEY (`mhs_id`) REFERENCES `mahasiswa` (`nim`),
-  ADD CONSTRAINT `mk_ditawarkan_idfk_4` FOREIGN KEY (`mk_ditawarkan_id`) REFERENCES `mk_ditawarkan` (`id_mk_ditawarkan`);
+  ADD CONSTRAINT `mk_diambil_ibfk_1` FOREIGN KEY (`mhs_id`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `mk_ditawarkan_idfk_4` FOREIGN KEY (`mk_ditawarkan_id`) REFERENCES `mk_ditawarkan` (`id_mk_ditawarkan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `mk_ditawarkan`
 --
 ALTER TABLE `mk_ditawarkan`
-  ADD CONSTRAINT `mk_ditawarkan_ibfk_1` FOREIGN KEY (`matakuliah_id`) REFERENCES `mata_kuliah` (`id_mk`),
-  ADD CONSTRAINT `thn_akademik_id` FOREIGN KEY (`thn_akademik_id`) REFERENCES `thn_akademik` (`id_thn_akademik`);
+  ADD CONSTRAINT `mk_ditawarkan_ibfk_1` FOREIGN KEY (`matakuliah_id`) REFERENCES `mata_kuliah` (`id_mk`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `thn_akademik_id` FOREIGN KEY (`thn_akademik_id`) REFERENCES `thn_akademik` (`id_thn_akademik`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `mk_prasyarat`
 --
 ALTER TABLE `mk_prasyarat`
-  ADD CONSTRAINT `mk_prasyarat_ibfk_1` FOREIGN KEY (`mk_id`) REFERENCES `mata_kuliah` (`id_mk`),
-  ADD CONSTRAINT `mk_prasyarat_ibfk_2` FOREIGN KEY (`mk_syarat_id`) REFERENCES `mata_kuliah` (`id_mk`);
+  ADD CONSTRAINT `mk_prasyarat_ibfk_1` FOREIGN KEY (`mk_id`) REFERENCES `mata_kuliah` (`id_mk`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `mk_prasyarat_ibfk_2` FOREIGN KEY (`mk_syarat_id`) REFERENCES `mata_kuliah` (`id_mk`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `mk_prodi`
+--
+ALTER TABLE `mk_prodi`
+  ADD CONSTRAINT `mk_prodi_ibfk_1` FOREIGN KEY (`prodi_id`) REFERENCES `prodi` (`id_prodi`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `mk_prodi_ibfk_2` FOREIGN KEY (`mk_id`) REFERENCES `mata_kuliah` (`id_mk`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `mk_softskill`
+--
+ALTER TABLE `mk_softskill`
+  ADD CONSTRAINT `mk_softskill_ibfk_1` FOREIGN KEY (`mk_id`) REFERENCES `mata_kuliah` (`id_mk`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `mk_softskill_ibfk_2` FOREIGN KEY (`softskill_id`) REFERENCES `atribut_softskill` (`id_softskill`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `notulen_rapat`
 --
 ALTER TABLE `notulen_rapat`
-  ADD CONSTRAINT `notulen_rapat_ibfk_1` FOREIGN KEY (`permohonan_ruang_id`) REFERENCES `permohonan_ruang` (`id_permohonan_ruang`),
-  ADD CONSTRAINT `notulen_rapat_ibfk_2` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`),
-  ADD CONSTRAINT `notulen_rapat_ibfk_3` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`);
+  ADD CONSTRAINT `notulen_rapat_ibfk_1` FOREIGN KEY (`permohonan_ruang_id`) REFERENCES `permohonan_ruang` (`id_permohonan_ruang`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `notulen_rapat_ibfk_2` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `notulen_rapat_ibfk_3` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `penelitian_mhs`
 --
 ALTER TABLE `penelitian_mhs`
-  ADD CONSTRAINT `penelitian_mhs_ibfk_3` FOREIGN KEY (`nim_id`) REFERENCES `mahasiswa` (`nim`),
-  ADD CONSTRAINT `penelitian_mhs_ibfk_4` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`);
+  ADD CONSTRAINT `penelitian_mhs_ibfk_4` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `penelitian_mhs_ibfk_5` FOREIGN KEY (`nim_id`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pengajuan_kegiatan`
+-- Constraints for table `penelitian_milik_dosen`
 --
-ALTER TABLE `pengajuan_kegiatan`
-  ADD CONSTRAINT `pengajuan_kegiatan_ibfk_1` FOREIGN KEY (`sumber_id`) REFERENCES `kategori_dana` (`id_sumber`);
+ALTER TABLE `penelitian_milik_dosen`
+  ADD CONSTRAINT `penelitian_milik_dosen_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `penelitian_milik_dosen_ibfk_2` FOREIGN KEY (`penelitian_id`) REFERENCES `penelitian_dosen` (`penelitian_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pengmas_dosen`
+--
+ALTER TABLE `pengmas_dosen`
+  ADD CONSTRAINT `pengmas_dosen_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pengmas_dosen_ibfk_2` FOREIGN KEY (`kegiatan_id`) REFERENCES `pengabdian_masyarakat` (`kegiatan_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `permohonan_ruang`
+--
+ALTER TABLE `permohonan_ruang`
+  ADD CONSTRAINT `permohonan_ruang_ibfk_1` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `persentase_penilaian`
+--
+ALTER TABLE `persentase_penilaian`
+  ADD CONSTRAINT `persentase_penilaian_ibfk_1` FOREIGN KEY (`jenis_penilaian_id`) REFERENCES `jenis_penilaian` (`id_jenis_penilaian`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `persentase_penilaian_ibfk_2` FOREIGN KEY (`mk_ditawarkan_id`) REFERENCES `mk_ditawarkan` (`id_mk_ditawarkan`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `petugas_tu`
+--
+ALTER TABLE `petugas_tu`
+  ADD CONSTRAINT `petugas_tu_ibfk_1` FOREIGN KEY (`prodi_id`) REFERENCES `prodi` (`id_prodi`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `prestasi`
+--
+ALTER TABLE `prestasi`
+  ADD CONSTRAINT `prestasi_ibfk_1` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `prestasi_ibfk_2` FOREIGN KEY (`nim_id`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `prodi`
+--
+ALTER TABLE `prodi`
+  ADD CONSTRAINT `prodi_ibfk_1` FOREIGN KEY (`fakultas_id`) REFERENCES `fakultas` (`id_fakultas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `prodi_ibfk_2` FOREIGN KEY (`nip_id`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rincian_dana`
 --
 ALTER TABLE `rincian_dana`
-  ADD CONSTRAINT `rincian_dana_ibfk_1` FOREIGN KEY (`kegiatan_id`) REFERENCES `pengajuan_kegiatan` (`id_kegiatan`);
+  ADD CONSTRAINT `rincian_dana_ibfk_1` FOREIGN KEY (`kegiatan_id`) REFERENCES `pengajuan_kegiatan` (`id_kegiatan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rincian_rundown`
 --
 ALTER TABLE `rincian_rundown`
-  ADD CONSTRAINT `rincian_rundown_ibfk_1` FOREIGN KEY (`kegiatan_id`) REFERENCES `pengajuan_kegiatan` (`id_kegiatan`);
+  ADD CONSTRAINT `rincian_rundown_ibfk_1` FOREIGN KEY (`kegiatan_id`) REFERENCES `pengajuan_kegiatan` (`id_kegiatan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `skripsi`
 --
 ALTER TABLE `skripsi`
-  ADD CONSTRAINT `skripsi_ibfk_1` FOREIGN KEY (`statusprop_id`) REFERENCES `status_skripsi` (`id`),
-  ADD CONSTRAINT `skripsi_ibfk_2` FOREIGN KEY (`statusskrip_id`) REFERENCES `status_skripsi` (`id`),
-  ADD CONSTRAINT `skripsi_ibfk_4` FOREIGN KEY (`NIM_id`) REFERENCES `mahasiswa` (`nim`),
-  ADD CONSTRAINT `skripsi_ibfk_5` FOREIGN KEY (`kbk_id`) REFERENCES `kbk` (`id_kbk`),
-  ADD CONSTRAINT `skripsi_ibfk_6` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`);
+  ADD CONSTRAINT `skripsi_ibfk_1` FOREIGN KEY (`statusprop_id`) REFERENCES `status_skripsi` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `skripsi_ibfk_2` FOREIGN KEY (`statusskrip_id`) REFERENCES `status_skripsi` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `skripsi_ibfk_5` FOREIGN KEY (`kbk_id`) REFERENCES `kbk` (`id_kbk`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `skripsi_ibfk_6` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `skripsi_ibfk_7` FOREIGN KEY (`NIM_id`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `surat_keluar_dosen`
+--
+ALTER TABLE `surat_keluar_dosen`
+  ADD CONSTRAINT `surat_keluar_dosen_ibfk_1` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `surat_keluar_mhs`
+--
+ALTER TABLE `surat_keluar_mhs`
+  ADD CONSTRAINT `surat_keluar_mhs_ibfk_1` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `surat_masuk`
+--
+ALTER TABLE `surat_masuk`
+  ADD CONSTRAINT `surat_masuk_ibfk_1` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `surat_tugas_dosen`
+--
+ALTER TABLE `surat_tugas_dosen`
+  ADD CONSTRAINT `surat_tugas_dosen_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `surat_tugas_dosen_ibfk_2` FOREIGN KEY (`surat_id`) REFERENCES `surat_tugas` (`surat_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `transaksi_peminjaman`
+--
+ALTER TABLE `transaksi_peminjaman`
+  ADD CONSTRAINT `transaksi_peminjaman_ibfk_1` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaksi_peminjaman_ibfk_2` FOREIGN KEY (`asset_id`) REFERENCES `asset` (`id_asset`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

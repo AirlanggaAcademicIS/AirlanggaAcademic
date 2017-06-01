@@ -92,7 +92,7 @@ class Surat_Keluar_DosenController extends Controller
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('dosen/pla/surat-keluar-dosen.edit',$data);
+        return view('dosen.pla.surat-keluar-dosen.edit',$data);
     }
 
     public function editAction($id_surat_keluar_dosen, Request $request)

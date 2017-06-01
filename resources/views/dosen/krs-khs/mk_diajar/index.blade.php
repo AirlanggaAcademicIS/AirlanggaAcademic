@@ -23,8 +23,8 @@ Mata Kuliah yang Diajar
     <tr>
       <th style="text-align:center">Nomer</th>
       <th style="text-align:center">Mata Kuliah</th>
-      <th style="text-align:center"></th>      
-      <th style="text-align:center"></th>
+      <th style="text-align:center">Bobot Nilai</th>      
+      <th style="text-align:center">Nilai</th>
     </tr>
     </thead>
   <tbody>
@@ -33,7 +33,7 @@ Mata Kuliah yang Diajar
       <td width="5%" style="text-align:center">{{ $i+1 }}</td>
       <td width="20%" style="text-align:center">{{$r->mkDitawarkan->mk->nama_matkul}}</td>
       <td width="20%" style="text-align:center"><a href="{{url('dosen/krs-khs/'.$r->mkDitawarkan->mk->id_mk.'/bobot_nilai')}}" class='button'>Bobot</a></td>
-      <td width="20%" style="text-align:center"><a href='/krs-khs/dosen/list_mahasiswa' class='button'> Upload Nilai</a></td>
+      <td width="20%" style="text-align:center"><a href="{{url('dosen/krs-khs/nilai/'.$r->mkDitawarkan->id_mk_ditawarkan.'/upload/')}}" class='button'> Upload Nilai</a></td>
     </tr>
      @empty
         <tr>

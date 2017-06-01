@@ -36,14 +36,10 @@ Fitur
                   <td>{{$i+1}}</td>
                   <td>{{$m->nim}}</td>
                   <td>
-                  @foreach($mhs as $h)
-                  @if($m->nim == $h->nim_id)
-                  {{$h->nama_mhs}}
-                  @endif
-                  @endforeach
+                  {{$m->biodataMhs->nama_mhs}}
                   </td>
                   <td>
-                  <a style="width: 110%; margin-bottom: 5px;" onclick="return" href="{{url('/karyawan/kurikulum/mata-kuliah/delete/'.$mk->id_mk)}}" class="btn btn-danger btn-xs">
+                  <a style="width: 100%; margin-bottom: 5px;" onclick="return" href="{{url('dosen/krs-khs/approve/'.$m->nim.'/create')}}" class="btn btn-primary">
                   <i class="fa fa-trash-o"></i> Approve</a>
                   </td>
                 </tr>

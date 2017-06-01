@@ -25,10 +25,10 @@
         <th style="text-align:center; border: 1px solid black">TTD</th>
     </thead>
     <tbody>
-    @forelse($dosen as $i => $d)
+    @forelse($dosen as $i => $o)
     <tr>
         <td style="text-align:center; border: 1px solid black">{{$i+1}}</td>
-        <td style="text-align:center; border: 1px solid black">{{$d->nama_dosen}}</td>
+        <td style="text-align:center; border: 1px solid black">{{$o->nama_dosen}}</td>
         <td style="text-align:center; border: 1px solid black"></td>
         </tr>
         @empty
@@ -43,7 +43,7 @@
   <br>
 
 
-  <p align="right">{{$d->nama_dosen}}</p>
+  <p align="right">{{$o->nama_dosen}}</p>
 </footer>
 
 </body>

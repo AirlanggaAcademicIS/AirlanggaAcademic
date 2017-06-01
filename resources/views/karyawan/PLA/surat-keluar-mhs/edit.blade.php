@@ -46,7 +46,7 @@ Verifikasi Surat Keluar
 			</div>
 			@endif
 			<br>
-			<form id="suratkeluar" method="post" action="{{url('/karyawan/pla/surat-keluar-mhs/'.$surat_keluar_mhs->id_surat_keluar.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="suratkeluar" method="post" action="{{url('/karyawan/surat-keluar-mhs/'.$surat_keluar_mhs->id_surat_keluar.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
