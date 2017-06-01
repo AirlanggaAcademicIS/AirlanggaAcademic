@@ -4,13 +4,13 @@
 
 
 @endsection
+karyawan
 
 @section('htmlheader_title')
   Silabus 
 @endsection
 
 @section('contentheader_title')
-
 Silabus
 @endsection
 
@@ -27,14 +27,11 @@ Silabus
   @endif
   @endforeach
 </div>
-<div class="form-group">
-<a href="{{url('/mahasiswa/kurikulum/silabus/create')}}" class="btn btn-info btn-sm">Tambah Silabus</a>
-</div>
 
 <div class="box box-danger">
 <div class="box-body">
 
-<table class="table" id="data-table" style="width:100%">
+<table class="table table-bordered table-striped" id="data-table" style="width:100%">
   <thead>
     <tr>
       <th>Nomer</th>
@@ -48,12 +45,11 @@ Silabus
   @foreach($mata_kuliah as $i => $mk)
   <tr>
     <td width="2%" style="text-align-center">{{$i+1}}</td>
-    <td><a href="{{url('/mahasiswa/kurikulum/silabus/edit/'.$mk->id_mk)}}">{{$mk->kode_matkul}}</a></td>
-    <td>{{$mk->nama_matkul}}</td>
+    <td style="text-align:center"><a href="{{url('/mahasiswa/kurikulum/silabus/edit/'.$mk->id_mk)}}">{{$mk->kode_matkul}}</a></td>
+    <td width="40%" style="text-align:center">{{$mk->nama_matkul}}</td>
     <td width="30%" style="text-align:center">
-
       <a class="btn btn-info btn-xs">
-        <i class="fa fa-download-square-o"></i> Download</a>
+        <i class="fa fa-file-text-o" aria-hidden="true"></i> Download PDF</a>
     </td>
     @endforeach 
   </tbody>                                
