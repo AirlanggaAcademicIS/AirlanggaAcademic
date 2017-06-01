@@ -51,6 +51,7 @@ class daftarDosenRapatController extends Controller
             // ->get()
            'dosen' => DB::table('dosen_rapat') 
             ->join('biodata_dosen', 'dosen_rapat.nip', '=', 'biodata_dosen.nip')
+            ->where('status', '=', '1')
             ->select('*') 
             ->get(),
            'rapat' => DB::table('notulen_rapat') 
