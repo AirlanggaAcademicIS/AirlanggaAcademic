@@ -10,7 +10,7 @@ Data Mahasiswa Skripsi
 @endsection
 
 @section('contentheader_title')
-Biodata
+Monitoring Skripsi
 @endsection
 
 @section('main-content')
@@ -29,35 +29,16 @@ Biodata
 
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
-  <thead>
+  <thead><h3>Data Skripsi</h3>
     <tr>
-          <th style="text-align:center">No.</th>
-          <th style="text-align:center">Nama Mahasiswa</th>  
-          <th style="text-align:center">NIM</th>     
-          <th style="text-align:center">KBK</th>
-          <th style="text-align:center">Judul</th>
-          <th style="text-align:center">NIP Petugas</th>
-          <th style="text-align:center">Dosen Pembimbing 1</th>
-          <th style="text-align:center">Dosen Pembimbing 2</th>
+      <tr><td width="15%">Nama</td><td>{{$mhs->nama_mhs}}</td></tr>
+      <tr><td width="15%">NIM</td><td>{{$mhs->nim_id}}</td></tr>
+      <tr><td width="15%">KBK</td><td>{{$skripsi->kbk['jenis_kbk']}}</td></tr>
+      <tr><td width="15%">Judul</td><td>{{$skripsi->Judul}}</td></tr>
+      <tr><td width="15%">Dosen Pembimbing 1</td><td>{{$dosen1->nama_dosen}}</td></tr>
+      <tr><td width="15%">Dosen Pembimbing 2</td><td>{{$dosen2->nama_dosen}}</td></tr>
     </tr>
         </thead>
-      <tbody>
-       @forelse($skripsi as $i => $skrip) 
-        <tr>
-          <td style="text-align:center">{{ $i+1 }}</td>
-          <td style="text-align:center">{{$skrip->mahasiswa['nama_mhs']}}</td>
-          <td style="text-align:center">{{$skrip->NIM_id}}</td>
-          <td style="text-align:center">{{$skrip->KBK['jenis_kbk']}}</td>
-          <td style="text-align:center">{{$skrip->Judul}}</td>
-          <td style="text-align:center">{{$skrip->nip_petugas_id}}</td>
-          <td style="text-align:center">{{$skrip->nip_id1}}</td>
-          <td style="text-align:center">{{$skrip->nip_id2}}</td>
-        </tr>
-     @empty
-        <tr>
-          <td colspan="6"><center>Belum ada data skripsi</center></td>
-        </tr>
-    @endforelse
   </tbody>
 </table>
 </div>

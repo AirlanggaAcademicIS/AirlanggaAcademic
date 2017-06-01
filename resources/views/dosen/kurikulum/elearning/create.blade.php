@@ -31,7 +31,7 @@ Tambah Capaian Program
   @endif
   @endforeach
 
-
+<div class="box box-danger">
 <div class="row">
   <div class="col-md-12">
     <div class="">
@@ -46,7 +46,7 @@ Tambah Capaian Program
       </div>
       @endif
       <br>
-      <form id="tambahCapaianProgram" method="post" action="{{url('/dosen/kurikulum/cp_program/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+      <form id="tambahCapaianProgram" method="post" action="{{url('/dosen/kurikulum/elearning/create')}}" enctype="multipart/form-data"  class="form-horizontal">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <!-- Menampilkan input text biasa -->
@@ -56,33 +56,26 @@ Tambah Capaian Program
            <div class="form-group">
               <label class="col-sm-2 control-label" for="exampleInputEmail1">Mata Kuliah</label>
               <div class="col-md-6">
-                <select class="form-control">
-                  <option>Mata Kuliah</option>
-                  <option>Kecerdasan Buatan</option>
-                  <option>Riset Operasi</option>
-                  <option>Perancangan Sistem Informasi</option>
-                </select>
+                <select class="form-control select2" style="width: 100%;" name = "mk_id" onchange="javascript:handleSelect(this)">
+                    <option value="">Pilih Mata Kuliah</option>
+                      @foreach($matkul as $mk)
+                      <option value="{{ $mk->id_mk }}" >{{$mk->nama_matkul}}</option>
+                      @endforeach
+                  </select>
               </div>
             </div>
 
             <div class="form-group">
               <label for="capaian_program_spesifik" class="col-sm-2 control-label">Judul</label>
               <div class="col-md-6">
-                <textarea id="capaian_program_spesifik" name="capaian_program_spesifik" placeholder=" capaian Program Spesifik" required cols="82" rows="5"></textarea>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="id_prodi" class="col-sm-2 control-label">Tanggal</label>
-              <div class="col-md-6">
-                <input type="text" class="form-control input-lg" id="prodi_id" name="prodi_id" placeholder="Masukkan prodi Id" required>
+                <textarea id="capaian_program_spesifik" name="judul" placeholder=" Berikan Judul" required cols="82" rows="5"></textarea>
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-sm-2 control-label" for="exampleInputFile">File input</label>
               <div class="col-md-6">
-                <input id="exampleInputFile" type="file">
+                <input id="exampleInputFile" name="direktori_file" type="file">
                 <p class="help-block">Example block-level help text here.</p>
               </div>
             </div>
@@ -97,6 +90,7 @@ Tambah Capaian Program
       </form>
     </div>
   </div>
+</div>
 </div>
 @endsection
 

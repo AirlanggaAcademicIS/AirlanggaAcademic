@@ -47,7 +47,6 @@ Asset
       <th style="text-align:center">Status</th>
       <th style="text-align:center">Nama Asset</th>
       <th style="text-align:center">Lokasi</th> 
-      <th style="text-align:center">Jumlah Barang</th>
       <th style="text-align:center">Action</th>
       <th style="text-align:center">Maintenance</th>
       </tr>
@@ -57,23 +56,33 @@ Asset
     <tr>
       <td>{{ $i+1 }}</td>
        @if($ass->kategori_id == 1) 
-            <td width="20%" style="text-align:center">Dokumen</td>
-            @elseif($ass->kategori_id == 2) 
-            <td width="20%" style="text-align:center">Furniture</td>
-            @elseif($ass->kategori_id == 3) 
-            <td width="20%" style="text-align:center">Elektroni</td>
-
-            @endif
+        <td width="20%" style="text-align:center">Elektronik</td>
+        @elseif($ass->kategori_id == 2) 
+        <td width="20%" style="text-align:center">Mekanik</td>
+        @elseif($ass->kategori_id == 3) 
+        <td width="20%" style="text-align:center">Furniture</td>
+        @elseif($ass->kategori_id == 4) 
+        <td width="20%" style="text-align:center">Dokumen</td>
+        @elseif($ass->kategori_id == 5) 
+        <td width="20%" style="text-align:center">Kendaraan</td>
+       @endif
+      
       <td width="15%" style="text-align:center">{{$ass->nip_petugas_id}}</td>
      
       @if($ass->status_id == 1) 
-            <td width="20%" style="text-align:center">Ready</td>
-            @elseif($ass->status_id == 2) 
-            <td width="20%" style="text-align:center">Not Ready</td>
-            @endif
+      <td width="20%" style="text-align:center">Ready</td>
+      @elseif($ass->status_id == 2) 
+      <td width="20%" style="text-align:center">Borrowed</td>
+      @elseif($ass->status_id == 3) 
+      <td width="20%" style="text-align:center">Maintenance</td>
+      @elseif($ass->status_id == 4) 
+      <td width="20%" style="text-align:center">Broken</td>
+      @elseif($ass->status_id == 5) 
+      <td width="20%" style="text-align:center">Expired</td>
+      @endif
+
       <td width="10%" style="text-align:center">{{$ass->nama_asset}}</td>
       <td width="10%" style="text-align:center">{{$ass->lokasi}}</td>
-      <td width="10%" style="text-align:center">{{$ass->jumlah_barang}}</td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus asset ini?');" href="{{url('inventaris/asset/'.$ass->id_asset.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
 
@@ -84,7 +93,10 @@ Asset
         <i class="fa fa-pencil-square-o"></i> Edit</a>
 
         <a href="{{url('inventaris/input-peminjaman/'.$ass->id_asset.'')}}" class="btn btn-primary btn-xs">
-        <i class=""></i> Pinjam Asset</a>
+        <i class="fa fa-hand-rock-o"></i> Pinjam Asset</a>
+
+        <a href="{{url('/'.$ass->serial_barcode.'')}}" class="btn btn-info btn-xs">
+        <i class="fa fa-qrcode"></i> Get QRCODE</a>
 
         </td>
         <td width="20%" style="text-align:center" >

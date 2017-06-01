@@ -55,9 +55,9 @@ Tambah Asset
 					<div class="col-md-8">
 						<select class="form-control" name="kategori" required>
 		            	<option value="">-- Pilih Kategori --</option>
-		                <option value="1">Dokumen</option>
-		                <option value="2">Furniture</option>
-		                <option value="3">Elektronik</option>
+		                @foreach ($kategori as $k)
+		                <option value="{{ $k->id_kategori }}">{{ $k->kategori }}</option>
+		                @endforeach
 		               
 					</select>
 					</div>
@@ -68,7 +68,9 @@ Tambah Asset
 					<div class="col-md-8">
 						<select class="form-control" name="status" required>
 		            	<option value="">-- Pilih Status --</option>
-		                <option value="1">Ready</option>
+		                @foreach ($status as $s)
+		                <option value="{{ $s->id_status }}">{{ $s->status }}</option>
+		                @endforeach
 					</select>
 					</div>
 				</div>
@@ -107,13 +109,6 @@ Tambah Asset
 					<label for="nama" class="col-sm-2 control-label">Harga Satuan</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control input-lg" id="harga_satuan" name="harga_satuan" placeholder="Masukkan Harga" required>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Jumlah Barang</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="jumlah_barang" name="jumlah_barang" placeholder="Masukkan Jumlah Barang" required>
 					</div>
 				</div>
 

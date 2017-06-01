@@ -62,7 +62,7 @@ Konsultasi
   <tbody>
    @forelse($konsultasi as $i => $konsul) 
     <tr>
-      <td width="5%">{{ $i+1 }}</td>
+      <td width="5%" style="text-align:center">{{ $i+1 }}</td>
       <td width="15%" style="text-align:center">{{$konsul->tgl_konsul}}</td>
       <td width="20%" style="text-align:center">{{$konsul->catatan_konsul}}</td>
      

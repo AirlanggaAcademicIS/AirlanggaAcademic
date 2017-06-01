@@ -57,16 +57,7 @@ Tambah Surat
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama Petugas</label>
-					<div class="col-md-8">
-						<select style="height: 45px;" class="form-control" id="nip_petugas_id" name="nip_petugas_id">
-							@foreach($petugas as $p)
-							<option value="{{$p->nip_petugas}}">{{$p->nama_petugas}}</option>
-							@endforeach
-						</select>
-					</div>
-				</div>
+				
 
 			<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Nama Lembaga</label>

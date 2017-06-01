@@ -22,6 +22,7 @@ class KonsultasiController extends Controller
     // Function untuk menampilkan tabel
     public function index()
     {
+        $AkunDosen = Auth::user()->username;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'konsultasi',
@@ -33,7 +34,9 @@ class KonsultasiController extends Controller
             'konsultasi' => DB::table('konsultasi')
             ->join('skripsi', 'skripsi.id_skripsi', '=', 'konsultasi.skripsi_id')
             ->join('biodata_mhs','biodata_mhs.nim_id','=','skripsi.NIM_id')
-            ->select('konsultasi.*','biodata_mhs.*','skripsi.*')
+            ->join('dosen_pembimbing', 'dosen_pembimbing.skripsi_id', '=', 'konsultasi.skripsi_id')
+            ->select('konsultasi.*','biodata_mhs.*','skripsi.*', 'dosen_pembimbing.*')
+            ->where('dosen_pembimbing.nip_id', '=', $AkunDosen)
             ->get()
         ];
 
@@ -112,6 +115,7 @@ class KonsultasiController extends Controller
 
     public function show()
     {
+        $AkunDosen = Auth::user()->username;
         $nim_id = \Request::get('mhs');
         $data = [
         'page' => 'konsultasi',
@@ -127,7 +131,9 @@ class KonsultasiController extends Controller
         'konsultasi' => DB::table('konsultasi')
             ->join('skripsi', 'skripsi.id_skripsi', '=', 'konsultasi.skripsi_id')
             ->join('biodata_mhs','biodata_mhs.nim_id','=','skripsi.NIM_id')
-            ->select('*')
+            ->join('dosen_pembimbing', 'dosen_pembimbing.skripsi_id', '=', 'konsultasi.skripsi_id')
+            ->select('konsultasi.*','biodata_mhs.*','skripsi.*', 'dosen_pembimbing.*')
+            ->where('dosen_pembimbing.nip_id', '=', $AkunDosen)
             ->where('skripsi.NIM_id','=',$nim_id)
             ->get()
         ];
