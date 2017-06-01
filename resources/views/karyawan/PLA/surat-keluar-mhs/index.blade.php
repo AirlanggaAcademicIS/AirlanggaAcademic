@@ -62,14 +62,14 @@ Surat Keluar
       <td width="10%" style="text-align:center">Tidak Disetujui</td>
       @endif
       <td width="20%" style="text-align:center" >
-        <a onclick="return confirm('Anda yakin untuk menghapus surat ini?');" href="{{url('karyawan/pla/surat-keluar-mhs/'.$surat->id_surat_keluar.'/delete/')}}" class="btn btn-warning btn-xs">
+        <a onclick="return confirm('Anda yakin untuk menghapus surat ini?');" href="{{url('karyawan/surat-keluar-mhs/'.$surat->id_surat_keluar.'/delete/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <!--<a href="{{url('karyawan/pla/surat-keluar-mhs/'.$surat->id_surat_keluar.'/edit/')}}" class="btn btn-info btn-xs">
         <i class="fa fa-pencil-square-o"></i> Verifikasi</a>-->
         @if($surat->status == 0)
-        <a href="{{url('karyawan/pla/surat-keluar-mhs/'.$surat->id_surat_keluar.'/agree/')}}" class="btn btn-success btn-xs">
+        <a href="{{url('karyawan/surat-keluar-mhs/'.$surat->id_surat_keluar.'/agree/')}}" class="btn btn-success btn-xs">
         <i class="fa fa-pencil-square-o"></i> Disetujui</a>
-        <a href="{{url('karyawan/pla/surat-keluar-mhs/'.$surat->id_surat_keluar.'/disagree/')}}" class="btn btn-danger btn-xs">
+        <a href="{{url('karyawan/surat-keluar-mhs/'.$surat->id_surat_keluar.'/disagree/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-pencil-square-o"></i> Tidak Disetujui</a>
         @endif
         </td>

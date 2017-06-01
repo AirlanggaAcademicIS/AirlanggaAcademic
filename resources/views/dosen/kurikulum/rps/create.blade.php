@@ -66,7 +66,7 @@ Tambah Kategori Media Pembelajaran
 
 <div class="form-group box-header">
   <label for="prasyarat"><b>Mata Kuliah Prasyarat</b></label><br>     
-    @foreach($mata_kuliah as $mk)
+    @foreach($matkul as $mk)
       <label class="checkbox-inline"><input type="checkbox" value="{{$mk->id_mk}}" name="mk_syarat_id[]"> {{$mk->nama_matkul}}  </label> 
     @endforeach                                
 </div>
@@ -100,15 +100,6 @@ Tambah Kategori Media Pembelajaran
   <textarea class="form-control" rows="3" placeholder="Masukkan pustaka pendukung" name="pustaka_pendukung"></textarea><br>
 </div>
   
-  <!-- <div class="form-group">
-<p><b>Media Pembelajaran</b></p>
-</div>
-    <div class="form-group">    
-  @foreach($media as $m)
-    <label class="checkbox-inline" name="media_pembelajaran"><input type="checkbox" value="{{$m->id}}" name="media_pembelajaran_id[]">{{$m->media_pembelajaran}}</label>       
-  @endforeach                                
-</div>
- -->
 <div class="form-group box-header">
   <p><b>Team Teaching</b></p>
     <label for="koor_mk">Koordinator Mata kuliah</label>
