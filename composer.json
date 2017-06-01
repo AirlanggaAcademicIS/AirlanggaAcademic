@@ -12,6 +12,9 @@
         "knplabs/knp-snappy": "^0.4.3",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
+        "barryvdh/laravel-snappy": "^0.3.3",
+        "maddhatter/laravel-fullcalendar": "^1.2",
+        "maatwebsite/excel": "~2.1.0",
         "milon/barcode": "^5.3"
     },
     "require-dev": {

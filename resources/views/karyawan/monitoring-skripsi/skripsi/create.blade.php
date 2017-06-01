@@ -58,9 +58,9 @@ Tambah Data Skripsi
                   <label for="kbk_id" class="col-sm-2 control-label">KBK</label>
                   <div class="col-md-8">
                   <select name="kbk_id" class="form-control">
-                    <option value="1">Data Mining</option>
-                    <option value="2">Sistem Pengambilan Keputusan</option>
-                    <option value="3">Information System Engineering</option>
+                  	@foreach($kbk as $k)
+                    <option value="{{$k->id_kbk}}">{{$k->jenis_kbk}}</option>
+                    @endforeach
                   </select>
                   </div>
                 </div>
@@ -132,4 +132,3 @@ Tambah Data Skripsi
 });
  </script>
 @endsection
-

@@ -30,7 +30,8 @@ Edit capaian program
 	@endif
 	@endforeach
 
-
+<div class="box box-danger">
+<div class="box-body">
 <div class="row">
 	<div class="col-md-12">
 		<div class="">
@@ -75,9 +76,9 @@ Edit capaian program
 
 				<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="capaian_program_spesifik" class="col-sm-2 control-label">capaian Program Spesifik</label>
+					<label for="capaian_program_spesifik" class="col-sm-2 control-label">Capaian Program Spesifik</label>
 					<div class="col-md-8">
-						<textarea id="capaian_program_spesifik" name="capaian_program_spesifik" placeholder=" Masukkan capaian_program_spesifik" required cols="82" rows="5" required>{{$cp_program->capaian_program_spesifik}} 
+						<textarea id="capaian_program_spesifik" name="capaian_program_spesifik" placeholder=" Masukkan capaian_program_spesifik" required cols="124" rows="5" required>{{$cp_program->capaian_program_spesifik}} 
 						</textarea>
 					</div>
 				</div>
@@ -86,24 +87,19 @@ Edit capaian program
 				<div class="form-group">
 					<label for="dimensi_capaian_umum" class="col-sm-2 control-label">Dimensi Capaian Umum</label>
 					<div class="col-md-8">
-						<textarea id="dimensi_capaian_umum" name="dimensi_capaian_umum" placeholder=" Masukkan Dimensi Capaian Umum" required cols="82" rows="5" required>{{$cp_program->dimensi_capaian_umum}} 
+						<textarea id="dimensi_capaian_umum" name="dimensi_capaian_umum" placeholder=" Masukkan Dimensi Capaian Umum" required cols="124" rows="5" required>{{$cp_program->dimensi_capaian_umum}} 
 						</textarea>
 					</div>
 				</div>
 
+				<div class="box-footer clearfix">
+        <button type="Edit" class="pull-right btn btn-info btn-sm" id="Edit">Edit
+        </button>
+      </div>
+    </div>
+  </div>       
+</form>
 
-
-				<div class="form-group text-center">
-					<div class="col-md-8 col-md-offset-2">
-					<button type="submit" class="btn btn-primary btn-lg">
-							Confirm
-						</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
 @endsection
 
 @section('code-footer')

@@ -12,6 +12,8 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\SuratTugasDosen;
+use Illuminate\Support\Facades\DB;
+use Auth;
 
 
 class SuratTugasController extends Controller
@@ -19,12 +21,16 @@ class SuratTugasController extends Controller
 
     // Function untuk menampilkan tabel
     public function index()
-    {
+    {   $dosen = Auth::user()->username;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'surattugas',
             // Memanggil semua isi dari tabel biodata
-            'surattugas' => SuratTugasDosen::all()
+            'surattugas' => DB::table('surat_tugas_dosen')
+            ->where('surat_tugas_dosen.nip','=',$dosen)
+            ->join('surat_tugas', 'surat_tugas_dosen.surat_id', '=', 'surat_tugas.surat_id')
+            ->select('*')
+            ->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view

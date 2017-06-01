@@ -1,3 +1,4 @@
+
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
@@ -31,7 +32,8 @@ Tambah Capaian Program
 	@endif
 	@endforeach
 
-
+<div class="box box-danger">
+<div class="box-body">
 <div class="row">
 	<div class="col-md-12">
 		<div class="">
@@ -65,7 +67,7 @@ Tambah Capaian Program
 				<div class="form-group">
 					<label for="capaian_program_spesifik" class="col-sm-2 control-label">Capaian Program Spesifik</label>
 					<div class="col-md-8">
-						<textarea id="capaian_program_spesifik" name="capaian_program_spesifik" placeholder=" capaian Program Spesifik" required cols="82" rows="5">
+						<textarea id="capaian_program_spesifik" name="capaian_program_spesifik" placeholder=" Masukkan Capaian Program Spesifik" required cols="124" rows="5">
 						</textarea>
 					</div>
 				</div>
@@ -74,22 +76,20 @@ Tambah Capaian Program
 				<div class="form-group">
 					<label for="dimensi_capaian_umum" class="col-sm-2 control-label">Dimensi Capaian Umum</label>
 					<div class="col-md-8">
-						<textarea id="dimensi_capaian_umum" name="dimensi_capaian_umum" placeholder=" Masukkan Dimensi Capaian Umum" required cols="82" rows="5">
+						<textarea id="dimensi_capaian_umum" name="dimensi_capaian_umum" placeholder=" Masukkan Dimensi Capaian Umum" required cols="124" rows="5">
 						</textarea>
 					</div>
 				</div>
 
-				<div class="form-group text-center">
-					<div class="col-md-8 col-md-offset-2">
-					<button type="submit" class="btn btn-primary btn-lg">
-							Tambah
-						</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
+				<div class="box-footer clearfix">
+        <button type="tambah" class="pull-right btn btn-info btn-sm" id="tambah">Tambah
+        </button>
+      </div>
+    </div>
+  </div>       
+</form>
+
+				
 @endsection
 
 @section('code-footer')

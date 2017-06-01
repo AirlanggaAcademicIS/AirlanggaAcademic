@@ -12,19 +12,24 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\PengmasDosen;
-
+use Illuminate\Support\Facades\DB;
+use Auth;
 
 class PengmasController extends Controller
 {
 
     // Function untuk menampilkan tabel
     public function index()
-    {
+    {   $dosen = Auth::user()->username;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'pengmas',
             // Memanggil semua isi dari tabel biodata
-            'pengmas' => PengmasDosen::all()
+            'pengmas' => DB::table('pengmas_dosen')
+            ->where('pengmas_dosen.nip','=',$dosen)
+            ->join('pengabdian_masyarakat', 'pengmas_dosen.kegiatan_id', '=', 'pengabdian_masyarakat.kegiatan_id')
+            ->select('*')
+            ->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view

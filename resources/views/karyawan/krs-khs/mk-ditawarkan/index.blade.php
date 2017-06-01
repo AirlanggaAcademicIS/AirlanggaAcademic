@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Asset
+MK Ditawarkan
 @endsection
 
 @section('contentheader_title')
-Asset
+MK Ditawarkan
 @endsection
 
 @section('main-content')
@@ -28,59 +28,24 @@ Asset
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('inventaris/asset/create')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah Asset</a>
-</div>
+  <a href="{{ url('karyawan/krs-khs/mk-ditawarkan/create') }}" type="button" class="btn btn-info btn-md" >
+    <i class="fa fa-plus-square"></i> Tambah Periode MK Ditawarkan</a>
+</div >
+<form action="{{url('karyawan/krs-khs/mk-ditawarkan/show')}}" method="get">
+<div class="col-md-3" style="padding: 0;">
 <div style="overflow: auto">
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
-  <thead>
-    <tr>
-      <th style="text-align:center">No.</th>
-      <th style="text-align:center">ID Asset</th>
-      <th style="text-align:center">ID Kategori</th>
-      <th style="text-align:center">NIP Petugas</th>
-      <th style="text-align:center">ID Status</th>
-      <th style="text-align:center">Serial Barcode</th>
-      <th style="text-align:center">Nama Asset</th>
-      <th style="text-align:center">Lokasi</th>
-      <th style="text-align:center">Expired Date</th>
-      <th style="text-align:center">Nama Supplier</th>
-      <th style="text-align:center">Harga Satuan</th>
-      <th style="text-align:center">Jumlah Barang</th>
-      <th style="text-align:center">Total Harga</th>
-      <th style="text-align:center">Action</th>
-      </tr>
-    </thead>
-  <tbody>
-   @forelse($asset as $i => $ass) 
-    <tr>
-      <td>{{ $i+1 }}</td>
-      <td width="20%" style="text-align:center">{{$ass->id_asset}}</td>
-      <td width="20%" style="text-align:center">{{$ass->kategori_id}}</td>
-      <td width="15%" style="text-align:center">{{$ass->nip_petugas_id}}</td>
-      <td width="20%" style="text-align:center">{{$ass->status_id}}</td>
-      <td width="20%" style="text-align:center">{{$ass->serial_barcode}}</td>
-      <td width="10%" style="text-align:center">{{$ass->nama_asset}}</td>
-      <td width="10%" style="text-align:center">{{$ass->lokasi}}</td>
-      <td width="10%" style="text-align:center">{{$ass->expired_date}}</td>
-      <td width="10%" style="text-align:center">{{$ass->nama_supplier}}</td>
-      <td width="10%" style="text-align:center">{{$ass->harga_satuan}}</td>
-      <td width="10%" style="text-align:center">{{$ass->jumlah_barang}}</td>
-      <td width="10%" style="text-align:center">{{$ass->total_harga}}</td>
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus asset ini?');" href="{{url('/asset/'.$ass->id_asset.'/delete/')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('/asset/'.$ass->id_asset.'/edit/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Edit</a>
-        </td>
-    </tr>
-     @empty
-        <tr>
-          <td colspan="6"><center>Belum ada asset</center></td>
-        </tr>
-    @endforelse
-  </tbody>
-</table>
+  <select class="form-control" id="periode" name="periode">
+      <option>Tahun Akademik</option>
+      @foreach($tahun as $t) 
+      <option value ="{{$t->id_thn_akademik}}">{{$t->semester_periode}}</option>
+      @endforeach
+  </select>
+  <div class="col-md-4">
+            <button class="btn btn-info" type="submit">Pilih</button>
+          </div>
 </div>
+</div>
+</form>
 
 @endsection
 

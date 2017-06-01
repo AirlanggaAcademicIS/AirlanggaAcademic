@@ -56,12 +56,7 @@ Edit Surat
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">NIP Petugas</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nip_petugas_id" name="nip_petugas_id" value="{{$surat_masuk->nip_petugas_id}}" placeholder="Masukkan NIP Petugas" required>
-					</div>
-				</div>
+				
 
 			<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Nama Lembaga</label>
