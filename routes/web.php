@@ -43,14 +43,34 @@ Route::group(['prefix' => 'krs-khs'], function() {
             Route::get('view','Mahasiswa\KrsKhs\HistoriController@index');
             Route::get('cetak','Mahasiswa\KrsKhs\HistoriController@toPdf');
         });
-
-        // KHS
         Route::group(['prefix' => 'khs'], function(){
             Route::get('view','Mahasiswa\KrsKhs\KHSController@index');
             Route::get('cetak','Mahasiswa\KrsKhs\KHSController@toPdf');
              });
         });
     }); 
+
+Route::group(['prefix' => 'mahasiswa'], function(){
+    //Fitur Kra Mahasiswa
+        Route::group(['prefix' => 'krskhs'], function(){
+            //Untuk folder Krs
+            Route::group(['prefix' => 'krs'], function(){
+
+        // Menampilkan form tambah biodata
+        Route::get('index','Mahasiswa\KrsKhs\KrsMhsController@create');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('{id}/delete','Mahasiswa\KrsKhs\KrsMhsController@delete');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::get('create/{id}','Mahasiswa\KrsKhs\KrsMhsController@createAction');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::get('editAction/{$id}','Mahasiswa\KrsKhs\KrsMhsController@editAction');
+            });
+        });
+    });
+
 /*
 
 ==========================================

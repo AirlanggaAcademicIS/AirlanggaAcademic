@@ -21,10 +21,8 @@
 <br>
 @endforeach
 </p>
-@foreach($khs as $b)
-<br><b>NIM              :   {{$b->nim_id}} </b>
-<br><b>Nama Mahasiswa   :   {{$b->nama_mhs}} </b>
-@endforeach
+<br><b>NIM              :   {{$biodata_mhs->nim_id}} </b>
+<br><b>Nama Mahasiswa   :   {{$biodata_mhs->nama_mhs}} </b>
 <table style="width:100%; border: 1px solid black;">
     <thead>
         <th style="text-align:center; border: 1px solid black">NO.</th>

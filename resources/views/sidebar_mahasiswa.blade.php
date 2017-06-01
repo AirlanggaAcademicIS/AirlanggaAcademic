@@ -13,3 +13,11 @@
                 <a href="{{url('mahasiswa/krs-khs/khs/view')}}"><i class='fa fa-users'></i> <span>Kartu Hasil Studi</span>
                 </a>
                 </li>
+
+                <li
+  @if($page == 'krs')
+  {!! 'class="active"'!!}
+  @endif
+>
+<a href="{{ url('mahasiswa/krskhs/krs/index') }}"><i class="fa fa-calculator"></i>Krs</a>
+</li>
