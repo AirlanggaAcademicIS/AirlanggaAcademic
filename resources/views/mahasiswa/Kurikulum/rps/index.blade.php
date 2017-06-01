@@ -37,7 +37,7 @@ Rencana Pembelajaran Semester
     <th style="text-align:center">No.</th>
     <th style="text-align:center">Kode Mata Kuliah</th>
     <th style="text-align:center">Nama Mata Kuliah</th>
-    <th style="text-align:center">Action</th>
+    <th style="text-align:center">Aksi</th>
   </tr>
   </thead>
 
