@@ -1,4 +1,3 @@
-
 <script src="<?php echo e(asset('/js/app.js')); ?>" type="text/javascript"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
@@ -54,6 +53,12 @@
       fixed layout. -->
 
 
+<script src="<?php echo e(asset('/js/jquery.steps.js')); ?>" type="text/javascript"></script>
+<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="<?php echo e(asset('/js/jquery-ui.js')); ?>" type="text/javascript"></script>
+<script src="<?php echo e(asset('/js/jquery.slimscroll.js')); ?>" type="text/javascript"></script>
+ 
+
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
@@ -77,6 +82,10 @@
         'csrfToken' => csrf_token(),
     ]); ?>;
 </script>
+
+<!-- fullCalendar 2.2.5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>
 <script>
     $(document).ready(function() {
         function adjustIframeHeight() {
@@ -89,18 +98,21 @@
         }
     });
 
+</script>
+
+
     $("#penelitian").steps({
                 headerTag: "h2",
                 bodyTag: "section",
               onFinished: function (event, currentIndex)
             {
                 var form = $(this);
-
                 // Submit form input
                 form.submit();
             }           
     });
 
     </script>
+</script>
 
 <?php echo $__env->yieldContent('code-footer'); ?>

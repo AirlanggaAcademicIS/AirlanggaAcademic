@@ -61,6 +61,7 @@ Dokumentasi
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/kegiatan/dokumentasi/'.$dok->id.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
+        <a href="{{url('/dosen/pengelolaan-kegiatan/detail-pengajuan/'.$dok->kegiatan_id.'')}}" class="btn btn-success btn-xs"> View Detail</a>
         </td>
     </tr>
      @empty

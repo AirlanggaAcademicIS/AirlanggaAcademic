@@ -59,7 +59,7 @@ Surat Masuk Mahasiswa
     </tr>
      @empty
         <tr>
-          <td colspan="6"><center>Belum ada surat</center></td>
+          <td colspan="8"><center>Belum ada surat</center></td>
         </tr>
     @endforelse
   </tbody>
