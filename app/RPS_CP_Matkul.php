@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class RPS_CP_Matkul extends Model
 {	
@@ -15,6 +16,7 @@ class RPS_CP_Matkul extends Model
 		'deskripsi_cpmk',
    ];
    protected $dates = [
+  	'created_at',
   	'deleted_at'
 	];
 

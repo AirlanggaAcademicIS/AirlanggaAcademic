@@ -55,14 +55,14 @@ Input Dokumen
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Nomor Dokumentasi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_dokumentasi" name="id_dokumentasi" placeholder="Masukkan Nama Gambar" required>
+						<input type="text" class="form-control input-md" id="id_dokumentasi" name="id_dokumentasi" placeholder="Masukkan Nama Gambar" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 				<label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
                 <div class="col-md-8">
-	                <select class="form-control select2" style="width: 100%;" name = "kegiatan_id" onchange="javascript:handleSelect(this)">
+	                <select class="form-control select2" style="width: 100%;" name = "kegiatan_id" id="kegiatan_id" onchange="javascript:handleSelect(this)">
 	                	<option value="">Pilih Kegiatan</option>
 	                  	@foreach($kegiatan as $pk)
 	                  	<option {!!(old('id_kegiatan') == $pk->id_kegiatan)? 'selected' : ''!!} value="{{ $pk->id_kegiatan }}" >{{$pk->nama}}</option>
@@ -85,6 +85,13 @@ Input Dokumen
 				</div> -->
 
 			<!-- Menampilkan textarea -->
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Ruang Pelaksanaan Kegiatan</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-md" id="rpelaksanaan" name="rpelaksanaan" placeholder="Masukkan Tempat pelaksanaan" required>
+					</div>
+				</div>
+
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Evaluasi Kegiatan</label>
 					<div class="col-md-8">

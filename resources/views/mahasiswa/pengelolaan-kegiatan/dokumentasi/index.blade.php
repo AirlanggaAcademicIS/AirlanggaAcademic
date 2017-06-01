@@ -59,9 +59,10 @@ Dokumentasi
       <td width="20%" style="text-align:center"><img src="{{URL::asset('/img/dokumentasi/'.$dok->url_foto)}}" height="100px" width="100px" hspace="5px" vspace="2px"></td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus gambar ini?');" href="{{url('/kegiatan/dokumentasi/'.$dok->id_dokumentasi.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('/kegiatan/dokumentasi/'.$dok->id_dokumentasi.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('/mahasiswa/dokumentasi/'.$dok->id_dokumentasi.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         <a href="{{url('/mahasiswa/pengelolaan-kegiatan/detail-pengajuan/'.$dok->kegiatan_id.'')}}" class="btn btn-success btn-xs"> View Detail</a>
+        <a href="{{url('mahasiswa/pengelolaan-kegiatan/dokumentasi/download/'.$dok->kegiatan_id.'')}}" class="btn btn-success btn-xs"> pdf</a>
         </td>
     </tr>
      @empty

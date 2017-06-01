@@ -58,8 +58,6 @@ KHS
     @endforeach
                     </tbody>
                   </table>
-                  <br>
-                  <label>SKS    : {{$sum}} </label>
                  
                 </div>
           <!-- /.col -->

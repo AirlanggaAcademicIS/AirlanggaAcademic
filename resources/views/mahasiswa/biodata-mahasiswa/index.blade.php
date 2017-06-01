@@ -58,7 +58,7 @@ Biodata Mahasiswa
       <td width="15%" style="text-align:center" >
       @if($bio->nim_id == Auth::user()->username)
         <a href="{{url('/mahasiswa/biodata-mahasiswa/'.$bio->id_bio.'/edit/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Edit</a>
+        <i class="fa fa-pencil-square-o"></i> Input/Edit</a>
       @endif
         </td>
     </tr>
