@@ -46,7 +46,7 @@ Jadwal Kuliah
     </tr>
     </thead>
   <tbody>
-   @forelse($jadwal as $i => $j) 
+   @forelse($jadwal_kuliah as $i => $j) 
     <tr>
       <td>{{ $i+1 }}</td>
       <td width="20%" style="text-align:center">{{$j->mkDitawarkan->mk->nama_matkul}}</td>
