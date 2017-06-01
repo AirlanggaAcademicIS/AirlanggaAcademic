@@ -2,9 +2,8 @@
 <!-- fullCalendar 2.2.5 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>
->>>>>>> 3b215101045cc3cc74a2d48dec4a0c413c621800
 
->>>>>>> c5b427c84f702506ffc190becb3b499f2a5f90f6
+
 <script src="<?php echo e(asset('/js/app.js')); ?>" type="text/javascript"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
@@ -112,6 +111,9 @@ $(document).ready(function() {
                 var form = $(this);
 
 
+                // Submit form input
+
+
 
                 // Submit form input
 
@@ -128,4 +130,6 @@ $(document).ready(function() {
     
 
 <?php echo $__env->yieldContent('code-footer'); ?>
+
+
 
