@@ -66,7 +66,7 @@ class Surat_Keluar_MhsController extends Controller
         Session::put('alert-success', 'Surat berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/
-        return Redirect::to('mahasiswa/pla/surat-keluar-mhs');
+        return Redirect::to('mahasiswa/surat-keluar-mhs');
     }
 
     public function delete($id_surat_keluar)
@@ -94,7 +94,7 @@ class Surat_Keluar_MhsController extends Controller
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('mahasiswa/pla/surat-keluar-mhs.edit',$data);
+        return view('mahasiswa.pla.surat-keluar-mhs.edit',$data);
     }
 
     public function editAction($id_surat_keluar_mhs, Request $request)
@@ -115,7 +115,7 @@ class Surat_Keluar_MhsController extends Controller
         Session::put('alert-success', 'Surat berhasil diedit');
 
         // Kembali ke halaman mahasiswa/
-        return Redirect::to('mahasiswa/pla/surat-keluar-mhs');
+        return Redirect::to('mahasiswa/surat-keluar-mhs');
     }
 
 }

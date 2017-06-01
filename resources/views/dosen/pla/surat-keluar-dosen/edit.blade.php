@@ -45,7 +45,7 @@ Edit Surat
 			</div>
 			@endif
 			<br>
-			<form id="suratkeluar" method="post" action="{{url('dosen/pla/surat-keluar-dosen/'.$surat_keluar_dosen->id_surat_keluar.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="suratkeluar" method="post" action="{{url('dosen/surat-keluar-dosen/'.$surat_keluar_dosen->id_surat_keluar.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
