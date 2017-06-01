@@ -178,12 +178,16 @@ return [
         App\Providers\RouteServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3b215101045cc3cc74a2d48dec4a0c413c621800
 
         Barryvdh\Snappy\ServiceProvider::class,
         
 
         Maatwebsite\Excel\ExcelServiceProvider::class,
+<<<<<<< HEAD
          Barryvdh\Snappy\ServiceProvider::class,        
 
 =======
@@ -191,6 +195,10 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
 >>>>>>> 60fb120e1478d9b989c660a9be69611d9c1098b9
+=======
+        Barryvdh\Snappy\ServiceProvider::class,        
+
+>>>>>>> 3b215101045cc3cc74a2d48dec4a0c413c621800
     ],
 
     /*
@@ -205,6 +213,7 @@ return [
     */
 
     'aliases' => [
+
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
@@ -239,10 +248,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+
         'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
+<<<<<<< HEAD
 <<<<<<< HEAD
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
     ],
@@ -255,3 +266,10 @@ return [
     ]
     ];
 >>>>>>> 60fb120e1478d9b989c660a9be69611d9c1098b9
+=======
+        'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
+
+    ],
+
+];
+>>>>>>> 3b215101045cc3cc74a2d48dec4a0c413c621800

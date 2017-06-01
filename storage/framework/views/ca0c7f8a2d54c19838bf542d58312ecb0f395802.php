@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+<!-- fullCalendar 2.2.5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>
+>>>>>>> 3b215101045cc3cc74a2d48dec4a0c413c621800
 
 <script src="<?php echo e(asset('/js/app.js')); ?>" type="text/javascript"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
@@ -6,6 +12,7 @@
 <script src="<?php echo e(asset('/js/plugins/timepicker/bootstrap-timepicker.min.js')); ?>"></script>
 
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
 
 <!-- Laravel App -->
 <script src="<?php echo e(mix('/js/app.js')); ?>" type="text/javascript"></script>
@@ -55,12 +62,15 @@
 <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 60fb120e1478d9b989c660a9be69611d9c1098b9
 <!-- fullCalendar 2.2.5 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>
+=======
+>>>>>>> 3b215101045cc3cc74a2d48dec4a0c413c621800
 
 
 <<<<<<< HEAD
@@ -108,7 +118,7 @@ $(document).ready(function() {
 
 </script>
 
-
+<script>
     $("#penelitian").steps({
                 headerTag: "h2",
                 bodyTag: "section",

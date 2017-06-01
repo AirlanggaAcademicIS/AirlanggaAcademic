@@ -17,10 +17,9 @@ class Dokumentasi extends Model
 
 
       public function dokumentasi()
-   {
-	
-	return $this->belongsTo('App\KonfirmasiKegiatan','kegiatan_id');
-   }
+      {
+   	return $this->belongsTo('App\KonfirmasiKegiatan','kegiatan_id');
+      }
 	  
       public function namaKegiatan(){
       	return $this->belongsTo('App\PengajuanKegiatan','kegiatan_id');

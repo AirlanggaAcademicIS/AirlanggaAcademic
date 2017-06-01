@@ -1,4 +1,4 @@
-{
+﻿{
     "_readme": [
         "This file locks the dependencies of your project to a known state",
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
@@ -1386,6 +1386,10 @@
                 "laravel"
             ],
 
+            "time": "2017-05-30T12:44:32+00:00"
+
+            "time": "2017-05-30 12:44:32"
+
 
             "time": "2017-05-30T12:44:32+00:00",
 
@@ -2339,6 +2343,10 @@
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
 
+            "time": "2017-05-28T14:08:56+00:00"
+
+            "time": "2017-05-28 14:08:56"
+
 
             "time": "2017-05-28T14:08:56+00:00",
 
@@ -2400,6 +2408,9 @@
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
 
+            "time": "2017-05-01T15:01:29+00:00"
+
+            "time": "2017-05-01 15:01:29"
 
             "time": "2017-05-01T15:01:29+00:00",
 
@@ -2466,6 +2477,11 @@
             "homepage": "https://symfony.com",
 
 
+            "time": "2017-05-27T16:02:27+00:00"
+
+            "time": "2017-05-27 16:02:27"
+
+
             "time": "2017-05-27T16:02:27+00:00",
 
             "time": "2017-05-27 16:02:27"
@@ -2528,6 +2544,10 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
+
+            "time": "2017-05-25T23:10:31+00:00"
+
+            "time": "2017-05-25 23:10:31"
 
 
             "time": "2017-05-25T23:10:31+00:00",
@@ -2598,6 +2618,11 @@
             "homepage": "https://symfony.com",
 
 
+            "time": "2017-05-04T12:23:07+00:00"
+
+            "time": "2017-05-04 12:23:07"
+
+
             "time": "2017-05-04T12:23:07+00:00",
 
             "time": "2017-05-04 12:23:07"
@@ -2653,6 +2678,10 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+
+            "time": "2017-05-25T23:10:31+00:00"
+
+            "time": "2017-05-25 23:10:31"
 
 
             "time": "2017-05-25T23:10:31+00:00",
@@ -2714,6 +2743,10 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+
+            "time": "2017-05-25T13:39:26+00:00"
+
+            "time": "2017-05-25 13:39:26"
 
 
             "time": "2017-05-25T13:39:26+00:00",
@@ -2804,6 +2837,10 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
+
+            "time": "2017-05-29T21:02:12+00:00"
+
+            "time": "2017-05-29 21:02:12"
 
 
             "time": "2017-05-29T21:02:12+00:00",
@@ -3029,6 +3066,10 @@
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
 
+            "time": "2017-05-22T12:32:03+00:00"
+
+            "time": "2017-05-22 12:32:03"
+
 
             "time": "2017-05-22T12:32:03+00:00",
 
@@ -3113,6 +3154,11 @@
             ],
 
 
+            "time": "2017-05-24T11:35:23+00:00"
+
+            "time": "2017-05-24 11:35:23"
+
+
             "time": "2017-05-24T11:35:23+00:00",
 
             "time": "2017-05-24 11:35:23"
@@ -3183,6 +3229,11 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
+
+
+            "time": "2017-05-22T07:42:36+00:00"
+
+            "time": "2017-05-22 07:42:36"
 
 
             "time": "2017-05-22T07:42:36+00:00",
@@ -3259,6 +3310,10 @@
                 "debug",
                 "dump"
             ],
+
+            "time": "2017-05-22T17:32:12+00:00"
+
+            "time": "2017-05-22 17:32:12"
 
 
             "time": "2017-05-22T17:32:12+00:00",
@@ -4787,6 +4842,10 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
+
+            "time": "2017-05-28T10:56:20+00:00"
+
+            "time": "2017-05-28 10:56:20"
 
 
             "time": "2017-05-28T10:56:20+00:00",

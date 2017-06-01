@@ -40,6 +40,7 @@ class DetailPengajuanController extends Controller
         return view('mahasiswa.pengelolaan-kegiatan.detail-pengajuan.index',$data);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     // public function toPdf()
     // {   
     //     $pdf = PDF::loadView('mahasiswa.pengelolaankegiatan.pdf');
@@ -47,5 +48,8 @@ class DetailPengajuanController extends Controller
     // }
 =======
 >>>>>>> 60fb120e1478d9b989c660a9be69611d9c1098b9
+=======
+
+>>>>>>> 3b215101045cc3cc74a2d48dec4a0c413c621800
     
 }

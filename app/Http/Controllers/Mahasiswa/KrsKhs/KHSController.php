@@ -19,9 +19,6 @@ use App\Models\KrsKhs\KHS;
 use App\Models\KrsKhs\MKDitawarkan;
 use App\Models\KrsKhs\MK;
 use App\Models\KrsKhs\TahunAkademik;
-use App\Models\KrsKhs\BiodataMahasiswa;
-use Auth;
-use DB;
 use PDF;    
 // /**
 //  * Class HomeController
@@ -46,48 +43,26 @@ class KHSController extends Controller
      */
     public function index()
     {
-          $nim_id  = Auth::user()->username;
-
-                $sum     = DB::table('mk_diambil')
-                ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
-                ->select('*')
-                ->where('mk_diambil.mhs_id','=',$nim_id)
-                ->sum('sks');  
         $data = [
         'page' => 'khs',
-        'biodata_mhs' => BiodataMahasiswa::all(),
-        'khs' => KHS::where('mhs_id','=',$nim_id)->get(),
-        'tahun' => TahunAkademik::all(),
-        'sum' => $sum,
-
+        'khs' => KHS::all(),
+        'tahun' => TahunAkademik::all()
         ];
-
         return view('mahasiswa.krs-khs.khs.index',$data);
     }
 
     public function toPdf()
     {
-       $nim_id = Auth::user()->username;
-       $sum     = DB::table('mk_diambil')
-                ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
-                ->select('*')
-                ->where('mk_diambil.mhs_id','=',$nim_id)
-                ->sum('sks'); 
         $data = [
-        'page' => 'khs',
-        'khs' => KHS::where('mhs_id','=',$nim_id)->get(),
-        'tahun' => TahunAkademik::all(),
-        'biodata_mhs' => BiodataMahasiswa::where('nim_id','=',$nim_id)->first(),
-        'sum' => $sum,
-        
+            // 'page' => 'mata-kuliah',
             // 'matkul' => MataKuliah::find($id),
             // 'jenis_matkul' =>JenisMataKuliah::all()
         ];
-        $pdf = PDF::loadView('mahasiswa.krs-khs.khs.cetak',$data);
-        return $pdf->inline('dokumen.pdf');
+        $tahun = TahunAkademik::all();
+        $khs = KHS::all();
+        $pdf = PDF::loadView('mahasiswa.krs-khs.khs.cetak', ['khs'=>$khs] , ['tahun'=>$tahun] );
+        return $pdf->stream('dokumen.pdf');
 
     }
- 
-
 
 }

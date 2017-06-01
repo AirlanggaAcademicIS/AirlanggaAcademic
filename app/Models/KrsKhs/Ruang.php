@@ -12,7 +12,6 @@ class Ruang extends Model
    protected $table = 'ruang';    
    protected $primaryKey = 'id_ruang';   
    protected $dates = ['deleted_at']; 
-   public $incrementing = false;
    protected $fillable = [
          'nama_ruang',
          'kapasitas',

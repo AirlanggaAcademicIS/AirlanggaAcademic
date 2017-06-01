@@ -15,12 +15,9 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
-use App\Models\KrsKhs\KHS;
 use App\Models\KrsKhs\Histori;
 use App\Models\KrsKhs\MKDitawarkan;
 use App\Models\KrsKhs\MK;
-use DB;
-use Auth;
 // /**
 //  * Class HomeController
 //  * @package App\Http\Controllers
@@ -44,16 +41,10 @@ class HistoriController extends Controller
      */
     public function index()
     {
-        $nim_id  = Auth::user()->username;
-        $sum     = DB::table('mk_diambil')
-                ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
-                ->select('*')
-                ->sum('sks');
         $data = [
         'page' => 'histori',
         'histori' => Histori::all(),
-        'mk' => MK::all(),
-        'sum' => $sum,
+        'mk' => MK::all()
         ];
         return view('mahasiswa.krs-khs.histori.index',$data);
     }
@@ -64,16 +55,16 @@ class HistoriController extends Controller
         return view('.inventarisasset.input');
     }
 
-    //  public function create(Request $request)
-    // {
-    //     Ruang::create($request->input());
+     public function create(Request $request)
+    {
+        Ruang::create($request->input());
 
-    //     // Menampilkan notifikasi pesan sukses
-    //     Session::put('alert-success', 'Ruang berhasil ditambahkan');
+        // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'Ruang berhasil ditambahkan');
 
-    //     // Kembali ke halaman krs-khs/ruang
-    //     return Redirect::to('ruang');
-    // }
+        // Kembali ke halaman krs-khs/ruang
+        return Redirect::to('ruang');
+    }
 
     public function createAction(Request $request)
     {

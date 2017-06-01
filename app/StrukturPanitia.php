@@ -23,7 +23,7 @@ class StrukturPanitia extends Model
    public function pengajuanKegiatan()
 {
 	# code...
-	return $this->belongsTo('App\pengajuanKegiatan','kegiatan_id');
+	return $this->belongsTo('App\KonfirmasiKegiatan','kegiatan_id');
 }
 
    public function mahasiswa()

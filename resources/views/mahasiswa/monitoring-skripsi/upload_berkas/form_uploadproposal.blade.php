@@ -25,60 +25,33 @@ Upload Berkas
               <div class="form-group">
                   <label for="name" class="col-sm-2 control-label">Nama</label>
                   <div class="col-sm-10">
-                  <input type="text" class="form-control" id="name" placeholder="{{$mhs->nama_mhs}}" readonly="">
+                  <input type="text" class="form-control" id="name" placeholder="Dzikri Robbi Usamah">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="nim" class="col-sm-2 control-label">NIM</label>
                   <div class="col-sm-10">
-                  <input type="text" class="form-control" id="nim" placeholder="{{$mhs->nim_id}}" readonly="">
+                  <input type="text" class="form-control" id="nim" placeholder="081411633004">
                   </div>
-                </div>
-                <div class="form-group">
-                  <label for="judul" class="col-sm-2 control-label">Judul </label>
-                  <div class="col-sm-10">
-                  <input type="text" class="form-control" id="judul" placeholder="{{$skripsi->Judul}}" readonly="">
-                </div>
-                </div>
-                <div class="form-group">
-                  <label for="jkbk" class="col-sm-2 control-label">KBK </label>
-                  <div class="col-sm-10">
-                  <input type="text" class="form-control" id="kbk" placeholder="{{$skripsi->kbk['jenis_kbk']}}" readonly="">
-                </div>
                 </div>
                  <div class="form-group">
                   <label for="dosen pembimbing" class="col-sm-2 control-label">Dosen Pembimbing 1</label>
                   <div class="col-sm-10">
-                  <input type="text" class="form-control" id="dosen" placeholder="{{$dosen1->nama_dosen}}" readonly="">
+                  <input type="text" class="form-control" id="dosen" placeholder="Barry Nuqoba">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="dosen pembimbing" class="col-sm-2 control-label" >Dosen Pembimbing 2</label>
                   <div class="col-sm-10">
-                  <input type="text" class="form-control" id="dosen" placeholder="{{$dosen2->nama_dosen}}" readonly="">
+                  <input type="text" class="form-control" id="dosen" placeholder="Army Justitia">
                 </div>
                 </div>
                 <div class="form-group">
-                  <label for="status file proposal" class="col-sm-2 control-label" >Status File Proposal</label>
+                  <label for="judul proposal" class="col-sm-2 control-label">Judul Proposal</label>
                   <div class="col-sm-10">
-                  <input type="text" class="form-control" id="file proposal" placeholder="@if($skripsi->upload_berkas_proposal==null)
-      {{'Belum Terupload'}}
-      @else
-      {{'Sudah Terupload'}}
-      @endif" readonly="">
+                  <input type="text" class="form-control" id="judul proposal" placeholder="Sistem Pengambil keputusan penjualan Saham">
                 </div>
                 </div>
-                <div class="form-group">
-                  <label for="status file Skripsi" class="col-sm-2 control-label" >Status File Skripsi</label>
-                  <div class="col-sm-10">
-                  <input type="text" class="form-control" id="file Skripsi" placeholder="@if($skripsi->upload_berkas_skripsi==null)
-      {{'Belum Terupload'}}
-      @else
-      {{'Sudah Terupload'}}
-      @endif" readonly="">
-                </div>
-                </div>
-               
                 </div>
                 </form>
                 </div>
@@ -99,12 +72,12 @@ Upload Berkas
                   <div class="col-md-8">
                   <input type="file" id="upload_berkas" name="upload_berkas_proposal" placeholder="Pilih File" required>
 
-                  <p class="help-block">*.pdf, .doc atau .docx</p>
+                  <p class="help-block">*File berformat .pdf, .doc atau .docx</p>
 
                   </div>
                   </div>
                 <div class="box-footer">
-                <center><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Upload</button></center>
+                <center><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit</button></center>
               </div>
                 
               </div>
@@ -126,7 +99,7 @@ Upload Berkas
                   <div class="col-md-8">
                   <input type="file" id="upload_berkas" name="upload_berkas_skripsi" placeholder="Pilih File" required>
 
-                  <p class="help-block">*.pdf, .doc atau .docx</p>
+                  <p class="help-block">*File berformat .pdf, .doc atau .docx</p>
 
                 </div>
                 
@@ -134,7 +107,7 @@ Upload Berkas
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <center><button type="submit" class="btn btn-primary"  data-toggle="modal" data-target="#myModal">Upload</button></center>
+                <center><button type="submit" class="btn btn-primary"  data-toggle="modal" data-target="#myModal">Submit</button></center>
               </div>
             </form>
           </div>
