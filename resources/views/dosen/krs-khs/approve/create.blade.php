@@ -6,54 +6,61 @@
 @endsection
 
 @section('htmlheader_title')
-Edit Mata Kuliah Ditawarkan
+Mata Kuliah yang Diambil
 @endsection
 
 @section('contentheader_title')
-<!-- Nama konten -->
-Input Mata Kuliah Ditawarkan
+Mata Kuliah yang Diambil
 @endsection
 
 @section('main-content')
-<div class="box">
+<!-- include summernote css/js-->
 
-            <!-- /.box-header -->
-            <div class="box-body">
-              <form role="form" id="mk_ditawarkan" method="post" action="{{url('krs-khs/mk_ditawarkan/'.$mk_ditawarkan->thn_akademik_id.'/create')}}" enctype="multipart/form-data"  class="form-horizontal">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <!-- text input -->
-                <div class="form-group">
-                  <label>Tahun Akademik</label>
-                <br>
-                  <label>{{$mk_ditawarkan->thn_akademik_id}}</label>
-                    <br>
-                    <br>
-              <label>Mata Kuliah</label>
-              @foreach ($mk_ditawarkan as $i => $r)
-              <div class="checkbox">
-                <label>
-                  <input 
-                  type="checkbox" name="cek[]" value="{{$r->id_mk}}">
-                      {{$r->nama_matkul}}
-                </label>
-              </div>
-              @endforeach
 
-            <!-- /.submit-->
-            <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-              </form>
+<div style="overflow: auto">
+<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+  <thead>
+    <tr>
+      <th style="text-align:center">Nomer</th>
+      <th style="text-align:center">Mata Kuliah</th>
+      <th style="text-align:center"></th>      
+    </tr>
+    </thead>
+  <tbody>
+   @forelse($matkul as $i => $r) 
+    <tr>
+      <td width="5%" style="text-align:center">{{ $i+1 }}</td>
+      <td width="20%" style="text-align:center">{{$r->mkDitawarkan->mk->nama_matkul}}</td>
+      <td width="20%" style="text-align:center">
+        @if($r->is_approve==0)
+        <form id="approve" method="post" action="{{url('dosen/krs-khs/approve/'.$mahasiswa->nim.'/'.$r->mk_ditawarkan_id.'/approve')}}" enctype="multipart/form-data"  class="form-horizontal">
+         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <button type="submit" class="btn btn-primary">
+              Approve
+            </button>
+        </form>  
+        @else
+        <form id="approve" method="post" action="{{url('dosen/krs-khs/approve/'.$mahasiswa->nim.'/'.$r->mk_ditawarkan_id.'/unapprove')}}" enctype="multipart/form-data"  class="form-horizontal">
+         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <button type="submit" class="btn btn-danger">
+              Unapprove
+            </button>
+        </form>
+        @endif        
+      </td>
+    </tr>
+     @empty
+        <tr>
+          <td colspan="6"><center>Belum ada Mata Kuliah</center></td>
+        </tr>
+    @endforelse
+  </tbody>
+</table>
 </div>
-</div>
-
-
 
 @endsection
 
 @section('code-footer')
 
-
-
-
 @endsection
+                  

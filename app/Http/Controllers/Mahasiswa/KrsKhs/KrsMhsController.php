@@ -31,10 +31,10 @@ class KrsMhsController extends Controller
     {
         $data = [
             'page' => 'krs',
-            // 'krs' => MataKuliah::all(),
+             'krs' => MataKuliah::all(),
         ];
 
-        return view('mahasiswa.krskhs.krs.index',$data);
+        return view('mahasiswa.krs-khs.krs.index',$data);
     }
 
     public function toPdf($id)
@@ -114,12 +114,13 @@ class KrsMhsController extends Controller
             ->get(),
             'count'=> $count,
             'sum'  => $sum,
+            'lihat' => MKDiambil::all(),
             //'mean' => $mean,
             // 'limitSks' => $lmt,
             // 'ips'  => $IPS
         ];
         // Memanggil tampilan form create
-        return view('mahasiswa.krskhs.krs.create',$data);
+        return view('mahasiswa.krs-khs.krs.create',$data);
     }
 
     public function createAction($id)
@@ -151,7 +152,7 @@ class KrsMhsController extends Controller
             ->where('mk_diambil.mhs_id',Auth::user()->username)
         ];        
 
-        return view('mahasiswa.krskhs.krs.update',$data);
+        return view('mahasiswa.krs-khs.krs.update',$data);
     }
 
     public function editAction($id)
@@ -183,6 +184,6 @@ class KrsMhsController extends Controller
         Session::put('alert-success', 'Mata Kuliah berhasil dihapus');
 
         // Kembali ke halaman mahasiswa/create
-        return Redirect::to('mahasiswa/krskhs/krs/index');
+        return Redirect::to('mahasiswa/krs-khs/krs/index');
     }
 }
