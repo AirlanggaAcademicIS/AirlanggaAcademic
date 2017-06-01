@@ -43,10 +43,10 @@ Rencana Pembelajaran Semester
       @endif
       <br>
        
-  <form role="form-control">
- 
+  <form role="">
+  
   <div class="box-header with-border">
-    <h3 class="box-title">Detail RPS</h3>
+    <h3 class="box-title">Edit RPS</h3>
   </div>
 
   <div class="col-md-12">
@@ -55,25 +55,40 @@ Rencana Pembelajaran Semester
       <input class="form-control" id="nama_matkul" name="nama_matkul" disabled="" value="{{$mata_kuliah->kode_matkul}} - {{$mata_kuliah->nama_matkul}} - ({{$mata_kuliah->sks}} SKS)">
    </div>
 
-    <div class="form-group box-header">
+  <div class="form-group box-header">
     <label for="mk_prasyarat"><b>Mata Kuliah Prasyarat</b></label><br>
-      @foreach($mk_prasyarat as $syarat)
-        <input type="checkbox" name="kode_cpem" value="
-        {{$syarat->matkul['nama_matkul']}}
-        ">
-        {{$syarat->matkul['nama_matkul']}} <br> 
+      @foreach($matkul as $mk)
+        @foreach ($mk_prasyarat as $mks)
+          @if($mk->id_mk == $mks->mk_syarat_id)
+            <input type="checkbox" name="mk_prasyarat[]" value="
+            {{$mk->id_mk}}" checked="{{$mks->mk_syarat_id}}" disabled=""> {{$mk->nama_matkul}} <br> 
+          @else
+            <input type="checkbox" name="mk_prasyarat[]" value="
+            {{$mk->id_mk}}" disabled=""> {{$mk->nama_matkul}} <br> 
+          @endif
+        @endforeach
       @endforeach
-    </div> 
+  </div> 
 
-    <div class="form-group box-header">
+  <div class="form-group box-header">
     <label for="cpl_prodi"><b>CPL Prodi</b></label><br>
-      @foreach($cp_prodi as $cprodi)
-        <input type="checkbox" name="kode_cpem" value="
-        {{$cprodi->cpem['kode_cpem']}}
-        ">
-        {{$cprodi->cpem['kode_cpem']}} <br> 
+      @foreach($cpl as $cpl)
+        @foreach ($cp_prodi as $cprodi)
+          @if($cpl->id_cpem == $cprodi->cpem_id)
+            <label class="checkbox-inline"><input type="checkbox" name="cpl_prodi" value="
+            {{$cpl->id_cpem}}" checked="{{$cprodi->cpem_id}}" disabled=""> {{$cpl->kode_cpem}} </label>
+          @endif
+        @endforeach
       @endforeach
-    </div> 
+  </div>
+
+  <div class="form-group box-header">
+    <label for="cpl_prodi"><b>CP Mata Kuliah</b></label><br>
+      @foreach($cpmk as $cpmk)
+        <label class="checkbox-inline"><input type="checkbox" name="cp_mk" value="" checked="{{$cpmk->id_cpmk}}" disabled=""> {{$cpmk->kode_cpmk}}
+            </label>
+      @endforeach
+  </div>
 
     <div class="form-group box-header">
       <label for="deskripsi_matkul"><b>Deskripsi Singkat Mata Kuliah</b></label>
@@ -101,38 +116,32 @@ Rencana Pembelajaran Semester
     <div class="form-group box-header">
       <p><b>Team Teaching</b></p>
       <label for="dosen1">Koordinator Mata kuliah</label>
-      <select class="form-control" disabled="">
-        @foreach($koor as $k) 
-          @if ($k->status_tt_id === 1)
-            <option selected="selected">{{$k->nip_id}}</option>
-            @else
-            <option>{{$k->nip_id}}</option>
+      <select class="form-control" name="koor_1" disabled="">
+          @foreach($dosen as $d) 
+          @if ($d->status_tt_id === 1)
+            <option selected="selected">{{$d->nama_dosen}}</option>
+          @endif
+        @endforeach
+        </select>
+    </div>
+
+    <div class="form-group box-header">
+      <label for="dosen2">Anggota Team Teaching 1</label>
+      <select class="form-control" name="koor_2" disabled="">
+        @foreach($dosen as $d) 
+          @if ($d->status_tt_id === 2)
+            <option selected="selected">{{$d->nama_dosen}}</option>
           @endif
         @endforeach
       </select>
     </div>
 
     <div class="form-group box-header">
-      <label for="dosen2">Anggota Team Teaching 1</label>
-        <select class="form-control" disabled="">
-          @foreach($koor as $k) 
-            @if ($k->status_tt_id === 2)
-              <option selected="selected">{{$k->nip_id}}</option>
-            @else
-              <option>{{$k->nip_id}}</option>
-            @endif
-          @endforeach
-        </select>
-      </div>
-
-    <div class="form-group box-header">
       <label for="dosen3">Anggota Team Teaching 2</label>
-        <select class="form-control" disabled="">
-          @foreach($koor as $k) 
-            @if ($k->status_tt_id === 3)
-              <option selected="selected">{{$k->nip_id}}</option>
-            @else
-              <option>{{$k->nip_id}}</option>
+        <select class="form-control" name="koor_3" disabled="">
+          @foreach($dosen as $d) 
+            @if ($d->status_tt_id === 3)
+              <option selected="selected">{{$d->nama_dosen}}</option>
             @endif
           @endforeach
         </select>
@@ -140,22 +149,20 @@ Rencana Pembelajaran Semester
 
     <div class="form-group box-header">
       <label for="dosen4">Anggota Team Teaching 3</label>
-        <select class="form-control" disabled="">
-        @foreach($koor as $k) 
-          @if ($k->status_tt_id === 4)
-            <option selected="selected">{{$k->nip_id}}</option>
-          @endif
-        @endforeach
+        <select class="form-control" name="koor_4" disabled="">
+          @foreach($dosen as $d) 
+            @if ($d->status_tt_id === 4)
+              <option selected="selected">{{$d->nama_dosen}}</option>
+            @endif
+          @endforeach
         </select>
     </div>
-    <br>
-    <button type="submit" class="btn btn-info pull-right">Edit</button> 
-    <a href="{{{('/dosen/kurikulum/rps')}}}" class="btn btn-info">Kembali</a>
+    <br> 
+    <a href="{{{('/mahasiswa/kurikulum/rps')}}}" class="btn btn-info">Kembali</a>
   </form>
   </div>
   </div>
   </div>
-@endsection
 
 @section('code-footer')
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">

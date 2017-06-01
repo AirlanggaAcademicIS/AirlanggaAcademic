@@ -26,6 +26,8 @@ Capaian Program
   @endif
   @endforeach
 </div>
+<div class="box box-danger">
+<div class="box-body">
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
   <a href="{{url('dosen\kurikulum\cp_program\create')}}" type="button" class="btn btn-info btn-md" >
@@ -63,6 +65,9 @@ Capaian Program
   </tbody>
 </table>
 </div>
+</div>
+</div>
+
 
 @endsection
 

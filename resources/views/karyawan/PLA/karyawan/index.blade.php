@@ -52,7 +52,7 @@ Karyawan
       <td width="15%" style="text-align:center">{{$bio->nama_petugas}}</td>
       <td width="20%" style="text-align:center">{{$bio->no_telp_petugas}}</td>
       <td width="10%" style="text-align:center">{{$bio->email_petugas}}</td>
-      <td width="10%" style="text-align:center">{{$bio->prodi_id}}</td>
+      <td width="10%" style="text-align:center">{{$bio->prodi['nama_prodi']}}</td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus karyawan ini?');" href="{{url('/karyawan/PLA/karyawan/'.$bio->nip_petugas.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/karyawan/PLA/karyawan/'.$bio->nip_petugas.'/edit/')}}" class="btn btn-warning btn-xs">
