@@ -15,6 +15,7 @@ use App\Dokumentasi;
 use App\PengajuanKegiatan;
 use App\RincianRundown;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class DokumentasiController extends Controller
 {
@@ -86,6 +87,12 @@ class DokumentasiController extends Controller
         Dokumentasi::create($dok);
             $gambar = $request->file('url_foto')->move("img/dokumentasi/",$dok['url_foto']);
 
+        $pk = PengajuanKegiatan::find($request->input('kegiatan_id'));
+        $pk->rpelaksanaan = $request->input('rpelaksanaan');
+        $pk->konfirmasi_proposal = '1';
+        $pk->konfirmasi_lpj = '1';
+        $pk->save();
+
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Dokumentasi berhasil ditambahkan');
 
@@ -114,7 +121,9 @@ class DokumentasiController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'dokumentasi',
             // Mencari biodata berdasarkan id
-            'dokumentasi' => Dokumentasi::find($id)
+            'dokumentasi' => Dokumentasi::find($id),
+
+            'kegiatan' => PengajuanKegiatan::find($id)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
@@ -127,9 +136,9 @@ class DokumentasiController extends Controller
         $dokumentasi = Dokumentasi::find($id);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $dokumentasi->nama_dokumentasi = $request->input('nama_dokumentasi');
-        $dokumentasi->deskripsi = $request->input('deskripsi');
-        $dokumentasi->gambar = $request->input('gambar');
+        // $dokumentasi->nama_dokumentasi = $request->input('nama_dokumentasi');
+        $dokumentasi->lesson_learned = $request->input('lesson_learned');
+        // $dokumentasi->gambar = $request->input('url_foto');
         $dokumentasi->save();
 
         // Notifikasi sukses
@@ -137,6 +146,17 @@ class DokumentasiController extends Controller
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('mahasiswa/dokumentasi');
+    }
+
+    public function toPdf($id_kegiatan)
+    {   
+        $data = [
+            'kegiatan' => PengajuanKegiatan::find($id_kegiatan),
+            'dokumentasi' => Dokumentasi::all()
+        ];
+
+        $pdf = PDF::loadView('mahasiswa.pengelolaan-kegiatan.detail-pengajuan.pdf', $data);
+        return $pdf->download('pengelolaan-kegiatan.pdf');
     }
 
 }

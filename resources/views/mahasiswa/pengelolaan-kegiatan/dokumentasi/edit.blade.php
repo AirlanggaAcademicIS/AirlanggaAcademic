@@ -45,32 +45,44 @@ Edit Biodata
 			</div>
 			@endif
 			<br>
-			<form id="tambahBiodata" method="post" action="{{url('/kegiatan/dokumentasi/'.$dokumentasi->id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahBiodata" method="post" action="{{url('/mahasiswa/dokumentasi/'.$dokumentasi->id_dokumentasi.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
+				
+
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama Dokumentasi</label>
+					<label for="nama" class="col-sm-2 control-label">Nomor Dokumentasi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_dokumentasi" name="nama_dokumentasi" placeholder="Masukkan Nama Gambar" value="{{$dokumentasi->nama_dokumentasi}}" required>
+						<input type="text" class="form-control input-lg" id="id_dokumentasi" name="id_dokumentasi" placeholder="Masukkan Nama Gambar" required>
 					</div>
 				</div>
 
+				<div class="form-group">
+				<label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
+                <div class="col-md-8">
+	                <input type="text" class="form-control input-lg" id="kegiatan_id" name="kegiatan_id" placeholder="Masukkan Tempat" value="{{$kegiatan->nama}}" readonly>
+	             </div>
+              </div>
+
 			<!-- Menampilkan textarea -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Deskripsi</label>
+					<label for="nama" class="col-sm-2 control-label">Evaluasi Kegiatan</label>
 					<div class="col-md-8">
-						<textarea id="deskripsi" name="deskripsi" placeholder=" Masukkan Deskripsi Gambar" required cols="82" rows="5">{{$dokumentasi->deskripsi}}
+						<textarea id="lesson_learned" name="lesson_learned" placeholder=" Masukkan Evaluasi Kegiatan" required cols="82" rows="5">{{$dokumentasi->lesson_learned}}
 						</textarea>
 					</div>
 				</div>
 
 				<!-- Menampilkan Deskripsi -->
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Gambar</label>
+					<label for="nama" class="col-sm-2 control-label">Masukkan Foto</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="gambar" name="gambar" placeholder="Masukkan URL Gambar" value="{{$dokumentasi->gambar}}" required>
-					</div>
+						<input type="file" id="gambar" name="url_foto" value="{{$dokumentasi->url_poster}}" readonly>
+
+                  		<p class="help-block">Pilih Gambar</p>
+                	</div>
+						<!-- <input type="text" class="form-control input-lg" id="url_gambar" name="url_foto" placeholder="Masukkan URL Gambar" required> -->
 				</div>
 
 				<div class="form-group text-center">

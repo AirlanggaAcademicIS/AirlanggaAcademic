@@ -26,6 +26,8 @@ Capaian Program
   @endif
   @endforeach
 </div>
+<div class="box box-danger">
+<div class="box-body">
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
@@ -52,6 +54,9 @@ Capaian Program
   </tbody>
 </table>
 </div>
+</div>
+</div>
+
 
 @endsection
 
