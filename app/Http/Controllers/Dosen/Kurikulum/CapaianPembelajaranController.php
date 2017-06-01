@@ -37,7 +37,8 @@ class CapaianPembelajaranController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'capaian-pembelajaran',
             'prodis' => Prodi::all(),
-            'categories' => KategoriCapaianPembelajaran::all()
+            'categories' => KategoriCapaianPembelajaran::all(),
+            'capaianpembelajaran' => CapaianPembelajaran::all()
         ];
 
         // Memanggil tampilan form create
@@ -80,7 +81,8 @@ class CapaianPembelajaranController extends Controller
             'categories' => KategoriCapaianPembelajaran::all(),
             
             // Mencari biodata berdasarkan id
-            'cp_pembelajaran' => CapaianPembelajaran::find($id_cpem)
+            'cp_pembelajaran' => CapaianPembelajaran::find($id_cpem),
+            'capaianpembelajaran' => CapaianPembelajaran::all()
         ];
         
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
