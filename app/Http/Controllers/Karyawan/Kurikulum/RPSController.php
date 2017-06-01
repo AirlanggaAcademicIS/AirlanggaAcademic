@@ -17,7 +17,9 @@ use App\RPS_CP_Matkul;
 use App\RPS_CPL_Prodi;
 use App\RPS_Koor_Matkul;
 use App\Status_Team_Teaching;
-
+use App\CapaianPembelajaran;
+use App\BiodataDosen;
+use DB;
 
 class RPSController extends Controller
 {
@@ -29,7 +31,7 @@ class RPSController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar rps
             'page' => 'rps',
             // Memanggil semua isi dari tabel
-            'mata_kuliah' => RPS_Matkul::where('status_rps','=', '1')
+            'mata_kuliah' => RPS_Matkul::where('status_rps','=', '1')->get(),
         ];
 
         // Memanggil tampilan index
@@ -39,16 +41,36 @@ class RPSController extends Controller
     public function detail($id)
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'rps',
-            // Mencari biodata berdasarkan id
             'mata_kuliah' => RPS_Matkul::find($id),
+            'matkul' => RPS_Matkul::all(),
+            'cpmk' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get(),
             'mk_prasyarat' => RPS_Matkul_Prasyarat::where('mk_id', '=', $id)->get(),
-            'cp_mata_kuliah' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get(),
             'cp_prodi' => RPS_CPL_Prodi::where('mk_id', '=', $id)->get(),
+            'cpl' => CapaianPembelajaran::all(),
             'koor' => RPS_Koor_Matkul::where('mk_id', '=', $id)->get(),
-            // 'media' => RPS_Detail_Kategori::where($media->cpmk['matakuliah_id'], '=', $id)->get()
+            'dosen' => DB::table('koor_mk')
+            ->join('biodata_dosen', 'biodata_dosen.nip', '=', 'koor_mk.nip_id')
+            ->select('*')
+            ->get(),
         ];
         return view('karyawan.kurikulum.rps.detail',$data);
     }
+
+    public function pdf($id)
+    {
+        $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $id)->first();        
+        $data = [
+            'matkul_silabus' => Silabus_Matkul::find($id),
+            'matkul_prasyarat' =>Silabus_Matkul_prasyarat::where('mk_id', '=' , $id)->get(),
+            'atribut_softskill' => Silabus_Atribut_Softskill::all(),    
+            'mk_softskill' => Silabus_mk_softskill::where('mk_id', '=', $id)->get(),
+            'metode_pembelajaran' => Silabus_Sistem_Pembelajaran::all(),
+            'mk_metode_pembelajaran' => Silabus_detail_media::where('cpmk_id', '=', $cpmk->id_cpmk)->get(),            
+            'media_pembelajaran' => Silabus_Media_Pembelajaran::all(),
+            'mk_media_pembelajaran' => Silabus_detail_kategori::where('cpmk_id', '=', $cpmk->id_cpmk)->get()
+        ];
+        $pdf = PDF::loadView('dosen.kurikulum.rps.pdf-rps', $data);
+        return $pdf->download('silabus-mata-kuliah.pdf');        
+    }    
 }

@@ -21,10 +21,11 @@ class RincianRundown extends Model
 		'deleted_at',
 	];
 
-public function rincianRundown()
-{
-	# code...
-	return $this->belongsTo('App\KonfirmasiKegiatan','kegiatan_id');
-}
+	public function rincianRundown()
+	{
+		# code...
+
+		return $this->belongsTo('App\KonfirmasiKegiatan','kegiatan_id');
+	}
 
 }

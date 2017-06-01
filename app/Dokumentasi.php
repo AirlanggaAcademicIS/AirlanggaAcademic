@@ -16,7 +16,6 @@ class Dokumentasi extends Model
       ];
 
 
-
       public function dokumentasi()
    {
 	

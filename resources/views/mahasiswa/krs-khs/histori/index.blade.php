@@ -51,6 +51,12 @@ Histori Nilai
           <td colspan="6"><center>Histori nilai kosong</center></td>
         </tr>
     @endforelse
+        <tr>
+          <td></td>
+          <td></td>
+          <td>Total SKS      : {{$sum}} </td>
+          <td></td>
+        </tr>
   </tbody>
 </table>
 </div>

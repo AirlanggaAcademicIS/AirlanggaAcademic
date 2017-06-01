@@ -37,13 +37,9 @@ akunmahasiswa
     <tr>
       <th style="text-align:center">No.</th>
       <th style="text-align:center">NIM</th>  
-      <th style="text-align:center">Nama Mahasiswa</th>     
-<<<<<<< HEAD
       <th style="text-align:center">NIP Dosen Wali</th>   
-=======
       <th style="text-align:center">NIP_id</th>
       <th style="text-align:center">Angkatan</th>   
->>>>>>> 11902b4391621b4061a508563a1dd7f159dd08df
       <th style="text-align:center">E-mail Mahasiswa</th>    
       <th style="text-align:center">Fakultas</th>
       <th style="text-align:center">Program Studi</th>
@@ -61,10 +57,10 @@ akunmahasiswa
       <td width="10%" style="text-align:center">{{$bio->nip_id}}</td>
       <td width="10%" style="text-align:center">{{$bio->angkatan}}</td>
       <td width="10%" style="text-align:center">{{$bio->email_mhs}}</td>
-      <td width="20%" style="text-align:center">Fakultas Sains dan Teknologi</td>
-      <td width="15%" style="text-align:center">S1 Sistem Informasi</td>
+      <td width="15%" style="text-align:center">Fakultas Sains dan Teknologi</td>
+      <td width="10%" style="text-align:center">S1 Sistem Informasi</td>
       <td width="15%" style="text-align:center"><img src="{{URL::asset('/img/foto_mhs/'.$bio->foto_mhs)}}" height="100px" width="100px" hspace="5px" vspace="2px" alt="gambar" style="border:2px solid gray" class="img-rounded" ></td>
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus akun ini?');" href="{{url('/karyawan/akun/'.$bio->nim.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="10%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus akun ini?');" href="{{url('/karyawan/akun/'.$bio->nim.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/karyawan/akun/'.$bio->nim.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>

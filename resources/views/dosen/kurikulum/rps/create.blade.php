@@ -30,126 +30,126 @@ Tambah Kategori Media Pembelajaran
 	{!!Session::forget('alert-' . $msg)!!}
 	@endif
 	@endforeach
-<form role="form">
 <div class="box box-danger">
-        <div class="box-header with-border">
-          <h3 class="box-title">Form Rencana Pembelajaran Semester</h3>
-        </div>
+<div class="row">
+<div class="col-md-12">
+  @if (count($errors) > 0)
+      <div class="alert alert-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+      @endif
+      <br>
 
-      <div class="box-body">
+<form id="tambahRPS" method="post" action="{{url('dosen/kurikulum/rps/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+  <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
-<div class="form-group">
+  <div class="box-header with-border">
+    <h3 class="box-title">Form Rencana Pembelajaran Semester</h3>
+  </div>
+
+<div class="col-md-12">
+  <div class="form-group box-header">
     <label>Mata Kuliah</label>
-    <select name="nama_matkul" class="form-control select2" style="width: 100%;" required>
-      <option value="">-- Kode Mata Kuliah - Nama Mata Kuliah --</option>
-      @foreach ($mata_kuliah as $mk)
-      {
-        <option value="{{$mk->nama_matkul}}">{{$mk->kode_matkul}} - {{$mk->nama_matkul}} ({{$mk->sks}} SKS)</option>
-      }
-      @endforeach
-    </select>
+      <select name="matkul" class="form-control select2" style="width: 100%;" required>
+        <option value="">-- Kode Mata Kuliah - Nama Mata Kuliah --</option>
+        @foreach ($mata_kuliah as $mk)
+        {
+          <option value="{{$mk->id_mk}}">{{$mk->kode_matkul}} - {{$mk->nama_matkul}} ({{$mk->sks}} SKS)</option>
+        }
+        @endforeach
+      </select>
    </div>
 
-<div class="form-group">
-  <label for="prasyarat"><b>Prasyarat</b></label><br>     
-  @foreach($mata_kuliah as $mk)
-    <label class="checkbox-inline"><input type="checkbox" value="">{{$mk->nama_matkul}}</label>          
-  @endforeach                                
+<div class="form-group box-header">
+  <label for="prasyarat"><b>Mata Kuliah Prasyarat</b></label><br>     
+    @foreach($matkul as $mk)
+      <label class="checkbox-inline"><input type="checkbox" value="{{$mk->id_mk}}" name="mk_syarat_id[]"> {{$mk->nama_matkul}}  </label> 
+    @endforeach                                
 </div>
 
-<div class="form-group">
-  <label for="cpl_prodi"><b>CPL Prodi</b></label><br>     
-  @foreach($cpl_prodi as $cpl)
-    <label class="checkbox-inline"><input type="checkbox" value="">{{$cpl->cpem['kode_cpem']}}
+<div class="form-group box-header ">
+  <label for="cpl"><b>CPL Prodi</b></label><br>     
+    @foreach($cpl as $cpl)
+      <label class="checkbox-inline"><input type="checkbox" value="{{$cpl->id_cpem}}" name="cpem_id[]"> {{$cpl->kode_cpem}}  </label>
     @endforeach 
-    </label>                               
+  </label>                               
 </div>
 
-<div class="form-group">
-<label for="deskripsi-mk"><b>Deskripsi Singkat Mata Kuliah</b></label>
-<textarea class="form-control" rows="3" placeholder=""></textarea>
-</div><br>
-
-<div class="form-group">
-<label for="deskripsi-mk"><b>Pokok Pembahasan</b></label>
-<textarea class="form-control" rows="3" placeholder=""></textarea><br>
+<div class="form-group box-header">
+  <label for="deskripsi_matkul"><b>Deskripsi Singkat Mata Kuliah</b></label>
+    <textarea class="form-control" rows="3" placeholder="Masukkan deskripsi singkat tentang mata kuliah" name="deskripsi_matkul" required></textarea>
 </div>
 
-<div class="form-group">
-  <label for="deskripsi-mk"><b>Pustaka</b></label>
-  <div class="form-group">
-<label for="deskripsi-mk">Pustaka Utama</label>
-<textarea class="form-control" rows="3" placeholder=""></textarea>
+<div class="form-group box-header">
+  <label for="pokok_pembahasan"><b>Pokok Pembahasan</b></label>
+    <textarea class="form-control" rows="3" placeholder="Masukkan pokok pembahasan mata kuliah" name="pokok_pembahasan" required></textarea><br>
 </div>
- <div class="form-group">
-<label for="deskripsi-mk">Pustaka Pendukung</label>
-<textarea class="form-control" rows="3" placeholder=""></textarea><br>
+
+<div class="form-group box-header">
+  <p><b>Pustaka</b></p>
+    <label for="pustaka_utama">Pustaka Utama</label>
+    <textarea class="form-control" rows="3" placeholder="Masukkan pustaka utama" name="pustaka_utama" required></textarea>
 </div>
-  </div>
+ 
+<div class="form-group box-header">
+<label for="pustaka_pendukung">Pustaka Pendukung</label>
+  <textarea class="form-control" rows="3" placeholder="Masukkan pustaka pendukung" name="pustaka_pendukung" required></textarea><br>
+</div>
   
-  <div class="form-group">
-<p><b>Media Pembelajaran</b></p>
+<div class="form-group box-header">
+  <p><b>Team Teaching</b></p>
+    <label for="koor_mk">Koordinator Mata kuliah</label>
+      <select name="koor_mk" class="form-control" required>
+        <option value="">Pilih Dosen</option>
+          @foreach($dosen as $d)
+            <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
+          @endforeach
+      </select>
 </div>
 
-    <div class="form-group">    
-  @foreach($media as $m)
-    <label class="checkbox-inline"><input type="checkbox" value="">{{$m->media_pembelajaran}}</label>       
-  @endforeach                                
+<div class="form-group box-header">
+  <label for="koor_mk1">Anggota Team Teaching 1</label>
+    <select name="koor_mk1" class="form-control" required>
+      <option value="">Pilih Dosen</option>
+      @foreach($dosen as $d) 
+        <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
+      @endforeach
+    </select>
 </div>
 
-<div class="form-group">
-<p><b>Team Teaching</b></p>
-<label for="nama-matkul">Koordinator Mata kuliah</label>
-<!-- select -->
-    <div class="form-group">
-      <select class="form-control">
+<div class="form-group box-header">
+  <label for="koor_mk2">Anggota Team Teaching 2</label>
+    <select name="koor_mk2" class="form-control" required>
+      <option value="">Pilih Dosen</option>
         @foreach($dosen as $d) 
-      <option selected="selected">{{$d->nama_dosen}}</option>
-  @endforeach
-      </select>
-    </div>
+          <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
+        @endforeach
+    </select>
+</div>
 
-<div class="form-group">
-<label for="nama-matkul">Anggota Team Teaching 1</label>
-<!-- select -->
-    <div class="form-group">
-      <select class="form-control">
+<div class="form-group box-header">
+  <label for="koor_mk3">Anggota Team Teaching 3</label>
+    <select name="koor_mk3" class="form-control" required>
+      <option value="">Pilih Dosen</option>
         @foreach($dosen as $d) 
-      <option selected="selected">{{$d->nama_dosen}}</option>
-  @endforeach
-      </select>
-    </div>
+          <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
+        @endforeach
+    </select>
+</div>
+<br>
 
-
-<div class="form-group">
-<label for="nama-matkul">Anggota Team Teaching 2</label>
-<!-- select -->
-    <div class="form-group">
-      <select class="form-control">
-        @foreach($dosen as $d) 
-      <option selected="selected">{{$d->nama_dosen}}</option>
-  @endforeach
-      </select>
-    </div>
-
-
-<div class="form-group">
-<label for="nama-matkul">Anggota Team Teaching 3</label>
-<!-- select -->
-    <div class="form-group">
-      <select class="form-control">
-        @foreach($dosen as $d) 
-      <option selected="selected">{{$d->nama_dosen}}</option>
-  @endforeach
-      </select>
-    </div>
-
-</div><br>
-<button type="submit" class="btn btn-info pull-right">Tambah</button> 
-
+<div class="col-md-12 box-body">
+  <button type="submit" class="btn btn-primary pull-right">Tambah</button> 
+</div>
 </div>
 
 </form>
+</div>
+</div>
 </div>
 @endsection
 

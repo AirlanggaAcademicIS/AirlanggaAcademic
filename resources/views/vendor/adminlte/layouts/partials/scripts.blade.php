@@ -43,21 +43,16 @@
 <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 <script src="{{asset('/plugins/bootstrap-datepicker.js')}}"></script>
 <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
+
 <script src="{{ asset('/js/jquery.steps.js') }}" type="text/javascript"></script>
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="{{ asset('/js/jquery-ui.js') }}" type="text/javascript"></script>
- <script src="{{ asset('/js/jquery.slimscroll.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/js/jquery.slimscroll.js') }}" type="text/javascript"></script>
  
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-      Both of these plugins are recommended to enhance the
-      user experience. Slimscroll is required when using the
-      fixed layout. -->
-
 
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
-
 
 <!-- fullCalendar 2.2.5 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
@@ -72,7 +67,6 @@
 <script src="{{ asset('/js/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
 
 
-
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
 
 <script>
@@ -81,7 +75,13 @@
     ]) !!};
 </script>
 
+
 @yield('code-footer')
+<!-- fullCalendar 2.2.5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>
+
+
 <!-- fullCalendar 2.2.5 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>
@@ -98,12 +98,13 @@ $(document).ready(function() {
         }
     });
 
-    $("#penelitian").steps({
+ $("#penelitian").steps({
                 headerTag: "h2",
                 bodyTag: "section",
               onFinished: function (event, currentIndex)
             {
                 var form = $(this);
+
 
 
                 // Submit form input
@@ -113,4 +114,3 @@ $(document).ready(function() {
     });
 
 </script>
-    

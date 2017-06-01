@@ -39,10 +39,13 @@ class DetailPengajuanController extends Controller
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('mahasiswa.pengelolaan-kegiatan.detail-pengajuan.index',$data);
     }
+<<<<<<< HEAD
     // public function toPdf()
     // {   
     //     $pdf = PDF::loadView('mahasiswa.pengelolaankegiatan.pdf');
     //     return $pdf->download('pengelolaan-kegiatan.pdf');
     // }
+=======
+>>>>>>> 60fb120e1478d9b989c660a9be69611d9c1098b9
     
 }

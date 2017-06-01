@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Silabus_mk_softskill extends Model
 {
    protected $table = 'mk_softskill';    
-   protected $primaryKey = 'softskill_id';    
+   protected $primaryKey = 'mk_id';    
    protected $fillable = [
-   		'mk_id'   		
+        'softskill_id'   		
    ];
 
    public function matkul()
