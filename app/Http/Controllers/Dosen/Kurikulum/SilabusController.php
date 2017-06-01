@@ -11,12 +11,12 @@ use Session;
 use Validator;
 use Response;
 use DB;
+use PDF;
 // Tambahkan model yang ingin dipakai
 use App\Silabus_Matkul;
 use App\Silabus_Matkul_Prasyarat;
 use App\Silabus_Atribut_Softskill;
 use App\Silabus_mk_softskill;
-use App\Silabus_cp_matkul;
 use App\Silabus_detail_media;
 use App\Silabus_detail_kategori;
 use App\Silabus_Sistem_Pembelajaran;
@@ -58,7 +58,7 @@ class SilabusController extends Controller
         ];
 
         // Memanggil tampilan form create
-    	return view('dosen.kurikulum.silabus.create',$data);
+        return view('dosen.kurikulum.silabus.create',$data);
     }
 
     public function autofill(Request $request)
@@ -98,7 +98,6 @@ class SilabusController extends Controller
 
         //insert to table detail_kategori (media pembelajaran) 
         $mdp = $request->input('media_pembelajaran_id');
-
         for($count = 0; $count < count($mdp); $count++)
         {
             $detail_kategori = new Silabus_detail_kategori;
@@ -128,18 +127,18 @@ class SilabusController extends Controller
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
         $mata_kuliah = Silabus_Matkul::find($id);
         $mksoftskill = Silabus_mk_softskill::where('mk_id', $id)->delete();
-        
-        $cpmatkul= Silabus_cp_matkul::where('matakuliah_id', $id)->get();
+        $cpmatkul = RPS_CP_Matkul::where('matakuliah_id', $id)->delete();
+        // $cpmatkul= Silabus_cp_matkul::where('matakuliah_id', $id)->get();
 
         // Menghapus biodata yang dicari tadi
         $mata_kuliah->status_silabus = '0';
         $mata_kuliah->save();
 
         // Menampilkan notifikasi pesan sukses
-    	Session::put('alert-success', 'Silabus berhasil dihapus');
+        Session::put('alert-success', 'Silabus berhasil dihapus');
 
         // Kembali ke halaman sebelumnya
-      	return Redirect::back();	 
+        return Redirect::back();     
     }
 
    public function edit($id)
@@ -216,5 +215,23 @@ class SilabusController extends Controller
         return Redirect::to('/dosen/kurikulum/silabus');
         // dd($request->input('matkul'));
     }
+
+    public function pdf($id)
+    {
+        $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $id)->first();        
+        $data = [
+            'matkul_silabus' => Silabus_Matkul::find($id),
+            'matkul_prasyarat' =>Silabus_Matkul_prasyarat::where('mk_id', '=' , $id)->get(),
+            'atribut_softskill' => Silabus_Atribut_Softskill::all(),    
+            'mk_softskill' => Silabus_mk_softskill::where('mk_id', '=', $id)->get(),
+            'metode_pembelajaran' => Silabus_Sistem_Pembelajaran::all(),
+            'mk_metode_pembelajaran' => Silabus_detail_media::where('cpmk_id', '=', $cpmk->id_cpmk)->get(),            
+            'media_pembelajaran' => Silabus_Media_Pembelajaran::all(),
+            'mk_media_pembelajaran' => Silabus_detail_kategori::where('cpmk_id', '=', $cpmk->id_cpmk)->get()
+        ];
+        $pdf = PDF::loadView('dosen.kurikulum.silabus.pdf-silabus', $data);
+        return $pdf->download('silabus-mata-kuliah.pdf');
+    }
+
 
 }
