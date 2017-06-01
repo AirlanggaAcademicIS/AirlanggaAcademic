@@ -1,23 +1,24 @@
-{
+﻿{
     "_readme": [
         "This file locks the dependencies of your project to a known state",
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "a9441ae619ae7a74bdeefc9bb21fcc09",
+
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
-            "version": "4.1.12",
+            "version": "4.1.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/acacha/adminlte-laravel.git",
-                "reference": "614bcf039b01e3891a89d4cf8ed724d76db9e474"
+                "reference": "22237bd3afbcbb7a07fa17c99fa17568e9da11fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/acacha/adminlte-laravel/zipball/614bcf039b01e3891a89d4cf8ed724d76db9e474",
-                "reference": "614bcf039b01e3891a89d4cf8ed724d76db9e474",
+                "url": "https://api.github.com/repos/acacha/adminlte-laravel/zipball/22237bd3afbcbb7a07fa17c99fa17568e9da11fe",
+                "reference": "22237bd3afbcbb7a07fa17c99fa17568e9da11fe",
                 "shasum": ""
             },
             "require": {
@@ -70,7 +71,7 @@
                 "template",
                 "theme"
             ],
-            "time": "2017-05-20T07:47:43+00:00"
+            "time": "2017-05-28T15:08:20+00:00"
         },
         {
             "name": "acacha/filesystem",
@@ -1367,7 +1368,19 @@
                 "framework",
                 "laravel"
             ],
+
+            "time": "2017-05-30T12:44:32+00:00"
+
+            "time": "2017-05-30 12:44:32"
+
+
+            "time": "2017-05-30T12:44:32+00:00",
+
+            "time": "2017-05-30 12:44:32"
+
+
             "time": "2017-05-11T20:10:35+00:00"
+
         },
         {
             "name": "laravel/tinker",
@@ -2312,7 +2325,19 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
+
+            "time": "2017-05-28T14:08:56+00:00"
+
+            "time": "2017-05-28 14:08:56"
+
+
+            "time": "2017-05-28T14:08:56+00:00",
+
+            "time": "2017-05-28 14:08:56"
+
+
             "time": "2017-04-26T01:39:17+00:00"
+
         },
         {
             "name": "symfony/css-selector",
@@ -2365,7 +2390,18 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
+
+            "time": "2017-05-01T15:01:29+00:00"
+
+            "time": "2017-05-01 15:01:29"
+
+            "time": "2017-05-01T15:01:29+00:00",
+
+            "time": "2017-05-01 15:01:29"
+
+
             "time": "2017-05-01T14:55:58+00:00"
+
         },
         {
             "name": "symfony/debug",
@@ -2422,7 +2458,20 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
+
+
+            "time": "2017-05-27T16:02:27+00:00"
+
+            "time": "2017-05-27 16:02:27"
+
+
+            "time": "2017-05-27T16:02:27+00:00",
+
+            "time": "2017-05-27 16:02:27"
+
+
             "time": "2017-04-19T20:17:50+00:00"
+
         },
         {
             "name": "symfony/dom-crawler",
@@ -2478,7 +2527,19 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
+
+            "time": "2017-05-25T23:10:31+00:00"
+
+            "time": "2017-05-25 23:10:31"
+
+
+            "time": "2017-05-25T23:10:31+00:00",
+
+            "time": "2017-05-25 23:10:31"
+
+
             "time": "2017-04-12T14:13:17+00:00"
+
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2538,7 +2599,20 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
+
+
+            "time": "2017-05-04T12:23:07+00:00"
+
+            "time": "2017-05-04 12:23:07"
+
+
+            "time": "2017-05-04T12:23:07+00:00",
+
+            "time": "2017-05-04 12:23:07"
+
+
             "time": "2017-05-01T14:58:48+00:00"
+
         },
         {
             "name": "symfony/finder",
@@ -2587,7 +2661,19 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+
+            "time": "2017-05-25T23:10:31+00:00"
+
+            "time": "2017-05-25 23:10:31"
+
+
+            "time": "2017-05-25T23:10:31+00:00",
+
+            "time": "2017-05-25 23:10:31"
+
+
             "time": "2017-04-12T14:13:17+00:00"
+
         },
         {
             "name": "symfony/http-foundation",
@@ -2640,7 +2726,19 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+
+            "time": "2017-05-25T13:39:26+00:00"
+
+            "time": "2017-05-25 13:39:26"
+
+
+            "time": "2017-05-25T13:39:26+00:00",
+
+            "time": "2017-05-25 13:39:26"
+
+
             "time": "2017-05-01T14:55:58+00:00"
+
         },
         {
             "name": "symfony/http-kernel",
@@ -2722,7 +2820,19 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
+
+            "time": "2017-05-29T21:02:12+00:00"
+
+            "time": "2017-05-29 21:02:12"
+
+
+            "time": "2017-05-29T21:02:12+00:00",
+
+            "time": "2017-05-29 21:02:12"
+
+
             "time": "2017-05-01T17:46:48+00:00"
+
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2938,7 +3048,19 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
+
+            "time": "2017-05-22T12:32:03+00:00"
+
+            "time": "2017-05-22 12:32:03"
+
+
+            "time": "2017-05-22T12:32:03+00:00",
+
+            "time": "2017-05-22 12:32:03"
+
+
             "time": "2017-04-12T14:13:17+00:00"
+
         },
         {
             "name": "symfony/routing",
@@ -3013,7 +3135,20 @@
                 "uri",
                 "url"
             ],
+
+
+            "time": "2017-05-24T11:35:23+00:00"
+
+            "time": "2017-05-24 11:35:23"
+
+
+            "time": "2017-05-24T11:35:23+00:00",
+
+            "time": "2017-05-24 11:35:23"
+
+
             "time": "2017-04-12T14:13:17+00:00"
+
         },
         {
             "name": "symfony/translation",
@@ -3077,7 +3212,20 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
+
+
+            "time": "2017-05-22T07:42:36+00:00"
+
+            "time": "2017-05-22 07:42:36"
+
+
+            "time": "2017-05-22T07:42:36+00:00",
+
+            "time": "2017-05-22 07:42:36"
+
+
             "time": "2017-04-12T14:13:17+00:00"
+
         },
         {
             "name": "symfony/var-dumper",
@@ -3145,7 +3293,19 @@
                 "debug",
                 "dump"
             ],
+
+            "time": "2017-05-22T17:32:12+00:00"
+
+            "time": "2017-05-22 17:32:12"
+
+
+            "time": "2017-05-22T17:32:12+00:00",
+
+            "time": "2017-05-22 17:32:12"
+
+
             "time": "2017-05-01T14:55:58+00:00"
+
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -4665,7 +4825,19 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
+
+            "time": "2017-05-28T10:56:20+00:00"
+
+            "time": "2017-05-28 10:56:20"
+
+
+            "time": "2017-05-28T10:56:20+00:00",
+
+            "time": "2017-05-28 10:56:20"
+
+
             "time": "2017-05-01T14:55:58+00:00"
+
         },
         {
             "name": "webmozart/assert",

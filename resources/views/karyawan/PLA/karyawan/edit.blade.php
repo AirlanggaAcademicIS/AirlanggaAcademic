@@ -85,7 +85,7 @@ Edit Petugas
 					<div class="col-md-2">
 						<select class="form-control" id="prodi_id" name="prodi_id">
       @foreach($prodi as $p)
-                    <option>{{$p->nama_prodi}}</option>
+                    <option value="{{$p->id_prodi}}">{{$p->nama_prodi}}</option>
             @endforeach
                   </select>
 
