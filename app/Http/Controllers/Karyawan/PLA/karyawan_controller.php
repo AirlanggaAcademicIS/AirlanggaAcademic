@@ -29,7 +29,7 @@ class karyawan_controller extends Controller
             'prodi' => Prodi::all()
         ];
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('karyawan.PLA.karyawan.index',$data);
+        return view('karyawan.pla.karyawan.index',$data);
     }
 
     public function create()
@@ -42,7 +42,7 @@ class karyawan_controller extends Controller
         ];
 
         // Memanggil tampilan form create
-    	return view('karyawan.PLA.karyawan.create',$data);
+    	return view('karyawan.pla.karyawan.create',$data);
     }
 
     public function createAction(Request $request)
@@ -54,7 +54,7 @@ class karyawan_controller extends Controller
         Session::put('alert-success', 'Karyawan berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/PLA/karyawan');
+        return Redirect::to('karyawan/pla/karyawan');
     }
 
     public function delete($nip_petugas)
@@ -84,7 +84,7 @@ class karyawan_controller extends Controller
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('karyawan.PLA.karyawan.edit',$data);
+        return view('karyawan.pla.karyawan.edit',$data);
     }
 
     public function editAction($nip_petugas, Request $request)
@@ -104,7 +104,7 @@ class karyawan_controller extends Controller
         Session::put('alert-success', 'Karyawan berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/PLA/karyawan');
+        return Redirect::to('karyawan/pla/karyawan');
     }
 
 }

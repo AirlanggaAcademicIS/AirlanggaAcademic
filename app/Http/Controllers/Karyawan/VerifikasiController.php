@@ -22,10 +22,12 @@ class VerifikasiController extends Controller
     public function index()
     {
         $data = [
+            'count_prestasi' => VerPrestasi::all()->count(),
+            'count_penelitian' => VerPenelitianMhs::all()->count(),
+
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'verifikasi',
         ];
-
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('karyawan.verifikasi.index',$data);
     }
