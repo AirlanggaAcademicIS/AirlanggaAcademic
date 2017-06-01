@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Mahasiswa;
 use Illuminate\Http\Request;
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 use Input;
 >>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
+>>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
@@ -22,8 +25,12 @@ use App\DetailPenelitian;
 <<<<<<< HEAD
 use Illuminate\Support\Facades\Input;
 =======
+<<<<<<< HEAD
+use Illuminate\Support\Facades\Input;
+=======
 
 >>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
+>>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
 
 class PenelitianController extends Controller
 {
@@ -47,8 +54,12 @@ class PenelitianController extends Controller
 <<<<<<< HEAD
         // Memanggil tampilan index di folder mahasiswa/penelitian dan juga menambahkan $data tadi di view
 =======
+<<<<<<< HEAD
+        // Memanggil tampilan index di folder mahasiswa/penelitian dan juga menambahkan $data tadi di view
+=======
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
 >>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
+>>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
         return view('mahasiswa.penelitian.index',$data);
     }
 
@@ -58,8 +69,12 @@ class PenelitianController extends Controller
 <<<<<<< HEAD
             // Buat di sidebar, biar ketika diklik yg aktif sidebar penelitian mahasiswa
 =======
+<<<<<<< HEAD
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar penelitian mahasiswa
+=======
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
 >>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
+>>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
             'page' => 'penelitian_mhs',
         ];
 
@@ -71,8 +86,12 @@ class PenelitianController extends Controller
 <<<<<<< HEAD
         // Menginsertkan apa yang ada di form ke dalam tabel penelitian_mhs
 =======
+<<<<<<< HEAD
+        // Menginsertkan apa yang ada di form ke dalam tabel penelitian_mhs
+=======
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
 >>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
+>>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
         $penelitian = PenelitianMhs::create($request->input());
         $penelitian->nim_id = Auth::user()->username;
         $this->validate($request, [
@@ -97,12 +116,18 @@ class PenelitianController extends Controller
 <<<<<<< HEAD
         // Kembali ke halaman index penelitian
 =======
+<<<<<<< HEAD
+        // Kembali ke halaman index penelitian
+=======
         // Kembali ke halaman mahasiswa/penelitian
 >>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
+>>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
         return Redirect::to('mahasiswa/penelitian');
             
         }
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
     public function delete($kode_penelitian)
     {
@@ -170,13 +195,18 @@ class PenelitianController extends Controller
     //     return Redirect::to('mahasiswa/penelitian');
     // }
 
+>>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
     public function delete($kode_penelitian)
     {
-        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
+        // Mencari penelitian berdasarkan kode_penelitian dan memasukkannya ke dalam variabel $penelitian_mhs
         $penelitian_mhs = PenelitianMhs::find($kode_penelitian);
 
+<<<<<<< HEAD
+        // Menghapus penelitian yang dicari tadi
+=======
         // Menghapus biodata yang dicari tadi
 >>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
+>>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
         $penelitian_mhs->delete();
 
         // Menampilkan notifikasi pesan sukses
@@ -196,10 +226,15 @@ class PenelitianController extends Controller
 
             'page' => 'penelitian_mhs',
 =======
+<<<<<<< HEAD
+
+            'page' => 'penelitian_mhs',
+=======
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'penelitian_mhs',
             // Mencari biodata berdasarkan id
 >>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
+>>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
             'penelitian_mhs' => $penelitian_mhs,
             'detail_anggota' => $detail_anggota,
             'detailpenelitian' => $detailpenelitian
@@ -207,8 +242,11 @@ class PenelitianController extends Controller
 
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
 >>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
+>>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
         return view('mahasiswa.penelitian.edit',$data);
     }
 
@@ -220,11 +258,18 @@ class PenelitianController extends Controller
 
         // Mengupdate $penelitian_mhs tadi dengan isi dari form edit tadi
 =======
+<<<<<<< HEAD
+        // Mencari penelitian_mhs yang akan di update dan menaruhnya di variabel $penelitian_mhs
+        $penelitian_mhs = PenelitianMhs::find($kode_penelitian);
+
+        // Mengupdate $penelitian_mhs tadi dengan isi dari form edit tadi
+=======
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
         $penelitian_mhs = PenelitianMhs::find($kode_penelitian);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
 >>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
+>>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
         $penelitian_mhs->judul = $request->input('judul');
         $penelitian_mhs->peneliti = $request->input('peneliti');
         $penelitian_mhs->fakultas = $request->input('fakultas');
@@ -241,11 +286,17 @@ class PenelitianController extends Controller
             'file_pen' => 'required|mimes:pdf',
             ]); 
 =======
+<<<<<<< HEAD
+        $this->validate($request, [  
+            'file_pen' => 'required|mimes:pdf',
+            ]); 
+=======
         $this->validate($request, [
             'file_pen' => 'required|mimes:pdf',
             ]);
         $file_pen = $request->get('file_pen'); 
 >>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
+>>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
         $filename = basename($_FILES["file_pen"]["name"]);
         $request->file_pen->move(public_path('pdf'), $filename);
         $penelitian_mhs->file_pen = $filename;
@@ -271,8 +322,12 @@ class PenelitianController extends Controller
 <<<<<<< HEAD
         // Kembali ke halaman index penelitian
 =======
+<<<<<<< HEAD
+        // Kembali ke halaman index penelitian
+=======
         // Kembali ke halaman mahasiswa/biodata
 >>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
+>>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
         return Redirect::to('mahasiswa/penelitian');
     }
 

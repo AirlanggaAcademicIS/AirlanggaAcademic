@@ -12,21 +12,15 @@ class Silabus_detail_media extends Model
    		'cpmk_id',
    		'sistem_pembelajaran_id',
    ];
-<<<<<<< HEAD
-=======
 
->>>>>>> 090f09f1e2827b9381fce8cbf0cc327eaecfb4d1
-	public function cpmk()
-   {
-   	return $this->belongsTo('App\Silabus_Sistem_Pembelajaran', 'cpmk_id');
-   }
+    public function cpmk()
+    {
+   	    return $this->belongsTo('App\Silabus_Sistem_Pembelajaran', 'cpmk_id');
+    }
 
-   public function sistem()
-   {
-   	return $this->belongsTo('App\Silabus_Sistem_Pembelajaran', 'sistem_pembelajaran_id');
-   }
-<<<<<<< HEAD
-=======
+    public function sistem()
+    {
+       	return $this->belongsTo('App\Silabus_Sistem_Pembelajaran', 'sistem_pembelajaran_id');
+    }
 
->>>>>>> 090f09f1e2827b9381fce8cbf0cc327eaecfb4d1
 }

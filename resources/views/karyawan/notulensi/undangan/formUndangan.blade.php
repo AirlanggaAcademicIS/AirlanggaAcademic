@@ -21,7 +21,8 @@ Undang Dosen
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="post" action="{{url('formundangan/'.$form->id_notulen.'/undang')}}">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="box-body">
                 <div class="form-group">
                   <label for="textNamaRapat" class="col-sm-2 control-label">Nama Rapat</label>
@@ -38,7 +39,7 @@ Undang Dosen
                 <div class="form-group">
                   <label for="textTempatRapat" class="col-sm-2 control-label">Tempat</label>
                   <div class="col-sm-10">
-                    <input class="form-control" id="textTempatRapat" placeholder="Tempat pelaksanaan rapat disini" value="{{ $form->permohonan_ruang_id }}" readonly type="text" >
+                    <input class="form-control" id="textTempatRapat" placeholder="Tempat pelaksanaan rapat disini" value="{{ $ruang->nama_ruang }}" readonly type="text" >
                   </div>
                 </div>
                 <!-- <div class="form-group">
@@ -53,7 +54,7 @@ Undang Dosen
                   </select>
                 </div>
                   </div> -->
-         <!-- <div class="col-xs-14">
+         <div class="col-xs-14">
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Daftar Dosen</h3>
@@ -74,57 +75,20 @@ Undang Dosen
                   <th>No</th>
                   <th>Nama Dosen</th>
                   <th>NIP</th>
-                  <th>Jabatan</th>
                   <th>Keterangan</th>
                 </tr>
+                @foreach($dosen as $i=>$d)
                 <tr>
-                  <td>001</td>
-                  <td>Badrus Zaman, S.Kom., M.Cs.</td>
-                  <td>19780126 200604 1 001</td>
-                  <td>Kaprodi</td>
+                  <td>{{$i+1}}</td>
+                  <td>{{$d->nama_dosen}}</td>
+                  <td>{{$d->nip}}</td>
                   <td><div class="checkbox">
                       <label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="{{$d->email}}" name="dosen[]">
                       </label>
                     </div></td>
-
                 </tr>
-                <tr>
-                  <td>002</td>
-                  <td>Barry Nuqoba, S.Si, M.Kom.</td>
-                  <td>19841102 201212 1 002</td>
-                  <td>Dosen</td>
-                  <td><div class="checkbox">
-                      <label>
-                        <input type="checkbox">
-                      </label>
-                    </div></td>
-
-                </tr>
-                <tr>
-                  <td>003</td>
-                  <td>Army Justitia, S.Kom, M.Kom.</td>
-                  <td>19870625 201212 2 002</td>
-                  <td>Dosen</td>
-                  <td><div class="checkbox">
-                      <label>
-                        <input type="checkbox">
-                      </label>
-                    </div></td>
-
-                </tr>
-                <tr>
-                  <td>004</td>
-                  <td>Faried Effendy, S.Si., M.Kom.</td>
-                  <td>19820606 200710 1 001</td>
-                  <td>Dosen</td>
-                  <td><div class="checkbox">
-                      <label>
-                        <input type="checkbox">
-                      </label>
-                    </div></td>
-
-                </tr>
+                @endforeach
               </table>
             </div>
             
@@ -132,7 +96,7 @@ Undang Dosen
           
         </div>
                 
-              </div> -->
+              </div>
               
               <div class="box-footer">
                 <button type="submit" class="btn btn-info pull-right">Kirim Undangan</button>

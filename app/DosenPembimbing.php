@@ -19,4 +19,8 @@ class DosenPembimbing extends Model
    {
    	   	return $this->belongsTo('App\BiodataDosen','nip');
    }
+
+   public function bimbingan(){
+    return $this->belongsTo('App\Skripsi', 'skripsi_id');
+   }
 }

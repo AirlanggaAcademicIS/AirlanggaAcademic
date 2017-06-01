@@ -11,7 +11,9 @@ class RincianDana extends Model
 	protected $table = 'rincian_dana';	
 	protected $primaryKey ='id_rdana';
 	protected $fillable = [
+
 		'id_rdana',
+
 		'kegiatan_id',
 		'nama',
 		'kuantitas',
@@ -28,6 +30,7 @@ public function rincianDana()
 {
 	# code...
 	return $this->belongsTo('App\KonfirmasiKegiatan','kegiatan_id');
+
 }
 public function kategoriDana()
 {
