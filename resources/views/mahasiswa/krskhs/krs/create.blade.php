@@ -128,8 +128,8 @@ Input Krs
               </div>
             </div>
             <div>
-                <h3 class="label"> <h3 class="label label-info" style="text-align:center">Total IPS :  </h3></h3>
-                <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$ips}}</h3></h3>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">Total SKS :  </h3></h3>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$sum}}</h3></h3>
                 <li></li>
             </div>
             </div>

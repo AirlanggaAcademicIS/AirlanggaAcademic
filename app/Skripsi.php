@@ -34,12 +34,12 @@ class Skripsi extends Model
     'upload_berkas_skripsi'
     ];
 
-
+<<<<<<< HEAD
     public $incrementing = false;
    
 
-
-
+=======
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
 
    public function mhs()
    {

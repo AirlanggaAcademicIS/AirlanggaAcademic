@@ -38,5 +38,6 @@ class DetailPengajuanController extends Controller
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('mahasiswa.pengelolaan-kegiatan.detail-pengajuan.index',$data);
     }
+
     
 }
