@@ -59,6 +59,9 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/{id}/delete','Dosen\Kurikulum\RPSController@delete');
                 Route::get('/{id}/edit','Dosen\Kurikulum\RPSController@edit');
                 Route::post('/{id}/edit','Dosen\Kurikulum\RPSController@editAction');
+                Route::get('pdf/{id}','Dosen\Kurikulum\RPSController@pdf');                                           
+                Route::get('/cpmk', 'Dosen\Kurikulum\RPSController@cpmk');
+                Route::post('/cpmk', 'Dosen\Kurikulum\RPSController@cpmkAction');                
             });
             //fitur e-learning (modul kurikulum)
             Route::group(['prefix' => 'elearning'], function() {

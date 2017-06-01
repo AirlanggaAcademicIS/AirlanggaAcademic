@@ -53,13 +53,6 @@ Tambah Silabus
       </div>
 
       <div class="form-group">
-        <label for="media-pembelajaran"><b>Media Pembelajaran</b></label><br>    
-        @foreach($media_pembelajaran as $media)
-          <label class="checkbox-inline"><input name="media_pembelajaran_id[]" type="checkbox" value="{{$media->id}}">{{$media->media_pembelajaran}}</label>        
-        @endforeach
-      </div>
-
-      <div class="form-group">
         <label for="capaian_pembelajaran"><b>Capaian Mata Kuliah</b></label>
         <textarea class="form-control" id="" name="capaian_matkul" rows="4" placeholder="Masukan Capaian Mata Kuliah">
         </textarea>

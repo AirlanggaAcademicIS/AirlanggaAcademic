@@ -54,24 +54,7 @@
                             @php $isSameMetode = false; @endphp        
                         @endforeach        
             </div>
-            
-            <div class="form-group">
-                <label for="media-pembelajaran"><b>Media Pembelajaran</b></label><br>    
-                    @php $isSameMedia = false; @endphp
-                    @foreach($media_pembelajaran as $media)          
-                        @foreach($mk_media_pembelajaran as $mk_media)
-                            @if($media->id == $mk_media->media_pembelajaran_id)
-                                @php $isSameMedia = true; @endphp
-                                <label class="checkbox-inline"><input checked type="checkbox" name="media_pembelajaran_id[]" value="{{$media->id}}">{{$media->media_pembelajaran}}</label> 
-                            @endif
-                        @endforeach
-                            @if($isSameMedia == false)
-                                <label class="checkbox-inline"><input type="checkbox" name="media_pembelajaran_id[]" value="{{$media->id}}">{{$media->media_pembelajaran}}</label>        
-                            @endif
-                            @php $isSameMedia = false; @endphp
-                    @endforeach        
-            </div>
-            
+                        
             <div class="form-group">
                 <label for="penilaian"><b>Deskripsi Mata Ajar</b></label>    
                 <textarea name="deskripsi_mata_ajar" class="form-control" rows="4" placeholder="Masukan Deskripsi Mata Ajar">{!!$matkul_silabus->deskripsi_matkul!!}</textarea>

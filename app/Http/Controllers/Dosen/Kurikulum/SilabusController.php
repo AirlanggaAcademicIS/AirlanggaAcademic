@@ -53,7 +53,7 @@ class SilabusController extends Controller
             'mata_kuliah' => Silabus_Matkul::all(),            
             // 'mk_prasyarat' => Silabus_Matkul_Prasyarat::all(),
             'atribut_softskill' => Silabus_Atribut_Softskill::all(),
-            'media_pembelajaran' => Silabus_Media_Pembelajaran::all(),            
+            // 'media_pembelajaran' => Silabus_Media_Pembelajaran::all(),            
             'metode_pembelajaran' => Silabus_Sistem_Pembelajaran::all(),                
             // 'status_team_teaching' => Status_Team_Teaching::all()
         ];
@@ -97,17 +97,6 @@ class SilabusController extends Controller
             $mk_sp->save();
         }
 
-        //insert to table detail_kategori (media pembelajaran) 
-        $mdp = $request->input('media_pembelajaran_id');
-
-        for($count = 0; $count < count($mdp); $count++)
-        {
-            $detail_kategori = new Silabus_detail_kategori;
-            $detail_kategori->media_pembelajaran_id = $mdp[$count];
-            $detail_kategori->cpmk_id = $cpmk->id_cpmk;
-            $detail_kategori->save();            
-        }
-
         //update to table mata_kuliah
         $matkul  = Silabus_Matkul::find($request->input('matkul'));
         $matkul->penilaian_matkul = $request->input('penilaian_matkul');
@@ -143,7 +132,7 @@ class SilabusController extends Controller
       	return Redirect::back();	 
     }
 
-   public function edit($id)
+    public function edit($id)
     {
         $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $id)->first();
         $data = [
