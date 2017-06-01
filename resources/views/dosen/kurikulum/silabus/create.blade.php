@@ -17,7 +17,7 @@ Tambah Silabus
 
 @section('main-content')
 <form role="form" id="tambah-silabus" method="post" action="{{url('/dosen/kurikulum/silabus/create')}}" enctype="multipart/form-data">
-  <div class="box box-primary">
+  <div class="box box-danger">
 
     <div class="box-header with-border">
       <h3 class="box-title">Tambah Silabus</h3>
@@ -53,10 +53,9 @@ Tambah Silabus
       </div>
 
       <div class="form-group">
-        <label for="media-pembelajaran"><b>Media Pembelajaran</b></label><br>    
-        @foreach($media_pembelajaran as $media)
-          <label class="checkbox-inline"><input name="media_pembelajaran_id[]" type="checkbox" value="{{$media->id}}">{{$media->media_pembelajaran}}</label>        
-        @endforeach
+        <label for="capaian_pembelajaran"><b>Capaian Mata Kuliah</b></label>
+        <textarea class="form-control" id="" name="capaian_matkul" rows="4" placeholder="Masukan Capaian Mata Kuliah">
+        </textarea>
       </div>
 
       <div class="form-group">
@@ -81,7 +80,7 @@ Tambah Silabus
         <label for="referensi"><b>Referensi Wajib</b></label>
         <textarea name="pustaka_utama" id="pustaka_utama" class="form-control" rows="4" placeholder="Masukkan referensi wajib (pustaka utama)"> 
 
-      	</textarea>
+        </textarea>
 
         </textarea>
 
