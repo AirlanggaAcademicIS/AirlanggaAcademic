@@ -4,8 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
+    "content-hash": "63f22c69dcca59175b50acad4c0885bf",
+=======
+<<<<<<< HEAD
+    "content-hash": "916c273503e12f8e9d65ad0edec83dad",
+=======
+
+    "content-hash": "a9441ae619ae7a74bdeefc9bb21fcc09",
+    "content-hash": "63f22c69dcca59175b50acad4c0885bf",
+
+
     "hash": "4541a23f8c09f224f31168a998b5d9dd",
     "content-hash": "a9441ae619ae7a74bdeefc9bb21fcc09",
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
+>>>>>>> db8f86eb8c9cb5471e7d515b4790d73baae78971
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -1368,7 +1381,11 @@
                 "framework",
                 "laravel"
             ],
+<<<<<<< HEAD
+            "time": "2017-05-30T12:44:32+00:00"
+=======
             "time": "2017-05-30 12:44:32"
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         },
         {
             "name": "laravel/tinker",
@@ -2318,7 +2335,11 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-05-28T14:08:56+00:00"
+=======
             "time": "2017-05-28 14:08:56"
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         },
         {
             "name": "symfony/css-selector",
@@ -2371,7 +2392,11 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-05-01T15:01:29+00:00"
+=======
             "time": "2017-05-01 15:01:29"
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         },
         {
             "name": "symfony/debug",
@@ -2427,7 +2452,11 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-05-27T16:02:27+00:00"
+=======
             "time": "2017-05-27 16:02:27"
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         },
         {
             "name": "symfony/dom-crawler",
@@ -2483,7 +2512,11 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-05-25T23:10:31+00:00"
+=======
             "time": "2017-05-25 23:10:31"
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2546,7 +2579,11 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-05-04T12:23:07+00:00"
+=======
             "time": "2017-05-04 12:23:07"
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         },
         {
             "name": "symfony/finder",
@@ -2595,7 +2632,11 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-05-25T23:10:31+00:00"
+=======
             "time": "2017-05-25 23:10:31"
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         },
         {
             "name": "symfony/http-foundation",
@@ -2648,7 +2689,11 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-05-25T13:39:26+00:00"
+=======
             "time": "2017-05-25 13:39:26"
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         },
         {
             "name": "symfony/http-kernel",
@@ -2733,7 +2778,11 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-05-29T21:02:12+00:00"
+=======
             "time": "2017-05-29 21:02:12"
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2949,7 +2998,11 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-05-22T12:32:03+00:00"
+=======
             "time": "2017-05-22 12:32:03"
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         },
         {
             "name": "symfony/routing",
@@ -3027,7 +3080,11 @@
                 "uri",
                 "url"
             ],
+<<<<<<< HEAD
+            "time": "2017-05-24T11:35:23+00:00"
+=======
             "time": "2017-05-24 11:35:23"
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         },
         {
             "name": "symfony/translation",
@@ -3092,7 +3149,11 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-05-22T07:42:36+00:00"
+=======
             "time": "2017-05-22 07:42:36"
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         },
         {
             "name": "symfony/var-dumper",
@@ -3160,7 +3221,11 @@
                 "debug",
                 "dump"
             ],
+<<<<<<< HEAD
+            "time": "2017-05-22T17:32:12+00:00"
+=======
             "time": "2017-05-22 17:32:12"
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -4680,7 +4745,11 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-05-28T10:56:20+00:00"
+=======
             "time": "2017-05-28 10:56:20"
+>>>>>>> 16f3ed02d5c1064f14567e8a0f971cd01dc8068f
         },
         {
             "name": "webmozart/assert",

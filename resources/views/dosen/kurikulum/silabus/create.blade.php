@@ -36,45 +36,41 @@ Tambah Silabus
           }
           @endforeach
         </select>
-       </div>
+       </div><br>
 
       <div class="form-group">
-        <label for="metode-pembelajaran"><b>Atribut Softskill</b></label><br>     
+
+        <label for="atribut_softskill"><b>Atribut Softskill</b></label><br>     
         @foreach($atribut_softskill as $softskill)
           <label class="checkbox-inline"><input type="checkbox" name="sistem_pembelajaran_id[]" value="{{$softskill->id_softskill}}">{{$softskill->softskill}}</label>        
         @endforeach
-      </div>
+      </div><br>
 
       <div class="form-group">
         <label for="metode-pembelajaran"><b>Metode Pembelajaran</b></label><br>     
         @foreach($metode_pembelajaran as $metode)
           <label class="checkbox-inline"><input type="checkbox" name="softskill_id[]" value="{{$metode->id}}">{{$metode->sistem_pembelajaran}}</label>        
         @endforeach
-      </div>
+      </div><br>
 
       <div class="form-group">
-        <label for="capaian_pembelajaran"><b>Capaian Mata Kuliah</b></label>
+        <label for="capaian_matkul"><b>Capaian Mata Kuliah</b></label>
         <textarea class="form-control" id="" name="capaian_matkul" rows="4" placeholder="Masukan Capaian Mata Kuliah">
         </textarea>
-      </div>
+      </div><br>
+
 
       <div class="form-group">
-        <label for="capaian_pembelajaran"><b>Capaian Mata Kuliah</b></label>
-        <textarea class="form-control" id="" name="capaian_matkul" rows="4" placeholder="Masukan Capaian Mata Kuliah">
-        </textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="penilaian"><b>Deskripsi Mata Ajar</b></label>    
+        <label for="deskripsi"><b>Deskripsi Mata Ajar</b></label>    
         <textarea name="deskripsi_mata_ajar" class="form-control" rows="4" placeholder="Masukan Deskripsi Mata Ajar">
         </textarea>
-      </div>
+      </div><br>
 
       <div class="form-group">
         <label for="penilaian"><b>Penilaian Hasil Belajar</b></label>    
         <textarea name="penilaian_matkul" class="form-control" rows="4" placeholder="Masukan Penilaian Hasil Belajar">
         </textarea>
-      </div>
+      </div><br>
 
       <div class="form-group">
         <label for="referensi"><b>Referensi Wajib</b></label>
@@ -82,12 +78,12 @@ Tambah Silabus
 
         </textarea>
 
-        </textarea>
+
 
       </div>
 
       <div class="box-footer clearfix">
-        <button type="tambah" class="pull-right btn btn-info btn-sm" id="tambah">Tambah
+        <button type="tambah" class="pull-right btn btn-info" id="tambah">Tambah
         </button>
       </div>
     </div>
