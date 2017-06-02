@@ -31,6 +31,12 @@ public function rincianDana()
 {
 	# code...
 <<<<<<< HEAD
+
+
+	return $this->belongsTo('App\PengajuanKegiatan','kegiatan_id');
+
+=======
+<<<<<<< HEAD
 	return $this->belongsTo('App\KonfirmasiKegiatan','kegiatan_id');
 =======
 <<<<<<< HEAD
@@ -39,7 +45,9 @@ public function rincianDana()
 	return $this->belongsTo('App\KonfirmasiKegiatan','kegiatan_id');
 >>>>>>> 8ab999b6463730213402bf5657d64e0b812f08f2
 >>>>>>> 5a734d94f7e78fe35eeff1f606d98a6cdcf84e2d
+>>>>>>> 3b215101045cc3cc74a2d48dec4a0c413c621800
 }
+
 public function kategoriDana()
 {
 	# code...

@@ -15,12 +15,10 @@ class MKDitawarkan extends Model
 
    public function mk()
    {
-
       return $this->belongsTo('App\Models\KrsKhs\MK','matakuliah_id');
    }
    public function tahun()
    {
       return $this->belongsTo('App\Models\KrsKhs\TahunAkademik','thn_akademik_id');
-
    }
 }

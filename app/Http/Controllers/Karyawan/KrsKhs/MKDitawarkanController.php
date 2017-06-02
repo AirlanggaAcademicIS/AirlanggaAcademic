@@ -82,7 +82,7 @@ class MKDitawarkanController extends Controller
         $input = $tahun_awal.'/'.$tahun_akhir.' '.$periode;
         $tahun = TahunAkademik::create(
             [
-            'semester_periode'=>$input,
+            'semester_periode'=>$input, 
             ]
             );
        $cek = $request->input('cek');
@@ -94,7 +94,7 @@ class MKDitawarkanController extends Controller
             'matakuliah_id'=>$c,
             ]
             );
-       }
+         }
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'MK Ditawarkan berhasil ditambahkan');
         // Kembali ke halaman krs-khs/ruang

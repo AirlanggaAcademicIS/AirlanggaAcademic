@@ -56,7 +56,7 @@ class BiodataMahasiswaController extends Controller
          // dd(Auth::user()->username() ;
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Biodata berhasil ditambahkan');
+        Session::put('alert-success', 'Biodata Mahasiswa berhasil diinputkan');
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('mahasiswa/biodata-mahasiswa');
@@ -103,7 +103,7 @@ class BiodataMahasiswaController extends Controller
         $biodata_mhs->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Biodata berhasil diedit');
+        Session::put('alert-success', 'Biodata Mahasiswa berhasil diinputkan');
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('mahasiswa/biodata-mahasiswa');

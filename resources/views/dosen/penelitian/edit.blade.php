@@ -75,7 +75,7 @@ Edit Penelitian
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Tanggal kegiatan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_penelitian" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_penelitian" placeholder="Masukkan Tanggal" value="{{$penelitian->tanggal_penelitian}}" required>
 					</div>
 				</div>
 
