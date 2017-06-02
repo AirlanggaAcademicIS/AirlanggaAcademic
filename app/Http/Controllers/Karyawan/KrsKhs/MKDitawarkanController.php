@@ -86,6 +86,7 @@ class MKDitawarkanController extends Controller
             ]
             );
        $cek = $request->input('cek');
+       dd($cek);
        foreach ($cek as $c) {
            MKDitawarkan::create(
             [
