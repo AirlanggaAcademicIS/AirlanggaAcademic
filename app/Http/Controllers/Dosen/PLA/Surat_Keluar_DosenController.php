@@ -94,11 +94,9 @@ class Surat_Keluar_DosenController extends Controller
     public function delete($id_surat_keluar)
     {
         // Mencari  berdasarkan id dan memasukkannya ke dalam variabel $
-        $dosen_pemohon_surat = DosenPemohonSurat::where('surat_keluar_id',$id_surat_keluar);
         $surat_keluar_dosen = Surat_Keluar_Dosen::find($id_surat_keluar);
 
         // Menghapus  yang dicari tadi
-        $dosen_pemohon_surat->delete();
         $surat_keluar_dosen->delete();
 
         // Menampilkan notifikasi pesan sukses

@@ -32,15 +32,16 @@ Surat Keluar
     <i class="fa fa-plus-square"></i> Tambah Surat</a>
 </div> -->
 <div style="overflow: auto">
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+<table id="data-table" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
-      <th style="text-align:center">No.</th>    
+      <th style="text-align:center">No.</th>
+      <th style="text-align:center">NIM</th>    
       <th style="text-align:center">NIP Petugas</th>
       <th style="text-align:center">Nama Lembaga</th>
       <th style="text-align:center">Perihal Surat</th>
       <th style="text-align:center">Alamat</th>
-      <th style="text-align:center">Tanggal Upload</th>
+      <th style="text-align:center">Tanggal Pengajuan</th>
       <th style="text-align:center">Status</th>
       <th style="text-align:center">Action</th>
     </tr>
@@ -49,11 +50,12 @@ Surat Keluar
    @forelse($surat_keluar_mhs as $i => $surat) 
     <tr>
       <td width="5%" style="text-align:center">{{ $i+1 }}</td>
+      <td width="15%" style="text-align:center">{{$surat->nim_id}}</td>
       <td width="15%" style="text-align:center">{{$surat->nip_petugas_id}}</td>
       <td width="10%" style="text-align:center">{{$surat->nama_lembaga}}</td>
       <td width="10%" style="text-align:center">{{$surat->nama}}</td>
       <td width="10%" style="text-align:center">{{$surat->alamat}}</td>
-      <td width="10%" style="text-align:center">{{$surat->tgl_upload}}</td>
+      <td width="10%" style="text-align:center">{!!App\Helpers\GeneralHelper::indonesianDateFormat($surat->tgl_upload)!!}</td>
        @if($surat->status == 0)
       <td width="10%" style="text-align:center">Belum Selesai</td>
       @elseif ($surat->status == 1)
@@ -86,5 +88,9 @@ Surat Keluar
 @endsection
 
 @section('code-footer')
-
+<script type="text/javascript"> 
+    $(document).ready(function(){ 
+        $('#data-table').DataTable(); 
+    }); 
+</script> 
 @endsection

@@ -253,7 +253,7 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class, 
 
-    ]
+    
 
 ],
 
