@@ -36,7 +36,7 @@ Surat Keluar
   <thead>
     <tr>
       <th width="5%" style="text-align:center">No.</th>    
-      <!--<th style="text-align:center">NIP Petugas</th>-->
+      <th style="text-align:center">NIP</th>
       <th style="text-align:center">Nama</th>
       <th style="text-align:center">Tanggal Upload</th>
       <th style="text-align:center">Status</th>
@@ -47,7 +47,7 @@ Surat Keluar
    @forelse($surat_keluar_dosen as $i => $surat) 
     <tr>
       <td width="5%" style="text-align:center">{{ $i+1 }}</td>
-      <!--<td width="15%" style="text-align:center">{{$surat->nip_petugas_id}}</td>-->
+      <td width="15%" style="text-align:center">{{$surat->nip_id}}</td>
       <td width="10%" style="text-align:center">{{$surat->nama}}</td>
       <td width="10%" style="text-align:center">{{$surat->created_at}}</td>
       @if($surat->status == 0)

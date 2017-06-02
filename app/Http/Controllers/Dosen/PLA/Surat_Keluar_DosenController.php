@@ -10,8 +10,11 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
+use Illuminate\Support\Facades\DB;
 // Tambahkan model yang ingin dipakai
 use App\Surat_Keluar_Dosen;
+use App\DosenPemohonSurat;
+use App\DosenPengajuan;
 
 
 class Surat_Keluar_DosenController extends Controller
@@ -24,7 +27,12 @@ class Surat_Keluar_DosenController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar 
             'page' => 'surat-keluar-dosen',
             // Memanggil semua isi dari tabel 
-            'surat_keluar_dosen' => Surat_Keluar_Dosen::orderBy('created_at', 'desc')->get(),
+            'dosen_pemohon_surat' =>DosenPemohonSurat::all(),
+            'surat_keluar_dosen' =>DB::table('surat_keluar_dosen')
+            ->join('dosen_pemohon_surat', 'surat_keluar_dosen.id_surat_keluar', '=', 'dosen_pemohon_surat.surat_keluar_id')
+            //->orderBy('create_at', 'desc')
+            ->select('*')
+            ->get(),
         ];
 
         // Memanggil tampilan index di folder mahasiswa/ dan juga menambahkan $data tadi di view
@@ -53,6 +61,15 @@ class Surat_Keluar_DosenController extends Controller
         // $akun->alamat = $request->input('alamat');
         // $akun->tgl_upload = $request->input('tgl_upload');
         // $akun->save();
+        $terdaftar = DosenPengajuan::pluck('nip')->toArray();
+        $nip = explode(',', $request->input('nip_id'));
+        foreach ($nip as $p) {
+            if(!in_array($p, $terdaftar)){
+        Session::put('alert-danger', 'NIP tidak terdaftar');
+        return Redirect::back();
+    }
+        }
+
         $surat = Surat_Keluar_Dosen::create([
             //'nip_petugas_id' => $request->input('nip_petugas_id'),
             'nama' => $request->input('nama'),
@@ -60,6 +77,13 @@ class Surat_Keluar_DosenController extends Controller
             'status' => 0
             ]);        
         
+        foreach ($nip as $p) {
+        $pemohon = DosenPemohonSurat::create([
+            'nip_id'=> $p,
+            'surat_keluar_id'=> $surat->id_surat_keluar
+            ]);
+        }
+
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Surat berhasil ditambahkan');
 
@@ -70,9 +94,11 @@ class Surat_Keluar_DosenController extends Controller
     public function delete($id_surat_keluar)
     {
         // Mencari  berdasarkan id dan memasukkannya ke dalam variabel $
+        $dosen_pemohon_surat = DosenPemohonSurat::where('surat_keluar_id',$id_surat_keluar);
         $surat_keluar_dosen = Surat_Keluar_Dosen::find($id_surat_keluar);
 
         // Menghapus  yang dicari tadi
+        $dosen_pemohon_surat->delete();
         $surat_keluar_dosen->delete();
 
         // Menampilkan notifikasi pesan sukses
