@@ -33,16 +33,7 @@ class Skripsi extends Model
     'upload_berkas_proposal',
     'upload_berkas_skripsi'
     ];
-
-    public $incrementing = false;
-    protected $fillable = [
-    'NIM_id',
-    'nip_petugas_id',
-    'kbk_id',
-    'Judul'
-   ];
-
-
+    
    public function mhs()
    {
     return $this->belongsTo('App\AkunMahasiswa','NIM_id');

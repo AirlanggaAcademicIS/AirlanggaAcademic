@@ -10,99 +10,85 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
+use Auth;
 // Tambahkan model yang ingin dipakai
 use App\Models\KrsKhs\Mahasiswa;
 use App\BiodataMahasiswa;
+use App\Models\KrsKhs\MKDiambil;
+use App\Models\KrsKhs\TahunAkademik;
+use App\Models\KrsKhs\MKDitawarkan;
 
 
 class MahasiswaController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     // Function untuk menampilkan tabel
     public function index()
     {
+        $dosen_id  = Auth::user()->username;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'mahasiswa',
             // Memanggil semua isi dari tabel biodata
-            'mahasiswa' => Mahasiswa::all(),
-            'mhs' => BiodataMahasiswa::all()
-        ];
+            'mahasiswa' => Mahasiswa::where('nip_id',$dosen_id)->get(),
+            ];
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('dosen.krs-khs.approve.index',$data);
     }
 
     public function create($mhs_id)
     {
+        $tahun = TahunAkademik::count();
+        $mk_ditawarkan = MKDitawarkan::where('thn_akademik_id', $tahun)->get();
+        foreach($mk_ditawarkan as $mk){
+        $matkul_id = $mk->id_mk_ditawarkan;
+                    }
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'mahasiswa',
             // Memanggil semua isi dari tabel biodata
-            'mahasiswa' => Mahasiswa::all(),
-            'mhs' => BiodataMahasiswa::all()
+            'mahasiswa' => Mahasiswa::where('nim',$mhs_id)->first(),
+            'matkul' => MKDiambil::where('mhs_id',$mhs_id)
+                        ->where('mk_ditawarkan_id',$matkul_id)->get()
         ];
 
         // Memanggil tampilan form create
-        return view('dosen.biodata.create',$data);
+        return view('dosen.krs-khs.approve.create',$data);
     }
 
-    public function createAction(Request $request)
+    public function approveAction($mhs_id, $id_mk, Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        BiodataDosen::create($request->input());
 
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Biodata berhasil ditambahkan');
-
-        // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('dosen/biodatadosen');
-    }
-
-    public function delete($id)
-    {
-        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $biodata_dosen = BiodataDosen::find($id);
-
-        // Menghapus biodata yang dicari tadi
-        $biodata_dosen->delete();
-
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Biodata berhasil dihapus');
-
-        // Kembali ke halaman sebelumnya
-        return Redirect::back();     
-    }
-
-   public function edit($id)
-    {
-        $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'biodatadosen',
-            // Mencari biodata berdasarkan id
-            'biodatadosen' => BiodataDosen::find($id)
-        ];
-
-        // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('dosen.biodata.edit',$data);
-    }
-
-    public function editAction($id, Request $request)
-    {
-        // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $biodata_dosen = BiodataDosen::find($id);
-
-        // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $biodata_dosen->nip_petugas = "08777777";
-        $biodata_dosen->nama_dosen = $request->input('nama_dosen');
-        $biodata_dosen->alamat_dosen = $request->input('alamat_dosen');
-        $biodata_dosen->ttl = $request->input('ttl');
-        $biodata_dosen->save();
-
-        // Notifikasi sukses
-        Session::put('alert-success', 'Biodata berhasil diedit');
+        $approve = MKDiambil::where('mk_ditawarkan_id',$id_mk)
+                ->where('mhs_id',$mhs_id)->update([
+                    'is_approve' => '1'
+                    ]);
+             // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'Approved');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('dosen/biodatadosen');
+        return Redirect::back();
     }
 
+    public function unapproveAction($mhs_id, $id_mk, Request $request)
+    {
+        // Menginsertkan apa yang ada di form ke dalam tabel biodata
+
+        $approve = MKDiambil::where('mk_ditawarkan_id',$id_mk)
+                ->where('mhs_id',$mhs_id)->update([
+                    'is_approve' => '0'
+                    ]);
+             // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'Unapproved');
+
+        // Kembali ke halaman mahasiswa/biodata
+        return Redirect::back();
+    
+    }    
 }

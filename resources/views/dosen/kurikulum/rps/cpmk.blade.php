@@ -1,3 +1,4 @@
+
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
@@ -56,7 +57,7 @@ Rencana Pembelajaran Semester
         <label>Mata Kuliah</label>
         <select name="matkul" class="form-control select2" style="width: 100%;" required>
           <option value="">-- Kode Mata Kuliah - Nama Mata Kuliah --</option>
-          @foreach ($mata_kuliah as $mk)
+          @foreach ($mk as $mk)
           {
             <option value="{{$mk->id_mk}}">{{$mk->kode_matkul}} - {{$mk->nama_matkul}} ({{$mk->sks}} SKS)</option>
           }
@@ -72,7 +73,7 @@ Rencana Pembelajaran Semester
 
   <p><b>Media Pembelajaran</b></p>    
     @foreach($media as $m)
-      <label class="checkbox-inline" name="media_pembelajaran"><input type="checkbox" value="{{$m->id}}" name="media_pembelajaran">{{$m->media_pembelajaran}}</label>       
+      <label class="checkbox-inline" name="media_pembelajaran"><input type="checkbox" value="{{$m->id}}" name="media_pembelajaran[]">{{$m->media_pembelajaran}}</label>       
     @endforeach
     <br>
 
@@ -83,39 +84,38 @@ Rencana Pembelajaran Semester
   </form>
   <!-- Table Daftar Capaian Mata Kuliah -->  
   <div class="col-md-12">
-  <h3 class="box-title">Daftar Capaian Mata Kuliah</h3> 
-    <div class="box-body no-padding">
-      <table id="cpmk" name="cpmk" class="table table-striped table-bordered" cellspacing="0">
-        <tbody>
-        <thead>
-        <tr>
-          <th style="text-align:center" width="10%">No.</th>
-          <th style="text-align:center">Kode CP MK</th>      
-          <th style="text-align:center">Deskripsi CP MK</th>
-          <th style="text-align:center">Mata Kuliah</th>
-          <th style="text-align:center">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-         @forelse($cpmk as $i => $cpmk) 
-          <tr>
-            <td style="text-align:center">{{ $i+1 }}</td>
-            <td style="text-align:center">{{$cpmk->kode_cpmk}}</td>
-            <td style="text-align:center">{{$cpmk->deskripsi_cpmk}}</td>
-            <td style="text-align:center">{{$cpmk->matkul['nama_matkul']}}</td>
-            <td width="15%" style="text-align:center">
-            <a onclick="return confirm('Anda yakin untuk menghapus CP MK ini?');" href="{{url('/dosen/kurikulum/rps/delete-cpmk/'.$cpmk->id_cpmk)}}" class="btn btn-danger btn-xs">
-                <i class="fa fa-trash-o"></i> Delete</a>
-              </td>
-          </tr>
-           @empty
-              <tr>
-                <td colspan="6"><center>Belum ada Capaian Mata Kuliah</center></td>
-              </tr>
-          @endforelse
-        </tbody>
-      </tbody>
-      </table>
+    <div class="box-header">
+      <h3 class="box-title">Daftar Capaian Mata Kuliah</h3> 
+      </div>
+        <div class="box-body no-padding">
+          <table id="cpmk" name="cpmk" class="table table-striped table-bordered" cellspacing="0">
+            <tbody>
+              <thead>
+                <tr>
+                  <th style="text-align:center" width="10%">No.</th>
+                  <th style="text-align:center">Kode CP MK</th>      
+                  <th style="text-align:center">Deskripsi CP MK</th>
+                  <th style="text-align:center">Mata Kuliah</th>
+                  <th style="text-align:center">Media Pembelajaran</th>
+                  <th style="text-align:center">Aksi</th>
+                </tr>
+              </thead>
+            <tbody>
+            @foreach($mata_kuliah as $i => $cpmk) 
+                <tr>
+                  <td style="text-align:center">{{ $i+1 }}</td>
+                  <td style="text-align:center">{{$cpmk->kode_cpmk}}</td>
+                  <td style="text-align:center">{{$cpmk->deskripsi_cpmk}}</td>
+                  <td style="text-align:center">{{$cpmk->nama_matkul}}</td>
+                  <th style="text-align:center">{{$cpmk->media_pembelajaran}}</th>
+                  <td width="15%" style="text-align:center">
+                  <a onclick="return confirm('Anda yakin untuk menghapus CP MK ini?');" href="{{url('/dosen/kurikulum/rps/delete-cpmk/'.$cpmk->id_cpmk)}}" class="btn btn-danger btn-xs">
+                  <i class="fa fa-trash-o"></i> Delete</a></td>
+                </tr>
+            @endforeach
+            </tbody>
+          </tbody>
+        </table>
       </div>
       <div class="col-md-12 box-body"><br>
       <a href="{{{('/dosen/kurikulum/rps/create')}}}" class="btn btn-primary" style="float:right;">Selanjutnya</a><br>

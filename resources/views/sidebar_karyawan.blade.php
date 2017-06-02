@@ -1,28 +1,65 @@
-<!-- Contoh -->
-<!-- <li
-@if($page == 'transaksi')
-{!! 'class="active"'!!}
-@endif
->
+<!-- MONITORING SKRIPSI -->
+<li>
+ <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
+    <ul class="treeview-menu">
 
-<a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
-</li> -->
+    <li
+      @if($page == 'KBK')
+      {!! 'claass="active"'!!}
+      @endif>
 
+      <a href="{{url('karyawan/monitoring-skripsi/KBK')}}"><i class='fa fa-book'></i><span>Input KBK</span>
+      </a>
+    </li>
 
-<li
-@if($page == 'AkunMahasiswa')
-{!! 'class="active"'!!}
-@endif
->
-<a href="{{ url('karyawan/akun') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Akun Mahasiswa</a>
+    <li
+      @if($page == 'status')
+      {!! 'claass="active"'!!}
+      @endif>
+      <a href="{{url('karyawan/monitoring-skripsi/status')}}"><i class='fa fa-book'></i><span>Input Status</span>
+      </a>
+    </li>
+
+    <li
+      @if($page == 'skripsi')
+      {!! 'claass="active"'!!}
+      @endif>
+      <a href="{{url('karyawan/monitoring-skripsi/skripsi')}}"><i class='fa fa-book'></i><span>Data Skripsi</span>
+      </a>
+    </li>
+
+     <li
+      @if($page == 'manage-jadwal-sidang-proposal')
+      {!! 'claass="active"'!!}
+      @endif>
+      <a href="{{url('karyawan/monitoring-skripsi/berkas')}}"><i class='fa fa-book'></i><span>File Proposal Skripsi</span>
+      </a>
+    </li>
+
+    <li
+      @if($page == 'manage-jadwal-sidang-proposal')
+      {!! 'claass="active"'!!}
+      @endif>
+      <a href="{{url('karyawan/monitoring-skripsi/konsultasi')}}"><i class='fa fa-book'></i><span>Konsultasi</span>
+      </a>
+    </li>
+
+    <li
+      @if($page == 'manage-jadwal-sidang-proposal')
+      {!! 'claass="active"'!!}
+      @endif>
+      <a href="{{url('karyawan/monitoring-skripsi/manage-jadwal-sidang-proposal')}}"><i class='fa fa-book'></i><span>Jadwal Sidang Proposal</span>
+      </a>
+    </li>
+
+    <li
+      @if($page == 'manage-hasil-sidang-proposal')
+      {!! 'claass="active"'!!}
+      @endif>
+      <a href="{{url('karyawan/monitoring-skripsi/manage-hasil-sidang-proposal')}}"><i class='fa fa-book'></i><span>Hasil Proposal </span>
+      </a>
+    </li>
+
+    </ul>
 </li>
-<li
-@if($page == 'verifikasi')
-{!! 'class="active"'!!}
-@endif
->
-<a href="{{ url('karyawan/verifikasi') }}"><i class="fa fa-book" aria-hidden="true"></i>Verifikasi Mahasiswa</a>
-</li>
-
-</ul>
-</li>
+<!-- Akhir side bar monitoring skripsi harus ditutup dengan ul dan li jangan lupa -->
