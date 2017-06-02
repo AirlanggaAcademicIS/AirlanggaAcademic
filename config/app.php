@@ -177,6 +177,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
+        Barryvdh\Snappy\ServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
 
 
@@ -254,11 +256,8 @@ return [
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
  
 
+],
 
-
-        'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
-
-    ]
 
 ];
 

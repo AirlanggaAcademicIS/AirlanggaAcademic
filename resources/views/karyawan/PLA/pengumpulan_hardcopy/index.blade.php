@@ -30,7 +30,7 @@ Pengumpulan Hardcopy Proposal dan Skripsi
 
 
 <div class="box box-primary">
- <form  method="post" action="{{url('karyawan/pla/Pengumpulan Hardcopy/search')}}" enctype="multipart/form-data"  class="form-horizontal">
+ <form  method="post" action="{{url('karyawan/Pengumpulan Hardcopy/search')}}" enctype="multipart/form-data"  class="form-horizontal">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row" style="padding:10px">
                 <div class="col-sm-8">
@@ -73,7 +73,7 @@ Pengumpulan Hardcopy Proposal dan Skripsi
       <td  style="text-align:center">{{$bio->Judul}}</td>
       <td style="text-align:center">
       @if($bio->tanggal_pengumpulan_proposal=='')
-      <a onclick="return confirm('Cek Apakah Proposal Telah Sesuai!');" href="{{url('karyawan/pla/Pengumpulan Hardcopy/'.$bio->id_skripsi.'/Proposal')}}" class="btn btn-success btn-xs">
+      <a onclick="return confirm('Cek Apakah Proposal Telah Sesuai!');" href="{{url('karyawan/Pengumpulan Hardcopy/'.$bio->id_skripsi.'/Proposal')}}" class="btn btn-success btn-xs">
                     <i class="fa fa-pencil-square-o"></i> Kumpulkan Proposal</a>
       @else
       {{$bio->tanggal_pengumpulan_proposal}}
@@ -81,7 +81,7 @@ Pengumpulan Hardcopy Proposal dan Skripsi
       </td>
       <td  style="text-align:center" >
        @if($bio->tanggal_pengumpulan_skripsi=='')
-      <a onclick="return confirm('Cek Apakah Skripsi Telah Sesuai!');" href="{{url('karyawan/pla/Pengumpulan Hardcopy/'.$bio->id_skripsi.'/Skripsi')}}" class="btn btn-success btn-xs">
+      <a onclick="return confirm('Cek Apakah Skripsi Telah Sesuai!');" href="{{url('karyawan/Pengumpulan Hardcopy/'.$bio->id_skripsi.'/Skripsi')}}" class="btn btn-success btn-xs">
                     <i class="fa fa-pencil-square-o"></i> Kumpulkan Skripsi</a>
       @else
       {{$bio->tanggal_pengumpulan_skripsi}}

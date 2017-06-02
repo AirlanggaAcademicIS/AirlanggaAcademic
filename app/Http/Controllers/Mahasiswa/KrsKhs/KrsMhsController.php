@@ -17,6 +17,7 @@ use DB;
 use App\Models\KrsKhs\MKDiambil;
 use App\Models\KrsKhs\MataKuliah;
 use App\Models\KrsKhs\JenisMataKuliah;
+use App\Models\KrsKhs\TahunAkademik;
 
 
 class KrsMhsController extends Controller
@@ -62,40 +63,40 @@ class KrsMhsController extends Controller
             ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
             ->select('*')
             ->where('mhs_id','=',$nim_id)
-            ->where('thn_akademik_id','=','1')
+            // ->where('thn_akademik_id','=','1')
             ->sum('mata_kuliah.sks');
         $mean    = $sum/$count;
         $nilai1  = DB::table('mk_diambil')
             ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
             ->select('mk_diambil.nilai')
             ->where('mhs_id','=',$nim_id)
-            ->where('thn_akademik_id','=','1')->get(); 
+            ->where('mk_ditawarkan.thn_akademik_id','=','1')->get(); 
         $nilai   = 0;
         $nilai_tmp = 0;
         foreach($nilai1 as $n){
             if ($n->nilai == "A")
                 $nilai_tmp = $nilai_tmp + 4;                
-            if ($n->nilai == "AB")
+            elseif ($n->nilai == "AB")
                 $nilai_tmp = $nilai_tmp + 3.5;
-            if ($n->nilai == "B")
+            elseif ($n->nilai == "B")
                 $nilai_tmp = $nilai_tmp + 3;
-            if ($n->nilai == "BC")
+            elseif ($n->nilai == "BC")
                 $nilai_tmp = $nilai_tmp + 2.5;
-            if ($n->nilai == "C")
+            elseif ($n->nilai == "C")
                 $nilai_tmp = $nilai_tmp + 2;
-            if ($n->nilai == "D")
+            elseif ($n->nilai == "D")
                 $nilai_tmp = $nilai_tmp + 1;
-            if ($n->nilai == "E")
+            elseif ($n->nilai == "E")
                 $nilai_tmp = $nilai_tmp + 0;
             $nilai = $nilai_tmp;
             }
-        $IPS     = $nilai/$count;
+        $count_ips     = $nilai/$count;
         $lmt     = 0; 
-            if ($IPS >= 3)
+            if ($count_ips >= 3)
                 $lmt = 24;                
-            if (($IPS <3) and ($IPS >=2.75))
+            elseif (($count_ips <3) and ($count_ips >=2.75))
                 $lmt = 23;
-            if (($IPS <2.75) and ($IPS >=2.5))
+            elseif (($count_ips <2.75) and ($count_ips >=2.5))
                 $lmt = 22;
             else
                 $lmt = 21;
@@ -112,11 +113,9 @@ class KrsMhsController extends Controller
             'sum'  => $sum,
             'mean' => $mean,
             'limitSks' => $lmt,
-            'ips'  => $IPS
+            'ips'  => $count_ips,
             'lihat' => MKDiambil::all(),
-            'mean' => $mean,
-            'limitSks' => $lmt,
-            'ips'  => $IPS
+            'tahun' => TahunAkademik::all(),
         ];
         // Memanggil tampilan form create
         return view('mahasiswa.krs-khs.krs.create',$data);
@@ -135,7 +134,7 @@ class KrsMhsController extends Controller
             ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
             ->select('*')
             ->where('mhs_id','=',$nim_id)
-            ->where('thn_akademik_id','=','1')
+            // ->where('thn_akademik_id','=','1')
             ->sum('mata_kuliah.sks');
         $sum_total     = DB::table('mk_diambil')
             ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
@@ -147,33 +146,34 @@ class KrsMhsController extends Controller
             ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
             ->select('mk_diambil.nilai')
             ->where('mhs_id','=',$nim_id)
-            ->where('thn_akademik_id','=','1')->get(); 
+            ->where('mk_ditawarkan.thn_akademik_id','=','1')->get(); 
         $nilai   = 0;
         $nilai_tmp = 0;
         foreach($nilai1 as $n){
             if ($n->nilai == "A")
                 $nilai_tmp = $nilai_tmp + 4;                
-            if ($n->nilai == "AB")
+            elseif ($n->nilai == "AB")
                 $nilai_tmp = $nilai_tmp + 3.5;
-            if ($n->nilai == "B")
+            elseif ($n->nilai == "B")
                 $nilai_tmp = $nilai_tmp + 3;
-            if ($n->nilai == "BC")
+            elseif ($n->nilai == "BC")
                 $nilai_tmp = $nilai_tmp + 2.5;
-            if ($n->nilai == "C")
+            elseif ($n->nilai == "C")
                 $nilai_tmp = $nilai_tmp + 2;
-            if ($n->nilai == "D")
+            elseif ($n->nilai == "D")
                 $nilai_tmp = $nilai_tmp + 1;
-            if ($n->nilai == "E")
+            elseif ($n->nilai == "E")
                 $nilai_tmp = $nilai_tmp + 0;
             $nilai = $nilai_tmp;
             }
-        $IPS     = $nilai/$count;
+
+        $count_ips     = $nilai/$count;
         $lmt     = 0; 
-            if ($IPS >= 3)
+            if ($count_ips >= 3)
                 $lmt = 24;                
-            if (($IPS <3) and ($IPS >=2.75))
+            elseif (($count_ips <3) and ($count_ips >=2.75))
                 $lmt = 23;
-            if (($IPS <2.75) and ($IPS >=2.5))
+            elseif (($count_ips <2.75) and ($count_ips >=2.5))
                 $lmt = 22;
             else
                 $lmt = 21;
