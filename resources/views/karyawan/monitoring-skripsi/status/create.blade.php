@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah KBK
+Tambah Status
 @endsection
 
 @section('contentheader_title')
-Tambah KBK
+Tambah Status
 @endsection
 
 @section('code-header')
@@ -46,27 +46,31 @@ Tambah KBK
 			</div>
 			@endif
 			<br>
-			<form id="tambahKBK" method="post" action="{{url('/karyawan/monitoring-skripsi/KBK/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahStatus" method="post" action="{{url('/karyawan/monitoring-skripsi/status/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="id_kbk" class="col-sm-2 control-label">No. KBK</label>
+					<label for="id" class="col-sm-2 control-label">id</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_kbk" name="id_kbk" placeholder="Masukkan id status" required>
+						<input type="text" class="form-control input-lg" id="id" name="id" placeholder="Masukkan id status" required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="jenis_kbk" class="col-sm-2 control-label">Jenis KBK :</label>
-					<div class="col-sm-8">
-					<input type="text" class="form-control input-md" name="jenis_kbk" id="jenis_kbk" placeholder="Masukkan Jenis KBK">
+					<label for="nama" class="col-sm-2 control-label">Keterangan</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="keterangan" name="keterangan" placeholder="Masukkan Keterangan" required>
 					</div>
 				</div>
 
-				<!-- /.box-body -->
-  				<br>
-      			<button type="submit" class="btn btn-primary" style="margin-left: 500px;">Simpan</button>
-
+				<div class="form-group text-center">
+					<div class="col-md-8 col-md-offset-2">
+					<button type="submit" class="btn btn-primary btn-lg">
+							Confirm
+						</button>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>
@@ -76,6 +80,10 @@ Tambah KBK
 @section('code-footer')
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+$( function() {
+    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
 
+  } );
+  </script>
 @endsection
-
