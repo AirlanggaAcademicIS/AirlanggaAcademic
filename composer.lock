@@ -4,16 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     "content-hash": "b078715327a5e5a9ad10405dc69bd534",
-=======
-    "hash": "4e33b35c0f6e843ef81bb2391eba2740",
-    "content-hash": "52af99c53c7677f240947846ddbc6bf9",
->>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
-=======
-    "content-hash": "63f22c69dcca59175b50acad4c0885bf",
->>>>>>> 6b238f1586f05f59159a53350ddeefa23f9820b5
+
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -79,15 +72,8 @@
                 "template",
                 "theme"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
+
             "time": "2017-05-20T07:47:43+00:00"
-=======
-            "time": "2017-05-20 07:47:43"
->>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
-=======
-            "time": "2017-05-28T15:08:20+00:00"
->>>>>>> 6b238f1586f05f59159a53350ddeefa23f9820b5
         },
         {
             "name": "acacha/filesystem",
@@ -139,15 +125,8 @@
                 "acacha",
                 "filesystem"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
+
             "time": "2017-02-19T14:21:00+00:00"
-=======
-            "time": "2017-02-19 14:21:00"
->>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
-=======
-            "time": "2017-02-19T14:21:00+00:00"
->>>>>>> 6b238f1586f05f59159a53350ddeefa23f9820b5
         },
         {
             "name": "acacha/helpers",
@@ -203,15 +182,8 @@
                 "helpers",
                 "laravel"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
+
             "time": "2016-12-24T09:40:05+00:00"
-=======
-            "time": "2016-12-24 09:40:05"
->>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
-=======
-            "time": "2016-12-24T09:40:05+00:00"
->>>>>>> 6b238f1586f05f59159a53350ddeefa23f9820b5
         },
         {
             "name": "acacha/user",
@@ -265,15 +237,8 @@
                 "acacha",
                 "user"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
+
             "time": "2016-12-05T13:39:37+00:00"
-=======
-            "time": "2016-12-05 13:39:37"
->>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
-=======
-            "time": "2016-12-05T13:39:37+00:00"
->>>>>>> 6b238f1586f05f59159a53350ddeefa23f9820b5
         },
         {
             "name": "barryvdh/laravel-snappy",
@@ -325,15 +290,8 @@
                 "wkhtmltoimage",
                 "wkhtmltopdf"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
+
             "time": "2017-02-09T23:18:54+00:00"
-=======
-            "time": "2017-02-09 23:18:54"
->>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
-=======
-            "time": "2017-02-09T23:18:54+00:00"
->>>>>>> 6b238f1586f05f59159a53350ddeefa23f9820b5
         },
         {
             "name": "creativeorange/gravatar",
