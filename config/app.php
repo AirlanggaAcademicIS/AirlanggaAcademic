@@ -177,11 +177,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
-<<<<<<< HEAD
-=======
-        Barryvdh\Snappy\ServiceProvider::class,
+         Barryvdh\Snappy\ServiceProvider::class,
         
->>>>>>> 090f09f1e2827b9381fce8cbf0cc327eaecfb4d1
+
     ],
 
     /*
@@ -231,16 +229,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
-<<<<<<< HEAD
-
-    ],
-
-];
-=======
         'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
-],
+    ],
+
 ];
->>>>>>> 090f09f1e2827b9381fce8cbf0cc327eaecfb4d1
+

@@ -4,7 +4,12 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "b078715327a5e5a9ad10405dc69bd534",
+=======
+    "hash": "4e33b35c0f6e843ef81bb2391eba2740",
+    "content-hash": "52af99c53c7677f240947846ddbc6bf9",
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -70,7 +75,11 @@
                 "template",
                 "theme"
             ],
+<<<<<<< HEAD
             "time": "2017-05-20T07:47:43+00:00"
+=======
+            "time": "2017-05-20 07:47:43"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "acacha/filesystem",
@@ -122,7 +131,11 @@
                 "acacha",
                 "filesystem"
             ],
+<<<<<<< HEAD
             "time": "2017-02-19T14:21:00+00:00"
+=======
+            "time": "2017-02-19 14:21:00"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "acacha/helpers",
@@ -178,7 +191,11 @@
                 "helpers",
                 "laravel"
             ],
+<<<<<<< HEAD
             "time": "2016-12-24T09:40:05+00:00"
+=======
+            "time": "2016-12-24 09:40:05"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "acacha/user",
@@ -232,7 +249,11 @@
                 "acacha",
                 "user"
             ],
+<<<<<<< HEAD
             "time": "2016-12-05T13:39:37+00:00"
+=======
+            "time": "2016-12-05 13:39:37"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "barryvdh/laravel-snappy",
@@ -284,7 +305,11 @@
                 "wkhtmltoimage",
                 "wkhtmltopdf"
             ],
+<<<<<<< HEAD
             "time": "2017-02-09T23:18:54+00:00"
+=======
+            "time": "2017-02-09 23:18:54"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "creativeorange/gravatar",
@@ -328,7 +353,11 @@
                 "gravatar",
                 "laravel"
             ],
+<<<<<<< HEAD
             "time": "2017-02-15T22:07:40+00:00"
+=======
+            "time": "2017-02-15 22:07:40"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -361,7 +390,11 @@
                 "MIT"
             ],
             "description": "implementation of xdg base directory specification for php",
+<<<<<<< HEAD
             "time": "2014-10-24T07:27:01+00:00"
+=======
+            "time": "2014-10-24 07:27:01"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "doctrine/annotations",
@@ -429,7 +462,11 @@
                 "docblock",
                 "parser"
             ],
+<<<<<<< HEAD
             "time": "2017-02-24T16:22:25+00:00"
+=======
+            "time": "2017-02-24 16:22:25"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "doctrine/cache",
@@ -499,7 +536,11 @@
                 "cache",
                 "caching"
             ],
+<<<<<<< HEAD
             "time": "2016-10-29T11:16:17+00:00"
+=======
+            "time": "2016-10-29 11:16:17"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "doctrine/collections",
@@ -566,7 +607,11 @@
                 "collections",
                 "iterator"
             ],
+<<<<<<< HEAD
             "time": "2017-01-03T10:49:41+00:00"
+=======
+            "time": "2017-01-03 10:49:41"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "doctrine/common",
@@ -639,7 +684,11 @@
                 "persistence",
                 "spl"
             ],
+<<<<<<< HEAD
             "time": "2017-01-13T14:02:13+00:00"
+=======
+            "time": "2017-01-13 14:02:13"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "doctrine/dbal",
@@ -710,7 +759,11 @@
                 "persistence",
                 "queryobject"
             ],
+<<<<<<< HEAD
             "time": "2017-02-08T12:53:47+00:00"
+=======
+            "time": "2017-02-08 12:53:47"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "doctrine/inflector",
@@ -777,7 +830,11 @@
                 "singularize",
                 "string"
             ],
+<<<<<<< HEAD
             "time": "2015-11-06T14:35:42+00:00"
+=======
+            "time": "2015-11-06 14:35:42"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "doctrine/lexer",
@@ -831,7 +888,11 @@
                 "lexer",
                 "parser"
             ],
+<<<<<<< HEAD
             "time": "2014-09-09T13:34:57+00:00"
+=======
+            "time": "2014-09-09 13:34:57"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "erusev/parsedown",
@@ -873,7 +934,11 @@
                 "markdown",
                 "parser"
             ],
+<<<<<<< HEAD
             "time": "2017-03-29T16:04:15+00:00"
+=======
+            "time": "2017-03-29 16:04:15"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "facebook/webdriver",
@@ -925,7 +990,11 @@
                 "selenium",
                 "webdriver"
             ],
+<<<<<<< HEAD
             "time": "2017-04-28T14:54:49+00:00"
+=======
+            "time": "2017-04-28 14:54:49"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -968,7 +1037,11 @@
                     "homepage": "http://www.acci.cz"
                 }
             ],
+<<<<<<< HEAD
             "time": "2014-04-08T15:00:19+00:00"
+=======
+            "time": "2014-04-08 15:00:19"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "jakub-onderka/php-console-highlighter",
@@ -1012,7 +1085,11 @@
                     "homepage": "http://www.acci.cz/"
                 }
             ],
+<<<<<<< HEAD
             "time": "2015-04-20T18:58:01+00:00"
+=======
+            "time": "2015-04-20 18:58:01"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "knplabs/knp-snappy",
@@ -1077,7 +1154,11 @@
                 "thumbnail",
                 "wkhtmltopdf"
             ],
+<<<<<<< HEAD
             "time": "2015-11-17T13:16:27+00:00"
+=======
+            "time": "2015-11-17 13:16:27"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "laravel/browser-kit-testing",
@@ -1124,7 +1205,11 @@
                 "laravel",
                 "testing"
             ],
+<<<<<<< HEAD
             "time": "2017-02-08T22:32:37+00:00"
+=======
+            "time": "2017-02-08 22:32:37"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "laravel/dusk",
@@ -1180,7 +1265,11 @@
                 "testing",
                 "webdriver"
             ],
+<<<<<<< HEAD
             "time": "2017-04-23T17:13:04+00:00"
+=======
+            "time": "2017-04-23 17:13:04"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "laravel/framework",
@@ -1309,7 +1398,11 @@
                 "framework",
                 "laravel"
             ],
+<<<<<<< HEAD
             "time": "2017-05-11T20:10:35+00:00"
+=======
+            "time": "2017-05-11 20:10:35"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "laravel/tinker",
@@ -1367,7 +1460,11 @@
                 "laravel",
                 "psysh"
             ],
+<<<<<<< HEAD
             "time": "2016-12-30T18:13:17+00:00"
+=======
+            "time": "2016-12-30 18:13:17"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "league/flysystem",
@@ -1450,7 +1547,97 @@
                 "sftp",
                 "storage"
             ],
+<<<<<<< HEAD
             "time": "2017-04-28T10:15:08+00:00"
+=======
+            "time": "2017-04-28 10:15:08"
+        },
+        {
+            "name": "maddhatter/laravel-fullcalendar",
+            "version": "v1.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maddhatter/laravel-fullcalendar.git",
+                "reference": "fc6c07cb82ffb65605ebbaec4b787359bbced2b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maddhatter/laravel-fullcalendar/zipball/fc6c07cb82ffb65605ebbaec4b787359bbced2b9",
+                "reference": "fc6c07cb82ffb65605ebbaec4b787359bbced2b9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "MaddHatter\\LaravelFullcalendar": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shawn Tunney",
+                    "email": "shawn.tunney@gmail.com"
+                }
+            ],
+            "description": "Laravel helper for FullCalendar.io",
+            "time": "2015-10-23 11:42:32"
+        },
+        {
+            "name": "milon/barcode",
+            "version": "5.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milon/barcode.git",
+                "reference": "0f211bf93ee1783f1b6e2a1081b45b55af3e7df3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milon/barcode/zipball/0f211bf93ee1783f1b6e2a1081b45b55af3e7df3",
+                "reference": "0f211bf93ee1783f1b6e2a1081b45b55af3e7df3",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Milon\\Barcode": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Nuruzzaman Milon",
+                    "email": "contact@milon.im"
+                }
+            ],
+            "description": "Barcode generator like Qr Code , PDF417,C39, C39+,C39E,C39E+,C93,S25,S25+,I25,I25+,C128,C128A,C128B,C128C,2-Digits UPC-Based Extention,5-Digits UPC-Based Extention,EAN 8,EAN 13,UPC-A,UPC-E,MSI (Variation of Plessey code) ",
+            "keywords": [
+                "CODABAR",
+                "CODE 128",
+                "CODE 39",
+                "barcode",
+                "datamatrix",
+                "ean",
+                "laravel",
+                "pdf417",
+                "qr code",
+                "qrcode"
+            ],
+            "time": "2017-04-21 01:08:30"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "monolog/monolog",
@@ -1528,7 +1715,11 @@
                 "logging",
                 "psr-3"
             ],
+<<<<<<< HEAD
             "time": "2017-03-13T07:08:03+00:00"
+=======
+            "time": "2017-03-13 07:08:03"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "mtdowling/cron-expression",
@@ -1572,7 +1763,11 @@
                 "cron",
                 "schedule"
             ],
+<<<<<<< HEAD
             "time": "2017-01-23T04:29:33+00:00"
+=======
+            "time": "2017-01-23 04:29:33"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "nesbot/carbon",
@@ -1625,7 +1820,11 @@
                 "datetime",
                 "time"
             ],
+<<<<<<< HEAD
             "time": "2017-01-16T07:55:07+00:00"
+=======
+            "time": "2017-01-16 07:55:07"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "nikic/php-parser",
@@ -1676,7 +1875,11 @@
                 "parser",
                 "php"
             ],
+<<<<<<< HEAD
             "time": "2017-03-05T18:23:57+00:00"
+=======
+            "time": "2017-03-05 18:23:57"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "paragonie/random_compat",
@@ -1724,7 +1927,11 @@
                 "pseudorandom",
                 "random"
             ],
+<<<<<<< HEAD
             "time": "2017-03-13T16:27:32+00:00"
+=======
+            "time": "2017-03-13 16:27:32"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "psr/log",
@@ -1771,7 +1978,11 @@
                 "psr",
                 "psr-3"
             ],
+<<<<<<< HEAD
             "time": "2016-10-10T12:19:37+00:00"
+=======
+            "time": "2016-10-10 12:19:37"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "psy/psysh",
@@ -1844,7 +2055,11 @@
                 "interactive",
                 "shell"
             ],
+<<<<<<< HEAD
             "time": "2017-05-17T06:49:19+00:00"
+=======
+            "time": "2017-05-17 06:49:19"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "ramsey/uuid",
@@ -1926,7 +2141,11 @@
                 "identifier",
                 "uuid"
             ],
+<<<<<<< HEAD
             "time": "2017-03-26T20:37:53+00:00"
+=======
+            "time": "2017-03-26 20:37:53"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1980,7 +2199,11 @@
                 "mail",
                 "mailer"
             ],
+<<<<<<< HEAD
             "time": "2017-05-01T15:54:03+00:00"
+=======
+            "time": "2017-05-01 15:54:03"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "symfony/console",
@@ -2043,7 +2266,11 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-04-26T01:39:17+00:00"
+=======
+            "time": "2017-04-26 01:39:17"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "symfony/css-selector",
@@ -2096,7 +2323,11 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-05-01T14:55:58+00:00"
+=======
+            "time": "2017-05-01 14:55:58"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "symfony/debug",
@@ -2153,7 +2384,11 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-04-19T20:17:50+00:00"
+=======
+            "time": "2017-04-19 20:17:50"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "symfony/dom-crawler",
@@ -2209,7 +2444,11 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-04-12T14:13:17+00:00"
+=======
+            "time": "2017-04-12 14:13:17"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2269,7 +2508,11 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-05-01T14:58:48+00:00"
+=======
+            "time": "2017-05-01 14:58:48"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "symfony/finder",
@@ -2318,7 +2561,11 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-04-12T14:13:17+00:00"
+=======
+            "time": "2017-04-12 14:13:17"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "symfony/http-foundation",
@@ -2371,7 +2618,11 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-05-01T14:55:58+00:00"
+=======
+            "time": "2017-05-01 14:55:58"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "symfony/http-kernel",
@@ -2453,7 +2704,11 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-05-01T17:46:48+00:00"
+=======
+            "time": "2017-05-01 17:46:48"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2512,7 +2767,11 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "time": "2016-11-14T01:06:16+00:00"
+=======
+            "time": "2016-11-14 01:06:16"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "symfony/process",
@@ -2561,7 +2820,11 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-04-12T14:13:17+00:00"
+=======
+            "time": "2017-04-12 14:13:17"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "symfony/routing",
@@ -2636,7 +2899,11 @@
                 "uri",
                 "url"
             ],
+<<<<<<< HEAD
             "time": "2017-04-12T14:13:17+00:00"
+=======
+            "time": "2017-04-12 14:13:17"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "symfony/translation",
@@ -2700,7 +2967,11 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-04-12T14:13:17+00:00"
+=======
+            "time": "2017-04-12 14:13:17"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "symfony/var-dumper",
@@ -2768,7 +3039,11 @@
                 "debug",
                 "dump"
             ],
+<<<<<<< HEAD
             "time": "2017-05-01T14:55:58+00:00"
+=======
+            "time": "2017-05-01 14:55:58"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -2815,7 +3090,11 @@
             ],
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
+<<<<<<< HEAD
             "time": "2016-09-20T12:50:39+00:00"
+=======
+            "time": "2016-09-20 12:50:39"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "vlucas/phpdotenv",
@@ -2865,7 +3144,11 @@
                 "env",
                 "environment"
             ],
+<<<<<<< HEAD
             "time": "2016-09-01T10:05:43+00:00"
+=======
+            "time": "2016-09-01 10:05:43"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         }
     ],
     "packages-dev": [
@@ -2921,7 +3204,11 @@
                 "constructor",
                 "instantiate"
             ],
+<<<<<<< HEAD
             "time": "2015-06-14T21:17:01+00:00"
+=======
+            "time": "2015-06-14 21:17:01"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "fzaninotto/faker",
@@ -2969,7 +3256,11 @@
                 "faker",
                 "fixtures"
             ],
+<<<<<<< HEAD
             "time": "2016-04-29T12:21:54+00:00"
+=======
+            "time": "2016-04-29 12:21:54"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -3014,7 +3305,11 @@
             "keywords": [
                 "test"
             ],
+<<<<<<< HEAD
             "time": "2015-05-11T14:41:42+00:00"
+=======
+            "time": "2015-05-11 14:41:42"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "mockery/mockery",
@@ -3079,7 +3374,11 @@
                 "test double",
                 "testing"
             ],
+<<<<<<< HEAD
             "time": "2017-02-28T12:52:32+00:00"
+=======
+            "time": "2017-02-28 12:52:32"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "myclabs/deep-copy",
@@ -3121,7 +3420,11 @@
                 "object",
                 "object graph"
             ],
+<<<<<<< HEAD
             "time": "2017-04-12T18:52:22+00:00"
+=======
+            "time": "2017-04-12 18:52:22"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -3175,7 +3478,11 @@
                 "reflection",
                 "static analysis"
             ],
+<<<<<<< HEAD
             "time": "2015-12-27T11:43:31+00:00"
+=======
+            "time": "2015-12-27 11:43:31"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -3220,7 +3527,11 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
+<<<<<<< HEAD
             "time": "2016-09-30T07:12:33+00:00"
+=======
+            "time": "2016-09-30 07:12:33"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -3267,7 +3578,11 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
+<<<<<<< HEAD
             "time": "2016-11-25T06:54:22+00:00"
+=======
+            "time": "2016-11-25 06:54:22"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "phpspec/prophecy",
@@ -3330,7 +3645,11 @@
                 "spy",
                 "stub"
             ],
+<<<<<<< HEAD
             "time": "2017-03-02T20:05:34+00:00"
+=======
+            "time": "2017-03-02 20:05:34"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3393,7 +3712,11 @@
                 "testing",
                 "xunit"
             ],
+<<<<<<< HEAD
             "time": "2017-04-02T07:44:40+00:00"
+=======
+            "time": "2017-04-02 07:44:40"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3440,7 +3763,11 @@
                 "filesystem",
                 "iterator"
             ],
+<<<<<<< HEAD
             "time": "2016-10-03T07:40:28+00:00"
+=======
+            "time": "2016-10-03 07:40:28"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "phpunit/php-text-template",
@@ -3481,7 +3808,11 @@
             "keywords": [
                 "template"
             ],
+<<<<<<< HEAD
             "time": "2015-06-21T13:50:34+00:00"
+=======
+            "time": "2015-06-21 13:50:34"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "phpunit/php-timer",
@@ -3530,7 +3861,11 @@
             "keywords": [
                 "timer"
             ],
+<<<<<<< HEAD
             "time": "2017-02-26T11:10:40+00:00"
+=======
+            "time": "2017-02-26 11:10:40"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "phpunit/php-token-stream",
@@ -3579,7 +3914,11 @@
             "keywords": [
                 "tokenizer"
             ],
+<<<<<<< HEAD
             "time": "2017-02-27T10:12:30+00:00"
+=======
+            "time": "2017-02-27 10:12:30"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "phpunit/phpunit",
@@ -3661,7 +4000,11 @@
                 "testing",
                 "xunit"
             ],
+<<<<<<< HEAD
             "time": "2017-05-22T07:42:55+00:00"
+=======
+            "time": "2017-05-22 07:42:55"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3720,7 +4063,11 @@
                 "mock",
                 "xunit"
             ],
+<<<<<<< HEAD
             "time": "2016-12-08T20:27:08+00:00"
+=======
+            "time": "2016-12-08 20:27:08"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -3765,7 +4112,11 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
+<<<<<<< HEAD
             "time": "2017-03-04T06:30:41+00:00"
+=======
+            "time": "2017-03-04 06:30:41"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "sebastian/comparator",
@@ -3829,7 +4180,11 @@
                 "compare",
                 "equality"
             ],
+<<<<<<< HEAD
             "time": "2017-01-29T09:50:25+00:00"
+=======
+            "time": "2017-01-29 09:50:25"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "sebastian/diff",
@@ -3881,7 +4236,11 @@
             "keywords": [
                 "diff"
             ],
+<<<<<<< HEAD
             "time": "2017-05-22T07:24:03+00:00"
+=======
+            "time": "2017-05-22 07:24:03"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "sebastian/environment",
@@ -3931,7 +4290,11 @@
                 "environment",
                 "hhvm"
             ],
+<<<<<<< HEAD
             "time": "2016-11-26T07:53:53+00:00"
+=======
+            "time": "2016-11-26 07:53:53"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "sebastian/exporter",
@@ -3998,7 +4361,11 @@
                 "export",
                 "exporter"
             ],
+<<<<<<< HEAD
             "time": "2016-11-19T08:54:04+00:00"
+=======
+            "time": "2016-11-19 08:54:04"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "sebastian/global-state",
@@ -4049,7 +4416,11 @@
             "keywords": [
                 "global state"
             ],
+<<<<<<< HEAD
             "time": "2015-10-12T03:26:01+00:00"
+=======
+            "time": "2015-10-12 03:26:01"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "sebastian/object-enumerator",
@@ -4095,7 +4466,11 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
+<<<<<<< HEAD
             "time": "2017-02-18T15:18:39+00:00"
+=======
+            "time": "2017-02-18 15:18:39"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "sebastian/recursion-context",
@@ -4148,7 +4523,11 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
+<<<<<<< HEAD
             "time": "2016-11-19T07:33:16+00:00"
+=======
+            "time": "2016-11-19 07:33:16"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "sebastian/resource-operations",
@@ -4190,7 +4569,11 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
+<<<<<<< HEAD
             "time": "2015-07-28T20:34:47+00:00"
+=======
+            "time": "2015-07-28 20:34:47"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "sebastian/version",
@@ -4233,7 +4616,11 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
+<<<<<<< HEAD
             "time": "2016-10-03T07:35:21+00:00"
+=======
+            "time": "2016-10-03 07:35:21"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "symfony/yaml",
@@ -4288,7 +4675,11 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-05-01T14:55:58+00:00"
+=======
+            "time": "2017-05-01 14:55:58"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         },
         {
             "name": "webmozart/assert",
@@ -4338,7 +4729,11 @@
                 "check",
                 "validate"
             ],
+<<<<<<< HEAD
             "time": "2016-11-23T20:04:58+00:00"
+=======
+            "time": "2016-11-23 20:04:58"
+>>>>>>> 5d19be4fef5302b6baeaf6e9e6e76063a92f967d
         }
     ],
     "aliases": [],

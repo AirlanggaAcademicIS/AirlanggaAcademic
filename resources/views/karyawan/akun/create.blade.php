@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Asset
+Tambah Akun
 @endsection
 
 @section('contentheader_title')
-Tambah Asset
+Tambah Akun
 @endsection
 
 @section('code-header')
@@ -46,69 +46,58 @@ Tambah Asset
 			</div>
 			@endif
 			<br>
-			<form id_asset="tambahAsset" method="post" action="{{url('inventaris/asset/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahAkun" method="post" action="{{url('/karyawan/akun/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-                <div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Kategori</label>
+				<div class="form-group">
+					<label for="nim" class="col-sm-2 control-label">NIM</label>
 					<div class="col-md-8">
-						<select class="form-control" name="kategori" required>
-		            	<option value="">-- Pilih Kategori --</option>
-		                @foreach ($kategori as $k)
-		                <option value="{{ $k->id_kategori }}">{{ $k->kategori }}</option>
-		                @endforeach
-		               
-					</select>
+						<input type="text" class="form-control input-lg" id="nim" name="nim" placeholder="Masukkan NIM" required>
+			 		</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nama_mhs" class="col-sm-2 control-label">Nama Mahasiswa</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nama_mhs" name="nama_mhs" placeholder="Masukkan Nama Mahasiswa" required>
 					</div>
 				</div>
 
-				 <div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Status</label>
+				<div class="form-group">
+					<label for="nlp_id" class="col-sm-2 control-label">nlp id</label>
 					<div class="col-md-8">
-						<select class="form-control" name="status" required>
-		            	<option value="">-- Pilih Status --</option>
-		                @foreach ($status as $s)
-		                <option value="{{ $s->id_status }}">{{ $s->status }}</option>
-		                @endforeach
-					</select>
+						<input type="text" class="form-control input-lg" id="nlp_id" name="nlp_id" placeholder="Masukkan nlp id" required>
 					</div>
 				</div>
 
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama Asset</label>
+					<label for="E-mail" class="col-sm-2 control-label">E-mail</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_asset" name="nama_asset" placeholder="Masukkan Nama Asset" required>
+						<input type="email" class="form-control input-lg" id="email" name="email" placeholder="Masukkan e-mail" required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Lokasi</label>
+					<label for="fakultas" class="col-sm-2 control-label">Fakultas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="lokasi" name="lokasi" placeholder="Masukkan Lokasi" required>
-					</div>
-				</div>
-
-				<!-- Menampilkan tanggal dengan datepicker -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Expired Date</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="expired_date" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="fakultas" name="fakultas" value="Fakultas Sains dan Teknologi" readonly="readonly">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama Supplier</label>
+					<label for="program studi" class="col-sm-2 control-label">Program Studi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_supplier" name="nama_supplier" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="program studi" name="program studi" value="S1 Sistem Informasi" readonly="readonly">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Harga Satuan</label>
+					<label for="foto_mhs" class="col-sm-2 control-label">Foto Mahasiswa</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="harga_satuan" name="harga_satuan" placeholder="Masukkan Harga" required>
+						<input type="file" class="form-control input-lg" id="foto_mhs" name="foto_mhs" placeholder="Pilih Foto Mahasiswa" required>
+
 					</div>
 				</div>
 
@@ -123,8 +112,6 @@ Tambah Asset
 		</div>
 	</div>
 </div>
-
-				
 @endsection
 
 @section('code-footer')
@@ -137,3 +124,4 @@ $( function() {
   } );
   </script>
 @endsection
+
