@@ -15,7 +15,7 @@ Input Dosen Mata Kuliah
 
 @section('main-content')
 	<div class="box box-info">
-		<form class="form-horizontal" method = "post" action ="{{ url('karyawan/krs-khs/input_dosen_mk') }}">
+		<form class="form-horizontal" method = "post" action ="{{ url('karyawan/krs-khs/input-dosen-mk/create') }}">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="box-body">
                 
