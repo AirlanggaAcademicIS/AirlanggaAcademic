@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
-// Tambahkan model yang ingin dipakai
+
 use App\Models\KrsKhs\MKDiajar;
 //use App\MKDitawarkan;
 //use App\Dosen;
@@ -27,8 +27,8 @@ class MKDiajarController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'mk_diajar',
             // Memanggil semua isi dari tabel biodata
-            'mk_diajar' => MKDiajar::all()
-            
+            'mk_diajar' => MKDiajar::all(),
+            'selectedRole' = Tahun::first()->role_id;
         ];
       
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view

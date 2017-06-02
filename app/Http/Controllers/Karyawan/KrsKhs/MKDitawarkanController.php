@@ -16,6 +16,7 @@ use Session;
 use Validator;
 use Response;
 use App\Models\KrsKhs\MK;
+use DB;
 use App\Models\KrsKhs\MKDitawarkan;
 use App\Models\KrsKhs\TahunAkademik;
 // /**
@@ -43,20 +44,34 @@ class MKDitawarkanController extends Controller
     {
         $data = [
         'page' => 'mk_ditawarkan',
+        'mk_ditawarkan' => MKDitawarkan::all(),
+        'tahun'=>TahunAkademik::all()
+        ];
+        
+        return view('karyawan.krs-khs.mk-ditawarkan.index',$data);
+    }
+
+    public function show(Request $request)
+    {
+        $thn = \Request::get('periode');
+        $data = [
+        'page' => 'mk_ditawarkan',
+        'mk_ditawarkan' => MKDitawarkan::where('thn_akademik_id',$thn)->get(),
+        'periode' => TahunAkademik::where('id_thn_akademik',$thn)->first(),
+        'id_thn_akademik' => $thn,
+        'tahun'=>TahunAkademik::all(),
+        ];
+        
+        return view('karyawan.krs-khs.mk-ditawarkan.show',$data);
+    }
+
+    public function create()
+    {
+        $data = [
+        'page' => 'mk_ditawarkan',
         'mk_ditawarkan' => MK::all()
         ];
         return view('karyawan.krs-khs.mk-ditawarkan.create',$data);
-    }
-
-     public function create(Request $request)
-    {
-        MKDitawarkan::create($request->input('cek'));
-
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'MK Ditawarkan berhasil ditambahkan');
-
-        // Kembali ke halaman krs-khs/ruang
-        return Redirect::to('krs-khs/mk_ditawarkan/create');
     }
 
     public function createAction(Request $request)
@@ -67,7 +82,7 @@ class MKDitawarkanController extends Controller
         $input = $tahun_awal.'/'.$tahun_akhir.' '.$periode;
         $tahun = TahunAkademik::create(
             [
-            'semester_periode'=>$input,
+            'semester_periode'=>$input, 
             ]
             );
        $cek = $request->input('cek');
@@ -78,64 +93,59 @@ class MKDitawarkanController extends Controller
             'matakuliah_id'=>$c,
             ]
             );
-       }
-        
-        
-
+         }
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'MK Ditawarkan berhasil ditambahkan');
-
         // Kembali ke halaman krs-khs/ruang
-        return Redirect::to('krs-khs/mk_ditawarkan/create');
+        return Redirect::to('karyawan/krs-khs/mk-ditawarkan/view');
     }
 
-    public function edit($id)
+    public function edit($thn_akademik_id)
     {
+        $terpilih = MKDitawarkan::where('thn_akademik_id',$thn_akademik_id)->get();
+        $mk_dipilih = array();
+        foreach ($terpilih as $t) {
+            array_push($mk_dipilih, $t->matakuliah_id);
+        }
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar ruang
             'page' => 'mk_ditawarkan',
             // Mencari ruang berdasarkan id
-            'mk_ditawarkan' => MKDitawarkan::find($id)
+            'mk_dipilih' => $mk_dipilih,
+            'matkul' => MK::all(),
+            'tahun'=> TahunAkademik::where('id_thn_akademik',$thn_akademik_id)->first()
         ];
-
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('krs-khs.ruang.edit',$data);
+        return view('karyawan.krs-khs.mk-ditawarkan.edit',$data);
     }
 
-    public function editAction($id, Request $request)
+    public function editAction($thn_akademik_id, Request $request)
     {
         // Mencari ruang yang akan di update dan menaruhnya di variabel $ruang
-        $mk_ditawarkan = MKDitawarkan::find($id);
-        
-        $tahun_awal = $request->input('tahun_awal');
-        $tahun_akhir = $request->input('tahun_akhir');
-        $periode = $request->input('periode');
-        $input = $tahun_awal.'/'.$tahun_akhir.' '.$periode;
-        $tahun = TahunAkademik::create(
-            [
-            'semester_periode'=>$input,
-            ]
-            );
+        $mk_ditawarkan = MKDitawarkan::where('thn_akademik_id',$thn_akademik_id)->delete();
+
+       // $tahun_awal = $request->input('tahun_awal');
+       //  $tahun_akhir = $request->input('tahun_akhir');
+       //  $periode = $request->input('periode');
+       //  $input = $tahun_awal.'/'.$tahun_akhir.' '.$periode;
+       //  $tahun = TahunAkademik::create(
+       //      [
+       //      'semester_periode'=>$input,
+       //      ]
+       //      );
        $cek = $request->input('cek');
        foreach ($cek as $c) {
            MKDitawarkan::create(
             [
-            'thn_akademik_id'=>$tahun->id_thn_akademik,
+            'thn_akademik_id'=>$thn_akademik_id,
             'matakuliah_id'=>$c,
             ]
             );
        }
-
-        // Mengupdate $ruang tadi dengan isi dari form edit tadi
-        $mk_ditawarkan->thn_akademik_id = $request->input('nama_ruang');
-        $mk_ditawarkan->matakuliah_id = $request->input('kapasitas');
-        $mk_ditawarkan->save();
-
-        // Notifikasi sukses
-        Session::put('alert-success', 'Ruang berhasil diedit');
-
-        // Kembali ke halaman krs-khs/ruang/view
-        return Redirect::to('krs-khs/ruang/view');
+        // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'MK Ditawarkan berhasil diedit');
+        // Kembali ke halaman krs-khs/ruang
+        return Redirect::to('karyawan/krs-khs/mk-ditawarkan/show?periode='.$thn_akademik_id.'');
     }
 
 }

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use App\AkunMahasiswa;
 use App\AkunBioMHS;
 use App\AkunUser;
+use App\Dosen;
 
 
 class AkunMahasiswaController extends Controller
@@ -45,10 +46,11 @@ class AkunMahasiswaController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'akun',
+            'akun' => Dosen::all()
         ];
 
         // Memanggil tampilan form create
-    	return view('karyawan.akun.create',$data);
+        return view('karyawan.akun.create',$data);
     }
 
     public function createAction(Request $request)
@@ -62,6 +64,7 @@ class AkunMahasiswaController extends Controller
         $biodata = new AkunBioMHS;
         $biodata->nim_id = $request->input("nim");
         $biodata->nama_mhs = $request->input("nama_mhs");
+        $biodata->angkatan = $request->input("angkatan");
         $biodata->email_mhs = $request->input("email");
         $biodata->foto_mhs= time() .'.'.$request->file('foto_mhs')->getClientOriginalExtension();
 
@@ -75,6 +78,7 @@ class AkunMahasiswaController extends Controller
         $user->name = $request->input("nim");        
         $password  = $request->input("nim");
         $password = Hash::make($password);
+        $user->role = "mahasiswa";
         $user->password = $password;
         $user->save();
 
@@ -95,10 +99,10 @@ class AkunMahasiswaController extends Controller
         $akunmahasiswa->delete();
 
         // Menampilkan notifikasi pesan sukses
-    	Session::put('alert-success', 'Akun berhasil dihapus');
+        Session::put('alert-success', 'Akun berhasil dihapus');
 
         // Kembali ke halaman sebelumnya
-      	return Redirect::back();	 
+        return Redirect::back();     
     }
 
    public function edit($nim)
@@ -112,7 +116,8 @@ class AkunMahasiswaController extends Controller
             // Mencari biodata berdasarkan id
             'akun' => $akun,
             'biodata' => $biodata,
-            'users' => $users
+            'users' => $users,
+            'dosen' => Dosen::all()
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
@@ -126,7 +131,7 @@ class AkunMahasiswaController extends Controller
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
         $akunmahasiswa->nim = $request->input('nim');
-        $akunmahasiswa->nip_id = $request->input('nip_id');
+        $akunmahasiswa->nip_id = $request->input('nlp_id');
         $akunmahasiswa->save();
 
         // Notifikasi sukses

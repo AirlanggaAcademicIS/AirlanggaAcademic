@@ -13,5 +13,6 @@ class UndanganDosen extends Model
       'nama_rapat',
       'waktu_pelaksanaan',
       'permohonan_ruang_id',
+      'agenda_rapat'
    ];
 }

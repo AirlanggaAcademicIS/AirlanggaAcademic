@@ -10,8 +10,9 @@ class AkunMahasiswa extends Model
    protected $primaryKey = 'nim';
    public $incrementing = false;   
    protected $fillable = [
-   		'nim',
-		'nip_id',
+   	'nim',
+		'nlp_id',
+		'angkatan',
 		'password',
 		
    ];

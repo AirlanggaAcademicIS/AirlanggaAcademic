@@ -9,18 +9,20 @@ class Mahasiswa extends Model
 {
    use SoftDeletes;
    protected $table = 'mahasiswa';    
-   protected $primaryKey = 'nim';   
+   protected $primaryKey = 'nim';
+   public $incrementing = false;
    protected $dates = ['deleted_at']; 
    protected $fillable = [
-   'nim',
-   'nlp_id',
-   	];
+      'nim',
+		'nip_id'		
+   ];
 
-   public function biodataMHS()
+   public function biodataDosen()
    {
-      return $this->belongsTo('App\Models\KrsKhs\MKDitawarkan','mk_ditawarkan_id');
+      return $this->belongsTo('App\Models\KrsKhs\BiodataDosen','nip_id');
    }
-
-
-
+   public function biodataMhs()
+   {
+      return $this->belongsTo('App\BiodataMahasiswa','nim');
+   }
 }
