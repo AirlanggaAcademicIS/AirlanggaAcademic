@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Karyawan
+Tambah Status
 @endsection
 
 @section('contentheader_title')
-Tambah Karyawan
+Tambah Status
 @endsection
 
 @section('code-header')
@@ -46,54 +46,28 @@ Tambah Karyawan
 			</div>
 			@endif
 			<br>
-			<form id="tambahPetugasTU" method="post" action="{{url('/karyawan/pla/karyawan/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahStatus" method="post" action="{{url('/karyawan/monitoring-skripsi/status/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="nip" class="col-sm-2 control-label">NIP Karyawan</label>
+					<label for="id" class="col-sm-2 control-label">id</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nip_petugas" name="nip_petugas" placeholder="Masukkan NIP" required>
+						<input type="text" class="form-control input-lg" id="id" name="id" placeholder="Masukkan id status" required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Nama Karyawan</label>
+					<label for="nama" class="col-sm-2 control-label">Keterangan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_petugas" name="nama_petugas" placeholder="Masukkan Nama" required>
-					</div>
-				</div>
-
-			<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">No Telp Karyawan</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="no_telp_petugas" name="no_telp_petugas" placeholder="Masukkan No Telp" required>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Email Karyawan</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="email_petugas" name="email_petugas" placeholder="Masukkan Email" required>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Prodi</label>
-					<div class="col-md-2	">
-					<select class="form-control" id="prodi_id" name="prodi_id">
-      @foreach($prodi as $p)
-                    <option value="{{$p->id_prodi}}">{{$p->nama_prodi}}</option>
-            @endforeach
-                  </select>
-
+						<input type="text" class="form-control input-lg" id="keterangan" name="keterangan" placeholder="Masukkan Keterangan" required>
 					</div>
 				</div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">
-							Tambah
+							Confirm
 						</button>
 					</div>
 				</div>
@@ -113,4 +87,3 @@ $( function() {
   } );
   </script>
 @endsection
-

@@ -36,6 +36,7 @@ class MohonRuanganController extends Controller
             ->join('ruang', 'jadwal_permohonan.ruang_id', '=', 'ruang.id_ruang')
             ->join('hari', 'jadwal_permohonan.hari_id', '=', 'hari.id_hari')
             ->join('jam', 'jadwal_permohonan.jam_id', '=', 'jam.id_jam')
+            ->orderBy('tgl_pinjam', 'desc')
             ->select('*')
             ->get(),
         ];  
