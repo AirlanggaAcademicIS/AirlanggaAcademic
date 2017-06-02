@@ -53,6 +53,8 @@ Route::group(['prefix' => 'dosen'], function() {
     Route::group(['prefix' => 'monitoring-skripsi'], function() {
         Route::get('skripsi','Dosen\monitoringskripsi\SkripsiController@index');
 
+        Route::get('skripsi/mhs','dosen\monitoringskripsi\SkripsiController@show');
+
         Route::get('konsultasi/','dosen\monitoringskripsi\KonsultasiController@index');
 
         Route::get('konsultasi/{id}/edit','dosen\monitoringskripsi\KonsultasiController@edit');
