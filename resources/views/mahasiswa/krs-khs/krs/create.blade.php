@@ -26,6 +26,19 @@ Input Krs
   @endif
   @endforeach
 </div>
+<form action="{{url('mahasiswa/krskhs/krs/create')}}" method="get">
+<div class="col-md-3" style="padding: 0;">
+<div style="overflow: auto">
+  <select class="form-control" id="periode" name="periode">
+      <option>Tahun Akademik</option>
+      @foreach($tahun as $t) 
+      <option value ="{{$t->id_thn_akademik}}">{{$t->semester_periode}}</option>
+      @endforeach
+  </select>
+            <button class="btn btn-info" type="submit">Pilih</button>
+</div>
+</div>
+</form>
 <style>
   .form-group label{
     text-align: left !important;
@@ -103,18 +116,18 @@ Input Krs
                   </tr>
                 </thead>
                 <tbody>
-                 @forelse($app as $j => $s) 
+                 @forelse($lihat as $j => $s) 
                   <tr>
                     <td>{{ $j+1 }}</td>
-                    <td width="10%" style="text-align:center">{{$s->kode_matkul}}</td>
-                    <td width="20%" style="text-align:center">{{$s->nama_matkul}}</td>
-                    <td width="15%" style="text-align:center">{{$s->sks}}</td>
+                    <td width="10%" style="text-align:center">{{$s->mkDitawarkan->mk->kode_matkul}}</td>
+                    <td width="20%" style="text-align:center">{{$s->mkDitawarkan->mk->nama_matkul}}</td>
+                    <td width="15%" style="text-align:center">{{$s->mkDitawarkan->mk->sks}}</td>
                     @if($s->is_approve ==0)
                     <td width="15%" style="text-align:center">Belum Diapprove</td>
                     @else
                     <td width="15%" style="text-align:center">Approved</td>
                     @endif
-                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus pilihan mata kuliah ini?');" href="{{url('/mahasiswa/krskhs/krs/'.$s->mk_ditawarkan_id.'/delete')}}" class="btn btn-danger btn-xs">
+                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus pilihan mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/'.$s->mk_ditawarkan_id.'/delete')}}" class="btn btn-danger btn-xs">
                       <i class="fa fa-trash-o"></i>Delete</a>
                       </td>
                   </tr>
@@ -130,7 +143,16 @@ Input Krs
             <div>
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">Total SKS :  </h3></h3>
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$sum}}</h3></h3>
-                <li></li>
+                <br>
+            </div>
+            <div>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">IPS :  </h3></h3>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$ips}}</h3></h3>
+                <br>
+            </div>
+            <div>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">Limit SKS :  </h3></h3>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$limitSks}}</h3></h3>
             </div>
             </div>
             </div>

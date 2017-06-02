@@ -10,13 +10,8 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
-// Tambahkan model yang ingin dipakai
-<<<<<<< HEAD:app/Http/Controllers/Dosen/KrsKhs/MKDiajarController.php
-use App\MKDiajar;
-use App\
-=======
+
 use App\Models\KrsKhs\MKDiajar;
->>>>>>> d5cedd8cf454a5a105be42446006a04237629111:app/Http/Controllers/Dosen/KrsKhs/MKDiajarController.php
 //use App\MKDitawarkan;
 //use App\Dosen;
 

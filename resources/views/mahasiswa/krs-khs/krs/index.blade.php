@@ -56,8 +56,6 @@ Krs
   				    </div>
   				  <div id="LihatKrs" class="tab-pane fade">
     				  <h3>Lihat Krs</h3>
-              <!--Facru, isi tabelnya di kolom bawah, trus jangan lupa delete tulisan ini!!! -->
-    				  <p>Some content in menu 1.</p>
   				  </div>
             </div>
         </div>
