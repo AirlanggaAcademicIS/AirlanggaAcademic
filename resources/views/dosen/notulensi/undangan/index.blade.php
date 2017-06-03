@@ -38,20 +38,32 @@ Undangan Rapat
       <th style="text-align:center">No.</th>
       <th style="text-align:center">Nama Rapat</th>
       <th style="text-align:center">Waktu Pelaksanaan</th>
-      <th style="text-align:center">Tempat</th>      
+      <th style="text-align:center">Tempat</th>
+      <th style="text-align:center">Agenda</th>
+      <th style="text-align:center">Status</th>        
       <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
    @forelse($undangan as $i => $undos) 
     <tr>
-      <!-- <td>{{ $i+1 }}</td> -->
-      <td width="5%" style="text-align:center">{{$undos->id_notulen}}</td>
-      <td width="30%" style="text-align:center">{{$undos->nama_rapat}}</td>
+      <td width="5%" style="text-align:center">{{ $i+1 }}</td>
+      <td width="25%" style="text-align:center">{{$undos->nama_rapat}}</td>
       <td width="20%" style="text-align:center">{{$undos->waktu_pelaksanaan}}</td>
-      <td width="25%" style="text-align:center">{{$undos->permohonan_ruang_id}}</td>
+      <td width="20%" style="text-align:center">{{$undos->nama_ruang}}</td>
+      <td width="25%" style="text-align:center">{{$undos->agenda_rapat}}</td>
+      @forelse($status as $c => $st) 
+      <td width="25%" style="text-align:center">
+      @if($st->status==0)
+      {{'Belum Dikonfirmasi'}}
+      @else
+      {{'Sudah Dikonfirmasi'}}
+      @endif
+      @empty
+       @endforelse
+      </td>
       <td width="20%" style="text-align:center" >
-        <a onclick="return confirm('Apakah anda ingin menghadiri rapat ini?');" href="{{url('/notulensi/dosenrapat/'.$undos->id.'/delete/')}}" class="btn btn-success btn-xs">
+        <a onclick="return confirm('Apakah anda ingin menghadiri rapat ini?');" href="{{url('undangandosen/'.$undos->id_notulen.'/konfirmasi')}}" class="btn btn-success btn-xs">
         <i class="fa fa-book"></i> Konfirmasi Kehadiran</a>
         </td>
     </tr>
@@ -59,6 +71,7 @@ Undangan Rapat
         <tr>
           <td colspan="6"><center>Belum ada undangan</center></td>
         </tr>
+   
     @endforelse
   </tbody>
 </table>

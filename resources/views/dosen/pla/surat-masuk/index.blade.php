@@ -28,7 +28,7 @@ Surat Masuk Dosen
 </div>
 
 <div style="overflow: auto">
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+<table id="data-table" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
@@ -69,5 +69,9 @@ Surat Masuk Dosen
 @endsection
 
 @section('code-footer')
-
+<script type="text/javascript"> 
+    $(document).ready(function(){ 
+        $('#data-table').DataTable(); 
+    }); 
+</script> 
 @endsection

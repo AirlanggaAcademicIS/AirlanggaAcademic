@@ -16,6 +16,7 @@ use App\Models\KrsKhs\MKDitawarkan;
 use App\Models\KrsKhs\Dosen;
 use App\Models\KrsKhs\MK;
 use App\Models\KrsKhs\BiodataDosen;
+use App\Models\KrsKhs\TahunAkademik;
 
 
 
@@ -31,8 +32,26 @@ class InputDosenMKController extends Controller
         'tabel' => MKDiajar::all(),
             'mk_ditawarkan' => MKDitawarkan::all(),
             'mk' => MK::all(),
+            'tahun'=>TahunAkademik::all()
         ];
         return view('karyawan.krs-khs.input_dosen_mk.index',$data);   
+    }
+
+    public function show(Request $request)
+    {
+        $thn = \Request::get('periode');
+        $data = [
+        'page' => 'tabel',
+        'dosen' => BiodataDosen::all(),
+        'tabel' => MKDiajar::all(),
+            'mk_ditawarkan' => MKDitawarkan::all(),
+            'mk' => MK::all(),
+        'periode' => TahunAkademik::where('id_thn_akademik',$thn)->first(),
+        'id_thn_akademik' => $thn,
+        'tahun'=>TahunAkademik::all(),
+        ];
+        
+        return view('karyawan.krs-khs.input_dosen_mk.show',$data);
     }
 
     public function create()
@@ -54,7 +73,7 @@ class InputDosenMKController extends Controller
         ];
       
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('karyawan.krs_khs.input_dosen_mk',$data);
+        return view('karyawan.krs-khs.input_dosen_mk.create',$data);
     }
 
     public function createAction(Request $request)
@@ -83,7 +102,7 @@ class InputDosenMKController extends Controller
         Session::put('alert-success', 'Dosen berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/krs-khs/input_dosen_mk/tabel');
+        return Redirect::to('karyawan/krs-khs/input-dosen-mk/view');
     }
 
     public function delete($id)
