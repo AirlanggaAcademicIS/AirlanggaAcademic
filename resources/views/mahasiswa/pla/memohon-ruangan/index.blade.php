@@ -96,17 +96,6 @@ Memohon Ruangan
         </div>
 
         <div class="form-group">
-          <label for="hari_id" class="col-sm-2 control-label">Hari</label>
-          <div class="col-md-8">
-            <select name="hari_id" required>
-               @foreach($hari as $h)
-               <option value="{{$h->id_hari}}">{{$h->nama_hari}}</option>
-               @endforeach
-              </select>
-          </div>
-        </div>
-
-        <div class="form-group">
           <label for="jam_id" class="col-sm-2 control-label">Jam</label>
           <div class="col-md-8">
             <select name="jam_id" required>
@@ -135,7 +124,8 @@ Memohon Ruangan
           <input type="text" class="form-control input-lg" id="datepicker" name="tgl_pinjam" placeholder="Tanggal Peminjaman" required>
          </div>
         </div>
-
+     
+        </div>
         <div class="form-group text-center">
           <div class="col-md-8 col-md-offset-2">
           <button type="submit" class="btn btn-primary btn-lg">
@@ -156,8 +146,7 @@ Memohon Ruangan
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
 $( function() {
-    var date = $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' }).val();
-
+    var date = $('#datepicker').datepicker({ dateFormat: 'DD, yy-mm-dd' }).val();
   } );
   </script>
   <!-- <script src="{{asset('js/jquery.dataTables.min.js')}}"></script> -->

@@ -126,7 +126,7 @@ class Surat_MasukController extends Controller
         $surat_masuk->save();
         // dd($data['surat_keluar_mhs']);
 
-        Session::put('alert-success', 'Status surat telah berubah menjadi "Sudah Diambil');
+        Session::put('alert-success', 'Status surat telah berubah menjadi Sudah Diambil');
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
         return Redirect::back();
     }
