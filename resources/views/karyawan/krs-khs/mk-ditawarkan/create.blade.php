@@ -15,6 +15,19 @@ Input Mata Kuliah Ditawarkan
 @endsection
 
 @section('main-content')
+<!-- include summernote css/js-->
+<div class="flash-message" style="margin-left: -16px;margin-right: -16px; margin-top: 13px;">
+  @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+  @if(Session::has('alert-' . $msg))
+<div class="alert alert-{{ $msg }}">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <p class="" style="border-radius: 0">{{ Session::get('alert-' . $msg) }}</p>
+</div>
+  {!!Session::forget('alert-' . $msg)!!}
+  @endif
+  @endforeach
+</div>
+
 <div class="box">
        <div class="box-body">
             <!-- /.box-header -->
@@ -31,10 +44,20 @@ Input Mata Kuliah Ditawarkan
                   </select>
                   </div>
                   <div class="col-md-2">
-                  <input type="number" class="form-control input" id="tahun_awal" name="tahun_awal" placeholder="Tahun Awal" required>
+                  <select class="form-control" name="tahun_awal" required>
+                  <option value="">Tahun Awal</option>
+                    @for($i = 2000; $i <= 2100; $i++)
+                    <option>{{$i}}</option>
+                    @endfor
+                  </select>
                   </div>
                   <div class="col-md-2">
-                  <input type="number" class="form-control input" id="tahun_akhir" name="tahun_akhir" placeholder="Tahun Akhir" required>
+                  <select class="form-control" name="tahun_akhir" required>
+                  <option value="">Tahun Akhir</option>
+                    @for($i = 2000; $i <= 2100; $i++)
+                    <option>{{$i}}</option>
+                    @endfor
+                  </select>
                   </div>
                 </br>
                 </br>
@@ -43,7 +66,7 @@ Input Mata Kuliah Ditawarkan
               @foreach ($mk_ditawarkan as $i => $r)
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="cek[]" value="{{$r->id_mk}}">
+                  <input type="checkbox" name="cek[]" value="{{$r->id_mk}}" required>
                       {{$r->nama_matkul}}
                 </label>
               </div>
@@ -62,7 +85,11 @@ Input Mata Kuliah Ditawarkan
 
 @section('code-footer')
 
-
-
-
+<script type="text/javascript">
+$( "#datepicker" ).datepicker({
+        changeMonth: false,
+        changeYear: true
+    });
+    
+</script>
 @endsection

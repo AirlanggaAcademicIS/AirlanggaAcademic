@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
+use Auth;
 use App\Models\KrsKhs\KHS;
 use App\Models\KrsKhs\MKDitawarkan;
 use App\Models\KrsKhs\MK;
@@ -45,7 +46,7 @@ class KHSController extends Controller
     {
         $data = [
         'page' => 'khs',
-        'khs' => KHS::all(),
+        'khs' => KHS::where('mhs_id',Auth::user()->username)->get(),
         'tahun' => TahunAkademik::all()
         ];
         return view('mahasiswa.krs-khs.khs.index',$data);

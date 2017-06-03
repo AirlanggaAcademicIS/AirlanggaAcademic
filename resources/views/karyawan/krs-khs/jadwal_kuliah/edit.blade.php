@@ -48,8 +48,20 @@ Input Dosen Mata Kuliah
                                         <option value="{{$m->id_jam}}">{{$m->waktu}}</option>
                                         @endforeach
                                     </select>
-                                    
-                                </div>              
+                                </div>
+                                <div class="col-xs-1">
+                                </div>  
+                                <div class="col-xs-1">
+                                <h4><b>-</b></h4>   
+                                </div>
+                                <div class="col-xs-4">
+                                    <select class="form-control" id="jam_id" name="jam_id2">
+                                        <option value="">Pilih Jam</option>
+                                        @foreach($jadwal2 as $i => $m)
+                                        <option value="{{$m->id_jam}}">{{$m->waktu}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>                     
                         </div>
                 </div>
                 </div>

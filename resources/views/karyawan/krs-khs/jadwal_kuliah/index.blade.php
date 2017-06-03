@@ -28,7 +28,7 @@ Jadwal Kuliah
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('/krs-khs/jadwal_kuliah/create')}}" type="button" class="btn btn-info btn-md" >
+  <a href="{{url('karyawan/krs-khs/jadwal-kuliah/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Jadwal</a>
 </div>
 <div style="overflow: auto">
@@ -54,10 +54,10 @@ Jadwal Kuliah
       <td width="20%" style="text-align:center">{{$j->hari->nama_hari}}</td>
       <td width="20%" style="text-align:center">{{$j->ruang->nama_ruang}}</td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus jadwal ini?');"
-       href="{{url('/krs-khs/jadwal_kuliah/'.$j->mk_ditawarkan_id.'/delete/')}}" class="btn btn-danger btn-xs">
+       href="{{url('karyawan/krs-khs/jadwal-kuliah/'.$j->mk_ditawarkan_id.'/'.$j->hari_id.'/'.$j->ruang_id.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
        
-        <a href="{{url('/krs-khs/jadwal_kuliah/'.$j->mk_ditawarkan_id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('karyawan/krs-khs/jadwal-kuliah/'.$j->mk_ditawarkan_id.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
       </td>
     </tr>

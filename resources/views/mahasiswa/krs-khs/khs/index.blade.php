@@ -49,21 +49,21 @@ KHS
                     @foreach($khs as $i => $k) 
     <tr>
       <td witdh="10%" style="text-align:center">{{$i+1}}</td>
-      <td width="50%" style="text-align:center">{{$k->MKDitawarkan->MK->nama_matkul}}</td>
-      <td width="20%" style="text-align:center">{{$k->MKDitawarkan->MK->sks}}</td>
+      <td width="50%" style="text-align:center">{{$k->MKDitawarkan->mk->nama_matkul}}</td>
+      <td width="20%" style="text-align:center">{{$k->MKDitawarkan->mk->sks}}</td>
       <td width="20%" style="text-align:center">{{$k->nilai}}</td> 
         @if($k->nilai=="A")
-        <td width="20%" style="text-align:center">{{4 * $k->MKDitawarkan->MK->sks}} </td>
+        <td width="20%" style="text-align:center">{{4 * $k->MKDitawarkan->mk->sks}} </td>
         @elseif($k->nilai=="AB")
-        <td width="20%" style="text-align:center">{{3.5 * $k->MKDitawarkan->MK->sks}} </td>
+        <td width="20%" style="text-align:center">{{3.5 * $k->MKDitawarkan->mk->sks}} </td>
         @elseif($k->nilai=="B")
-        <td width="20%" style="text-align:center">{{3 * $k->MKDitawarkan->MK->sks}} </td>
+        <td width="20%" style="text-align:center">{{3 * $k->MKDitawarkan->mk->sks}} </td>
         @elseif($k->nilai=="BC")
-        <td width="20%" style="text-align:center">{{2.5 * $k->MKDitawarkan->MK->sks}} </td>
+        <td width="20%" style="text-align:center">{{2.5 * $k->MKDitawarkan->mk->sks}} </td>
         @elseif($k->nilai=="C")
-        <td width="20%" style="text-align:center">{{2 * $k->MKDitawarkan->MK->sks}} </td>
+        <td width="20%" style="text-align:center">{{2 * $k->MKDitawarkan->mk->sks}} </td>
         @elseif($k->nilai=="D")
-        <td width="20%" style="text-align:center">{{1 * $k->MKDitawarkan->MK->sks}} </td>
+        <td width="20%" style="text-align:center">{{1 * $k->MKDitawarkan->mk->sks}} </td>
         @else
         <td width="20%" style="text-align:center">0</td>
         @endif     
