@@ -47,7 +47,6 @@ class karyawan_controller extends Controller
 
     public function createAction(Request $request)
     {
-        dd($request->input());
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
         Petugas_TU::create($request->input());
         User::create([
