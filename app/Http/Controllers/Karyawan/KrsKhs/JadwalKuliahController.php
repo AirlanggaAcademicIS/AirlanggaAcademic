@@ -49,7 +49,7 @@ class JadwalKuliahController extends Controller
 
              'jadwal3' =>Ruang::all(),
 
-             'jadwal4' =>MKDitawarkan::where('thn_akademik_id',1)->get()
+             'jadwal4' =>MKDitawarkan::where('thn_akademik_id',$tahun)->get()
         ];
         // Memanggil tampilan form create
         return view('karyawan.krs-khs.jadwal_kuliah.create',$data);

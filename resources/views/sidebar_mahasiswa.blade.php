@@ -23,4 +23,4 @@
 >
 <a href="{{ url('mahasiswa/krs-khs/krs/index') }}"><i class="fa fa-calculator"></i>Krs</a>
 </li>
-	
+  

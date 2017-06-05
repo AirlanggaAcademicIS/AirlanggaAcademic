@@ -14,4 +14,3 @@
 >
 <a href="{{ url('dosen/krs-khs/mk_diajar') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Mata Kuliah diajar</a>
 </li>
-
