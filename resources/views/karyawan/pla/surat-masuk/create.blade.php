@@ -79,19 +79,6 @@ Tambah Surat
 						<input type="text" class="form-control input-lg" id="nim_nip" name="nim_nip" placeholder="Masukkan NIP/NIM" required>
 					</div>
 				</div>
-
-
-				<!-- Menampilkan dropdown -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Status</label>
-					<div class="col-md-2">
-						<select style="height: 45px;" class="form-control" name="status" required>
-							<option value="0">Belum Diambil</option>
-							<option value="1">Sudah Diambil</option>						
-						</select>
-					</div>
-				</div>
-
 				
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">

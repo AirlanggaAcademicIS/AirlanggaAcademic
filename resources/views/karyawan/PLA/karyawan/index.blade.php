@@ -32,7 +32,7 @@ Karyawan
     <i class="fa fa-plus-square"></i> Tambah Karyawan</a>
 </div>
 <div style="overflow: auto">
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+<table id="data-table" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
@@ -71,5 +71,10 @@ Karyawan
 @endsection
 
 @section('code-footer')
-
+<!-- <script src="{{asset('js/jquery.dataTables.min.js')}}"></script> -->
+<script type="text/javascript"> 
+    $(document).ready(function(){ 
+        $('#data-table').DataTable(); 
+    }); 
+</script> 
 @endsection
