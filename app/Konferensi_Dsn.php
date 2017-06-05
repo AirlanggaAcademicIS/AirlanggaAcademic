@@ -9,6 +9,7 @@ class Konferensi_Dsn extends Model
    protected $table = 'konferensi_dosen';    
    protected $primaryKey = 'nip';    
    protected $fillable = [
+   		'nip',
 		'konferensi_id',
    ];
 
