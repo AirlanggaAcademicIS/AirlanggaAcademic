@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Upload Dokumen
+Download Dokumen
 @endsection
 
 @section('contentheader_title')
-Upload Dokumen
+Download Dokumen
 @endsection
 
 @section('main-content')
@@ -31,36 +31,6 @@ Upload Dokumen
     <i class="fa fa-plus-square"></i> Tambah bdata Mahasiswa</a>
 
 </div> -->
-
-<form  method="post" action="{{url('karyawan/upload-dokumen/upload')}}" enctype="multipart/form-data"  class="form-horizontal">
-  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <div class="row" style="padding:10px">
-    <div class="col-sm-5">
-    <div class="form-group-text-center" > 
-    
-    <label for="nama" class="col-sm-4 control-label">Nama Dokumen</label> 
-    <div class="col-sm-8"> 
-    <input  type="text" id="nama" class="form-control input-md" name="nama">
-            </div>
-            </div>
-            </div>
-<div class="form-group-text-center" >
-            <div class="col-sm-3"> 
-    <input  type="file" id="file_doc" class="form-control input-md" name="url_dokumen">
-            </div>
-
-            </div>
-            <div class="col-sm-4">
-            <button type="submit" class="btn btn-primary btn-sm">
-              Upload
-            </button>
-            </div>
-
-</div>
-    
-
-</form>
-
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
@@ -80,8 +50,8 @@ Upload Dokumen
       <td style="text-align:center">{{$b->tgl_upload}}</td>
       <td  style="text-align:center">{{$b->petugas['nama_petugas']}}</td>
       <td style="text-align:center">
-        <a href="{{url('karyawan/upload-dokumen/'.$b->id_dokumen.'/delete')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Delete</a>
+        <a href="{{url('dosen/'.$b->id_dokumen.'/Download_Dokumen')}}" class="btn btn-success btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Download</a>
       
         </td>
     </tr>
@@ -102,33 +72,5 @@ Upload Dokumen
 $(document).ready(function(){
     $('#myTable').DataTable();
 });
-
-var elBrowse  = document.getElementById("file_doc");
-  elBrowse.addEventListener("change", function() {
-    var files  = this.files;
-    var errors = "";
-    if (!files) {
-      errors += "File upload not supported by your browser.";
-    }
-    if (files && files[0]) 
-    {
-      for(var i=0; i<files.length; i++) 
-      {
-        var file = files[i];
-        if ( (/\.(doc|docx|ppt|pptx|xls|xlsx|pdf)$/i).test(file.name) ) 
-        {
-          readImage( file ); 
-        } 
-        else 
-        {
-          errors += file.name +" is unsupported document extension\n";
-          document.getElementById("file_doc").value = null;  
-        }
-      }
-    }
-    if (errors) {
-      alert(errors); 
-    }
-  });
 </script>
 @endsection

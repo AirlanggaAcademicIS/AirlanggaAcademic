@@ -22,6 +22,7 @@ use App\Models\KrsKhs\MKDitawarkan;
 use App\Models\KrsKhs\MK;
 use App\Models\KrsKhs\DetailNilai;
 use App\Models\KrsKhs\TahunAkademik;
+use App\Models\KrsKhs\BiodataMahasiswa;
 use PDF;    
 // /**
 //  * Class HomeController
@@ -73,15 +74,22 @@ class KHSController extends Controller
 
     public function toPdf()
     {
+        $nim_id = Auth::user()->username;
+        $sum     = DB::table('mk_diambil')
+                ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
+                ->select('*')
+                ->where('mk_diambil.mhs_id','=',$nim_id)
+                ->sum('sks'); 
         $data = [
-            // 'page' => 'mata-kuliah',
-            // 'matkul' => MataKuliah::find($id),
-            // 'jenis_matkul' =>JenisMataKuliah::all()
+        'page' => 'khs',
+        'khs' => KHS::where('mhs_id','=',$nim_id)->get(),
+        'tahun' => TahunAkademik::all(),
+        'biodata_mhs' => BiodataMahasiswa::where('nim_id','=',$nim_id)->first(),
+        'sum' => $sum,
+ 
         ];
-        $tahun = TahunAkademik::all();
-        $khs = KHS::all();
-        $pdf = PDF::loadView('mahasiswa.krs-khs.khs.cetak', ['khs'=>$khs] , ['tahun'=>$tahun] );
-        return $pdf->stream('dokumen.pdf');
+        $pdf = PDF::loadView('mahasiswa.krs-khs.khs.cetak', $data);
+        return $pdf->inline('KHS.pdf');
 
     }
 

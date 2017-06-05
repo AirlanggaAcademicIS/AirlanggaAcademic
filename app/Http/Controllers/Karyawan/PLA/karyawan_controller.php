@@ -47,6 +47,13 @@ class karyawan_controller extends Controller
 
     public function createAction(Request $request)
     {
+        $terdaftar = Petugas_TU::pluck('nip_petugas')->toArray();
+        $nip = $request->input('nip_petugas');
+        if(in_array($nip, $terdaftar)){
+        Session::put('alert-danger', 'NIP telah terdaftar');
+        return Redirect::back();
+        }
+        
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
         Petugas_TU::create($request->input());
         User::create([
