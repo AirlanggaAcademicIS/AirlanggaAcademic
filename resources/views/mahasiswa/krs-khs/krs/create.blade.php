@@ -88,7 +88,7 @@ Input Krs
                     <td width="20%" style="text-align:center">{{$d->nama_matkul}}</td>
                     <td width="15%" style="text-align:center">{{$d->sks}}</td>
                     <td width="25%" style="text-align:center">{{$d->syarat_sks}}</td>
-                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk mengambil mata kuliah ini?');" href="{{url('/mahasiswa/krskhs/krs/create/'.$d->id_mk)}}" class="btn btn-success btn-xs">
+                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk mengambil mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/create/'.$d->id_mk)}}" class="btn btn-success btn-xs">
                       <i class="glyphicon glyphicon-book"></i>Take</a>
                       </td>
                   </tr>

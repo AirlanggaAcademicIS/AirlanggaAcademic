@@ -6,16 +6,16 @@
 @endsection
 
 @section('htmlheader_title')
-Input Dosen MK 
+Input Jadwal MK 
 @endsection
 
 @section('contentheader_title')
-Input Dosen Mata Kuliah
+Input Jadwal Mata Kuliah
 @endsection
 
 @section('main-content')
   <div class="box box-info">
-     <form id="tambahJadwal" method="post" action="{{url('krs-khs/jadwal_kuliah/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+     <form id="tambahJadwal" method="post" action="{{url('karyawan/krs-khs/jadwal-kuliah/create')}}" enctype="multipart/form-data"  class="form-horizontal">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="box-body">
 
@@ -25,7 +25,7 @@ Input Dosen Mata Kuliah
             <div class="form-group row">
                                 <div class="col-xs-4">
                                     <select class="form-control" id="mk_ditawarkan_id" name="mk_ditawarkan_id" required>
-                                        <option>Pilih Mata Kuliah</option>
+                                        <option value="">Pilih Mata Kuliah</option>
                                         @foreach($jadwal4 as $i => $m)
                                         <option value="{{$m->matakuliah_id}}">{{$m->mk->nama_matkul}}</option>
                                         @endforeach
@@ -42,14 +42,25 @@ Input Dosen Mata Kuliah
             <div class="form-group row">
                                 <div class="col-xs-4">
                                     <select class="form-control" id="jam_id" name="jam_id" required>
-                                       
-                                        <option>Pilih Jam</option>
+                                        <option value="">Pilih Jam</option>
                                         @foreach($jadwal2 as $i => $m)
                                         <option value="{{$m->id_jam}}">{{$m->waktu}}</option>
                                         @endforeach
                                     </select>
-                                    
-                                </div>              
+                                </div>  
+                               <!--  <div class="col-xs-1">
+                                </div>  
+                                <div class="col-xs-1">
+                                <h4><b>-</b></h4>   
+                                </div>
+                                <div class="col-xs-4">
+                                    <select class="form-control" id="jam_id" name="jam_id2">
+                                        <option value="">Pilih Jam</option>
+                                        @foreach($jadwal2 as $i => $m)
+                                        <option value="{{$m->id_jam}}">{{$m->waktu}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>  -->             
                         </div>
                 </div>
                 </div>
@@ -61,7 +72,7 @@ Input Dosen Mata Kuliah
                                 <div class="col-xs-4">
                                     <select class="form-control" id="hari_id" name="hari_id" required>
                                        
-                                        <option>Pilih Hari</option>
+                                        <option value="">Pilih Hari</option>
                                         @foreach($jadwal as $i => $m)
                                         <option value="{{$m->id_hari}}">{{$m->nama_hari}}</option>
                                         @endforeach
@@ -79,7 +90,7 @@ Input Dosen Mata Kuliah
                                 <div class="col-xs-4">
                                     <select class="form-control" id="ruang_id" name="ruang_id" required>
                                        
-                                        <option>Pilih Ruang</option>
+                                        <option value="">Pilih Ruang</option>
                                         @foreach($jadwal3 as $i => $m)
                                         <option value="{{$m->id_ruang}}">{{$m->nama_ruang}}</option>
                                         @endforeach
@@ -89,14 +100,6 @@ Input Dosen Mata Kuliah
                         </div>
                 </div>
                 </div>
-
-
-
-              
-
-               
-
-               
               </div>
               <!-- /.box-body -->
               <div class="box-footer">

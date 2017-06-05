@@ -34,9 +34,9 @@ Penelitian
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Halaman Validasi
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="dosen/validasi/index_jurnal">Jurnal</a></li>
-      <li><a href="dosen/validasi/index_konferensi">Konferensi</a></li>
-      <li><a href="dosen/validasi/index_pengmas">Pengmas</a></li>
+      <li><a href="jurnal">Jurnal</a></li>
+      <li><a href="konferensi">Konferensi</a></li>
+      <li><a href="pengmas">Pengmas</a></li>
     </ul>
   </div>
 
@@ -61,9 +61,9 @@ Penelitian
       <td width="20%" style="text-align:center">{{$penelitian->bidang_penelitian}}</td>
       <td width="10%" style="text-align:center">{{$penelitian->tanggal_penelitian}}</td>
       
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus penelitian ini?');" href="{{url('/dosen/penelitian/'.$penelitian->penelitian_id.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="20%" style="text-align:center" ><a href="{{url('/dosen/validasi/penelitian/'.$penelitian->penelitian_id.'/terima/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-pencil-square-o"></i>Terima</a>
-        <a href="{{url('/dosen/penelitian/'.$penelitian->penelitian_id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('/dosen/validasi/penelitian/'.$penelitian->penelitian_id.'/tolak/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i>Tolak</a>
         </td>
     </tr>

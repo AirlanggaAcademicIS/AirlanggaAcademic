@@ -13,7 +13,7 @@ use Response;
 // Tambahkan model yang ingin dipakai
 use App\Petugas_TU;
 use App\Prodi;
-
+use App\User;
 
 class karyawan_controller extends Controller
 {
@@ -47,9 +47,22 @@ class karyawan_controller extends Controller
 
     public function createAction(Request $request)
     {
+        $terdaftar = Petugas_TU::pluck('nip_petugas')->toArray();
+        $nip = $request->input('nip_petugas');
+        if(in_array($nip, $terdaftar)){
+        Session::put('alert-danger', 'NIP telah terdaftar');
+        return Redirect::back();
+        }
+        
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
         Petugas_TU::create($request->input());
-
+        User::create([
+            'username' => $request->input('nip_petugas'),
+            'name' => $request->input('nama_petugas'),
+            'role' => 'karyawan',
+            'email' => $request->input('email_petugas'),
+            'password' => '$2y$10$zabtKldYAuIH/KbIbYofuON3U/jlvBXIEFY/w.ItHp0WdfvfFteda'
+            ]);
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Karyawan berhasil ditambahkan');
 

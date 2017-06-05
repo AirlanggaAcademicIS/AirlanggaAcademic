@@ -56,7 +56,7 @@ class InputDosenMKController extends Controller
 
     public function create()
     {
-      
+        $tahun = TahunAkademik::count();    
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'input_dosen_mk',
@@ -68,6 +68,7 @@ class InputDosenMKController extends Controller
             'mk_ditawarkan' => DB::table('mk_ditawarkan')
             ->join('mata_kuliah', 'mata_kuliah.id_mk', '=', 'mk_ditawarkan.matakuliah_id')
             ->select('mk_ditawarkan.id_mk_ditawarkan', 'mata_kuliah.nama_matkul')
+            ->where('thn_akademik_id',$tahun)
             ->get(),
             'mk_diajar' => MKDiajar::all(),
         ];
@@ -102,54 +103,6 @@ class InputDosenMKController extends Controller
         Session::put('alert-success', 'Dosen berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/krs-khs/input-dosen-mk/view');
+        return Redirect::to('karyawan/krs-khs/dosen-mk/view');
     }
-
-    public function delete($id)
-    {
-        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $biodata_dosen = BiodataDosen::find($id);
-
-        // Menghapus biodata yang dicari tadi
-        $biodata_dosen->delete();
-
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Biodata berhasil dihapus');
-
-        // Kembali ke halaman sebelumnya
-        return Redirect::back();     
-    }
-
-   public function edit($id)
-    {
-        $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'biodatadosen',
-            // Mencari biodata berdasarkan id
-            'biodatadosen' => BiodataDosen::find($id)
-        ];
-
-        // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('dosen.biodata.edit',$data);
-    }
-
-    public function editAction($id, Request $request)
-    {
-        // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $biodata_dosen = BiodataDosen::find($id);
-
-        // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $biodata_dosen->nip_petugas = "08777777";
-        $biodata_dosen->nama_dosen = $request->input('nama_dosen');
-        $biodata_dosen->alamat_dosen = $request->input('alamat_dosen');
-        $biodata_dosen->ttl = $request->input('ttl');
-        $biodata_dosen->save();
-
-        // Notifikasi sukses
-        Session::put('alert-success', 'Biodata berhasil diedit');
-
-        // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('dosen/biodatadosen');
-    }
-
 }

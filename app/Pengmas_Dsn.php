@@ -9,6 +9,7 @@ class Pengmas_Dsn extends Model
    protected $table = 'pengmas_dosen';    
    protected $primaryKey = 'nip';    
    protected $fillable = [
+   		'nip',
 		'kegiatan_id',
    ];
 
