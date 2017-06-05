@@ -57,7 +57,7 @@ Verifikasi Penelitian
                   @elseif(($pen->is_verified)== '1')
                   <td>Terverifikasi</td>
                   @else
-                  <td>Tidak Terverifikasi</td>
+                  <td>Verifikasi Ditolak</td>
                   @endif
                   <td> <button type="button" class="btn btn-default btn-block"><a href="{{url('/karyawan/verifikasi/'.$pen->kode_penelitian.'/penelitian/')}}">View More</a></button> </td>
                 </tr>

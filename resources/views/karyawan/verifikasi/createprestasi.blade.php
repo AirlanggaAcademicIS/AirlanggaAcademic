@@ -42,7 +42,7 @@ Verifikasi Prestasi
                   @elseif(($pres->ps_is_verified)== '1')
                   <td>Terverifikasi</td>
                   @else
-                  <td>Tidak Terverifikasi</td>
+                  <td>Verifikasi Ditolak</td>
                   @endif
                   <td> <button type="button" class="btn btn-default btn-block"><a href="{{url('/karyawan/verifikasi/'.$pres->id_prestasi.'/prestasi/')}}">View More</a></button> </td>
                 </tr>
