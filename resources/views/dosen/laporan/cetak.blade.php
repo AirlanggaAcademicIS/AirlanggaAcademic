@@ -184,9 +184,9 @@
     <tr>
       @foreach($stugas as $i => $s)
       <td width="3%" style="text-align:center">{{$i+1}}</td>
-      <td width="20%" style="text-align:center">{{$surattug->surattugas['no_surat']}}</td>
-      <td width="15%" style="text-align:center">{{$surattug->surattugas['tanggal_surat']}}</td>
-      <td width="20%" style="text-align:center">{{$surattug->surattugas['keterangan_surat']}}</td>
+      <td width="20%" style="text-align:center">{{$surattug->['no_surat']}}</td>
+      <td width="15%" style="text-align:center">{{$surattug->['tanggal_surat']}}</td>
+      <td width="20%" style="text-align:center">{{$surattug->['keterangan_surat']}}</td>
       </td>
       @endforeach
     </tr>
