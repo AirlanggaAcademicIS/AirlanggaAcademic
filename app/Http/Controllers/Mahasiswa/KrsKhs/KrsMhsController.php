@@ -53,24 +53,36 @@ class KrsMhsController extends Controller
     public function create()
     {
         $nim_id  = Auth::user()->username;
+        $tahun = TahunAkademik::count();
         $count   = DB::table('mk_diambil')
             ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
             ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
             ->select('*')
-            ->where('mhs_id','=',$nim_id)
+            ->where('mhs_id',$nim_id)
             ->count('mata_kuliah.sks');
+        $tahun  = DB::table('mk_diambil')
+            ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
+            ->join('thn_akademik','thn_akademik.id_thn_akademik','=','mk_ditawarkan.thn_akademik_id')
+            ->select('*')
+            ->where('mhs_id',$nim_id)
+            ->get();
         $sum     = DB::table('mk_diambil')
             ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
             ->select('*')
-            ->where('mhs_id','=',$nim_id)
-            // ->where('thn_akademik_id','=','1')
+            ->where('mhs_id',$nim_id)
+            //->where('thn_akademik_id', $tahun)
             ->sum('mata_kuliah.sks');
-        $mean    = $sum/$count;
+            if($count==0){
+                $mean=0;
+            }
+            else{
+                $mean    = $sum/$count;
+            }
         $nilai1  = DB::table('mk_diambil')
             ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
             ->select('mk_diambil.nilai')
-            ->where('mhs_id','=',$nim_id)
-            ->where('mk_ditawarkan.thn_akademik_id','=','1')->get(); 
+            ->where('mhs_id',$nim_id)
+            ->where('mk_ditawarkan.thn_akademik_id','1')->get(); 
         $nilai   = 0;
         $nilai_tmp = 0;
         foreach($nilai1 as $n){
@@ -90,8 +102,13 @@ class KrsMhsController extends Controller
                 $nilai_tmp = $nilai_tmp + 0;
             $nilai = $nilai_tmp;
             }
-        $count_ips     = $nilai/$count;
-        $lmt     = 0; 
+            if($count==0){
+                $count_ips=0;
+            }
+            else{
+                $count_ips     = $nilai/$count;
+            }        
+             $lmt     = 0; 
             if ($count_ips >= 3)
                 $lmt = 24;                
             elseif (($count_ips <3) and ($count_ips >=2.75))
@@ -112,10 +129,10 @@ class KrsMhsController extends Controller
             'count'=> $count,
             'sum'  => $sum,
             'mean' => $mean,
-            'limitSks' => $lmt,
+            'limitSks' => $lmt,   
             'ips'  => $count_ips,
             'lihat' => MKDiambil::all(),
-            'tahun' => TahunAkademik::all(),
+            'tahun' => $tahun,
         ];
         // Memanggil tampilan form create
         return view('mahasiswa.krs-khs.krs.create',$data);
@@ -128,25 +145,26 @@ class KrsMhsController extends Controller
             ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
             ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
             ->select('*')
-            ->where('mhs_id','=',$nim_id)
+            ->where('mhs_id',$nim_id)
             ->count('mata_kuliah.sks');
         $sum     = DB::table('mk_diambil')
             ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
+            ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
             ->select('*')
-            ->where('mhs_id','=',$nim_id)
-            // ->where('thn_akademik_id','=','1')
+            ->where('mhs_id',$nim_id)
+            ->where('mk_ditawarkan.thn_akademik_id','=','1')
             ->sum('mata_kuliah.sks');
         $sum_total     = DB::table('mk_diambil')
             ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
             ->select('*')
-            ->where('mhs_id','=',$nim_id)
+            ->where('mhs_id',$nim_id)
             ->sum('mata_kuliah.sks');
         $mean    = $sum/$count;
         $nilai1  = DB::table('mk_diambil')
             ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
             ->select('mk_diambil.nilai')
-            ->where('mhs_id','=',$nim_id)
-            ->where('mk_ditawarkan.thn_akademik_id','=','1')->get(); 
+            ->where('mhs_id',$nim_id)
+            ->where('mk_ditawarkan.thn_akademik_id','1')->get(); 
         $nilai   = 0;
         $nilai_tmp = 0;
         foreach($nilai1 as $n){
@@ -177,36 +195,59 @@ class KrsMhsController extends Controller
                 $lmt = 22;
             else
                 $lmt = 21;
-        $syarat = DB::table('mk_diambil')
+        $syaratSKS = DB::table('mk_diambil')
         ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
         ->join('jadwal_kuliah','jadwal_kuliah.mk_ditawarkan_id','=','mk_diambil.mk_ditawarkan_id')
         ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_ditawarkan.matakuliah_id')
+        ->join('mk_prasyarat','mk_prasyarat.mk_id','=','mata_kuliah.id_mk')
         ->select('*')
         ->where('mhs_id','=',$nim_id)
-        ->where('mk_ditawarkan_id','=',$id);
+        ->where('mk_ditawarkan.id_mk_ditawarkan','=',$id)
+        ->get();
+        
+        $jadwal  = DB::table('mk_diambil')
+        ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
+        ->join('jadwal_kuliah','jadwal_kuliah.mk_ditawarkan_id','=','mk_diambil.mk_ditawarkan_id')
+        ->join('hari','hari.id_hari','=','jadwal_kuliah.hari_id')
+        ->join('jam','jam.id_jam','=','jadwal_kuliah.jam_id')
+        ->select('hari.id_hari','jam.id_jam')
+        ->where('mhs_id',$nim_id)
+        ->where('mk_ditawarkan.id_mk_ditawarkan',$id)
+        ->get();
 
+        $batas  = DB::table('mk_diambil')
+        ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
+        ->join('jadwal_kuliah','jadwal_kuliah.mk_ditawarkan_id','=','mk_diambil.mk_ditawarkan_id')
+        ->join('hari','hari.id_hari','=','jadwal_kuliah.hari_id')
+        ->join('jam','jam.id_jam','=','jadwal_kuliah.jam_id')
+        ->select('hari.id_hari','jam.id_jam')
+        ->get();
         // Syarat 1 : Jadwal
 
+        if ($jadwal != $batas){
+            Session::put('alert-danger', 'Terjadi tabrakan jadwal');
+            return Redirect::back();
+        }
         // Syarat 2 : Limit Sks
 
-        if ($sum == $lmt){
+        else if ($sum == $lmt){
             Session::put('alert-danger', 'Batas Sks sudah terpenuhi');
             return Redirect::back();
         }
-        else if ($syarat->syarat_sks != $sum_total){
+        // Syarat 3 : Syarat sks
+
+        else if ($syaratSKS != $sum_total){
             Session::put('alert-danger', 'Syarat Sks belum terpenuhi');
+            return Redirect::back();   
+        }
+        // Syarat 4 : Syarat mk
+
+        else if ($syarat->mk_ditawarkan_id != $batas->mk_syarat_id){
+            Session::put('alert-danger', 'Syarat mata kuliah belum terpenuhi');
             return Redirect::back();   
         }
         else
             $this->createAction($id);
-
-        // Syarat 3 : Syarat sks
-
-        // Syarat 4 : Syarat mk
-
-        // if ($syarat->capaian_matkul ){
-
-        // }
     }
     public function createAction($id)
     {
@@ -263,8 +304,8 @@ class KrsMhsController extends Controller
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
         $nim_id = Auth::user()->username;
-        MKDiambil::where('mhs_id','=',$nim_id)
-            ->where('mk_ditawarkan_id','=',$id)->delete();
+        MKDiambil::where('mhs_id',$nim_id)
+            ->where('mk_ditawarkan_id',$id)->delete();
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Mata Kuliah berhasil dihapus');
 

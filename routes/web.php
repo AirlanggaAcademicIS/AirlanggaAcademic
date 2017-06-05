@@ -29,7 +29,9 @@ Route::group(['prefix' => 'mahasiswa'], function(){
             });   
         Route::group(['prefix' => 'khs'], function(){// KHS
             Route::get('view','Mahasiswa\KrsKhs\KHSController@index');
+            Route::get('show','Mahasiswa\KrsKhs\KHSController@show');
             Route::get('cetak','Mahasiswa\KrsKhs\KHSController@toPdf');
+            Route::get('{mk_ditawarkan_id}/{mhs_id}/detail','Mahasiswa\KrsKhs\KHSController@detail');
             });
     });
 });
@@ -56,8 +58,8 @@ Route::group(['prefix' => 'karyawan'], function(){
             Route::get('create', 'Karyawan\KrsKhs\JadwalKuliahController@create');
             Route::post('create', 'Karyawan\KrsKhs\JadwalKuliahController@createAction');
             Route::get('{mk_ditawarkan_id}/{hari_id}/{ruang_id}/delete', 'Karyawan\KrsKhs\JadwalKuliahController@delete');
-            Route::get('{mk_ditawarkan_id}/edit', 'Karyawan\KrsKhs\JadwalKuliahController@edit');
-            Route::post('{mk_ditawarkan_id}/edit', 'Karyawan\KrsKhs\JadwalKuliahController@editAction');
+            Route::get('{mk_ditawarkan_id}/{hari_id}/{ruang_id}/edit', 'Karyawan\KrsKhs\JadwalKuliahController@edit');
+            Route::post('{mk_ditawarkan_id}/{hari_id}/{ruang_id}/edit', 'Karyawan\KrsKhs\JadwalKuliahController@editAction');
         });
         Route::group(['prefix' => 'input-dosen-mk'], function(){
             Route::get('view','Karyawan\KrsKhs\InputDosenMKController@index');

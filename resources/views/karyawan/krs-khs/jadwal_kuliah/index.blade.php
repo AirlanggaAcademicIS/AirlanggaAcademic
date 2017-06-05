@@ -57,7 +57,7 @@ Jadwal Kuliah
        href="{{url('karyawan/krs-khs/jadwal-kuliah/'.$j->mk_ditawarkan_id.'/'.$j->hari_id.'/'.$j->ruang_id.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
        
-        <a href="{{url('karyawan/krs-khs/jadwal-kuliah/'.$j->mk_ditawarkan_id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('karyawan/krs-khs/jadwal-kuliah/'.$j->mk_ditawarkan_id.'/'.$j->hari_id.'/'.$j->ruang_id.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
       </td>
     </tr>
@@ -73,5 +73,9 @@ Jadwal Kuliah
 @endsection
 
 @section('code-footer')
-
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#myTable').DataTable();
+});
+</script>
 @endsection

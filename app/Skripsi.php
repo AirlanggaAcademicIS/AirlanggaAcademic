@@ -36,7 +36,7 @@ class Skripsi extends Model
     
    public function mhs()
    {
-    return $this->belongsTo('App\AkunMahasiswa','NIM_id');
+    return $this->belongsTo('App\BiodataMahasiswa','NIM_id');
    }
 
    public function kbk()

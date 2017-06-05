@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Input Dosen MK 
+Input Jadwal MK 
 @endsection
 
 @section('contentheader_title')
-Input Dosen Mata Kuliah
+Input Jadwal Mata Kuliah
 @endsection
 
 @section('main-content')
@@ -48,7 +48,7 @@ Input Dosen Mata Kuliah
                                         @endforeach
                                     </select>
                                 </div>  
-                                <div class="col-xs-1">
+                               <!--  <div class="col-xs-1">
                                 </div>  
                                 <div class="col-xs-1">
                                 <h4><b>-</b></h4>   
@@ -60,7 +60,7 @@ Input Dosen Mata Kuliah
                                         <option value="{{$m->id_jam}}">{{$m->waktu}}</option>
                                         @endforeach
                                     </select>
-                                </div>              
+                                </div>  -->             
                         </div>
                 </div>
                 </div>

@@ -51,6 +51,11 @@ Input Mata Kuliah Ditawarkan
                     @endfor
                   </select>
                   </div>
+                  <div class="col-md-1">
+                  <div class="col-md-12">
+                  <h4><b>/</b></h4>
+                  </div>
+                  </div>
                   <div class="col-md-2">
                   <select class="form-control" name="tahun_akhir" required>
                   <option value="">Tahun Akhir</option>
