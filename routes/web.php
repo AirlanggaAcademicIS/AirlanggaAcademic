@@ -1,114 +1,99 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/',['as'=>'admin.index', 'uses'=>'HomeController@index']);
 
 Route::group(['middleware' => 'auth'], function () {
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::group(['prefix' => 'karyawan'], function() {
-    //Permohonan Ruang
-    Route::group(['prefix' => 'PermohonanRuang'], function() {
-        Route::get('History','Karyawan\PLA\PermohonanRuangController@index');
-        Route::get('Konfirmasi','Karyawan\PLA\PermohonanRuangController@index2');
-        Route::get('Konfirmasi/{id}/accept','Karyawan\PLA\PermohonanRuangController@accept'); 
-        Route::get('Konfirmasi/{id}/decline','Karyawan\PLA\PermohonanRuangController@decline'); 
+Route::group(['prefix' => 'mahasiswa'], function(){
+    //Fitur Kra Mahasiswa
+    Route::group(['prefix' => 'krs-khs'], function(){
+            //Untuk folder Krs
+        Route::group(['prefix' => 'krs'], function(){
+
+        // Menampilkan form tambah biodata
+        Route::get('index','Mahasiswa\KrsKhs\KrsMhsController@create');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('{id}/delete','Mahasiswa\KrsKhs\KrsMhsController@delete');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::get('create/{id}','Mahasiswa\KrsKhs\KrsMhsController@createAction');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::get('editAction/{$id}','Mahasiswa\KrsKhs\KrsMhsController@editAction');
+            });
+
+        Route::group(['prefix' => 'histori'], function(){ // Histori Nilai
+            Route::get('view','Mahasiswa\KrsKhs\HistoriController@index');
+            Route::get('cetak','Mahasiswa\KrsKhs\HistoriController@toPdf');
+            });   
+        Route::group(['prefix' => 'khs'], function(){// KHS
+            Route::get('view','Mahasiswa\KrsKhs\KHSController@index');
+            Route::get('show','Mahasiswa\KrsKhs\KHSController@show');
+            Route::get('cetak','Mahasiswa\KrsKhs\KHSController@toPdf');
+            Route::get('{mk_ditawarkan_id}/{mhs_id}/detail','Mahasiswa\KrsKhs\KHSController@detail');
+            });
     });
-    //Petugas TU
-    Route::get('pla/karyawan','Karyawan\PLA\karyawan_Controller@index');
-    Route::get('pla/karyawan/create','Karyawan\PLA\karyawan_Controller@create');
-    Route::post('pla/karyawan/create','Karyawan\PLA\karyawan_Controller@createAction');
-    Route::get('pla/karyawan/{nip_petugas}/delete','Karyawan\PLA\karyawan_Controller@delete');
-    Route::get('pla/karyawan/{nip_petugas}/edit','Karyawan\PLA\karyawan_Controller@edit');
-    Route::post('pla/karyawan/{nip_petugas}/edit','Karyawan\PLA\karyawan_Controller@editAction');
-
-    //Surat Keluar Dosen
-    Route::get('surat-keluar-dosen','karyawan\PLA\Surat_Keluar_DosenController@index');           
-    Route::get('surat-keluar-dosen/create','karyawan\PLA\Surat_Keluar_DosenController@create');
-    Route::post('surat-keluar-dosen/create','karyawan\PLA\Surat_Keluar_DosenController@createAction');
-    Route::get('surat-keluar-dosen/{id}/delete','karyawan\PLA\Surat_Keluar_DosenController@delete');
-    Route::get('surat-keluar-dosen/{id}/edit','karyawan\PLA\Surat_Keluar_DosenController@edit');
-    Route::post('surat-keluar-dosen/{id}/edit','karyawan\PLA\Surat_Keluar_DosenController@editAction');
-    Route::get('surat-keluar-dosen/{id}/agree','Karyawan\PLA\Surat_Keluar_DosenController@agree');
-    Route::get('surat-keluar-dosen/{id}/disagree','Karyawan\PLA\Surat_Keluar_DosenController@disagree');
-
-    //Surat Keluar Mhs
-    Route::get('surat-keluar-mhs','karyawan\PLA\Surat_Keluar_MhsController@index');           
-    Route::get('surat-keluar-mhs/create','karyawan\PLA\Surat_Keluar_MhsController@create');
-    Route::post('surat-keluar-mhs/create','karyawan\PLA\Surat_Keluar_MhsController@createAction');
-    Route::get('surat-keluar-mhs/{id}/delete','karyawan\PLA\Surat_Keluar_MhsController@delete');
-    Route::get('surat-keluar-mhs/{id}/edit','karyawan\PLA\Surat_Keluar_MhsController@edit');
-    Route::post('surat-keluar-mhs/{id}/edit','karyawan\PLA\Surat_Keluar_MhsController@editAction');
-    Route::get('surat-keluar-mhs/{id}/agree','Karyawan\PLA\Surat_Keluar_MhsController@agree');
-    Route::get('surat-keluar-mhs/{id}/disagree','Karyawan\PLA\Surat_Keluar_MhsController@disagree');
-
-    //Surat Masuk
-    Route::get('surat-masuk','karyawan\PLA\Surat_MasukController@index');           
-    Route::get('surat-masuk/create','karyawan\PLA\Surat_MasukController@create');
-    Route::post('surat-masuk/create','karyawan\PLA\Surat_MasukController@createAction');
-    Route::get('surat-masuk/{id}/delete','karyawan\PLA\Surat_MasukController@delete');
-    Route::get('surat-masuk/{id}/edit','karyawan\PLA\Surat_MasukController@edit');
-    Route::post('surat-masuk/{id}/edit','karyawan\PLA\Surat_MasukController@editAction');
-    Route::get('surat-masuk/{id}/terambil','karyawan\PLA\Surat_MasukController@terambil');
-
-    //Pengumpulan harcopy proposal dan skripsi
-    Route::get('Pengumpulan Hardcopy','Karyawan\PLA\PengumpulanHardcopyController@index');
-    Route::get('Pengumpulan Hardcopy/{id}/Proposal','Karyawan\PLA\PengumpulanHardcopyController@Kumpul_Proposal');
-    Route::get('Pengumpulan Hardcopy/{id}/Skripsi','Karyawan\PLA\PengumpulanHardcopyController@Kumpul_Skripsi');
-    Route::post('Pengumpulan Hardcopy/search','Karyawan\PLA\PengumpulanHardcopyController@index2');
 });
 
-Route::group(['prefix' => 'dosen'], function() {
+Route::group(['prefix' => 'karyawan'], function(){
+    Route::group(['prefix' => 'krs-khs'], function(){
+        Route::group(['prefix' => 'ruang'], function(){
+            Route::get('create','Karyawan\KrsKhs\RuangController@index');
+            Route::post('create','Karyawan\KrsKhs\RuangController@createAction');
+            Route::get('{id_ruang}/edit','Karyawan\KrsKhs\RuangController@edit');
+            Route::post('{id_ruang}/edit','Karyawan\KrsKhs\RuangController@editAction');
+        });
+        Route::group(['prefix' => 'mk-ditawarkan'], function(){
+            Route::get('view', 'Karyawan\KrsKhs\MKDitawarkanController@index');
+            Route::get('show', 'Karyawan\KrsKhs\MKDitawarkanController@show');
+            Route::get('create', 'Karyawan\KrsKhs\MKDitawarkanController@create');
+            Route::post('create', 'Karyawan\KrsKhs\MKDitawarkanController@createAction');
+            Route::get('{id_mk_ditawarkan}/delete', 'Karyawan\KrsKhs\MKDitawarkanController@delete');
+            Route::get('{thn_akademik_id}/edit', 'Karyawan\KrsKhs\MKDitawarkanController@edit');
+            Route::post('{thn_akademik_id}/edit', 'Karyawan\KrsKhs\MKDitawarkanController@editAction');
+        });
+        Route::group(['prefix' => 'jadwal-kuliah'], function(){
+            Route::get('index', 'Karyawan\KrsKhs\JadwalKuliahController@index');
+            Route::get('create', 'Karyawan\KrsKhs\JadwalKuliahController@create');
+            Route::post('create', 'Karyawan\KrsKhs\JadwalKuliahController@createAction');
+            Route::get('{mk_ditawarkan_id}/{hari_id}/{ruang_id}/delete', 'Karyawan\KrsKhs\JadwalKuliahController@delete');
+            Route::get('{mk_ditawarkan_id}/{hari_id}/{ruang_id}/edit', 'Karyawan\KrsKhs\JadwalKuliahController@edit');
+            Route::post('{mk_ditawarkan_id}/{hari_id}/{ruang_id}/edit', 'Karyawan\KrsKhs\JadwalKuliahController@editAction');
+        });
+        Route::group(['prefix' => 'input-dosen-mk'], function(){
+            Route::get('view','Karyawan\KrsKhs\InputDosenMKController@index');
+            Route::get('show','Karyawan\KrsKhs\InputDosenMKController@show');
+            Route::get('create','Karyawan\KrsKhs\InputDosenMKController@create');
+            Route::post('create','Karyawan\KrsKhs\InputDosenMKController@createAction');
+        });
 
-    //kalender
-    Route::get('Kalender_Ruang','Dosen\PLA\KalenderRuangController@index');
-    Route::post('Kalender_Ruang/search','Dosen\PLA\KalenderRuangController@index2');
-
-    //Memohon Ruangan
-    Route::get('memohon-ruangan','dosen\PLA\MohonRuanganController@create');
-    Route::post('memohon-ruangan/create','dosen\PLA\MohonRuanganController@createAction');
-    
-    //Surat Keluar Dosen
-        Route::get('surat-keluar-dosen','dosen\PLA\Surat_Keluar_DosenController@index');           
-        Route::get('surat-keluar-dosen/create','dosen\PLA\Surat_Keluar_DosenController@create');
-        Route::post('surat-keluar-dosen/create','dosen\PLA\Surat_Keluar_DosenController@createAction');
-        Route::get('surat-keluar-dosen/{id}/delete','dosen\PLA\Surat_Keluar_DosenController@delete');
-        Route::get('surat-keluar-dosen/{id}/edit','dosen\PLA\Surat_Keluar_DosenController@edit');
-        Route::post('surat-keluar-dosen/{id}/edit','dosen\PLA\Surat_Keluar_DosenController@editAction');
-
-    //Surat Masuk Dosen
-    Route::get('surat-masuk','dosen\PLA\Surat_MasukController@index');
     });
+});
+Route::group(['prefix' => 'dosen'], function(){
+    Route::group(['prefix' => 'krs-khs'], function(){
+        Route::group(['prefix' => 'nilai'], function(){
+            Route::get('{id_mk_ditawarkan}/upload', 'Dosen\KrsKhs\NilaiController@index');
+            Route::post('{id_mk_ditawarkan}/upload', 'Dosen\KrsKhs\NilaiController@upload');
+        });
 
-Route::group(['prefix' => 'mahasiswa'], function() {
+            Route::get('mk_diajar','Dosen\KrsKhs\MKDiajarController@index');
+        
+            Route::get ('{mk_ditawarkan_id}/bobot_nilai','Dosen\KrsKhs\BobotNilaiController@index');
+            Route::get ('bobot_nilai/{mk_ditawarkan_id}/create','Dosen\KrsKhs\BobotNilaiController@create');
+            Route::post('bobot_nilai/{mk_ditawarkan_id}/create','Dosen\KrsKhs\BobotNilaiController@createAction');
+            Route::get ('bobot_nilai/{mk_ditawarkan_id}/edit','Dosen\KrsKhs\BobotNilaiController@edit');
+            Route::post('bobot_nilai/{mk_ditawarkan_id}/edit','Dosen\KrsKhs\BobotNilaiController@editAction');
 
-    //Kalender
-    Route::get('Kalender_Ruang','Mahasiswa\PLA\KalenderRuangController@index');
-    Route::post('Kalender_Ruang/search','Mahasiswa\PLA\KalenderRuangController@index2');
+        Route::group(['prefix' => 'approve'], function(){
+            Route::get('view', 'Dosen\KrsKhs\MahasiswaController@index');
+            Route::get('{mhs_id}/create', 'Dosen\KrsKhs\MahasiswaController@create');
+            Route::post('{mhs_id}/{id_mk}/approve', 'Dosen\KrsKhs\MahasiswaController@approveAction');
+            Route::post('{mhs_id}/{id_mk}/unapprove', 'Dosen\KrsKhs\MahasiswaController@unapproveAction');
 
-    //Memohon Ruangan
-    Route::get('memohon-ruangan','Mahasiswa\PLA\MohonRuanganController@create');
-    Route::post('memohon-ruangan/create','Mahasiswa\PLA\MohonRuanganController@createAction');
-    
-    //Surat Keluar Mhs
-        Route::get('surat-keluar-mhs','mahasiswa\PLA\Surat_Keluar_MhsController@index');           
-        Route::get('surat-keluar-mhs/create','Mahasiswa\PLA\Surat_Keluar_MhsController@create');
-        Route::post('surat-keluar-mhs/create','mahasiswa\PLA\Surat_Keluar_MhsController@createAction');
-        Route::get('surat-keluar-mhs/{id}/delete','mahasiswa\PLA\Surat_Keluar_MhsController@delete');
-        Route::get('surat-keluar-mhs/{id}/edit','mahasiswa\PLA\Surat_Keluar_MhsController@edit');
-        Route::post('surat-keluar-mhs/{id}/edit','mahasiswa\PLA\Surat_Keluar_MhsController@editAction');
-
-    //Surat Masuk Mhs
-    Route::get('surat-masuk','mahasiswa\PLA\Surat_MasukController@index');
+        });
     });
-}); 
+});
+
+});
+?>
