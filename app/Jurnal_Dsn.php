@@ -9,6 +9,7 @@ class Jurnal_Dsn extends Model
    protected $table = 'jurnal_dosen';    
    protected $primaryKey = 'nip';    
    protected $fillable = [
+   		'nip',
 		'jurnal_id',
    ];
 
