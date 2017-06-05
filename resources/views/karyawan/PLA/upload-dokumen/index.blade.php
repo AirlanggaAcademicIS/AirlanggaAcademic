@@ -2,15 +2,15 @@
 
 @section('code-header')
 
-
+ 
 @endsection
 
 @section('htmlheader_title')
-Share Document
+Upload Dokumen
 @endsection
 
 @section('contentheader_title')
-Share Document
+Upload Dokumen
 @endsection
 
 @section('main-content')
@@ -26,43 +26,68 @@ Share Document
   @endif
   @endforeach
 </div>
+<!-- <div style="margin-bottom: 10px">
+  <a href="{{url('/mahasiswa/bdata-mahasiswa/create')}}" type="button" class="btn btn-info btn-md" >
+    <i class="fa fa-plus-square"></i> Tambah bdata Mahasiswa</a>
 
-<div class="form-group">
-          <label for="file-upload" class="col-sm-2 control-label">Upload File</label>
-          <div class="col-md-8">
-            <input type="file" class="form-control input-lg" id="file-upload" name="file-upload" placeholder="Pilih File" required>
+</div> -->
 
-          </div>
-  </div>
+<form  method="post" action="{{url('karyawan/upload-dokumen/upload')}}" enctype="multipart/form-data"  class="form-horizontal">
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <div class="row" style="padding:10px">
+    <div class="col-sm-5">
+    <div class="form-group-text-center" > 
+    
+    <label for="nama" class="col-sm-4 control-label">Nama Dokumen</label> 
+    <div class="col-sm-8"> 
+    <input  type="text" id="nama" class="form-control input-md" name="nama">
+            </div>
+            </div>
+            </div>
+<div class="form-group-text-center" >
+            <div class="col-sm-3"> 
+    <input  type="file" id="file_doc" class="form-control input-md" name="url_dokumen">
+            </div>
+
+            </div>
+            <div class="col-sm-4">
+            <button type="submit" class="btn btn-primary btn-sm">
+              Upload
+            </button>
+            </div>
+
+</div>
+    
+
+</form>
 
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">Nama Dokumen</th>
-      <th style="text-align:center">Tanggal Upload</th>
-      <th style="text-align:center">Uploader</th>
+      <th style="text-align:center">Nama Dokumen</th>      
+      <th style="text-align:center">Tanggal Dibagikan</th>
+      <th style="text-align:center">Pengupload</th>
       <th style="text-align:center">Action</th>
-      
     </tr>
     </thead>
   <tbody>
-   @forelse($upload-dokumen as $i => $ud) 
+   @forelse($dokumen as $i => $b) 
     <tr>
-      <td>{{ $i+1 }}</td>
-      <td width="25%" style="text-align:center">{{$ud->nama}}</td>
-      <td width="20%" style="text-align:center">{{$ud->tgl_upload}}</td>
-      <td width="20%" style="text-align:center">{{$ud->nama_petugas}}</td>
-      <td width="15%" style="text-align:center" >
-      <a onclick="return confirm('Anda yakin untuk menghapus ini?');" href="{{url('/karyawan/PermohonanRuang/Konfirmasi/'.$PR->id_permohonan_ruang.'/accept/')}}" class="btn btn-success btn-xs">
-        <i></i value="1"> Delete</a>
-        
+      <td style="text-align:center">{{ $i+1 }}</td>
+      <td style="text-align:center">{{$b->nama}}</td>
+      <td style="text-align:center">{{$b->tgl_upload}}</td>
+      <td  style="text-align:center">{{$b->petugas['nama_petugas']}}</td>
+      <td style="text-align:center">
+        <a href="{{url('karyawan/upload-dokumen/'.$b->id_dokumen.'/delete')}}" class="btn btn-danger btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Delete</a>
+      
         </td>
     </tr>
      @empty
         <tr>
-          <td colspan="8"><center>Belum ada permohonan</center></td>
+          <td colspan="12"><center>Belum Ada Dokumen yang Dibagikan</center></td>
         </tr>
     @endforelse
   </tbody>
@@ -72,5 +97,38 @@ Share Document
 @endsection
 
 @section('code-footer')
+<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#myTable').DataTable();
+});
 
+var elBrowse  = document.getElementById("file_doc");
+  elBrowse.addEventListener("change", function() {
+    var files  = this.files;
+    var errors = "";
+    if (!files) {
+      errors += "File upload not supported by your browser.";
+    }
+    if (files && files[0]) 
+    {
+      for(var i=0; i<files.length; i++) 
+      {
+        var file = files[i];
+        if ( (/\.(doc|docx|ppt|pptx|xls|xlsx|pdf)$/i).test(file.name) ) 
+        {
+          readImage( file ); 
+        } 
+        else 
+        {
+          errors += file.name +" is unsupported document extension\n";
+          document.getElementById("file_doc").value = null;  
+        }
+      }
+    }
+    if (errors) {
+      alert(errors); 
+    }
+  });
+</script>
 @endsection
