@@ -73,8 +73,16 @@ Edit Data Dosen
 				</div>
 
 				<div class="form-group">
+                  <label for="nama_ketua" class="col-sm-2 control-label">Email Dosen</label>
+                  <div class="col-md-8">                 
+						<input type="text" class="form-control input-lg" id="bidang_penelitian" name="email" placeholder="Masukkan Alamat Dosen" rows="5" value="{{$user->email}}" required > 
+					</div>
+				</div>
+
+				<div class="form-group">
                   <label for="nama_ketua" class="col-sm-2 control-label">Status Dosen</label>
-                  <div class="col-md-8" >  <select class="form-control" name="status_dosen" value="{{$dosen->status_dosen}}">
+                  <div class="col-md-8" >  <select class="form-control" name="status_dosen">
+                  <option value="{{$dosen->status_dosen}}">{{$dosen->status_dosen}}</option>
                     <option value="Kepala Program Studi">Kepala Program Studi</option>
                     <option value="Dosen Tetap">Dosen Tetap</option>
                     <option value="Dosen Honorer">Dosen Honorer</option>                                       
