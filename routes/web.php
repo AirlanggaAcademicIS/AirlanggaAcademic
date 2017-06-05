@@ -37,7 +37,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dosen/laporan/cetak','Dosen\LaporanController@cetak');
     Route::get('/dosen/laporan/pilih','Dosen\LaporanController@pilih');
     Route::get('/dosen/laporan','Dosen\LaporanController@index');
-    Route::get('/dosen/pengmas','Dosen\BiodataDosenController@index');
     Route::get('/logout','Auth\LoginController@logout');
     });
 
