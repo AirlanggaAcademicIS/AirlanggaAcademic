@@ -16,99 +16,155 @@ Route::get('/',['as'=>'admin.index', 'uses'=>'HomeController@index']);
 Route::group(['middleware' => 'auth'], function () {
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::group(['prefix' => 'karyawan'], function() {
-    //Permohonan Ruang
-    Route::group(['prefix' => 'PermohonanRuang'], function() {
-        Route::get('History','Karyawan\PLA\PermohonanRuangController@index');
-        Route::get('Konfirmasi','Karyawan\PLA\PermohonanRuangController@index2');
-        Route::get('Konfirmasi/{id}/accept','Karyawan\PLA\PermohonanRuangController@accept'); 
-        Route::get('Konfirmasi/{id}/decline','Karyawan\PLA\PermohonanRuangController@decline'); 
+/*MODUL MONITORING SKRIPSI USER MHS TARUH SINI YAAA*/
+Route::group(['prefix' => 'mahasiswa'], function() {
+    Route::group(['prefix' => 'monitoring-skripsi'], function() {
+
+        Route::get('konsultasi','mahasiswa\monitoringskripsi\KonsultasiController@index');
+
+        Route::get('konsultasi/{id}/edit','mahasiswa\monitoringskripsi\KonsultasiController@edit');
+
+        Route::get('konsultasi/{id}/edit','mahasiswa\monitoringskripsi\KonsultasiController@edit');
+
+        Route::post('konsultasi/{id}/edit','mahasiswa\monitoringskripsi\KonsultasiController@editAction'); 
+
+        Route::get('konsultasi/create','mahasiswa\monitoringskripsi\KonsultasiController@create');
+
+        Route::post('konsultasi/create','mahasiswa\monitoringskripsi\KonsultasiController@createAction');
+
+        Route::get('konsultasi/{id}/delete','mahasiswa\monitoringskripsi\KonsultasiController@delete');
+
+        Route::get('skripsi','Mahasiswa\monitoringskripsi\SkripsiController@index');
+
+        Route::get('upload_berkas','Mahasiswa\monitoringskripsi\UploadBerkasController@index');
+
+        Route::post('upload-proposal','Mahasiswa\monitoringskripsi\UploadBerkasController@uploadProposal');
+
+        Route::post('upload-skripsi','Mahasiswa\monitoringskripsi\UploadBerkasController@uploadSkripsi');
+
     });
-    //Petugas TU
-    Route::get('pla/karyawan','Karyawan\PLA\karyawan_Controller@index');
-    Route::get('pla/karyawan/create','Karyawan\PLA\karyawan_Controller@create');
-    Route::post('pla/karyawan/create','Karyawan\PLA\karyawan_Controller@createAction');
-    Route::get('pla/karyawan/{nip_petugas}/delete','Karyawan\PLA\karyawan_Controller@delete');
-    Route::get('pla/karyawan/{nip_petugas}/edit','Karyawan\PLA\karyawan_Controller@edit');
-    Route::post('pla/karyawan/{nip_petugas}/edit','Karyawan\PLA\karyawan_Controller@editAction');
-
-    //Surat Keluar Dosen
-    Route::get('surat-keluar-dosen','karyawan\PLA\Surat_Keluar_DosenController@index');           
-    Route::get('surat-keluar-dosen/create','karyawan\PLA\Surat_Keluar_DosenController@create');
-    Route::post('surat-keluar-dosen/create','karyawan\PLA\Surat_Keluar_DosenController@createAction');
-    Route::get('surat-keluar-dosen/{id}/delete','karyawan\PLA\Surat_Keluar_DosenController@delete');
-    Route::get('surat-keluar-dosen/{id}/edit','karyawan\PLA\Surat_Keluar_DosenController@edit');
-    Route::post('surat-keluar-dosen/{id}/edit','karyawan\PLA\Surat_Keluar_DosenController@editAction');
-    Route::get('surat-keluar-dosen/{id}/agree','Karyawan\PLA\Surat_Keluar_DosenController@agree');
-    Route::get('surat-keluar-dosen/{id}/disagree','Karyawan\PLA\Surat_Keluar_DosenController@disagree');
-
-    //Surat Keluar Mhs
-    Route::get('surat-keluar-mhs','karyawan\PLA\Surat_Keluar_MhsController@index');           
-    Route::get('surat-keluar-mhs/create','karyawan\PLA\Surat_Keluar_MhsController@create');
-    Route::post('surat-keluar-mhs/create','karyawan\PLA\Surat_Keluar_MhsController@createAction');
-    Route::get('surat-keluar-mhs/{id}/delete','karyawan\PLA\Surat_Keluar_MhsController@delete');
-    Route::get('surat-keluar-mhs/{id}/edit','karyawan\PLA\Surat_Keluar_MhsController@edit');
-    Route::post('surat-keluar-mhs/{id}/edit','karyawan\PLA\Surat_Keluar_MhsController@editAction');
-    Route::get('surat-keluar-mhs/{id}/agree','Karyawan\PLA\Surat_Keluar_MhsController@agree');
-    Route::get('surat-keluar-mhs/{id}/disagree','Karyawan\PLA\Surat_Keluar_MhsController@disagree');
-
-    //Surat Masuk
-    Route::get('surat-masuk','karyawan\PLA\Surat_MasukController@index');           
-    Route::get('surat-masuk/create','karyawan\PLA\Surat_MasukController@create');
-    Route::post('surat-masuk/create','karyawan\PLA\Surat_MasukController@createAction');
-    Route::get('surat-masuk/{id}/delete','karyawan\PLA\Surat_MasukController@delete');
-    Route::get('surat-masuk/{id}/edit','karyawan\PLA\Surat_MasukController@edit');
-    Route::post('surat-masuk/{id}/edit','karyawan\PLA\Surat_MasukController@editAction');
-    Route::get('surat-masuk/{id}/terambil','karyawan\PLA\Surat_MasukController@terambil');
-
-    //Pengumpulan harcopy proposal dan skripsi
-    Route::get('Pengumpulan Hardcopy','Karyawan\PLA\PengumpulanHardcopyController@index');
-    Route::get('Pengumpulan Hardcopy/{id}/Proposal','Karyawan\PLA\PengumpulanHardcopyController@Kumpul_Proposal');
-    Route::get('Pengumpulan Hardcopy/{id}/Skripsi','Karyawan\PLA\PengumpulanHardcopyController@Kumpul_Skripsi');
-    Route::post('Pengumpulan Hardcopy/search','Karyawan\PLA\PengumpulanHardcopyController@index2');
 });
 
+/*AKHIR MODUL MONITORING SKRIPSI USER MHS*/
+
+
+/*MODUL MONITORING SKRIPSI USER DOSEN TARUH SINI YAAA*/
 Route::group(['prefix' => 'dosen'], function() {
+    Route::group(['prefix' => 'monitoring-skripsi'], function() {
+        Route::get('skripsi','Dosen\monitoringskripsi\SkripsiController@index');
 
-    //kalender
-    Route::get('Kalender_Ruang','Dosen\PLA\KalenderRuangController@index');
-    Route::post('Kalender_Ruang/search','Dosen\PLA\KalenderRuangController@index2');
+        Route::get('konsultasi/','dosen\monitoringskripsi\KonsultasiController@index');
 
-    //Memohon Ruangan
-    Route::get('memohon-ruangan','dosen\PLA\MohonRuanganController@create');
-    Route::post('memohon-ruangan/create','dosen\PLA\MohonRuanganController@createAction');
-    
-    //Surat Keluar Dosen
-        Route::get('surat-keluar-dosen','dosen\PLA\Surat_Keluar_DosenController@index');           
-        Route::get('surat-keluar-dosen/create','dosen\PLA\Surat_Keluar_DosenController@create');
-        Route::post('surat-keluar-dosen/create','dosen\PLA\Surat_Keluar_DosenController@createAction');
-        Route::get('surat-keluar-dosen/{id}/delete','dosen\PLA\Surat_Keluar_DosenController@delete');
-        Route::get('surat-keluar-dosen/{id}/edit','dosen\PLA\Surat_Keluar_DosenController@edit');
-        Route::post('surat-keluar-dosen/{id}/edit','dosen\PLA\Surat_Keluar_DosenController@editAction');
+        Route::get('konsultasi/{id}/edit','dosen\monitoringskripsi\KonsultasiController@edit');
 
-    //Surat Masuk Dosen
-    Route::get('surat-masuk','dosen\PLA\Surat_MasukController@index');
+        Route::get('konsultasi/{id}/edit','dosen\monitoringskripsi\KonsultasiController@editAction');
+
+        Route::get('konsultasi/mhs','dosen\monitoringskripsi\KonsultasiController@show');
+
+        Route::get('berkas/','dosen\monitoringskripsi\DownloadController@index');
+
+        Route::get('berkas/mhs','dosen\monitoringskripsi\DownloadController@show');
+
+        Route::get('berkas/{nim}/download','dosen\monitoringskripsi\DownloadController@downloadProposal');
+
+        Route::get('berkas/{nim}/download-skripsi','dosen\monitoringskripsi\DownloadController@downloadSkripsi');
     });
+});
+/*AKHIR MODUL MONITORING SKRIPSI USER DOSEN*/
 
-Route::group(['prefix' => 'mahasiswa'], function() {
 
-    //Kalender
-    Route::get('Kalender_Ruang','Mahasiswa\PLA\KalenderRuangController@index');
-    Route::post('Kalender_Ruang/search','Mahasiswa\PLA\KalenderRuangController@index2');
+/*MODUL MONITORING SKRIPSI USER KARYAWAN TARUH SINI YAAA*/
+Route::group(['prefix' => 'karyawan'], function() {
+    Route::group(['prefix' => 'monitoring-skripsi'], function() {
 
-    //Memohon Ruangan
-    Route::get('memohon-ruangan','Mahasiswa\PLA\MohonRuanganController@create');
-    Route::post('memohon-ruangan/create','Mahasiswa\PLA\MohonRuanganController@createAction');
-    
-    //Surat Keluar Mhs
-        Route::get('surat-keluar-mhs','mahasiswa\PLA\Surat_Keluar_MhsController@index');           
-        Route::get('surat-keluar-mhs/create','Mahasiswa\PLA\Surat_Keluar_MhsController@create');
-        Route::post('surat-keluar-mhs/create','mahasiswa\PLA\Surat_Keluar_MhsController@createAction');
-        Route::get('surat-keluar-mhs/{id}/delete','mahasiswa\PLA\Surat_Keluar_MhsController@delete');
-        Route::get('surat-keluar-mhs/{id}/edit','mahasiswa\PLA\Surat_Keluar_MhsController@edit');
-        Route::post('surat-keluar-mhs/{id}/edit','mahasiswa\PLA\Surat_Keluar_MhsController@editAction');
+        Route::get('KBK','karyawan\monitoringskripsi\KBKController@index');
 
-    //Surat Masuk Mhs
-    Route::get('surat-masuk','mahasiswa\PLA\Surat_MasukController@index');
+        Route::get('KBK/create','Karyawan\monitoringskripsi\KBKController@create');
+
+        Route::post('KBK/create','Karyawan\monitoringskripsi\KBKController@createAction');
+
+        Route::get('KBK/{id_kbk}/delete','Karyawan\monitoringskripsi\KBKController@delete');
+
+        Route::get('KBK/{id_kbk}/edit','Karyawan\monitoringskripsi\KBKController@edit');
+
+        Route::post('KBK/{id_kbk}/edit','Karyawan\monitoringskripsi\KBKController@editAction');
+
+        Route::get('skripsi','Karyawan\monitoringskripsi\SkripsiController@index');
+         
+        Route::get('skripsi/create','Karyawan\monitoringskripsi\SkripsiController@create');
+
+        Route::post('skripsi/create','Karyawan\monitoringskripsi\SkripsiController@createAction');
+
+        Route::get('skripsi/{id_skripsi}/delete','Karyawan\monitoringskripsi\SkripsiController@delete');
+
+        Route::get('skripsi/{id_skripsi}/edit','Karyawan\monitoringskripsi\SkripsiController@edit');
+
+        Route::post('skripsi/{id_skripsi}/edit','Karyawan\monitoringskripsi\SkripsiController@editAction');
+
+        Route::get('manage-jadwal-sidang-proposal','Karyawan\JadwalSidangController@view_manage_jadwal_sidang_proposal');
+
+        Route::get('view-jadwal-sidang-proposal-mahasiswa','Karyawan\JadwalSidangController@view_jadwal_sidang_proposal_mahasiswa'); 
+                
+        Route::get('view-jadwal-sidang-skripsi-mahasiswa','Karyawan\JadwalSidangController@view_jadwal_sidang_skripsi_mahasiswa');     
+
+        Route::get('manage-jadwal-sidang-skripsi','Karyawan\JadwalSidangController@view_manage_jadwal_sidang_skripsi');
+
+        Route::post('create-jadwal-sidang-proposal','Karyawan\JadwalSidangController@create_jadwal_sidang_proposal');
+
+        Route::post('update-jadwal-sidang-proposal','Karyawan\JadwalSidangController@update_jadwal_sidang_proposal');
+
+        Route::post('update-jadwal-sidang-skripsi','Karyawan\JadwalSidangController@update_jadwal_sidang_skripsi');
+
+        Route::post('destroy-jadwal-sidang-proposal','Karyawan\JadwalSidangController@destroy_jadwal_sidang_proposal');
+
+        Route::post('edit-jadwal-sidang-proposal','Karyawan\JadwalSidangController@edit_jadwal_sidang_proposal');
+
+        Route::post('get-mahasiswa-data','Karyawan\JadwalSidangController@get_mahasiswa_data');
+
+        Route::get('manage-hasil-sidang-proposal','Karyawan\SkripsiController@view_manage_hasil_sidang_proposal');
+
+        Route::get('view-tambah-hasil-sidang-proposal','Karyawan\SkripsiController@view_tambah_hasil_sidang_proposal');
+
+        Route::get('status','Karyawan\monitoringskripsi\StatusController@index');
+
+        Route::get('status/create','Karyawan\monitoringskripsi\StatusController@create');
+
+        Route::post('status/create','Karyawan\monitoringskripsi\StatusController@createAction');
+
+        Route::get('status/{id_skripsi}/edit','Karyawan\monitoringskripsi\StatusController@edit');
+
+        Route::post('status/{id_skripsi}/edit','Karyawan\monitoringskripsi\StatusController@editAction');
+
+        Route::get('status/{id_kbk}/delete','karyawan\monitoringskripsi\StatusController@delete');
+
+        Route::post('destroy-jadwal-sidang-proposal','Karyawan\SkripsiController@destroy_jadwal_sidang_proposal');
+
+        Route::post('edit-jadwal-sidang-proposal','Karyawan\SkripsiController@edit_jadwal_sidang_proposal');
+
+        Route::post('get-mahasiswa-data','Karyawan\SkripsiController@get_mahasiswa_data');
+
+        Route::get('konsultasi','karyawan\monitoringskripsi\KonsultasiController@index');
+
+        Route::get('konsultasi/create','Karyawan\monitoringskripsi\KonsultasiController@create');
+
+        Route::post('konsultasi/create','Karyawan\monitoringskripsi\KonsultasiController@createAction');
+
+        Route::get('konsultasi/{id}/delete','Karyawan\monitoringskripsi\KonsultasiController@delete');
+
+        Route::get('konsultasi/{nim_id}/edit','Karyawan\monitoringskripsi\KonsultasiController@edit');
+
+        Route::post('konsultasi/{id}/edit','Karyawan\monitoringskripsi\KonsultasiController@editAction');
+
+        Route::get('berkas/','Karyawan\monitoringskripsi\DownloadController@index');
+
+        Route::get('berkas/{nim}/download','Karyawan\monitoringskripsi\DownloadController@downloadProposal');
+
+        Route::get('berkas/{nim}/download-skripsi','Karyawan\monitoringskripsi\DownloadController@downloadSkripsi');
+
     });
-}); 
+});
+/*Akhiran dari modul monitoring skripsi*/
+
+
+
+});   
