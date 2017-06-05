@@ -50,7 +50,7 @@ Download Dokumen
       <td style="text-align:center">{{$b->tgl_upload}}</td>
       <td  style="text-align:center">{{$b->petugas['nama_petugas']}}</td>
       <td style="text-align:center">
-        <a href="{{url('mahasiswa/pla/'.$b->id_dokumen.'/Download_Dokumen')}}" class="btn btn-success btn-xs">
+        <a href="{{url('mahasiswa/'.$b->id_dokumen.'/Download_Dokumen')}}" class="btn btn-success btn-xs">
         <i class="fa fa-pencil-square-o"></i> Download</a>
       
         </td>

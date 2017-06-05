@@ -37,7 +37,7 @@ class DownloadDokumenController extends Controller
     public function download_doc($id)
     {
         $file = Dokumen::where('id_dokumen',$id)->first();
-        $pathToFile=public_path($file->url_dokumen);
+        $pathToFile=public_path('file_dokumen/'.$file->url_dokumen);
         return response()->download($pathToFile);
     }
 
