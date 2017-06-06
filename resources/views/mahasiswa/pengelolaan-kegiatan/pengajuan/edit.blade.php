@@ -7,11 +7,11 @@
 @endsection
 
 @section('htmlheader_title')
-Pengajuan Proposal Kegiatan Akademik
+Revisi Proposal Kegiatan Akademik
 @endsection
 
 @section('contentheader_title')
-Pengajuan Proposal Kegiatan Akademik
+Revisi Proposal Kegiatan Akademik
 @endsection
 
 
@@ -53,17 +53,16 @@ Pengajuan Proposal Kegiatan Akademik
       </div>
       @endif
       <br>
-      <form id="tambahPengajuan" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/pengajuan/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+      <form id="tambahPengajuan" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/pengajuan/'.$pengajuan->id_kegiatan.'/revisiAction')}}" enctype="multipart/form-data"  class="form-horizontal">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
  <!-- Main content -->
-
 
               <!-- textarea -->
                 <div class="form-group">
           <label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
           <div class="col-md-8">
-            <textarea id="nama" name="nama" placeholder=" Masukkan Nama" required cols="82" rows="5">
+            <textarea id="nama" name="nama"  value="{{$pengajuan->nama}}" cols="82" rows="5">{{$pengajuan->nama}}
             </textarea>
           </div>
         </div>
@@ -73,7 +72,7 @@ Pengajuan Proposal Kegiatan Akademik
                 <div class="form-group">
           <label for="nama" class="col-sm-2 control-label">Latar Belakang</label>
           <div class="col-md-8">
-            <textarea id="history" name="history" placeholder=" Masukkan Latar Belakang" required cols="82" rows="5">
+        <textarea id="history" name="history"  value="{{$pengajuan->history}}"  cols="82" rows="5">{{$pengajuan->history}}
             </textarea>
           </div>
         </div>
@@ -82,7 +81,7 @@ Pengajuan Proposal Kegiatan Akademik
                 <div class="form-group">
           <label for="nama" class="col-sm-2 control-label">Tujuan Kegiatan</label>
           <div class="col-md-8">
-            <textarea id="tujuan" name="tujuan" placeholder="Masukkan Tujuan Kegiatan" required cols="82" rows="5">
+            <textarea id="tujuan" name="tujuan" value="{{$pengajuan->tujuan}}" cols="82" rows="5">{{$pengajuan->tujuan}}
             </textarea>
           </div>
         </div>
@@ -91,7 +90,7 @@ Pengajuan Proposal Kegiatan Akademik
                 <div class="form-group">
           <label for="nama" class="col-sm-2 control-label">Mekanisme Kegiatan</label>
           <div class="col-md-8">
-            <textarea id="mekanisme" name="mekanisme" placeholder=" Masukkan Mekanisme Kegiatan" required cols="82" rows="5">
+            <textarea id="mekanisme" name="mekanisme" value="{{$pengajuan->mekanisme}}" cols="82" rows="5">{{$pengajuan->mekanisme}}
             </textarea>
           </div>
         </div>
@@ -100,24 +99,23 @@ Pengajuan Proposal Kegiatan Akademik
         <div class="form-group">
           <label for="nama" class="col-sm-2 control-label">Tanggal Pengajuan</label>
           <div class="col-md-7">
-            <input type="text" class="form-control input-lg" id="datepicker" name="tglpengajuan" placeholder="Masukkan Tanggal" required>
+            <input type="text" class="form-control input-lg" id="datepicker" name="tglpengajuan" value="{{$pengajuan->tglpengajuan}}" >
           </div>
         </div>
 
         <div class="form-group">
           <label for="nama" class="col-sm-2 control-label">Ruang Pengajuan</label>
           <div class="col-md-7">
-            <input type="text" class="form-control input-lg" id="rpengajuan" name="rpengajuan" placeholder="Masukkan Ruang Pengajuan" required>
+            <input type="text" class="form-control input-lg" id="rpengajuan" name="rpengajuan" value="{{$pengajuan->rpengajuan}}">
           </div>
         </div>
 
         <div class="form-group">
                   <label for="exampleInputFile">Poster</label>
-                  <input type="file" id="gambar" name="url_poster">
+                  <input type="file" id="gambar" name="url_poster" value="{{$pengajuan->url_poster}}">
                 </div>
                
                 <button type="submit" class="btn btn-primary">Next</button>
-
             </form>
               </div>
           </div>

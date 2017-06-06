@@ -53,7 +53,7 @@ Pengajuan Proposal Kegiatan Akademik
       </div>
       @endif
       <br>
-      <form id="tambahPengajuan" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/pengajuan/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+      <form id="tambahPengajuan" method="post" action="{{url('dosen/pengelolaan-kegiatan/pengajuan/create')}}" enctype="multipart/form-data"  class="form-horizontal">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
  <!-- Main content -->
