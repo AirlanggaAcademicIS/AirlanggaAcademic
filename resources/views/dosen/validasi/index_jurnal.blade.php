@@ -50,6 +50,8 @@ Jurnal
       <th style="text-align:center">Tanggal Jurnal</th>
       <th style="text-align:center">Volume</th>
       <th style="text-align:center">Penulis Ke</th>
+      <th style="text-align:center">File Jurnal</th>
+      <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
@@ -62,6 +64,8 @@ Jurnal
       <td width="10%" style="text-align:center">{{$jurnal->tanggal_jurnal}}</td>
       <td width="10%" style="text-align:center">{{$jurnal->volume_jurnal}}</td>
       <td width="10%" style="text-align:center">{{$jurnal->penulis_ke}}</td>
+      <td width="20%" style="text-align:center" > <a href="{{URL::asset('/img/dosen/'.$jurnal->file_jurnal)}}" class="btn btn-primary btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Download</a> </td>
       <td width="20%" style="text-align:center" ><a href="{{url('/dosen/validasi/jurnal/'.$jurnal->jurnal_id.'/terima/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-pencil-square-o"></i> Terima</a>
         <a href="{{url('/dosen/validasi/jurnal/'.$jurnal->jurnal_id.'/tolak/')}}" class="btn btn-warning btn-xs">
