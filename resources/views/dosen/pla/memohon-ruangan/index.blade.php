@@ -156,7 +156,7 @@ Memohon Ruangan
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
 $( function() {
-    var date = $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    var date = $('#datepicker').datepicker({ dateFormat: 'DD, yy-mm-dd' }).val();
 
   } );
   </script>

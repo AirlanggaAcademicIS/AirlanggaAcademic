@@ -84,7 +84,7 @@ Riwayat Konsultasi
   </tbody>
 </table>
 
-	<div class="form-group text-left">
+	<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" formmethod="get" class="btn btn-danger btn-lg" formaction="{{url('karyawan/monitoring-skripsi/konsultasi')}}">
 							Back

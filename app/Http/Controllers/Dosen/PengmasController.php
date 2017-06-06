@@ -14,7 +14,7 @@ use Response;
 use App\PengmasDosen;
 use Illuminate\Support\Facades\DB;
 use Auth;
-
+use App\Pengmas_Dsn;
 class PengmasController extends Controller
 {
 
@@ -48,13 +48,15 @@ class PengmasController extends Controller
     }
 
     public function createAction(Request $request)
-    {
+    {   $user = Auth::user()->username;
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
         $dosen = $request->input();
         $dosen['status_pengmas'] = 0 ;
         $dosen['file_pengmas'] = time() .'.'.$request->file('file_pengmas')->getClientOriginalExtension();
         PengmasDosen::create($dosen);
         $file = $request->file('file_pengmas')->move("img/dosen/",$dosen['file_pengmas']);
+        $id = PengmasDosen::where('nama_kegiatan', $request->input('nama_kegiatan'))->first();
+        Pengmas_Dsn::create(['nip' => $user,'kegiatan_id'  => $id->kegiatan_id]);
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Pengmas berhasil ditambahkan');
 
@@ -99,7 +101,6 @@ class PengmasController extends Controller
         $pengmas->nama_kegiatan = $request->input('nama_kegiatan');
         $pengmas->tempat_kegiatan = $request->input('tempat_kegiatan');
         $pengmas->tanggal_kegiatan = $request->input('tanggal_kegiatan');
-        $pengmas->status_pengmas = $request->input('status_pengmas');
         $pengmas->save();
 
         // Notifikasi sukses

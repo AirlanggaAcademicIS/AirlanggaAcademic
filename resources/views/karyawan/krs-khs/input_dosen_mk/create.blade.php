@@ -26,8 +26,10 @@ Input Dosen Mata Kuliah
 						<div class="form-group row">
                                 <div class="col-xs-4">
                                     <select class="form-control" name = "mk">
+
                                        <option>Pilih Matkul</option>
                                       @foreach($mk_ditawarkan as $i => $m) 
+
                                         <option value="{{$m->id_mk_ditawarkan}}">{{$m->nama_matkul}}</option>
                                       @endforeach
                                     </select>

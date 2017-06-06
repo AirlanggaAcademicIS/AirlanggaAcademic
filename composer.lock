@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "63f22c69dcca59175b50acad4c0885bf",
+=======
+    "content-hash": "7b963a7c6b70e3057fa4a4a131849dfc",
+>>>>>>> 434715c0fc6b59de11a352e89e9f3ff00b5870bc
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -2323,7 +2327,11 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-06-02T19:24:58+00:00"
+=======
+            "time": "2017-05-28T14:08:56+00:00"
+>>>>>>> 434715c0fc6b59de11a352e89e9f3ff00b5870bc
         },
         {
             "name": "symfony/css-selector",
@@ -2432,7 +2440,11 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-06-01T21:01:25+00:00"
+=======
+            "time": "2017-05-27T16:02:27+00:00"
+>>>>>>> 434715c0fc6b59de11a352e89e9f3ff00b5870bc
         },
         {
             "name": "symfony/dom-crawler",
@@ -2551,7 +2563,11 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-06-04T18:15:29+00:00"
+=======
+            "time": "2017-05-04T12:23:07+00:00"
+>>>>>>> 434715c0fc6b59de11a352e89e9f3ff00b5870bc
         },
         {
             "name": "symfony/finder",
@@ -2600,7 +2616,11 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-06-01T21:01:25+00:00"
+=======
+            "time": "2017-05-25T23:10:31+00:00"
+>>>>>>> 434715c0fc6b59de11a352e89e9f3ff00b5870bc
         },
         {
             "name": "symfony/http-foundation",
@@ -2653,7 +2673,11 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-06-05T13:06:51+00:00"
+=======
+            "time": "2017-05-25T13:39:26+00:00"
+>>>>>>> 434715c0fc6b59de11a352e89e9f3ff00b5870bc
         },
         {
             "name": "symfony/http-kernel",
@@ -2739,7 +2763,11 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-06-05T17:31:57+00:00"
+=======
+            "time": "2017-05-29T21:02:12+00:00"
+>>>>>>> 434715c0fc6b59de11a352e89e9f3ff00b5870bc
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -3033,7 +3061,11 @@
                 "uri",
                 "url"
             ],
+<<<<<<< HEAD
             "time": "2017-06-02T09:51:43+00:00"
+=======
+            "time": "2017-05-24T11:35:23+00:00"
+>>>>>>> 434715c0fc6b59de11a352e89e9f3ff00b5870bc
         },
         {
             "name": "symfony/translation",
@@ -3166,7 +3198,11 @@
                 "debug",
                 "dump"
             ],
+<<<<<<< HEAD
             "time": "2017-06-02T09:10:29+00:00"
+=======
+            "time": "2017-05-22T17:32:12+00:00"
+>>>>>>> 434715c0fc6b59de11a352e89e9f3ff00b5870bc
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -3214,6 +3250,60 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2016-09-20T12:50:39+00:00"
+<<<<<<< HEAD
+=======
+        },
+        {
+            "name": "uxweb/sweet-alert",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/uxweb/sweet-alert.git",
+                "reference": "d32915471455061d6257448cbb8de16ecc521331"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/uxweb/sweet-alert/zipball/d32915471455061d6257448cbb8de16ecc521331",
+                "reference": "d32915471455061d6257448cbb8de16ecc521331",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/session": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.5",
+                "phpunit/phpunit": "^5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "UxWeb\\SweetAlert\\": "src/SweetAlert/"
+                },
+                "files": [
+                    "src/SweetAlert/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Uziel Bueno",
+                    "email": "ux.webs@gmail.com"
+                }
+            ],
+            "description": "A simple PHP package to show Sweet Alerts with the Laravel Framework",
+            "keywords": [
+                "alert",
+                "laravel",
+                "notifier",
+                "sweet"
+            ],
+            "time": "2017-03-27T03:54:49+00:00"
+>>>>>>> 434715c0fc6b59de11a352e89e9f3ff00b5870bc
         },
         {
             "name": "vlucas/phpdotenv",
@@ -4686,7 +4776,11 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-06-02T22:05:06+00:00"
+=======
+            "time": "2017-05-28T10:56:20+00:00"
+>>>>>>> 434715c0fc6b59de11a352e89e9f3ff00b5870bc
         },
         {
             "name": "webmozart/assert",

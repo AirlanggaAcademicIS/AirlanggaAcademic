@@ -59,7 +59,7 @@ class InputDosenMKController extends Controller
 
     public function create()
     {
-      
+        $tahun = TahunAkademik::count();    
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'input_dosen_mk',
@@ -71,6 +71,7 @@ class InputDosenMKController extends Controller
             'mk_ditawarkan' => DB::table('mk_ditawarkan')
             ->join('mata_kuliah', 'mata_kuliah.id_mk', '=', 'mk_ditawarkan.matakuliah_id')
             ->select('mk_ditawarkan.id_mk_ditawarkan', 'mata_kuliah.nama_matkul')
+            ->where('thn_akademik_id',$tahun)
             ->get(),
             'mk_diajar' => MKDiajar::all(),
         ];
@@ -105,23 +106,9 @@ class InputDosenMKController extends Controller
         Session::put('alert-success', 'Dosen berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/krs-khs/input-dosen-mk/view');
+        return Redirect::to('karyawan/krs-khs/dosen-mk/view');
     }
 
-    public function delete($id)
-    {
-        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $biodata_dosen = BiodataDosen::find($id);
-
-        // Menghapus biodata yang dicari tadi
-        $biodata_dosen->delete();
-
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Biodata berhasil dihapus');
-
-        // Kembali ke halaman sebelumnya
-        return Redirect::back();     
-    }
 
    public function edit($mk_ditawarkan_id)
     {
@@ -174,5 +161,6 @@ class InputDosenMKController extends Controller
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/krs-khs/input-dosen-mk/view');
     }
+
 
 }

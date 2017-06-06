@@ -13,6 +13,7 @@ use Response;
 use Illuminate\Support\Facades\DB;
 // Tambahkan model yang ingin dipakai
 use App\JadwalPermohonan;
+use App\JadwalKuliah;
 use App\PermohonanRuang;
 use App\Models\KrsKhs\Ruang;
 use App\Jam;
@@ -37,6 +38,7 @@ class MohonRuanganController extends Controller
             ->join('hari', 'jadwal_permohonan.hari_id', '=', 'hari.id_hari')
             ->join('jam', 'jadwal_permohonan.jam_id', '=', 'jam.id_jam')
             ->select('*')
+            ->orderBy('tgl_pinjam', 'desc')
             ->get(),
         ];  
         
@@ -46,9 +48,16 @@ class MohonRuanganController extends Controller
 
     public function createAction(Request $request)
     {
+        $date = explode(', ', $request->input('tgl_pinjam'));
+        if ($date[0] == 'Monday') $hari = 1;
+        if ($date[0] == 'Tuesday') $hari = 2;
+        if ($date[0] == 'Wednesday') $hari = 3;
+        if ($date[0] == 'Thursday') $hari = 4;
+        if ($date[0] == 'Friday') $hari = 5;
+        if ($date[0] == 'Saturday') $hari = 6;
+        
         // Cek jam tersedia
         $cektanggal = $request->input('tgl_pinjam');
-
         $cekjam = $request->input('jam_id');
         $cekruang = $request->input('ruang_id');
 
@@ -59,7 +68,15 @@ class MohonRuanganController extends Controller
             ->join('jam', 'jadwal_permohonan.jam_id', '=', 'jam.id_jam')
             ->select('*')
             ->get();
+        $fixed = JadwalKuliah::all();
 
+        foreach ($fixed as $jk) {
+            if ($jk->ruang_id == $cekruang && $jk->hari_id == $hari && $jk->jam_id == $cekjam) {
+                # code...
+                Session::put('alert-danger', 'Ruangan telah terpakai');
+                return Redirect::back();
+            }
+        }
         foreach ($used as $u) {
             if ($u->ruang_id == $cekruang && $u->tgl_pinjam == $cektanggal && $u->jam_id == $cekjam) {
                 # code...
