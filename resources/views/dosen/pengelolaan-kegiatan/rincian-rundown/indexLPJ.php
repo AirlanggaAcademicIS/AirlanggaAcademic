@@ -29,7 +29,7 @@ Rincian Rundown
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
   @foreach($kegiatan as $id)
-  <a href="{{url('dosen/pengelolaan-kegiatan/rincian-rundown/'.$id->id_kegiatan.'/create')}}" type="button" class="btn btn-info btn-md" >
+  <a href="{{url('dosen/pengelolaan-kegiatan/rincian-rundown/'.$id->id_kegiatan.'/createLPJ')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Rincian Rundown Kegiatan</a>
 @endforeach
 </div>
@@ -61,12 +61,8 @@ Rincian Rundown
 
 
   @foreach($kegiatan as $id)
-         <div class="col-sm-10">
-           
-         </div>
-<a href="{{url('dosen/pengelolaan-kegiatan/rincian-dana/'.$id->id_kegiatan)}}" class="btn btn-success btn-xs"> Simpan</a>
-  
-</div>
+         <div class="col-sm-10"></div>
+<a href="{{url('dosen/pengelolaan-kegiatan/rincian-dana/'.$id->id_kegiatan.'/lpj')}}" class="btn btn-success btn-xs"> Simpan</a>
 @endforeach
 @endsection
 

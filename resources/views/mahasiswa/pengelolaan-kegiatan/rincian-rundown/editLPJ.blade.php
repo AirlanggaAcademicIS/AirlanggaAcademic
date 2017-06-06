@@ -46,45 +46,26 @@ Tambah Rincian Rundown Kegiatan
 			</div>
 			@endif
 			<br>
-			@foreach($kegiatan as $index)
-			<form id="tambahRundown" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/rincian-rundown/'.$index->id_kegiatan.'/createActionProposal')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahRundown" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/rincian-rundown/'.$rincianrundown->id_rundown.'/editActionLPJ')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-				<!-- 
+				
 				<div class="form-group">
 					<label for="kegiatan_id" class="col-sm-2 control-label">Jenis Kegiatan</label>
 					<div class="col-md-8">
 						<select class="form-control select2" style="width: 100%;" name="kegiatan_id">
-						<option value="">Pilih Kegiatan</option>
-						@foreach($kegiatan as $pk)
-						<option value="{{$pk->id_kegiatan}}">{{$pk->nama}}</option>
-						@endforeach
+						<option value="{{$rincianrundown->kegiatan_id}}">{{$rincianrundown->rincianRundown['nama']}}</option>
 						</select>
 						
-						<input type="text" class="form-control input-lg" id="kegiatan_id" name="kegiatan_id" placeholder="Masukkan Nomor Kegiatan" required>
 					</div>
 				</div>
 
-				<! Menampilkan input text biasa
-				
-				<div class="form-group">
-					<label for="kategori_rundown" class="col-sm-2 control-label">Kategori Kegiatan</label>
-					<div class="col-md-8">		
-						<select class="form-control select" style="width: 100%;" name="kategori_rundown" placeholder="Pilih Kategori" required>
-						<option value="">Pilih Kategori</option>
-						<option value="0">Proposal</option>
-						<option value="1">LPJ</option>
-						</select>
-					</div>
-				</div>
- -->
 				<!-- Menampilkan input text biasa -->
-				
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
 					<div class="col-md-6">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama Kegiatan" required>
+						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama Kegiatan" value="{{$rincianrundown->nama}}" required>
 					</div>
 				</div>
 
@@ -93,11 +74,10 @@ Tambah Rincian Rundown Kegiatan
 				<div class="form-group">
 					<label for="waktu" class="col-sm-2 control-label">Waktu Kegiatan</label>
 					<div class="col-md-6">
-					<input type="datetime-local" name="waktu">
+					<input type="datetime-local" name="waktu" value="{{$rincianrundown->waktu}}">
 						<!-- <input type="text" class="form-control input-lg" id="datepicker" name="waktu" placeholder="Masukkan Waktu Kegiatan" required> -->
 					</div>
 				</div>
-
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
@@ -107,7 +87,6 @@ Tambah Rincian Rundown Kegiatan
 					</div>
 				</div>
 			</form>
-			@endforeach
 		</div>
 	</div>
 </div>

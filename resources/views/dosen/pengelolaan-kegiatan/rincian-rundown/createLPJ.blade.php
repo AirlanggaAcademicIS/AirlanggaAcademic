@@ -47,7 +47,7 @@ Tambah Rincian Rundown Kegiatan
 			@endif
 			<br>
 			@foreach($kegiatan as $index)
-			<form id="tambahRundown" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/rincian-rundown/'.$index->id_kegiatan.'/createActionProposal')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahRundown" method="post" action="{{url('dosen/pengelolaan-kegiatan/rincian-rundown/'.$index->id_kegiatan.'/createActionLPJ')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
