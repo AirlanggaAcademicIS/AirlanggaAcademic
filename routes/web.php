@@ -110,5 +110,24 @@ Route::group(['prefix' => 'mahasiswa'], function() {
 
     //Surat Masuk Mhs
     Route::get('surat-masuk','mahasiswa\PLA\Surat_MasukController@index');
+
+    //Fitur Krs Mahasiswa
+        Route::group(['prefix' => 'krskhs'], function(){
+            //Untuk folder Krs
+            Route::group(['prefix' => 'krs'], function(){
+
+        // Menampilkan form tambah biodata
+        Route::get('index','Mahasiswa\KrsKhs\KrsMhsController@create');
+
+        // Menghapus biodata sesuai id yang dipilih
+        Route::get('delete/{id}','Mahasiswa\KrsKhs\KrsMhsController@delete');
+
+        // Menambahkan form yg di isi tadi ke tabel biodata
+        Route::get('create/{id}','Mahasiswa\KrsKhs\KrsMhsController@createAction');
+
+        // Mengupdate biodata dengan isi dari form
+        Route::get('editAction/{$id}','Mahasiswa\KrsKhs\KrsMhsController@editAction');
+            });
+        });
     });
 }); 
