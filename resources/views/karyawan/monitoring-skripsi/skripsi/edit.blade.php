@@ -54,7 +54,7 @@ Edit Data Skripsi
 				<div class="form-group">
 					<label for="NIM_id" class="col-sm-2 control-label">NIM</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-md" id="NIM_id" name="NIM_id" placeholder="Masukkan NIM" value="{{$skripsi->NIM_id}}" required>
+						<input type="text" class="form-control input-md" id="NIM_id" name="NIM_id" placeholder="Masukkan NIM" value="{{$skripsi->NIM_id}}" readonly="">
 					</div>
 				</div>
 				<div class="form-group">

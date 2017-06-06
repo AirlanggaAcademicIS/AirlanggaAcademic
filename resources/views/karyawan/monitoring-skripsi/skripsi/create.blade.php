@@ -48,10 +48,11 @@ Tambah Data Skripsi
 			<br>
 			<form id="tambahSkrispi" method="post" action="{{url('/karyawan/monitoring-skripsi/skripsi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<input type="hidden" name="NIM_id" id="NIM_id" value="">
 				<div class="form-group">
-					<label for="NIM_id" class="col-sm-2 control-label">NIM</label>
+					<label for="" class="col-sm-2 control-label">NIM</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-md" id="NIM_id" name="NIM_id" placeholder="Masukkan NIM" required>
+						<input type="text" class="form-control input-md" id="NIM" name="NIM" placeholder="Masukkan NIM" required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -109,7 +110,7 @@ Tambah Data Skripsi
      
     $(document).ready(function () {
 
-   $('#nama').autocomplete({
+   $('#NIM').autocomplete({
 
 
        source:'{!!url('ajax')!!}',
@@ -122,7 +123,7 @@ Tambah Data Skripsi
              select: function (event, ui) {
              var item = ui.item;
                  if(item) {
-                     $("#NIM").val(item.NIM);
+                     $("#NIM_id").val(item.NIM_id);
                  }
              }
 
