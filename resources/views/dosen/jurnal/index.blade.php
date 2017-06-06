@@ -54,7 +54,16 @@ Jurnal
       <td width="15%" style="text-align:center">{{$jurnal->halaman_jurnal}}</td>
       <td width="20%" style="text-align:center">{{$jurnal->bidang_jurnal}}</td>
       <td width="10%" style="text-align:center">{{$jurnal->tanggal_jurnal}}</td>
-      <td width="10%" style="text-align:center">{{$jurnal->status_jurnal}}</td>
+      <td width="10%" style="text-align:center">
+      @if($jurnal->status_jurnal == 0)
+        Unverified
+      @else
+      @if($jurnal->status_jurnal == 1)
+        Verified
+        @else
+        Rejected
+      @endif
+      @endif</td>
       <td width="20%" style="text-align:center" > <a href="{{URL::asset('/img/dosen/'.$jurnal->file_jurnal)}}" class="btn btn-primary btn-xs">
         <i class="fa fa-pencil-square-o"></i> Download</a> </td>
       <td width="10%" style="text-align:center">{{$jurnal->volume_jurnal}}</td>

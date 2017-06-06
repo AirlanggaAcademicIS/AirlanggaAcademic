@@ -45,13 +45,7 @@ Data Mahasiswa Skripsi
    @forelse($skripsi as $i => $skrip) 
     <tr>
       <td width="5%" style="text-align:center">{{ $i+1 }}</td>
-      <td width="15%" style="text-align:center">
-      @foreach($mhs as $m)
-      @if($skrip->NIM_id == $m->nim_id)
-      {{$m->nama_mhs}}
-      @endif
-      @endforeach
-      </td>
+      <td width="15%" style="text-align:center">{{$skrip->mhs['nama_mhs']}}</td>
       <td width="10%" style="text-align:center">{{$skrip->NIM_id}}</td>
       <td width="15%" style="text-align:center">
       @foreach($kbk as $k)
@@ -61,12 +55,20 @@ Data Mahasiswa Skripsi
       @endforeach
       </td>
       <td width="20%" style="text-align:center">{{$skrip->Judul}}</td>
-      <td width="10%" style="text-align:center" ><a href="{{url('karyawan/monitoring-skripsi/berkas/'.$skrip->NIM_id.'/download')}}" class="btn btn-info btn-xs">
+      <td width="10%" style="text-align:center" >
+      @if($skrip->upload_berkas_proposal != "")
+      <a href="{{url('karyawan/monitoring-skripsi/berkas/'.$skrip->NIM_id.'/download')}}" class="btn btn-info btn-xs">
         <i class="fa fa-download"></i> Download</a>
+        @else Belum ada file
+        @endif
         </td>
         <td width="10%" style="text-align:center" >
+        @if($skrip->upload_berkas_skripsi != "")
         <a href="{{url('karyawan/monitoring-skripsi/berkas/'.$skrip->NIM_id.'/download-skripsi')}}"class="btn btn-primary btn-xs">
         <i class="fa fa-download"></i> Download</a>
+        @else
+        Belum ada file
+        @endif
         </td>
     </tr>
      @empty

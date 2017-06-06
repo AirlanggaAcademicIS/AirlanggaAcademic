@@ -26,8 +26,10 @@ Input Dosen Mata Kuliah
 						<div class="form-group row">
                                 <div class="col-xs-4">
                                     <select class="form-control" name = "mk">
+
+                                       <option>Pilih Matkul</option>
                                       @foreach($mk_ditawarkan as $i => $m) 
-                                        <option>Pilih Matkul</option>
+
                                         <option value="{{$m->id_mk_ditawarkan}}">{{$m->nama_matkul}}</option>
                                       @endforeach
                                     </select>
@@ -44,8 +46,8 @@ Input Dosen Mata Kuliah
 						<div class="form-group row">
                                 <div class="col-xs-4">
                                     <select class="form-control" name = "dosen_pjmk" required>
-                                        @foreach($dosen as $i => $d) 
                                         <option>Pilih Dosen</option>
+                                        @foreach($dosen as $i => $d) 
                                         <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
                                       @endforeach
                                     </select>
@@ -60,8 +62,8 @@ Input Dosen Mata Kuliah
             <div class="form-group row">
                                 <div class="col-xs-4">
                                     <select class="form-control" name = "dosen_pendamping" required>
-                                        @foreach($dosen as $i => $d) 
                                         <option>Pilih Dosen</option>
+                                        @foreach($dosen as $i => $d) 
                                         <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
                                       @endforeach
                                     </select>
