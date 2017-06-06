@@ -43,7 +43,10 @@ class InputDosenMKController extends Controller
         $data = [
         'page' => 'tabel',
         'dosen' => BiodataDosen::all(),
-        'tabel' => MKDiajar::all(),
+        'tabel' =>DB::table('mk_diajar')
+                    ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diajar.mk_ditawarkan_id') 
+                    ->where('mk_ditawarkan.thn_akademik_id',$thn)
+                    ->get(),
             'mk_ditawarkan' => MKDitawarkan::all(),
             'mk' => MK::all(),
         'periode' => TahunAkademik::where('id_thn_akademik',$thn)->first(),
@@ -105,4 +108,59 @@ class InputDosenMKController extends Controller
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/krs-khs/dosen-mk/view');
     }
+
+
+   public function edit($mk_ditawarkan_id)
+    {
+        $data = [
+        'page' => 'dosen_mk',
+            // Mencari ruang berdasarkan id
+            'dosen_mk' => MKDiajar::where('mk_ditawarkan_id',$mk_ditawarkan_id)
+                                    ->where('status','0')
+                                    ->first(),
+            'dosen_mk1' => MKDiajar::where('mk_ditawarkan_id',$mk_ditawarkan_id)
+                                    ->where('status','1')
+                                    ->orderBy('mk_ditawarkan_id','desc')->first(),
+        
+        'dosen' => BiodataDosen::all(),
+        'tabel' => MKDiajar::all(),
+        'mk_ditawarkan' => MKDitawarkan::where('id_mk_ditawarkan',$mk_ditawarkan_id)->first(),
+        'mk' => MK::all(),
+        'tahun'=>TahunAkademik::all()
+        ];
+
+        // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
+        return view('karyawan.krs-khs.input_dosen_mk.edit',$data);
+    }
+
+    public function editAction($mk_ditawarkan_id,$dosenPJMK,$dosenPendamping,$status,$status2,Request $request)
+    {
+        
+        
+            $dosen_mk = MKDiajar::where([
+           ['mk_ditawarkan_id','=',$mk_ditawarkan_id], 
+           ['dosen_id','=',$dosenPJMK],
+           ['status','=',$status]
+            ])->update(
+            ['dosen_id'=> $request->input('dosen_pjmk')],
+            ['status'=> '0']
+            );
+
+            $dosen_mk2 = MKDiajar::where([
+           ['mk_ditawarkan_id','=',$mk_ditawarkan_id], 
+           ['dosen_id','=',$dosenPendamping],
+           ['status','=',$status2]
+            ])->update(
+            ['dosen_id'=> $request->input('dosen_pendamping')],
+            ['status'=> '1']
+            );
+        
+        // Notifikasi sukses
+        Session::put('alert-success', 'Dosen mata kuliah berhasil diedit');
+
+        // Kembali ke halaman mahasiswa/biodata
+        return Redirect::to('karyawan/krs-khs/input-dosen-mk/view');
+    }
+
+
 }

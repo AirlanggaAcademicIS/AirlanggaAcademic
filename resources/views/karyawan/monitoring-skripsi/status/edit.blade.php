@@ -63,14 +63,17 @@ Edit Status
 						<input type="text" class="form-control input-lg" id="keterangan" name="keterangan" placeholder="Masukkan Keterangan" value="{{$MonsiStatus->keterangan}}" required>
 					</div>
 				</div>
-				<div class="form-group text-center">
-					<div class="col-md-8 col-md-offset-2">
-					<button type="submit" class="btn btn-primary btn-lg">
-							Confirm
+						<button type="submit" class="btn btn-primary" style="margin-left: 500px;">
+								Simpan
+							</button>
+				</form>
+				<br>
+					<a href="{{url('karyawan/monitoring-skripsi/status')}}">
+						<button class="btn btn-danger" style="margin-left: 500px;">
+						
+								Kembali
 						</button>
-					</div>
-				</div>
-			</form>
+					</a>
 		</div>
 	</div>
 </div>

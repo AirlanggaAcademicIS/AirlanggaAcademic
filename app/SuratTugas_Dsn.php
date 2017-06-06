@@ -6,15 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class SuratTugas_Dsn extends Model
 {
-
-    protected $table = 'surat_tugas_dosen';
+ 	protected $table = 'surat_tugas_dosen';
     protected $primaryKey = 'nip';
     protected $fillable = [
     'nip',
     'surat_id',
    ];
 
- 
+ 	public function stugas(){
+   	return $this->belongsTo('App\SuratTugasDosen','surat_id');
+   }
+
 }
 
   

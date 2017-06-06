@@ -26,7 +26,7 @@ Input Krs
   @endif
   @endforeach
 </div>
-<form action="{{url('mahasiswa/krskhs/krs/create')}}" method="get">
+<!-- <form action="{{url('mahasiswa/krskhs/krs/create')}}" method="get">
 <div class="col-md-3" style="padding: 0;">
 <div style="overflow: auto">
   <select class="form-control" id="periode" name="periode">
@@ -43,7 +43,7 @@ Input Krs
   .form-group label{
     text-align: left !important;
   }
-</style>
+</style> -->
   <!-- Ini buat menampilkan notifikasi -->
   <div class="row">
     <div class="col-md-12">
@@ -83,7 +83,7 @@ Input Krs
                  @forelse($krs as $i => $d) 
                   <tr>
                     <td>{{ $i+1 }}</td>
-                    <td width="20%" style="text-align:center">{{$d->jenisMK->jenis_mk}}</td>
+                    <td width="20%" style="text-align:center">{{$d->jenis_mk}}</td>
                     <td width="10%" style="text-align:center">{{$d->kode_matkul}}</td>
                     <td width="20%" style="text-align:center">{{$d->nama_matkul}}</td>
                     <td width="15%" style="text-align:center">{{$d->sks}}</td>
@@ -116,19 +116,18 @@ Input Krs
                   </tr>
                 </thead>
                 <tbody>
-                 @forelse($lihat as $j => $s) 
+                 @forelse($app as $j => $s) 
                   <tr>
                     <td>{{ $j+1 }}</td>
-                    <td width="10%" style="text-align:center">{{$s->mkDitawarkan->mk->kode_matkul}}</td>
-                    <td width="20%" style="text-align:center">{{$s->mkDitawarkan->mk->nama_matkul}}</td>
-                    <td width="15%" style="text-align:center">{{$s->mkDitawarkan->mk->sks}}</td>
+                    <td width="10%" style="text-align:center">{{$s->kode_matkul}}</td>
+                    <td width="20%" style="text-align:center">{{$s->nama_matkul}}</td>
+                    <td width="15%" style="text-align:center">{{$s->sks}}</td>
                     @if($s->is_approve ==0)
                     <td width="15%" style="text-align:center">Belum Diapprove</td>
                     @else
                     <td width="15%" style="text-align:center">Approved</td>
                     @endif
-                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus pilihan mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/'.$s->mk_ditawarkan_id.'/delete')}}" class="btn btn-danger btn-xs">
-                      <i class="fa fa-trash-o"></i>Delete</a>
+                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus pilihan mata kuliah ini?');" href="{{url('/mahasiswa/krskhs/krs/delete/'.$s->mk_ditawarkan_id)}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
                       </td>
                   </tr>
                    @empty

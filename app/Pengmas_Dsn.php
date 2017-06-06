@@ -14,6 +14,6 @@ class Pengmas_Dsn extends Model
    ];
 
    public function pengmas(){
-   	return $this->belongsTo('App\PengmasDosen', 'kegiatan_id');
+   return $this->belongsTo('App\PengmasDosen', 'kegiatan_id');
    }
 }
