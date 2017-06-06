@@ -34,17 +34,15 @@ class PengajuanController extends Controller
     // Function untuk menampilkan tabel
     public function sedangDiproses()
     {
-<<<<<<< HEAD
+
         $nim = Auth::user()->username;
         $nama ="Sedang Di Proses";
-=======
->>>>>>> 378515ecca7607e425ec8d3fdac83a5e95c08394
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'Status',
             'nama_pengajuan' => $nama,
             // Memanggil semua isi dari tabel biodata
-<<<<<<< HEAD
+
             'Status' => DB::table('mhs_kegiatan')
             ->join('pengajuan_kegiatan','pengajuan_kegiatan.id_kegiatan' , '=', 'mhs_kegiatan.kegiatan_id') 
             ->join('biodata_mhs', 'biodata_mhs.nim_id', '=', 'mhs_kegiatan.nim_id') 
@@ -64,9 +62,8 @@ class PengajuanController extends Controller
             ->where('pengajuan_kegiatan.konfirmasi_lpj','=','1')
             ->whereNull('pengajuan_kegiatan.deleted_at')
             ->get(),
-=======
+
             'Status' => PengajuanKegiatan::where('kategori','1') -> where('konfirmasi','0')-> get()
->>>>>>> 378515ecca7607e425ec8d3fdac83a5e95c08394
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
@@ -164,7 +161,7 @@ class PengajuanController extends Controller
 
         
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-<<<<<<< HEAD
+
         // PengajuanKegiatan::create($request->input());
         $pen = $request->input();
         $pen['url_poster']= time() .'.'.$request->file('url_poster')->getClientOriginalExtension();
@@ -179,11 +176,6 @@ class PengajuanController extends Controller
         'rpengajuan'=>$request->input('rpengajuan'), 'url_poster'=>$pen['url_poster']],'id_kegiatan'
         );
 
-=======
-        PengajuanKegiatan::create($request->input());
-
-        // Menampilkan notifikasi pesan sukses
->>>>>>> 378515ecca7607e425ec8d3fdac83a5e95c08394
         Session::put('alert-success', 'Pengajuan Kegiatan berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
@@ -228,17 +220,11 @@ class PengajuanController extends Controller
             $gambar = $request->file('url_poster')->move("img/pengajuan/",$pen['url_poster']);
         
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-<<<<<<< HEAD
+
         $pengajuan->nama = $request->input('nama');
         $pengajuan->konfirmasi_proposal = "0";
         $pengajuan->konfirmasi_lpj = "0";
         $pengajuan->history = $request->input('history');
-=======
-        $pengajuan->nama = $request->input('nama_kegiatan');
-        $pengajuan->kategori = $request->input('kategori');
-        $pengajuan->konfirmasi = $request->input('konfirmasi');
-        $pengajuan->history = $request->input('historyy');
->>>>>>> 378515ecca7607e425ec8d3fdac83a5e95c08394
         $pengajuan->tujuan = $request->input('tujuan');
         $pengajuan->mekanisme = $request->input('mekanisme');
         $pengajuan->tglpengajuan = $request->input('tglpengajuan');
