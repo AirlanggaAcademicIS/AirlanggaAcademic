@@ -54,11 +54,15 @@ Pengmas
       <td width="20%" style="text-align:center" > <a href="{{URL::asset('/img/dosen/'.$pengmas->file_pengmas)}}" class="btn btn-primary btn-xs">
         <i class="fa fa-pencil-square-o"></i> Download</a> </td>
       <td width="10%" style="text-align:center">
-        @if($pengmas->status_pengmas == '1')
+        @if($pengmas->status_pengmas == '0')
+        Unverified
+      @else
+      @if($penelitian->status_penelitian == 1)
         Verified
         @else
-        Unverified
-        @endif
+        Rejected
+      @endif
+      @endif
       </td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus pengmas ini?');" href="{{url('/dosen/pengmas/'.$pengmas->kegiatan_id.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>

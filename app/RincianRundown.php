@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -9,7 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 class RincianRundown extends Model
 {	
 	protected $table = 'rincian_rundown';	
-	protected $primaryKey ='id_rdana';
+
+	protected $primaryKey ='id_rundown';
 	protected $fillable = [
 		'id_rundown',
 		'kegiatan_id',
@@ -24,8 +26,12 @@ class RincianRundown extends Model
 public function rincianRundown()
 {
 	# code...
-	return $this->belongsTo('App\PengajuanKegiatan','kegiatan_id');
+	return $this->belongsTo('App\KonfirmasiKegiatan','kegiatan_id');
 }
 
 
 }
+
+
+		
+

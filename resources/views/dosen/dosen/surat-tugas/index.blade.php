@@ -28,7 +28,7 @@ Surat Tugas
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('/dosen/dosen/surat-tugas/create')}}" type="button" class="btn btn-info btn-md" >
+  <a href="{{url('/dosen/surat-tugas/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Surat Tugas</a>
 </div>
 <div style="overflow: auto">
@@ -48,13 +48,13 @@ Surat Tugas
       <td>{{ $i+1 }}</td>
       <td width="20%" style="text-align:center">{{$surattug->no_surat}}</td>
       <td width="15%" style="text-align:center">{{$surattug->tanggal_surat}}</td>
-      <td width="20%" style="text-align:center">{{$surattug->keterangan_surat}}</td>
+      <td width="20%" style="text-align:center">{{$surattug->keterangan_sk}}</td>
       <td width="20%" style="text-align:center" > <a href="{{URL::asset('/img/dosen/'.$surattug->file_sk)}}" class="btn btn-primary btn-xs">
         <i class="fa fa-pencil-square-o"></i> Download</a> </td>
       </td>
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus surat tugas ini?');" href="{{url('/dosen/dosen/surat-tugas'.$surattug->surat_id.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus surat tugas ini?');" href="{{url('/dosen/surat-tugas/'.$surattug->surat_id.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('/dosen/dosen/surat-tugas/'.$surattug->surat_id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('/dosen/surat-tugas/'.$surattug->surat_id.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>
     </tr>

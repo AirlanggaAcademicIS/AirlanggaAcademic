@@ -86,7 +86,7 @@ Tambah Notulensi
   <div class="form-group">
 
          <label class="col-sm-2 control-label"
-         for="permohonan_ruang_id">Ruangan:</label>
+         for="permohonan_ruang_id">Ruangan</label>
          <div class="col-sm-9">
         <select class="form-control" >
     <option>Pilih Ruang</option>
@@ -108,18 +108,18 @@ Tambah Notulensi
     
 
     <div class="form-group">
-      <label class="control-label col-sm-2" for="waktu_pelaksanaan" >Tanggal Pelaksanaan:</label>
+      <label class="control-label col-sm-2" for="waktu_pelaksanaan" >Tanggal Rapat :</label>
         <div class="col-sm-9">
         <input type="text" id="waktu_pelaksanaan"  placeholder="dd-mm-yyyy" style="width: 100%; height: 16px; font-size: 16px; line-height: 18px; border: 1px solid #dddddd; padding: 17px;" 
         value="{{$r->waktu_pelaksanaan}}" disabled>
         </div>
     </div>
        <div class="form-group">
-    <label for="nip_id" class="col-sm-2 control-label">Ketua Rapat:</label>
+    <label for="nip_id" class="col-sm-2 control-label">Ketua Rapat</label>
     <div class="col-sm-9">
-    <select class="form-control" name="nip_id">
+    <select class="form-control" name="nip_id" required="">
     @foreach($dosen as $i => $m)
-    <option>Pilih Dosen</option>
+    <option></option>
     <option value="{{$m->nip}}">{{$m->nama_dosen}}</option>
       @endforeach
            </select>
@@ -128,20 +128,20 @@ Tambah Notulensi
     <div class="form-group">
     <label for="agenda_rapat"class="col-sm-2 control-label">Agenda Rapat:</label>
     <div class="col-sm-9">
-      <textarea class="form-control" rows="5" enable>{{$r->agenda_rapat}}</textarea>
+      <textarea class="form-control" rows="5" disabled>{{$r->agenda_rapat}}</textarea>
     </div>
   </div>
 @endforeach
      <div class="form-group">
   <label for="hasil_pembahasan"class="col-sm-2 control-label">Hasil Rapat:</label>
   <div class="col-sm-9">
-  <textarea class="form-control" rows="5" name="hasil_pembahasan" enable></textarea>
+  <textarea class="form-control" rows="5" name="hasil_pembahasan" required></textarea>
 </div>
     </div>
     <div class="form-group">
   <label for="deskripsi_rapat"class="col-sm-2 control-label">Deskripsi Rapat:</label>
   <div class="col-sm-9">
-  <textarea class="form-control" rows="5" name="deskripsi_rapat" enable>
+  <textarea class="form-control" rows="5" name="deskripsi_rapat" required>
     
   </textarea>
 </div>

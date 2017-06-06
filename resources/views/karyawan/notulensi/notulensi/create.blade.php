@@ -56,14 +56,14 @@ Tambah Notulensi
     <label for="nip_id" class="col-sm-1 control-label"></label> 
     <div class="col-sm-9"> 
     
-    <select class="form-control" name="id_notulen"> 
-    <option>Pilih Nama Rapat</option>
+    <select class="form-control" name="id_notulen" required> 
+    <option></option>
    @foreach($nama_rapat as $i => $m)  
     <option 
      
     value="{{$m->id_notulen}}">{{$m->nama_rapat}}</option> 
       @endforeach 
-           </select> 
+           </select>
             </div> </div>
             </div>
             <div class="col-sm-4">
@@ -121,7 +121,7 @@ Tambah Notulensi
   <div class="form-group">
     <label for="agenda_rapat"class="col-sm-2 control-label">Agenda Rapat:</label>
     <div class="col-sm-9">
-      <textarea class="form-control" rows="3" name="agenda_rapat"  enable>
+      <textarea class="form-control" rows="3" name="agenda_rapat"  disabled>
         
       </textarea>
     </div>
@@ -129,13 +129,13 @@ Tambah Notulensi
      <div class="form-group">
   <label for="hasil_pembahasan"class="col-sm-2 control-label">Hasil Rapat:</label>
   <div class="col-sm-9">
-  <textarea class="form-control" rows="5" name="hasil_pembahasan" enable></textarea>
+  <textarea class="form-control" rows="5" name="hasil_pembahasan" required></textarea>
 </div>
     </div>
     <div class="form-group">
   <label for="deskripsi_rapat"class="col-sm-2 control-label">Deskripsi Rapat:</label>
   <div class="col-sm-9">
-  <textarea class="form-control" rows="5" name="deskripsi_rapat" enable>
+  <textarea class="form-control" rows="5" name="deskripsi_rapat" required>
     
   </textarea>
 </div>

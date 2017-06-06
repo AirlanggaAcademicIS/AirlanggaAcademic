@@ -93,8 +93,7 @@ Konfirmasi Hasil Rapat
         <div class="form-group">
                 <label for="id_verifikasi" class="col-sm-2 control-label">Status Verifikasi</label>
                 <select name="id_verifikasi" class="form-control select2" required>
-                  <option selected="selected">-----</option>
-                  <option value="0">Belum Verifikasi</option>
+                  <option selected="selected"></option>
                   <option value="1">Sudah Verifikasi</option>
                 </select>
                 </div>

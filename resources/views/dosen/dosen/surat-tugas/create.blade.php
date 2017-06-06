@@ -46,7 +46,7 @@ Tambah Surat Tugas
 			</div>
 			@endif
 			<br>
-			<form id="tambah_surattugas" method="post" action="{{url('/dosen/dosen/surat-tugas/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambah_surattugas" method="post" action="{{url('/dosen/surat-tugas/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->

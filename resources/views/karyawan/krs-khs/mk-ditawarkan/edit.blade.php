@@ -15,6 +15,19 @@ Edit Mata Kuliah Ditawarkan
 @endsection
 
 @section('main-content')
+<!-- include summernote css/js-->
+<div class="flash-message" style="margin-left: -16px;margin-right: -16px; margin-top: 13px;">
+  @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+  @if(Session::has('alert-' . $msg))
+<div class="alert alert-{{ $msg }}">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <p class="" style="border-radius: 0">{{ Session::get('alert-' . $msg) }}</p>
+</div>
+  {!!Session::forget('alert-' . $msg)!!}
+  @endif
+  @endforeach
+</div>
+
 <div class="form-group">
         <label>Tahun Akademik {{$tahun->semester_periode}}</label>
       </div>

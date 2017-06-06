@@ -13,6 +13,7 @@ use Response;
 use Illuminate\Support\Facades\DB;
 // Tambahkan model yang ingin dipakai
 use App\JadwalPermohonan;
+use App\JadwalKuliah;
 use App\PermohonanRuang;
 use App\Models\KrsKhs\Ruang;
 use App\Jam;
@@ -36,6 +37,7 @@ class MohonRuanganController extends Controller
             ->join('ruang', 'jadwal_permohonan.ruang_id', '=', 'ruang.id_ruang')
             ->join('hari', 'jadwal_permohonan.hari_id', '=', 'hari.id_hari')
             ->join('jam', 'jadwal_permohonan.jam_id', '=', 'jam.id_jam')
+            ->orderBy('tgl_pinjam', 'desc')
             ->select('*')
             ->get(),
         ];  
@@ -46,9 +48,16 @@ class MohonRuanganController extends Controller
 
     public function createAction(Request $request)
     {
+        $date = explode(', ', $request->input('tgl_pinjam'));
+        if ($date[0] == 'Monday') $hari = 1;
+        if ($date[0] == 'Tuesday') $hari = 2;
+        if ($date[0] == 'Wednesday') $hari = 3;
+        if ($date[0] == 'Thursday') $hari = 4;
+        if ($date[0] == 'Friday') $hari = 5;
+        if ($date[0] == 'Saturday') $hari = 6;
+
         // Cek jam tersedia
         $cektanggal = $request->input('tgl_pinjam');
-
         $cekjam = $request->input('jam_id');
         $cekruang = $request->input('ruang_id');
 
@@ -59,6 +68,15 @@ class MohonRuanganController extends Controller
             ->join('jam', 'jadwal_permohonan.jam_id', '=', 'jam.id_jam')
             ->select('*')
             ->get();
+        $fixed = JadwalKuliah::all();
+
+        foreach ($fixed as $jk) {
+            if ($jk->ruang_id == $cekruang && $jk->hari_id == $hari && $jk->jam_id == $cekjam) {
+                # code...
+                Session::put('alert-danger', 'Ruangan telah terpakai');
+                return Redirect::back();
+            }
+        }
 
         foreach ($used as $u) {
             if ($u->ruang_id == $cekruang && $u->tgl_pinjam == $cektanggal && $u->jam_id == $cekjam) {
@@ -69,12 +87,12 @@ class MohonRuanganController extends Controller
         }
 
         // Menginsertkan apa yang ada di form ke dalam tabel jadwal permohonan dan permohonan ruang
-
+        
         $permohonan = PermohonanRuang::create([
             'nama' => Auth::user()->name,
             'atribut_verifikasi' => '0',
             'nim_nip' => Auth::user()->username,
-            'tgl_pinjam' => $request->input('tgl_pinjam'),
+            'tgl_pinjam' => $date[1],
             ]);
 
         $sks = $request->input('sks');
@@ -83,7 +101,7 @@ class MohonRuanganController extends Controller
         JadwalPermohonan::create([
             'permohonan_ruang_id' => $permohonan->id_permohonan_ruang,
             'ruang_id' => $request->input('ruang_id'),
-            'hari_id' => $request->input('hari_id'),
+            'hari_id' => $hari,
             'jam_id' => $request->input('jam_id')+$j,
             ]);
             $j++;

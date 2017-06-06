@@ -22,6 +22,8 @@ Status Kegiatan
     <tr>
       <th style="text-align:center">No.</th>
       <th style="text-align:center">Nama Kegiatan</th>
+      <th style="text-align:center">Kategori Kegiatan</th>
+      <th style="text-align:center">Konfirmasi Kegiatan</th>
       <th style="text-align:center">Latar Belakang</th>      
       <th style="text-align:center">Tujuan Kegiatan</th>
       <th style="text-align:center">Mekanisme Kegiatan</th>
@@ -37,16 +39,17 @@ Status Kegiatan
     <tr>
       <td>{{ $i+1 }}</td>
       <td width="15%" style="text-align:center">{{$pen->nama}}</td>
+      <td width="15%" style="text-align:center">{{$pen->kategori}}</td>
+      <td width="15%" style="text-align:center">{{$pen->konfirmasi}}</td>
       <td width="20%" style="text-align:center">{{$pen->history}}</td>
       <td width="10%" style="text-align:center">{{$pen->tujuan}}</td>
       <td width="10%" style="text-align:center">{{$pen->mekanisme}}</td>
       <td width="10%" style="text-align:center">{{$pen->tglpengajuan}}</td>
       <td width="10%" style="text-align:center">{{$pen->tglpelaksanaan}}</td>
-      <td width="10%" style="text-align:center"><img src="{{URL::asset('/img/pengajuan/'.$pen->url_poster)}}" height="100px" width="100px" hspace="5px" vspace="2px"></td>
+      <td width="10%" style="text-align:center">{{$pen->url_poster}}</td>
       <td width="20%" style="text-align:center">
-        <a href="{{url('/pengelolaan-kegiatan/pengajuan/'.$pen->id_kegiatan.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('/pengelolaan-kegiatan/pengajuan/'.$pen->id.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
-        <a href="{{url('/mahasiswa/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan)}}" class="btn btn-success btn-xs"> View Detail</a>
         </td>
     </tr>
      @empty

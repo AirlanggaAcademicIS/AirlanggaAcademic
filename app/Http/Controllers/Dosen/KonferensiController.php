@@ -14,7 +14,7 @@ use Response;
 use App\Konferensi;
 use Auth;
 use Illuminate\Support\Facades\DB;
-
+use App\Konferensi_Dsn;
 
 
 class KonferensiController extends Controller
@@ -57,7 +57,8 @@ class KonferensiController extends Controller
         $dosen['file_konferensi'] = time() .'.'.$request->file('file_konferensi')->getClientOriginalExtension();
         Konferensi::create($dosen);
         $file = $request->file('file_konferensi')->move("img/dosen/",$dosen['file_konferensi']);
-
+        $id = Konferensi::where('nama_konferensi', $request->input('nama_konferensi'))->first();
+        Konferensi_Dsn::create(['nip' => $user,'konferensi_id'  => $id->konferensi_id]);
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Konferensi berhasil ditambahkan');
 
@@ -104,9 +105,7 @@ class KonferensiController extends Controller
         $konferensi->pemapar_konferensi = $request->input('pemapar_konferensi');
         $konferensi->tempat_konferensi = $request->input('tempat_konferensi');
         $konferensi->tanggal_konferensi = $request->input('tanggal_konferensi');
-        $konferensi->file_konferensi = 1 ;
         $konferensi->materi_konferensi = $request->input('materi_konferensi');
-        $konferensi->status_konferensi = 0 ;
         $konferensi->save();
 
         // Notifikasi sukses
