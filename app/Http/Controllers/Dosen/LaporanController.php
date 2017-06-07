@@ -36,7 +36,7 @@ class LaporanController extends Controller
             'penelitian' => Penelitian_Dsn::where('nip',$dosen)->get(),
             'konferensi' => Konferensi_Dsn::where('nip',$dosen)->get(),
             'pengmas' => Pengmas_Dsn::where('nip',$dosen)->get(),
-            'tahun' => $tahun,
+            'tahun' => TahunAkademik::first(),
             'stugas' => SuratTugas_Dsn::where('nip',$dosen)->get()
         ];
         //dd($data);
@@ -55,7 +55,7 @@ class LaporanController extends Controller
             'penelitian' => Penelitian_Dsn::where('nip',$dosen)->get(),
             'konferensi' => Konferensi_Dsn::where('nip',$dosen)->get(),
             'pengmas' => Pengmas_Dsn::where('nip',$dosen)->get(),
-            'tahun' => $tahun,
+            'tahun' => TahunAkademik::first(),
             'stugas' => SuratTugas_Dsn::where('nip',$dosen)->get()
             // 'page' => 'mata-kuliah',
             // 'matkul' => MataKuliah::find($id),
