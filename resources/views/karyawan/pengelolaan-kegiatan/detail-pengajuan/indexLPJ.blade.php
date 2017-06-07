@@ -159,9 +159,9 @@ Detail Pengajuan Kegiatan
   <div class="form-group">
   <div class="col-sm-10">
       
-      <h4>Struktur Panitia Mahasiswa</h4>
+      <h4>Struktur Panitia Dosen</h4>
 
-       <table id="strukturPanitiaMahasiswa" class="table table-striped table-bordered" cellspacing="0">
+       <table id="strukturPanitiaDosen" class="table table-striped table-bordered" cellspacing="0">
        <thead>
           <tr>
             <th width="10%" style="text-align:center">No</th>
@@ -170,11 +170,11 @@ Detail Pengajuan Kegiatan
           </tr>
           </thead>
         <tbody>
-         @forelse($struktur as $i => $p)
+         @forelse($struktur as $i => $d)
           <tr>
             <td width="10%" style="text-align:center">{{$i+1}}</td>
-            <td width="20%" style="text-align:center">{{$p->mahasiswa['nama_mhs']}}</td>
-            <td width="10%" style="text-align:center">{{$p->jabatan['jabatan']}}</td>
+            <td width="20%" style="text-align:center">{{$d->dosen['nama_dosen']}}</td>
+            <td width="10%" style="text-align:center">{{$d->jabatan['jabatan']}}</td>
           </tr>
 
     @empty
@@ -188,7 +188,6 @@ Detail Pengajuan Kegiatan
         </table>
       
 
-      
         <h4>Rincian Rundown Proposal Kegiatan</h4>
 
        <table id="rincianRundownProposal" class="table table-striped table-bordered" cellspacing="0">
