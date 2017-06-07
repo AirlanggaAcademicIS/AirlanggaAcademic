@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Verifikasi Prestasi
+Verifikasi Prestasi Mahasiswa
 @endsection
 
 @section('contentheader_title')
-Verifikasi Prestasi
+Verifikasi Prestasi Mahasiswa
 @endsection
 
 @section('main-content')
@@ -293,14 +293,13 @@ Verifikasi Prestasi
           </div>
         </div>
 
-
             <div class="form-group">
                 <label for="ps_is_verified" class="col-sm-2 control-label">Status Verifikasi</label>
                 <div class="col-md-8">
                 <select name="ps_is_verified" class="form-control select2" required>
                   <option selected="selected">-----</option>
-                  <option value="2">Tidak Diterima</option>
                   <option value="1">Diterima</option>
+                  <option value="2">Ditolak</option>
                 </select>
                 </div>
               </div>

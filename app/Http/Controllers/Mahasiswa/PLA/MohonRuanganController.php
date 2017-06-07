@@ -13,6 +13,7 @@ use Response;
 use Illuminate\Support\Facades\DB;
 // Tambahkan model yang ingin dipakai
 use App\JadwalPermohonan;
+use App\JadwalKuliah;
 use App\PermohonanRuang;
 use App\Models\KrsKhs\Ruang;
 use App\Jam;
@@ -57,7 +58,6 @@ class MohonRuanganController extends Controller
 
         // Cek jam tersedia
         $cektanggal = $request->input('tgl_pinjam');
-
         $cekjam = $request->input('jam_id');
         $cekruang = $request->input('ruang_id');
 
@@ -68,6 +68,15 @@ class MohonRuanganController extends Controller
             ->join('jam', 'jadwal_permohonan.jam_id', '=', 'jam.id_jam')
             ->select('*')
             ->get();
+        $fixed = JadwalKuliah::all();
+
+        foreach ($fixed as $jk) {
+            if ($jk->ruang_id == $cekruang && $jk->hari_id == $hari && $jk->jam_id == $cekjam) {
+                # code...
+                Session::put('alert-danger', 'Ruangan telah terpakai');
+                return Redirect::back();
+            }
+        }
 
         foreach ($used as $u) {
             if ($u->ruang_id == $cekruang && $u->tgl_pinjam == $cektanggal && $u->jam_id == $cekjam) {

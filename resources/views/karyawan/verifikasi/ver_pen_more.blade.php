@@ -6,13 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-<!-- Nama konten -->
-Nama konten 
+Verifikasi Penelitian Mahasiswa
 @endsection
 
 @section('contentheader_title')
-<!-- Nama konten -->
-Nama konten
+Verifikasi Penelitian Mahasiswa
 @endsection
 
 @section('main-content')
@@ -35,7 +33,6 @@ Nama konten
 <div class="row">
   <div class="col-md-12">
     <div class="">
-
       @if (count($errors) > 0)
       <div class="alert alert-danger">
         <ul>
@@ -149,8 +146,8 @@ Nama konten
                 <div class="col-md-8">
                 <select name="is_verified" class="form-control select2" required>
                   <option selected="selected">-----</option>
-                  <option value="2">Tidak Diterima</option>
                   <option value="1">Diterima</option>
+                  <option value="2">Ditolak</option>
                 </select>
                 </div>
               </div>

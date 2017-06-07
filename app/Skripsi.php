@@ -11,6 +11,7 @@ class Skripsi extends Model
 
     protected $table = 'skripsi';
     protected $primaryKey = 'id_skripsi';
+    public $incrementing = false;   
     protected $dates = ['deleted_at'];
     protected $fillable = [
     'NIM_id',

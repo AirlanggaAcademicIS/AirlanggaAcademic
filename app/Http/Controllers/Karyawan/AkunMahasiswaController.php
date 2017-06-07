@@ -132,8 +132,24 @@ class AkunMahasiswaController extends Controller
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
         $akunmahasiswa->nim = $request->input('nim');
         $akunmahasiswa->nip_id = $request->input('nlp_id');
-        $akunmahasiswa->save();
+        
 
+        $biodata = AkunBioMHS::where('nim_id', $nim)->first();
+        $biodata->nama_mhs = $request->input("nama_mhs");
+        $biodata->angkatan = $request->input("angkatan");
+        $biodata->email_mhs = $request->input("email");
+        if ($request->file('foto_mhs') != ""){
+        $biodata->foto_mhs= time() .'.'.$request->file('foto_mhs')->getClientOriginalExtension();
+        $gambar = $request->file('foto_mhs')->move("img/foto_mhs/",$biodata['foto_mhs']);
+        }
+        // $akun = AkunUser::create($request->input()); 
+        $user = AkunUser::where('username', $nim)->first();
+        $user->username = $request->input("nim");
+        $user->email = $request->input("email");
+
+        $akunmahasiswa->save();
+        $biodata->save();
+        $user->save();
         // Notifikasi sukses
         Session::put('alert-success', 'Akun berhasil diedit');
 

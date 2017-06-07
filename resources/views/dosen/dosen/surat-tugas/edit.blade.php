@@ -45,7 +45,7 @@ Edit Surat Tugas
 			</div>
 			@endif
 			<br>
-			<form id="tambahsurattugas" method="post" action="{{url('/dosen/dosen/surat-tugas/'.$surattug->surat_id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahsurattugas" method="post" action="{{url('/dosen/surat-tugas/'.$surattug->surat_id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
@@ -59,7 +59,7 @@ Edit Surat Tugas
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Tanggal Surat</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_surat" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_surat" placeholder="Masukkan Tanggal" value="{{$surattug->tanggal_surat}}" required>
 					</div>
 				</div>
 

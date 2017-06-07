@@ -147,20 +147,21 @@ class KrsMhsController extends Controller
                         ->select('*')
                         ->where('mhs_id','=',$nim_id)
                         ->get(),
+
             'count'=> $count,
             'sum'  => $sum,
             'mean' => $mean,
             'limitSks' => $lmt,
             'ips'  => $count_ips,
             'tahun' => $tahun,
-            // 'mk_diambil' => MKDiambil::where('mhs_id',Auth::user()->username)->get(),
         ];
         // Memanggil tampilan form create
         return view('mahasiswa.krs-khs.krs.create',$data);
     }
 
-    public function createSyarat($id)
+    public function createAction($id)
     {
+        // Menginsertkan apa yang ada di form ke dalam tabel biodata
         $nim_id = Auth::user()->username;
         $count   = DB::table('mk_diambil')
             ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
@@ -227,8 +228,20 @@ class KrsMhsController extends Controller
                 $lmt = 21;
         $syaratSKS = DB::table('mata_kuliah')
         ->select('*')
-        ->where('id_mk', $id)
-        ->first();
+        ->where('mhs_id','=',$nim_id)
+        ->where('mk_ditawarkan.id_mk_ditawarkan','=',$id)
+        ->get();
+
+        $syaratMK = DB::table('mk_diambil')
+        ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
+        ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_ditawarkan.matakuliah_id')
+        ->join('mk_prasyarat','mk_prasyarat.mk_id','=','mata_kuliah.id_mk')
+        ->select('mk_prasyarat.mk_syarat_id')
+        ->where('mhs_id','=',$nim_id)
+        ->where('mk_ditawarkan.id_mk_ditawarkan','=',$id)
+        ->where('mk_diambil.nilai','!=','0')
+        ->where('mk_diambil.is_approve','=','1')
+        ->get();
 
         $jadwal  = DB::table('mk_diambil')
         ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
@@ -236,6 +249,7 @@ class KrsMhsController extends Controller
         ->join('hari','hari.id_hari','=','jadwal_kuliah.hari_id')
         ->join('jam','jam.id_jam','=','jadwal_kuliah.jam_id')
         ->select('hari.id_hari','jam.id_jam')
+        ->where('mk_diambil.mk_ditawarkan_id','=',$id)
         ->where('mhs_id',$nim_id)
         ->where('mk_ditawarkan.id_mk_ditawarkan',$id)
         ->get();
@@ -243,9 +257,11 @@ class KrsMhsController extends Controller
         $batas  = DB::table('mk_diambil')
         ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
         ->join('jadwal_kuliah','jadwal_kuliah.mk_ditawarkan_id','=','mk_diambil.mk_ditawarkan_id')
+        ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_ditawarkan.id_mk_ditawarkan')
         ->join('hari','hari.id_hari','=','jadwal_kuliah.hari_id')
         ->join('jam','jam.id_jam','=','jadwal_kuliah.jam_id')
-        ->select('hari.id_hari','jam.id_jam')
+        ->join('mk_prasyarat','mk_prasyarat.mk_id','=','mata_kuliah.id_mk')
+        ->select('hari.id_hari','jam.id_jam','mk_diambil.mk_ditawarkan_id')
         ->get();
 
         $syaratMK  = DB::table('mk_diambil')
@@ -259,8 +275,8 @@ class KrsMhsController extends Controller
         ->select('*')
         ->get();
         // Syarat 1 : Jadwal
-
-        if ($jadwal != $batas){
+        
+        if ($jadwal == $batas){
             Session::put('alert-danger', 'Terjadi tabrakan jadwal');
             return Redirect::back();
         }
@@ -304,13 +320,23 @@ class KrsMhsController extends Controller
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
        
-        DB::table('mk_diambil')->insert(
-    [
+//         DB::table('mk_diambil')->insert(
+//     [
+
+//         else  
+//             foreach ($batas as $j => $b) {
+//                     if ($syaratMK != $b){
+//                         Session::put('alert-danger', 'Syarat mata kuliah belum terpenuhi');
+//                         return Redirect::back();
+//                         }
+//                     }
+            DB::table('mk_diambil')->insert(
+            [
             'mk_ditawarkan_id' => $id,
             'mhs_id' => Auth::user()->username,
             'is_approve' => 0,
             'nilai' => 0
-    ]);
+            ]);
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Mata Kuliah berhasil ditambahkan');
 
@@ -361,6 +387,6 @@ class KrsMhsController extends Controller
         Session::put('alert-success', 'Mata Kuliah berhasil dihapus');
 
         // Kembali ke halaman mahasiswa/create
-        return Redirect::to('mahasiswa/krs-khs/krs/index');
+        return Redirect::back();
     }
 }

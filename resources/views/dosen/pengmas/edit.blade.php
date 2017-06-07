@@ -45,7 +45,7 @@ Edit Pengmas
 			</div>
 			@endif
 			<br>
-			<form id="tambahpengmas" method="post" action="{{url('/dosen/pengmas/'.$pengmas->id_kegiatan.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahpengmas" method="post" action="{{url('/dosen/pengmas/'.$pengmas->kegiatan_id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
@@ -60,14 +60,14 @@ Edit Pengmas
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Tempat Kegiatan </label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan tempat" value="{{$pengmas->tempat_kegiatan}}" required>
+						<input type="text" class="form-control input-lg" id="nama" name="tempat_kegiatan" placeholder="Masukkan tempat" value="{{$pengmas->tempat_kegiatan}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Tanggal Kegiatan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_kegiatan" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_kegiatan" placeholder="Masukkan Tanggal" value="{{$pengmas->tanggal_kegiatan}}" required>
 					</div>
 				</div>
 

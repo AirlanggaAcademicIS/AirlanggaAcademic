@@ -26,11 +26,27 @@ Input Krs
   @endif
   @endforeach
 </div>
+<<<<<<< HEAD
+=======
+<!-- <form action="{{url('mahasiswa/krskhs/krs/create')}}" method="get">
+<div class="col-md-3" style="padding: 0;">
+<div style="overflow: auto">
+  <select class="form-control" id="periode" name="periode">
+      <option>Tahun Akademik</option>
+      @foreach($tahun as $t) 
+      <option value ="{{$t->id_thn_akademik}}">{{$t->semester_periode}}</option>
+      @endforeach
+  </select>
+            <button class="btn btn-info" type="submit">Pilih</button>
+</div>
+</div>
+</form>
+>>>>>>> 840284dd013a8a94d2a56e923e857d6068745028
 <style>
   .form-group label{
     text-align: left !important;
   }
-</style>
+</style> -->
   <!-- Ini buat menampilkan notifikasi -->
   <div class="row">
     <div class="col-md-12">
@@ -125,7 +141,7 @@ Input Krs
                   </tr>
                 </thead>
                 <tbody>
-                 @forelse($lihat as $j => $s) 
+                 @forelse($app as $j => $s) 
                   <tr>
                     <td width="5%">{{ $j+1 }}</td>
                     <td width="10%" style="text-align:center">{{$s->kode_matkul}}</td>
@@ -136,8 +152,7 @@ Input Krs
                     @else
                     <td width="15%" style="text-align:center">Approved</td>
                     @endif
-                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus pilihan mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/'.$s->mk_ditawarkan_id.'/delete')}}" class="btn btn-danger btn-xs">
-                      <i class="fa fa-trash-o"></i>Delete</a>
+                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus pilihan mata kuliah ini?');" href="{{url('/mahasiswa/krskhs/krs/delete/'.$s->mk_ditawarkan_id)}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
                       </td>
                   </tr>
                    @empty
