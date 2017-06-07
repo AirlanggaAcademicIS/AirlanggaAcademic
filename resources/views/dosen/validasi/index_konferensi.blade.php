@@ -48,7 +48,8 @@ Konferensi
       <th style="text-align:center">Tempat Konferensi</th>          
       <th style="text-align:center">Tanggal Konferensi</th>      
       <th style="text-align:center">Materi Konferensi</th>
-     
+      <th style="text-align:center">File Konferensi</th>
+     <th style="text-align:center">Action</th>
     
      
     </tr>
@@ -62,6 +63,8 @@ Konferensi
       <td width="20%" style="text-align:center">{{$kon->tempat_konferensi}}</td>
       <td width="10%" style="text-align:center">{{$kon->tanggal_konferensi}}</td>
       <td width="10%" style="text-align:center">{{$kon->materi_konferensi}}</td>
+      <td width="20%" style="text-align:center" > <a href="{{URL::asset('/img/dosen/'.$kon->file_konferensi)}}" class="btn btn-primary btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Download</a> </td>
       
 
 

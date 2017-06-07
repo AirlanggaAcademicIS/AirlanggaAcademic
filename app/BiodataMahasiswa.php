@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class BiodataMahasiswa extends Model
 {
    protected $table = 'biodata_mhs';    
-   protected $primaryKey = 'nim_id';    
+   protected $primaryKey = 'nim_id';
+   public $incrementing = false;    
    protected $fillable = [
    		'id_bio',
    		'nim_id',

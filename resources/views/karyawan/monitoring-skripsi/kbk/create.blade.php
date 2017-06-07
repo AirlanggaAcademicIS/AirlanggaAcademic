@@ -50,9 +50,9 @@ Tambah KBK
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<div class="form-group">
-					<label for="id_kbk" class="col-sm-2 control-label">No. KBK        																																																																																																																																							</label>
+					<label for="id_kbk" class="col-sm-2 control-label">No. KBK :</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id_kbk" name="id_kbk" placeholder="Masukkan id status" required>
+						<input type="text" class="form-control input-md" id="id_kbk" name="id_kbk" placeholder="Masukkan id status" required>
 					</div>
 				</div>
 
@@ -68,6 +68,13 @@ Tambah KBK
       			<button type="submit" class="btn btn-primary" style="margin-left: 500px;">Simpan</button>
 
 			</form>
+			<br>
+				<a href="{{url('karyawan/monitoring-skripsi/KBK')}}">
+					<button class="btn btn-danger" style="margin-left: 500px;">
+					
+							Kembali
+					</button>
+				</a>
 		</div>
 	</div>
 </div>
