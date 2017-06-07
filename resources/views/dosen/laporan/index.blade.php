@@ -18,7 +18,7 @@ Nama konten
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
-<h3>Laporan Kinerja Dosen {{$tahun->semester_periode}}</h3>
+<h3>Laporan Kinerja Dosen 2016/2017 Genap</h3>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   

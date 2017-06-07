@@ -21,15 +21,14 @@ Laporan kinerja dosen
 
 <body>
 <label>Pilih tahun ajar :</label>
-				<form id="tambah_pengmas" method="post" action="{{url('/dosen/laporan/pilih')}}" enctype="multipart/form-data">
 				
                 <select class="form-control select2" id="tahun" name="tahun" style="width: 15%;">
-                  <option selected="selected" value="2015">2015</option>
-                  <option value="2016">2016</option>
-                  <option value="2017">2017</option>
+                  <option selected="selected" value="2017">2016/2017 Genap</option>
+                  
+                  
                   
                 </select><br>
-                <button type='submit' class="btn btn-success btn-flat">OK</a>
+                <a href="{{url('/dosen/laporan')}}" class="btn btn-success btn-flat">OK</a>
 </body>
 @endsection
 
