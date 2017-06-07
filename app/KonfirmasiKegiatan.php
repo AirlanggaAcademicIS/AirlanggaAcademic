@@ -36,4 +36,4 @@ class KonfirmasiKegiatan extends Model
 
 
 }
-}
+

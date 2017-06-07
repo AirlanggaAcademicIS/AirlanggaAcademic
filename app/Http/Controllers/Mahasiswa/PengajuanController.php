@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Mahasiswa\pengelolaankegiatan;
+namespace App\Http\Controllers\Mahasiswa;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
