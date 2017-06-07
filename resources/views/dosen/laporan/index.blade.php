@@ -18,7 +18,7 @@ Nama konten
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
-<h3>Laporan Kinerja Dosen {{$tahun->semester_periode}}</h3>
+<h3>Laporan Kinerja Dosen {{$tahun}}</h3>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   
@@ -48,9 +48,9 @@ Nama konten
       <th style="text-align:center">Judul</th>
       <th style="text-align:center">Halaman</th>
       <th style="text-align:center">Bidang</th>
-      <th style="text-align:center">Tanggal</th>
       <th style="text-align:center">Volume</th>
       <th style="text-align:center">Penulis ke</th>
+      <th width="13%" style="text-align:center">Tanggal</th>
     </tr>
     </thead>
   <tbody>
@@ -61,10 +61,10 @@ Nama konten
       <td width="3%" style="text-align:center">{{$i+1}}</td>
       <td width="%" style="text-align:center">{{$j->jurnal['nama_jurnal']}}</td>
       <td width="%" style="text-align:center">{{$j->jurnal['halaman_jurnal']}}</td>
-      <td width="%" style="text-align:center">{{$j->jurnal['bidang_jurnal']}}</td>
-      <td width="%" style="text-align:center">{{$j->jurnal['tanggal_jurnal']}}</td>
-      <td width="%" style="text-align:center">{{$j->jurnal['volume_jurnal']}}</td>
+      <td width="5%" style="text-align:center">{{$j->jurnal['bidang_jurnal']}}</td>
+      <td width="5%" style="text-align:center">{{$j->jurnal['volume_jurnal']}}</td>
       <td width="%" style="text-align:center">{{$j->jurnal['penulis_ke']}}</td>
+      <td width="13%" style="text-align:center">{{$j->jurnal['tanggal_jurnal']}}</td>
         </td>
         @else
         <tr>
@@ -87,7 +87,7 @@ Nama konten
       <th width="%" style="text-align:center">Judul</th>
       <th width="%" style="text-align:center">Nama Ketua</th>
       <th width="%" style="text-align:center">Bidang</th>
-      <th width="10%" style="text-align:center">Tanggal</th>
+      <th width="13%" style="text-align:center">Tanggal</th>
       </tr>
     </thead>
   <tbody>
@@ -99,7 +99,7 @@ Nama konten
       <td width="%" style="text-align:center">{{$p->penelitian['judul_penelitian']}}</td>
       <td width="%" style="text-align:center">{{$p->penelitian['nama_ketua']}}</td>
       <td width="%" style="text-align:center">{{$p->penelitian['bidang_penelitian']}}</td>
-      <td width="10%" style="text-align:center">{{$p->penelitian['tanggal_penelitian']}}</td>
+      <td width="13%" style="text-align:center">{{$p->penelitian['tanggal_penelitian']}}</td>
       </td>
       @else
         <tr>
@@ -120,8 +120,8 @@ Nama konten
       <th width="%" style="text-align:center">Nama Konferensi</th>
       <th width="%" style="text-align:center">Pemapar</th>
       <th width="%" style="text-align:center">Tempat</th>
-      <th width="10%" style="text-align:center">Tanggal</th>
       <th width="%" style="text-align:center">Materi</th>
+      <th width="13%" style="text-align:center">Tanggal</th>
       </tr>
     </thead>
   <tbody>
@@ -133,8 +133,8 @@ Nama konten
       <td width="%" style="text-align:center">{{$k->konferensi['nama_konferensi']}}</td>
       <td width="%" style="text-align:center">{{$k->konferensi['pemapar_konferensi']}}</td>
       <td width="%" style="text-align:center">{{$k->konferensi['tempat_konferensi']}}</td>
-      <td width="10%" style="text-align:center">{{$k->konferensi['tanggal_konferensi']}}</td>
       <td width="%" style="text-align:center">{{$k->konferensi['materi_konferensi']}}</td>
+      <td width="13%" style="text-align:center">{{$k->konferensi['tanggal_konferensi']}}</td>
       </td>
       @else
         <tr>
@@ -154,7 +154,7 @@ Nama konten
       <th width="3%" style="text-align:center">No.</th>
       <th width="%" style="text-align:center">Nama Kegiatan</th>
       <th width="%" style="text-align:center">Tempat</th>
-      <th width="10%" style="text-align:center">Tanggal</th>
+      <th width="13%" style="text-align:center">Tanggal</th>
       </tr>
     </thead>
   <tbody>
@@ -163,9 +163,9 @@ Nama konten
       @foreach($pengmas as $i => $p2)
       @if($p2->pengmas['status_pengmas'] == 1)
       <td width="3%" style="text-align:center">{{$i+1}}</td>
-      <td width="%" style="text-align:center">{{$p2->pengmas['nama_kegiatan']}}</td>
-      <td width="%" style="text-align:center">{{$p2->pengmas['tempat_kegiatan']}}</td>
-      <td width="10%" style="text-align:center">{{$p2->pengmas['tanggal_kegiatan']}}</td>
+      <td width="42%" style="text-align:center">{{$p2->pengmas['nama_kegiatan']}}</td>
+      <td width="42%" style="text-align:center">{{$p2->pengmas['tempat_kegiatan']}}</td>
+      <td width="13%" style="text-align:center">{{$p2->pengmas['tanggal_kegiatan']}}</td>
       </td>
       @else
         <tr>
@@ -183,19 +183,19 @@ Nama konten
   <thead><h3>Surat Tugas</h3>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">nomor surat</th>      
-      <th style="text-align:center">tanggal surat</th>
-      <th style="text-align:center">keterangan surat</th>
+      <th style="text-align:center">Nomor surat</th>      
+      <th style="text-align:center">Keterangan Surat</th>
+      <th style="text-align:center">Tanggal</th>
       </tr>
     </thead>
   <tbody>
    
     <tr>
-      @foreach($surattugas as $i => $surattug)
+      @foreach($stugas as $i => $s)
       <td width="3%" style="text-align:center">{{$i+1}}</td>
-      <td width="" style="text-align:center">no surat tugas</td>
-      <td width="10%" style="text-align:center">2017-05-02</td>
-      <td width="" style="text-align:center">keterangan sk</td>
+      <td width="42%" style="text-align:center">{{$s->stugas['no_surat']}}</td>
+      <td width="42%" style="text-align:center">{{$s->stugas['keterangan_sk']}}</td>
+      <td width="13%" style="text-align:center">{{$s->stugas['tanggal_surat']}}</td>
       </td>
       @endforeach
     </tr>
