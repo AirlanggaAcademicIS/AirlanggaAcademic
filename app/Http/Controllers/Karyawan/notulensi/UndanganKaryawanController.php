@@ -15,6 +15,7 @@ use Response;
 use App\UndanganKaryawan;
 use App\FormUndangan;
 use App\BiodataDosen;
+use App\DosenRapat;
 use Illuminate\Mail\Mailer;
 use Illuminate\Mail\Message;
 
@@ -148,13 +149,25 @@ class UndanganKaryawanController extends Controller
     public function kirimUndangan($id_notulen, Request $request)
     {
         $user = $request->input('dosen');
+       
         $message = sprintf('halo halo');
+
         foreach ($user as $u) {
         $this->mailer->raw($message, function (Message $m) use ($u) {
-            $m->from('airlanggaacademic@gmail.com', 'Admin Airlangga Academic')->to($u)->subject('Aktivasi akun Hai Unair');
+            $m->from('airlanggaacademic@gmail.com', 'Admin Airlangga Academic')->to($u)->subject('Undangan Rapat');
         });
-        return Redirect::to('undangankaryawan');
         }
+        foreach ($user as $p) {
+            $nip = DB::table('users')->select('username')->where('email','=',$p)->first();
+            DB::table('dosen_rapat')->insert( [
+                'nip' => $nip->username ,
+             'notulen_id' => $id_notulen,
+             'status' => 0
+             ] );
+        }
+        Session::put('alert-success', 'Berhasil mengundang dosen');
+        return Redirect::to('undangankaryawan');
+        
     }
 
 }

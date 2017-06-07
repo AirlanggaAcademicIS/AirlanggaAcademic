@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Persentase Nilai
+Persentase Bobot Nilai
 @endsection
 
 @section('contentheader_title')
-Persentase Nilai
+Persentase Bobot Nilai
 @endsection
 
 @section('main-content')

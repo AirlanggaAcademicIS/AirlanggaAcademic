@@ -77,7 +77,7 @@ Edit Konferensi
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Tanggal Konferensi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_konferensi" placeholder="Masukkan Tanggal Konferensi" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_konferensi" placeholder="Masukkan Tanggal Konferensi" value="{{$konferensi->tanggal_konferensi}}" required>
 					</div>
 				</div>
 
@@ -85,7 +85,8 @@ Edit Konferensi
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Materi Konferensi</label>
 					<div class="col-md-8">
-						<textarea id="materi_konferensi" name="materi_konferensi" placeholder=" Masukkan Materi Konferensi" value="{{$konferensi->materi_konferensi}}" required cols="82" rows="5">
+						<textarea id="materi_konferensi" name="materi_konferensi" placeholder=" Masukkan Materi Konferensi"  required cols="82" rows="5">{{$konferensi->materi_konferensi}}
+
 						</textarea>
 					</div>
 				</div>

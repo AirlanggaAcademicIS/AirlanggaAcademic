@@ -13,6 +13,8 @@ use Response;
 // Tambahkan model yang ingin dipakai
 use App\Surat_Masuk;
 use App\Petugas_Tu;
+use App\MahasiswaPengajuan;
+use App\DosenPengajuan;
 
 class Surat_MasukController extends Controller
 {
@@ -47,9 +49,17 @@ class Surat_MasukController extends Controller
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel surat masuk
+        $terdaftarm = MahasiswaPengajuan::pluck('nim')->toArray();
+        $terdaftard = DosenPengajuan::pluck('nip')->toArray();
+        $nim_nip = $request->input('nim_nip');
+        if((!in_array($nim_nip, $terdaftarm))||(!in_array($nim_nip, $terdaftard))){
+        Session::put('alert-danger', 'NIM atau NIP tidak terdaftar');
+        return Redirect::back();
+            }
         
         
         $surat_masuk=$request->input();
+        $surat_masuk['status'] = '0';
         $surat_masuk['nip_petugas_id'] = Auth::user()->username;
         Surat_Masuk::create($surat_masuk);
 
@@ -108,5 +118,18 @@ class Surat_MasukController extends Controller
         // Kembali ke halaman karyawan/surat masuk
         return Redirect::to('karyawan/surat-masuk');
     }
+
+    public function terambil($id)
+    {
+        $surat_masuk = Surat_Masuk::find($id);
+        $surat_masuk->status = '1';
+        $surat_masuk->save();
+        // dd($data['surat_keluar_mhs']);
+
+        Session::put('alert-success', 'Status surat telah berubah menjadi Sudah Diambil');
+        // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
+        return Redirect::back();
+    }
+
 
 }

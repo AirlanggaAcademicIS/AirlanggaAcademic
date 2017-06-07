@@ -12,6 +12,9 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\Konferensi;
+use Auth;
+use Illuminate\Support\Facades\DB;
+use App\Konferensi_Dsn;
 
 
 class KonferensiController extends Controller
@@ -19,12 +22,16 @@ class KonferensiController extends Controller
 
     // Function untuk menampilkan tabel
     public function index()
-    {
+    {   $dosen = Auth::user()->username;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'konferensi',
             // Memanggil semua isi dari tabel biodata
-            'konferensi' => Konferensi::all()
+            'konferensi' => DB::table('konferensi_dosen')
+            ->where('konferensi_dosen.nip','=',$dosen)
+            ->join('konferensi', 'konferensi_dosen.konferensi_id', '=', 'konferensi.konferensi_id')
+            ->select('*')
+            ->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
@@ -43,13 +50,15 @@ class KonferensiController extends Controller
     }
 
     public function createAction(Request $request)
-    {
+    {   $user = Auth::user()->username;
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
         $dosen = $request->input();
         $dosen['status_konferensi'] = 0 ;
         $dosen['file_konferensi'] = time() .'.'.$request->file('file_konferensi')->getClientOriginalExtension();
         Konferensi::create($dosen);
         $file = $request->file('file_konferensi')->move("img/dosen/",$dosen['file_konferensi']);
+        $id = Konferensi::where('nama_konferensi', $request->input('nama_konferensi'))->first();
+        Konferensi_Dsn::create(['nip' => $user,'konferensi_id'  => $id->konferensi_id]);
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Konferensi berhasil ditambahkan');
 
@@ -96,9 +105,7 @@ class KonferensiController extends Controller
         $konferensi->pemapar_konferensi = $request->input('pemapar_konferensi');
         $konferensi->tempat_konferensi = $request->input('tempat_konferensi');
         $konferensi->tanggal_konferensi = $request->input('tanggal_konferensi');
-        $konferensi->file_konferensi = 1 ;
         $konferensi->materi_konferensi = $request->input('materi_konferensi');
-        $konferensi->status_konferensi = 0 ;
         $konferensi->save();
 
         // Notifikasi sukses

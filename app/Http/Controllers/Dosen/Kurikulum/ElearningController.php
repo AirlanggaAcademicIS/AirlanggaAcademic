@@ -10,7 +10,7 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\elearning;
-use App\MKDitawarkan;
+use App\Models\KrsKhs\MKDitawarkan;
 use App\MataKuliah;
 use Auth;
 
@@ -62,7 +62,8 @@ class ElearningController extends Controller
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('dosen/kurikulum/elearning/');
     }
-    }
+    
+}
 
     
 

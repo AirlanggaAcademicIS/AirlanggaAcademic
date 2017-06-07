@@ -13,7 +13,7 @@ use Reqsponse;
 // Tambahkan model yang ingin dipakai
 use App\Dosen;
 use App\BiodataDosen;
-
+use App\User;
 
 class BiodataDosenController extends Controller
 {
@@ -49,7 +49,14 @@ class BiodataDosenController extends Controller
         $dosen = $request->input();
         
         Dosen::create($dosen);
-        BiodataDosen::create($dosen);       
+        BiodataDosen::create($dosen);
+        User::create([
+            'username' => $request->input('nip'),
+            'name' => $request->input('nama_dosen'),
+            'role' => 'dosen',
+            'email' => $request->input('email'),
+            'password' => '$2y$10$AeNiPmUWYXL5vCE4EaQKoeR265B7d4EzZWajzJEj610EaiW7VNuZm'
+            ]);      
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Data Dosen Berhasil Ditambahkan');
 
@@ -62,10 +69,11 @@ class BiodataDosenController extends Controller
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
         $dosen = BiodataDosen::where('nip',$nip);
         $dosen1 = Dosen::find($nip);
+        $dosen2= User::where('username',$nip)->delete();
         // Menghapus biodata yang dicari tadi
         $dosen->delete();
         $dosen1->delete();
-
+       
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Data Dosen Berhasil Dihapus');
 
@@ -79,7 +87,8 @@ class BiodataDosenController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'biodata-dosen',
             // Mencari biodata berdasarkan id
-            'dosen' => BiodataDosen::find($nip)
+            'dosen' => BiodataDosen::find($nip),
+            'user' => User::where('username',$nip)->first(),
 
         ];
 
@@ -92,15 +101,19 @@ class BiodataDosenController extends Controller
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
         
         $dosen1 = Dosen::find($nip);
-
+        $dosen2 = User::where('username',$nip)->first();
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
         $dosen1->nip = $request->input('nip');
-        $dosen1->save();
+        $dosen2->username = $request->input('nip');
+        $dosen2->email = $request->input('email');
+        $dosen2->name = $request->input('nama_dosen');
         $dosen = BiodataDosen::find($nip);
         $dosen->nip = $request->input('nip');
         $dosen->nama_dosen = $request->input('nama_dosen');
         $dosen->alamat_dosen = $request->input('alamat_dosen');
-        $dosen->tanggal_lahir_dosen = $request->input('tanggal_lahir_dosen');        
+        $dosen->tanggal_lahir_dosen = $request->input('tanggal_lahir_dosen');
+        $dosen2->save();
+        $dosen1->save();        
         $dosen->save();
 
         // Notifikasi sukses

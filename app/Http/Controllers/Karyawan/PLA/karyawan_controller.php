@@ -13,7 +13,7 @@ use Response;
 // Tambahkan model yang ingin dipakai
 use App\Petugas_TU;
 use App\Prodi;
-
+use App\User;
 
 class karyawan_controller extends Controller
 {
@@ -29,7 +29,7 @@ class karyawan_controller extends Controller
             'prodi' => Prodi::all()
         ];
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('karyawan.PLA.karyawan.index',$data);
+        return view('karyawan.pla.karyawan.index',$data);
     }
 
     public function create()
@@ -42,19 +42,32 @@ class karyawan_controller extends Controller
         ];
 
         // Memanggil tampilan form create
-    	return view('karyawan.PLA.karyawan.create',$data);
+    	return view('karyawan.pla.karyawan.create',$data);
     }
 
     public function createAction(Request $request)
     {
+        $terdaftar = Petugas_TU::pluck('nip_petugas')->toArray();
+        $nip = $request->input('nip_petugas');
+        if(in_array($nip, $terdaftar)){
+        Session::put('alert-danger', 'NIP telah terdaftar');
+        return Redirect::back();
+        }
+        
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
         Petugas_TU::create($request->input());
-
+        User::create([
+            'username' => $request->input('nip_petugas'),
+            'name' => $request->input('nama_petugas'),
+            'role' => 'karyawan',
+            'email' => $request->input('email_petugas'),
+            'password' => '$2y$10$zabtKldYAuIH/KbIbYofuON3U/jlvBXIEFY/w.ItHp0WdfvfFteda'
+            ]);
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Karyawan berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/PLA/karyawan');
+        return Redirect::to('karyawan/pla/karyawan');
     }
 
     public function delete($nip_petugas)
@@ -84,7 +97,7 @@ class karyawan_controller extends Controller
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('karyawan.PLA.karyawan.edit',$data);
+        return view('karyawan.pla.karyawan.edit',$data);
     }
 
     public function editAction($nip_petugas, Request $request)
@@ -104,7 +117,7 @@ class karyawan_controller extends Controller
         Session::put('alert-success', 'Karyawan berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/PLA/karyawan');
+        return Redirect::to('karyawan/pla/karyawan');
     }
 
 }

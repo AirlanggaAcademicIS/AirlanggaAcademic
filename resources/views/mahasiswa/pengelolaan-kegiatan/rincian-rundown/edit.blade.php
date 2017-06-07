@@ -1,16 +1,17 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Edit Rincian Rundown Kegiatan
+Tambah Rincian Rundown Kegiatan
 @endsection
 
 @section('contentheader_title')
-Edit Rincian Rundown Kegiatan
+Tambah Rincian Rundown Kegiatan
 @endsection
 
 @section('code-header')
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+<link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
 
 @endsection
 
@@ -20,7 +21,7 @@ Edit Rincian Rundown Kegiatan
 		text-align: left !important;
 	}
 </style>
-
+	<!-- Ini buat menampilkan notifikasi -->
 	@foreach (['danger', 'warning', 'success', 'info'] as $msg)
 	@if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -45,43 +46,38 @@ Edit Rincian Rundown Kegiatan
 			</div>
 			@endif
 			<br>
-			<form id="tambahRundown" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/rincian-rundown/'.$rincianrundown->id_rundown.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahRundown" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/rincian-rundown/'.$rincianrundown->id_rundown.'/editActionProposal')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
+				
 				<div class="form-group">
 					<label for="kegiatan_id" class="col-sm-2 control-label">Jenis Kegiatan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="kegiatan_id" name="kegiatan_id" placeholder="Masukkan Jenis Kegiatan" value="{{$rincianrundown->kegiatan_id}}" required>
+						<select class="form-control select2" style="width: 100%;" name="kegiatan_id">
+						<option value="{{$rincianrundown->kegiatan_id}}">{{$rincianrundown->rincianRundown['nama']}}</option>
+						</select>
+						
 					</div>
 				</div>
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="kategori_rundown" class="col-sm-2 control-label">Kategori Kegiatan</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="kategori_rundownn" name="kategori_rundown" placeholder="Masukkan Kategori Kegiatan" value="{{$rincianrundown->kategori_rundown}}" required>
-					</div>
-				</div>
-
-
-			<!-- Menampilkan input text biasa -->
-				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
-					<div class="col-md-8">
+					<div class="col-md-6">
 						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama Kegiatan" value="{{$rincianrundown->nama}}" required>
 					</div>
 				</div>
 
+				
 				<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
 					<label for="waktu" class="col-sm-2 control-label">Waktu Kegiatan</label>
-					<div class="col-md-8">
-					<input type="datetime-local" name="waktu">
+					<div class="col-md-6">
+					<input type="datetime-local" name="waktu" value="{{$rincianrundown->waktu}}">
 						<!-- <input type="text" class="form-control input-lg" id="datepicker" name="waktu" placeholder="Masukkan Waktu Kegiatan" required> -->
 					</div>
 				</div>
-
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
@@ -101,7 +97,7 @@ Edit Rincian Rundown Kegiatan
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
 $( function() {
-    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd H:i:s' }).val();
+    var date = $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd H:i:s' }).val();
 
   } );
   </script>

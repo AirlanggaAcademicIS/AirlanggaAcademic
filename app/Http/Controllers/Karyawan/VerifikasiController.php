@@ -22,10 +22,12 @@ class VerifikasiController extends Controller
     public function index()
     {
         $data = [
+            'count_prestasi' => VerPrestasi::all()->count(),
+            'count_penelitian' => VerPenelitianMhs::all()->count(),
+
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'verifikasi',
         ];
-
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('karyawan.verifikasi.index',$data);
     }
@@ -82,21 +84,6 @@ class VerifikasiController extends Controller
         return Redirect::to('karyawan/verifikasi');
     }
 
-    public function delete($id)
-    {
-        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $prestasi = Prestasi::find($id);
-
-        // Menghapus biodata yang dicari tadi
-        $prestasi->delete();
-
-        // Menampilkan notifikasi pesan sukses
-    	Session::put('alert-success', 'Data Prestasi berhasil dihapus');
-
-        // Kembali ke halaman sebelumnya
-      	return Redirect::back();	 
-    }
-
    public function editPrestasi($id)
     {
         $data = [
@@ -120,8 +107,8 @@ class VerifikasiController extends Controller
         $prestasi->skor = $request->input('skor');
         $prestasi->save();
 
-        // Notifikasi sukses
-        Session::put('alert-success', 'Data prestasi berhasil diedit');
+        // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'Verifikasi Prestasi berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/verifikasi/prestasi');
@@ -149,8 +136,8 @@ class VerifikasiController extends Controller
         $penelitian->is_verified = $request->input('is_verified');
         $penelitian->save();
 
-        // Notifikasi sukses
-        Session::put('alert-success', 'Data prestasi berhasil diedit');
+        // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'Verifikasi Penelitian berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/verifikasi/penelitian');
