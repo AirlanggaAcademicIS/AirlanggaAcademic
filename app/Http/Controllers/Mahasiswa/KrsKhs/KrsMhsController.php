@@ -15,6 +15,7 @@ use Auth;
 use DB;
 // Tambahkan model yang ingin dipakai
 use App\Models\KrsKhs\MKDiambil;
+use App\Models\KrsKhs\MKDitawarkan;
 use App\Models\KrsKhs\MataKuliah;
 use App\Models\KrsKhs\JenisMataKuliah;
 use App\Models\KrsKhs\TahunAkademik;
@@ -30,11 +31,15 @@ class KrsMhsController extends Controller
     }
     public function index()
     {
+        $thn = TahunAkademik::count();
         $data = [
             'page' => 'krs',
-             'krs' => MataKuliah::all(),
+             'krs' => DB::table('mk_ditawarkan')
+                        ->join('mk_diambil','mk_diambil.mk_ditawarkan_id','=','mk_ditawarkan.id_mk_ditawarkan')
+                        ->select('*')
+                        ->where('mk_ditawarkan.id_mk_ditawarkan','!=','mk_diambil.mk_ditawarkan_id')
+                        ->where('thn_akademik_id',$thn)->get(),
         ];
-
         return view('mahasiswa.krs-khs.krs.index',$data);
     }
 
@@ -59,19 +64,14 @@ class KrsMhsController extends Controller
             ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
             ->select('*')
             ->where('mhs_id',$nim_id)
-            ->count('mata_kuliah.sks');
-        $tahun  = DB::table('mk_diambil')
-            ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
-            ->join('thn_akademik','thn_akademik.id_thn_akademik','=','mk_ditawarkan.thn_akademik_id')
-            ->select('*')
-            ->where('mhs_id',$nim_id)
-            ->get();
+            ->count('mata_kuliah.sks'); // Menghitung sks
         $sum     = DB::table('mk_diambil')
             ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
             ->select('*')
             ->where('mhs_id',$nim_id)
             //->where('thn_akademik_id', $tahun)
             ->sum('mata_kuliah.sks');
+            // dd($sum);
             if($count==0){
                 $mean=0;
             }
@@ -117,28 +117,43 @@ class KrsMhsController extends Controller
                 $lmt = 22;
             else
                 $lmt = 21;
+        
         $data    = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'krs',
-            'krs'  => DB::table('mata_kuliah')
-            ->join('jenis_mk','jenis_mk.id','=','mata_kuliah.id_mk')
-            ->select('*')            
-            ->get(),
-            'app'  => DB::table('mk_diambil')
-            ->join('mata_kuliah', 'mata_kuliah.id_mk', '=', 'mk_diambil.mk_ditawarkan_id')
-            ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
-            ->join('thn_akademik','thn_akademik.id_thn_akademik','=','mk_ditawarkan.thn_akademik_id')
-            ->select('*')
-            ->where('mhs_id','=',$nim_id)
-            ->where('thn_akademik.id_thn_akademik','=','1')
-            ->get(),
+            'cek' => DB::table('mk_ditawarkan')
+                        ->join('mk_diambil','mk_diambil.mk_ditawarkan_id','!=','mk_ditawarkan.id_mk_ditawarkan')
+                        ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_ditawarkan.matakuliah_id')
+                        ->join('jenis_mk','jenis_mk.id','=','mata_kuliah.jenis_mk_id')
+                        ->select('*')
+                        ->where('mk_ditawarkan.thn_akademik_id',$tahun)
+                        ->first(),
+            'krs' => DB::table('mk_ditawarkan')
+                        ->join('mk_diambil','mk_diambil.mk_ditawarkan_id','!=','mk_ditawarkan.id_mk_ditawarkan')
+                        ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_ditawarkan.matakuliah_id')
+                        ->join('jenis_mk','jenis_mk.id','=','mata_kuliah.jenis_mk_id')
+                        ->select('*')
+                        ->where('mk_ditawarkan.thn_akademik_id',$tahun)
+                        ->get(),
+            'maba' =>DB::table('mk_ditawarkan')
+                        ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_ditawarkan.matakuliah_id')
+                        ->join('jenis_mk','jenis_mk.id','=','mata_kuliah.jenis_mk_id')
+                        ->select('*')
+                        ->where('mk_ditawarkan.thn_akademik_id',$tahun)
+                        ->get(),
+            'lihat' => DB::table('mk_diambil')
+                        ->join('mk_ditawarkan','mk_diambil.mk_ditawarkan_id','=','mk_ditawarkan.id_mk_ditawarkan')
+                        ->join('mata_kuliah', 'mata_kuliah.id_mk', '=', 'mk_ditawarkan.matakuliah_id')
+                        ->select('*')
+                        ->where('mhs_id','=',$nim_id)
+                        ->get(),
+
             'count'=> $count,
             'sum'  => $sum,
             'mean' => $mean,
             'limitSks' => $lmt,
-            'tahun'=> $tahun,     
             'ips'  => $count_ips,
-            'lihat' => MKDiambil::all(),
+            'tahun' => $tahun,
         ];
         // Memanggil tampilan form create
         return view('mahasiswa.krs-khs.krs.create',$data);
@@ -151,7 +166,7 @@ class KrsMhsController extends Controller
         $count   = DB::table('mk_diambil')
             ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
             ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
-            ->select('*')
+             ->select('*')
             ->where('mhs_id',$nim_id)
             ->count('mata_kuliah.sks');
         $sum     = DB::table('mk_diambil')
@@ -166,7 +181,12 @@ class KrsMhsController extends Controller
             ->select('*')
             ->where('mhs_id',$nim_id)
             ->sum('mata_kuliah.sks');
-        $mean    = $sum/$count;
+            if($count==0){
+                $mean=0;
+            }
+            else{
+                $mean    = $sum/$count;
+            }
         $nilai1  = DB::table('mk_diambil')
             ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
             ->select('mk_diambil.nilai')
@@ -191,8 +211,12 @@ class KrsMhsController extends Controller
                 $nilai_tmp = $nilai_tmp + 0;
             $nilai = $nilai_tmp;
             }
-
-        $count_ips     = $nilai/$count;
+            if($count==0){
+                $count_ips=0;
+            }
+            else{
+                $count_ips     = $nilai/$count;
+            }  
         $lmt     = 0; 
             if ($count_ips >= 3)
                 $lmt = 24;                
@@ -202,11 +226,7 @@ class KrsMhsController extends Controller
                 $lmt = 22;
             else
                 $lmt = 21;
-        $syaratSKS = DB::table('mk_diambil')
-        ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
-        ->join('jadwal_kuliah','jadwal_kuliah.mk_ditawarkan_id','=','mk_diambil.mk_ditawarkan_id')
-        ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_ditawarkan.matakuliah_id')
-        ->join('mk_prasyarat','mk_prasyarat.mk_id','=','mata_kuliah.id_mk')
+        $syaratSKS = DB::table('mata_kuliah')
         ->select('*')
         ->where('mhs_id','=',$nim_id)
         ->where('mk_ditawarkan.id_mk_ditawarkan','=',$id)
@@ -243,6 +263,17 @@ class KrsMhsController extends Controller
         ->join('mk_prasyarat','mk_prasyarat.mk_id','=','mata_kuliah.id_mk')
         ->select('hari.id_hari','jam.id_jam','mk_diambil.mk_ditawarkan_id')
         ->get();
+
+        $syaratMK  = DB::table('mk_diambil')
+        ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
+        ->join('mk_prasyarat','mk_prasyarat.mk_syarat_id','=','mk_ditawarkan.matakuliah_id')
+        ->select('*')
+        ->get();
+
+        $MKDiambil  = DB::table('mk_diambil')
+        ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
+        ->select('*')
+        ->get();
         // Syarat 1 : Jadwal
         
         if ($jadwal == $batas){
@@ -251,25 +282,54 @@ class KrsMhsController extends Controller
         }
         // Syarat 2 : Limit Sks
 
-        else if ($sum == $lmt){
+        else if ($sum >= $lmt){
             Session::put('alert-danger', 'Batas Sks sudah terpenuhi');
             return Redirect::back();
         }
         // Syarat 3 : Syarat sks
 
-        else if ($syaratSKS == $sum_total){
+        else if ($sum_total < $syaratSKS->syarat_sks){
             Session::put('alert-danger', 'Syarat Sks belum terpenuhi');
             return Redirect::back();   
         }
         // Syarat 4 : Syarat mk
+        // else {
+        // foreach ($syaratMK as $syarat) {
+        //     # code...
+        //     foreach ($MKDiambil as $ambil) {
+        //         # code...
+        //         if($syarat->mk_syarat_id != $ambil->matakuliah_id){
+        //             Session::put('alert-danger', 'Syarat MK belum terpenuhi');
+        //             return Redirect::back();
+        //         }
+                
+        //     }
+        // }
+        // }
+        
+        else{
+                    return $this->createAction($id);
+                }
+        // else if ($syarat->mk_ditawarkan_id != $batas->mk_syarat_id){
+        //     Session::put('alert-danger', 'Syarat mata kuliah belum terpenuhi');
+        //     return Redirect::back();   
+        // }
+    }
 
-        else  
-            foreach ($batas as $j => $b) {
-                    if ($syaratMK != $b){
-                        Session::put('alert-danger', 'Syarat mata kuliah belum terpenuhi');
-                        return Redirect::back();
-                        }
-                    }
+    public function createAction($id)
+    {
+        // Menginsertkan apa yang ada di form ke dalam tabel biodata
+       
+//         DB::table('mk_diambil')->insert(
+//     [
+
+//         else  
+//             foreach ($batas as $j => $b) {
+//                     if ($syaratMK != $b){
+//                         Session::put('alert-danger', 'Syarat mata kuliah belum terpenuhi');
+//                         return Redirect::back();
+//                         }
+//                     }
             DB::table('mk_diambil')->insert(
             [
             'mk_ditawarkan_id' => $id,
