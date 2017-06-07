@@ -26,19 +26,6 @@ Input Krs
   @endif
   @endforeach
 </div>
-<form action="{{url('mahasiswa/krskhs/krs/create')}}" method="get">
-<div class="col-md-3" style="padding: 0;">
-<div style="overflow: auto">
-  <select class="form-control" id="periode" name="periode">
-      <option>Tahun Akademik</option>
-      @foreach($tahun as $t) 
-      <option value ="{{$t->id_thn_akademik}}">{{$t->semester_periode}}</option>
-      @endforeach
-  </select>
-            <button class="btn btn-info" type="submit">Pilih</button>
-</div>
-</div>
-</form>
 <style>
   .form-group label{
     text-align: left !important;
@@ -80,16 +67,18 @@ Input Krs
                   </tr>
                 </thead>
                 <tbody>
-                 @forelse($krs as $i => $d) 
+
+                @if($cek == "")
+                @forelse($maba as $i => $m) 
                   <tr>
                     <td>{{ $i+1 }}</td>
-                    <td width="20%" style="text-align:center">{{$d->jenisMK->jenis_mk}}</td>
-                    <td width="10%" style="text-align:center">{{$d->kode_matkul}}</td>
-                    <td width="20%" style="text-align:center">{{$d->nama_matkul}}</td>
-                    <td width="15%" style="text-align:center">{{$d->sks}}</td>
-                    <td width="25%" style="text-align:center">{{$d->syarat_sks}}</td>
-                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk mengambil mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/create/'.$d->id_mk)}}" class="btn btn-success btn-xs">
-                      <i class="glyphicon glyphicon-book"></i>Take</a>
+                    <td width="20%" style="text-align:center">{{$m->jenis_mk}}</td>
+                    <td width="10%" style="text-align:center">{{$m->kode_matkul}}</td>
+                    <td width="20%" style="text-align:center">{{$m->nama_matkul}}</td>
+                    <td width="15%" style="text-align:center">{{$m->sks}}</td>
+                    <td width="25%" style="text-align:center">{{$m->syarat_sks}}</td>
+                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk mengambil mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/create/'.$m->id_mk_ditawarkan)}}" class="btn btn-success btn-xs">
+                      <i class="glyphicon glyphicon-book"></i> Take</a>
                       </td>
                   </tr>
                    @empty
@@ -97,6 +86,26 @@ Input Krs
                         <td colspan="6"><center>Belum ada mata kuliah</center></td>
                       </tr>
                   @endforelse
+
+                @else
+                 @forelse($krs as $i => $d) 
+                  <tr>
+                    <td>{{ $i+1 }}</td>
+                    <td width="20%" style="text-align:center">{{$d->jenis_mk}}</td>
+                    <td width="10%" style="text-align:center">{{$d->kode_matkul}}</td>
+                    <td width="20%" style="text-align:center">{{$d->nama_matkul}}</td>
+                    <td width="15%" style="text-align:center">{{$d->sks}}</td>
+                    <td width="25%" style="text-align:center">{{$d->syarat_sks}}</td>
+                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk mengambil mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/create/'.$d->id_mk_ditawarkan)}}" class="btn btn-success btn-xs">
+                      <i class="glyphicon glyphicon-book"></i> Take</a>
+                      </td>
+                  </tr>
+                   @empty
+                      <tr>
+                        <td colspan="6"><center>Belum ada mata kuliah</center></td>
+                      </tr>
+                  @endforelse
+                  @endif
                 </tbody>
               </table>
               </div>
@@ -118,10 +127,10 @@ Input Krs
                 <tbody>
                  @forelse($lihat as $j => $s) 
                   <tr>
-                    <td>{{ $j+1 }}</td>
-                    <td width="10%" style="text-align:center">{{$s->mkDitawarkan->mk->kode_matkul}}</td>
-                    <td width="20%" style="text-align:center">{{$s->mkDitawarkan->mk->nama_matkul}}</td>
-                    <td width="15%" style="text-align:center">{{$s->mkDitawarkan->mk->sks}}</td>
+                    <td width="5%">{{ $j+1 }}</td>
+                    <td width="10%" style="text-align:center">{{$s->kode_matkul}}</td>
+                    <td width="20%" style="text-align:center">{{$s->nama_matkul}}</td>
+                    <td width="15%" style="text-align:center">{{$s->sks}}</td>
                     @if($s->is_approve ==0)
                     <td width="15%" style="text-align:center">Belum Diapprove</td>
                     @else
