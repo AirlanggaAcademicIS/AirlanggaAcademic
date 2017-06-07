@@ -10,8 +10,10 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
+use Illuminate\Support\Facades\DB;
 // Tambahkan model yang ingin dipakai
 use App\Surat_Keluar_Mhs;
+use App\MhsPemohonSurat;
 use Auth;
 
 
@@ -24,8 +26,13 @@ class Surat_Keluar_MhsController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar 
             'page' => 'surat-keluar-mhs',
-            // Memanggil semua isi dari tabel 
-            'surat_keluar_mhs' => Surat_Keluar_Mhs::orderBy('created_at', 'desc')->get(),
+            // Memanggil semua isi dari tabel
+            'mhs_pemohon_surat' =>MhsPemohonSurat::all(),
+            'surat_keluar_mhs' =>DB::table('surat_keluar_mhs')
+            ->join('mhs_pemohon_surat', 'surat_keluar_mhs.id_surat_keluar', '=', 'mhs_pemohon_surat.surat_keluar_id')
+            ->orderBy('surat_keluar_mhs.created_at', 'desc')
+            ->select('*')
+            ->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/ dan juga menambahkan $data tadi di view

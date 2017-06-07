@@ -58,10 +58,14 @@ Konferensi
       <td width="20%" style="text-align:center" > <a href="{{URL::asset('/img/dosen/'.$kon->file_konferensi)}}" class="btn btn-primary btn-xs">
         <i class="fa fa-pencil-square-o"></i> Download</a> </td>
       <td width="10%" style="text-align:center">
-      @if($kon->status_konferensi == 0)
-        Proses
+       @if($kon->status_konferensi == 0)
+        Unverified
       @else
-        Approved
+      @if($kon->status_konferensi == 1)
+        Verified
+        @else
+        Rejected
+      @endif
       @endif
       </td>
       

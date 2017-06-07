@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Karyawan\notulensi;
+namespace App\Http\Controllers\Karyawan\monitoringskripsi;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -11,10 +11,10 @@ use Session;
 use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
-use App\NotulensiKaryawan;
+use App\KBK;
 
 
-class NotulensiControllerKaryawan extends Controller
+class KBKController extends Controller
 {
 
     // Function untuk menampilkan tabel
@@ -22,88 +22,81 @@ class NotulensiControllerKaryawan extends Controller
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'notulensi',
+            'page' => 'kbk',
             // Memanggil semua isi dari tabel biodata
-            'notulensi' => NotulensiKaryawan::all()
+            'kbk' => KBK::all()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('karyawan.notulensi.notulensi.ViewDaftarHasilRapat2',$data);
+        return view('karyawan.monitoring-skripsi.kbk.index',$data);
     }
 
     public function create()
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'notulensi',
+            'page' => 'kbk',
         ];
+    
 
         // Memanggil tampilan form create
-    	return view('karyawan.notulensi.undangan.create',$data);
+    	return view('karyawan.monitoring-skripsi.kbk.create',$data);
     }
 
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        Notulensi::create($request->input());
+        KBK::create($request->input());
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Notulensi berhasil ditambahkan');
+        Session::put('alert-success', 'KBK berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('notulensi/notulensi');
+        return Redirect::to('karyawan/monitoring-skripsi/KBK');
     }
 
-    public function delete($id_notulen)
+    public function delete($id_kbk)
     {
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $notulensi = Notulensi::find($id_notulen);
+        $kbk = KBK::find($id_kbk);
 
         // Menghapus biodata yang dicari tadi
-        $notulensi->delete();
+        $kbk->delete();
 
         // Menampilkan notifikasi pesan sukses
-    	Session::put('alert-success', 'Notulensi berhasil dihapus');
+    	Session::put('alert-success', 'KBK berhasil dihapus');
 
         // Kembali ke halaman sebelumnya
       	return Redirect::back();	 
     }
 
-   public function edit($id_notulen)
+   public function edit($id_kbk)
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'notulensi',
+            'page' => 'kbk',
             // Mencari biodata berdasarkan id
-            'notulensi' => Notulensi::find($id_notulen)
+            'kbk' => KBK::find($id_kbk)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
-        return view('karyawan.notulensi.notulensi.LihatHasilRapat',$data);
+        return view('karyawan.monitoring-skripsi.kbk.edit',$data);
     }
 
-    public function editAction($id_notulen, Request $request)
+    public function editAction($id_kbk, Request $request)
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $notulen = Notulensi::find($id_notulen);
+        $kbk = KBK::find($id_kbk);
 
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
-        $notulen->id_permohonan_ruang = $request->input('id_permohonan_ruang');
-        $notulen->nip_petugas = $request->input('nip_petugas');
-        $notulen->nip = $request->input('nip');
-        $notulen->nama_rapat = $request->input('nama_rapat');
-        $notulen->agenda_rapat = $request->input('agenda_rapat');
-        $notulen->waktu_pelaksanaan = $request->input('waktu_pelaksanaan');
-        $notulen->hasil_pembahasan = $request->input('hasil_pembahasan');
-        $notulen->id_verifikasi = $request->input('id_verifikasi');
-        $notulen->deskripsi_rapat = $request->input('deskripsi_rapat');
-        $notulen->save();
+        $kbk->jenis_kbk = $request->input('jenis_kbk');
+        $kbk->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Notulensi berhasil diedit');
+        Session::put('alert-success', 'KBK berhasil diedit');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('notulensi/notulensi');
+        return Redirect::to('karyawan/monitoring-skripsi/KBK');
     }
 
 }

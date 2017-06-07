@@ -58,7 +58,6 @@ class SkripsiController extends Controller
             'dosen' => BiodataDosen::all(),
             'kbk' => KBK::all()
         ];
-
         // Memanggil tampilan form create
         return view('karyawan.monitoring-skripsi.skripsi.create',$data);
 
@@ -136,7 +135,6 @@ class SkripsiController extends Controller
             ->get()
             
         ];
-
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
         return view('karyawan.monitoring-skripsi.skripsi.edit',$data);
     }
@@ -172,10 +170,11 @@ class SkripsiController extends Controller
     {   
         $term=$request->term;
         $results = array();
-        $data=BiodataMhs::where('nama_mhs','LIKE','%'.$term.'%')->take(10)->get();
+        $data=BiodataMahasiswa::where('nim_id','LIKE','%'.$term.'%')->take(10)->get();
         foreach ($data as $key => $v) {
 
-          $results[]=['value'=>$v->nama_mhs,'nim_id'=>$v->nim_id];
+          $results[]=['value'=>$v->nim_id.' - '.$v->nama_mhs,
+                      'nim_id'=>$v->nim_id,];
 
       }
 

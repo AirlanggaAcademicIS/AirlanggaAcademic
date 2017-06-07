@@ -68,7 +68,7 @@ class RuangController extends Controller
 
         // Notifikasi sukses
         Session::put('alert-success', 'Ruang berhasil diedit');
-        return Redirect::to('karyawan/krs-khs/ruang/view');
+        return Redirect::to('karyawan/krs-khs/ruang/create');
    }
 
     public function createAction(Request $request)
