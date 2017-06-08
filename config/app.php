@@ -178,10 +178,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
 
-        Barryvdh\Snappy\ServiceProvider::class,
-        Maatwebsite\Excel\ExcelServiceProvider::class,
-        Barryvdh\Snappy\ServiceProvider::class,        
-
     ],
 
     /*
@@ -232,9 +228,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
 
-        'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
 
