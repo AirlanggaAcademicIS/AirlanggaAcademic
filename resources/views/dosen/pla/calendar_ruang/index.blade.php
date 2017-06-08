@@ -31,7 +31,7 @@ Kalender Ruang
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" media="print">
                  <div class="box box-primary">
-                 <form  method="post" action="{{url('dosen/pla/Kalender_Ruang/search')}}" enctype="multipart/form-data"  class="form-horizontal">
+                 <form  method="post" action="{{url('dosen/Kalender_Ruang/search')}}" enctype="multipart/form-data"  class="form-horizontal">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row" style="padding:10px">
                 <div class="col-sm-8">

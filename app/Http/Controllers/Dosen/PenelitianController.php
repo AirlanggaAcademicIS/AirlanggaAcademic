@@ -37,7 +37,7 @@ class PenelitianController extends Controller
         // Memanggil tampilan index di folder mahasiswa/penelitian dan juga menambahkan $data tadi di view
         return view('dosen.penelitian.index',$data);
     }
-
+ 
     public function create()
     {
         $data = [

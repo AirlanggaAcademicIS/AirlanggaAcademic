@@ -37,7 +37,6 @@ Konfirmasi Kegiatan
       <th width="10%" style="text-align:center">No</th>
       <th width="20%" style="text-align:center">Nama Proposal</th>      
       <th width="10%" style="text-align:center">Tanggal Pengajuan</th>
-      <th width="10%" style="text-align:center">Tanggal Pelaksanaan</th>
       <th width="30%" style="text-align:center">Tindakan</th>
     </tr>
     </thead>
@@ -47,7 +46,6 @@ Konfirmasi Kegiatan
       <td width="10%" style="text-align:center">{{$i+1}}</td>
       <td width="20%" style="text-align:center">{{$konfirmasi_kegiatan->nama}}</td>
       <td width="10%" style="text-align:center">{{$konfirmasi_kegiatan->tglpengajuan}}</td>
-      <td width="10%" style="text-align:center">{{$konfirmasi_kegiatan->tglpelaksanaan}}</td>
       <td width="30%" style="text-align:center" >
           <a onclick="return confirm('Apakah anda yakin untuk menyetujui proposal ini?');" href="{{url('/karyawan/pengelolaan-kegiatan/konfirmasi-kegiatan/'.$konfirmasi_kegiatan->id_kegiatan.'/setujuiProposal/')}}" class="btn btn-success btn-xs">
           <i class="fa fa-pencil-square-o"></i> Setujui</a>
@@ -109,7 +107,6 @@ Konfirmasi Kegiatan
     <tr>
       <th width="10%" style="text-align:center">No</th>
       <th width="20%" style="text-align:center">Nama LPJ</th>      
-      <th width="10%" style="text-align:center">Tanggal Pengajuan</th>
       <th width="10%" style="text-align:center">Tanggal Pelaksanaan</th>
       <th width="30%" style="text-align:center">Tindakan</th>
     </tr>
@@ -119,7 +116,6 @@ Konfirmasi Kegiatan
     <tr>
       <td width="10%" style="text-align:center">{{$i+1}}</td>
       <td width="20%" style="text-align:center">{{ $konfirmasi_kegiatan->nama }}</td>
-      <td width="10%" style="text-align:center">{{$konfirmasi_kegiatan->tglpengajuan}}</td>
       <td width="10%" style="text-align:center">{{$konfirmasi_kegiatan->tglpelaksanaan}}</td>
       <td width="30%" style="text-align:center" >
         <a onclick="return confirm('Apakah anda yakin untuk menyetujui lpj ini?');" href="{{url('/karyawan/pengelolaan-kegiatan/konfirmasi-kegiatan/'.$konfirmasi_kegiatan->id_kegiatan.'/setujuiLPJ')}}" class="btn btn-success btn-xs">
