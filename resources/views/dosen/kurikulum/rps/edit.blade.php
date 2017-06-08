@@ -58,33 +58,31 @@ Rencana Pembelajaran Semester
    </div>
 
   <div class="form-group box-header">
-    <label for="prasyarat"><b>Prasyarat</b></label><br>     
-      @foreach($matkul as $mk)
-        @if ($mk->id_matkul==$mk_prasyarat->matkul['id_matkul'])
-          <label class="checkbox-inline"><input type="checkbox" value="{{$mk->id_mk}}" name="mk_syarat_id[]" checked="{{$mk_prasyarat->matkul['nama_matkul']}}"> {{$mk->nama_matkul}}  </label> 
-          @endif
-      @endforeach                                
-  </div>
-
-    <div class="form-group box-header">
     <label for="mk_prasyarat"><b>Mata Kuliah Prasyarat</b></label><br>
-      @foreach($mk_prasyarat as $syarat)
-        <input type="checkbox" name="kode_cpem" value="
-        {{$syarat->matkul['nama_matkul']}}
-        ">
-        {{$syarat->matkul['nama_matkul']}} <br> 
+      @foreach($matkul as $mk)
+        @foreach ($mk_prasyarat as $mks)
+          @if($mk->id_mk == $mks->mk_syarat_id)
+            <input type="checkbox" name="mk_prasyarat[]" value="
+            {{$mk->id_mk}}" checked="{{$mks->mk_syarat_id}}"> {{$mk->nama_matkul}} <br>
+          @else
+            <input type="checkbox" name="mk_prasyarat[]" value="
+            {{$mk->id_mk}}"> {{$mk->nama_matkul}} <br> 
+          @endif
+        @endforeach
       @endforeach
-    </div> 
+  </div> 
 
-    <div class="form-group box-header">
+  <div class="form-group box-header">
     <label for="cpl_prodi"><b>CPL Prodi</b></label><br>
-      @foreach($cp_prodi as $cprodi)
-        <input type="checkbox" name="kode_cpem" value="
-        {{$cprodi->cpem['kode_cpem']}}
-        ">
-        {{$cprodi->cpem['kode_cpem']}} <br> 
+      @foreach($cpl as $cpl)
+        @foreach ($cp_prodi as $cprodi)
+          @if($cpl->id_cpem == $cprodi->cpem_id)
+            <label class="checkbox-inline"><input type="checkbox" name="cpl_prodi" value="
+            {{$cpl->id_cpem}}" checked="{{$cprodi->cpem_id}}"> {{$cpl->kode_cpem}} </label>
+          @endif
+        @endforeach
       @endforeach
-    </div> 
+  </div>
 
     <div class="form-group box-header">
       <label for="deskripsi_matkul"><b>Deskripsi Singkat Mata Kuliah</b></label>
@@ -112,51 +110,37 @@ Rencana Pembelajaran Semester
     <div class="form-group box-header">
       <p><b>Team Teaching</b></p>
       <label for="dosen1">Koordinator Mata kuliah</label>
-      <select class="form-control">
-        @foreach($koor as $k) 
-          @if ($k->status_tt_id === 1)
-            <option selected="selected">{{$k->nip_id}}</option>
-            @else
-            <option>{{$k->nip_id}}</option>
-          @endif
-        @endforeach
-      </select>
+      <select class="form-control" name="koor_1">
+          @foreach($dosen as $dosen1) 
+                <option value="{{$dosen1->nip}}">{{$dosen1->nama_dosen}}</option>
+          @endforeach
+        </select>
     </div>
 
     <div class="form-group box-header">
       <label for="dosen2">Anggota Team Teaching 1</label>
-        <select class="form-control">
-          @foreach($koor as $k) 
-            @if ($k->status_tt_id === 2)
-              <option selected="selected">{{$k->nip_id}}</option>
-            @else
-              <option>{{$k->nip_id}}</option>
-            @endif
+      <select class="form-control" name="koor_2">
+          @foreach($dosen as $dosen2) 
+            <option value="{{$dosen2->nip}}">{{$dosen2->nama_dosen}}</option>
           @endforeach
         </select>
       </div>
 
     <div class="form-group box-header">
       <label for="dosen3">Anggota Team Teaching 2</label>
-        <select class="form-control">
-          @foreach($koor as $k) 
-            @if ($k->status_tt_id === 3)
-              <option selected="selected">{{$k->nip_id}}</option>
-            @else
-              <option>{{$k->nip_id}}</option>
-            @endif
+        <select class="form-control" name="koor_3">
+          @foreach($dosen as $dosen3) 
+                <option value="{{$dosen3->nip}}">{{$dosen3->nama_dosen}}</option>
           @endforeach
         </select>
       </div>
 
     <div class="form-group box-header">
       <label for="dosen4">Anggota Team Teaching 3</label>
-        <select class="form-control">
-        @foreach($koor as $k) 
-          @if ($k->status_tt_id === 4)
-            <option selected="selected">{{$k->nip_id}}</option>
-          @endif
-        @endforeach
+        <select class="form-control" name="koor_4">
+          @foreach($dosen as $dosen4) 
+                <option value="{{$dosen4->nip}}">{{$dosen4->nama_dosen}}</option>
+          @endforeach
         </select>
     </div>
     <br>

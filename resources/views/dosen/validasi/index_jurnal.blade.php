@@ -28,13 +28,13 @@ Jurnal
   @endforeach
 </div>
 
-<div style="margin-bottom: 20px" class="dropdown">
+<div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Halaman Validasi
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="dosen/validasi/index_konferensi">Konferensi</a></li>
-      <li><a href="dosen/validasi/index_penelitian">Penelitian</a></li>
-      <li><a href="dosen/validasi/index_pengmas">Pengmas</a></li>
+      <li><a href="konferensi">Konferensi</a></li>
+      <li><a href="penelitian">Penelitian</a></li>
+      <li><a href="pengmas">Pengmas</a></li>
     </ul>
   </div>
 
@@ -50,6 +50,8 @@ Jurnal
       <th style="text-align:center">Tanggal Jurnal</th>
       <th style="text-align:center">Volume</th>
       <th style="text-align:center">Penulis Ke</th>
+      <th style="text-align:center">File Jurnal</th>
+      <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
@@ -62,9 +64,11 @@ Jurnal
       <td width="10%" style="text-align:center">{{$jurnal->tanggal_jurnal}}</td>
       <td width="10%" style="text-align:center">{{$jurnal->volume_jurnal}}</td>
       <td width="10%" style="text-align:center">{{$jurnal->penulis_ke}}</td>
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus jurnal ini?');" href="{{url('/dosen/jurnal/'.$jurnal->jurnal_id.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="20%" style="text-align:center" > <a href="{{URL::asset('/img/dosen/'.$jurnal->file_jurnal)}}" class="btn btn-primary btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Download</a> </td>
+      <td width="20%" style="text-align:center" ><a href="{{url('/dosen/validasi/jurnal/'.$jurnal->jurnal_id.'/terima/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-pencil-square-o"></i> Terima</a>
-        <a href="{{url('/dosen/jurnal/'.$jurnal->jurnal_id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('/dosen/validasi/jurnal/'.$jurnal->jurnal_id.'/tolak/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i>Tolak</a>
         </td>
     </tr>
@@ -80,5 +84,7 @@ Jurnal
 @endsection
 
 @section('code-footer')
-
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 @endsection

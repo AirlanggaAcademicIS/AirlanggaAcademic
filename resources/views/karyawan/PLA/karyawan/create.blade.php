@@ -46,7 +46,7 @@ Tambah Karyawan
 			</div>
 			@endif
 			<br>
-			<form id="tambahPetugasTU" method="post" action="{{url('/karyawan/PLA/karyawan/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahPetugasTU" method="post" action="{{url('/karyawan/pla/karyawan/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
@@ -83,7 +83,7 @@ Tambah Karyawan
 					<div class="col-md-2	">
 					<select class="form-control" id="prodi_id" name="prodi_id">
       @foreach($prodi as $p)
-                    <option>{{$p->nama_prodi}}</option>
+                    <option value="{{$p->id_prodi}}">{{$p->nama_prodi}}</option>
             @endforeach
                   </select>
 

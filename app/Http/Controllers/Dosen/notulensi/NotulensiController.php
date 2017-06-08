@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Dosen;
+namespace App\Http\Controllers\Dosen\notulensi;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -80,6 +80,7 @@ class NotulensiController extends Controller
             ->select('*')
             ->get()
         ];    
+        
                 return view('dosen.notulensi.notulensi.listHasil.index2',$data);
             }
 

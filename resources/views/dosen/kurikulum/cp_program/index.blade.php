@@ -26,13 +26,15 @@ Capaian Program
   @endif
   @endforeach
 </div>
+<div class="box box-danger">
+<div class="box-body">
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
   <a href="{{url('dosen\kurikulum\cp_program\create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Capaian Program</a>
 </div>
 <div style="overflow: auto">
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+<table id="data-table" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
@@ -45,7 +47,7 @@ Capaian Program
   <tbody>
    @forelse($cp_program as $i => $cp) 
     <tr>
-      <td width="2%">{{ $i+1 }}</td>
+      <td width="2%"style="text-align:center">{{ $i+1 }}</td>
       <td width="5%" style="text-align:center">{{$cp->prodi['nama_prodi']}}</td>
       <td width="20%" style="text-align:left">{{$cp->capaian_program_spesifik}}</td>
       <td width="20%" style="text-align:leftr">{{$cp->dimensi_capaian_umum}}</td>
@@ -63,9 +65,18 @@ Capaian Program
   </tbody>
 </table>
 </div>
+</div>
+</div>
+
 
 @endsection
 
 @section('code-footer')
 
+<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#data-table').DataTable(); 
+});
+</script>
 @endsection

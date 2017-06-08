@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 /*
@@ -39,3 +40,5 @@ Route::group(['middleware' => 'auth'], function () {
         });
     });
 });
+=======
+>>>>>>> cf7ed3b6320656f692b5b62fc0b0e4536eb21316

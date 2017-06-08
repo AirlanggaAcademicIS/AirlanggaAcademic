@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class RPS_Detail_Kategori extends Model
 {
    protected $table = 'detail_kategori';    
-   protected $primaryKey = 'media_pembelajaran_id';    
+   protected $primaryKey = 'cpmk_id';    
    protected $fillable = [
-   		'cpmk_id',
+   	'media_pembelajaran_id',
+      'cpmk_id',
    ];
 
    public function cpmk()

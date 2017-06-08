@@ -14,8 +14,13 @@ Input Dosen Mata Kuliah
 @endsection
 
 @section('main-content')
+<<<<<<< HEAD
   <div class="box box-info">
     <form class="form-horizontal" method = "post" action ="{{ url('karyawan/krs-khs/input-dosen-mk/create') }}">
+=======
+	<div class="box box-info">
+		<form class="form-horizontal" method = "post" action ="{{ url('karyawan/krs-khs/input-dosen-mk/create') }}">
+>>>>>>> cf7ed3b6320656f692b5b62fc0b0e4536eb21316
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="box-body">
                 
@@ -26,8 +31,10 @@ Input Dosen Mata Kuliah
             <div class="form-group row">
                                 <div class="col-xs-4">
                                     <select class="form-control" name = "mk">
+
+                                       <option>Pilih Matkul</option>
                                       @foreach($mk_ditawarkan as $i => $m) 
-                                        <option>Pilih Matkul</option>
+
                                         <option value="{{$m->id_mk_ditawarkan}}">{{$m->nama_matkul}}</option>
                                       @endforeach
                                     </select>
@@ -44,8 +51,8 @@ Input Dosen Mata Kuliah
             <div class="form-group row">
                                 <div class="col-xs-4">
                                     <select class="form-control" name = "dosen_pjmk" required>
-                                        @foreach($dosen as $i => $d) 
                                         <option>Pilih Dosen</option>
+                                        @foreach($dosen as $i => $d) 
                                         <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
                                       @endforeach
                                     </select>
@@ -60,8 +67,8 @@ Input Dosen Mata Kuliah
             <div class="form-group row">
                                 <div class="col-xs-4">
                                     <select class="form-control" name = "dosen_pendamping" required>
-                                        @foreach($dosen as $i => $d) 
                                         <option>Pilih Dosen</option>
+                                        @foreach($dosen as $i => $d) 
                                         <option value="{{$d->nip}}">{{$d->nama_dosen}}</option>
                                       @endforeach
                                     </select>

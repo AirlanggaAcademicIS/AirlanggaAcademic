@@ -20,6 +20,12 @@ use App\NamaDosenMK;
 use App\RPS_Media_Pembelajaran;
 use App\CapaianPembelajaran;
 use App\RPS_Detail_Kategori;
+use App\Silabus_Matkul;
+use App\Silabus_detail_kategori;    
+use App\Silabus_Matkul_prasyarat;
+use PDF;
+use DB;
+use App\BiodataDosen;
 
 class RPSController extends Controller
 {
@@ -37,31 +43,36 @@ class RPSController extends Controller
     {
         $data = [
             'page' => 'rps',
-            'mata_kuliah' => RPS_Matkul::all(),
+            'mata_kuliah' => DB::table('mata_kuliah')
+            ->join('cp_mata_kuliah', 'cp_mata_kuliah.matakuliah_id', '=', 'mata_kuliah.id_mk')
+            ->join('detail_kategori', 'cp_mata_kuliah.id_cpmk', '=', 'detail_kategori.cpmk_id')
+            ->join('kategori_media_pembelajaran', 'kategori_media_pembelajaran.id', '=', 'detail_kategori.media_pembelajaran_id')
+            ->select('*')
+            ->get(),
+            'mk' => RPS_Matkul::all(),
             'cpmk' => RPS_CP_Matkul::all(),
-            'media' => RPS_Media_Pembelajaran::all()  
+            'media' => RPS_Media_Pembelajaran::all(),
+            'mp' => RPS_Detail_Kategori::all()  
         ];
 
         return view('dosen.kurikulum.rps.cpmk',$data);
     }
 
      public function cpmkAction(Request $request)
-    {
+    {  
         $cpmk = RPS_CP_Matkul::create([
             'matakuliah_id' => $request->input('matkul'),
             'kode_cpmk' => $request->input('kode_cpmk'),
             'deskripsi_cpmk' => $request->input('deskripsi_cpmk'),
             ]);
         $cpmk->save();
-        $insertedId = $cpmk->id;
-
         $media = $request->input('media_pembelajaran');
-        for($count = 0; $count < count($media); $count++)
-        {   
-            $media_pembelajaran = new RPS_Detail_Kategori;
-            $media_pembelajaran->media_pembelajaran_id = $media[$count];
-            $media_pembelajaran->cpmk_id = $request->input($insertedId);
-            $media_pembelajaran->save();
+        foreach ($media as $value) {
+            RPS_Detail_Kategori::create([
+                'media_pembelajaran_id' => $value,
+                'cpmk_id' => $cpmk->id_cpmk,
+
+                ]);
         }
 
         Session::put('alert-success', 'Kode CP MK berhasil ditambahkan');
@@ -81,6 +92,7 @@ class RPSController extends Controller
         $data = [
             'page' => 'rps',
             'mata_kuliah' => RPS_Matkul::where('status_rps', '=', '0')->get(),
+            'matkul' => RPS_Matkul::all(),
             'dosen' => NamaDosenMK::all(),
             'media' => RPS_Media_Pembelajaran::all(),
             'cpl' => CapaianPembelajaran::all()
@@ -90,8 +102,6 @@ class RPSController extends Controller
 
     public function createAction(Request $request)
     {
-        $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $request->input('matkul'))->first();
-        
         $mkSyaratId = $request->input('mk_syarat_id');
         for($count = 0; $count < count($mkSyaratId); $count++)
         {   
@@ -159,7 +169,7 @@ class RPSController extends Controller
         $cpmk = RPS_CP_Matkul::where('matakuliah_id', $id)->delete();
         $cpl_prodi = RPS_CPL_Prodi::where('mk_id', $id)->delete();
         $mk_prasyarat = RPS_Matkul_Prasyarat::where('mk_id',$id)->delete();
-        $koormk = RPS_Koor_Matkul::where('id_mk',$id)->delete();
+        $koormk = RPS_Koor_Matkul::where('mk_id',$id)->delete();
 
     	Session::put('alert-success', 'RPS berhasil dihapus');
       	return Redirect::back();	 
@@ -172,21 +182,65 @@ class RPSController extends Controller
             'mata_kuliah' => RPS_Matkul::find($id),
             'matkul' => RPS_Matkul::all(),
             'mk_prasyarat' => RPS_Matkul_Prasyarat::where('mk_id', '=', $id)->get(),
-            'cp_mata_kuliah' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get(),
             'cp_prodi' => RPS_CPL_Prodi::where('mk_id', '=', $id)->get(),
-            'koor' => RPS_Koor_Matkul::where('mk_id', '=', $id)->get()
+            'cpl' => CapaianPembelajaran::all(),
+            'koor' => RPS_Koor_Matkul::where('mk_id', '=', $id)->get(),
+            'dosen' => BiodataDosen::all(),
         ];
         return view('dosen.kurikulum.rps.edit',$data);
     }
 
     public function editAction($id, Request $request)
     {
+        $koormk = RPS_Koor_Matkul::where('mk_id',$id)->get();
+        foreach ($koormk as $value) {
+            if ($value->status_tt_id == '1') {
+                $value->nip_id = $request->input('koor_1');
+            }
+            elseif ($value->status_tt_id == '2') {
+                $value->nip_id = $request->input('koor_2');
+            }
+            elseif ($value->status_tt_id == '3') {
+                $value->nip_id = $request->input('koor_3');
+            }
+            elseif ($value->status_tt_id == '4') {
+                $value->nip_id = $request->input('koor_4');
+            }
+        }
+        $mk_syarat = RPS_Matkul_Prasyarat::where('mk_id',$id);
+        
+        $mk_syarat= $request->input('mk_prasyarat');
+        foreach ($mk_syarat as $mk) {
+            RPS_Matkul_Prasyarat::create([
+                'mk_id' => $id,
+                'mk_syarat_id' => $mk
+                ]);
+        }
+        $mk_prasyarat = RPS_Matkul_Prasyarat::where('mk_id',$id)->delete();
         $mata_kuliah = RPS_Matkul::find($id);
-        $mata_kuliah->id = $id;
+        $mata_kuliah->id_mk = $id;
         $mata_kuliah->deskripsi_matkul = $request->input('deskripsi_matkul');
         $mata_kuliah->pokok_pembahasan = $request->input('pokok_pembahasan');
         $mata_kuliah->save();
+
         Session::put('alert-success', 'RPS berhasil diedit');
-        return Redirect::to('dosen/kurikulum/index');
+        return Redirect::to('/dosen/kurikulum/rps');
     }
+
+    public function pdf($id)
+    {
+        $cpProdi = RPS_CPL_Prodi::where('mk_id', '=', $id)->get();
+        $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $id)->first();        
+        $data = [
+            'matkul_silabus' => Silabus_Matkul::find($id),
+            'cpem' => RPS_CPL_Prodi::where('mk_id', '=', $id)->get(),
+            'mk_media_pembelajaran' => Silabus_detail_kategori::where('cpmk_id', '=', $cpmk->id_cpmk)->get(),
+            'mk_prasyarat' => Silabus_Matkul_prasyarat::where('mk_id', '=', $id)->get(),
+            'mk_dosen' => RPS_Koor_Matkul::where('mk_id', '=', $id)->get(),
+            'cp_matkul' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get()
+        ];
+        $pdf = PDF::loadView('dosen.kurikulum.rps.pdf-rps', $data);
+        return $pdf->download('silabus-mata-kuliah.pdf');
+    }
+
 }

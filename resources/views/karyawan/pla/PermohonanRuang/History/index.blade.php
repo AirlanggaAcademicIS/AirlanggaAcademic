@@ -51,14 +51,17 @@ History Peminjam Ruangan
       <td width="25%" style="text-align:center">{{$PR->nama}}</td>
       <td width="20%" style="text-align:center">{{$PR->nim_nip}}</td>
       <td width="20%" style="text-align:center">{{$PR->nama_ruang}}</td>
-      <td width="20%" style="text-align:center">{{$PR->tgl_pinjam}}</td>
+      <td width="20%" style="text-align:center">{!!App\Helpers\GeneralHelper::indonesianDateFormat($PR->tgl_pinjam)!!}</td>
       <td width="20%" style="text-align:center">{{$PR->nama_hari}}</td>
       <td width="20%" style="text-align:center">{{$PR->waktu}}</td>
+            <td width="20%" style="text-align:center">
             @if(($PR->atribut_verifikasi)==1)
-            <td width="20%" style="text-align:center">Konfirmasi</td>
+            <span class="label label-success"><i class="fa fa-check-square-o" aria-hidden="true"></i> Approved</span>
             @else
-            <td width="20%" style="text-align:center">Tolak</td>
+            <span class="label label-danger"><i class="fa fa-window-close-o" aria-hidden="true"></i> Rejected</span>
+
             @endif
+            </td>
       
     </tr>
      @empty
