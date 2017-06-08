@@ -79,7 +79,14 @@ class BiodataMahasiswaController extends Controller
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
         $biodata_mhs = BiodataMahasiswa::find($id_bio);
+        $getBiodataMhs = BiodataMahasiswa::find($id_bio);
 
+       if ($getBiodataMhs->nama_mhs == $request->input('nama_mhs')||$getBiodataMhs->email_mhs == $request->input('email_mhs')||$getBiodataMhs->jenis_kelamin == $request->input("jenis_kelamin")||$getBiodataMhs->negara_asal == $request->input("negara_asal")||$getBiodataMhs->provinsi_asal == $request->input("provinsi_asal")||$getBiodataMhs->provinsi_asal == $request->input("provinsi_asal")||$getBiodataMhs->kota_asal == $request->input('kota_asal')||$getBiodataMhs->kota_tinggal == $request->input('kota_tinggal')||$getBiodataMhs->alamat_tinggal == $request->input('alamat_tinggal')||$getBiodataMhs->ttl == $request->input('ttl')||$getBiodataMhs->angkatan == $request->input('angkatan')||$getBiodataMhs->agama == $request->input('agama')||$getBiodataMhs->kebangsaan == $request->input('kebangsaan')||$getBiodataMhs->sma_asal == $request->input('sma_asal')||$getBiodataMhs->nama_ayah == $request->input('nama_ayah')||$getBiodataMhs->nama_ibu == $request->input('nama_ibu')||$getBiodataMhs->deskripsi_diri == $request->input('deskripsi_diri')||$getBiodataMhs->motto == $request->input('motto')){
+
+         Session::put('alert-warning', 'Tidak ada perubahan');
+           }
+        else
+        {
         // Mengupdate $biodata tadi dengan isi dari form edit tadi
 
         $biodata_mhs->nim_id = Auth::user()->username;
@@ -103,10 +110,11 @@ class BiodataMahasiswaController extends Controller
         $biodata_mhs->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Biodata Mahasiswa berhasil diinputkan');
+        Session::put('alert-success', 'Biodata Mahasiswa berhasil diinputkan');{
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('mahasiswa/biodata-mahasiswa');
     }
+    }      
+  return Redirect::to('mahasiswa/biodata-mahasiswa');
 
-}
+}}
