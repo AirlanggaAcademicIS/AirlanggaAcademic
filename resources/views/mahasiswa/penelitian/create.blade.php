@@ -60,44 +60,28 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="peneliti" class="col-sm-2 control-label">Nama</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="peneliti" name="peneliti" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="peneliti" name="peneliti" placeholder="Masukkan Nama" value="{{$penelitian_mhs->nama_mhs}}" readonly="readonly">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="fakultas" class="col-sm-2 control-label">Fakultas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="fakultas" name="fakultas" placeholder="Masukkan Fakultas" required>
+						<input type="text" class="form-control input-lg" id="fakultas" name="fakultas" placeholder="Masukkan Fakultas" value="Sains dan Teknologi" readonly="readonly">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="tahun" class="col-sm-2 control-label">Tahun</label>
 					<div class="col-md-8">
-<<<<<<< HEAD
 						<input type="text" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; class="form-control input-lg" id="tahun" name="tahun" maxlength="4" placeholder="Masukkan Tahun Penelitian" required>
-=======
-<<<<<<< HEAD
-						<input type="text" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; class="form-control input-lg" id="tahun" name="tahun" maxlength="4" placeholder="Masukkan Tahun Penelitian" required>
-=======
-						<input type="text" class="form-control input-lg" id="tahun" name="tahun" placeholder="Masukkan Tahun Penelitian" required>
->>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
->>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="halaman_naskah" class="col-sm-2 control-label">Jumlah Halaman</label>
 					<div class="col-md-8">
-<<<<<<< HEAD
-						<input type="text" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; class="form-control input-lg" id="halaman_naskah" name="halaman_naskah" placeholder="Masukkan Jumlah Halaman" required>
-=======
-<<<<<<< HEAD
-						<input type="text" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; class="form-control input-lg" id="halaman_naskah" name="halaman_naskah" placeholder="Masukkan Jumlah Halaman" required>
-=======
-						<input type="text" class="form-control input-lg" id="halaman_naskah" name="halaman_naskah" placeholder="Masukkan Jumlah Halaman" required>
->>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
->>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
+						<input type="text" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; class="form-control input-lg" id="halaman_naskah" name="halaman_naskah" maxlength="3" placeholder="Masukkan Jumlah Halaman" required>
 					</div>
 				</div>
 
@@ -135,15 +119,7 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="kategori_penelitian" class="col-sm-2 control-label">Jenis Penelitian</label>
 					<div class="col-md-8">
-<<<<<<< HEAD
 						<select class="form-control input-lg" name="kategori_penelitian" required>
-=======
-<<<<<<< HEAD
-						<select class="form-control input-lg" name="kategori_penelitian" required>
-=======
-						<select name="kategori_penelitian" required>
->>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
->>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
 							<option value="PKM">PKM</option>
 							<option value="Penelitian Dosen">Penelitian Dosen</option>
 							<option value="Karya Ilmiah">Karya Ilmiah</option>
@@ -164,7 +140,11 @@ Tambah Penelitian Mahasiswa
 					<label for="anggota" class="col-sm-2 control-label">Anggota</label>
 					<div class="col-md-8">
 						<textarea type="text" class="form-control input-lg" id="anggota" name="anggota" 
-						placeholder="Masukkan Anggota" required></textarea>
+						placeholder="Masukkan Anggota" required cols="115" rows="5"></textarea>
+						<p class="help-block">*contoh: </p>
+						<p class="help-block">1. Bambang</p>
+						<p class="help-block">2. Joko</p>
+						<p class="help-block">3. dll...</p>
 					</div>
 				</div>
 

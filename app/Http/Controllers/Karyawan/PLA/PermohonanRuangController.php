@@ -76,7 +76,7 @@ class PermohonanRuangController extends Controller
         $PermohonanRuang->save();
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'permohonan diterima');
+        Session::put('alert-success', 'Permohonan diterima');
 
         // Kembali ke halaman sebelumnya
         return Redirect::back();     
@@ -94,7 +94,7 @@ public function decline($id_permohonan_ruang)
         $PermohonanRuang->save();
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'permohonan ditolak');
+        Session::put('alert-success', 'Permohonan ditolak');
 
         // Kembali ke halaman sebelumnya
         return Redirect::back();     

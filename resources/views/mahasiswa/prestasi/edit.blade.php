@@ -289,7 +289,7 @@ Edit Prestasi
 					<label for="file_prestasi" class="col-sm-2 control-label">File Prestasi</label>
 					<div class="col-md-8">
 						 <img src="{{URL::asset('/img/prestasi/'.$prestasi->file_prestasi)}}" height="100px" width="100px" hspace="5px" vspace="2px" alt="gambar" style="border:2px solid gray" class="img-rounded" >
-						<input type="file" class="form-control input-lg" id="file_prestasi" name="file_prestasi" placeholder="Masukkan Nama Link Prestasi" value="{{$prestasi->file_prestasi}}">
+						<input type="file" class="form-control input-lg" id="gambar" name="file_prestasi" placeholder="Masukkan Nama Link Prestasi" value="{{$prestasi->file_prestasi}}">
 					</div>
 				</div>
 
@@ -315,5 +315,34 @@ $( function() {
 
   } );
   </script>
+  <script type="text/javascript">
+	var elBrowse  = document.getElementById("gambar");
+	elBrowse.addEventListener("change", function() {
+		var files  = this.files;
+		var errors = "";
+		if (!files) {
+			errors += "File upload not supported by your browser.";
+		}
+		if (files && files[0]) 
+		{
+			for(var i=0; i<files.length; i++) 
+			{
+				var file = files[i];
+				if ( (/\.(png|jpeg|jpg|gif)$/i).test(file.name) ) 
+				{
+					readImage( file ); 
+				} 
+				else 
+				{
+					errors += file.name +" is unsupported Image extension\n";
+					document.getElementById("gambar").value = null;  
+				}
+			}
+		}
+		if (errors) {
+			alert(errors); 
+		}
+	});
+</script
 @endsection
 

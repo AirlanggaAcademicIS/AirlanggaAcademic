@@ -46,7 +46,7 @@ Tambah Karyawan
 			</div>
 			@endif
 			<br>
-			<form id="tambahPetugasTU" method="post" action="{{url('/karyawan/PLA/karyawan/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahPetugasTU" method="post" action="{{url('/karyawan/pla/karyawan/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->

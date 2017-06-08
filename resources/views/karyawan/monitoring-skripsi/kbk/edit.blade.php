@@ -59,6 +59,13 @@ Edit KBK
   				<br>
       			<button type="submit" class="btn btn-primary" style="margin-left: 450px;">Simpan</button>
 			</form>
+			<br>
+				<a href="{{url('karyawan/monitoring-skripsi/KBK')}}">
+					<button class="btn btn-danger" style="margin-left: 450px;">
+					
+							Kembali
+					</button>
+				</a>
 		</div>
 	</div>
 </div>

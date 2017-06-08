@@ -18,3 +18,4 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 
 });
+

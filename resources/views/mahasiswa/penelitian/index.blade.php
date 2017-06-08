@@ -33,27 +33,25 @@ Penelitian Mahasiswa
     <i class="fa fa-plus-square"></i> Form Penelitian</a>
 </div>
 
-<div style="overflow: auto">
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
-  <thead>
+
+<div class="box-body" style="overflow: auto">
+  <table id="myTable" class="table table-bordered table-striped" cellspacing="0">
+    <thead>
     <tr>
       <th style="text-align:center">No.</th>
       <th style="text-align:center">Judul Penelitian</th>      
       <th style="text-align:center">Jenis</th>
-<<<<<<< HEAD
       <th style="text-align:center">Nama</th>
-=======
-<<<<<<< HEAD
-      <th style="text-align:center">Nama</th>
-=======
-      <th style="text-align:center">Anggota</th>
->>>>>>> 80450abb421b0116799700011bcc0bffc938e61d
->>>>>>> ffb3f6c70d63f9e503da297ccef9e9b8e2421a0a
+      <th style="text-align:center">Skor</th>
       <th style="text-align:center">Tahun Penelitian</th>
       <th style="text-align:center">Status</th>
       <th style="text-align:center"></th>
     </tr>
     </thead>
+
+<!-- <div style="overflow: auto">
+<table id="myTable" class="table table-striped table-bordered" cellspacing="0"> -->
+  
   <tbody>
    @forelse($penelitian_mhs as $i => $bio) 
     <tr>
@@ -61,6 +59,11 @@ Penelitian Mahasiswa
       <td width="20%" style="text-align:center">{{$bio->judul}}</td>
       <td width="15%" style="text-align:center">{{$bio->kategori_penelitian}}</td>
       <td width="20%" style="text-align:center">{{$bio->peneliti}}</td>
+      @if (($bio->skor)==null)
+      <td width="10%" style="text-align:center">-</td>
+      @else
+      <td width="10%" style="text-align:center">{{$bio->skor}}</td>
+      @endif
       <td width="10%" style="text-align:center">{{$bio->tahun}}</td>
 
       @if (($bio->is_verified)==0)
@@ -100,6 +103,12 @@ Penelitian Mahasiswa
 @endsection
 
 @section('code-footer')
+
+<script type="text/javascript"> 
+    $(document).ready(function(){ 
+        $('#myTable').DataTable(); 
+    }); 
+</script> 
 
 
 

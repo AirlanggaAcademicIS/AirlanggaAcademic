@@ -124,7 +124,7 @@ Tambah Prestasi
 				<div class="form-group">
 					<label for="file_prestasi" class="col-sm-2 control-label">File Prestasi</label>
 					<div class="col-md-8">
-						<input type="file" class="form-control input-lg" id="file_prestasi" name="file_prestasi" placeholder="Pilih File Prestasi" required>
+						<input type="file" class="form-control input-lg" id="gambar" name="file_prestasi" placeholder="Pilih File Prestasi" required>
 
 					</div>
 				</div>
@@ -180,5 +180,34 @@ $( function() {
 
   } );
   </script>
+  <script type="text/javascript">
+	var elBrowse  = document.getElementById("gambar");
+	elBrowse.addEventListener("change", function() {
+		var files  = this.files;
+		var errors = "";
+		if (!files) {
+			errors += "File upload not supported by your browser.";
+		}
+		if (files && files[0]) 
+		{
+			for(var i=0; i<files.length; i++) 
+			{
+				var file = files[i];
+				if ( (/\.(png|jpeg|jpg|gif)$/i).test(file.name) ) 
+				{
+					readImage( file ); 
+				} 
+				else 
+				{
+					errors += file.name +" is unsupported Image extension\n";
+					document.getElementById("gambar").value = null;  
+				}
+			}
+		}
+		if (errors) {
+			alert(errors); 
+		}
+	});
+</script
 @endsection
 
