@@ -17,13 +17,8 @@
 
         "maddhatter/laravel-fullcalendar": "^1.2",
         "maatwebsite/excel": "~2.1.0",
-        "milon/barcode": "^5.3"
-
-
-
-        "maatwebsite/excel": "~2.1.0",
-        "maddhatter/laravel-fullcalendar": "^1.2",
         "milon/barcode": "^5.3",
+
         "uxweb/sweet-alert": "^1.4"
     },
     "require-dev": {
