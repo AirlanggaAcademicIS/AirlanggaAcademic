@@ -66,7 +66,10 @@
 <script src="<?php echo e(asset('/js/plugins/timepicker/bootstrap-timepicker.min.js')); ?>"></script>
 
 <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<<<<<<< HEAD
+=======
 
+>>>>>>> e0176de769951ffba73e6bb47bfda76f26da12ec
 <script>
     window.Laravel = <?php echo json_encode([
         'csrfToken' => csrf_token(),
