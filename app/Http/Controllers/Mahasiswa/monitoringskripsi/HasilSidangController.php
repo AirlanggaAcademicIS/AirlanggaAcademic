@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dosen\monitoringskripsi;;
+namespace App\Http\Controllers\Mahasiswa\monitoringskripsi;
 
 use Request;
 use Illuminate\Support\Facades\DB;
@@ -20,10 +20,10 @@ class HasilSidangController extends Controller
     //
 
 
-   public function view_hasil_sidang_skripsi_dosen()
+   public function view_hasil_sidang_skripsi_mahasiswa()
    {
       # code...
-       $nip = Auth::user()->username;
+       $nim = Auth::user()->username;
        $hasil_sidang_skripsi = DB::table('skripsi')
             ->leftJoin('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
             ->leftJoin('kbk', 'skripsi.kbk_id', '=', 'kbk.id_kbk')
@@ -34,9 +34,8 @@ class HasilSidangController extends Controller
             ->leftJoin('status_skripsi','status_skripsi.id','=','skripsi.statusskrip_id')
             ->select('skripsi.id_skripsi','biodata_mhs.nama_mhs', 'skripsi.NIM_id','skripsi.nilai_sidangskrip' ,'kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangpro', 'skripsi.waktu_sidangpro', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang','dosen_penguji.nip_id as dosji','status_skripsi.keterangan')
             ->whereNull('skripsi.deleted_at')
-            ->whereNotNull('skripsi.nilai_sidangskrip')
-            ->where('dosen_pembimbing.nip_id','=',$nip)
-            ->orWhere('dosen_penguji.nip_id','=',$nip)
+            // ->whereNotNull('skripsi.nilai_sidangskrip')
+            ->where('skripsi.NIM_id','=',$nim)
 
             ->get();
             
@@ -73,9 +72,9 @@ class HasilSidangController extends Controller
          return view('mahasiswa.monitoring-skripsi.hasil-sidang.skripsi',$data);
    }
 
-   public function view_hasil_sidang_proposal_dosen()
+   public function view_hasil_sidang_proposal_mahasiswa()
    {
-       $nip = Auth::user()->username;
+       $nim = Auth::user()->username;
       # code...
            $hasil_sidang_proposal = DB::table('skripsi')
             ->leftJoin('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
@@ -89,8 +88,7 @@ class HasilSidangController extends Controller
             ->whereNull('skripsi.deleted_at')
             // ->where('NIM_id','=',$nim)
             ->whereNotNull('nilai_sidangpro')
-            ->where('dosen_pembimbing.nip_id','=',$nip)
-            ->orWhere('dosen_penguji.nip_id','=',$nip)
+            ->where('skripsi.NIM_id','=',$nim)
 
             ->get();
             

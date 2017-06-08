@@ -46,7 +46,9 @@ class LaporanController extends Controller
 
     public function cetak()
     {
-        $dosen = Auth::user()->username;
+
+          $dosen = Auth::user()->username;
+
           $data = [
             'page' => 'laporan',
             // Memanggil semua isi dari tabel biodata
@@ -55,6 +57,14 @@ class LaporanController extends Controller
             'penelitian' => Penelitian_Dsn::where('nip',$dosen)->get(),
             'konferensi' => Konferensi_Dsn::where('nip',$dosen)->get(),
             'pengmas' => Pengmas_Dsn::where('nip',$dosen)->get(),
+
+            //'tahun' => TahunAkademik::all()->first(),
+            'surattugas' => SuratTugas_Dsn::where('nip',$dosen)->get()];
+        $tahun = TahunAkademik::all();
+        $khs = KHS::all();
+        $pdf = PDF::loadView('dosen.laporan.cetak', ['khs'=>$khs] , ['tahun'=>$tahun] );
+        return $pdf->stream('dokumen.pdf');
+
             'tahun' => TahunAkademik::first(),
             'stugas' => SuratTugas_Dsn::where('nip',$dosen)->get()
             // 'page' => 'mata-kuliah',
@@ -65,6 +75,7 @@ class LaporanController extends Controller
         //$khs = KHS::all();
         $pdf = PDF::loadView('dosen.laporan.cetak',  $data );
         return $pdf->inline('Laporan.pdf');
+
 
     }
 

@@ -63,7 +63,7 @@ Rencana Pembelajaran Semester
         @foreach ($mk_prasyarat as $mks)
           @if($mk->id_mk == $mks->mk_syarat_id)
             <input type="checkbox" name="mk_prasyarat[]" value="
-            {{$mk->id_mk}}" checked="{{$mks->mk_syarat_id}}"> {{$mk->nama_matkul}} <br> 
+            {{$mk->id_mk}}" checked="{{$mks->mk_syarat_id}}"> {{$mk->nama_matkul}} <br>
           @else
             <input type="checkbox" name="mk_prasyarat[]" value="
             {{$mk->id_mk}}"> {{$mk->nama_matkul}} <br> 
@@ -121,7 +121,7 @@ Rencana Pembelajaran Semester
       <label for="dosen2">Anggota Team Teaching 1</label>
       <select class="form-control" name="koor_2">
           @foreach($dosen as $dosen2) 
-                <option value="{{$dosen2->nip}}">{{$dosen2->nama_dosen}}</option>
+            <option value="{{$dosen2->nip}}">{{$dosen2->nama_dosen}}</option>
           @endforeach
         </select>
       </div>
