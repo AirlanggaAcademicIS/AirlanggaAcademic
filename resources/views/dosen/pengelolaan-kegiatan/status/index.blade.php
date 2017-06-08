@@ -41,9 +41,9 @@ Daftar Kegiatan Akademik
       <td width="45%" style="text-align:center"><img src="{{URL::asset('/img/pengajuan/'.$pen->url_poster)}}" height="100px" width="100px" hspace="5px" vspace="2px"></td>
       <td width="20%" style="text-align:center">
       @if($pen->konfirmasi_proposal==2)
-      <a href="{{url('/mahasiswa/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan)}}" class="btn btn-success btn-xs"> Revisi</a>
+      <a href="{{url('/dosen/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan.'/edit')}}" class="btn btn-success btn-xs"> Revisi</a>
       @endif
-        <a href="{{url('/mahasiswa/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan)}}" class="btn btn-success btn-xs"> View Detail</a>
+        <a href="{{url('/dosen/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan)}}" class="btn btn-success btn-xs"> View Detail</a>
         </td>
     </tr>
      @empty
@@ -80,10 +80,10 @@ Daftar Kegiatan Akademik
       <td width="20%" style="text-align:center">
       @if($pen->konfirmasi_proposal==1)
       @if($pen->konfirmasi_lpj==3)
-      <a href="{{url('/mahasiswa/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan)}}" class="btn btn-success btn-xs"> Revisi</a>
+      <a href="{{url('/dosen/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan)}}" class="btn btn-success btn-xs"> Revisi</a>
       @endif
       @endif
-        <a href="{{url('/mahasiswa/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan)}}" class="btn btn-success btn-xs"> View Detail</a>
+        <a href="{{url('/dosen/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan)}}" class="btn btn-success btn-xs"> View Detail</a>
         </td>
     </tr>
      @empty
