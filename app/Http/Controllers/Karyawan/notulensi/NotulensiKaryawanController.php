@@ -103,6 +103,8 @@ class NotulensiKaryawanController extends Controller
         $notulensi = NotulensiKaryawan::find($request->input('id_notulen'));
          //dd($notulensi);
          $notulensi->nip_id = $request->input('nip_id');
+         $notulensi->nip_petugas_id=Auth::user()->username;
+         $notulensi->id_verifikasi=0;
         $notulensi->hasil_pembahasan = $request->input('hasil_pembahasan');
         $notulensi->deskripsi_rapat = $request->input('deskripsi_rapat');
         //dd($notulensi);

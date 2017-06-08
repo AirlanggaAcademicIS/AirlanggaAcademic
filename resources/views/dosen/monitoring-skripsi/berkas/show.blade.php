@@ -71,10 +71,18 @@ Monitoring Skripsi
       <td width="15%" style="text-align:center">{{$skripsi->kbk['jenis_kbk']}}</td>
       <td width="15%" style="text-align:center">{{$dos->Judul}}</td>
       <td width="20%" style="text-align:center" >
+      @if($dos->upload_berkas_proposal != "")
         <a class="btn btn-info" href="{{url('dosen/monitoring-skripsi/berkas/'.$dos->nim_id.'/download')}}"><i class="fa fa-download"></i> Download File</a>
+        @else 
+        Belum ada file
+      @endif
       </td>
       <td width="20%" style="text-align:center" >
+      @if($dos->upload_berkas_skripsi != "")
         <a class="btn btn-info" href="{{url('dosen/monitoring-skripsi/berkas/'.$dos->nim_id.'/download-skripsi')}}"><i class="fa fa-download"></i> Download File</a>
+        @else 
+        Belum ada file
+      @endif
       </td>
     </tr>
      @empty

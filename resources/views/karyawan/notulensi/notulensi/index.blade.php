@@ -111,10 +111,7 @@ Notulensi Rapat
                  
             </div>
         </div>
-
-
-
-    </div>
+</div>
 </div>
 </div>
 @empty

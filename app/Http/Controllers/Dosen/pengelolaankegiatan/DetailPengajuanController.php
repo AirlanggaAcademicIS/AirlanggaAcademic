@@ -15,6 +15,10 @@ use App\RincianDana;
 use App\RincianRundown;
 use App\Dokumentasi;
 use App\KategoriDana;
+use App\StrukturPanitiaDosen;
+use App\DosenPanitia;
+use App\DosenPengajuan;
+use App\JabatanPanitia;
 
 class DetailPengajuanController extends Controller
 {
@@ -32,12 +36,12 @@ class DetailPengajuanController extends Controller
             'rundownProposal' => RincianRundown::where('kegiatan_id',$id_kegiatan)->where('kategori_rundown','0')->get(),
             'danaProposal' => RincianDana::where('kegiatan_id',$id_kegiatan)->where('kategori_dana','0')->get(),
             'rundownLPJ' => RincianRundown::where('kegiatan_id',$id_kegiatan)->where('kategori_rundown','1')->get(),
-            'danaLPJ' => RincianDana::where('kegiatan_id',$id_kegiatan)->where('kategori_dana','1')->get()
+            'danaLPJ' => RincianDana::where('kegiatan_id',$id_kegiatan)->where('kategori_dana','1')->get(),
+            'struktur' => StrukturPanitiaDosen::where('kegiatan_id',$id_kegiatan)->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('dosen.pengelolaan-kegiatan.detail-pengajuan.index',$data);
     }
-
     
 }

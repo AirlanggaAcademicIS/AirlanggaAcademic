@@ -13,8 +13,9 @@ use Response;
 // Tambahkan model yang ingin dipakai
 use Illuminate\Support\Facades\DB;
 use App\BiodataDosen;
-use App\Jurnal_Dsn,App\Penelitian_Dsn,App\Konferensi_Dsn,App\Pengmas_Dsn;
+use App\Jurnal_Dsn,App\Penelitian_Dsn,App\Konferensi_Dsn,App\Pengmas_Dsn,App\SuratTugas_Dsn;
 use App\Models\KrsKhs\TahunAkademik;
+use App\Models\KrsKhs\KHS;
 use PDF;
 use Auth;
 
@@ -35,32 +36,35 @@ class LaporanController extends Controller
             'penelitian' => Penelitian_Dsn::where('nip',$dosen)->get(),
             'konferensi' => Konferensi_Dsn::where('nip',$dosen)->get(),
             'pengmas' => Pengmas_Dsn::where('nip',$dosen)->get(),
-            'tahun' => TahunAkademik::all()->first()
-            //'sktugas' => Sktugas::where('nip',$dosen),
+            'tahun' => TahunAkademik::first(),
+            'stugas' => SuratTugas_Dsn::where('nip',$dosen)->get()
         ];
         //dd($data);
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        
         return view('dosen.laporan.index',$data);
     }
 
     public function cetak()
     {
         $dosen = Auth::user()->username;
-        $data = [
-        'page' => 'cetak',
+          $data = [
+            'page' => 'laporan',
+            // Memanggil semua isi dari tabel biodata
+            'biodata' => BiodataDosen::where('nip',$dosen)->first(),
+            'jurnal' => Jurnal_Dsn::where('nip',$dosen)->get(),
+            'penelitian' => Penelitian_Dsn::where('nip',$dosen)->get(),
+            'konferensi' => Konferensi_Dsn::where('nip',$dosen)->get(),
+            'pengmas' => Pengmas_Dsn::where('nip',$dosen)->get(),
+            'tahun' => TahunAkademik::first(),
+            'stugas' => SuratTugas_Dsn::where('nip',$dosen)->get()
             // 'page' => 'mata-kuliah',
             // 'matkul' => MataKuliah::find($id),
             // 'jenis_matkul' =>JenisMataKuliah::all()
-        'biodata' => BiodataDosen::where('nip',$dosen)->first(),
-        'jurnal' => Jurnal_Dsn::where('nip',$dosen)->get(),
-        'penelitian' => Penelitian_Dsn::where('nip',$dosen)->get(),
-        'konferensi' => Konferensi_Dsn::where('nip',$dosen)->get(),
-        'pengmas' => Pengmas_Dsn::where('nip',$dosen)->get(),
-        'tahun' => TahunAkademik::all()->first(),
-        'pdf' => PDF::loadView('dosen.laporan.cetak')
         ];
-        return $pdf->stream('laporan.pdf');
+        //$tahun = TahunAkademik::all()->first;
+        //$khs = KHS::all();
+        $pdf = PDF::loadView('dosen.laporan.cetak',  $data );
+        return $pdf->inline('Laporan.pdf');
 
     }
 
@@ -68,8 +72,16 @@ class LaporanController extends Controller
     {
         $data = [
         'page' => 'pilih',
-        'tahun' => TahunAkademik::all()->first()
+        //'tahun' => TahunAkademik::all()->first()
         ];
         return view('dosen.laporan.pilih',$data);
     }
+
+    public function pilihAction(Request $request)
+    {
+        $tahun = $request->input('tahun');
+        return Redirect::to('dosen/laporan');
+    }
+
+    
 }

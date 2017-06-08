@@ -15,10 +15,14 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
+use Auth;
+use DB;
 use App\Models\KrsKhs\KHS;
 use App\Models\KrsKhs\MKDitawarkan;
 use App\Models\KrsKhs\MK;
+use App\Models\KrsKhs\DetailNilai;
 use App\Models\KrsKhs\TahunAkademik;
+use App\Models\KrsKhs\BiodataMahasiswa;
 use PDF;    
 // /**
 //  * Class HomeController
@@ -45,24 +49,75 @@ class KHSController extends Controller
     {
         $data = [
         'page' => 'khs',
-        'khs' => KHS::all(),
+        'khs' => KHS::where('mhs_id',Auth::user()->username)->get(),
         'tahun' => TahunAkademik::all()
         ];
         return view('mahasiswa.krs-khs.khs.index',$data);
     }
 
+    public function show()
+    {
+        $thn = \Request::get('periode');
+        $data = [
+        'page' => 'khs',
+        'khs' => DB::table('mk_diambil')
+            ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
+            ->join('mata_kuliah','mk_ditawarkan.matakuliah_id','=','mata_kuliah.id_mk')
+            ->select('*')
+            ->where('mhs_id',Auth::user()->username)
+            ->where('mk_ditawarkan.thn_akademik_id',$thn)
+            ->get(),
+        'tahun' => TahunAkademik::all()
+        ];
+        return view('mahasiswa.krs-khs.khs.show',$data);
+    }
+
     public function toPdf()
     {
+        $nim_id = Auth::user()->username;
+        $sum     = DB::table('mk_diambil')
+                ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
+                ->select('*')
+                ->where('mk_diambil.mhs_id','=',$nim_id)
+                ->sum('sks'); 
         $data = [
-            // 'page' => 'mata-kuliah',
-            // 'matkul' => MataKuliah::find($id),
-            // 'jenis_matkul' =>JenisMataKuliah::all()
+        'page' => 'khs',
+        'khs' => KHS::where('mhs_id','=',$nim_id)->get(),
+        'tahun' => TahunAkademik::all(),
+        'biodata_mhs' => BiodataMahasiswa::where('nim_id','=',$nim_id)->first(),
+        'sum' => $sum,
+ 
         ];
-        $tahun = TahunAkademik::all();
-        $khs = KHS::all();
-        $pdf = PDF::loadView('mahasiswa.krs-khs.khs.cetak', ['khs'=>$khs] , ['tahun'=>$tahun] );
-        return $pdf->stream('dokumen.pdf');
+        $pdf = PDF::loadView('mahasiswa.krs-khs.khs.cetak', $data);
+        return $pdf->inline('KHS.pdf');
 
+    }
+
+    public function detail($mk_ditawarkan_id,$mhs_id){
+        $data = [
+        'page' => 'khs',
+        'detail_uts' => DetailNilai::select('detail_nilai')
+                                ->where('mk_ditawarkan_id', $mk_ditawarkan_id)
+                                ->where('mhs_id',$mhs_id)
+                                ->where('jenis_penilaian_id','1')->first(),
+        'detail_uas' => DetailNilai::select('detail_nilai')
+                                ->where('mk_ditawarkan_id', $mk_ditawarkan_id)
+                                ->where('mhs_id',$mhs_id)
+                                ->where('jenis_penilaian_id','2')->first(),
+        'detail_softskill' => DetailNilai::select('detail_nilai')
+                                ->where('mk_ditawarkan_id', $mk_ditawarkan_id)
+                                ->where('mhs_id',$mhs_id)
+                                ->where('jenis_penilaian_id','3')->first(),
+        'detail_kuis' => DetailNilai::select('detail_nilai')
+                                ->where('mk_ditawarkan_id', $mk_ditawarkan_id)
+                                ->where('mhs_id',$mhs_id)
+                                ->where('jenis_penilaian_id','4')->first(),
+        'detail_tugas' => DetailNilai::select('detail_nilai')
+                                ->where('mk_ditawarkan_id', $mk_ditawarkan_id)
+                                ->where('mhs_id',$mhs_id)
+                                ->where('jenis_penilaian_id','5')->first(),
+        ];
+    return view('mahasiswa.krs-khs.khs.detail_nilai',$data);
     }
 
 }
