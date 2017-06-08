@@ -52,7 +52,7 @@ class MkProdiController extends Controller
         DB::table('mk_prodi')->where('mk_id', '=', $id)->delete();        
 
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-danger', 'Mata Kuliah Prodi berhasil dihapus');
+        Session::put('alert-success', 'Mata Kuliah Prodi berhasil dihapus');
 
         // Kembali ke halaman sebelumnya
         return Redirect::back();     
@@ -64,7 +64,7 @@ class MkProdiController extends Controller
             ['prodi_id' => 2, 'mk_id' => $id]
         );        
         // Notifikasi sukses
-        Session::put('alert-success', 'Mata Kuliah berhasil ditambah');
+        Session::put('alert-success', 'Kategori berhasil diedit');
 
         return Redirect::to('karyawan/kurikulum/mk-prodi');
     }    

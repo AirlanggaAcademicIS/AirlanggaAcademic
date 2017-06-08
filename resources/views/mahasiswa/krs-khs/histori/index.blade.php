@@ -36,15 +36,59 @@ Histori Nilai
       <th style="text-align:center">Mata Kuliah</th>
       <th style="text-align:center">SKS</th>      
       <th style="text-align:center">Nilai</th>
+      <th style="text-align:center">Bobot</th>
     </tr>
     </thead>
   <tbody>
+    @php
+    $total = 0;
+    $sks = 0;
+    @endphp
    @forelse($histori as $i => $h) 
     <tr>
       <td width="5%" style="text-align:center">{{ $i+1 }}</td>
       <td width="30%" style="text-align:center">{{$h->MKDitawarkan->MK->nama_matkul}}</td>
+      @php
+      $sks = $sks + $h->MKDitawarkan->MK->sks
+      @endphp
       <td width="15%" style="text-align:center">{{$h->MKDitawarkan->MK->sks}}</td>
       <td width="15%" style="text-align:center">{{$h->nilai}}</td>
+      @if($h->nilai=="A")
+      @php
+      $total = $total + (4 * $h->MKDitawarkan->MK->sks)
+      @endphp
+      <td width="20%" style="text-align:center">{{4 * $h->MKDitawarkan->MK->sks}} </td>
+      @elseif($h->nilai=="AB")
+      @php
+      $total = $total + (3.5 * $h->MKDitawarkan->MK->sks)
+      @endphp
+      <td width="20%" style="text-align:center">{{3.5 * $h->MKDitawarkan->MK->sks}} </td>
+      @elseif($h->nilai=="B")
+      @php
+      $total = $total + (3 * $h->MKDitawarkan->MK->sks)
+      @endphp
+      <td width="20%" style="text-align:center">{{3 * $h->MKDitawarkan->MK->sks}} </td>
+      @elseif($h->nilai=="BC")
+      @php
+      $total = $total + (2.5 * $h->MKDitawarkan->MK->sks)
+      @endphp
+      <td width="20%" style="text-align:center">{{2.5 * $h->MKDitawarkan->MK->sks}} </td>
+      @elseif($h->nilai=="C")
+      @php
+      $total = $total + (2 * $h->MKDitawarkan->MK->sks)
+      @endphp
+      <td width="20%" style="text-align:center">{{2 * $h->MKDitawarkan->MK->sks}} </td>
+      @elseif($h->nilai=="D")
+      @php
+      $total = $total + (1 * $h->MKDitawarkan->MK->sks)
+      @endphp
+      <td width="20%" style="text-align:center">{{1 * $h->MKDitawarkan->MK->sks}} </td>
+      @else
+      @php
+      $total = $total + (0 * $h->MKDitawarkan->MK->sks)
+      @endphp
+      <td width="20%" style="text-align:center">0</td>
+      @endif  
     </tr>
      @empty
         <tr>
@@ -52,6 +96,11 @@ Histori Nilai
         </tr>
     @endforelse
   </tbody>
+  <tfoot>
+    <td width="20%" style="text-align:center">Total Bobot : {{$total}}</td>
+    <td width="20%" style="text-align:center">Total SKS : {{$sks}}</td>
+    <td width="20%" style="text-align:center">IPK : {{$total / $sks}}</td>
+  </tfoot>
 </table>
 </div>
 </div>

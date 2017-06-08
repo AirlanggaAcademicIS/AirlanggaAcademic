@@ -33,9 +33,9 @@ Konferensi
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Halaman Validasi
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="dosen/Validasi/index_jurnal">Jurnal</a></li>
-      <li><a href="dosen/Validasi/index_penelitian">Penelitian</a></li>
-      <li><a href="dosen/Validasi/index_pengmas">Pengmas</a></li>
+      <li><a href="jurnal">Jurnal</a></li>
+      <li><a href="penelitian">Penelitian</a></li>
+      <li><a href="pengmas">Pengmas</a></li>
     </ul>
   </div>
 <div style="overflow: auto">
@@ -48,7 +48,8 @@ Konferensi
       <th style="text-align:center">Tempat Konferensi</th>          
       <th style="text-align:center">Tanggal Konferensi</th>      
       <th style="text-align:center">Materi Konferensi</th>
-     
+      <th style="text-align:center">File Konferensi</th>
+     <th style="text-align:center">Action</th>
     
      
     </tr>
@@ -62,12 +63,14 @@ Konferensi
       <td width="20%" style="text-align:center">{{$kon->tempat_konferensi}}</td>
       <td width="10%" style="text-align:center">{{$kon->tanggal_konferensi}}</td>
       <td width="10%" style="text-align:center">{{$kon->materi_konferensi}}</td>
+      <td width="20%" style="text-align:center" > <a href="{{URL::asset('/img/dosen/'.$kon->file_konferensi)}}" class="btn btn-primary btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Download</a> </td>
       
 
 
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus konferensi ini?');" href="{{url('/dosen/konferensi/'.$kon->konferensi_id.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="20%" style="text-align:center" ><a href="{{url('/dosen/validasi/konferensi/'.$kon->konferensi_id.'/terima/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-pencil-square-o"></i>Terima</a>
-        <a href="{{url('/dosen/konferensi/'.$kon->konferensi_id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('/dosen/validasi/konferensi/'.$kon->konferensi_id.'/tolak/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i>Tolak</a>
         </td>
     </tr>

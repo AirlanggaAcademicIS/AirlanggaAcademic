@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Edit Biodata Mahasiswa
+Biodata Mahasiswa
 @endsection
 
 @section('contentheader_title')
-Edit Biodata Mahasiswa
+Form Biodata Mahasiswa
 @endsection
 
 @section('code-header')
@@ -122,7 +122,7 @@ Edit Biodata Mahasiswa
 				<div class="form-group">
 					<label for="angkatan" class="col-sm-2 control-label">Angkatan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="angkatan" name="angkatan" placeholder="Masukkan Angkatan"  value="{{$biodatamahasiswa->angkatan}}" required>
+						<input type="number" class="form-control input-lg" id="angkatan" name="angkatan" placeholder="Masukkan Angkatan"  value="{{$biodatamahasiswa->angkatan}}" required>
 					</div>
 				</div>
 

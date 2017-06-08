@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Input dokumentasi
+Pengajuan LPJ Kegiatan Akademik
 @endsection
 
 @section('contentheader_title')
-Input Dokumen
+Pengajuan LPJ Kegiatan Akademik
 @endsection
 
 @section('code-header')
@@ -35,7 +35,7 @@ Input Dokumen
 <div class="row">
 	<div class="col-md-12">
 		<div class="box box-primary">
-			<div class="box-header with-border">	
+			<div class="box-header with-border">
 
 			@if (count($errors) > 0)
 			<div class="alert alert-danger">
@@ -47,31 +47,31 @@ Input Dokumen
 			</div>
 			@endif
 			<br>
-			<form id="tambahBiodata" method="post" action="{{url('/kegiatan/dokumentasi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahBiodata" method="post" action="{{url('dosen/pengelolaan-kegiatan/dokumentasi/createAction')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-				
+				<!-- 
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Nomor Dokumentasi</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control input-lg" id="id_dokumentasi" name="id_dokumentasi" placeholder="Masukkan Nama Gambar" required>
 					</div>
 				</div>
-
+ -->
 				<div class="form-group">
 				<label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
                 <div class="col-md-8">
-	                <select class="form-control select2" style="width: 100%;" name = "kegiatan_id">
-	                  <option value="">Pilih Kegiatan</option>
-	                  	@foreach($kegiatan as $pk)
+	                <select class="form-control select" style="width: 100%;" name = "kegiatan_id" onchange="javascript:handleSelect(this)"><!-- 
+	                	<option value="">Pilih Kegiatan</option> -->
+	                  	@foreach($Status as $pk)
 	                  	<option {!!(old('id_kegiatan') == $pk->id_kegiatan)? 'selected' : ''!!} value="{{ $pk->id_kegiatan }}" >{{$pk->nama}}</option>
+	                  	 <!-- <option value="{{ $pk->id_kegiatan }}"> {{ $pk->nama }}</option> -->
 	                  	@endforeach
 	                </select>
 	             </div>
               </div>
-
-			<!-- Menampilkan textarea -->
+             
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Evaluasi Kegiatan</label>
 					<div class="col-md-8">
@@ -80,6 +80,20 @@ Input Dokumen
 					</div>
 				</div>
 
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Tanggal Pelaksanaan Kegiatan</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="datepicker" name="tglpelaksanaan" placeholder="Masukkan Tanggal" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Ruang Pelaksanaan Kegiatan</label>
+					<div class="col-md-8">
+						<textarea id="lesson_learned" name="rpelaksanaan" placeholder=" Masukkan Ruang Pelaksanaan Kegiatan" required cols="82" rows="5">
+						</textarea>
+					</div>
+				</div>
 				<!-- Menampilkan Deskripsi -->
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Masukkan Foto</label>
@@ -87,7 +101,8 @@ Input Dokumen
 						<input type="file" id="gambar" name="url_foto">
 
                   		<p class="help-block">Pilih Gambar</p>
-					</div>
+                	</div>
+						<!-- <input type="text" class="form-control input-lg" id="url_gambar" name="url_foto" placeholder="Masukkan URL Gambar" required> -->
 				</div>
 				
 				<!-- Menampilkan tanggal dengan datepicker -->
@@ -115,8 +130,14 @@ $( function() {
     var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
 
   } );
+    function renderHarga(t) {
+        harga_satuan = t.options[t.selectedIndex];
+        // alert( $(harga_satuan).attr("data-harga") );
+        document.getElementById('harga_satuan').value = $(harga_satuan).attr("data-harga");
+        $('#satuan').html($('option:selected', e).data('satuan'));
+    }
 
-var elBrowse  = document.getElementById("gambar");
+    var elBrowse  = document.getElementById("gambar");
 	elBrowse.addEventListener("change", function() {
 		var files  = this.files;
 		var errors = "";
@@ -143,6 +164,7 @@ var elBrowse  = document.getElementById("gambar");
 			alert(errors); 
 		}
 	});
-  </script>
-@endsection
 
+  </script>
+
+@endsection

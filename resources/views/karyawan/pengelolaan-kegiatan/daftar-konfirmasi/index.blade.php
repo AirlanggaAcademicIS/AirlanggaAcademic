@@ -50,6 +50,7 @@ Daftar Konfirmasi Kegiatan
       <td width="10%" style="text-align:center">{{$konfirmasi_kegiatan->tglpelaksanaan}}</td>
       <td width="20%" style="text-align:center">
         <a href="{{url('/karyawan/pengelolaan-kegiatan/detail-pengajuan/'.$konfirmasi_kegiatan->id_kegiatan)}}" class="btn btn-success btn-xs"> View Detail</a>
+        <a href="{{url('karyawan/pengelolaan-kegiatan/dokumentasi/download/'.$konfirmasi_kegiatan->id_kegiatan)}}" class="btn btn-success btn-xs"> Download</a>
       </td>
     </tr>
 
@@ -87,6 +88,7 @@ Daftar Konfirmasi Kegiatan
       <td width="10%" style="text-align:center">{{$konfirmasi_kegiatan->tglpelaksanaan}}</td>
       <td width="20%" style="text-align:center">
         <a href="{{url('/karyawan/pengelolaan-kegiatan/detail-pengajuan/'.$konfirmasi_kegiatan->id_kegiatan)}}" class="btn btn-success btn-xs"> View Detail</a>
+        <a href="{{url('karyawan/pengelolaan-kegiatan/dokumentasi/download/'.$konfirmasi_kegiatan->id_kegiatan)}}" class="btn btn-success btn-xs"> Download</a>
       </td>
     </tr>
 

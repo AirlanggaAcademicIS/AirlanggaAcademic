@@ -41,12 +41,16 @@ Notulensi Rapat
                   <th style="text-align:center">Waktu Pelaksanaan</th>
                   <th style="text-align:center">Tempat </th>
                   <th style="text-align:center">Agenda </th>
+                  <th style="text-align:center">Deskripsi Rapat </th>
                   <th style="text-align:center">Hasil Rapat</th>
                   <th style="text-align:center">Status</th>
                   <th style="text-align:center">Action</th>
                   </tr>
                 </thead>
                 <tbody>
+                @php 
+                $x=1
+                @endphp
                 @forelse($notulensi as $i => $a) 
                 <tr>
       <td>{{ $i+1 }}</td>
@@ -54,7 +58,8 @@ Notulensi Rapat
       <td width="30%" style="text-align:center">{{$a->waktu_pelaksanaan}}</td>
       <td width="20%" style="text-align:center">{{$a->nama_ruang}}</td>
        <td width="30%" style="text-align:center">{{$a->agenda_rapat}}</td>
-       <td><button type="button" class="btn btn-link"data-toggle="modal" data-target="#myModal">Detail</button></td>
+       <td width="20%" style="text-align:center">{{$a->deskripsi_rapat}}</td>
+       <td><button type="button" class="btn btn-link"data-toggle="modal" data-target="#myModal{{$x}}">Detail</button></td>
       <!-- <td width="80%" style="text-align:center">{{$a->hasil_pembahasan }}</td> -->
        <td width="20%" style="text-align:center">
       @if($a->id_verifikasi==0)
@@ -70,6 +75,7 @@ Notulensi Rapat
 
      
     </tr>
+    <?PHP $x++;?>
      @empty
         <tr>
           <td colspan="6"><center>Belum ada Notulensi</center></td>
@@ -79,7 +85,8 @@ Notulensi Rapat
 </table>
 </div>
 
- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+  @forelse($notulensi as $i => $b) 
+ <div class="modal fade" id="myModal{{ $i+1 }}" tabindex="-1" role="dialog" 
      aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -94,7 +101,7 @@ Notulensi Rapat
                 <div class="form-group">
           <label for="deskripsi_rapat"class="col-sm-2 control-label"></label>
               <div class="col-sm-11">
-              <textarea class="form-control" rows="5" name="deskripsi_rapat" enable>{{$a->hasil_pembahasan}}
+              <textarea class="form-control" rows="5" name="deskripsi_rapat" enable>{{$b->hasil_pembahasan}}
               </textarea>
             </div>
     </div>
@@ -104,12 +111,11 @@ Notulensi Rapat
                  
             </div>
         </div>
-
-
-
-    </div>
 </div>
 </div>
+</div>
+@empty
+@endforelse
 
 
 @endsection

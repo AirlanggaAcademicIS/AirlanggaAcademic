@@ -15,11 +15,12 @@ class Dokumentasi extends Model
 		'url_foto',
       ];
 
-      public function dokumentasi(){
 
-      	return $this->belongsTo('App\KonfirmasiKegiatan','kegiatan_id');
+      public function dokumentasi()
+      {
+   	return $this->belongsTo('App\KonfirmasiKegiatan','kegiatan_id');
       }
-
+	  
       public function namaKegiatan(){
       	return $this->belongsTo('App\PengajuanKegiatan','kegiatan_id');
       }
@@ -27,4 +28,5 @@ class Dokumentasi extends Model
       public function rondown(){
          return $this->belongsTo('App\RincianRundown','kegiatan_id');
       }
+
 }

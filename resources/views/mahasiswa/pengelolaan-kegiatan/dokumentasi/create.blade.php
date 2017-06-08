@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Input dokumentasi
+Pengajuan LPJ Kegiatan Akademik
 @endsection
 
 @section('contentheader_title')
-Input Dokumen
+Pengajuan LPJ Kegiatan Akademik
 @endsection
 
 @section('code-header')
@@ -47,44 +47,31 @@ Input Dokumen
 			</div>
 			@endif
 			<br>
-			<form id="tambahBiodata" method="post" action="{{url('/kegiatan/dokumentasi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahBiodata" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/dokumentasi/createAction')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-				
+				<!-- 
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Nomor Dokumentasi</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control input-lg" id="id_dokumentasi" name="id_dokumentasi" placeholder="Masukkan Nama Gambar" required>
 					</div>
 				</div>
-
+ -->
 				<div class="form-group">
 				<label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
                 <div class="col-md-8">
-	                <select class="form-control select2" style="width: 100%;" name = "kegiatan_id" onchange="javascript:handleSelect(this)">
-	                	<option value="">Pilih Kegiatan</option>
-	                  	@foreach($kegiatan as $pk)
+	                <select class="form-control select" style="width: 100%;" name = "kegiatan_id" onchange="javascript:handleSelect(this)"><!-- 
+	                	<option value="">Pilih Kegiatan</option> -->
+	                  	@foreach($Status as $pk)
 	                  	<option {!!(old('id_kegiatan') == $pk->id_kegiatan)? 'selected' : ''!!} value="{{ $pk->id_kegiatan }}" >{{$pk->nama}}</option>
+	                  	 <!-- <option value="{{ $pk->id_kegiatan }}"> {{ $pk->nama }}</option> -->
 	                  	@endforeach
 	                </select>
 	             </div>
               </div>
              
-             <!-- TUJUAN -->
-             <!-- <div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Tujuan</label>
-					<div class="col-md-8">
-						<textarea id="lesson_learned" placeholder=" Masukkan Evaluasi Kegiatan" required cols="82" rows="5" disabled>
-						@forelse($kegiatan as $dok)
-							{{$dok->tujuan}}
-						@empty
-						@endforelse
-						</textarea>
-					</div>
-				</div> -->
-
-			<!-- Menampilkan textarea -->
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Evaluasi Kegiatan</label>
 					<div class="col-md-8">
@@ -93,6 +80,20 @@ Input Dokumen
 					</div>
 				</div>
 
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Tanggal Pelaksanaan Kegiatan</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="datepicker" name="tglpelaksanaan" placeholder="Masukkan Tanggal" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nama" class="col-sm-2 control-label">Ruang Pelaksanaan Kegiatan</label>
+					<div class="col-md-8">
+						<textarea id="lesson_learned" name="rpelaksanaan" placeholder=" Masukkan Ruang Pelaksanaan Kegiatan" required cols="82" rows="5">
+						</textarea>
+					</div>
+				</div>
 				<!-- Menampilkan Deskripsi -->
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Masukkan Foto</label>

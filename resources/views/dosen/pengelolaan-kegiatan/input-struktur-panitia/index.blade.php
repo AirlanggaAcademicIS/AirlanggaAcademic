@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Input Proposal Kegiatan
+Input Struktur Panitia Kegiatan
 @endsection
 
 @section('contentheader_title')
-Input Proposal Kegiatan
+Input Struktur Panitia Kegiatan
 @endsection
 
 @section('main-content')
@@ -41,7 +41,7 @@ Input Proposal Kegiatan
     <div class="modal-dialog">
     
       <!-- Modal content-->
-   <form id="strukturPanitia" method="post" action="{{url('/dosen/pengelolaan-kegiatan/input-struktur-panitia/'.$kegiatan->id_kegiatan.'/tambahPanitia')}}" enctype="multipart/form-data"  class="form-horizontal">
+   <form id="strukturPanitia" method="post" action="{{url('dosen/pengelolaan-kegiatan/input-struktur-panitia/'.$kegiatan->id_kegiatan.'/tambahPanitia')}}" enctype="multipart/form-data"  class="form-horizontal">
                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
       <div class="modal-content">
@@ -51,7 +51,7 @@ Input Proposal Kegiatan
         </div>
       
         <div class="modal-body" class="col-sm-12">
-          <label for="dosen" class="col-sm-2 control-label">Dosen</label>
+          <label for="mahasiswa" class="col-sm-2 control-label">Dosen</label>
              <select class="form-control input-sm" name="panitiaKegiatan" id="panitiaKegiatan">
             @foreach( $panitia as $data )
 
@@ -105,9 +105,12 @@ Input Proposal Kegiatan
     @endforelse
 
   </tbody>
-
 </table>
+
+         <div class="col-sm-10"></div>
+<a href="{{url('dosen/pengelolaan-kegiatan/rincian-rundown/'.$kegiatan->id_kegiatan)}}" class="btn btn-success btn-xs"> Simpan</a>
 @endforeach
+
 </div>
 @endsection
 
