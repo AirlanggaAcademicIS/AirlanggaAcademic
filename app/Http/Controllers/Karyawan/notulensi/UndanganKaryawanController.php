@@ -150,7 +150,7 @@ class UndanganKaryawanController extends Controller
     {
         $user = $request->input('dosen');
        
-        $message = sprintf('halo halo');
+        $message = sprintf('Untuk informasi lebih detail silahkan lihat pada sistem');
 
         foreach ($user as $u) {
         $this->mailer->raw($message, function (Message $m) use ($u) {
