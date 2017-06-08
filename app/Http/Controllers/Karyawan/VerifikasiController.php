@@ -13,7 +13,8 @@ use Response;
 // Tambahkan model yang ingin dipakai
 use App\VerPrestasi;
 use App\VerPenelitianMhs;
-
+use App\DetailAnggota;
+use App\DetailPenelitian;
 
 class VerifikasiController extends Controller
 {
@@ -84,21 +85,6 @@ class VerifikasiController extends Controller
         return Redirect::to('karyawan/verifikasi');
     }
 
-    public function delete($id)
-    {
-        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $prestasi = Prestasi::find($id);
-
-        // Menghapus biodata yang dicari tadi
-        $prestasi->delete();
-
-        // Menampilkan notifikasi pesan sukses
-    	Session::put('alert-success', 'Data Prestasi berhasil dihapus');
-
-        // Kembali ke halaman sebelumnya
-      	return Redirect::back();	 
-    }
-
    public function editPrestasi($id)
     {
         $data = [
@@ -122,8 +108,8 @@ class VerifikasiController extends Controller
         $prestasi->skor = $request->input('skor');
         $prestasi->save();
 
-        // Notifikasi sukses
-        Session::put('alert-success', 'Data prestasi berhasil diedit');
+        // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'Verifikasi Prestasi berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/verifikasi/prestasi');
@@ -131,11 +117,15 @@ class VerifikasiController extends Controller
 
     public function editPenelitian($id)
     {
+        $detail_anggota = DetailAnggota::where('kode_penelitian_id',$id)->first();
+        $detailpenelitian = DetailPenelitian::where('kode_penelitian_id',$id)->first();
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar penelitian
             'page' => 'penelitian',
             // Mencari penelitian berdasarkan id
-            'penelitian' => VerPenelitianMhs::find($id)
+            'penelitian' => VerPenelitianMhs::find($id),
+            'detail_anggota' => $detail_anggota,
+            'detailpenelitian' => $detailpenelitian
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
@@ -151,8 +141,8 @@ class VerifikasiController extends Controller
         $penelitian->is_verified = $request->input('is_verified');
         $penelitian->save();
 
-        // Notifikasi sukses
-        Session::put('alert-success', 'Data prestasi berhasil diedit');
+        // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'Verifikasi Penelitian berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/verifikasi/penelitian');

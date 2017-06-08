@@ -46,11 +46,11 @@ Input ruang
 </div>
 <div style="overflow: auto">
 <h3 class="box-title">Data Ruang Kelas</h3>
-<table id="myTable" class="table table-bordered table-hover dataTable" cellspacing="0">
+<table id="data-table" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No</th>
-      <th style="text-align:center">ID</th>
+      <th style="text-align:center" hidden>ID</th>
       <th style="text-align:center">Ruang</th> 
       <th style="text-align:center">Kapasitas</th>
       <th style="text-align:center">Action</th>
@@ -60,10 +60,10 @@ Input ruang
    @forelse($ruang as $i => $r) 
     <tr>
       <td style="text-align:center">{{$i+1}}</td>
-      <td width="20%" style="text-align:center">{{$r->id_ruang}}</td>
+      <td width="20%" style="text-align:center" hidden>{{$r->id_ruang}}</td>
       <td width="40%" style="text-align:center">{{$r->nama_ruang}}</td>
       <td width="40%" style="text-align:center">{{$r->kapasitas}}</td>
-      <td style="text-align:center"><a href="{{url('/karyawan/krs-khs/ruang/'.$r->id_ruang.'/edit/')}}" class="btn btn-warning btn-xs">
+      <td style="text-align:center"><a href="{{url('karyawan/krs-khs/ruang/'.$r->id_ruang.'/edit')}}" class="btn btn-warning btn-xs">
                 <i class="fa fa-pencil-square-o"></i> Edit</a>                
               
       </td>
@@ -80,5 +80,10 @@ Input ruang
 @endsection
 
 @section('code-footer')
+<script type="text/javascript">
+  $(document).ready(function(){
+   $('#data-table').DataTable(); 
+  });
+  </script>
 
 @endsection

@@ -99,12 +99,12 @@ Upload Berkas
                   <div class="col-md-8">
                   <input type="file" id="upload_berkas" name="upload_berkas_proposal" placeholder="Pilih File" required>
 
-                  <p class="help-block">*.pdf, .doc atau .docx</p>
+                  <p class="help-block">*File berformat .pdf, .doc atau .docx</p>
 
                   </div>
                   </div>
                 <div class="box-footer">
-                <center><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Upload</button></center>
+                <center><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit</button></center>
               </div>
                 
               </div>
@@ -126,7 +126,7 @@ Upload Berkas
                   <div class="col-md-8">
                   <input type="file" id="upload_berkas" name="upload_berkas_skripsi" placeholder="Pilih File" required>
 
-                  <p class="help-block">*.pdf, .doc atau .docx</p>
+                  <p class="help-block">*File berformat .pdf, .doc atau .docx</p>
 
                 </div>
                 
@@ -134,7 +134,7 @@ Upload Berkas
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <center><button type="submit" class="btn btn-primary"  data-toggle="modal" data-target="#myModal">Upload</button></center>
+                <center><button type="submit" class="btn btn-primary"  data-toggle="modal" data-target="#myModal">Submit</button></center>
               </div>
             </form>
           </div>

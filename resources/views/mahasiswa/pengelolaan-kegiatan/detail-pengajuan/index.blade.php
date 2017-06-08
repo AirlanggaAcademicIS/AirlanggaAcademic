@@ -160,7 +160,35 @@ Detail Pengajuan Kegiatan
 
   <div class="form-group">
   <div class="col-sm-10">
+       <h4>Struktur Panitia </h4>
+
+       <table id="strukturPanitia" class="table table-striped table-bordered" cellspacing="0">
+       <thead>
+          <tr>
+            <th width="10%" style="text-align:center">No</th>
+            <th width="20%" style="text-align:center">Nama Panitia</th>      
+            <th width="10%" style="text-align:center">Jabatan</th>
+          </tr>
+          </thead>
+        <tbody>
+         @forelse($status as $i => $s)
+          <tr>
+            <td width="10%" style="text-align:center">{{$i+1}}</td>
+            <td width="20%" style="text-align:center">{{$s->mahasiswa['nama_mhs']}}</td>
+            <td width="10%" style="text-align:center">{{$s->jabatan['jabatan']}}</td>
+          </tr>
+
+    @empty
+        <tr>
+          <td colspan="6"><center>Belum ada struktur panitia</center></td>
+        </tr>
+    
+      @endforelse
+    
+        </tbody>
+        </table>
       
+
         <h4>Rincian Rundown Proposal Kegiatan</h4>
 
        <table id="rincianRundownProposal" class="table table-striped table-bordered" cellspacing="0">

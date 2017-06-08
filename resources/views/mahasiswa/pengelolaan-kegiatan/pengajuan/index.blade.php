@@ -45,6 +45,7 @@ Pengajuan
       <th style="text-align:center">Tanggal Pengajuan</th>
       <th style="text-align:center">Tanggal Pelaksanaan</th>
       <th style="text-align:center">Poster</th>
+
     </tr>
     </thead>
   <tbody>

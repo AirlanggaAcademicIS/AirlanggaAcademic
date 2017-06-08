@@ -5,7 +5,6 @@ namespace App\Models\KrsKhs;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
 class MKDiambil extends Model
 {
    use SoftDeletes;
@@ -18,14 +17,14 @@ class MKDiambil extends Model
 		'nilai',
 		'is_approve',		
    ];
+
+   public function mkDitawarkan()
+   {
+      return $this->belongsTo('App\Models\KrsKhs\MKDitawarkan','mk_ditawarkan_id');
+   }
+
    public function mahasiswa()
    {
-      return $this->belongsTo('App\Models\BiodataMahasiswa','mhs_id');
+      return $this->belongsTo('App\Models\KrsKhs\Mahasiswa','mhs_id');
    }
-   public function MKDitawarkan()
-   {
-      return $this->belongsTo('App\Models\KrsKhs\MataKuliah','mk_ditawarkan_id');
-   }
-
-
 }

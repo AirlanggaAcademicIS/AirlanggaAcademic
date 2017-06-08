@@ -9,9 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class RincianRundown extends Model
 {	
 	protected $table = 'rincian_rundown';	
-	protected $primaryKey ='id_rdana';
+	protected $primaryKey ='id_rundown';
 	protected $fillable = [
-		'id_rundown',
 		'kegiatan_id',
 		'waktu',
 		'nama',

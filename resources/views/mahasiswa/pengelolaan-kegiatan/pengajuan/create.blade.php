@@ -7,19 +7,18 @@
 @endsection
 
 @section('htmlheader_title')
-<!-- Nama konten -->
-Pengajuan Kegiatan
+Pengajuan Proposal Kegiatan Akademik
 @endsection
 
 @section('contentheader_title')
-<!-- Nama konten -->
-Pengajuan Kegiatan
+Pengajuan Proposal Kegiatan Akademik
 @endsection
 
 
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
+
 <section class="content">
       <div class="row">
         <!-- left column -->
@@ -113,17 +112,18 @@ Pengajuan Kegiatan
           </div>
         </div>
 
+
         <div class="form-group">
-                  <label for="exampleInputFile">File input</label>
+                  <label for="exampleInputFile">Poster</label>
                   <input type="file" id="gambar" name="url_poster">
                 </div>
                
                 <button type="submit" class="btn btn-primary">Next</button>
 
-              </div>
             </form>
+              </div>
           </div>
-
+</div>
 
  
                 

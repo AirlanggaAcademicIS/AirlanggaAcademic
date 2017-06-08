@@ -50,7 +50,7 @@ class RPSController extends Controller
             ->select('*')
             ->get(),
             'mk' => RPS_Matkul::all(),
-            'cpmk' => RPS_CP_Matkul::where('deleted_at', '=', '0'),
+            'cpmk' => RPS_CP_Matkul::all(),
             'media' => RPS_Media_Pembelajaran::all(),
             'mp' => RPS_Detail_Kategori::all()  
         ];
@@ -81,7 +81,8 @@ class RPSController extends Controller
 
      public function cpmkDelete($id)
     {
-        $detail = RPS_Detail_Kategori::where('media_pembelajaran_id', $id)->delete();
+        $cpmk = RPS_CP_Matkul::find($id);
+        $cpmk->delete();
         Session::put('alert-success', 'CP MK berhasil dihapus');
         return Redirect::back();     
     }
@@ -206,14 +207,16 @@ class RPSController extends Controller
                 $value->nip_id = $request->input('koor_4');
             }
         }
-        $mk_prasyarat = RPS_Matkul_Prasyarat::where('mk_id',$id)->delete();
-        $mk_prasyarat = $request->input('mk_prasyarat');
-        foreach ($mk_prasyarat as $mk) {
+        $mk_syarat = RPS_Matkul_Prasyarat::where('mk_id',$id);
+        
+        $mk_syarat= $request->input('mk_prasyarat');
+        foreach ($mk_syarat as $mk) {
             RPS_Matkul_Prasyarat::create([
                 'mk_id' => $id,
                 'mk_syarat_id' => $mk
                 ]);
         }
+        $mk_prasyarat = RPS_Matkul_Prasyarat::where('mk_id',$id)->delete();
         $mata_kuliah = RPS_Matkul::find($id);
         $mata_kuliah->id_mk = $id;
         $mata_kuliah->deskripsi_matkul = $request->input('deskripsi_matkul');

@@ -73,6 +73,13 @@ Tambah Data Dosen
 				</div>
 
 				<div class="form-group">
+					<label for="nama_ketua" class="col-sm-2 control-label">Email Dosen</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="nama_ketua" name="email" placeholder="Masukkan Email Dosen" required>
+					</div>
+				</div>
+
+				<div class="form-group">
                   <label for="nama_ketua" class="col-sm-2 control-label">Status Dosen</label>
                   <div class="col-md-8" >  <select class="form-control" name="status_dosen">
                     <option value="Kepala Program Studi">Kepala Program Studi</option>
@@ -89,7 +96,7 @@ Tambah Data Dosen
 				<div class="form-group">
 					<label for="tanggal_konferensi" class="col-sm-2 control-label">Tanggal Lahir</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_lahir_dosen" placeholder="Masukkan Tanggal Penelitian" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_lahir_dosen" placeholder="Masukkan Tanggal Lahir" required>
 					</div>
 				</div>
 

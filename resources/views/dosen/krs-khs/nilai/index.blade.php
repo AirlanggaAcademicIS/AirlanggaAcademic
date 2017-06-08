@@ -26,23 +26,53 @@ Upload Nilai
   @endif
   @endforeach
 </div>
+
 <div class="box">
 <div class="box-body">
  <form role="form" id="id_mk_ditawarkan" method="post" action="{{url('dosen/krs-khs/nilai/'.$id_mk.'/upload')}}" enctype="multipart/form-data"  class="form-horizontal">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <p>Silahkan download template input nilai</p>
-                  <a class="btn btn-info" href="{{url('dosen/krs-khs/nilai/download')}}">Download</a>
+                <p style="font-size: 20px;">Template penilaian mata kuliah</p>
+                  <a class="btn btn-info" href="{{ URL::asset('file_krskhs/download/Template Upload Nilai.xlsx') }}"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
                   <br>
                   <br>
-                  <p>Upload file dalam bentuk excel</p>
-                  <input name="excel" type="file" type="excel">
+                  <p style="font-size: 20px;">Silahkan upload file penilaian dalam format Excel (.xlsx atau .xls)</p>
+                  <input name="excel" type="file" id="excel" type="excel">
                   <br>
-                <button type="submit" class="btn btn-primary">Upload</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-upload" aria-hidden="true"></i>
+ Upload</button>
 </form>
 </div>
 </div>
 @endsection
 
 @section('code-footer')
-
+<script type="text/javascript">
+  var elBrowse  = document.getElementById("excel");
+  elBrowse.addEventListener("change", function() {
+    var files  = this.files;
+    var errors = "";
+    if (!files) {
+      errors += "File upload not supported by your browser.";
+    }
+    if (files && files[0]) 
+    {
+      for(var i=0; i<files.length; i++) 
+      {
+        var file = files[i];
+        if ( (/\.(xlsx|xls)$/i).test(file.name) ) 
+        {
+          readImage( file ); 
+        } 
+        else 
+        {
+          errors += file.name +" is unsupported Excel extension\n";
+          document.getElementById("excel").value = null;  
+        }
+      }
+    }
+    if (errors) {
+      alert(errors); 
+    }
+  });
+</script>
 @endsection

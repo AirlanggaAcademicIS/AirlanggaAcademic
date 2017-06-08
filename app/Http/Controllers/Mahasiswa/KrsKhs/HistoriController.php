@@ -15,12 +15,11 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
-use App\Models\KrsKhs\KHS;
 use App\Models\KrsKhs\Histori;
 use App\Models\KrsKhs\MKDitawarkan;
 use App\Models\KrsKhs\MK;
-use DB;
 use Auth;
+use DB;
 // /**
 //  * Class HomeController
 //  * @package App\Http\Controllers
@@ -64,16 +63,16 @@ class HistoriController extends Controller
         return view('.inventarisasset.input');
     }
 
-    //  public function create(Request $request)
-    // {
-    //     Ruang::create($request->input());
+     public function create(Request $request)
+    {
+        Ruang::create($request->input());
 
-    //     // Menampilkan notifikasi pesan sukses
-    //     Session::put('alert-success', 'Ruang berhasil ditambahkan');
+        // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'Ruang berhasil ditambahkan');
 
-    //     // Kembali ke halaman krs-khs/ruang
-    //     return Redirect::to('ruang');
-    // }
+        // Kembali ke halaman krs-khs/ruang
+        return Redirect::to('ruang');
+    }
 
     public function createAction(Request $request)
     {
