@@ -10,8 +10,10 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
+use Illuminate\Support\Facades\DB;
 // Tambahkan model yang ingin dipakai
 use App\Surat_Keluar_Dosen;
+use App\DosenPemohonSurat;
 use Auth;
 
 
@@ -25,7 +27,12 @@ class Surat_Keluar_DosenController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar 
             'page' => 'surat-keluar-dosen',
             // Memanggil semua isi dari tabel 
-            'surat_keluar_dosen' => Surat_Keluar_Dosen::orderBy('created_at', 'desc')->get(),
+            'surat_keluar_dosen' =>DB::table('surat_keluar_dosen')
+            ->join('dosen_pemohon_surat', 'surat_keluar_dosen.id_surat_keluar', '=', 'dosen_pemohon_surat.surat_keluar_id')
+            //->orderBy('create_at', 'desc')
+            ->select('*')
+            ->orderBy('surat_keluar_dosen.created_at', 'desc')
+            ->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/ dan juga menambahkan $data tadi di view

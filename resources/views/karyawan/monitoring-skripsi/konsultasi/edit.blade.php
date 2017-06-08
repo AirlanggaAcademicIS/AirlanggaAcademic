@@ -84,21 +84,23 @@ Riwayat Konsultasi
   </tbody>
 </table>
 
-	<div class="form-group text-left">
+	<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" formmethod="get" class="btn btn-danger btn-lg" formaction="{{url('karyawan/monitoring-skripsi/konsultasi')}}">
+>>>>>>> 5b3aa4485ee777e8c927b1bf415eba9b4534a05a
 							Back
-						</button>
-					</div>
-				</div>
+			</button>
+			</div>
+	</div>
 
-				<div class="form-group text-center">
-					<div class="col-md-8 col-md-offset-2">
-					<button type="submit" class="btn btn-primary btn-lg">
+	<div class="form-group text-center">
+			<div class="col-md-8 col-md-offset-2">
+			<button type="submit" class="btn btn-primary btn-lg">
 							Confirm
-						</button>
-					</div>
-				</div>
+			</button>
+			</div>
+	</div>
+
 			</form>
 		</div>
 	</div>

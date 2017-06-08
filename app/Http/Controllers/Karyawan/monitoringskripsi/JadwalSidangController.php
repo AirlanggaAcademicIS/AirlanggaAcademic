@@ -216,6 +216,10 @@ class JadwalSidangController extends Controller
      public function view_manage_jadwal_sidang_skripsi()
     {
         # code...
+
+        
+         $nim = Auth::user()->username;
+
         $mahasiswa = DB::table('mahasiswa')->get();
         $kbk = DB::table('kbk')->get();
         $tempat = DB::table('ruang')->get();

@@ -33,15 +33,17 @@ Kalender Dosen Rapat
                  <div class="box box-primary">
             <div class="box-body no-padding">
                   <!-- THE CALENDAR -->
-                  <div id="calendar"></div>
+                  <div id="calendar2"></div>
                   </div>
                   </div>
-                
-    
+              <!-- fullCalendar 2.2.5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>  
+  
 @endsection
 
 @section('code-footer')
-<script>
+  <script>
       $(function () {
 
       
@@ -53,7 +55,7 @@ Kalender Dosen Rapat
         var d = date.getDate(),
                 m = date.getMonth(),
                 y = date.getFullYear();
-        $('#calendar').fullCalendar({
+        $('#calendar2').fullCalendar({
           header: {
             left: 'prev,next today',
             center: 'title',

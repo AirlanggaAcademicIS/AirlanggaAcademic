@@ -134,6 +134,11 @@ class MKDitawarkanController extends Controller
        //      ]
        //      );
        $cek = $request->input('cek');
+       if ($cek=='') {
+        Session::put('alert-danger', 'Mata Kuliah Harus diisi');
+        return Redirect::back();
+       }
+       else{
        foreach ($cek as $c) {
            MKDitawarkan::create(
             [
@@ -146,6 +151,7 @@ class MKDitawarkanController extends Controller
         Session::put('alert-success', 'MK Ditawarkan berhasil diedit');
         // Kembali ke halaman krs-khs/ruang
         return Redirect::to('karyawan/krs-khs/mk-ditawarkan/show?periode='.$thn_akademik_id.'');
+        }
     }
 
 }

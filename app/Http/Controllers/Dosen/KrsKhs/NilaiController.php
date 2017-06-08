@@ -48,12 +48,6 @@ class NilaiController extends Controller
         return view('dosen.krs-khs.nilai.index',$data);
     }
 
-    public function download()
-    {
-        $pathToFile=public_path('file_krskhs/download/Template Upload Nilai.xlsx');
-        return response()->download($pathToFile);
-    }
-
     public function upload($id_mk_ditawarkan,Request $request){
         $nama = time() .'.'.$request->file('excel')->getClientOriginalExtension();
         $file = $request->file('excel')->move('file_krskhs/upload',$nama);
@@ -140,7 +134,7 @@ class NilaiController extends Controller
                 // $detail->jenis_penilaian_id = $value->jenis_penilaian_id;
                 // $detail->detail_nilai = round($excel->nilai_akhir*$value->persen/100);
         }
-        Session::put('alert-success', 'Nilai berhasil ditambahkan');
+        Session::put('alert-success', 'Nilai berhasil diupload');
           return Redirect::back();
     }
 

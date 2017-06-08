@@ -50,11 +50,7 @@ Data Mahasiswa Skripsi
     <tr>
       <td width="5%" style="text-align:center">{{ $i+1 }}</td>
       <td width="15%" style="text-align:center">
-      @foreach($mhs as $m)
-      @if($skrip->NIM_id == $m->nim_id)
-      {{$m->nama_mhs}}
-      @endif
-      @endforeach
+      {{$skrip->mhs['nama_mhs']}}
       </td>
       <td width="10%" style="text-align:center">{{$skrip->NIM_id}}</td>
       <td width="15%" style="text-align:center">

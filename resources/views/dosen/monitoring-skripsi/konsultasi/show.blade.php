@@ -54,6 +54,8 @@ Konsultasi
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
+      <th style="text-align:center">NIM</th>      
+      <th style="text-align:center">Nama</th>
       <th style="text-align:center">Tanggal Konsultasi</th>      
       <th style="text-align:center">Catatan Konsultasi</th>
       <th style="text-align:center">Action</th>
@@ -63,6 +65,8 @@ Konsultasi
    @forelse($konsultasi as $i => $konsul) 
     <tr>
       <td width="5%" style="text-align:center">{{ $i+1 }}</td>
+      <td width="10%" style="text-align:center">{{$konsul->nim_id}}</td>
+      <td width="10%" style="text-align:center">{{$konsul->nama_mhs}}</td>
       <td width="15%" style="text-align:center">{{$konsul->tgl_konsul}}</td>
       <td width="20%" style="text-align:center">{{$konsul->catatan_konsul}}</td>
      

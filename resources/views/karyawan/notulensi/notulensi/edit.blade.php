@@ -74,9 +74,11 @@ Edit Notulensi
     </div>
   </div>
   <div class="form-group">
-    <label for="nip_petugas_id" class="col-sm-2 control-label">NIP Petugas</label>
+    <label for="nip_petugas_id" class="col-sm-2 control-label">Nama Petugas TU</label>
     <div class="col-sm-9">
-     <input type="text" class="form-control input-lg" name="nip_petugas_id" name="nip_petugas_id"  value="{{$notulensi->nip_petugas_id}}" disabled>
+    @foreach($petugas as $c)
+      <input type="text" class="form-control input-lg" name="nip_petugas_id" name="nip_petugas_id"  value="{{$c->name}}" disabled>
+      @endforeach
     </div>
   </div>
   <div class="form-group">
@@ -91,9 +93,9 @@ Edit Notulensi
   <div class="form-group">
     <label for="nip_id" class="col-sm-2 control-label">Ketua Rapat</label>
     <div class="col-sm-9">
-    <select class="form-control" name="nip_id">
+    <select class="form-control" name="nip_id" required>
     @foreach($dosen as $i => $m)
-    <option>Pilih Dosen</option>
+    <option> </option>
     <option  
 
     value="{{$m->nip}}"
@@ -126,19 +128,22 @@ Edit Notulensi
   <div class="form-group">
     <label for="agenda_rapat"class="col-sm-2 control-label">Agenda Rapat:</label>
     <div class="col-sm-9">
-      <input type="text" class="form-control input-lg" name="agenda_rapat" name="agenda_rapat"  value="{{$notulensi->agenda_rapat}}" enable>
+      <textarea class="form-control" rows="5" name="agenda_rapat" name="agenda_rapat" required>{{$notulensi->agenda_rapat}}</textarea>
     </div>
+
+
+
   </div>
      <div class="form-group">
   <label for="hasil_pembahasan"class="col-sm-2 control-label">Hasil Rapat:</label>
   <div class="col-sm-9">
-  <input type="text" class="form-control input-lg" name="hasil_pembahasan" name="hasil_pembahasan" value="{{$notulensi->hasil_pembahasan}}" enable>
+  <textarea class="form-control" rows="5" name="hasil_pembahasan" name="hasil_pembahasan" required>{{$notulensi->hasil_pembahasan}}</textarea>
 </div>
     </div>
      <div class="form-group">
   <label for="deskripsi_rapat"class="col-sm-2 control-label">Deskripsi Rapat:</label>
   <div class="col-sm-9">
-  <textarea class="form-control" rows="5" name="deskripsi_rapat" enable>{{$notulensi->deskripsi_rapat}}</textarea>
+  <textarea class="form-control" rows="5" name="deskripsi_rapat" required>{{$notulensi->deskripsi_rapat}}</textarea>
 </div>
     </div>
    <!--  <div class="form-group">

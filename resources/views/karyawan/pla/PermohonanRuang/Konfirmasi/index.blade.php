@@ -49,14 +49,15 @@ Konfirmasi Peminjam
       <td width="25%" style="text-align:center">{{$PR->nama}}</td>
       <td width="20%" style="text-align:center">{{$PR->nim_nip}}</td>
       <td width="20%" style="text-align:center">{{$PR->nama_ruang}}</td>
-      <td width="20%" style="text-align:center">{{$PR->tgl_pinjam}}</td>
+      <td width="20%" style="text-align:center">{!!App\Helpers\GeneralHelper::indonesianDateFormat($PR->tgl_pinjam)!!}</td>
       <td width="20%" style="text-align:center">{{$PR->nama_hari}}</td>
       <td width="20%" style="text-align:center">{{$PR->waktu}}</td>
       <td width="15%" style="text-align:center" >
+      <a onclick="return confirm('Anda yakin untuk menerima ini?');" href="{{url('/karyawan/PermohonanRuang/Konfirmasi/'.$PR->id_permohonan_ruang.'/accept/')}}" class="btn btn-success btn-xs">
+        <i></i value="1"> Approve</a>
       <a onclick="return confirm('Anda yakin untuk menolak ini?');" href="{{url('/karyawan/PermohonanRuang/Konfirmasi/'.$PR->id_permohonan_ruang.'/decline/')}}" class="btn btn-danger btn-xs"> 
-      <i></i value="2">Tolak</a>
-        <a onclick="return confirm('Anda yakin untuk menerima ini?');" href="{{url('/karyawan/PermohonanRuang/Konfirmasi/'.$PR->id_permohonan_ruang.'/accept/')}}" class="btn btn-success btn-xs">
-        <i></i value="1">Konfirmasi</a>
+      <i></i value="2"> Reject</a>
+        
         </td>
     </tr>
      @empty
