@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dosen\monitoringksripsi;
+namespace App\Http\Controllers\Dosen\monitoringskripsi;;
 
 use Request;
 use Illuminate\Support\Facades\DB;
