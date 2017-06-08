@@ -34,6 +34,17 @@ class UploadDokumenController extends Controller
     public function upload_doc(Request $request)
     {
         $dok = $request->input();
+        $checkDoc = Dokumen::all();
+        foreach ($checkDoc as $c) {
+            if ($c->nama == $request->input('nama')) {
+                Session::put('alert-danger', 'Nama dokumen telah terpakai');
+                return Redirect::back();
+            }
+        }
+        if($request->file('url_dokumen')==null||$request->input('nama')==null){
+        Session::put('alert-danger', 'Belum mengisi nama dokumen / memilih dokumen');
+        return Redirect::back();
+        }
         $dok['nip_petugas_id'] = Auth::user()->username;
         $dok['url_dokumen']= time() .'.'.$request->file('url_dokumen')->getClientOriginalExtension();
         // Menginsertkan apa yang ada di form ke dalam tabel biodata

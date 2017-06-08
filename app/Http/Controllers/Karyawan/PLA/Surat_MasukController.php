@@ -109,7 +109,6 @@ class Surat_MasukController extends Controller
         $surat_masuk->nama_lembaga = $request->input('nama_lembaga');
         $surat_masuk->judul_surat_masuk = $request->input('judul_surat_masuk');
         $surat_masuk->nim_nip = $request->input('nim_nip');
-        $surat_masuk->status = $request->input('status');
         $surat_masuk->save();
 
         // Notifikasi sukses
@@ -124,10 +123,9 @@ class Surat_MasukController extends Controller
         $surat_masuk = Surat_Masuk::find($id);
         $surat_masuk->status = '1';
         $surat_masuk->save();
-        // dd($data['surat_keluar_mhs']);
 
         Session::put('alert-success', 'Status surat telah berubah menjadi Sudah Diambil');
-        // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
+        // kembali ke halaman awal
         return Redirect::back();
     }
 

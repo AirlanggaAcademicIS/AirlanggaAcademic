@@ -51,27 +51,29 @@ Tambah Status
 
 				<!-- Menampilkan input text biasa -->
 				<div class="form-group">
-					<label for="id" class="col-sm-2 control-label">id</label>
+					<label for="id" class="col-sm-2 control-label">No. Status</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="id" name="id" placeholder="Masukkan id status" required>
+						<input type="text" class="form-control" id="id" name="id" placeholder="Masukkan no status" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Keterangan</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="keterangan" name="keterangan" placeholder="Masukkan Keterangan" required>
+						<input type="text" class="form-control" id="keterangan" name="keterangan" placeholder="Masukkan Keterangan" required>
 					</div>
 				</div>
-
-				<div class="form-group text-center">
-					<div class="col-md-8 col-md-offset-2">
-					<button type="submit" class="btn btn-primary btn-lg">
-							Confirm
+					<button type="submit" class="btn btn-primary" style="margin-left: 500px;">
+							Simpan
 						</button>
-					</div>
-				</div>
 			</form>
+			<br>
+				<a href="{{url('karyawan/monitoring-skripsi/status')}}">
+					<button class="btn btn-danger" style="margin-left: 500px;">
+					
+							Kembali
+					</button>
+				</a>
 		</div>
 	</div>
 </div>

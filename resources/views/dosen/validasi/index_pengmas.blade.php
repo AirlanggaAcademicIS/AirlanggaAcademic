@@ -49,6 +49,7 @@ Pengmas
       <th style="text-align:center">Nama Kegiatan</th>      
       <th style="text-align:center">Tempat Kegiatan</th>
       <th style="text-align:center">Tanggal Kegiatan</th>
+      <th style="text-align:center">File Pengmas</th>
       <th style="text-align:center">Action</th>
     </tr>
     </thead>
@@ -59,7 +60,8 @@ Pengmas
       <td width="20%" style="text-align:center">{{$pengmas->nama_kegiatan}}</td>
       <td width="15%" style="text-align:center">{{$pengmas->tempat_kegiatan}}</td>
       <td width="20%" style="text-align:center">{{$pengmas->tanggal_kegiatan}}</td>
-      
+      <td width="20%" style="text-align:center" > <a href="{{URL::asset('/img/dosen/'.$pengmas->file_pengmas)}}" class="btn btn-primary btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Download</a> </td>
       <td width="20%" style="text-align:center" ><a href="{{url('/dosen/validasi/pengmas/'.$pengmas->kegiatan_id.'/terima/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-pencil-square-o"></i>Terima</a>
         <a href="{{url('/dosen/validasi/pengmas/'.$pengmas->kegiatan_id.'/tolak/')}}" class="btn btn-warning btn-xs">

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dosen\monitoringskripsi;
+namespace App\Http\Controllers\Dosen\monitoringskripsi;;
 
 use Request;
 use Illuminate\Support\Facades\DB;
@@ -25,13 +25,13 @@ class HasilSidangController extends Controller
       # code...
        $nip = Auth::user()->username;
        $hasil_sidang_skripsi = DB::table('skripsi')
-            ->join('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
-            ->join('kbk', 'skripsi.kbk_id', '=', 'kbk.id_kbk')
-            ->join('petugas_tu','skripsi.nip_petugas_id','=','petugas_tu.nip_petugas')
-            ->join('ruang','skripsi.tempat_sidangpro','=','ruang.id_ruang')
-            ->join('dosen_penguji','dosen_penguji.skripsi_id','=','skripsi.id_skripsi')
-            ->join('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
-            ->join('status_skripsi','status_skripsi.id','=','skripsi.statusskrip_id')
+            ->leftJoin('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
+            ->leftJoin('kbk', 'skripsi.kbk_id', '=', 'kbk.id_kbk')
+            ->leftJoin('petugas_tu','skripsi.nip_petugas_id','=','petugas_tu.nip_petugas')
+            ->leftJoin('ruang','skripsi.tempat_sidangpro','=','ruang.id_ruang')
+            ->leftJoin('dosen_penguji','dosen_penguji.skripsi_id','=','skripsi.id_skripsi')
+            ->leftJoin('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
+            ->leftJoin('status_skripsi','status_skripsi.id','=','skripsi.statusskrip_id')
             ->select('skripsi.id_skripsi','biodata_mhs.nama_mhs', 'skripsi.NIM_id','skripsi.nilai_sidangskrip' ,'kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangpro', 'skripsi.waktu_sidangpro', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang','dosen_penguji.nip_id as dosji','status_skripsi.keterangan')
             ->whereNull('skripsi.deleted_at')
             ->whereNotNull('skripsi.nilai_sidangskrip')
@@ -78,13 +78,13 @@ class HasilSidangController extends Controller
        $nip = Auth::user()->username;
       # code...
            $hasil_sidang_proposal = DB::table('skripsi')
-            ->join('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
-            ->join('kbk', 'skripsi.kbk_id', '=', 'kbk.id_kbk')
-            ->join('petugas_tu','skripsi.nip_petugas_id','=','petugas_tu.nip_petugas')
-            ->join('ruang','skripsi.tempat_sidangpro','=','ruang.id_ruang')
-            ->join('dosen_penguji','dosen_penguji.skripsi_id','=','skripsi.id_skripsi')
-            ->join('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
-            ->join('status_skripsi','status_skripsi.id','=','skripsi.statusskrip_id')
+            ->leftJoin('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
+            ->leftJoin('kbk', 'skripsi.kbk_id', '=', 'kbk.id_kbk')
+            ->leftJoin('petugas_tu','skripsi.nip_petugas_id','=','petugas_tu.nip_petugas')
+            ->leftJoin('ruang','skripsi.tempat_sidangpro','=','ruang.id_ruang')
+            ->leftJoin('dosen_penguji','dosen_penguji.skripsi_id','=','skripsi.id_skripsi')
+            ->leftJoin('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
+            ->leftJoin('status_skripsi','status_skripsi.id','=','skripsi.statusskrip_id')
             ->select('skripsi.id_skripsi','biodata_mhs.nama_mhs', 'skripsi.NIM_id','skripsi.nilai_sidangpro' ,'kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangpro', 'skripsi.waktu_sidangpro', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang','dosen_penguji.nip_id as dosji','status_skripsi.keterangan')
             ->whereNull('skripsi.deleted_at')
             // ->where('NIM_id','=',$nim)
