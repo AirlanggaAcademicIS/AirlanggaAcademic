@@ -42,32 +42,11 @@ Undang Dosen
                     <input class="form-control" id="textTempatRapat" placeholder="Tempat pelaksanaan rapat disini" value="{{ $ruang->nama_ruang }}" readonly type="text" >
                   </div>
                 </div>
-                <!-- <div class="form-group">
-                  <label for="selectDosen" class="col-sm-2 control-label">Pilih Jabatan Dosen</label>
-                  <div class="col-sm-10">
-                  <select class="form-control">
-                    <option>Dosen BPH Inti</option>
-                    <option>Pembantu BPH</option>
-                    <option>Dosen Biasa</option>
-                    <option>Semua Dosen</option>
-                    <option>Lainnya</option>
-                  </select>
-                </div>
-                  </div> -->
          <div class="col-xs-14">
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Daftar Dosen</h3>
 
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-              </div>
             </div>
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">

@@ -30,7 +30,10 @@ class NotulensiKaryawanController extends Controller
             ->join('jadwal_permohonan', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang')
             ->join('ruang', 'ruang.id_ruang', '=', 'jadwal_permohonan.ruang_id')
             ->select('*')
-            ->get()
+            ->get(),
+             'hasil_pembahasan' => DB::table('notulen_rapat')
+            ->select('*')
+            ->get(),
 
         
         ];
@@ -55,8 +58,6 @@ class NotulensiKaryawanController extends Controller
             ->get(),
             'dosen' => DB::table('biodata_dosen')
             ->select('*')
-            ->get()
-        ];
             ->get(),
             'nama_rapat' => DB::table('notulen_rapat')
             ->select('*')
@@ -99,17 +100,11 @@ class NotulensiKaryawanController extends Controller
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-
-        $notulensi = $request->input();
-         //dd($notulensi);
-        $notulensi['nip_petugas_id'] = Auth::user()->username;
-        $notulensi['id_verifikasi'] = 0;
-        //dd($notulensi);
-        NotulensiKaryawan::create($notulensi);
-        
         $notulensi = NotulensiKaryawan::find($request->input('id_notulen'));
          //dd($notulensi);
          $notulensi->nip_id = $request->input('nip_id');
+         $notulensi->nip_petugas_id=Auth::user()->username;
+         $notulensi->id_verifikasi=0;
         $notulensi->hasil_pembahasan = $request->input('hasil_pembahasan');
         $notulensi->deskripsi_rapat = $request->input('deskripsi_rapat');
         //dd($notulensi);
@@ -152,12 +147,17 @@ class NotulensiKaryawanController extends Controller
             'dosen' => DB::table('biodata_dosen')
             ->select('*')
             ->get(),
+            'petugas' => DB::table('notulen_rapat')
+            ->join('users', 'users.username', '=', 'notulen_rapat.nip_petugas_id')
+            ->select('*')
+            ->where('notulen_rapat.id_notulen','=',$id_notulen)
+            ->get(),
         
-            
             'notulensi' => NotulensiKaryawan::find($id_notulen)
         
         ];
 
+        
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
         return view('karyawan.notulensi.notulensi.edit',$data);

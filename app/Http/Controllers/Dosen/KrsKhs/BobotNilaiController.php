@@ -88,27 +88,13 @@ class BobotNilaiController extends Controller
             );
         
         // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Persentase Bobot Berhasil Ditambah');
+        Session::put('alert-success', 'Persentase Bobot Nilai Berhasil Ditambah');
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('dosen/krs-khs/mk_diajar');
     }
 
-    public function delete($id)
-    {
-        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
-        $biodata_dosen = BiodataDosen::find($id);
-
-        // Menghapus biodata yang dicari tadi
-        $biodata_dosen->delete();
-
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Biodata berhasil dihapus');
-
-        // Kembali ke halaman sebelumnya
-        return Redirect::back();     
-    }
-
+  
    public function edit($mk_ditawarkan_id)
     {
         $data = [
@@ -166,7 +152,7 @@ class BobotNilaiController extends Controller
             
         // ];
         // Notifikasi sukses
-        Session::put('alert-success', 'Biodata berhasil diedit');
+        Session::put('alert-success', 'Persentase Bobot Nilai Berhasil Diedit');
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('dosen/krs-khs/mk_diajar');

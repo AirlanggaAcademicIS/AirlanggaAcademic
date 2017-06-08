@@ -59,12 +59,6 @@ Tambah Silabus
       </div>
 
       <div class="form-group">
-        <label for="capaian_pembelajaran"><b>Capaian Mata Kuliah</b></label>
-        <textarea class="form-control" id="" name="capaian_matkul" rows="4" placeholder="Masukan Capaian Mata Kuliah">
-        </textarea>
-      </div>
-
-      <div class="form-group">
         <label for="penilaian"><b>Deskripsi Mata Ajar</b></label>    
         <textarea name="deskripsi_mata_ajar" class="form-control" rows="4" placeholder="Masukan Deskripsi Mata Ajar">
         </textarea>

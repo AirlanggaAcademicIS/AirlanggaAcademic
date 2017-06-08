@@ -12,6 +12,7 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\JurnalDosen;
+use App\Jurnal_Dsn;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -28,8 +29,8 @@ class JurnalController extends Controller
             // Memanggil semua isi dari tabel biodata
             'jurnal' => DB::table('jurnal_dosen')
             ->where('jurnal_dosen.nip','=',$dosen)
-            ->join('jurnal','jurnal_dosen.jurnal_id','=','jurnal.jurnal_id')
-            ->select('=')
+            ->join('jurnal','jurnal.jurnal_id','=','jurnal_dosen.jurnal_id')
+            ->select('*')
             ->get()
         ];
 
@@ -49,13 +50,15 @@ class JurnalController extends Controller
     }
 
     public function createAction(Request $request)
-    {
+    {   $user = Auth::user()->username;
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
         $dosen = $request->input();
         $dosen['status_jurnal'] = 0 ;
         $dosen['file_jurnal'] = time() .'.'.$request->file('file_jurnal')->getClientOriginalExtension();
         JurnalDosen::create($dosen);
         $file = $request->file('file_jurnal')->move("img/dosen/",$dosen['file_jurnal']);
+        $id = JurnalDosen::where('nama_jurnal', $request->input('nama_jurnal'))->first();
+        Jurnal_Dsn::create(['nip' => $user,'jurnal_id'  => $id->jurnal_id]);
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Jurnal Berhasil Ditambahkan');
 
@@ -100,8 +103,7 @@ class JurnalController extends Controller
         $jurnal->nama_jurnal = $request->input('nama_jurnal');
         $jurnal->halaman_jurnal = $request->input('halaman_jurnal');
         $jurnal->bidang_jurnal = $request->input('bidang_jurnal');
-        $jurnal->tanggal_jurnal = $request->input('tanggal_jurnal');
-        $jurnal->status_jurnal = $request->input('status_jurnal');
+        $jurnal->tanggal_jurnal = $request->input('tanggal_jurnal');        
         $jurnal->volume_jurnal = $request->input('volume_jurnal');
         $jurnal->penulis_ke = $request->input('penulis_ke');
         $jurnal->save();

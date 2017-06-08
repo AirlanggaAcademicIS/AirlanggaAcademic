@@ -52,12 +52,12 @@ Tambah Surat Keluar
 
 				<!-- Menampilkan input text biasa -->
 				
-				<!--<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">NIP Petugas</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nip_petugas_id" name="nip_petugas_id" placeholder="Masukkan NIP Petugas" required>
-					</div>
-				</div>-->
+				<div class="form-group">
+				     <label for="nama" class="col-sm-2 control-label">NIM</label>
+				     <div class="col-md-8">
+				     	<input type="text" class="form-control input-lg" data-role="tagsinput" id="nim_id" name="nim_id" placeholder="Masukkan NIM" required>
+				     </div>
+				</div>
 
 				<div class="form-group">
 					<label for="nim" class="col-sm-2 control-label">Nama Lembaga</label>

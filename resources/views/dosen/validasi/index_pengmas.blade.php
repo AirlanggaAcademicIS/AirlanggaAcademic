@@ -36,9 +36,9 @@ Pengmas
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Halaman Validasi
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="dosen/validasi/index_jurnal">Jurnal</a></li>
-      <li><a href="dosen/validasi/index_penelitian">Penelitian</a></li>
-      <li><a href="dosen/validasi/index_konferensi">Konferensi</a></li>
+      <li><a href="jurnal">Jurnal</a></li>
+      <li><a href="penelitian">Penelitian</a></li>
+      <li><a href="konferensi">Konferensi</a></li>
     </ul>
   </div>
 <div style="overflow: auto">
@@ -49,6 +49,7 @@ Pengmas
       <th style="text-align:center">Nama Kegiatan</th>      
       <th style="text-align:center">Tempat Kegiatan</th>
       <th style="text-align:center">Tanggal Kegiatan</th>
+      <th style="text-align:center">File Pengmas</th>
       <th style="text-align:center">Action</th>
     </tr>
     </thead>
@@ -59,10 +60,11 @@ Pengmas
       <td width="20%" style="text-align:center">{{$pengmas->nama_kegiatan}}</td>
       <td width="15%" style="text-align:center">{{$pengmas->tempat_kegiatan}}</td>
       <td width="20%" style="text-align:center">{{$pengmas->tanggal_kegiatan}}</td>
-      
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus pengmas ini?');" href="{{url('/dosen/pengmas/'.$pengmas->kegiatan_id.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="20%" style="text-align:center" > <a href="{{URL::asset('/img/dosen/'.$pengmas->file_pengmas)}}" class="btn btn-primary btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Download</a> </td>
+      <td width="20%" style="text-align:center" ><a href="{{url('/dosen/validasi/pengmas/'.$pengmas->kegiatan_id.'/terima/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-pencil-square-o"></i>Terima</a>
-        <a href="{{url('/dosen/pengmas/'.$pengmas->kegiatan_id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('/dosen/validasi/pengmas/'.$pengmas->kegiatan_id.'/tolak/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i>Tolak</a>
         </td>
     </tr>

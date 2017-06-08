@@ -55,11 +55,9 @@ Rencana Pembelajaran Semester
     <td width="15%" style="text-align:center">
     <a onclick="return confirm('Anda yakin untuk menghapus RPS ini?');" href="{{url('/dosen/kurikulum/rps/delete/'.$mk->id_mk)}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Delete</a>
-
-
-        <a class="btn btn-info btn-xs">
-        <i class="fa fa-download-square-o"></i> Download</a>
-        </td>
+    <a target="_blank" class="btn btn-info btn-xs" href="{{url('/dosen/kurikulum/rps/pdf/'.$mk->id_mk)}}">
+    <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download PDF</a>
+    </td>
 
     @empty
     <tr>

@@ -55,7 +55,6 @@
                             @php $isSameMetode = false; @endphp        
                         @endforeach        
             </div>
-            
             <div class="form-group">
                 <label for="penilaian"><b>Deskripsi Mata Ajar</b></label>    
                 <textarea name="deskripsi_mata_ajar" class="form-control" rows="4" placeholder="Masukan Deskripsi Mata Ajar">{!!$matkul_silabus->deskripsi_matkul!!}</textarea>

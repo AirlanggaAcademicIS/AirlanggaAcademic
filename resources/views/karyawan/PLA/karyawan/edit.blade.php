@@ -45,7 +45,7 @@ Edit Petugas
 			</div>
 			@endif
 			<br>
-			<form id="tambahkaryawan" method="post" action="{{url('/karyawan/PLA/karyawan/'.$karyawan->nip_petugas.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+			<form id="tambahkaryawan" method="post" action="{{url('/karyawan/pla/karyawan/'.$karyawan->nip_petugas.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
@@ -85,7 +85,7 @@ Edit Petugas
 					<div class="col-md-2">
 						<select class="form-control" id="prodi_id" name="prodi_id">
       @foreach($prodi as $p)
-                    <option>{{$p->nama_prodi}}</option>
+                    <option value="{{$p->id_prodi}}">{{$p->nama_prodi}}</option>
             @endforeach
                   </select>
 

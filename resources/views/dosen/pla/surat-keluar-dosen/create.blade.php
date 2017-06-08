@@ -49,14 +49,13 @@ Tambah Surat Keluar
 			<form id="suratkeluar" method="post" action="{{url('dosen/surat-keluar-dosen/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				
-				<!-- Menampilkan input text biasa -->				
-				<!--<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">NIP Petugas</label>
-					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nip_petugas_id" name="nip_petugas_id" placeholder="Masukkan NIP Petugas" required>
-					</div>
-				</div>
--->	
+			<div class="form-group">
+			     <label for="nama" class="col-sm-2 control-label">NIP</label>
+			     <div class="col-md-8">
+				    <input type="text" class="form-control input-lg" data-role="tagsinput" id="nip_id" name="nip_id" placeholder="Masukkan NIP" required>
+				 </div>
+			</div>
+
 
 			<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Perihal Surat</label>
@@ -64,19 +63,6 @@ Tambah Surat Keluar
 						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Perihal Surat" required>
 					</div>
 				</div>
-
-
-				<!-- Menampilkan dropdown -->
-				<!--<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Status</label>
-					<div class="col-md-8">
-						<select name="status" required>
-							<option value="0">Belum Selesai</option>
-							<option value="1">Sudah Selesai</option>						
-						</select>
-					</div>
-				</div>
--->
 				
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">

@@ -20,6 +20,10 @@ use App\NamaDosenMK;
 use App\RPS_Media_Pembelajaran;
 use App\CapaianPembelajaran;
 use App\RPS_Detail_Kategori;
+use App\Silabus_Matkul;
+use App\Silabus_detail_kategori;    
+use App\Silabus_Matkul_prasyarat;
+use PDF;
 use DB;
 use App\BiodataDosen;
 
@@ -203,14 +207,16 @@ class RPSController extends Controller
                 $value->nip_id = $request->input('koor_4');
             }
         }
-        $mk_prasyarat = RPS_Matkul_Prasyarat::where('mk_id',$id)->delete();
-        $mk_prasyarat = $request->input('mk_prasyarat');
-        foreach ($mk_prasyarat as $mk) {
+        $mk_syarat = RPS_Matkul_Prasyarat::where('mk_id',$id);
+        
+        $mk_syarat= $request->input('mk_prasyarat');
+        foreach ($mk_syarat as $mk) {
             RPS_Matkul_Prasyarat::create([
                 'mk_id' => $id,
                 'mk_syarat_id' => $mk
                 ]);
         }
+        $mk_prasyarat = RPS_Matkul_Prasyarat::where('mk_id',$id)->delete();
         $mata_kuliah = RPS_Matkul::find($id);
         $mata_kuliah->id_mk = $id;
         $mata_kuliah->deskripsi_matkul = $request->input('deskripsi_matkul');
@@ -220,4 +226,21 @@ class RPSController extends Controller
         Session::put('alert-success', 'RPS berhasil diedit');
         return Redirect::to('/dosen/kurikulum/rps');
     }
+
+    public function pdf($id)
+    {
+        $cpProdi = RPS_CPL_Prodi::where('mk_id', '=', $id)->get();
+        $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $id)->first();        
+        $data = [
+            'matkul_silabus' => Silabus_Matkul::find($id),
+            'cpem' => RPS_CPL_Prodi::where('mk_id', '=', $id)->get(),
+            'mk_media_pembelajaran' => Silabus_detail_kategori::where('cpmk_id', '=', $cpmk->id_cpmk)->get(),
+            'mk_prasyarat' => Silabus_Matkul_prasyarat::where('mk_id', '=', $id)->get(),
+            'mk_dosen' => RPS_Koor_Matkul::where('mk_id', '=', $id)->get(),
+            'cp_matkul' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get()
+        ];
+        $pdf = PDF::loadView('dosen.kurikulum.rps.pdf-rps', $data);
+        return $pdf->download('silabus-mata-kuliah.pdf');
+    }
+
 }

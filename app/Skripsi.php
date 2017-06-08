@@ -11,6 +11,7 @@ class Skripsi extends Model
 
     protected $table = 'skripsi';
     protected $primaryKey = 'id_skripsi';
+    public $incrementing = false;   
     protected $dates = ['deleted_at'];
     protected $fillable = [
     'NIM_id',
@@ -33,11 +34,10 @@ class Skripsi extends Model
     'upload_berkas_proposal',
     'upload_berkas_skripsi'
     ];
-
-
+    
    public function mhs()
    {
-    return $this->belongsTo('App\AkunMahasiswa','NIM_id');
+    return $this->belongsTo('App\BiodataMahasiswa','NIM_id');
    }
 
    public function kbk()
