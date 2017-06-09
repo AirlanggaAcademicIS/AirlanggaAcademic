@@ -45,7 +45,7 @@ Form Biodata Mahasiswa
 			</div>
 			@endif
 			<br>
-		<form id="tambahBiodataMahasiswa" method="post" action="{{url('/mahasiswa/biodata-mahasiswa/'.$biodatamahasiswa->id_bio.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+		<form id="tambahBiodataMahasiswa" method="post" action="{{url('/mahasiswa/biodata-mahasiswa/'.$biodatamahasiswa->nim_id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<div class="form-group">

@@ -78,17 +78,30 @@ class BiodataMahasiswaController extends Controller
     public function editAction($id_bio, Request $request)
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
-        $biodata_mhs = BiodataMahasiswa::find($id_bio);
-        $getBiodataMhs = BiodataMahasiswa::find($id_bio);
-
-       if ($getBiodataMhs->nama_mhs == $request->input('nama_mhs')||$getBiodataMhs->email_mhs == $request->input('email_mhs')||$getBiodataMhs->jenis_kelamin == $request->input("jenis_kelamin")||$getBiodataMhs->negara_asal == $request->input("negara_asal")||$getBiodataMhs->provinsi_asal == $request->input("provinsi_asal")||$getBiodataMhs->provinsi_asal == $request->input("provinsi_asal")||$getBiodataMhs->kota_asal == $request->input('kota_asal')||$getBiodataMhs->kota_tinggal == $request->input('kota_tinggal')||$getBiodataMhs->alamat_tinggal == $request->input('alamat_tinggal')||$getBiodataMhs->ttl == $request->input('ttl')||$getBiodataMhs->angkatan == $request->input('angkatan')||$getBiodataMhs->agama == $request->input('agama')||$getBiodataMhs->kebangsaan == $request->input('kebangsaan')||$getBiodataMhs->sma_asal == $request->input('sma_asal')||$getBiodataMhs->nama_ayah == $request->input('nama_ayah')||$getBiodataMhs->nama_ibu == $request->input('nama_ibu')||$getBiodataMhs->deskripsi_diri == $request->input('deskripsi_diri')||$getBiodataMhs->motto == $request->input('motto')){
-
-         Session::put('alert-warning', 'Tidak ada perubahan');
-           }
-        else
+       $biodata_mhs = BiodataMahasiswa::find($id_bio);
+       $biodata_mhs2 = BiodataMahasiswa::where('nim_id',$id_bio)->first();
+      // dd($biodata_mhs3);
+           # code...
+       //dd($biodata_mhs2->nama_mhs);
+       
+        if ($biodata_mhs2->nama_mhs!=$request->input('nama_mhs')  
+            || $biodata_mhs2->email_mhs!=$request->input("email_mhs")
+            || $biodata_mhs2->jenis_kelamin != $request->input("jenis_kelamin") 
+            || $biodata_mhs2->negara_asal!= $request->input("negara_asal")  
+            || $biodata_mhs2->provinsi_asal != $request->input("provinsi_asal") 
+            || $biodata_mhs2->kota_tinggal != $request->input('kota_tinggal')  
+            || $biodata_mhs2->alamat_tinggal != $request->input('alamat_tinggal')  
+            || $biodata_mhs2->ttl != $request->input('ttl')  
+            || $biodata_mhs2->angkatan != $request->input('angkatan')  
+            || $biodata_mhs2->agama != $request->input('agama')  
+            || $biodata_mhs2->kebangsaan != $request->input('kebangsaan')  
+            || $biodata_mhs2->nama_ayah != $request->input('nama_ayah')  
+            || $biodata_mhs2->nama_ibu != $request->input('nama_ibu')  
+            || $biodata_mhs2->deskripsi_diri != $request->input('deskripsi_diri')  
+            || $biodata_mhs2->motto != $request->input('motto'))
         {
-        // Mengupdate $biodata tadi dengan isi dari form edit tadi
-
+           
+          // Mengupdate $biodata tadi dengan isi dari form edit tadi
         $biodata_mhs->nim_id = Auth::user()->username;
         $biodata_mhs->nama_mhs = $request->input('nama_mhs');
         $biodata_mhs->email_mhs = $request->input('email_mhs');
@@ -110,11 +123,16 @@ class BiodataMahasiswaController extends Controller
         $biodata_mhs->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Biodata Mahasiswa berhasil diinputkan');{
-
+        Session::put('alert-success', 'Biodata Mahasiswa berhasil diinputkan');
+    
+        }       
+        else
+        {
+             Session::put('alert-warning', 'Tidak ada perubahan Biodata Mahasiswa');
+            
+        }
         // Kembali ke halaman mahasiswa/biodata
-    }
-    }      
-  return Redirect::to('mahasiswa/biodata-mahasiswa');
-
-}}
+        return Redirect::to('mahasiswa/biodata-mahasiswa');
+    
+}
+}
