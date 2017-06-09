@@ -32,7 +32,7 @@ Tambah Capaian Pembelajaran
 	@endforeach
 
 
-<div class="box box-danger">
+<div class="box box-info">
 <div class="box-body">
 
 <div class="row">
@@ -56,7 +56,7 @@ Tambah Capaian Pembelajaran
     <div class="box-header with-border">
     <div class="form-group">
      <label for="id_prodi" class="col-sm-2 control-label">Nama Prodi</label>
-     <div class="col-md-4">
+     <div class="col-md-5">
          	<select name="prodi_id" class="form-control">
 	          	@foreach($prodis as $prodi)
 	            	<option value="{{$prodi->id_prodi}}">{{$prodi->nama_prodi}}</option>
@@ -68,7 +68,7 @@ Tambah Capaian Pembelajaran
         <!-- Menampilkan input text biasa -->
         <div class="form-group">
           <label for="kategori_cpem_id" class="col-sm-2 control-label">Kategori Capaian Pembelajaran</label>
-          <div class="col-md-4">
+          <div class="col-md-5">
          	<select name="kategori_cpem_id" class="form-control">
 	          	@foreach($categories as $category)
 	            	<option value="{{$category->id_kategori_cpem}}">{{$category->nama_cpem}}</option>
@@ -80,7 +80,7 @@ Tambah Capaian Pembelajaran
         <!-- Menampilkan textarea -->
         <div class="form-group">
           <label for="kode_cpem" class="col-sm-2 control-label">Kode Capaian Pembelajaran</label>
-          <div class="col-md-4">
+          <div class="col-md-5">
             <input type="text" class="form-control input-md" id="kode_cpem" name="kode_cpem" placeholder="Masukkan Kode" required>
           </div>
         </div>

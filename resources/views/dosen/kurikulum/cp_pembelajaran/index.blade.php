@@ -25,7 +25,7 @@ Capaian Pembelajaran
   {!!Session::forget('alert-' . $msg)!!}
   @endif
   @endforeach
-  <div class="box box-danger">
+  <div class="box box-info">
 <div class="box-body">
 
 </div>
