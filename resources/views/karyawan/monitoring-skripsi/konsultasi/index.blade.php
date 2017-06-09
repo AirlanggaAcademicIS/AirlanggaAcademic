@@ -33,6 +33,7 @@ Data Konsultasi Mahasiswa
     <tr>
       <th style="text-align:center">No.</th>
       <th style="text-align:center">NIM</th>
+      <th style="text-align:center">Nama</th>
       <th style="text-align:center">Status</th>
       <th style="text-align:center">Action</th>
     </tr>
@@ -44,6 +45,7 @@ Data Konsultasi Mahasiswa
     <tr>
       <td width="5%">{{ $i+1 }}</td>
       <td width="10%" style="text-align:center">{{$konsul->nim_id}}</td>
+      <td width="10%" style="text-align:center">{{$konsul->nama_mhs}}</td>
       <td width="20%" style="text-align:center">@if($konsul->is_verified==null)
       {{'Belum Diverifikasi'}}
       @else

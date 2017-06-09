@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Rincian Rundown Kegiatan
+Rincian Rundown
 @endsection
 
 @section('contentheader_title')
-Rincian Rundown Kegiatan
+Rincian Rundown
 @endsection
 
 @section('main-content')
@@ -28,32 +28,26 @@ Rincian Rundown Kegiatan
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('dosen/pengelolaan-kegiatan/rincian-rundown/create')}}" type="button" class="btn btn-info btn-md" >
+  @foreach($kegiatan as $id)
+  <a href="{{url('dosen/pengelolaan-kegiatan/rincian-rundown/'.$id->id_kegiatan.'/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Rincian Rundown Kegiatan</a>
+@endforeach
 </div>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
-      <th style="text-align:center">Jenis Kegiatan</th>
-      <th style="text-align:center">Kategori Kegiatan</th>
       <th style="text-align:center">Nama</th>      
       <th style="text-align:center">Waktu</th>
-      <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
    @forelse($rincianrundown as $i => $rundown) 
     <tr>
       <td width="5%"  style="text-align:center">{{ $i+1 }}</td>
-      <td width="20%" style="text-align:center">{{$rundown->kegiatan_id}}</td>
-      <td width="20%" style="text-align:center">{{$rundown->kategori_rundown}}</td>
       <td width="10%" style="text-align:center">{{$rundown->nama}}</td>
       <td width="20%" style="text-align:center">{{$rundown->waktu}}</td>
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus rundown ini?');" href="{{url('dosen/pengelolaan-kegiatan/rincian-rundown/'.$rundown->id_rundown.'/delete/')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-trash-o"></i> Hapus</a>
-          <a href="{{url('dosen/pengelolaan-kegiatan/rincian-rundown/'.$rundown->id_rundown.'/edit/')}}" type="button" class="btn btn-warning btn-xs"> <i class="fa fa-pencil-square-o"></i>Edit</a></td>
     </tr>
      @empty
         <tr>
@@ -65,6 +59,15 @@ Rincian Rundown Kegiatan
 </table>
 </div>
 
+
+  @foreach($kegiatan as $id)
+         <div class="col-sm-10">
+           
+         </div>
+<a href="{{url('dosen/pengelolaan-kegiatan/rincian-dana/'.$id->id_kegiatan)}}" class="btn btn-success btn-xs"> Simpan</a>
+  
+</div>
+@endforeach
 @endsection
 
 @section('code-footer')

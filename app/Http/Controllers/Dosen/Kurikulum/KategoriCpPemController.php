@@ -88,6 +88,7 @@ class KategoriCpPemController extends Controller
         $isSame = false;
         $input_kategori = $request->input('nama_cpem');
         $isSameKategori = KategoriCapaianPembelajaran::where('nama_cpem', '=', $input_kategori)->get()->count();
+        $getFromId = KategoriCapaianPembelajaran::find($id);
         if ($isSameKategori == 0)
         {
             $kode = KategoriCapaianPembelajaran::find($id);
@@ -96,15 +97,20 @@ class KategoriCpPemController extends Controller
 
             $kode->save();
 
-            Session::put('alert-success', 'Kode berhasil diedit');
+            Session::put('alert-success', 'Kategori berhasil diedit');
 
             return Redirect::to('dosen/kurikulum/kodecppem');
+        }
+        elseif (
+        $getFromId->nama_cpem == $request->input('nama_cpem')
+            ) {
+            Session::put('alert-warning', 'Tidak ada perubahan');
         }
         else
         {
             Session::put('alert-danger', 'Kategori sudah diinputkan');
-
-            return Redirect::to('dosen/kurikulum/kodecppem');   
         }
+            return Redirect::to('dosen/kurikulum/kodecppem');   
+        
     }
 }

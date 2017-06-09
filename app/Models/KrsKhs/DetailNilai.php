@@ -20,4 +20,9 @@ class DetailNilai extends Model
    {
       return $this->belongsTo('App\Models\KrsKhs\MKDitawarkan','mk_ditawarkan_id');
    }
+
+   public function jenis()
+   {
+      return $this->belongsTo('App\Models\KrsKhs\JenisPenilaian','jenis_penilaian_id');
+   }   
 }

@@ -68,8 +68,7 @@ Capaian Pembelajaran
   </tbody>
 </table>
 </div>
-</div>
-</div>
+
 @endsection
 
 @section('code-footer')

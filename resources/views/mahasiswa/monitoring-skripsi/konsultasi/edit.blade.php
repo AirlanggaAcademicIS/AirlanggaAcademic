@@ -67,7 +67,7 @@ Edit Konsultasi
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Catatan</label>
 					<div class="col-md-8">
-						<textarea id="catatan_konsul" name="catatan_konsul" placeholder=" Masukkan Catatan " required cols="82" rows="5">
+						<textarea id="catatan_konsul" name="catatan_konsul" placeholder=" Masukkan Catatan "  cols="82" rows="5" required>
 						{{$konsultasi->catatan_konsul}}
 						</textarea>
 					</div>

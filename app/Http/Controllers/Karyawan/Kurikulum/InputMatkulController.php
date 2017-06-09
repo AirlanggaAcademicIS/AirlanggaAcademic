@@ -118,33 +118,18 @@ class InputMatkulController extends Controller
 
         // Notifikasi sukses
         Session::put('alert-success', 'Mata Kuliah berhasil diedit');
-
-        // Kembali ke halaman mahasiswa/biodata
-        // return Redirect::to('karyawan/kurikulum/inputmatkul');
         }
-        // else if($input_kode == $getFromId->kode_matkul && $input_matkul == $getFromId->nama_matkul);
-        // {
-        //     Session::put('alert-warning', 'Kode Mata Kuliah atau Nama Mata Kuliah sudah diinputkan');
-
-        //     return Redirect::to('karyawan/kurikulum/inputmatkul');
-        // }
-        // else if($input_kode == $getFromId->kode_matkul);
-        // {
-        //     Session::put('alert-warning', 'Kode Mata Kuliah atau Nama Mata Kuliah sudah diinputkan');
-
-        //     return Redirect::to('karyawan/kurikulum/inputmatkul');
-        // }
-        // else if($input_matkul == $getFromId->nama_matkul); 
-        // {
-        //     Session::put('alert-warning', 'Kode Mata Kuliah atau Nama Mata Kuliah sudah diinputkan');
-
-        //     return Redirect::to('karyawan/kurikulum/inputmatkul');
-        // }
+        elseif (
+        $getFromId->kode_matkul == $request->input('kode_matkul') &&
+        $getFromId->nama_matkul == $request->input('nama_matkul') &&
+        $getFromId->sks == $request->input('sks') &&
+        $getFromId->jenis_mk_id == $request->input('jenis_mk_id')
+            ) {
+            Session::put('alert-warning', 'Tidak ada perubahan');
+        }
         else
         {
             Session::put('alert-danger', 'Kode Mata Kuliah atau Nama Mata Kuliah sudah diinputkan');
-
-            
         }
         return Redirect::to('karyawan/kurikulum/inputmatkul');
 }
