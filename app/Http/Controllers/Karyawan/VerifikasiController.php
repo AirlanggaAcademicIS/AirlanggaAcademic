@@ -13,7 +13,8 @@ use Response;
 // Tambahkan model yang ingin dipakai
 use App\VerPrestasi;
 use App\VerPenelitianMhs;
-
+use App\DetailAnggota;
+use App\DetailPenelitian;
 
 class VerifikasiController extends Controller
 {
@@ -116,11 +117,15 @@ class VerifikasiController extends Controller
 
     public function editPenelitian($id)
     {
+        $detail_anggota = DetailAnggota::where('kode_penelitian_id',$id)->first();
+        $detailpenelitian = DetailPenelitian::where('kode_penelitian_id',$id)->first();
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar penelitian
             'page' => 'penelitian',
             // Mencari penelitian berdasarkan id
-            'penelitian' => VerPenelitianMhs::find($id)
+            'penelitian' => VerPenelitianMhs::find($id),
+            'detail_anggota' => $detail_anggota,
+            'detailpenelitian' => $detailpenelitian
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi

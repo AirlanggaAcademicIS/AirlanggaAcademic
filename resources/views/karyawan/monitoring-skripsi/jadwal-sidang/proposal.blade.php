@@ -32,7 +32,7 @@ Jadwal Sidang Proposal
 
       <div class="box" id="wrapper-tombol-jadwal-sidang-proposal">
 
-      <button type="button" class="btn btn-success"  id="tombol-tambah-jadwal-sidang-proposal" data-toggle="modal" data-target="#modal-tambah-jadwal-sidang-proposal">Tambah Jadwal Sidang</button>
+      <button type="button" class="btn btn-success"  id="tombol-tambah-jadwal-sidang-proposal" data-toggle="modal" data-target="#modal-tambah-jadwal-sidang-proposal" style="display: none;">Tambah Jadwal Sidang</button>
 
       <button type="button" class="btn btn-warning" id="tombol-edit-jadwal-sidang-proposal">Edit Jadwal Sidang</button>
 
@@ -140,6 +140,8 @@ Jadwal Sidang Proposal
       <div class="row">
 
       <div class="col-md-6">
+
+      <input type="hidden" id="edit-id-skripsi"></input>
 
        <div class="form-group">
       <label for="edit-daftar-tambah-nim-jadwal-sidang-proposal">NIM</label>
@@ -385,7 +387,7 @@ Jadwal Sidang Proposal
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" id="tombol-submit-edit-tambah-jadwal-sidang-proposal">Update</button>
       </div>
     </div>
 
@@ -713,6 +715,63 @@ Jadwal Sidang Proposal
 
           });
 
+          $('#tombol-submit-edit-tambah-jadwal-sidang-proposal').click(function(){
+
+                var id_skripsi = $('#edit-id-skripsi').val();
+
+                 var nim = $('#edit-daftar-tambah-nim-jadwal-sidang-proposal').val();
+                
+                var kbk = $('#edit-daftar-tambah-kbk-jadwal-sidang-proposal').val();
+
+                var judul_proposal = $("#edit-daftar-tambah-judul-jadwal-sidang-proposal").val();
+
+                var tgl = $('#edit-daftar-tambah-tanggal-jadwal-sidang-proposal').val();
+
+                var waktu = $('#edit-daftar-tambah-waktu-jadwal-sidang-proposal').val();
+
+                var tempat = $('#edit-daftar-tambah-tempat-jadwal-sidang-proposal').val();
+
+                var dosbing1 = $('#edit-daftar-tambah-dosbing1-jadwal-sidang-proposal').val();
+
+                var dosbing2 = $('#edit-daftar-tambah-dosbing2-jadwal-sidang-proposal').val();
+
+                var penguji = $('#edit-daftar-tambah-dosbing-penguji-jadwal-sidang-proposal').val();
+
+                var petugas = $('#edit-daftar-tambah-nip-jadwal-sidang-proposal').val();
+
+                alert(nim+" "+kbk+" "+judul_proposal+" "+tgl+" "+waktu+" "+tempat+" "+dosbing1+" "+dosbing2+" "+penguji+" "+petugas);
+ 
+                $.ajax({
+                     url: 'update-jadwal-sidang-proposal',
+                    type: "post",
+                    data: {"_token": "{{ csrf_token() }}",
+                        "id_skripsi":id_skripsi,
+                        "nim":nim,
+                        "kbk":kbk,
+                        'judul_proposal':judul_proposal,
+                        'tgl':tgl,
+                        'waktu':waktu,
+                        'tempat':tempat,
+                        'dosbing1':dosbing1,
+                        'dosbing2':dosbing2,
+                        'penguji':penguji,
+                        'petugas':petugas
+                    },
+                    success: function(response){
+                        if(response.status_edit==1){
+                            // $('#modal-tambah-jadwal-sidang-proposal').modal('hide'); 
+                            // $('#info-simpan-jadwal-proposal').show();
+                            alert('Berhasil update data');
+                            location.reload();
+                        }
+                        else{
+                            //$('#info-simpan-jadwal-proposal').hide();
+                            alert('Gagal simpan data');
+                        }
+                    }
+                });  
+           });
+
           $('#tombol-edit-jadwal-sidang-proposal').click(function(){
               var id_skripsi = $('#tabel-jadwal-sidang-proposal').bootstrapTable('getSelections')[0].id_skripsi;
 
@@ -730,7 +789,7 @@ Jadwal Sidang Proposal
                       var dosbing = response.dosbing;
                       var dosing = response.dosing;
 
-                      console.log(dosing);
+                      console.log(skripsi);
 
                       $('#edit-daftar-tambah-nim-jadwal-sidang-proposal').val(skripsi.NIM_id);
                       $('#edit-daftar-tambah-kbk-jadwal-sidang-proposal').val(skripsi.kbk_id);
@@ -741,8 +800,31 @@ Jadwal Sidang Proposal
                       $('#edit-daftar-tambah-nip-jadwal-sidang-proposal').val(skripsi.nip_petugas_id);
                       $('#edit-daftar-tambah-dosbing1-jadwal-sidang-proposal').val(dosbing[0].nip_id);
                       $('#edit-daftar-tambah-dosbing2-jadwal-sidang-proposal').val(dosbing[1].nip_id);
-                      $('#edit-daftar-tambah-dosbing-penguji-jadwal-sidang-proposal').val(dosing[0].nip_id);
+                      
+                      if (typeof dosing[0] !== 'undefined') {
+    // the variable is defined
+    $('#edit-daftar-tambah-dosbing-penguji-jadwal-sidang-proposal').val(dosing[0].nip_id);
+
+                      }
+                      
+                                            
                       $('#edit-daftar-tambah-nama-jadwal-sidang-proposal').val(skripsi.nama_mhs);
+                      $('#edit-daftar-tambah-waktu-jadwal-sidang-proposal').val(skripsi.tgl_sidangpro);
+                      $('#edit-daftar-tambah-waktu-jadwal-sidang-proposal').val(skripsi.waktu_sidangpro);
+                      $('#edit-id-skripsi').val(skripsi.id_skripsi);
+
+                      $('#edit-daftar-tambah-tanggal-jadwal-sidang-proposal').datepicker({
+                format: 'yyyy-mm-dd'
+                });
+             $('#edit-daftar-tambah-waktu-jadwal-sidang-proposal').timepicker({
+                minuteStep: 1,
+                secondStep: 5,
+                showInputs: false,
+                
+                modalBackdrop: true,
+                showSeconds: true,
+                showMeridian: false
+            });
 
                       $('#modal-edit-jadwal-sidang-proposal').modal('show'); 
                      

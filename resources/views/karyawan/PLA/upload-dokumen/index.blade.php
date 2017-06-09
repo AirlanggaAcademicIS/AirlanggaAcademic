@@ -35,30 +35,24 @@ Upload Dokumen
 <form  method="post" action="{{url('karyawan/upload-dokumen/upload')}}" enctype="multipart/form-data"  class="form-horizontal">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="row" style="padding:10px">
-    <div class="col-sm-5">
-    <div class="form-group-text-center" > 
-    
-    <label for="nama" class="col-sm-4 control-label">Nama Dokumen</label> 
-    <div class="col-sm-8"> 
-    <input  type="text" id="nama" class="form-control input-md" name="nama">
-            </div>
-            </div>
-            </div>
-<div class="form-group-text-center" >
-            <div class="col-sm-3"> 
-    <input  type="file" id="file_doc" class="form-control input-md" name="url_dokumen">
-            </div>
+    <div class="col-sm-6">
+      <div class="form-group-text-center" > 
+      <label for="nama" class="col-sm-4 control-label">Nama Dokumen</label> 
+        <div class="col-sm-8"> 
+          <input  type="text" id="nama" class="form-control input-md" name="nama">
+        </div>  
+      </div>
+    </div>
 
-            </div>
-            <div class="col-sm-4">
-            <button type="submit" class="btn btn-primary btn-sm">
-              Upload
-            </button>
-            </div>
+    <div class="col-sm-3">
+        <label for="file_doc">File input</label> 
+        <input type="file" id="file_doc" name="url_dokumen">
+        </div>
 
+        <div class="col-sm-3">
+      <button type="submit" class="btn btn-primary btn-sm">Upload</button>  
+      </div>
 </div>
-    
-
 </form>
 
 <div style="overflow: auto">
@@ -80,9 +74,8 @@ Upload Dokumen
       <td style="text-align:center">{{$b->tgl_upload}}</td>
       <td  style="text-align:center">{{$b->petugas['nama_petugas']}}</td>
       <td style="text-align:center">
-        <a href="{{url('karyawan/upload-dokumen/'.$b->id_dokumen.'/delete')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Delete</a>
-      
+      <a onclick="return confirm('Anda yakin untuk menghapus file ini?');" href="{{url('karyawan/upload-dokumen/'.$b->id_dokumen.'/delete')}}" class="btn btn-danger btn-xs">
+        <i class="fa fa-trash-o"></i> Hapus</a>
         </td>
     </tr>
      @empty

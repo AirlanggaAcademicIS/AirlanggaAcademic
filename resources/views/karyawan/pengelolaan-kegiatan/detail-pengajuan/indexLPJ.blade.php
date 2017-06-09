@@ -159,6 +159,35 @@ Detail Pengajuan Kegiatan
   <div class="form-group">
   <div class="col-sm-10">
       
+      <h4>Struktur Panitia Dosen</h4>
+
+       <table id="strukturPanitiaDosen" class="table table-striped table-bordered" cellspacing="0">
+       <thead>
+          <tr>
+            <th width="10%" style="text-align:center">No</th>
+            <th width="20%" style="text-align:center">Nama Panitia</th>      
+            <th width="10%" style="text-align:center">Jabatan</th>
+          </tr>
+          </thead>
+        <tbody>
+         @forelse($struktur as $i => $d)
+          <tr>
+            <td width="10%" style="text-align:center">{{$i+1}}</td>
+            <td width="20%" style="text-align:center">{{$d->dosen['nama_dosen']}}</td>
+            <td width="10%" style="text-align:center">{{$d->jabatan['jabatan']}}</td>
+          </tr>
+
+    @empty
+        <tr>
+          <td colspan="6"><center>Belum ada panitia</center></td>
+        </tr>
+    
+      @endforelse
+    
+        </tbody>
+        </table>
+      
+
         <h4>Rincian Rundown Proposal Kegiatan</h4>
 
        <table id="rincianRundownProposal" class="table table-striped table-bordered" cellspacing="0">
@@ -322,7 +351,11 @@ Detail Pengajuan Kegiatan
           <tr>
             <td width="5%" style="text-align:center">{{$i+1}}</td>
             <td width="40%" style="text-align:center">{{$dokumen->lesson_learned}}</td>
+
             <td width="55%" style="text-align:center"><img src="{{URL::asset('/img/dokumentasi/'.$dokumen->url_foto)}}" height="100px" width="100px" hspace="5px" vspace="2px"></td>
+
+            <td width="55%" style="text-align:center">{{$dokumen->url_foto}}</td>
+
           </tr>
 
     @empty

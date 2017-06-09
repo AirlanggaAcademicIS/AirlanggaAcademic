@@ -57,7 +57,6 @@ class MohonRuanganController extends Controller
         if ($date[0] == 'Saturday') $hari = 6;
 
         // Cek jam tersedia
-        $cektanggal = $request->input('tgl_pinjam');
         $cekjam = $request->input('jam_id');
         $cekruang = $request->input('ruang_id');
 
@@ -79,7 +78,7 @@ class MohonRuanganController extends Controller
         }
 
         foreach ($used as $u) {
-            if ($u->ruang_id == $cekruang && $u->tgl_pinjam == $cektanggal && $u->jam_id == $cekjam) {
+            if ($u->ruang_id == $cekruang && $u->tgl_pinjam == $date[1] && $u->jam_id == $cekjam && $u->atribut_verifikasi != '2') {
                 # code...
                 Session::put('alert-danger', 'Ruangan telah terpakai');
                 return Redirect::back();

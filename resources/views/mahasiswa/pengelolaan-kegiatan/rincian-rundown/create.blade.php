@@ -46,11 +46,12 @@ Tambah Rincian Rundown Kegiatan
 			</div>
 			@endif
 			<br>
-			<form id="tambahRundown" method="post" action="{{url('pengelolaan-kegiatan/rincian-rundown/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+			@foreach($kegiatan as $index)
+			<form id="tambahRundown" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/rincian-rundown/'.$index->id_kegiatan.'/createActionProposal')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<!-- Menampilkan input text biasa -->
-				
+				<!-- 
 				<div class="form-group">
 					<label for="kegiatan_id" class="col-sm-2 control-label">Jenis Kegiatan</label>
 					<div class="col-md-8">
@@ -61,11 +62,11 @@ Tambah Rincian Rundown Kegiatan
 						@endforeach
 						</select>
 						
-						<!-- <input type="text" class="form-control input-lg" id="kegiatan_id" name="kegiatan_id" placeholder="Masukkan Nomor Kegiatan" required> -->
+						<input type="text" class="form-control input-lg" id="kegiatan_id" name="kegiatan_id" placeholder="Masukkan Nomor Kegiatan" required>
 					</div>
 				</div>
 
-				<!-- Menampilkan input text biasa -->
+				<! Menampilkan input text biasa
 				
 				<div class="form-group">
 					<label for="kategori_rundown" class="col-sm-2 control-label">Kategori Kegiatan</label>
@@ -77,12 +78,12 @@ Tambah Rincian Rundown Kegiatan
 						</select>
 					</div>
 				</div>
-
+ -->
 				<!-- Menampilkan input text biasa -->
 				
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
-					<div class="col-md-8">
+					<div class="col-md-6">
 						<input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama Kegiatan" required>
 					</div>
 				</div>
@@ -91,7 +92,7 @@ Tambah Rincian Rundown Kegiatan
 				<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
 					<label for="waktu" class="col-sm-2 control-label">Waktu Kegiatan</label>
-					<div class="col-md-8">
+					<div class="col-md-6">
 					<input type="datetime-local" name="waktu">
 						<!-- <input type="text" class="form-control input-lg" id="datepicker" name="waktu" placeholder="Masukkan Waktu Kegiatan" required> -->
 					</div>
@@ -106,6 +107,7 @@ Tambah Rincian Rundown Kegiatan
 					</div>
 				</div>
 			</form>
+			@endforeach
 		</div>
 	</div>
 </div>

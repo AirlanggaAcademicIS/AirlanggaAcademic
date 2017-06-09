@@ -46,7 +46,7 @@ Input ruang
 </div>
 <div style="overflow: auto">
 <h3 class="box-title">Data Ruang Kelas</h3>
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+<table id="data-table" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No</th>
@@ -80,5 +80,10 @@ Input ruang
 @endsection
 
 @section('code-footer')
+<script type="text/javascript">
+  $(document).ready(function(){
+   $('#data-table').DataTable(); 
+  });
+  </script>
 
 @endsection
