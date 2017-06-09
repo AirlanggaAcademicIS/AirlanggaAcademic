@@ -73,4 +73,9 @@ Jadwal Kuliah
 @endsection
 
 @section('code-footer')
+<!-- <script type="text/javascript">
+  $(document).ready(function(){
+   $('#data-table').DataTable(); 
+  });
+</script> -->
 @endsection

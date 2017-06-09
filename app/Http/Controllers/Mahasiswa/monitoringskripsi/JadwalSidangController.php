@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dosen\monitoringskripsi;
+namespace App\Http\Controllers\Mahasiswa\monitoringskripsi;
 
 use Illuminate\Support\Facades\DB;
 
@@ -27,11 +27,10 @@ class JadwalSidangController extends Controller
     //
 
     
-
-    public function view_jadwal_sidang_proposal_dosen()
+    public function view_jadwal_sidang_proposal_mahasiswa()
     {
         # code...
-        $nip = Auth::user()->username;
+        $nim = Auth::user()->username;
 
         $mahasiswa = DB::table('mahasiswa')->get();
         $kbk = DB::table('kbk')->get();
@@ -45,12 +44,11 @@ class JadwalSidangController extends Controller
             ->leftJoin('petugas_tu','skripsi.nip_petugas_id','=','petugas_tu.nip_petugas')
             ->leftJoin('ruang','skripsi.tempat_sidangpro','=','ruang.id_ruang')
             ->leftJoin('dosen_penguji','dosen_penguji.skripsi_id','=','skripsi.id_skripsi')
-            ->leftjoin('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
+            ->leftJoin('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
             ->select('skripsi.id_skripsi','mahasiswa.nim', 'skripsi.NIM_id', 'kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangpro', 'skripsi.waktu_sidangpro', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang','dosen_penguji.nip_id as dosji')
             ->whereNull('skripsi.deleted_at')
             ->whereNull('nilai_sidangpro')
-            ->where('dosen_pembimbing.nip_id','=',$nip)
-            ->orWhere('dosen_penguji.nip_id','=',$nip)
+            ->where('NIM_id','=',$nim)
 
             ->get();
             
@@ -93,15 +91,15 @@ class JadwalSidangController extends Controller
             'page'=>'lihat-jadwal-sidang-proposal-mahasiswa',
             'jadwal_sidang_proposal'=>$final_result
             );
-        return view('dosen.monitoring-skripsi.jadwal-sidang.proposal',$data);
+        return view('mahasiswa.monitoring-skripsi.jadwal-sidang.proposal',$data);
 
     }
 
-    public function view_jadwal_sidang_skripsi_dosen()
+    public function view_jadwal_sidang_skripsi_mahasiswa()
     {
         # code...
 
-         $nip = Auth::user()->username;
+         $nim = Auth::user()->username;
 
          $mahasiswa = DB::table('mahasiswa')->get();
         $kbk = DB::table('kbk')->get();
@@ -118,10 +116,8 @@ class JadwalSidangController extends Controller
             ->leftJoin('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
             ->select('skripsi.id_skripsi','mahasiswa.nim', 'skripsi.NIM_id', 'kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangskrip', 'skripsi.waktu_sidangskrip', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang','dosen_penguji.nip_id as dosji')
             ->whereNull('skripsi.deleted_at')
-            ->whereNotNull('nilai_sidangpro')
+            // ->whereNotNull('nilai_sidangpro')
             ->whereNull('nilai_sidangskrip')
-            ->where('dosen_pembimbing.nip_id','=',$nip)
-            ->orWhere('dosen_penguji.nip_id','=',$nip)
 
             ->get();
             
@@ -155,8 +151,8 @@ class JadwalSidangController extends Controller
 
             );
 
-         return view('dosen.monitoring-skripsi.jadwal-sidang.skripsi',$data);
+         return view('mahasiswa.monitoring-skripsi.jadwal-sidang.skripsi',$data);
 
     }
 
-  }  
+}
