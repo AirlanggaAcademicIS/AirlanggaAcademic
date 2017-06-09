@@ -149,7 +149,6 @@ class UndanganKaryawanController extends Controller
     public function kirimUndangan($id_notulen, Request $request)
     {
         $user = $request->input('dosen');
-       
         $message = sprintf('Untuk informasi lebih detail silahkan lihat pada sistem');
 
         foreach ($user as $u) {
