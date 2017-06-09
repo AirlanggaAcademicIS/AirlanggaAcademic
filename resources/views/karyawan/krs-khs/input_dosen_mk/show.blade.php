@@ -60,11 +60,18 @@ Dosen Mata Kuliah
       <th style="text-align:center">Nama Dosen</th>
       <th style="text-align:center">Nama Mata Kuliah</th>      
       <th style="text-align:center">Status</th>
+<<<<<<< HEAD
+      <th style="text-align:center">Action</th>
+    </tr>
+    </thead>
+  <tbody>
+=======
        <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
 
+>>>>>>> cf7ed3b6320656f692b5b62fc0b0e4536eb21316
    @forelse($tabel as $i => $r) 
     <tr>
       <td width="5%" style="text-align:center">{{ $i+1 }}</td>
@@ -94,7 +101,11 @@ Dosen Mata Kuliah
         @endif
       </td>
       <td width="20%" style="text-align:center" >
+<<<<<<< HEAD
+        <a href="#" class="btn btn-warning btn-xs">
+=======
         <a href="{{url('karyawan/krs-khs/input-dosen-mk/'.$r->mk_ditawarkan_id.'/edit')}}" class="btn btn-warning btn-xs">
+>>>>>>> cf7ed3b6320656f692b5b62fc0b0e4536eb21316
         <i class="fa fa-pencil-square-o"></i> Edit</a>
       </td>
     </tr>
@@ -103,7 +114,10 @@ Dosen Mata Kuliah
           <td colspan="6"><center>Belum ada dosen</center></td>
         </tr>
     @endforelse
+<<<<<<< HEAD
+=======
   
+>>>>>>> cf7ed3b6320656f692b5b62fc0b0e4536eb21316
   </tbody>
 </table>
 </div>

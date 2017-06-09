@@ -51,15 +51,16 @@ class daftarDosenRapatController extends Controller
             // ->get()
            'dosen' => DB::table('dosen_rapat') 
             ->join('biodata_dosen', 'dosen_rapat.nip', '=', 'biodata_dosen.nip')
-            ->where('status', '=', '1')
             ->select('*') 
             ->where('status','=','1')
             ->get(),
            'rapat' => DB::table('notulen_rapat') 
             ->join('permohonan_ruang', 'permohonan_ruang.id_permohonan_ruang', '=', 'notulen_rapat.permohonan_ruang_id') 
             ->join('jadwal_permohonan', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang') 
-            ->join('ruang', 'ruang.id_ruang', '=', 'jadwal_permohonan.ruang_id') 
+            ->join('ruang', 'ruang.id_ruang', '=', 'jadwal_permohonan.ruang_id')
+            ->join('dosen_rapat', 'dosen_rapat.notulen_id', '=', 'notulen_rapat.id_notulen')  
             ->select('*') 
+            ->where('notulen_id', '=', $id)
             ->get()
         ];
         $pdf = PDF::loadView('karyawan.kehadiranRapat.cetak',$data);

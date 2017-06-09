@@ -59,14 +59,14 @@ Edit Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="peneliti" class="col-sm-2 control-label">Nama</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="peneliti" name="peneliti" placeholder="Masukkan Nama" value="{{$penelitian_mhs->peneliti}}" required>
+						<input type="text" class="form-control input-lg" id="peneliti" name="peneliti" placeholder="Masukkan Nama" value="{{$penelitian_mhs->peneliti}}" required  readonly="readonly">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="fakultas" class="col-sm-2 control-label">Fakultas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="fakultas" name="fakultas" placeholder="Masukkan Fakultas" value="{{$penelitian_mhs->fakultas}}" required>
+						<input type="text" class="form-control input-lg" id="fakultas" name="fakultas" placeholder="Masukkan Fakultas" value="{{$penelitian_mhs->fakultas}}" required readonly="readonly">
 					</div>
 				</div>
 
@@ -149,7 +149,7 @@ Edit Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Anggota</label>
 					<div class="col-md-8">
-						<textarea type="text" class="form-control input-lg" id="anggota" name="anggota" required cols="55" rows="5"
+						<textarea type="text" class="form-control input-lg" id="anggota" name="anggota" required cols="115" rows="5"
 						placeholder="Masukkan Anggota" required>{{$detail_anggota->anggota}}</textarea>
 					</div>
 				</div>
