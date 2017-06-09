@@ -31,6 +31,8 @@ Asset
   <!-- Href ini biar diklik masuk ke form tambah -->
   <a href="{{url('inventaris/asset/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Asset</a>
+  <a href="{{url('inventaris/asset/location-report')}}" type="button" class="btn btn-info btn-md" >
+    <i class="fa fa-plus-square"></i> Location Report</a>
 </div>
 </div><div class="col-sm-6">
 
@@ -82,7 +84,19 @@ Asset
       @endif
 
       <td width="10%" style="text-align:center">{{$ass->nama_asset}}</td>
-      <td width="10%" style="text-align:center">{{$ass->lokasi}}</td>
+
+      @if($ass->status_id == 1) 
+      <td width="20%" style="text-align:center">coba</td>
+      @elseif($ass->status_id == 2) 
+      <td width="20%" style="text-align:center">Borrowed</td>
+      @elseif($ass->status_id == 3) 
+      <td width="20%" style="text-align:center">Maintenance</td>
+      @elseif($ass->status_id == 4) 
+      <td width="20%" style="text-align:center">Broken</td>
+      @elseif($ass->status_id == 5) 
+      <td width="20%" style="text-align:center">Expired</td>
+      @endif
+
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus asset ini?');" href="{{url('inventaris/asset/'.$ass->id_asset.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
 

@@ -1,4 +1,4 @@
-w@extends('adminlte::layouts.app')
+@extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
 Edit Asset
@@ -94,12 +94,18 @@ Edit Asset
 				</div>
 
 				<div class="form-group">
-					<label for="lokasi" class="col-sm-2 control-label">Lokasi</label>
+					<label for="nama" class="col-sm-2 control-label">Lokasi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="lokasi" name="lokasi" placeholder="Masukkan Lokasi" value="{{$asset->lokasi}}" required>
+						<select class="form-control" name="lokasi" required>
+		            	<option value="">-- Pilih Lokasi --</option>
+		                <option value="1" {{ $asset->status_id == "1" ? "selected" : ""}} >coba</option>
+		                <option value="2" {{ $asset->status_id == "2" ? "selected" : ""}} >Borrowed</option>
+		                <option value="3" {{ $asset->status_id == "3" ? "selected" : ""}} >Maintenance</option>
+		                <option value="4" {{ $asset->status_id == "4" ? "selected" : ""}} >Broken</option>
+		                <option value="5" {{ $asset->status_id == "5" ? "selected" : ""}} >Expired</option>
+					</select>
 					</div>
 				</div>
-
 
 
 				<!-- Menampilkan tanggal dengan datepicker -->
