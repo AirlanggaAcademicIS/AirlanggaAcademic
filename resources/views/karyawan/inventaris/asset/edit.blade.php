@@ -1,4 +1,4 @@
-@extends('adminlte::layouts.app')
+w@extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
 Edit Asset
