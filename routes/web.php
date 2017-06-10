@@ -52,6 +52,12 @@ Route::group(['middleware' => 'auth'], function () {
 
 	        Route::get('view-hasil-sidang-skripsi-mahasiswa','Mahasiswa\monitoringskripsi\HasilSidangController@view_hasil_sidang_skripsi_mahasiswa');
 
+	        Route::get('form_usulan','Mahasiswa\monitoringskripsi\FormUsulanController@index');
+
+	        Route::post('form_usulan/download_form','Mahasiswa\monitoringskripsi\FormUsulanController@downloadForm');
+
+	        Route::post('form_usulan/upload_form','Mahasiswa\monitoringskripsi\FormUsulanController@uploadForm');
+
 
 	    });
 	});
@@ -139,6 +145,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 	        Route::get('berkas/mhs','Karyawan\monitoringskripsi\DownloadController@show');
 
+	        Route::get('berkas/{nim}/download','karyawan\monitoringskripsi\DownloadController@downloadProposal');
+
+	        Route::post('berkas/{nim}/download-skripsi','karyawan\monitoringskripsi\DownloadController@downloadSkripsi');
+
 	        Route::get('manage-jadwal-sidang-proposal','Karyawan\monitoringskripsi\JadwalSidangController@view_manage_jadwal_sidang_proposal');
 
 	        Route::get('manage-jadwal-sidang-skripsi','Karyawan\monitoringskripsi\JadwalSidangController@view_manage_jadwal_sidang_skripsi');
@@ -170,6 +180,10 @@ Route::group(['middleware' => 'auth'], function () {
 	        Route::post('upload-nilai-sidang-skripsi','Karyawan\monitoringskripsi\HasilSidangController@upload_nilai_sidang_skripsi');
 
 	        Route::post('upload-nilai-sidang-proposal','Karyawan\monitoringskripsi\HasilSidangController@upload_nilai_sidang_proposal');
+
+	        Route::get('form_usulan','Karyawan\monitoringskripsi\FormUsulanController@index');
+
+	        Route::post('form_usulan/download_form','Karyawan\monitoringskripsi\FormUsulanController@downloadForm');
 
 
 	    });

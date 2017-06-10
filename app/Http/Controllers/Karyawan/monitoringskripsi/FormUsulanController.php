@@ -16,7 +16,7 @@ use App\KBK;
 use Auth;
 use DB;
 
-class DownloadController extends Controller
+class FormUsulanController extends Controller
 {
 
     // Function untuk menampilkan tabel
@@ -28,26 +28,10 @@ class DownloadController extends Controller
             // Memanggil semua isi dari tabel skripsi
             'skripsi' => Skripsi::all(),
             'mhs' => BiodataMahasiswa::all(),
-            'kbk' => KBK::all(),
         ];
         // Memanggil tampilan index di folder monitoring-skripsi/skripsi dan juga menambahkan $data tadi di view
-        return view('karyawan.monitoring-skripsi.berkas.index',$data);
+        return view('karyawan.monitoring-skripsi.form_usulan.index',$data);
     }
-
-    public function downloadProposal($nim)
-    {
-        $file = Skripsi::where('NIM_id',$nim)->first();
-        $pathToFile=public_path('file_proposal/'.$file->upload_berkas_proposal);
-        return response()->download($pathToFile);
-    }
-
-    public function downloadSkripsi($nim)
-       {
-           $file = Skripsi::where('NIM_id',$nim)->first();
-           // dd($file->upload_berkas_skripsi);
-           $pathToFile=public_path('file_skripsi/'.$file->upload_berkas_skripsi);
-           return response()->download($pathToFile);
-       }
     public function downloadForm($nim)
     {
       $file = Skripsi::where('NIM_id',$nim)->first();
