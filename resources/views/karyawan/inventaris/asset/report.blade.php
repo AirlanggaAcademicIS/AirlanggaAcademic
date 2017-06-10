@@ -1,19 +1,7 @@
-@extends('adminlte::layouts.app')
-
-@section('code-header')
-
-
-@endsection
-
-@section('htmlheader_title')
-Asset
-@endsection
-
-@section('contentheader_title')
-Asset
-@endsection
-
-@section('main-content')
+<!DOCTYPE html>
+<html>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <!-- include summernote css/js-->
 <div style="overflow: auto">
 <table class="table" id="data-table" style="width:100%">
@@ -68,21 +56,11 @@ Asset
     </tr>
      @empty
         <tr>
-          <td colspan="14"><center>Belum ada asset</center></td>
+          <td colspan="14"><center>Tidak ada asset</center></td>
         </tr>
     @endforelse
   </tbody>
 </table>
 </div>
 
-@endsection
-
-@section('code-footer')
-<!-- <script src="{{asset('js/jquery.dataTables.min.js')}}"></script> -->
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#data-table').DataTable();
-    });
-</script>
-
-@endsection
+</html>

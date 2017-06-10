@@ -32,7 +32,7 @@ Asset
   <a href="{{url('inventaris/asset/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Asset</a>
   <a href="{{url('inventaris/asset/location-report')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Location Report</a>
+    <i class="fa fa-file-pdf-o" ></i> Location Report</a>
 </div>
 </div><div class="col-sm-6">
 

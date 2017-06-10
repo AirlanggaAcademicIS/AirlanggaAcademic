@@ -52,7 +52,7 @@ Asset
   <tbody>
    @forelse($asset as $i => $ass) 
     <tr>
-      <td>{{ $i+1 }}</td>
+      <td width="20%" style="text-align:center">{{ $i+1 }}</td>
        @if($ass->kategori_id == 1) 
             <td width="20%" style="text-align:center">Dokumen</td>
             @elseif($ass->kategori_id == 2) 
