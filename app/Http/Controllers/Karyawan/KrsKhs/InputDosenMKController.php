@@ -1,5 +1,4 @@
 <?php 
-
 namespace App\Http\Controllers\Karyawan\KrsKhs;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -18,11 +17,8 @@ use App\Models\KrsKhs\MK;
 use App\Models\KrsKhs\BiodataDosen;
 use App\Models\KrsKhs\TahunAkademik;
 
-
-
 class InputDosenMKController extends Controller
 {
-
     // Function untuk menampilkan tabel
     public function index()
     {
@@ -79,7 +75,6 @@ class InputDosenMKController extends Controller
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('karyawan.krs-khs.input_dosen_mk.create',$data);
     }
-
     public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
@@ -91,7 +86,6 @@ class InputDosenMKController extends Controller
             ]
             );
         $dospen=$request->input('dosen_pendamping');
-
         if ($dospen != "Pilih Dosen") {
             MKDiajar::create(
             [
@@ -101,14 +95,22 @@ class InputDosenMKController extends Controller
             ]
             );
         }   
-
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Dosen berhasil ditambahkan');
-
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/krs-khs/input-dosen-mk/view');
     }
-
+    public function delete($id)
+    {
+        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
+        $biodata_dosen = BiodataDosen::find($id);
+        // Menghapus biodata yang dicari tadi
+        $biodata_dosen->delete();
+        // Menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'Biodata berhasil dihapus');
+        // Kembali ke halaman sebelumnya
+        return Redirect::back();     
+    }
 
    public function edit($mk_ditawarkan_id)
     {
@@ -128,7 +130,6 @@ class InputDosenMKController extends Controller
         'mk' => MK::all(),
         'tahun'=>TahunAkademik::all()
         ];
-
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
         return view('karyawan.krs-khs.input_dosen_mk.edit',$data);
     }
@@ -161,6 +162,4 @@ class InputDosenMKController extends Controller
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/krs-khs/input-dosen-mk/view');
     }
-
-
 }

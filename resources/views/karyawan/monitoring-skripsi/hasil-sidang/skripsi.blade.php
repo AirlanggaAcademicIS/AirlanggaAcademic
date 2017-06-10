@@ -13,86 +13,162 @@ Hasil Sidang Skripsi
 
 @section('main-content')
 
-<!-- <th>
-<a href="#" class="btn btn-primary" role="button" style="margin-bottom: 15px;;">Tambah</a>
-</th> -->
+
 
 <div class="panel panel-default">
   
 
 
+
   <div class="panel-body">
 
-	<table class="table table-hover">
+<div class="box" id="tombol-manage-hasil-skripsi">
+
+<button type="button" class="btn btn-warning" id="tombol-tambah-nilai-hasil-sidang-skripsi">Upload Nilai</button>
+
+<!-- <button type="button" class="btn btn-danger">Hapus</button> -->
+
+</div>
+
+    <table data-toggle="table" id="tabel-hasil-skripsi" data-locale="en-US" data-search="true" data-toolbar="#tombol-manage-hasil-skripsi"> 
     <thead>
       <tr>
-        <th>NIM</th>
-        <th>Nama</th>
-        <th>KBK</th>
-        <th>Judul Skripsi</th>
-        <th>Dosen Pembimbing 1</th>
-        <th>Dosen Pembimbing 2</th>
-        <th>Dosen Penguji</th>
-        <th>Status Skripsi</th>
-        <th>Nilai</th>
+
+        <th data-radio="true" data-field="state"></th>
+        <th data-field="id_skripsi" data-visible="false"></th>
+        <th data-field="nim">NIM</th>
+        <th data-field="nama">Nama</th>
+        <th data-field="kbk">KBK</th>
+        <th data-field="judul_skripsi">Judul Skripsi</th>
+        <th data-field="dosbing1">Dosen Pembimbing 1</th>
+        <th data-field="dosbing2">Dosen Pembimbing 2</th>
+        <th data-field="dosji">Dosen Penguji</th>
+        <th data-field="status_skripsi">Status Skripsi</th>
+        <th data-field="nilai">Nilai</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th>081411631016</th>
-        <th>Zafitra Ramadani</th>
-        <th>Sistem Pendukung Keputusan</th>
-        <th>Sistem Pakar Berbasis Web</th>
-        <th>Dr. Hndradi Rimuljo</th>
-        <th>Dr. Ira Puspitasari</th>
-        <th>Indah Werdaningsih M.kom</th>
-        <th>Lulus</th>
-        <th>A</th>
-        <th><a href="{{ url('Karyawan/view-tambah-hasil-sidang-proposal') }}" class="btn btn-warning">Upload Nilai</a></th>
-        <th><a href="http://google.com" class="btn btn-danger">Hapus</a></th>
-        <!-- <th><button type="button" class="btn btn-warning">Edit</button></th> -->
-        <!-- <th><button type="button" class="btn btn-danger">Hapus</button></th> -->
+     
+   
 
-      </tr>
-      <tr>
-        <th>081411631071</th>
-        <th>Dewi Ayu</th>
-        <th>Sistem Pendukung Keputusan</th>
-        <th>Sistem Pakar Berbasis Web</th>
-        <th>Dr. Hndradi Rimuljo</th>
-        <th>Dr. Ira Puspitasari</th>
-        <th>Indah Werdaningsih M.kom</th>
-        <th>Lulus</th>
-        <th>A</th>
-        <th><button type="button" class="btn btn-warning">Edit</button></th>
-        <th><button type="button" class="btn btn-danger">Hapus</button></th>
-
-      </tr>
-      <tr>
-        <th>081411631089</th>
-        <th>Sinta Maharani</th>
-        <th>Sistem Pendukung Keputusan</th>
-        <th>Sistem Pakar Berbasis Web</th>
-        <th>Dr. Hndradi Rimuljo</th>
-        <th>Dr. Ira Puspitasari</th>
-        <th>Indah Werdaningsih M.kom</th>
-        <th>Lulus</th>
-        <th>A</th>
-        <th><button type="button" class="btn btn-warning">Edit</button></th>
-        <th><button type="button" class="btn btn-danger">Hapus</button></th>
-
-      </tr>
+      @for ($i = 0; $i < count($hasil_sidang_skripsi); $i++)
+                            <tr>
+                                <!-- Task Name -->
+                                <td></td>
+                                <td>
+                                  {{$hasil_sidang_skripsi[$i]['id_skripsi']}}
+                                </td>
+                                <td>
+                                    {{ $hasil_sidang_skripsi[$i]['nim']}}
+                                </td>
+                                <td>
+                                    {{ $hasil_sidang_skripsi[$i]['nama_mhs']}}
+                                </td>
+                                <td>
+                                    <div>{{ $hasil_sidang_skripsi[$i]['jenis_kbk']}}</div>
+                                </td>
+                                <td>
+                                    <div>{{ $hasil_sidang_skripsi[$i]['Judul']}}</div>
+                                </td>
+                               
+                                <td>
+                                    <div>{{ $hasil_sidang_skripsi[$i]['dosen_pembimbing1']}}</div>
+                                </td>
+                                <td>
+                                    <div>{{ $hasil_sidang_skripsi[$i]['dosen_pembimbing2']}}</div>
+                                </td>
+                                <td>
+                                    <div>{{ $hasil_sidang_skripsi[$i]['dosen_penguji']}}</div>
+                                </td>
+                                <td>
+                                    <div>{{ $hasil_sidang_skripsi[$i]['status_skripsi']}}</div>
+                                </td>
+                               <td>
+                                    <div>{{ $hasil_sidang_skripsi[$i]['nilai_skripsi']}}</div>
+                                </td>
+                                </tr>
+@endfor
+  
+      
     </tbody>
   </table>
 
 </div>
 </div>
 
-  
+<!-- Modal -->
+<div id="modal-upload-hasil-sidang-skripsi" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Upload Hasil Sidang Skripsi</h4>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="hasil_sidang_skripsi_id"></input>
+        <div class="form-group">
+        <label for="tambah-nilai-sidang-skripsi">Nilai Sidang Skripsi</label>
+        <input type="number" class="form-control" id="tambah-nilai-sidang-skripsi"></input>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="tombol-sumbit-tambah-nilai-sidang-skripsi">Upload</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  <script type="text/javascript">
+      $(document).ready(function(){
+            $('#tombol-tambah-nilai-hasil-sidang-skripsi').click(function(){
+                    //alert('tet');
+                    var id_skripsi = $('#tabel-hasil-skripsi').bootstrapTable('getSelections')[0].id_skripsi;
+
+                    id_skripsi = id_skripsi.trim();
+
+                    $('#hasil_sidang_skripsi_id').val(id_skripsi);
+
+                    $('#modal-upload-hasil-sidang-skripsi').modal('show');
+
+                    //alert(id_skripsi);
+            });
+
+            $('#tombol-sumbit-tambah-nilai-sidang-skripsi').click(function(){
+
+                var id_skripsi = $('#hasil_sidang_skripsi_id').val();
+                
+                var nilai_sidang_skripsi = $('#tambah-nilai-sidang-skripsi').val();
+
+                $.ajax({
+                     url: 'upload-nilai-sidang-skripsi',
+                    type: "post",
+                    data: {"_token": "{{ csrf_token() }}",
+                        "id_skripsi":id_skripsi,
+
+                        "nilai_sidang_skripsi":nilai_sidang_skripsi
+                    },
+                    success: function(response){
+                        if(response.status_upload==1){
+                            // $('#modal-tambah-jadwal-sidang-proposal').modal('hide'); 
+                            // $('#info-simpan-jadwal-proposal').show();
+                            alert('Berhasil upload nilai');
+                            location.reload();
+                        }
+                        else{
+                            //$('#info-simpan-jadwal-proposal').hide();
+                            alert('Gagal upload nilai');
+                        }
+                    }
+                });
+            }); 
+      });
+  </script>
  
 @endsection
-@section('code-footer')
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
 
-@endsection
+
+

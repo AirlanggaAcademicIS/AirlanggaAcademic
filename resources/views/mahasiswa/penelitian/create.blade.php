@@ -60,14 +60,14 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="peneliti" class="col-sm-2 control-label">Nama</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="peneliti" name="peneliti" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="peneliti" name="peneliti" placeholder="Masukkan Nama" value="{{$penelitian_mhs->nama_mhs}}" readonly="readonly">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="fakultas" class="col-sm-2 control-label">Fakultas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="fakultas" name="fakultas" placeholder="Masukkan Fakultas" required>
+						<input type="text" class="form-control input-lg" id="fakultas" name="fakultas" placeholder="Masukkan Fakultas" value="Sains dan Teknologi" readonly="readonly">
 					</div>
 				</div>
 
@@ -140,7 +140,11 @@ Tambah Penelitian Mahasiswa
 					<label for="anggota" class="col-sm-2 control-label">Anggota</label>
 					<div class="col-md-8">
 						<textarea type="text" class="form-control input-lg" id="anggota" name="anggota" 
-						placeholder="Masukkan Anggota" required></textarea>
+						placeholder="Masukkan Anggota" required cols="115" rows="5"></textarea>
+						<p class="help-block">*contoh: </p>
+						<p class="help-block">1. Bambang</p>
+						<p class="help-block">2. Joko</p>
+						<p class="help-block">3. dll...</p>
 					</div>
 				</div>
 

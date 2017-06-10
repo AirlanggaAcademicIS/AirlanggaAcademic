@@ -1,3 +1,14 @@
+<table style="width:100%; border: 0px;">
+    <tr>
+        <td style="width:30%; border: 0px;"><img style="width:50%;" align="right" alt="logo-unair" src="http://4.bp.blogspot.com/-76MDmdoORaA/U1lWncmRO_I/AAAAAAAAAvc/ixvvomJWHyI/s1600/Logo+UNAIR+%2528Universitas+Negeri+Airlangga%2529+%2528Frendday+Lawutara%2529.png"></td>
+        <td style="width:10%; border: 0px;"></td></td>
+        <td style="border: 0px;">
+            <h1 style="text-align:left">UNIVERSITAS AIRLANGGA</h1>
+            <h4>Fakultas Sains dan Teknologi</h4>
+        </td>
+    </tr>
+</table>
+
 <style type="text/css">
 table {
     border-collapse: collapse;
@@ -8,6 +19,7 @@ table, th, td {
     border: 1px solid black;
     text-align: justify;
 }
+
 </style>
 
 <div class="col-md-12" style="text-align: center;">

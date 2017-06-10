@@ -110,7 +110,7 @@ Tambah Notulensi
     <div class="form-group">
       <label class="control-label col-sm-2" for="waktu_pelaksanaan" >Tanggal Rapat :</label>
         <div class="col-sm-9">
-        <input type="text" id="waktu_pelaksanaan"  placeholder="dd-mm-yyyy" style="width: 100%; height: 16px; font-size: 16px; line-height: 18px; border: 1px solid #dddddd; padding: 17px;" 
+        <input type="text" id="waktu_pelaksanaan"  placeholder="dd-mm-yyyy" class="form-control"
         value="{{$r->waktu_pelaksanaan}}" disabled>
         </div>
     </div>
@@ -119,7 +119,7 @@ Tambah Notulensi
     <div class="col-sm-9">
     <select class="form-control" name="nip_id" required="">
     @foreach($dosen as $i => $m)
-    <option></option>
+    
     <option value="{{$m->nip}}">{{$m->nama_dosen}}</option>
       @endforeach
            </select>

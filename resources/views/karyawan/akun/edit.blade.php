@@ -105,13 +105,28 @@ Edit Akun
 @endsection
 
 @section('code-footer')
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-$( function() {
-    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
+@if( Session::has('modal_message_error'))
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#popupmodal').modal();
+        });
+    </script>
+    <div id="popupmodal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Perhatian !</h3>
+        </div>
+        <div class="modal-body">
+            <p>
+                {{ Session::get('modal_message_error') }}
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+    </div>
+@endif
 
-  } );
-  </script>
+
 @endsection
 

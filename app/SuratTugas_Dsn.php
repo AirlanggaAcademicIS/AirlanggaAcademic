@@ -8,6 +8,7 @@ class SuratTugas_Dsn extends Model
 {
  	protected $table = 'surat_tugas_dosen';
     protected $primaryKey = 'nip';
+    public $incrementing = false;
     protected $fillable = [
     'nip',
     'surat_id',
