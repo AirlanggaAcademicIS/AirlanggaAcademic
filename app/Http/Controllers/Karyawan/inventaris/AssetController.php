@@ -59,7 +59,7 @@ class AssetController extends Controller
     {
         // Menginsertkan apa yang ada di form ke dalam tabel asset
         $string = preg_replace('/\s+/', '', $request->input('nama_asset'));
-        $serial_barcode = 'AST'.$string.'.png';
+        $serial_barcode = 'ast'.$string.'.png';
 
             $asset = Asset::create([
             'kategori_id' => $request->input('kategori'),
@@ -73,8 +73,6 @@ class AssetController extends Controller
             'harga_satuan' => $request->input('harga_satuan'),
            ]);
 
-
-            DNS2D::getBarcodePNGPath('AST'.$string.'',"QRCODE",20,20);
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Asset berhasil ditambahkan! QRCODE telah dicetak!');
 
@@ -112,7 +110,7 @@ class AssetController extends Controller
     public function editAction($id_asset, Request $request)
     {
         $string = preg_replace('/\s+/', '', $request->input('nama_asset'));
-        $serial_barcode = 'AST'.$string.'.png';
+        $serial_barcode = 'ast'.$string.'.png';
         // Mencari asset yang akan di update dan menaruhnya di variabel $asset
         $asset = Asset::find($id_asset);
 
@@ -146,7 +144,8 @@ class AssetController extends Controller
         return view('karyawan.inventaris.asset.viewDetail', $data);
     }
 
-    public function locationReport() {
+    public function locationReport()
+    {
         $lokasi = Lokasi::all();
         $data = [
             'page'=> 'inventaris',
@@ -155,11 +154,11 @@ class AssetController extends Controller
         return view('karyawan.inventaris.asset.locationReport', $data);
     }
 
-    public function printLocationReport (Request $request){
+    public function printLocationReport (Request $request)
+    {
         $report = Asset::where('lokasi_id', $request->input('lokasi'))->get();
 
         $data = [
-            'page'=> 'inventaris',
             'report' => $report
         ];
 
@@ -167,5 +166,10 @@ class AssetController extends Controller
         return $pdf->inline('dokumen.pdf');
     }
 
-
+    public function printBarcode($id)
+    {
+        $asset = Asset::find($id);
+        $pdf = PDF::loadHTML(''.DNS2D::getBarcodeHtml('AST'.$asset->serial_barcode.'',"QRCODE",20,20).'<h1>'.$asset->nama_asset.'<h1>');
+        return $pdf->inline('QRCODE.pdf');
+    }
 } 

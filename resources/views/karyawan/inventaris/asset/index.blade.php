@@ -109,7 +109,7 @@ Asset
         <a href="{{url('inventaris/input-peminjaman/'.$ass->id_asset.'')}}" class="btn btn-primary btn-xs">
         <i class="fa fa-hand-rock-o"></i> Pinjam Asset</a>
 
-        <a href="{{url('/'.$ass->serial_barcode.'')}}" class="btn btn-info btn-xs">
+        <a href="{{url('/inventaris/asset/barcode/'.$ass->id_asset.'')}}" class="btn btn-info btn-xs">
         <i class="fa fa-qrcode"></i> Get QRCODE</a>
 
         </td>
