@@ -44,48 +44,16 @@ class HistoriController extends Controller
     public function index()
     {
         $nim_id  = Auth::user()->username;
-        $sum     = DB::table('mk_diambil')
-                ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
-                ->select('*')
-                ->sum('sks');
+        // $sum     = DB::table('mk_diambil')
+        //         ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
+        //         ->select('*')
+        //         ->sum('sks');
         $data = [
         'page' => 'histori',
-        'histori' => Histori::all(),
+        'histori' => Histori::where('mhs_id',$nim_id)->get(),
         'mk' => MK::all(),
-        'sum' => $sum,
+        // 'sum' => $sum,
         ];
         return view('mahasiswa.krs-khs.histori.index',$data);
     }
-
-    public function input(Request $request)
-    {
-        $data = $request->input('cek');
-        return view('.inventarisasset.input');
-    }
-
-     public function create(Request $request)
-    {
-        Ruang::create($request->input());
-
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Ruang berhasil ditambahkan');
-
-        // Kembali ke halaman krs-khs/ruang
-        return Redirect::to('ruang');
-    }
-
-    public function createAction(Request $request)
-    {
-        // Menginsertkan apa yang ada di form ke dalam tabel ruang
-        Ruang::create($request->input());
-
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Jam berhasil ditambahkan');
-
-        // Kembali ke halaman krs-khs/ruang
-        return Redirect::to('krs-khs/input-ruang');
-    }
-
-
-
 }

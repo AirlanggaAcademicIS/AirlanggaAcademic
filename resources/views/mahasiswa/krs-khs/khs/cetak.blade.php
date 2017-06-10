@@ -16,10 +16,8 @@
 <br>___________________________________________________________________________________________________________
 <b></b>
 <p>
-@foreach($tahun as $i=>$thn)
-<center><u>KARTU HASIL STUDI TAHUN AKADEMIK {{$thn->semester_periode}} </u></center>
+<center><u>KARTU HASIL STUDI TAHUN AKADEMIK {{$tahun->semester_periode}} </u></center>
 <br>
-@endforeach
 </p>
 <br>NIM &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : &nbsp;   {{$biodata_mhs->nim_id}} 
 <br>Nama Mahasiswa &nbsp; &nbsp; &nbsp;:  &nbsp;  {{$biodata_mhs->nama_mhs}}

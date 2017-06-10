@@ -106,7 +106,7 @@ class InputDosenMKController extends Controller
         Session::put('alert-success', 'Dosen berhasil ditambahkan');
 
         // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/krs-khs/dosen-mk/view');
+        return Redirect::to('karyawan/krs-khs/input-dosen-mk/view');
     }
 
 
