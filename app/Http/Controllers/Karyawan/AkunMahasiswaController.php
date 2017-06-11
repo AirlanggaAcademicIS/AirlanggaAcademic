@@ -131,7 +131,7 @@ class AkunMahasiswaController extends Controller
         $akunmahasiswa = AkunMahasiswa::find($nim);
         $user = AkunUser::where('username', $nim)->first();
 
-        if ($akunmahasiswa->nim != $request->input('nim') || $akunmahasiswa->nip_id != $request->input('nlp_id')  || $biodata->nama_mhs!= $request->input("nama_mhs")  || $biodata->angkatan != $request->input("angkatan") || $biodata->email_mhs!= $request->input("email")  || $user->email != $request->input("email"))
+        if ($akunmahasiswa->nim != $request->input('nim') || $akunmahasiswa->nip_id != $request->input('nlp_id')  || $biodata->nama_mhs!= $request->input("nama_mhs")  || $biodata->angkatan != $request->input("angkatan") || $biodata->email_mhs!= $request->input("email")  || $user->email != $request->input("email") ||$request->file('foto_mhs') != "")
         {
            
           // Mengupdate $biodata tadi dengan isi dari form edit tadi
@@ -143,7 +143,8 @@ class AkunMahasiswaController extends Controller
         $biodata->email_mhs = $request->input("email");
         if ($request->file('foto_mhs') != ""){
         $biodata->foto_mhs= time() .'.'.$request->file('foto_mhs')->getClientOriginalExtension();
-        $gambar = $request->file('foto_mhs')->move("img/foto_mhs/",$biodata['foto_mhs']);}
+        $gambar = $request->file('foto_mhs')->move("img/foto_mhs/",$biodata['foto_mhs']);
+        }
         
         
         // $akun = AkunUser::create($request->input()); 
@@ -160,7 +161,7 @@ class AkunMahasiswaController extends Controller
         }       
         else
         {
-             Session::put('alert-warning', 'Tidak ada perubahan');
+              Session::put('alert-warning', 'Tidak ada perubahan data');
             
         }
         // Kembali ke halaman mahasiswa/biodata
