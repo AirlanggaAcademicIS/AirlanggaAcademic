@@ -45,7 +45,7 @@ Rencana Pembelajaran Semester
       @endif
       <br>
 
-  <form id="tambahCPMK" method="post" action="{{url('dosen/kurikulum/rps/cpmk')}}" enctype="multipart/form-data"  class="form-horizontal">
+  <form id="tambahCPMK" method="post" action="{{url('dosen/kurikulum/rps/cp-mk')}}" enctype="multipart/form-data"  class="form-horizontal">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">       
   
     <div class="box-header with-border">
@@ -101,18 +101,14 @@ Rencana Pembelajaran Semester
                 </tr>
               </thead>
             <tbody>
-            @foreach($mata_kuliah as $i => $cpmk) 
                 <tr>
-                  <td style="text-align:center">{{ $i+1 }}</td>
-                  <td style="text-align:center">{{$cpmk->kode_cpmk}}</td>
-                  <td style="text-align:center">{{$cpmk->deskripsi_cpmk}}</td>
-                  <td style="text-align:center">{{$cpmk->nama_matkul}}</td>
-                  <td style="text-align:center">{{$cpmk->media_pembelajaran}}</th>
+                  <td style="text-align:center"></td>
+                  <td style="text-align:center"></td>
+                  <td style="text-align:center"></td>
+                  <td style="text-align:center"></td>
+                  <td style="text-align:center"></th>
                   <td width="15%" style="text-align:center">
-                  <a onclick="return confirm('Anda yakin untuk menghapus CP MK ini?');" href="{{url('/dosen/kurikulum/rps/delete-cpmk/'.$cpmk->id_cpmk)}}" class="btn btn-danger btn-xs">
-                  <i class="fa fa-trash-o"></i> Delete</a></td>
                 </tr>
-            @endforeach
             </tbody>
           </tbody>
         </table>
