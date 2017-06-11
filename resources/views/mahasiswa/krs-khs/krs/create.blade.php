@@ -94,6 +94,7 @@ Input Krs
               <h3>Lihat Krs</h3>
               <div style="overflow: auto">
                 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+                <a href="{{url('mahasiswa/krs-khs/krs/cetak')}}" type="button" class="btn btn-info btn-flat" style="margin-bottom: 10px;">CETAK</a>
                 <thead>
                   <tr>
                   <th style="text-align:center">No.</th>

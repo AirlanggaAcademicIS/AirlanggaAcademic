@@ -23,6 +23,7 @@ use App\Models\KrsKhs\MK;
 use App\Models\KrsKhs\DetailNilai;
 use App\Models\KrsKhs\TahunAkademik;
 use App\Models\KrsKhs\BiodataMahasiswa;
+use App\Models\KrsKhs\Dosen;
 use PDF;    
 // /**
 //  * Class HomeController

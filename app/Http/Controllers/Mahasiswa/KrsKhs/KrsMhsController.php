@@ -17,6 +17,7 @@ use App\Models\KrsKhs\MK;
 use App\Models\KrsKhs\MataKuliah;
 use App\Models\KrsKhs\JenisMataKuliah;
 use App\Models\KrsKhs\TahunAkademik;
+use App\Models\KrsKhs\BiodataMahasiswa;
 class KrsMhsController extends Controller
 {
     // Function untuk menampilkan tabel
@@ -24,16 +25,47 @@ class KrsMhsController extends Controller
     {
         $this->middleware('auth');
     }
-    
-    public function toPdf($id)
+
+    public function toPdf()
     {
+         $tahun = TahunAkademik::count();
+        $nim_id  = Auth::user()->username;
+        $sum     = DB::table('mk_diambil')
+            ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','mk_diambil.mk_ditawarkan_id')
+            ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_ditawarkan.matakuliah_id')
+            ->select('*')
+            ->where('mhs_id',$nim_id)
+            //->where('thn_akademik_id', $tahun)
+            ->sum('mata_kuliah.sks');
+
         $data = [
-            'page' => 'mata-kuliah',
-            'matkul' => MataKuliah::find($id),
-            'jenis_matkul' =>JenisMataKuliah::all()
+        'page' => 'krs',
+            'krs' => DB::table('mk_ditawarkan')
+                        // ->join('mk_diambil','mk_diambil.mk_ditawarkan_id','mk_ditawarkan.id_mk_ditawarkan')
+                        ->join('mata_kuliah','mata_kuliah.id_mk','mk_ditawarkan.matakuliah_id')
+                        ->join('jenis_mk','jenis_mk.id','mata_kuliah.jenis_mk_id')
+                        ->select('*')
+                        ->where('mk_ditawarkan.thn_akademik_id',$tahun)
+                        // ->where('mk_diambil.mhs_id',$nim_id)
+                        ->get(),
+           'app'  => DB::table('mk_diambil')
+            ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','mk_diambil.mk_ditawarkan_id')
+            ->join('mata_kuliah', 'mata_kuliah.id_mk', 'mk_ditawarkan.matakuliah_id')
+            ->select('*')
+            ->where('mhs_id','=',$nim_id)
+            ->where('mk_ditawarkan.thn_akademik_id',$tahun)
+            ->get(),
+            
+        'matkul' => MataKuliah::all(),
+        'jenis_matkul' =>JenisMataKuliah::all(),
+        'biodata_mhs' => BiodataMahasiswa::where('nim_id','=',$nim_id)->first(),
+        'sum'  => $sum,
+            
+            
+            
         ];
-        $pdf = PDF::loadView('karyawan.kurikulum.mata-kuliah.pdf', $data);
-        return $pdf->download('mata-kuliah.pdf');
+        $pdf = PDF::loadView('mahasiswa.krs-khs.krs.cetak', $data);
+        return $pdf->inline('KRS_akademik.pdf');
     }
     public function create()
     {
@@ -278,8 +310,7 @@ class KrsMhsController extends Controller
         Session::put('alert-success', 'Mata kuliah berhasil ditambahkan');
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::back();
-}
-    
+
     public function delete($id)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
