@@ -160,7 +160,7 @@ class AkunMahasiswaController extends Controller
         }       
         else
         {
-             Session::put('alert-warning', 'Tidak ada perubahan');
+              return Redirect::back()->with("modal_message_error", "Tidak ada perubahan data, anda yakin ?");
             
         }
         // Kembali ke halaman mahasiswa/biodata
