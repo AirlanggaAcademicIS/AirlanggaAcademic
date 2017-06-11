@@ -48,6 +48,9 @@ Input Krs
             <div class="tab-content">
               <div id="AmbilKrs" class="tab-pane fade in active">
               <h3>Ambil Krs</h3>
+              @php
+              echo count($krs);
+              @endphp
               <div style="overflow: auto">
                 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
                 <thead>
@@ -57,6 +60,8 @@ Input Krs
                   <th style="text-align:center">Kode Mk</th>
                   <th style="text-align:center">Nama MK</th>
                   <th style="text-align:center">SKS</th>
+                  <th style="text-align:center">Jam</th>
+                  <th style="text-align:center">Hari</th>
                   <th style="text-align:center">Syarat SKS</th>
                   <th style="text-align:center">Action</th>
                   </tr>
@@ -69,9 +74,11 @@ Input Krs
                     <td width="10%" style="text-align:center">{{$d->kode_matkul}}</td>
                     <td width="20%" style="text-align:center">{{$d->nama_matkul}}</td>
                     <td width="15%" style="text-align:center">{{$d->sks}}</td>
+                    <td width="10%" style="text-align:center">{{$d->id_jam}}</td>
+                    <td width="10%" style="text-align:center">{{$d->nama_hari}}</td>
                     <td width="25%" style="text-align:center">{{$d->syarat_sks}}</td>
                     <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk mengambil mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/create/'.$d->id_mk_ditawarkan)}}" class="btn btn-success btn-xs">
-                      <i class="glyphicon glyphicon-book"></i>Take</a>
+                      <i class="glyphicon glyphicon-book"></i> Ambil</a>
                       </td>
                   </tr>
                    @empty
@@ -109,7 +116,7 @@ Input Krs
                     @else
                     <td width="15%" style="text-align:center">Approved</td>
                     @endif
-                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus pilihan mata kuliah ini?');" href="{{url('/mahasiswa/krskhs/krs/delete/'.$s->mk_ditawarkan_id)}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
+                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus pilihan mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/'.$s->mk_ditawarkan_id.'/delete/')}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
                       </td>
                   </tr>
                    @empty
@@ -123,7 +130,7 @@ Input Krs
             </div>
             <div>
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">Total SKS :  </h3></h3>
-                <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$sum}}</h3></h3>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$sks_diambil}}</h3></h3>
                 <br>
             </div>
             <div>
