@@ -23,7 +23,7 @@
 <tbody>
 <td>NIM</td>   <td> : {{$biodata_mhs->nim_id}} </td>
 <tr><td>Nama Mahasiswa</td> <td> : {{$biodata_mhs->nama_mhs}}</td></tr>
-<tr><td>Dosen Wali<td></tr>
+<tr><td>Dosen Wali</td><td> : {{$doswal->nip}} </td></tr>
 </tbody>
 </table>
 <br>
