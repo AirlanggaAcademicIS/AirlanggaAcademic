@@ -202,10 +202,10 @@ class RPSController extends Controller
             'page' => 'rps',
             'mata_kuliah' => RPS_Matkul::find($id),
             'matkul' => RPS_Matkul::all(),
-            'mk_prasyarat' => RPS_Matkul_Prasyarat::where('mk_id', '=', $id)->get(),
-            'cp_prodi' => RPS_CPL_Prodi::where('mk_id', '=', $id)->get(),
+            'mk_prasyarat' => RPS_Matkul_Prasyarat::all(),
+            'cp_prodi' => RPS_CPL_Prodi::all(),
             'cpl' => CapaianPembelajaran::all(),
-            'koor' => RPS_Koor_Matkul::where('mk_id', '=', $id)->get(),
+            'koor' => RPS_Koor_Matkul::all(),
             'dosen' => BiodataDosen::all(),
         ];
         return view('dosen.kurikulum.rps.edit',$data);
@@ -213,6 +213,7 @@ class RPSController extends Controller
 
     public function editAction($id, Request $request)
     {
+        
         $koormk = RPS_Koor_Matkul::where('mk_id',$id)->get();
         foreach ($koormk as $value) {
             if ($value->status_tt_id == '1') {
@@ -228,16 +229,28 @@ class RPSController extends Controller
                 $value->nip_id = $request->input('koor_4');
             }
         }
-        $mk_syarat = RPS_Matkul_Prasyarat::where('mk_id',$id);
-        
-        $mk_syarat= $request->input('mk_prasyarat');
-        foreach ($mk_syarat as $mk) {
-            RPS_Matkul_Prasyarat::create([
-                'mk_id' => $id,
-                'mk_syarat_id' => $mk
-                ]);
+
+        $mk_syarat= $request->input('mk_syarat_id');
+        $del_mk_prasyarat = RPS_Matkul_Prasyarat::where('mk_id', '=', $id)->delete();
+        for($count = 0; $count < count($mk_syarat); $count++)
+        {   
+            $mk_prasyarat = new RPS_Matkul_Prasyarat;
+            $mk_prasyarat->mk_id = $id;
+            $mk_prasyarat->mk_syarat_id = $mk_syarat[$count];
+            $mk_prasyarat->save();
         }
-        $mk_prasyarat = RPS_Matkul_Prasyarat::where('mk_id',$id)->delete();
+
+        $cpemId = $request->input('cpem_id');
+        $del_cpem_id = RPS_CPL_Prodi::where('mk_id', '=', $id)->delete();
+        for($count = 0; $count < count($cpemId); $count++)
+        {   
+            $cpl = new RPS_CPL_Prodi;
+            $cpl->mk_id = $id;
+            $cpl->cpem_id = $cpemId[$count];
+            $cpl->save();
+        }
+
+
         $mata_kuliah = RPS_Matkul::find($id);
         $mata_kuliah->id_mk = $id;
         $mata_kuliah->deskripsi_matkul = $request->input('deskripsi_matkul');
