@@ -39,7 +39,7 @@ class RPSController extends Controller
         return view('dosen.kurikulum.rps.index',$data);
     }
 
-     public function cpmk()
+    public function cp_mk()
     {
         $data = [
             'page' => 'rps',
@@ -55,11 +55,32 @@ class RPSController extends Controller
             'mp' => RPS_Detail_Kategori::all()  
         ];
 
+        return view('dosen.kurikulum.rps.cp-mk',$data);
+    }
+
+    public function cpmk($id)
+    {
+        $data = [
+            'page' => 'rps',
+            'mata_kuliah' => DB::table('mata_kuliah')
+            ->where('id_mk', '=', $id)
+            ->join('cp_mata_kuliah', 'cp_mata_kuliah.matakuliah_id', '=', 'mata_kuliah.id_mk')
+            ->join('detail_kategori', 'cp_mata_kuliah.id_cpmk', '=', 'detail_kategori.cpmk_id')
+            ->join('kategori_media_pembelajaran', 'kategori_media_pembelajaran.id', '=', 'detail_kategori.media_pembelajaran_id')
+            ->select('*')
+            ->get(),
+            'mk' => RPS_Matkul::all(),
+            'cpmk' => RPS_CP_Matkul::all(),
+            'media' => RPS_Media_Pembelajaran::all(),
+            'mp' => RPS_Detail_Kategori::all()  
+        ];
+
         return view('dosen.kurikulum.rps.cpmk',$data);
     }
 
      public function cpmkAction(Request $request)
-    {  
+    { 
+        $matkul = $request->input('matkul');
         $cpmk = RPS_CP_Matkul::create([
             'matakuliah_id' => $request->input('matkul'),
             'kode_cpmk' => $request->input('kode_cpmk'),
@@ -76,7 +97,7 @@ class RPSController extends Controller
         }
 
         Session::put('alert-success', 'Kode CP MK berhasil ditambahkan');
-        return Redirect::to('dosen/kurikulum/rps/cpmk');
+        return Redirect::to('dosen/kurikulum/rps/cpmk/'.$matkul);
     }
 
      public function cpmkDelete($id)

@@ -42,8 +42,16 @@ class GantiPasswordController extends Controller
         
         $mhs= Auth::user()->username;
         $user = AkunUser::where('username', $mhs)->first();;
+        $oldpass = $user->password;
+        // dd($oldpass);
+        $oldpassform = $request->input('oldpassword');
+        if (Hash::check("$oldpassform", "$oldpass")) {
+         $this->validate($request, [
+        'oldpassword'           => 'required',
+        'password'              => 'confirmed|min:6'
+        ]);
+        
 
-        //$user $request->input();
         $password = $request->input("password");
         $password=Hash::make($password);
         $user->password = $password;
@@ -54,7 +62,17 @@ class GantiPasswordController extends Controller
         Session::put('alert-success', 'Password Berhasil Diganti');
 
         // Kembali ke halaman mahasiswa/akun
-        return Redirect::to('mahasiswa/ganti-password');
+        return Redirect::back();
+        
+        // else{
+        //     Session::put('alert-warning', 'Ulangi password baru tidak cocok ');
+        //     return Redirect::back();
+        // }
+    }
+        else{
+            Session::put('alert-warning', 'Password lama tidak cocok');
+            return Redirect::back();
+        }
     }
 
 }
