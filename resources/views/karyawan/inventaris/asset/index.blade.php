@@ -31,6 +31,8 @@ Asset
   <!-- Href ini biar diklik masuk ke form tambah -->
   <a href="{{url('inventaris/asset/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Asset</a>
+  <a href="{{url('inventaris/asset/location-report')}}" type="button" class="btn btn-info btn-md" >
+    <i class="fa fa-file-pdf-o" ></i> Location Report</a>
 </div>
 </div><div class="col-sm-6">
 
@@ -82,7 +84,21 @@ Asset
       @endif
 
       <td width="10%" style="text-align:center">{{$ass->nama_asset}}</td>
-      <td width="10%" style="text-align:center">{{$ass->lokasi}}</td>
+
+      @if($ass->lokasi_id == 1) 
+        <td width="20%" style="text-align:center">Labkom 1</td>
+        @elseif($ass->lokasi_id == 2) 
+        <td width="20%" style="text-align:center">Labkom 2</td>
+        @elseif($ass->lokasi_id == 3) 
+        <td width="20%" style="text-align:center">Labkom 3</td>
+        @elseif($ass->lokasi_id == 4) 
+        <td width="20%" style="text-align:center">Labkom 4</td>
+        @elseif($ass->lokasi_id == 5) 
+        <td width="20%" style="text-align:center">Labkom 5</td>
+        @elseif($ass->lokasi_id == 6) 
+        <td width="20%" style="text-align:center">Labkom 6</td>
+      @endif
+
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus asset ini?');" href="{{url('inventaris/asset/'.$ass->id_asset.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
 
@@ -95,7 +111,7 @@ Asset
         <a href="{{url('inventaris/input-peminjaman/'.$ass->id_asset.'')}}" class="btn btn-primary btn-xs">
         <i class="fa fa-hand-rock-o"></i> Pinjam Asset</a>
 
-        <a href="{{url('/'.$ass->serial_barcode.'')}}" class="btn btn-info btn-xs">
+        <a href="{{url('/inventaris/asset/barcode/'.$ass->id_asset.'')}}" class="btn btn-info btn-xs">
         <i class="fa fa-qrcode"></i> Get QRCODE</a>
 
         </td>

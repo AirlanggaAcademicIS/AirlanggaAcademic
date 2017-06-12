@@ -5,7 +5,7 @@ Tambah Akun
 @endsection
 
 @section('contentheader_title')
-Tambah Akun
+Tambah Akun Mahasiswa
 @endsection
 
 @section('code-header')
@@ -134,5 +134,35 @@ $( function() {
 
   } );
   </script>
+
+  <script type="text/javascript">
+	var elBrowse  = document.getElementById("foto_mhs");
+	elBrowse.addEventListener("change", function() {
+		var files  = this.files;
+		var errors = "";
+		if (!files) {
+			errors += "File upload not supported by your browser.";
+		}
+		if (files && files[0]) 
+		{
+			for(var i=0; i<files.length; i++) 
+			{
+				var file = files[i];
+				if ( (/\.(png|jpeg|jpg|gif)$/i).test(file.name) ) 
+				{
+					readImage( file ); 
+				} 
+				else 
+				{
+					errors += file.name +" is unsupported Image extension\n";
+					document.getElementById("foto_mhs").value = null;  
+				}
+			}
+		}
+		if (errors) {
+			alert(errors); 
+		}
+	});
+</script>
 @endsection
 

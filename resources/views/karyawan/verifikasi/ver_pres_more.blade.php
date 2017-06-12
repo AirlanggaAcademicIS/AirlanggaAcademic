@@ -70,7 +70,7 @@ Verifikasi Prestasi Mahasiswa
         <div class="form-group">
           <label for="kelompok_kegiatan" class="col-sm-2 control-label">Kelompok Kegiatan</label>
           <div class="col-md-8">
-            <select name="kelompok_kegiatan" value= "{{$prestasi->kelompok_kegiatan}}" disabled required>
+            <select class="form-control" name="kelompok_kegiatan" value= "{{$prestasi->kelompok_kegiatan}}" disabled required>
               @if (($prestasi->kelompok_kegiatan)=='Kegiatan Wajib Universitas')
               <option value="Kegiatan Wajib Universitas" selected="selected">Kegiatan Wajib Universitas</option>
               <option value="Kegiatan Bidang Organisasi dan Kepemimpinan">Kegiatan Bidang Organisasi dan Kepemimpinan</option>
@@ -99,7 +99,7 @@ Verifikasi Prestasi Mahasiswa
         <div class="form-group">
           <label for="jenis_kegiatan" class="col-sm-2 control-label">Jenis Kegiatan</label>
           <div class="col-md-8">
-            <select name="jenis_kegiatan" value= "{{$prestasi->jenis_kegiatan}}" disabled required>
+            <select class="form-control" name="jenis_kegiatan" value= "{{$prestasi->jenis_kegiatan}}" disabled required>
               @if (($prestasi->jenis_kegiatan)=='PPKMB')
               <option value="PPKMB" selected="selected">PPKMB</option>
               <option value="KKN">KKN</option>
@@ -249,7 +249,7 @@ Verifikasi Prestasi Mahasiswa
         <div class="form-group">
           <label for="tingkat" class="col-sm-2 control-label">Tingkat</label>
           <div class="col-md-8">
-            <select name="tingkat" value= "{{$prestasi->tingkat}}" disabled required>
+            <select class="form-control" name="tingkat" value= "{{$prestasi->tingkat}}" disabled required>
               @if (($prestasi->tingkat)=='Universitas')
               <option value="Universitas" selected="selected">Universitas</option>
               <option value="Fakultas">Fakultas</option>
@@ -296,10 +296,18 @@ Verifikasi Prestasi Mahasiswa
             <div class="form-group">
                 <label for="ps_is_verified" class="col-sm-2 control-label">Status Verifikasi</label>
                 <div class="col-md-8">
-                <select name="ps_is_verified" class="form-control select2" required>
-                  <option selected="selected">-----</option>
-                  <option value="1">Diterima</option>
+                <select name="ps_is_verified" class="form-control select2" value= "{{$prestasi->ps_is_verified}}" required>
+                @if (($prestasi->ps_is_verified)=='1')
+                  <option selected="selected" value="1">Diterima</option>
                   <option value="2">Ditolak</option>
+                @elseif (($prestasi->ps_is_verified)=='2')
+                  <option value="1">Diterima</option>
+                  <option selected="selected" value="2">Ditolak</option>
+                @else
+                  <option selected="selected">-----</option>
+                  <option  value="1">Diterima</option>
+                  <option value="2">Ditolak</option>
+                @endif
                 </select>
                 </div>
               </div>
@@ -307,14 +315,15 @@ Verifikasi Prestasi Mahasiswa
               <div class="form-group">
                   <label for="skor" class="col-sm-2 control-label">Skor</label>
                   <div class="col-md-8">
-                  <input name="skor" type="number" class="form-control" rows="1" placeholder="Skor"></input>
+                  <input name="skor" type="number" class="form-control" rows="1" placeholder="Skor" value= "{{$prestasi->skor}}" ></input>
                   </div>
                 </div>
 
               <div class="form-group">
                   <label for="alasan" class="col-sm-2 control-label">Alasan</label>
                   <div class="col-md-8">
-                  <textarea name="alasan_verified" type="text" class="form-control" rows="1" placeholder="Alasan"></textarea>
+                  <textarea name="alasan_verified" type="text" class="form-control" rows="1" placeholder="Alasan" value= "{{$prestasi->alasan_verified}}"></textarea>
+                  <p class="help-block">*Silahkan isi alasan jika ditolak</p>
                   </div>
                 </div>
                 <div class="col-md-8 col-md-offset-2">

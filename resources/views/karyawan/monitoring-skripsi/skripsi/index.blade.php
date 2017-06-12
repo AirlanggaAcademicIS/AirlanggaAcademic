@@ -42,6 +42,8 @@ Data Mahasiswa Skripsi
       <th style="text-align:center">Judul</th>
       <th style="text-align:center">Dosen Pembimbing 1</th>
       <th style="text-align:center">Dosen Pembimbing 2</th>
+      <th style="text-align:center">Mulai Pengerjaan</th>
+      <th style="text-align:center">Selesai</th>
       <th style="text-align:center">Action</th>
     </tr>
     </thead>
@@ -75,6 +77,21 @@ Data Mahasiswa Skripsi
       @endif
       @endforeach
       </td>
+      <td width="10%" style="text-align:center">
+      @if($skrip->tgl_sidangpro==null)
+      Belum
+      @else
+      {{$skrip->tgl_sidangpro}}
+      @endif
+      </td>
+      <td width="10%" style="text-align:center">
+      @if($skrip->tgl_sidangskrip==null)
+      Belum
+      @else
+      {{$skrip->tgl_sidangskrip}}
+      @endif
+      </td>
+      
       <td width="10%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus data skripsi ini?');" href="{{url('/karyawan/monitoring-skripsi/skripsi/'.$skrip->id_skripsi.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/karyawan/monitoring-skripsi/skripsi/'.$skrip->id_skripsi.'/edit/')}}" class="btn btn-warning btn-xs">

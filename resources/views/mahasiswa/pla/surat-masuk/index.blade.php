@@ -27,7 +27,7 @@ Surat Masuk Mahasiswa
   @endforeach
 </div>
 
-<div style="overflow: auto">
+<div style="padding:10px">
 <table id="data-table" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>

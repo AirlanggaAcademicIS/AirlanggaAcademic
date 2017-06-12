@@ -35,42 +35,53 @@ class PeminjamanController extends Controller
     }
 
     /**
-     * Show the application dashboard.
-     *
-     * @return Response
-     */
+    * function index
+    * untuk menampilkan data peminjaman dalam bentuk index
+    * param: -
+    */
     public function index()
     {
-        $transaksi_peminjaman = Transaksi_Peminjaman::all();
+        $transaksi_peminjaman = Transaksi_Peminjaman::all(); //memanggil semua isi tabel transaksi_peminjaman
+        
         $data = [
             'page' => 'inventaris',
-            'peminjaman' => $transaksi_peminjaman,
+            'peminjaman' => $transaksi_peminjaman, // data yang terpanggil tadi diparse dengan alias 'peminjaman'
         ];
-        return view('karyawan.inventaris.peminjaman.index', $data);
+
+        return view('karyawan.inventaris.peminjaman.index', $data); // menampilkan view index peminjaman beserta data yang siap di parsing
     }
 
+    /**
+    * function inputPeminjaman
+    * untuk menampilkan form tambah peminjaman
+    * param: id = id asset yang akan dipinjam
+    */
     public function inputPeminjaman($id)
     {   
-        $asset = Asset::find($id);
+        $asset = Asset::find($id); //memanggil asset berdasarkan id
 
-        if ($asset->status_id != 1) {
-            Session::put('alert-warning', 'Asset tidak dapat dipinjam');
-            return Redirect::back();    
+        if ($asset->status_id != 1) { //memastikan apa status asset != ready
+            Session::put('alert-warning', 'Asset tidak dapat dipinjam'); //memberi notifikasi warning
+            return Redirect::back(); //redirect ke halaman sebelumnya
         }
-        else {
+        else { //status == ready
             $data = [
                 'page' => 'inventaris',
-                'asset'=> $asset,
+                'asset'=> $asset, //aset yang dipanggil tadi diparse dengan alias 'asset'
             ];
-            return view('karyawan.inventaris.peminjaman.create', $data);
+            return view('karyawan.inventaris.peminjaman.create', $data); // menampilkan view create peminjaman beserta data yang siap di parsing
         }
     }
 
-    
-
+    /**
+    * function postInputPeminjaman
+    * untuk menyimpan data peminjaman ke database
+    * param: request = isi form
+    */
     public function postInputPeminjaman(Request $request)
     {   
-        Asset::where('id_asset', $request->input('asset_id'))->update(['status_id' => 2]);
+        Asset::where('id_asset', $request->input('asset_id'))->update(['status_id' => 2]); //mengubah status asset dari 'ready' menjadi 'borrowed'
+        
         $peminjaman = Transaksi_Peminjaman::create([
             'nip_petugas_id' => Auth::User()->username,
             'nim_nip_peminjam' => $request->input('nim_nip_peminjam'),
@@ -81,34 +92,52 @@ class PeminjamanController extends Controller
             'waktu_pinjam' => Carbon::now()->setTimezone('Asia/Phnom_Penh'),
         ]);
 
-        return Redirect::to('inventaris/index-peminjaman');
+        Session::put('alert-success', 'Data Peminjaman Berhasil Ditambahkan'); //memberi notifikasi sukses
+
+        return Redirect::to('inventaris/index-peminjaman'); //redirect ke halaman index peminjaman
     }
     
+    /**
+    * function viewDetail
+    * untuk melihat data peminjaman secara detail
+    * param: id = id peminjaman yang akan dilihat secara detail
+    */
     public function viewDetail($id)
     {
-        $peminjaman = Transaksi_Peminjaman::where('id_peminjaman', $id)->first();
+        $peminjaman = Transaksi_Peminjaman::where('id_peminjaman', $id)->first();//memanggil data peminjaman sesuai id
+        
         $data = [
             'page'=> 'inventaris',
-            'peminjaman' => $peminjaman,
-
+            'peminjaman' => $peminjaman, // data peminjaman tadi diparse dengan alias 'peminjaman'
         ];
 
-        return view('karyawan.inventaris.peminjaman.view', $data);
+        return view('karyawan.inventaris.peminjaman.view', $data); //menampilkan view viewDetail dengan data yang siapdi parse
     }
 
+    /**
+    * function edit
+    * untuk menampilkan view edit
+    * param: id = id peminjaman yang akan diedit
+    */
     public function edit($id){
-        $peminjaman = Transaksi_Peminjaman::where('id_peminjaman', $id)->first();
+        $peminjaman = Transaksi_Peminjaman::where('id_peminjaman', $id)->first(); //memanggil data peminjaman sesuai id
+
         $data = [
             'page'=> 'inventaris',
-            'peminjaman' => $peminjaman,
+            'peminjaman' => $peminjaman, //data peminjaman tadi diparse dengan alias 'peminjaman'
         ];
 
-        return view('karyawan.inventaris.peminjaman.edit', $data);
+        return view('karyawan.inventaris.peminjaman.edit', $data); //menampilkan view edit dengan data yang siap di parse
     }
 
+    /**
+    * function postEditPeminjaman
+    * untuk mengupdate data peminjaman di database
+    * param: id = id peminjaman yang akan diedit, request = isi form
+    */
     public function postEditPeminjaman($id, Request $request)
     {
-        $peminjaman = Transaksi_Peminjaman::find($id);
+        $peminjaman = Transaksi_Peminjaman::find($id); //memanggil data peminjaman sesuai id
 
         $peminjaman->nip_petugas_id = Auth::user()->username;
         $peminjaman->asset_id = $request->input('id_asset');
@@ -120,18 +149,22 @@ class PeminjamanController extends Controller
         $peminjaman->waktu_pinjam = $request->input('waktu_pinjam');
         $peminjaman->save();
         
-        Session::put('alert-success', 'Peminjaman berhasil diedit');
+        Session::put('alert-success', 'Peminjaman berhasil diedit'); //menaruh pesan sukses
 
-        // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('inventaris/index-peminjaman');        
+        return Redirect::to('inventaris/index-peminjaman'); // Kembali ke halaman index peminjaman
     }
 
+    /**
+    * function delete
+    * untuk menghapus data dari database
+    * param: id = id peminjaman yang akan dihapus
+    */
     public function delete($id)
     {
-        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
+        // Mencari data peminjaman berdasarkan id dan memasukkannya ke dalam variabel $peminjaman
         $peminjaman = Transaksi_Peminjaman::find($id);
 
-        // Menghapus biodata yang dicari tadi
+        // Menghapus data peminjaman yang dicari tadi
         $peminjaman->delete();
 
         // Menampilkan notifikasi pesan sukses
@@ -141,15 +174,26 @@ class PeminjamanController extends Controller
         return Redirect::back();     
     }
 
+    /**
+    * function delete
+    * untuk mencatat pengembalian asset
+    * param: id = id peminjaman yang akan diupdate
+    */
     public function checkin($id)
-    {
+    {   
+        //mengupdate checkin_date dengan waktu sekarang
         Transaksi_Peminjaman::where('id_peminjaman', $id)->update(['checkin_date' => Carbon::now()]);
+        
+        //memanggil data peminjaman berdasarkan id
         $id_asset = Transaksi_Peminjaman::where('id_peminjaman', $id)->first();
 
+        //mengupdate status data peminjaman tadi menjadi ready
         Asset::where('id_asset', $id_asset->asset_id)->update(['status_id' => 1]);
 
-        Session::put('alert-success', 'asset berhasil di checkin');
+        //menampilkan notifikasi pesan sukses
+        Session::put('alert-success', 'Asset berhasil di checkin');
+
+        //kembali ke halaman sebelumnya
         return Redirect::back();
-             
     }
 }
