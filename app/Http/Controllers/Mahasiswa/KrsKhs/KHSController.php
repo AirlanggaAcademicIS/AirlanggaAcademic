@@ -23,6 +23,7 @@ use App\Models\KrsKhs\MK;
 use App\Models\KrsKhs\DetailNilai;
 use App\Models\KrsKhs\TahunAkademik;
 use App\Models\KrsKhs\BiodataMahasiswa;
+use App\Models\KrsKhs\Dosen;
 use PDF;    
 // /**
 //  * Class HomeController
@@ -87,6 +88,9 @@ class KHSController extends Controller
         'khs' => KHS::where('mhs_id','=',$nim_id)->get(),
         'tahun' => TahunAkademik::where('id_thn_akademik',$id_tahun)->first(),
         'biodata_mhs' => BiodataMahasiswa::where('nim_id','=',$nim_id)->first(),
+        'doswal' => DB::table('mahasiswa')
+                        ->join('biodata_dosen','mahasiswa.nip_id','biodata_dosen.nip')
+                        ->where('nim',$nim_id)->first(),
         'sum' => $sum,
  
         ];
