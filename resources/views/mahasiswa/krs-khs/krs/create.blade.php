@@ -71,7 +71,7 @@ Input Krs
                     <td width="15%" style="text-align:center">{{$d->sks}}</td>
                     <td width="25%" style="text-align:center">{{$d->syarat_sks}}</td>
                     <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk mengambil mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/create/'.$d->id_mk_ditawarkan)}}" class="btn btn-success btn-xs">
-                      <i class="glyphicon glyphicon-book"></i>Take</a>
+                      <i class="glyphicon glyphicon-book"></i> Ambil</a>
                       </td>
                   </tr>
                    @empty
@@ -109,7 +109,7 @@ Input Krs
                     @else
                     <td width="15%" style="text-align:center">Approved</td>
                     @endif
-                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus pilihan mata kuliah ini?');" href="{{url('/mahasiswa/krskhs/krs/delete/'.$s->mk_ditawarkan_id)}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
+                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus pilihan mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/'.$s->mk_ditawarkan_id.'/delete/')}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
                       </td>
                   </tr>
                    @empty
@@ -129,10 +129,10 @@ Input Krs
             <div>
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">IPS :  </h3></h3>
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$ips}}</h3></h3>
-                <br>
+                <br> 
             </div>
             <div>
-                <h3 class="label"> <h3 class="label label-info" style="text-align:center">Limit SKS :  </h3></h3>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">SKS yang dapat diambil :  </h3></h3>
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$limitSks}}</h3></h3>
             </div>
             </div>
