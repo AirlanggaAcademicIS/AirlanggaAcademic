@@ -16,9 +16,14 @@ use App\RPS_Matkul_Prasyarat;
 use App\RPS_CP_Matkul;
 use App\RPS_CPL_Prodi;
 use App\RPS_Koor_Matkul;
+use App\RPS_Detail_Kategori;
 use App\Status_Team_Teaching;
 use App\CapaianPembelajaran;
 use App\BiodataDosen;
+use App\Silabus_Matkul;
+use App\Silabus_detail_kategori;    
+use App\Silabus_Matkul_prasyarat;
+use PDF;
 use DB;
 
 class RPSController extends Controller
@@ -59,18 +64,18 @@ class RPSController extends Controller
 
     public function pdf($id)
     {
+        $cpProdi = RPS_CPL_Prodi::where('mk_id', '=', $id)->get();
         $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $id)->first();        
         $data = [
             'matkul_silabus' => Silabus_Matkul::find($id),
-            'matkul_prasyarat' =>Silabus_Matkul_prasyarat::where('mk_id', '=' , $id)->get(),
-            'atribut_softskill' => Silabus_Atribut_Softskill::all(),    
-            'mk_softskill' => Silabus_mk_softskill::where('mk_id', '=', $id)->get(),
-            'metode_pembelajaran' => Silabus_Sistem_Pembelajaran::all(),
-            'mk_metode_pembelajaran' => Silabus_detail_media::where('cpmk_id', '=', $cpmk->id_cpmk)->get(),            
-            'media_pembelajaran' => Silabus_Media_Pembelajaran::all(),
-            'mk_media_pembelajaran' => Silabus_detail_kategori::where('cpmk_id', '=', $cpmk->id_cpmk)->get()
+            'cpem' => RPS_CPL_Prodi::where('mk_id', '=', $id)->get(),
+            'mk_media_pembelajaran' => Silabus_detail_kategori::where('cpmk_id', '=', $cpmk->id_cpmk)->get(),
+            'mk_prasyarat' => Silabus_Matkul_prasyarat::where('mk_id', '=', $id)->get(),
+            'mk_dosen' => RPS_Koor_Matkul::where('mk_id', '=', $id)->get(),
+            'cp_matkul' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get()
         ];
         $pdf = PDF::loadView('dosen.kurikulum.rps.pdf-rps', $data);
-        return $pdf->download('silabus-mata-kuliah.pdf');        
-    }    
+        return $pdf->download('silabus-mata-kuliah.pdf');
+    }
+
 }

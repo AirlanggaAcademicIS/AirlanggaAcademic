@@ -58,11 +58,11 @@ class PenelitianController extends Controller
 
     public function createAction(Request $request){
         // Menginsertkan apa yang ada di form ke dalam tabel penelitian_mhs
-        $penelitian = PenelitianMhs::create($request->input());
-        $penelitian->nim_id = Auth::user()->username;
         $this->validate($request, [
             'file_pen' => 'required|mimes:pdf',
             ]);
+        $penelitian = PenelitianMhs::create($request->input());
+        $penelitian->nim_id = Auth::user()->username;
         $filename = basename($_FILES["file_pen"]["name"]);
         $request->file_pen->move(public_path('pdf'), $filename);
         $penelitian->file_pen = $filename;
