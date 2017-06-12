@@ -48,18 +48,22 @@ class MohonRuanganController extends Controller
 
     public function createAction(Request $request)
     {
+        $sks = $request->input('sks');
+        // Cek jam tersedia
+        $cekjam = $request->input('jam_id');
+        $cekruang = $request->input('ruang_id');
+        if(($cekjam == '12' && $sks>1)||($cekjam == '11' && $sks>2)||($cekjam == '10' && $sks=4)){
+                # code...
+                Session::put('alert-danger', 'SKS tidak sesuai, SKS melebihi batas jam yang tesedia');
+                return Redirect::back();
+            }
         $date = explode(', ', $request->input('tgl_pinjam'));
         if ($date[0] == 'Monday') $hari = 1;
         if ($date[0] == 'Tuesday') $hari = 2;
         if ($date[0] == 'Wednesday') $hari = 3;
         if ($date[0] == 'Thursday') $hari = 4;
         if ($date[0] == 'Friday') $hari = 5;
-        if ($date[0] == 'Saturday') $hari = 6;
-
-        // Cek jam tersedia
-        $cekjam = $request->input('jam_id');
-        $cekruang = $request->input('ruang_id');
-
+        if ($date[0] == 'Saturday') $hari = 6;  
         $used = DB::table('jadwal_permohonan')
             ->join('permohonan_ruang', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang')
             ->join('ruang', 'jadwal_permohonan.ruang_id', '=', 'ruang.id_ruang')
@@ -94,7 +98,6 @@ class MohonRuanganController extends Controller
             'tgl_pinjam' => $date[1],
             ]);
 
-        $sks = $request->input('sks');
         $j=0;
         for ($i=0; $i < $sks ; $i++) { 
         JadwalPermohonan::create([
