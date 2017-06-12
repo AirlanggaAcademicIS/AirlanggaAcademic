@@ -121,7 +121,7 @@ class AssetController extends Controller
         $asset->status_id = $request->input('status_id');
         $asset->serial_barcode = $serial_barcode;
         $asset->nama_asset = $request->input('nama_asset');
-        $asset->lokasi = $request->input('lokasi');
+        $asset->lokasi_id = $request->input('lokasi');
         $asset->expired_date = $request->input('expired_date');
         $asset->nama_supplier = $request->input('nama_supplier');
         $asset->harga_satuan = $request->input('harga_satuan');

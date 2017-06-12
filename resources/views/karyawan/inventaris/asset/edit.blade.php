@@ -112,7 +112,7 @@ Edit Asset
 				<div class="form-group">
 					<label for="expired_date" class="col-sm-2 control-label">Expired Date</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="expired_date" placeholder="Masukkan Tanggal" value="{{$asset->expired_date}}" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="expired_date" placeholder="Masukkan Tanggal" value="{{$asset->expired_date}}" >
 					</div>
 				</div>
 

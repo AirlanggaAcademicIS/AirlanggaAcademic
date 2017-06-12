@@ -81,6 +81,8 @@ class PeminjamanController extends Controller
             'waktu_pinjam' => Carbon::now()->setTimezone('Asia/Phnom_Penh'),
         ]);
 
+        Session::put('alert-success', 'Data Peminjaman Berhasil Ditambahkan');
+
         return Redirect::to('inventaris/index-peminjaman');
     }
     
@@ -148,7 +150,7 @@ class PeminjamanController extends Controller
 
         Asset::where('id_asset', $id_asset->asset_id)->update(['status_id' => 1]);
 
-        Session::put('alert-success', 'asset berhasil di checkin');
+        Session::put('alert-success', 'Asset berhasil di checkin');
         return Redirect::back();
              
     }

@@ -112,7 +112,7 @@ class MaintenanceController extends Controller
         $maintenance->waktu_maintenance = $request->input('waktu_maintenance');
         $maintenance->save();
 
-        Asset::where('id_asset', $request->input('asset_id'))->update(array('status'=>'Ready'));
+        Asset::where('id_asset', $request->input('asset_id'))->update(array('status_id'=>1));
 
         // Notifikasi sukses
         Session::put('alert-success', 'Data maintenance berhasil diedit');
