@@ -82,7 +82,7 @@ class KalenderRuangController extends Controller
             }
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'Kalender_Ruang',
+            'page' => 'kalender-ruang',
             'jadwal' => $j_array2,
             'array' => $j_array,
             'ruang' => DB:: table('ruang')->select('*')->get(),

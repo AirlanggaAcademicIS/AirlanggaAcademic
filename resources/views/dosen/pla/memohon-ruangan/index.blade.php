@@ -99,17 +99,6 @@ Memohon Ruangan
         </div>
 
         <div class="form-group">
-          <label for="hari_id" class="col-sm-2 control-label">Hari</label>
-          <div class="col-md-8">
-            <select name="hari_id" required>
-               @foreach($hari as $h)
-               <option value="{{$h->id_hari}}">{{$h->nama_hari}}</option>
-               @endforeach
-              </select>
-          </div>
-        </div>
-
-        <div class="form-group">
           <label for="jam_id" class="col-sm-2 control-label">Jam</label>
           <div class="col-md-8">
             <select name="jam_id" required>
