@@ -101,15 +101,7 @@ Form Biodata Mahasiswa
 				<div class="form-group">
 					<label for="provinsi_asal" class="col-sm-2 control-label">Provinsi</label>
 					<div class="col-md-8">
-						<select class="form-control" name="provinsi_asal" value="{{$biodatamahasiswa->provinsi_asal}}" required>
-						@if (($biodatamahasiswa->provinsi_asal=="Aceh"))
-							<option value="Laki-Laki" selected="selected" >Laki-Laki</option>
-							<option value="Perempuan" >Perempuan</option>
-							@else (($biodatamahasiswa->provinsi_asal=="Bali"))
-							<option value="Laki-Laki" >Laki-Laki</option>
-							<option value="Perempuan" selected="selected" >Perempuan</option>
-							@endif
-						</select>
+						<input type="text" class="form-control input-lg" id="provinsi_asal" name="provinsi_asal" placeholder="Masukkan Provinsi"  value="{{$biodatamahasiswa->provinsi_asal}}" required>
 					</div>
 				</div>
 
@@ -137,14 +129,14 @@ Form Biodata Mahasiswa
 				<div class="form-group">
 					<label for="kota_lahir" class="col-sm-2 control-label">Kota Lahir</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="kota_lahir" name="kota_lahir" placeholder="Masukkan Kota Lahir" required>
+						<input type="text" class="form-control input-lg" id="kota_lahir" name="kota_lahir" placeholder="Masukkan Kota Lahir"   value="{{$biodatamahasiswa->kota_lahir}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="tanggal_lahir" class="col-sm-2 control-label">Tanggal Lahir</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_lahir" placeholder="Masukkan Tanggal Lahir" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_lahir" placeholder="Masukkan Tanggal Lahir"   value="{{$biodatamahasiswa->tanggal_lahir}}" required>
 					</div>
 				</div>
 
