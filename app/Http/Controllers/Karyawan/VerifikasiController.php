@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
+use Auth;
 // Tambahkan model yang ingin dipakai
 use App\VerPrestasi;
 use App\VerPenelitianMhs;
@@ -45,19 +46,6 @@ class VerifikasiController extends Controller
     	return view('karyawan.verifikasi.createprestasi',$data);
     }
 
-    public function createActionPrestasi(Request $request)
-    {
-        // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        $pres = $request->input();
-        $pres['nip_petugas_id'] = Auth::user()->username;
-        Prestasi::create($pres);
-
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Verifikasi Prestasi berhasil ditambahkan');
-
-        // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/verifikasi');
-    }
 
     public function createPenelitian()
     {
@@ -71,19 +59,6 @@ class VerifikasiController extends Controller
         return view('karyawan.verifikasi.createpenelitian',$data);
     }
 
-    public function createActionPenelitian(Request $request)
-    {
-        // Menginsertkan apa yang ada di form ke dalam tabel biodata
-        $pen = $request->input();
-        $pen['nip_petugas_id'] = Auth::user()->username;
-        Penelitian::create($pen);
-
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Verifikasi Penelitian berhasil ditambahkan');
-
-        // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('karyawan/verifikasi');
-    }
 
    public function editPrestasi($id)
     {
@@ -102,7 +77,7 @@ class VerifikasiController extends Controller
     {
         // Mencari prestasi yang akan di update dan menaruhnya di variabel $prestasi
         $prestasi = VerPrestasi::find($id);
-
+        $prestasi->nip_petugas_id = Auth::user()->username;
         // Mengupdate $prestasi tadi dengan isi dari form edit tadi
         $prestasi->ps_is_verified = $request->input('ps_is_verified');
         $prestasi->skor = $request->input('skor');
@@ -136,7 +111,7 @@ class VerifikasiController extends Controller
     {
         // Mencari penelitian yang akan di update dan menaruhnya di variabel $prestasi
         $penelitian = VerPenelitianMhs::find($id);
-
+        $penelitian->nip_petugas_id = Auth::user()->username;
         // Mengupdate $penelitian tadi dengan isi dari form edit tadi
         $penelitian->is_verified = $request->input('is_verified');
         $penelitian->save();

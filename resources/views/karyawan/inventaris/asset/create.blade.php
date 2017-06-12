@@ -99,7 +99,7 @@ Tambah Asset
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Expired Date</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="expired_date" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="expired_date" placeholder="Masukkan Tanggal" >
 					</div>
 				</div>
 

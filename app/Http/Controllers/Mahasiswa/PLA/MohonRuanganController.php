@@ -49,15 +49,27 @@ class MohonRuanganController extends Controller
     public function createAction(Request $request)
     {
         $sks = $request->input('sks');
+<<<<<<< HEAD
                 // Cek jam tersedia
         $cekjam = $request->input('jam_id');
         $cekruang = $request->input('ruang_id');
+=======
+        // Cek jam tersedia
+        $cekjam = $request->input('jam_id');
+        $cekruang = $request->input('ruang_id');
+        if(($cekjam == '12' && $sks>1)||($cekjam == '11' && $sks>2)||($cekjam == '10' && $sks=4)){
+                # code...
+                Session::put('alert-danger', 'SKS tidak sesuai, SKS melebihi batas jam yang tesedia');
+                return Redirect::back();
+            }
+>>>>>>> 9e9994584878b617a49ef788eb12f565cc7c3199
         $date = explode(', ', $request->input('tgl_pinjam'));
         if ($date[0] == 'Monday') $hari = 1;
         if ($date[0] == 'Tuesday') $hari = 2;
         if ($date[0] == 'Wednesday') $hari = 3;
         if ($date[0] == 'Thursday') $hari = 4;
         if ($date[0] == 'Friday') $hari = 5;
+<<<<<<< HEAD
         if ($date[0] == 'Saturday') $hari = 6;
 
         if(($cekjam == '12' && $sks>'1')||($cekjam == '11' && $sks>'2')||($cekjam == '10' && $sks='4')){
@@ -66,6 +78,9 @@ class MohonRuanganController extends Controller
                 return Redirect::back();
             }
         
+=======
+        if ($date[0] == 'Saturday') $hari = 6;  
+>>>>>>> 9e9994584878b617a49ef788eb12f565cc7c3199
         $used = DB::table('jadwal_permohonan')
             ->join('permohonan_ruang', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang')
             ->join('ruang', 'jadwal_permohonan.ruang_id', '=', 'ruang.id_ruang')

@@ -49,9 +49,14 @@ class MohonRuanganController extends Controller
     public function createAction(Request $request)
     {
         $sks = $request->input('sks');
-                // Cek jam tersedia
+        // Cek jam tersedia
         $cekjam = $request->input('jam_id');
         $cekruang = $request->input('ruang_id');
+        if(($cekjam == '12' && $sks>1)||($cekjam == '11' && $sks>2)||($cekjam == '10' && $sks=4)){
+                # code...
+                Session::put('alert-danger', 'SKS tidak sesuai, SKS melebihi batas jam yang tesedia');
+                return Redirect::back();
+            }
         $date = explode(', ', $request->input('tgl_pinjam'));
         if ($date[0] == 'Monday') $hari = 1;
         if ($date[0] == 'Tuesday') $hari = 2;
@@ -59,7 +64,6 @@ class MohonRuanganController extends Controller
         if ($date[0] == 'Thursday') $hari = 4;
         if ($date[0] == 'Friday') $hari = 5;
         if ($date[0] == 'Saturday') $hari = 6;
-
         if(($cekjam == '12' && $sks>'1')||($cekjam == '11' && $sks>'2')||($cekjam == '10' && $sks='4')){
                 # code...
                 Session::put('alert-danger', 'SKS melebihi batas jam');

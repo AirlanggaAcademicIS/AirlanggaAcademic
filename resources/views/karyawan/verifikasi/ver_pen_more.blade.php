@@ -192,17 +192,20 @@ Verifikasi Penelitian Mahasiswa
                 </div>
 
         <div class="form-group">
-          <label for="aksi" class="col-sm-2 control-label" style="box-shadow:all;">Aksi Karyawan</label>
-        </div>
-
-
-                <div class="form-group">
-                <label for="is_verified" class="col-sm-2 control-label">Status Verifikasi</label>
+                <label for="ps_is_verified" class="col-sm-2 control-label">Status Verifikasi</label>
                 <div class="col-md-8">
-                <select name="is_verified" class="form-control select2" required>
-                  <option selected="selected">-----</option>
-                  <option value="1">Diterima</option>
+                <select name="ps_is_verified" class="form-control select2" value= "{{$penelitian->is_verified}}" required>
+                @if (($penelitian->is_verified)=='1')
+                  <option selected="selected" value="1">Diterima</option>
                   <option value="2">Ditolak</option>
+                @elseif (($penelitian->is_verified)=='2')
+                  <option value="1">Diterima</option>
+                  <option selected="selected" value="2">Ditolak</option>
+                @else
+                  <option selected="selected">-----</option>
+                  <option  value="1">Diterima</option>
+                  <option value="2">Ditolak</option>
+                @endif
                 </select>
                 </div>
               </div>
@@ -210,18 +213,19 @@ Verifikasi Penelitian Mahasiswa
               <div class="form-group">
                   <label for="skor" class="col-sm-2 control-label">Skor</label>
                   <div class="col-md-8">
-                  <input name="skor" type="number" class="form-control" rows="1" placeholder="Skor"></input>
+                  <input name="skor" type="number" class="form-control" rows="1" placeholder="Skor" value= "{{$penelitian->skor}}" ></input>
                   </div>
                 </div>
 
               <div class="form-group">
                   <label for="alasan" class="col-sm-2 control-label">Alasan</label>
                   <div class="col-md-8">
-                  <textarea name="alasan_verified" type="text" class="form-control" rows="1" placeholder="Alasan"></textarea>
+                  <textarea name="alasan_verified" type="text" class="form-control" rows="1" placeholder="Alasan" value= "{{$penelitian->alasan_verified}}"></textarea>
+                  <p class="help-block">*Silahkan isi alasan jika ditolak</p>
                   </div>
                 </div>
                 <div class="col-md-8 col-md-offset-2">
-                <button type="button" class="btn btn-default"><a href="{{url('/karyawan/verifikasi/prestasi')}}">Cancel</a></button>
+                <button type="button" class="btn btn-default"><a href="{{url('/karyawan/verifikasi/penelitian')}}">Cancel</a></button>
                   <button type="submit" class="btn btn-primary btn-lg">
               Confirm
             </button>
