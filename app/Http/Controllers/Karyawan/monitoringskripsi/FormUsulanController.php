@@ -36,7 +36,7 @@ class FormUsulanController extends Controller
     {
       $file = Skripsi::where('NIM_id',$nim)->first();
       // dd($file->upload_berkas_skripsi);
-      $pathToFile=public_path('file_proposal/'.$file->upload_form_usulan);
+      $pathToFile=public_path('file_formusulan/'.$file->upload_form_usulan);
       return response()->download($pathToFile);
     }
 

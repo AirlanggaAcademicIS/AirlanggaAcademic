@@ -46,8 +46,8 @@ class FormUsulanController extends Controller
             'upload_form_usulan' => $upload_form_usulan,
             ]);
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
-            $dok = $request->file('upload_form_usulan')->move("file_proposal/",$upload_form_usulan);
-            dd($dok);
+            $dok = $request->file('upload_form_usulan')->move("file_formusulan/",$upload_form_usulan);
+            
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Berkas berhasil ditambahkan');
