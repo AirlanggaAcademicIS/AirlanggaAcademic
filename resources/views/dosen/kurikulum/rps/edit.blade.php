@@ -119,39 +119,83 @@ Rencana Pembelajaran Semester
     <div class="form-group box-header">
       <p><b>Team Teaching</b></p>
       <label for="dosen1">Koordinator Mata kuliah</label>
-      <select class="form-control" name="koor_1">
-          @foreach($dosen as $dosen1) 
-                <option value="{{$dosen1->nip}}">{{$dosen1->nama_dosen}}</option>
-          @endforeach
-        </select>
+        <select name="koor_1" class="form-control">            
+          @php $isSameDosen = false; @endphp
+            @foreach($dosen as $dosen1)          
+              @foreach($koor as $koor1)
+                  @if($dosen1->nip == $koor1->nip_id)
+                      @php $isSameDosen = true; @endphp
+                      <option value="{{$dosen1->nip}}">{{$dosen1->nama_dosen}}</option>       
+                  @endif            
+              @endforeach
+              @if($isSameDosen == false)
+                  <option value="{{$dosen1->nip}}">{{$dosen1->nama_dosen}}</option>
+              @endif
+              @php $isSameDosen = false; @endphp        
+          @endforeach 
+          </select>       
     </div>
 
     <div class="form-group box-header">
-      <label for="dosen2">Anggota Team Teaching 1</label>
-      <select class="form-control" name="koor_2">
-          @foreach($dosen as $dosen2) 
-            <option value="{{$dosen2->nip}}">{{$dosen2->nama_dosen}}</option>
-          @endforeach
-        </select>
-      </div>
-
-    <div class="form-group box-header">
-      <label for="dosen3">Anggota Team Teaching 2</label>
-        <select class="form-control" name="koor_3">
-          @foreach($dosen as $dosen3) 
-                <option value="{{$dosen3->nip}}">{{$dosen3->nama_dosen}}</option>
-          @endforeach
-        </select>
-      </div>
-
-    <div class="form-group box-header">
-      <label for="dosen4">Anggota Team Teaching 3</label>
-        <select class="form-control" name="koor_4">
-          @foreach($dosen as $dosen4) 
-                <option value="{{$dosen4->nip}}">{{$dosen4->nama_dosen}}</option>
-          @endforeach
-        </select>
+      <p><b>Team Teaching</b></p>
+      <label for="dosen2">Koordinator Mata kuliah</label>
+        <select name="koor_2" class="form-control">            
+          @php $isSameDosen = false; @endphp
+            @foreach($dosen as $dosen2)          
+              @foreach($koor as $koor2)
+                  @if($dosen2->nip == $koor2->nip_id)
+                      @php $isSameDosen = true; @endphp
+                      <option value="{{$dosen2->nip}}">{{$dosen2->nama_dosen}}</option>       
+                  @endif            
+              @endforeach
+              @if($isSameDosen == false)
+                  <option value="{{$dosen2->nip}}">{{$dosen2->nama_dosen}}</option>
+              @endif
+              @php $isSameDosen = false; @endphp        
+          @endforeach 
+          </select>       
     </div>
+
+    <div class="form-group box-header">
+      <p><b>Team Teaching</b></p>
+      <label for="dosen1">Koordinator Mata kuliah</label>
+        <select name="koor_3" class="form-control">            
+          @php $isSameDosen = false; @endphp
+            @foreach($dosen as $dosen1)          
+              @foreach($koor as $koor1)
+                  @if($dosen3->nip == $koor3->nip_id)
+                      @php $isSameDosen = true; @endphp
+                      <option value="{{$dosen3->nip}}">{{$dosen3->nama_dosen}}</option>       
+                  @endif            
+              @endforeach
+              @if($isSameDosen == false)
+                  <option value="{{$dosen3->nip}}">{{$dosen3->nama_dosen}}</option>
+              @endif
+              @php $isSameDosen = false; @endphp        
+          @endforeach 
+          </select>       
+    </div>
+
+    <div class="form-group box-header">
+      <p><b>Team Teaching</b></p>
+      <label for="dosen1">Koordinator Mata kuliah</label>
+        <select name="koor_4" class="form-control">            
+          @php $isSameDosen = false; @endphp
+            @foreach($dosen as $dosen1)          
+              @foreach($koor as $koor1)
+                  @if($dosen4->nip == $koor4->nip_id)
+                      @php $isSameDosen = true; @endphp
+                      <option value="{{$dosen4->nip}}">{{$dosen4->nama_dosen}}</option>       
+                  @endif            
+              @endforeach
+              @if($isSameDosen == false)
+                  <option value="{{$dosen4->nip}}">{{$dosen4->nama_dosen}}</option>
+              @endif
+              @php $isSameDosen = false; @endphp        
+          @endforeach 
+          </select>       
+    </div>
+    
     <br>
     <div class="form-group box-header">
     <button type="submit" class="btn btn-info pull-right">Edit</button> 
