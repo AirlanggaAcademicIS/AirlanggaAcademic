@@ -77,7 +77,7 @@ Monitoring Skripsi
                 <div class="form-group">
                   <label for="file_pen" class="col-sm-2 control-label">Upload Form Usulan</label>
                   <div class="col-md-8">
-                  <input type="file" id="upload_berkas" name="upload_berkas_proposal" placeholder="Pilih File" required>
+                  <input type="file" id="upload_form_usulan" name="upload_form_usulan" placeholder="Pilih File" required>
 
                   <p class="help-block">*File berformat .pdf, .doc atau .docx</p>
 

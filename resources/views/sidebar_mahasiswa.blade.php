@@ -24,6 +24,7 @@
 <a href="{{ url('mahasiswa/krs-khs/krs/index') }}"><i class="fa fa-calculator"></i>Krs</a>
 </li>
 <li
+
 @if($page == 'biodata-mahasiswa')
 {!! 'class="active"'!!}
 @endif
@@ -53,45 +54,55 @@
 <a href="{{ url('mahasiswa/ganti-password') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Ubah Password</a>
 </li>
 
-<li
-@if($page == 'kalender-ruang')
-{!! 'class="active"'!!}
+<li class="
+@if($page == 'download-dokumen' || 'kalender-ruang' || 'memohon-ruangan' || 'surat-masuk' || 'surat-keluar-mhs')
+{!! 'active' !!}
 @endif
->
-<a href="{{ url('mahasiswa/Kalender_Ruang') }}"><i class="fa fa-calendar" aria-hidden="true"></i>Kalender Ruang</a>
+treeview">
+    <a href=""><i class='fa fa-user'></i> <span>Layanan Akademik</span></a>
+    <ul class="treeview-menu">
 
+    <li
+      @if($page == 'download-dokumen')
+      {!! 'class="active"'!!}
+      @endif
+      > <a href="{{url('mahasiswa/Download_Dokumen')}}"><i class="fa fa-file-text"></i>Shared Dokumen</a>
+    </li>
+
+    <li
+    @if($page == 'kalender-ruang')
+    {!! 'class="active"'!!}
+    @endif
+    >
+    <a href="{{ url('mahasiswa/Kalender_Ruang') }}"><i class="fa fa-calendar" aria-hidden="true"></i>Kalender Ruang</a>
+
+    </li>
+
+    <li
+    @if($page == 'memohon-ruangan')
+    {!! 'class="active"'!!}
+    @endif
+    >
+    <a href="{{ url('mahasiswa/memohon-ruangan') }}"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i>Memohon Ruangan</a>
+
+    </li>
+
+    <li
+    @if($page == 'surat-masuk')
+    {!! 'class="active"'!!}
+    @endif
+    >
+    <a href="{{ url('mahasiswa/surat-masuk') }}"><i class="fa fa-envelope" aria-hidden="true"></i>Surat Masuk</a>
+
+    </li>
+
+    <li
+    @if($page == 'surat-keluar-mhs')
+    {!! 'class="active"'!!}
+    @endif
+    >
+    <a href="{{ url('mahasiswa/surat-keluar-mhs') }}"><i class="fa fa-envelope" aria-hidden="true"></i>Surat Keluar</a>
+
+    </li>
+</ul>
 </li>
-
-<li
-@if($page == 'memohon-ruangan')
-{!! 'class="active"'!!}
-@endif
->
-<a href="{{ url('mahasiswa/memohon-ruangan') }}"><i class="fa fa-calender-plus-o" aria-hidden="true"></i>Memohon Ruangan</a>
-
-</li>
-
-<li
-@if($page == 'surat-keluar-mhs')
-{!! 'class="active"'!!}
-@endif
->
-<a href="{{ url('mahasiswa/surat-keluar-mhs') }}"><i class="fa fa-envelope" aria-hidden="true"></i>Surat Keluar Mahasiswa</a>
-
-</li>
-
-<li
-@if($page == 'surat-masuk')
-{!! 'class="active"'!!}
-@endif
->
-<a href="{{ url('mahasiswa/surat-masuk') }}"><i class="fa fa-envelope" aria-hidden="true"></i>Surat Masuk</a>
-
-</li>
-
-<li
-  @if($page == 'download-dokumen')
-  {!! 'class="active"'!!}
-  @endif
-  > <a href="{{url('mahasiswa/Download_Dokumen')}}"><i class="fa fa-file-text"></i>Shared Dokumen</a></li>
-

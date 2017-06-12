@@ -23,7 +23,7 @@ class karyawan_controller extends Controller
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'karyawan',
+            'page' => 'akun-karyawan',
             // Memanggil semua isi dari tabel biodata
             'karyawan' => Petugas_TU::all(),
             'prodi' => Prodi::all()
