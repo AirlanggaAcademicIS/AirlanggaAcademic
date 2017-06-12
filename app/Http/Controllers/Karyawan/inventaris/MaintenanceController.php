@@ -18,41 +18,56 @@ use App\Asset;
 class MaintenanceController extends Controller
 {
 
-    // Function untuk menampilkan tabel
+    /**
+    * function index
+    * untuk menampilkan data maintenance dalam bentuk index
+    * param: -
+    */
     public function index()
     {
         $data = [
             'page' => 'index-maintenance',
-            'maintenance' => Maintenance::all()
+            'maintenance' => Maintenance::all() //memanggil semua isi tabel maintenance dan di parse dengan alias 'maintenance'
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('karyawan.inventaris.maintenance.index',$data);
     }
 
+    /**
+    * function create
+    * untuk menampilkan form create maintenance
+    * param: id = id asset yang akan dimaintenance
+    */
     public function create($id)
     {
-        $asset = Asset::find($id);
-        if ($asset->status_id != 4) {
-            Session::put('alert-warning', 'Asset tidak dapat dimaintenance');
-            return Redirect::back();    
-        }
+        $asset = Asset::find($id); //memanggil data asset berdasarkan id asset
 
-        else{
+        //memeriksa apakah status asset == broker
+        if ($asset->status_id != 4) { //jika tidak broken 
+            Session::put('alert-warning', 'Asset tidak dapat dimaintenance'); //notifikasi warning
+            return Redirect::back(); //kembali ke halaman sebelumnya
+        }
+        else { //jika status asset == broken
             $data = [
-                // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
                 'page' => 'index-maintenance',
-                'asset' => $asset,
+                'asset' => $asset, //data asset diparse dengan alias 'asset'
             ];
-            // Memanggil tampilan form create
-            Asset::where('id_asset', $id)->update(array('status_id' => 3)); 
-            return view('karyawan.inventaris.maintenance.input',$data);
+            
+            Asset::where('id_asset', $id)->update(array('status_id' => 3)); //ubah status asset menjadi maintenance
+            return view('karyawan.inventaris.maintenance.input',$data); // Memanggil tampilan form create dengan data yang siap di parse
         }
     }
 
+    /**
+    * function createAction
+    * untuk menyimpan data maintenance ke database
+    * param: request = isi form
+    */
     public function createAction(Request $request)
     {
-        Asset::where('id_asset', $request->input('asset_id'))->update(array('status_id' => 1)); 
+        Asset::where('id_asset', $request->input('asset_id'))->update(array('status_id' => 1)); //ubah status asset menjadi ready
+        
         $maintenance = Maintenance::create([
             'nip_petugas_id' => Auth::User()->username,
             'asset_id' => $request->input('asset_id'),
@@ -62,19 +77,25 @@ class MaintenanceController extends Controller
             'solution' => $request->input('solution'),
             'waktu_maintenance' => $request->input('waktu_maintenance'),
         ]);
+
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Input maintenance berhasil ditambahkan');
 
-        // Kembali ke halaman mahasiswa/biodata
+        // Kembali ke halaman index maintenance
         return Redirect::to('inventaris/index-maintenance');
     }
 
+    /**
+    * function delete
+    * untuk menghapus data dari database
+    * param: id = id maintenance yang akan dihapus
+    */
     public function delete($id_maintenance)
     {
-        // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
+        // Mencari data maintenance berdasarkan id dan memasukkannya ke dalam variabel $maintenance
         $maintenance = Maintenance::find($id_maintenance);
 
-        // Menghapus biodata yang dicari tadi
+        // Menghapus data yang dicari tadi
         $maintenance->delete();
 
         // Menampilkan notifikasi pesan sukses
@@ -84,12 +105,16 @@ class MaintenanceController extends Controller
         return Redirect::back();     
     }
 
-   public function edit($id_maintenance)
+    /**
+    * function edit
+    * untuk menampilkan view edit
+    * param: id = id data maintenance yang akan diedit
+    */
+    public function edit($id_maintenance)
     {
         $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'index-maintenance',
-            // Mencari biodata berdasarkan id
+            // Mencari maintenance berdasarkan id
             'maintenance' => Maintenance::find($id_maintenance)
         ];
 
@@ -97,12 +122,17 @@ class MaintenanceController extends Controller
         return view('karyawan.inventaris.maintenance.edit',$data);
     }
 
+    /**
+    * function editAction
+    * untuk mengupdate data maintenance di database
+    * param: id = id data maintenance yang akan diedit, request = isi form
+    */
     public function editAction($id_maintenance, Request $request)
     {
-        // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
+        // Mencari maintenance yang akan di update dan menaruhnya di variabel $biodata
         $maintenance = Maintenance::find($id_maintenance);
 
-        // Mengupdate $biodata tadi dengan isi dari form edit tadi
+        // Mengupdate $maintenance tadi dengan isi dari form edit tadi
         $maintenance->nip_petugas_id = $request->input('nip_petugas_id');
         $maintenance->asset_id = $request->input('asset_id');
         $maintenance->asset_yang_dimaintenance = $request->input('asset_yang_dimaintenance');
@@ -117,20 +147,24 @@ class MaintenanceController extends Controller
         // Notifikasi sukses
         Session::put('alert-success', 'Data maintenance berhasil diedit');
 
-        // Kembali ke halaman mahasiswa/biodata
+        // Kembali ke halaman index maintenance
         return Redirect::to('inventaris/index-maintenance');
     }
 
+    /**
+    * function viewDetail
+    * untuk melihat data maintenance secara detail
+    * param: id = id maintenance yang akan dilihat secara detail
+    */
     public function viewDetail($id_maintenance)
     {
-        $maintenance = Maintenance::where('id_maintenance', $id_maintenance)->first();
+        $maintenance = Maintenance::where('id_maintenance', $id_maintenance)->first(); //panggil data maintenance berdasarkan id
         $data = [
             'page'=> 'index-maintenance',
-            'maintenance' => $maintenance,
-
+            'maintenance' => $maintenance, //parse dengan alias 'maintenance'
         ];
 
-        return view('karyawan.inventaris.maintenance.viewDetail', $data);
+        return view('karyawan.inventaris.maintenance.viewDetail', $data); //tampilkan view viewDetail dengan data yang siap di parse
     }
 
 }

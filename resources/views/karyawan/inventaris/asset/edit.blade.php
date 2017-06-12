@@ -98,11 +98,12 @@ Edit Asset
 					<div class="col-md-8">
 						<select class="form-control" name="lokasi" required>
 		            	<option value="">-- Pilih Lokasi --</option>
-		                <option value="1" {{ $asset->status_id == "1" ? "selected" : ""}} >coba</option>
-		                <option value="2" {{ $asset->status_id == "2" ? "selected" : ""}} >Borrowed</option>
-		                <option value="3" {{ $asset->status_id == "3" ? "selected" : ""}} >Maintenance</option>
-		                <option value="4" {{ $asset->status_id == "4" ? "selected" : ""}} >Broken</option>
-		                <option value="5" {{ $asset->status_id == "5" ? "selected" : ""}} >Expired</option>
+		                <option value="1" {{ $asset->lokasi_id == "1" ? "selected" : ""}} >Labkom 1</option>
+		                <option value="2" {{ $asset->lokasi_id == "2" ? "selected" : ""}} >Labkom 2</option>
+		                <option value="3" {{ $asset->lokasi_id == "3" ? "selected" : ""}} >Labkom 3</option>
+		                <option value="4" {{ $asset->lokasi_id == "4" ? "selected" : ""}} >Labkom 4</option>
+		                <option value="5" {{ $asset->lokasi_id == "5" ? "selected" : ""}} >R.Dosen SI</option>
+		                <option value="6" {{ $asset->lokasi_id == "6" ? "selected" : ""}} >Departemen SI</option>
 					</select>
 					</div>
 				</div>
