@@ -49,13 +49,13 @@ Rencana Pembelajaran Semester
     <td width="25%" style="text-align:center">{{$mk->nama_matkul}}</td>
 
     <td width="15%" style="text-align:center">
-        <a class="btn btn-info btn-xs">
-        <i class="fa fa-download-square-o"></i> Download</a>
-        </td>
+      <a target="_blank" class="btn btn-info btn-xs" href="{{url('/mahasiswa/kurikulum/rps/pdf/'.$mk->id_mk)}}">
+      <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download PDF</a>
+    </td>
 
     @empty
     <tr>
-      <td colspan="6"><center>Belum ada RPS</center></td>
+      <td colspan="6"><center>Belum ada Kategori Media Pembelajaran</center></td>
     </tr>
 
     @endforelse

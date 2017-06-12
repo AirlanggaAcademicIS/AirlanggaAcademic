@@ -86,7 +86,12 @@ Tambah Asset
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Lokasi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="lokasi" name="lokasi" placeholder="Masukkan Lokasi" required>
+						<select class="form-control" name="lokasi" required>
+		            	<option value="">-- Pilih Lokasi --</option>
+		                @foreach ($lokasi as $k)
+		                <option value="{{ $k->id }}">{{ $k->nama_lokasi }}</option>
+		                @endforeach 
+					</select>
 					</div>
 				</div>
 
