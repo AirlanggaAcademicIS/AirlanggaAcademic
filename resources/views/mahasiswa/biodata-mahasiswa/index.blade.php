@@ -39,7 +39,7 @@ Biodata Mahasiswa
       <th style="text-align:center">NIM</th>      
       <th style="text-align:center">Nama</th>
       <th style="text-align:center">Email</th>
-      <th style="text-align:center">Angkatan</th>
+      <th style="text-align:center">No. HP</th>
       <th style="text-align:center">TTL</th>
       <th style="text-align:center">Alamat</th>
       <th style="text-align:center">Action</th>
@@ -52,8 +52,12 @@ Biodata Mahasiswa
       <td width="20%" style="text-align:center">{{$bio->nim_id}}</td>
       <td width="15%" style="text-align:center">{{$bio->nama_mhs}}</td>
       <td width="20%" style="text-align:center">{{$bio->email_mhs}}</td>
-      <td width="10%" style="text-align:center">{{$bio->angkatan}}</td>
-      <td width="15%" style="text-align:center">{{$bio->ttl}}</td>
+      <td width="10%" style="text-align:center">{{$bio->no_hp}}</td>
+      <td width="15%" style="text-align:center">{{$bio->kota_lahir}}
+      @if($bio->tanggal_lahir != null)
+      , {!!App\Helpers\GeneralHelper::indonesianDateFormat($bio->tanggal_lahir)!!}
+      @endif
+      </td>
       <td width="20%" style="text-align:center">{{$bio->alamat_tinggal}}</td>
       <td width="15%" style="text-align:center" >
       @if($bio->nim_id == Auth::user()->username)
