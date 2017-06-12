@@ -137,8 +137,7 @@ Rencana Pembelajaran Semester
     </div>
 
     <div class="form-group box-header">
-      <p><b>Team Teaching</b></p>
-      <label for="dosen2">Koordinator Mata kuliah</label>
+      <b><label for="dosen2">Anggota Koordinator Mata kuliah 1</label></b>
         <select name="koor_2" class="form-control">            
           @php $isSameDosen = false; @endphp
             @foreach($dosen as $dosen2)          
@@ -157,12 +156,11 @@ Rencana Pembelajaran Semester
     </div>
 
     <div class="form-group box-header">
-      <p><b>Team Teaching</b></p>
-      <label for="dosen1">Koordinator Mata kuliah</label>
+      <b><label for="dosen2">Anggota Koordinator Mata kuliah 2</label></b>
         <select name="koor_3" class="form-control">            
           @php $isSameDosen = false; @endphp
-            @foreach($dosen as $dosen1)          
-              @foreach($koor as $koor1)
+            @foreach($dosen as $dosen3)          
+              @foreach($koor as $koor3)
                   @if($dosen3->nip == $koor3->nip_id)
                       @php $isSameDosen = true; @endphp
                       <option value="{{$dosen3->nip}}">{{$dosen3->nama_dosen}}</option>       
@@ -177,12 +175,11 @@ Rencana Pembelajaran Semester
     </div>
 
     <div class="form-group box-header">
-      <p><b>Team Teaching</b></p>
-      <label for="dosen1">Koordinator Mata kuliah</label>
+      <b><label for="dosen2">Anggota Koordinator Mata kuliah 3</label></b>
         <select name="koor_4" class="form-control">            
           @php $isSameDosen = false; @endphp
-            @foreach($dosen as $dosen1)          
-              @foreach($koor as $koor1)
+            @foreach($dosen as $dosen4)          
+              @foreach($koor as $koor4)
                   @if($dosen4->nip == $koor4->nip_id)
                       @php $isSameDosen = true; @endphp
                       <option value="{{$dosen4->nip}}">{{$dosen4->nama_dosen}}</option>       
