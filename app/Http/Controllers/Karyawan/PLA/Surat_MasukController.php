@@ -52,11 +52,11 @@ class Surat_MasukController extends Controller
         $terdaftarm = MahasiswaPengajuan::pluck('nim')->toArray();
         $terdaftard = DosenPengajuan::pluck('nip')->toArray();
         $nim_nip = $request->input('nim_nip');
-        if((!in_array($nim_nip, $terdaftarm))||(!in_array($nim_nip, $terdaftard))){
+        $terdaftar = array_merge($terdaftarm,$terdaftard);
+        if(!in_array($nim_nip,$terdaftar)){
         Session::put('alert-danger', 'NIM atau NIP tidak terdaftar');
         return Redirect::back();
-            }
-        
+        }
         
         $surat_masuk=$request->input();
         $surat_masuk['status'] = '0';
