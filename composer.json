@@ -14,7 +14,7 @@
         "laravel/tinker": "~1.0",
         "maddhatter/laravel-fullcalendar": "^1.2",
         "maatwebsite/excel": "~2.1.0",
-        "milon/barcode": "^5.3",
+        "milon/barcode": "^5.3"
 
     },
     "require-dev": {
