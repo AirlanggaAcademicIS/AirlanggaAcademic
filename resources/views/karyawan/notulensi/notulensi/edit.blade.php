@@ -95,7 +95,6 @@ Edit Notulensi
     <div class="col-sm-9">
     <select class="form-control" name="nip_id" required>
     @foreach($dosen as $i => $m)
-    <option> </option>
     <option  
 
     value="{{$m->nip}}"

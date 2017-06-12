@@ -88,10 +88,10 @@ class MohonRuanganController extends Controller
         // Menginsertkan apa yang ada di form ke dalam tabel jadwal permohonan dan permohonan ruang
 
         $permohonan = PermohonanRuang::create([
-            'nama' => Auth::user()->name,
+            'nama' => $request->input('nama'),
             'atribut_verifikasi' => '0',
             'nim_nip' => Auth::user()->username,
-            'tgl_pinjam' => $request->input('tgl_pinjam'),
+            'tgl_pinjam' => $date[1],
             ]);
 
         $sks = $request->input('sks');
@@ -100,7 +100,7 @@ class MohonRuanganController extends Controller
         JadwalPermohonan::create([
             'permohonan_ruang_id' => $permohonan->id_permohonan_ruang,
             'ruang_id' => $request->input('ruang_id'),
-            'hari_id' => $request->input('hari_id'),
+            'hari_id' => $hari,
             'jam_id' => $request->input('jam_id')+$j,
             ]);
             $j++;

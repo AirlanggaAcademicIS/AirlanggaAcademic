@@ -48,6 +48,13 @@ class DownloadController extends Controller
            $pathToFile=public_path('file_skripsi/'.$file->upload_berkas_skripsi);
            return response()->download($pathToFile);
        }
+    public function downloadForm($nim)
+    {
+      $file = Skripsi::where('NIM_id',$nim)->first();
+      // dd($file->upload_berkas_skripsi);
+      $pathToFile=public_path('file_proposal/'.$file->upload_form_usulan);
+      return response()->download($pathToFile);
+    }
 
    
 

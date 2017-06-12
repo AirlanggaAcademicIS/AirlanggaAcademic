@@ -54,7 +54,7 @@ Ganti Password
         <div class="form-group">
           <label for="prestasi" class="col-sm-2 control-label">Masukkan Password Lama</label>
           <div class="col-md-8">
-            <input type="text" class="form-control input-lg" id="prestasi" name="prestasi" placeholder="Masukkan Password Lama" required>
+            <input type="password" class="form-control input-lg" id="oldpassword" name="oldpassword" placeholder="Masukkan Password Lama" required>
           </div>
         </div>
 
@@ -64,14 +64,12 @@ Ganti Password
             <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Masukkan Password Baru" required>
           </div>
         </div>
-        
-
 
         <!-- Menampilkan input text biasa -->
         <div class="form-group">
           <label for="penyelenggara" class="col-sm-2 control-label">Ulangi Password Baru</label>
           <div class="col-md-8">
-            <input type="password" class="form-control input-lg" id="penyelenggara" name="penyelenggara" placeholder="Ulangi Password Baru" required>
+            <input type="password" class="form-control input-lg" id="password_confirmation" name="password_confirmation" placeholder="Ulangi Password Baru" required>
           </div>
         </div>
 
