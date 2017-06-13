@@ -112,7 +112,7 @@ class KonsultasiController extends Controller
         $konsultasi->save();
 
         // Notifikasi sukses
-        Session::put('alert-success', 'Konsultasi berhasil diedit');
+        Session::put('alert-success', 'Konsultasi berhasil diverifikasi');
 
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/monitoring-skripsi/konsultasi');
