@@ -307,7 +307,10 @@ class RPSController extends Controller
             'mk_dosen' => RPS_Koor_Matkul::where('mk_id', '=', $id)->get(),
             'cp_matkul' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get(),   
             // 'mk_media_pembelajaran' => DB::table('detail_kategori')->select( DB::raw('DISTINCT(media_pembelajaran_id)'))->get()        
-            'mk_media_pembelajaran' => Silabus_detail_kategori::all()           
+            'mk_media_pembelajaran' => Silabus_detail_kategori::all(),
+            'data_media' => DB::table('cp_mata_kuliah')->where('matakuliah_id', '=', $id)
+                        ->join('detail_kategori', 'cp_mata_kuliah.id_cpmk', '=', 'detail_kategori.cpmk_id')
+                        ->join('kategori_media_pembelajaran', 'detail_kategori.media_pembelajaran_id', '=', 'kategori_media_pembelajaran.id')->select('kategori_media_pembelajaran.media_pembelajaran', 'detail_kategori.media_pembelajaran_id')->groupBy('kategori_media_pembelajaran.media_pembelajaran', 'detail_kategori.media_pembelajaran_id')->get()                       
         ];   
         // dd($data['mk_media_pembelajaran']);
         $pdf = PDF::loadView('dosen.kurikulum.rps.pdf-rps', $data);

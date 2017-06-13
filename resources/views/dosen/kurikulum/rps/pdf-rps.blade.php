@@ -92,14 +92,10 @@ table, th, td {
     <tr>
         <td style="width:4%">8 </td>
         <td style="width:30%;">Media Pembelajaran</td> 
-        <td>
-            @foreach($mk_media_pembelajaran as $i => $mk_mp)
-                @foreach($cp_matkul as $i => $cp_m)                                        
-                    @if($mk_mp->cpmk_id == $cp_m->id_cpmk)
-                        - {{$mk_mp->media['media_pembelajaran']}}
-                        <br>
-                    @endif
-                @endforeach
+        <td>        
+            @foreach($data_media as $dm)
+                - {{$dm->media_pembelajaran}}
+                <br>                
             @endforeach
          </td>    
     </tr>                
