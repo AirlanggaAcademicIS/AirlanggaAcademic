@@ -26,6 +26,7 @@ use App\Silabus_Matkul_prasyarat;
 use PDF;
 use DB;
 
+
 class RPSController extends Controller
 {
 
@@ -59,7 +60,7 @@ class RPSController extends Controller
             ->select('*')
             ->get(),
         ];
-        return view('mahasiswa.kurikulum.rps.detail',$data);
+        return view('karyawan.kurikulum.rps.detail',$data);
     }
 
     public function pdf($id)
