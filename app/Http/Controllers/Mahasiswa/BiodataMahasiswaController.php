@@ -36,31 +36,31 @@ class BiodataMahasiswaController extends Controller
         // dd($username);
     }
 
-    public function create()
-    {
-        $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'biodatamahasiswa',
-        ];
+    // public function create()
+    // {
+    //     $data = [
+    //         // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+    //         'page' => 'biodatamahasiswa',
+    //     ];
 
-        // Memanggil tampilan form create
-    	return view('mahasiswa.biodata-mahasiswa.create',$data);
-    }
+    //     // Memanggil tampilan form create
+    // 	return view('mahasiswa.biodata-mahasiswa.create',$data);
+    // }
 
-    public function createAction(Request $request)
-    {
-        // Menginsertkan apa yang ada di form ke dalam tabel biodata
-       $bio=$request->input();
-       $bio['nim_id'] = Auth::user()->username;
+    // public function createAction(Request $request)
+    // {
+    //     // Menginsertkan apa yang ada di form ke dalam tabel biodata
+    //    $bio=$request->input();
+    //    $bio['nim_id'] = Auth::user()->username;
 
-         // dd(Auth::user()->username() ;
+    //      // dd(Auth::user()->username() ;
 
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Biodata Mahasiswa berhasil diinputkan');
+    //     // Menampilkan notifikasi pesan sukses
+    //     Session::put('alert-success', 'Biodata Mahasiswa berhasil diinputkan');
 
-        // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('mahasiswa/biodata-mahasiswa');
-    }
+    //     // Kembali ke halaman mahasiswa/biodata
+    //     return Redirect::to('mahasiswa/biodata-mahasiswa');
+    // }
 
    public function edit($id_bio)
     {

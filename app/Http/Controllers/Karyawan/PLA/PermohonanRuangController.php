@@ -23,7 +23,7 @@ class PermohonanRuangController extends Controller
     public function index() 
   {
          $data = [
-         'page' => 'PermohonanRuang',
+         'page' => 'history-ruang',
             // Memanggil semua isi dari tabel biodata
          'PermohonanRuang' => DB::table('jadwal_permohonan')
             ->join('permohonan_ruang', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang')
@@ -46,7 +46,7 @@ class PermohonanRuangController extends Controller
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'PermohonanRuang',
+            'page' => 'konfirmasi-ruang',
             // Memanggil semua isi dari tabel biodata
             'PermohonanRuang' => DB::table('jadwal_permohonan')
             ->join('permohonan_ruang', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang')

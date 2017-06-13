@@ -23,7 +23,6 @@ class BiodataMahasiswa extends Model
 		'kota_lahir',
 		'tanggal_lahir',
 		'no_hp',
-		'angkatan',
 		'agama',
 		'kebangsaan',
 		'sma_asal',

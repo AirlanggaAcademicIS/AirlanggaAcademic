@@ -54,7 +54,7 @@ Tambah Kategori Media Pembelajaran
 <div class="col-md-12">
   <div class="form-group box-header">
     <label>Mata Kuliah</label>
-      <select name="matkul" class="form-control select2" style="width: 100%;" required>
+      <select id="selectMatkul" name="matkul" class="form-control select2" style="width: 100%;" required>
         <option value="">-- Kode Mata Kuliah - Nama Mata Kuliah --</option>
         @foreach ($mata_kuliah as $mk)
         {
@@ -156,11 +156,6 @@ Tambah Kategori Media Pembelajaran
 @section('code-footer')
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-$( function() {
-    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
-
-  } );
-  </script>
+<script type="text/javascript">
 @endsection
 
