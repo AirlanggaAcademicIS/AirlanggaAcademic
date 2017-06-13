@@ -155,10 +155,6 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
         
-<<<<<<< HEAD
-
-=======
->>>>>>> eb2c5a82ba6c3e8e6d45febfcddef05ebed75a7d
 
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
