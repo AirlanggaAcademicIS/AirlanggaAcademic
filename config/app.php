@@ -153,16 +153,9 @@ return [
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        Barryvdh\Snappy\ServiceProvider::class,
-        
-<<<<<<< HEAD
-        Maatwebsite\Excel\ExcelServiceProvider::class,
-=======
-
+        Barryvdh\Snappy\ServiceProvider::class,        
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
-
->>>>>>> bd4bb122cd40d485f3cc1a4547686a9fda170999
     ],
     /*
     |--------------------------------------------------------------------------
@@ -215,10 +208,4 @@ return [
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
     ],
-<<<<<<< HEAD
 ];
-=======
-
-];
-
->>>>>>> bd4bb122cd40d485f3cc1a4547686a9fda170999

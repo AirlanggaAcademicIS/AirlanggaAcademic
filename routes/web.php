@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
 
 /*
@@ -144,4 +142,3 @@ Route::group(['middleware' => 'auth'], function () {
         */                
     });     
 });
->>>>>>> bd4bb122cd40d485f3cc1a4547686a9fda170999

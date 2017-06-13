@@ -227,7 +227,9 @@ class SilabusController extends Controller
             'metode_pembelajaran' => Silabus_Sistem_Pembelajaran::all(),
             'mk_metode_pembelajaran' => Silabus_detail_media::where('cpmk_id', '=', $cpmk->id_cpmk)->get(),            
             'media_pembelajaran' => Silabus_Media_Pembelajaran::all(),
-            'mk_media_pembelajaran' => Silabus_detail_kategori::where('cpmk_id', '=', $cpmk->id_cpmk)->get()
+            'cp_matkul' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get(),               
+            // 'mk_media_pembelajaran' => Silabus_detail_kategori::all()
+            'mk_media_pembelajaran' => Silabus_detail_kategori::all()
         ];
         $pdf = PDF::loadView('karyawan.kurikulum.silabus.pdf-silabus', $data);
         return $pdf->download('silabus-mata-kuliah.pdf');

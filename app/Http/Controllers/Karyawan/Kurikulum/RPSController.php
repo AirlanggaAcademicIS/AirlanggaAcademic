@@ -64,17 +64,25 @@ class RPSController extends Controller
 
     public function pdf($id)
     {
+        $cek = 0; 
+        $media_pembelajaran;
         $cpProdi = RPS_CPL_Prodi::where('mk_id', '=', $id)->get();
-        $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $id)->first();        
+        $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get();        
+        // for($count = 0; $count<count($cpmk); $count++)
+        // {
+        //     $media_pembelajaran[$count] = Silabus_detail_kategori::where('cpmk_id', '=', $cpmk[$count]->id_cpmk)->get();      
+        // } 
         $data = [
             'matkul_silabus' => Silabus_Matkul::find($id),
             'cpem' => RPS_CPL_Prodi::where('mk_id', '=', $id)->get(),
-            'mk_media_pembelajaran' => Silabus_detail_kategori::where('cpmk_id', '=', $cpmk->id_cpmk)->get(),
             'mk_prasyarat' => Silabus_Matkul_prasyarat::where('mk_id', '=', $id)->get(),
             'mk_dosen' => RPS_Koor_Matkul::where('mk_id', '=', $id)->get(),
-            'cp_matkul' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get()
-        ];
-        $pdf = PDF::loadView('dosen.kurikulum.rps.pdf-rps', $data);
+            'cp_matkul' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get(),   
+            // 'mk_media_pembelajaran' => DB::table('detail_kategori')->select( DB::raw('DISTINCT(media_pembelajaran_id)'))->get()        
+            'mk_media_pembelajaran' => Silabus_detail_kategori::all()           
+        ];   
+        // dd($data['mk_media_pembelajaran']);
+        $pdf = PDF::loadView('karyawan.kurikulum.rps.pdf-rps', $data);
         return $pdf->download('silabus-mata-kuliah.pdf');
     }
 

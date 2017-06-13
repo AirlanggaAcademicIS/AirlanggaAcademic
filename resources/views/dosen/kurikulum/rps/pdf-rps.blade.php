@@ -51,16 +51,18 @@ table, th, td {
         <td style="width:4%">5 </td>
         <td style="width:30%;">Capaian Pembelajaran (CP)</td> 
         <td>
-        <b>CPL-PRODI :</b> 
+        <b>CPL-PRODI : (kode - deskripsi)</b> 
         <br>
         @foreach($cpem as $cpm)
            {{$cpm->cpem->kode_cpem}} - {{$cpm->cpem->deskripsi_cpem}}
+           <br>
         @endforeach
         <br>
-        <b>CP-MK :</b> 
+        <b>CP-MK : (kode - deskripsi)</b> 
         <br>
         @foreach($cp_matkul as $cp_m)
-            {{$cp_m->deskripsi_cpmk}}
+            {{$cp_m->kode_cpmk}} - {{$cp_m->deskripsi_cpmk}}
+            <br>
         @endforeach
         </td>    
     </tr>
@@ -91,9 +93,13 @@ table, th, td {
         <td style="width:4%">8 </td>
         <td style="width:30%;">Media Pembelajaran</td> 
         <td>
-            @foreach($mk_media_pembelajaran as $mkmp)
-                - {{$mkmp->media->media_pembelajaran}}
-                <br>
+            @foreach($mk_media_pembelajaran as $i => $mk_mp)
+                @foreach($cp_matkul as $i => $cp_m)                                        
+                    @if($mk_mp->cpmk_id == $cp_m->id_cpmk)
+                        - {{$mk_mp->media['media_pembelajaran']}}
+                        <br>
+                    @endif
+                @endforeach
             @endforeach
          </td>    
     </tr>                
@@ -108,7 +114,7 @@ table, th, td {
         </td>    
     </tr>                    
     <tr>
-        <td style="width:4%">9 </td>
+        <td style="width:4%">10 </td>
         <td style="width:30%;">Mata Kuliah Syarat</td> 
         <td>
             @foreach($mk_prasyarat as $mk_p)
