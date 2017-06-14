@@ -78,7 +78,7 @@ Edit Biodata
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Checkin Date</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="checkin_date" value="{{$peminjaman->checkin_date}}" placeholder="Masukkan Tanggal" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="checkin_date" value="{{$peminjaman->checkin_date}}" placeholder="Masukkan Tanggal" >
 					</div>
 				</div>
 

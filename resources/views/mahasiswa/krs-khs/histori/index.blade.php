@@ -99,7 +99,7 @@ Histori Nilai
   <tfoot>
     <td width="20%" style="text-align:center">Total Bobot : {{$total}}</td>
     <td width="20%" style="text-align:center">Total SKS : {{$sks}}</td>
-    <td width="20%" style="text-align:center">IPK : {{$total / $sks}}</td>
+    <td width="20%" style="text-align:center">IPK : {{$ipk}}</td>
   </tfoot>
 </table>
 </div>

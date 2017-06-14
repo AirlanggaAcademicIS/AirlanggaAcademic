@@ -54,7 +54,7 @@ E-Learning
     </tr>
      @empty
         <tr>
-          <td colspan="6"><center>Belum ada data</center></td>
+          <td colspan="5"><center>Belum ada data</center></td>
         </tr>
     @endforelse
   </tbody>

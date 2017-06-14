@@ -91,9 +91,9 @@ table, th, td {
         <td style="width:4%">8 </td>
         <td style="width:30%;">Media Pembelajaran</td> 
         <td>
-            @foreach($mk_media_pembelajaran as $mkmp)
-                - {{$mkmp->media->media_pembelajaran}}
-                <br>
+            @foreach($data_media as $dm)
+                - {{$dm->media_pembelajaran}}
+                <br>                
             @endforeach
          </td>    
     </tr>                
