@@ -26,16 +26,13 @@ Konferensi
   @endif
   @endforeach
 </div>
-<div style="margin-bottom: 10px">
-  <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('/dosen/konferensi/create')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah Konferensi</a>
-</div>
+
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No</th>
+      <th style="text-align:center">Nama Dosen</th>
       <th style="text-align:center">Nama Konferensi</th>
       <th style="text-align:center">Pemapar Konferensi</th>  
       <th style="text-align:center">Tempat Konferensi</th>          
@@ -43,7 +40,7 @@ Konferensi
       <th style="text-align:center">Materi Konferensi</th>
       <th style="text-align:center">File Konferensi</th>
       <th style="text-align:center">Status Konferensi</th>
-      <th style="text-align:center">Action</th>
+    
     </tr>
     </thead>
   <tbody>
@@ -51,6 +48,7 @@ Konferensi
     <tr>
       <td>{{ $i+1 }}</td>
       <td width="20%" style="text-align:center">{{$kon->nama_konferensi}}</td>
+      <td width="20%" style="text-align:center">{{$kon->nama_dosen}}</td>
       <td width="15%" style="text-align:center">{{$kon->pemapar_konferensi}}</td>
       <td width="20%" style="text-align:center">{{$kon->tempat_konferensi}}</td>
       <td width="10%" style="text-align:center">{{$kon->tanggal_konferensi}}</td>
@@ -71,11 +69,7 @@ Konferensi
       
 
 
-      <td width="20%" style="text-align:center" > @if($kon->status_konferensi != 1) <a onclick="return confirm('Anda yakin untuk menghapus konferensi ini?');" href="{{url('/dosen/konferensi/'.$kon->konferensi_id.'/delete/')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('/dosen/konferensi/'.$kon->konferensi_id.'/edit/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Edit </a> @endif
-        </td>
+     
     </tr>
      @empty
         <tr> 
