@@ -17,6 +17,7 @@ use Auth;
 use App\PenelitianMhs;
 use App\DetailAnggota;
 use App\DetailPenelitian;
+use App\BiodataMahasiswa;
 
 class PenelitianController extends Controller
 {
@@ -26,8 +27,8 @@ class PenelitianController extends Controller
     {   
         $nim = Auth::user()->username;
         $penelitian_mhs = PenelitianMhs::where('nim_id',$nim)->get();
-        $detail_anggota = DetailAnggota::where('kode_penelitian_id',$nim);
-        $detailpenelitian = DetailPenelitian::where('kode_penelitian_id',$nim);
+        // $detail_anggota = DetailAnggota::where('kode_penelitian_id',$nim);
+        // $detailpenelitian = DetailPenelitian::where('kode_penelitian_id',$nim);
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'penelitian_mhs',
@@ -41,11 +42,14 @@ class PenelitianController extends Controller
 
     public function create()
     {
+        $username = Auth::user()->username;
+        $nama = BiodataMahasiswa::where('nim_id',$username)->first();
         $data = [
 
             // Buat di sidebar, biar ketika diklik yg aktif sidebar penelitian mahasiswa
 
             'page' => 'penelitian_mhs',
+            'penelitian_mhs' => $nama,
         ];
 
         // Memanggil tampilan form create
@@ -54,12 +58,11 @@ class PenelitianController extends Controller
 
     public function createAction(Request $request){
         // Menginsertkan apa yang ada di form ke dalam tabel penelitian_mhs
-
-        $penelitian = PenelitianMhs::create($request->input());
-        $penelitian->nim_id = Auth::user()->username;
         $this->validate($request, [
             'file_pen' => 'required|mimes:pdf',
             ]);
+        $penelitian = PenelitianMhs::create($request->input());
+        $penelitian->nim_id = Auth::user()->username;
         $filename = basename($_FILES["file_pen"]["name"]);
         $request->file_pen->move(public_path('pdf'), $filename);
         $penelitian->file_pen = $filename;

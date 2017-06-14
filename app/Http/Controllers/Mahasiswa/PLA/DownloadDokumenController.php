@@ -24,7 +24,7 @@ class DownloadDokumenController extends Controller
         $AkunDosen = Auth::user()->username;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'dokumen',
+            'page' => 'download-dokumen',
             'dokumen' => Dokumen::orderBy('tgl_upload','desc')->get()
         ];
 

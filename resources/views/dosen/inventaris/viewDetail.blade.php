@@ -63,7 +63,19 @@ View Detail Asset
 		               
 		                <div class="form-group">
 		                  <label>Lokasi</label>
-		                  <input type="text" class="form-control" value="{{ $asset->lokasi }}" readonly>
+		                  @if($asset->lokasi_id == 1) 
+							<input  type="text" class="form-control" value="Labkom 1" readonly>
+							@elseif($asset->lokasi_id == 2) 
+							<input type="text" class="form-control" value="Labkom 2" readonly>
+							@elseif($asset->lokasi_id == 3) 
+							<input type="text" class="form-control" value="Labkom 3" readonly>
+							@elseif($asset->lokasi_id == 4) 
+							<input type="text" class="form-control" value="Labkom 4" readonly>
+							@elseif($asset->lokasi_id == 5) 
+							<input type="text" class="form-control" value="R.Dosen SI" readonly>
+							@elseif($asset->lokasi_id == 5) 
+							<input type="text" class="form-control" value="Departemen SI" readonly>
+						  @endif
 		                </div>
 
 			              <div class="form-group">

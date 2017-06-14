@@ -53,49 +53,52 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="judul" class="col-sm-2 control-label">Judul</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="judul" name="judul" placeholder="Masukkan Judul" required>
+						<input type="text" class="form-control input-lg" id="judul" name="judul" placeholder="Masukkan Judul" required value="{{ old('judul') }}">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="peneliti" class="col-sm-2 control-label">Nama</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="peneliti" name="peneliti" placeholder="Masukkan Nama" required>
+						<input type="text" class="form-control input-lg" id="peneliti" name="peneliti" placeholder="Masukkan Nama" value="{{$penelitian_mhs->nama_mhs}}" readonly="readonly">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="fakultas" class="col-sm-2 control-label">Fakultas</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="fakultas" name="fakultas" placeholder="Masukkan Fakultas" required>
+						<input type="text" class="form-control input-lg" id="fakultas" name="fakultas" placeholder="Masukkan Fakultas" value="Sains dan Teknologi" readonly="readonly">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="tahun" class="col-sm-2 control-label">Tahun</label>
 					<div class="col-md-8">
-						<input type="text" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; class="form-control input-lg" id="tahun" name="tahun" maxlength="4" placeholder="Masukkan Tahun Penelitian" required>
+						<input type="text" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; class="form-control input-lg" id="tahun" name="tahun" maxlength="4" placeholder="Masukkan Tahun Penelitian" required value="{{ old('tahun') }}">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="halaman_naskah" class="col-sm-2 control-label">Jumlah Halaman</label>
 					<div class="col-md-8">
-						<input type="text" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; class="form-control input-lg" id="halaman_naskah" name="halaman_naskah" maxlength="3" placeholder="Masukkan Jumlah Halaman" required>
+						<input type="text" onkeypress="var key = event.keyCode || event.charCode; return ((key  >= 48 && key  <= 57) || key == 8);"; class="form-control input-lg" id="halaman_naskah" name="halaman_naskah" maxlength="3" placeholder="Masukkan Jumlah Halaman" required value="{{ old('halaman_naskah') }}">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="sumber_dana" class="col-sm-2 control-label">Sumber Dana</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="sumber_dana" name="sumber_dana" placeholder="Masukkan Sumber Dana" required>
+						<input type="text" class="form-control input-lg" id="sumber_dana" name="sumber_dana" placeholder="Masukkan Sumber Dana" required value="{{ old('sumber_dana') }}">
+						<p class="help-block">*contoh: DIPA Universitas Airlangga 2016</p>
+						<p class="help-block">*Isi ' - ' jika tidak ada</p>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="besar_dana" class="col-sm-2 control-label">Besar Dana</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="besar_dana" name="besar_dana" placeholder="Masukkan Besar Dana" required>
+						<input type="text" class="form-control input-lg" id="besar_dana" name="besar_dana" placeholder="Masukkan Besar Dana" required value="{{ old('besar_dana') }}">
+						<p class="help-block">*contoh: 10000000</p>
 						<p class="help-block">*Isi ' - ' jika tidak ada</p>
 					</div>
 				</div>
@@ -103,7 +106,8 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="sk" class="col-sm-2 control-label">SK</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="sk" name="sk" placeholder="Masukkan SK" required>
+						<input type="text" class="form-control input-lg" id="sk" name="sk" placeholder="Masukkan SK" required value="{{ old('sk') }}">
+						<p class="help-block">*contoh: 553/H3/KR/2010</p>
 						<p class="help-block">*Isi ' - ' jika tidak ada</p>
 					</div>
 				</div>
@@ -111,7 +115,8 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="publikasi" class="col-sm-2 control-label">Publikasi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="publikasi" name="publikasi" placeholder="Masukkan Publikasi" required>
+						<input type="text" class="form-control input-lg" id="publikasi" name="publikasi" placeholder="Masukkan Publikasi" required value="{{ old('publikasi') }}">
+						<p class="help-block">*contoh: Seminar</p>
 						<p class="help-block">*Isi ' - ' jika tidak ada</p>
 					</div>
 				</div>
@@ -139,8 +144,12 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="anggota" class="col-sm-2 control-label">Anggota</label>
 					<div class="col-md-8">
-						<textarea type="text" class="form-control input-lg" id="anggota" name="anggota" 
-						placeholder="Masukkan Anggota" required></textarea>
+						<textarea class="form-control input-lg" id="anggota" name="anggota" 
+						placeholder="Masukkan Anggota" required cols="115" rows="5">{!! old('anggota') !!}</textarea>
+						<p class="help-block">*contoh:</p>
+						<p class="help-block">1. Bambang</p>
+						<p class="help-block">2. Joko</p>
+						<p class="help-block">3. dll...</p>
 					</div>
 				</div>
 
@@ -148,7 +157,7 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="abstract" class="col-sm-2 control-label">Abstrak</label>
 					<div class="col-md-8">
-						<textarea class="form-control input-lg" id="abstract" name="abstract" placeholder=" Masukkan abstract" required cols="115" rows="5"></textarea>
+						<textarea class="form-control input-lg" id="abstract" name="abstract" placeholder=" Masukkan abstract" required cols="115" rows="5">{!! old('abstract') !!}</textarea>
 					</div>
 				</div>
 				
@@ -157,7 +166,7 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="background" class="col-sm-2 control-label">Background</label>
 					<div class="col-md-8">
-						<textarea id="background" class="form-control input-lg" name="background" placeholder=" Masukkan background" required cols="115" rows="5"></textarea>
+						<textarea id="background" class="form-control input-lg" name="background" placeholder=" Masukkan background" required cols="115" rows="5">{!! old('background') !!}</textarea>
 					</div>
 				</div>
 
@@ -165,14 +174,14 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="objective" class="col-sm-2 control-label">Objective</label>
 					<div class="col-md-8">
-						<textarea id="objective" class="form-control input-lg" name="objective" placeholder=" Masukkan objective" required cols="115" rows="5"></textarea>
+						<textarea id="objective" class="form-control input-lg" name="objective" placeholder=" Masukkan objective" required cols="115" rows="5">{!! old('objective') !!}</textarea>
 					</div>
 				</div>
 				<!-- Menampilkan textarea -->
 				<div class="form-group">
 					<label for="methods" class="col-sm-2 control-label">Methods</label>
 					<div class="col-md-8">
-						<textarea id="methods" class="form-control input-lg" name="methods" placeholder=" Masukkan methods" required cols="115" rows="5"></textarea>
+						<textarea id="methods" class="form-control input-lg" name="methods" placeholder=" Masukkan methods" required cols="115" rows="5">{!! old('methods') !!}</textarea>
 					</div>
 				</div>
 
@@ -180,7 +189,7 @@ Tambah Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="results" class="col-sm-2 control-label">Results</label>
 					<div class="col-md-8">
-						<textarea id="results" class="form-control input-lg" name="results" placeholder=" Masukkan results" required cols="115" rows="5"></textarea>
+						<textarea id="results" class="form-control input-lg" name="results" placeholder=" Masukkan results" required cols="115" rows="5">{!! old('results') !!}</textarea>
 					</div>
 				</div>
 

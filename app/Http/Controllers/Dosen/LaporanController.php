@@ -240,6 +240,7 @@ class LaporanController extends Controller
         $pdf = PDF::loadView('dosen.laporan.cetak',  $data );
         return $pdf->inline('Laporan.pdf');
 
+
     }
 
     public function pilih()

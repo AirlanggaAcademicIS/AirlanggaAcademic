@@ -58,6 +58,8 @@ Monitoring Skripsi
       <th style="text-align:center">NIM</th>
       <th style="text-align:center">KBK</th>
       <th style="text-align:center">Judul</th>
+      <th style="text-align:center">Mulai Pengerjaan</th>
+      <th style="text-align:center">Selesai</th>
     </tr>
     </thead>
   <tbody>
@@ -68,6 +70,20 @@ Monitoring Skripsi
       <td width="15%" style="text-align:center">{{$dos->nim_id}}</td>
       <td width="15%" style="text-align:center">{{$skripsi->kbk['jenis_kbk']}}</td>
       <td width="15%" style="text-align:center">{{$dos->Judul}}</td>
+      <td width="15%" style="text-align:center">
+      @if($dos->tgl_sidangpro==null)
+      Belum
+      @else
+      {{$dos->tgl_sidangpro}}
+      @endif
+      </td>
+      <td width="15%" style="text-align:center">
+      @if($dos->tgl_sidangskrip==null)
+      Belum
+      @else
+      {{$dos->tgl_sidangskrip}}
+      @endif
+      </td>
     </tr>
      @empty
         <tr>

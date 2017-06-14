@@ -52,7 +52,7 @@ class SilabusController extends Controller
             'mata_kuliah' => Silabus_Matkul::all(),            
             // 'mk_prasyarat' => Silabus_Matkul_Prasyarat::all(),
             'atribut_softskill' => Silabus_Atribut_Softskill::all(),
-            // 'media_pembelajaran' => Silabus_Media_Pembelajaran::all(),            
+           // 'media_pembelajaran' => Silabus_Media_Pembelajaran::all(),            
             'metode_pembelajaran' => Silabus_Sistem_Pembelajaran::all(),                
             // 'status_team_teaching' => Status_Team_Teaching::all()
         ];
@@ -111,6 +111,7 @@ class SilabusController extends Controller
         $matkul->penilaian_matkul = $request->input('penilaian_matkul');
         $matkul->pustaka_utama = $request->input('pustaka_utama');        
         $matkul->deskripsi_mata_ajar = $request->input('deskripsi_mata_ajar');
+        $matkul->capaian_matkul = $request->input('capaian_matkul');
         $matkul->status_silabus = 1;
         $matkul->save();
 
@@ -124,10 +125,13 @@ class SilabusController extends Controller
 
     public function delete($id, Request $request)
     {
+        $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $id)->first();
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
         $mata_kuliah = Silabus_Matkul::find($id);
         $mksoftskill = Silabus_mk_softskill::where('mk_id', $id)->delete();
-        $cpmatkul = RPS_CP_Matkul::where('matakuliah_id', $id)->delete();
+
+        Silabus_detail_media::where('cpmk_id', '=' ,$cpmk->id_cpmk)->delete();
+        // $cpmatkul = RPS_CP_Matkul::where('matakuliah_id', $id)->delete();
         // $cpmatkul= Silabus_cp_matkul::where('matakuliah_id', $id)->get();
 
         // Menghapus biodata yang dicari tadi
@@ -206,6 +210,7 @@ class SilabusController extends Controller
         $matkul->penilaian_matkul = $request->input('penilaian_matkul');
         $matkul->pustaka_utama = $request->input('pustaka_utama');        
         $matkul->deskripsi_mata_ajar = $request->input('deskripsi_mata_ajar');
+        $matkul->capaian_matkul = $request->input('capaian_matkul');
         $matkul->status_silabus = 1;
         $matkul->save();
 
@@ -227,7 +232,11 @@ class SilabusController extends Controller
             'metode_pembelajaran' => Silabus_Sistem_Pembelajaran::all(),
             'mk_metode_pembelajaran' => Silabus_detail_media::where('cpmk_id', '=', $cpmk->id_cpmk)->get(),            
             'media_pembelajaran' => Silabus_Media_Pembelajaran::all(),
-            'mk_media_pembelajaran' => Silabus_detail_kategori::where('cpmk_id', '=', $cpmk->id_cpmk)->get()
+            'cp_matkul' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get(),               
+            'mk_media_pembelajaran' => Silabus_detail_kategori::all(),
+            'data_media' => DB::table('cp_mata_kuliah')->where('matakuliah_id', '=', $id)
+                        ->join('detail_kategori', 'cp_mata_kuliah.id_cpmk', '=', 'detail_kategori.cpmk_id')
+                        ->join('kategori_media_pembelajaran', 'detail_kategori.media_pembelajaran_id', '=', 'kategori_media_pembelajaran.id')->select('kategori_media_pembelajaran.media_pembelajaran', 'detail_kategori.media_pembelajaran_id')->groupBy('kategori_media_pembelajaran.media_pembelajaran', 'detail_kategori.media_pembelajaran_id')->get()                       
         ];
         $pdf = PDF::loadView('dosen.kurikulum.silabus.pdf-silabus', $data);
         return $pdf->download('silabus-mata-kuliah.pdf');
