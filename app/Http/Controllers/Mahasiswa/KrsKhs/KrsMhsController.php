@@ -28,7 +28,7 @@ class KrsMhsController extends Controller
 
     public function toPdf()
     {
-         $tahun = TahunAkademik::count();
+        $tahun = TahunAkademik::count();
         $nim_id  = Auth::user()->username;
         $sum     = DB::table('mk_diambil')
             ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','mk_diambil.mk_ditawarkan_id')
@@ -60,9 +60,6 @@ class KrsMhsController extends Controller
         'jenis_matkul' =>JenisMataKuliah::all(),
         'biodata_mhs' => BiodataMahasiswa::where('nim_id','=',$nim_id)->first(),
         'sum'  => $sum,
-            
-            
-            
         ];
         $pdf = PDF::loadView('mahasiswa.krs-khs.krs.cetak', $data);
         return $pdf->inline('KRS_akademik.pdf');
