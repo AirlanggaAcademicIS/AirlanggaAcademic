@@ -154,15 +154,7 @@ return [
         Barryvdh\Snappy\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
-        
-<<<<<<< HEAD
-
-=======
->>>>>>> eb2c5a82ba6c3e8e6d45febfcddef05ebed75a7d
-
         Maatwebsite\Excel\ExcelServiceProvider::class,
-
-
     ],
     /*
     |--------------------------------------------------------------------------
@@ -215,7 +207,4 @@ return [
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
     ],
-
-
 ];
-

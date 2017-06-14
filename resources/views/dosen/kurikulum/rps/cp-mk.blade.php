@@ -144,7 +144,7 @@ Rencana Pembelajaran Semester
         success: function (data) 
         {
           var htmlStr;
-            htmlStr += '<thead> <tr> <th>No</th> <th>Kode CP MK</th> <th>Deskripsi CP MK</th> <th>Mata Kuliah</th> <th>Media Pembelajaran</th> </thead>';
+          htmlStr += '<thead> <tr> <th>No</th> <th>Kode CP MK</th> <th>Deskripsi CP MK</th> <th>Mata Kuliah</th> <th>Media Pembelajaran</th> </thead>';
           $.each(data.dataMatkul, function(k, v){
             var no = k+1;
             // htmlStr += v.kode_cpmk + ' ' + v.id + '<br />';
