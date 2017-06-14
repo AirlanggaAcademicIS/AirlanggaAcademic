@@ -193,9 +193,11 @@ class AssetController extends Controller
     public function printLocationReport (Request $request)
     {
         $report = Asset::where('lokasi_id', $request->input('lokasi'))->get(); //memanggil data asset sesuai dengan lokasi
+        $lokasi =  $request->input('lokasi');
 
         $data = [
-            'report' => $report //data asset di parse dengan alias 'report'
+            'report' => $report, //data asset di parse dengan alias 'report'
+            'lokasi' => $lokasi,
         ];
 
         $pdf = PDF::loadView('karyawan.inventaris.asset.report',$data); //mencetak report dengan template report.blade.php dengan data $report

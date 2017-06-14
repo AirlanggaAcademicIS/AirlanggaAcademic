@@ -194,7 +194,7 @@ Verifikasi Penelitian Mahasiswa
         <div class="form-group">
                 <label for="ps_is_verified" class="col-sm-2 control-label">Status Verifikasi</label>
                 <div class="col-md-8">
-                <select name="ps_is_verified" class="form-control select2" value= "{{$penelitian->is_verified}}" required>
+                <select name="is_verified" class="form-control select2" value= "{{$penelitian->is_verified}}" required>
                 @if (($penelitian->is_verified)=='1')
                   <option selected="selected" value="1">Diterima</option>
                   <option value="2">Ditolak</option>

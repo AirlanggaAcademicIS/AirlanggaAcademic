@@ -62,11 +62,11 @@ Prestasi
          <img src="{{URL::asset('/img/prestasi/'.$bio->file_prestasi)}}" height="100px" width="100px" hspace="5px" vspace="2px" alt="gambar" style="border:2px solid gray" class="img-rounded" >
       </td>
       @if (($bio->ps_is_verified)==0)
-      <td width="10%" style="text-align:center">Process</td>
+      <td width="10%" style="text-align:center"><span class="label label-warning">Process</span></td>
       @elseif (($bio->ps_is_verified)==1)
-      <td width="10%" style="text-align:center">Approved</td>
+      <td width="10%" style="text-align:center"><span class="label label-success">Approved</span></td>
       @else
-      <td width="10%" style="text-align:center">Rejected</td>
+      <td width="10%" style="text-align:center"><span class="label label-danger">Rejected</span> Alasan : {{$bio->alasan_verified}}</td>
       @endif
       
       <td width="10%" style="text-align:center">{{$bio->skor}}</td>

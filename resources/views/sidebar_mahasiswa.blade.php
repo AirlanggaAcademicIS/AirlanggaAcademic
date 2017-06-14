@@ -1,29 +1,4 @@
 <li
-  @if($page == 'histori')
-  {!! 'claass="active"'!!}
-  @endif
->
-<a href="{{url('mahasiswa/krs-khs/histori/view')}}"><i class='fa fa-users'></i><span>Histori Nilai</span>
-</a>
-</li>
-
-<li
-  @if($page == 'khs')
-  {!! 'claass="active"'!!}
-  @endif
->
-<a href="{{url('mahasiswa/krs-khs/khs/view')}}"><i class='fa fa-users'></i><span>Kartu Hasil Studi</span>
-</a>
-</li>
-
-<li
-  @if($page == 'krs')
-  {!! 'class="active"'!!}
-  @endif
->
-<a href="{{ url('mahasiswa/krs-khs/krs/index') }}"><i class="fa fa-calculator"></i>Krs</a>
-</li>
-<li
 
 @if($page == 'biodata-mahasiswa')
 {!! 'class="active"'!!}
@@ -53,12 +28,44 @@
 >
 <a href="{{ url('mahasiswa/ganti-password') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Ubah Password</a>
 </li>
+<li class="treeview">
 
-<li class="
-@if($page == 'download-dokumen' || 'kalender-ruang' || 'memohon-ruangan' || 'surat-masuk' || 'surat-keluar-mhs')
+    <a href=""><i class='fa fa-user'></i> <span>KRS & KHS</span></a>
+    <ul class="treeview-menu">
+<li
+  @if($page == 'histori')
+  {!! 'claass="active"'!!}
+  @endif
+>
+<a href="{{url('mahasiswa/krs-khs/histori/view')}}"><i class='fa fa-users'></i><span>Histori Nilai</span>
+</a>
+</li>
+
+<li
+  @if($page == 'khs')
+  {!! 'claass="active"'!!}
+  @endif
+>
+<a href="{{url('mahasiswa/krs-khs/khs/view')}}"><i class='fa fa-users'></i><span>Kartu Hasil Studi</span>
+</a>
+</li>
+
+<li
+  @if($page == 'krs')
+  {!! 'class="active"'!!}
+  @endif
+>
+<a href="{{ url('mahasiswa/krs-khs/krs/index') }}"><i class="fa fa-calculator"></i>Krs</a>
+</li>
+</ul>
+</li>
+<li class="treeview"
+@if($page == 'download-dokumen' || $page =='kalender-ruang' || $page == 'memohon-ruangan' || $page == 'surat-masuk' || $page == 'surat-keluar-mhs')
 {!! 'active' !!}
 @endif
-treeview">
+
+>
+
     <a href=""><i class='fa fa-user'></i> <span>Layanan Akademik</span></a>
     <ul class="treeview-menu">
 
@@ -105,4 +112,7 @@ treeview">
 
     </li>
 </ul>
+</li>
+<li> 
+<a href="{{ url('/inventaris/mahasiswa/asset') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Inventaris</a> 
 </li>

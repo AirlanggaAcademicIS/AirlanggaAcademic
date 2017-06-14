@@ -1,4 +1,3 @@
-
 <li class="
 @if($page == 'download-dokumen' || 'kalender-ruang' || 'memohon-ruangan' || 'surat-masuk' || 'surat-keluar-dosen')
 {!! 'active' !!}
@@ -49,4 +48,7 @@ treeview">
 
 		</li>
 	</ul>
+</li>
+<li> 
+<a href="{{ url('/inventaris/dosen/asset') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Inventaris</a> 
 </li>

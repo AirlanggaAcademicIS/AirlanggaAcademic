@@ -94,9 +94,9 @@ Asset
         @elseif($ass->lokasi_id == 4) 
         <td width="20%" style="text-align:center">Labkom 4</td>
         @elseif($ass->lokasi_id == 5) 
-        <td width="20%" style="text-align:center">Labkom 5</td>
+        <td width="20%" style="text-align:center">R.Dosen SI</td>
         @elseif($ass->lokasi_id == 6) 
-        <td width="20%" style="text-align:center">Labkom 6</td>
+        <td width="20%" style="text-align:center">Departemen SI</td>
       @endif
 
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus asset ini?');" href="{{url('inventaris/asset/'.$ass->id_asset.'/delete/')}}" class="btn btn-danger btn-xs">

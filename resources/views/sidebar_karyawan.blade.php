@@ -24,11 +24,11 @@
 <a href="{{ url('karyawan/verifikasi') }}"><i class="fa fa-book" aria-hidden="true"></i>Verifikasi Mahasiswa</a>
 </li>
 
-<li class="
+<li class="treeview"
 @if($page == 'upload-dokumen' || 'konfirmasi-ruang' || 'history-ruang' || 'hardcopy' || 'surat-masuk' || 'surat-keluar-mhs' || 'surat-keluar-dosen' || 'akun-karyawan') 
 {!! 'active' !!} 
 @endif 
-treeview">
+>
     <a href=""><i class='fa fa-user'></i> <span>Layanan Akademik</span></a>
     <ul class="treeview-menu">
 
@@ -112,4 +112,13 @@ treeview">
     <a href="{{ url('karyawan/pla/karyawan') }}"><i class='fa fa-user'></i> <span>Akun Karyawan</span></a>
     </li>
     </ul>
+</li>
+<li> 
+<a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Inventaris</a> 
+<ul class="treeview-menu"> 
+    <!-- Sidebarnya ditaruh dibawah sini --> 
+        <li><a href={{url('/inventaris/asset')}}>all asset</a></li> 
+        <li><a href="<?php echo e(url('/inventaris/index-peminjaman')); ?>">peminjaman</a></li> 
+        <li><a href="<?php echo e(url('/index-maintenance')); ?>">maintenance</a></li> 
+    </ul> 
 </li>

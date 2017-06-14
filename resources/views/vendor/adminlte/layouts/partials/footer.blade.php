@@ -1,6 +1,6 @@
 <!-- Main Footer -->
 <footer class="main-footer">
     <div class="pull-left hidden-xs">
-		<p>Copyright (c) AIRLANGGA ACADEMIC 2017. Powered by <a style="color: red" href="#e74c3c">S1 Sistem Informasi UNAIR 2014</a></p>    
+		<p>&copy; Copyright AIRLANGGA ACADEMIC 2017, SBY. Powered by <a style="color: red" href="#e74c3c">S1 Sistem Informasi UNAIR 2014</a>. Made with <i class="fa fa-heart" aria-hidden="true"></i></p>  
     </div>   
 </footer>

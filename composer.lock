@@ -5,7 +5,7 @@
         "This file is @generated automatically"
     ],
     "hash": "d5311f1829fd7bc12e6ec6f14a5a7827",
-    "content-hash": "916c273503e12f8e9d65ad0edec83dad",
+    "content-hash": "bec412ec53935ecd61c2cd59b45e8ea6",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",

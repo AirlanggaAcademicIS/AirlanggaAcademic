@@ -45,7 +45,7 @@ Penelitian Mahasiswa
       <th style="text-align:center">Skor</th>
       <th style="text-align:center">Tahun Penelitian</th>
       <th style="text-align:center">Status</th>
-      <th style="text-align:center"></th>
+      <th style="text-align:center">Action</th>
     </tr>
     </thead>
 
@@ -71,7 +71,7 @@ Penelitian Mahasiswa
       @elseif (($bio->is_verified)==1)
       <td width="10%" style="text-align:center"><span class="label label-success">Approved</span></td>
       @else
-      <td width="10%" style="text-align:center"><span class="label label-danger">Rejected</span></td>
+      <td width="10%" style="text-align:center"><span class="label label-danger">Rejected</span>, alasan : {{$bio->alasan_verified}}</td>
       @endif
 
        @if (($bio->is_verified)==0)

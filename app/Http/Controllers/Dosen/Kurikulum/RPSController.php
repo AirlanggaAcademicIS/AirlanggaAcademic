@@ -58,6 +58,22 @@ class RPSController extends Controller
         return view('dosen.kurikulum.rps.cp-mk',$data);
     }
 
+    public function cp_mkGetId(Request $request)
+    {   
+        $id = $request->id;
+        $data = DB::table('mata_kuliah')
+        ->where('id_mk', '=', $id)
+        ->join('cp_mata_kuliah', 'cp_mata_kuliah.matakuliah_id', '=', 'mata_kuliah.id_mk')
+        ->join('detail_kategori', 'cp_mata_kuliah.id_cpmk', '=', 'detail_kategori.cpmk_id')
+        ->join('kategori_media_pembelajaran', 'kategori_media_pembelajaran.id', '=', 'detail_kategori.media_pembelajaran_id')        
+        ->select('*')
+        ->get();
+        return response()->json([
+                'success' => true,
+                'dataMatkul' => $data
+            ]);  
+    }
+
     public function cpmk($id)
     {
         $data = [
@@ -78,7 +94,7 @@ class RPSController extends Controller
         return view('dosen.kurikulum.rps.cpmk',$data);
     }
 
-     public function cpmkAction(Request $request)
+    public function cpmkAction(Request $request)
     { 
         $matkul = $request->input('matkul');
         $cpmk = RPS_CP_Matkul::create([
