@@ -81,7 +81,7 @@ class HasilSidangController extends Controller
          $data = array('page'=> 'hasil-sidang-skripsi',
                      'hasil_sidang_skripsi'=>$final_result
                );
-         return view('mahasiswa.monitoring-skripsi.hasil-sidang.skripsi',$data);
+         return view('dosen.monitoring-skripsi.hasil-sidang.skripsi',$data);
    }
 
    public function view_hasil_sidang_proposal_dosen()
@@ -95,7 +95,7 @@ class HasilSidangController extends Controller
             ->leftJoin('ruang','skripsi.tempat_sidangpro','=','ruang.id_ruang')
             ->leftJoin('dosen_penguji','dosen_penguji.skripsi_id','=','skripsi.id_skripsi')
             ->leftJoin('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
-            ->leftJoin('status_skripsi','status_skripsi.id','=','skripsi.statusskrip_id')
+            ->leftJoin('status_skripsi','status_skripsi.id','=','skripsi.statusprop_id')
             ->select('skripsi.id_skripsi','biodata_mhs.nama_mhs', 'skripsi.NIM_id','skripsi.nilai_sidangpro' ,'kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangpro', 'skripsi.waktu_sidangpro', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang','dosen_penguji.nip_id as dosji','status_skripsi.keterangan')
             // ->whereNull('skripsi.deleted_at')
             // // ->where('NIM_id','=',$nim)
@@ -147,7 +147,7 @@ class HasilSidangController extends Controller
 
       //$data = array('page' => 'hasil-sidang-proposal');
 
-      return view('mahasiswa.monitoring-skripsi.hasil-sidang.proposal',$data);
+      return view('dosen.monitoring-skripsi.hasil-sidang.proposal',$data);
    }
    
 
