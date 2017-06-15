@@ -27,13 +27,13 @@ History Peminjam Ruangan
   @endforeach
 </div>
 
-<div style="overflow: auto">
+<div style="padding:10px">
 <table id="data-table" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
       <th style="text-align:center">Nama Petugas</th>      
-      <th style="text-align:center">Nama</th>
+      <th style="text-align:center">Perihal</th>
       <th style="text-align:center">NIM/NIP Peminjam</th>
       <th style="text-align:center">Ruang</th>
       <th style="text-align:center">Tanggal Peminjam</th>

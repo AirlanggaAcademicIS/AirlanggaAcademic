@@ -16,16 +16,14 @@
 <br>___________________________________________________________________________________________________________
 <b></b>
 <p>
-@foreach($tahun as $i=>$thn)
-<center><u>KARTU HASIL STUDI TAHUN AKADEMIK {{$thn->semester_periode}} </u></center>
+<center><u>KARTU HASIL STUDI TAHUN AKADEMIK {{$tahun->semester_periode}} </u></center>
 <br>
-@endforeach
 </p>
 <table style="font-family: arial">
 <tbody>
 <td>NIM</td>   <td> : {{$biodata_mhs->nim_id}} </td>
 <tr><td>Nama Mahasiswa</td> <td> : {{$biodata_mhs->nama_mhs}}</td></tr>
-<tr><td>Dosen Wali<td></tr>
+<tr><td>Dosen Wali</td> <td> : {{$doswal->nama_dosen}} </td></tr>
 </tbody>
 </table>
 <br>
@@ -33,15 +31,17 @@
  
      <thead style="background-color: #000000">
          <th width="5%" style="text-align:center; color: #ffffff ">NO.</th>
+         <th width="5%" style="text-align:center; color: #ffffff ">KODE MK</th>
          <th width="50%" style="text-align:center; color: #ffffff ">NAMA MATA AJAR</th>
-         <th width="15%" style="text-align:center; color: #ffffff ">SKS</th>
+         <th width="10%" style="text-align:center; color: #ffffff ">SKS</th>
          <th width="15%" style="text-align:center; color: #ffffff ">NILAI</th>
-         <th width="15%" style="text-align:center; color: #ffffff ">BOBOT</th>
+         <th width="10%" style="text-align:center; color: #ffffff ">BOBOT</th>
     </thead>
     <tbody>
     @foreach($khs as $i => $k)
     <tr style="border: 1px solid black">
         <td style="text-align:center; border: 1px solid black">{{$i+1}}</td>
+        <td style="text-align:center; border: 1px solid black">{{$k->MKDitawarkan->MK->kode_matkul}}</td>
         <td style="text-align:center; border: 1px solid black">{{$k->MKDitawarkan->MK->nama_matkul}}</td>
         <td style="text-align:center; border: 1px solid black">{{$k->MKDitawarkan->MK->sks}}</td>
         <td style="text-align:center; border: 1px solid black">{{$k->nilai}}</td> 
@@ -56,53 +56,65 @@
           @php
           $total = $total + (4 * $k->MKDitawarkan->MK->sks)
           @endphp
-          <td width="15%" style="text-align:center">{{4 * $k->MKDitawarkan->MK->sks}} </td>
+          <td width="15%" style="text-align:center; border:">{{4 * $k->MKDitawarkan->MK->sks}} </td>
           @elseif($k->nilai=="AB")
           @php
           $total = $total + (3.5 * $k->MKDitawarkan->MK->sks)
           @endphp
-          <td width="15%" style="text-align:center">{{3.5 * $k->MKDitawarkan->MK->sks}} </td>
+          <td width="15%" style="text-align:center; border:">{{3.5 * $k->MKDitawarkan->MK->sks}} </td>
           @elseif($k->nilai=="B")
           @php
           $total = $total + (3 * $k->MKDitawarkan->MK->sks)
           @endphp
-          <td width="15%" style="text-align:center">{{3 * $k->MKDitawarkan->MK->sks}} </td>
+          <td width="15%" style="text-align:center; border:">{{3 * $k->MKDitawarkan->MK->sks}} </td>
           @elseif($k->nilai=="BC")
           @php
           $total = $total + (2.5 * $k->MKDitawarkan->MK->sks)
           @endphp
-          <td width="15%" style="text-align:center">{{2.5 * $k->MKDitawarkan->MK->sks}} </td>
+          <td width="15%" style="text-align:center; border:">{{2.5 * $k->MKDitawarkan->MK->sks}} </td>
           @elseif($k->nilai=="C")
           @php
           $total = $total + (2 * $k->MKDitawarkan->MK->sks)
           @endphp
-          <td width="15%" style="text-align:center">{{2 * $k->MKDitawarkan->MK->sks}} </td>
+          <td width="15%" style="text-align:center; border:">{{2 * $k->MKDitawarkan->MK->sks}} </td>
           @elseif($k->nilai=="D")
           @php
           $total = $total + (1 * $k->MKDitawarkan->MK->sks)
           @endphp
-          <td width="15%" style="text-align:center">{{1 * $k->MKDitawarkan->MK->sks}} </td>
+          <td width="15%" style="text-align:center; border:">{{1 * $k->MKDitawarkan->MK->sks}} </td>
           @else
           @php
           $total = $total + (0 * $k->MKDitawarkan->MK->sks)
           @endphp
-          <td width="15%" style="text-align:center">0</td>
+          <td width="15%" style="text-align:center; border:">0</td>
           @endif  
         @endforeach
         </tr>
   </tbody>
   <tfoot>
     <td width="5%" style="text-align:center"></td>
-    <td width="50%" style="text-align:right;">Total SKS dan Bobot &nbsp; </td>
+    <td width="50%" style="text-align:center: 1px solid black;"></td>
+    <td width="15%" style="text-align:right;">Total SKS dan Bobot &nbsp; </td>
     <td width="15%" style="text-align:center; border: 1px solid black;">{{$sks}}</td>
     <td width="15%" style="text-align:center;"></td>
     <td width="15%" style="text-align:center; border: 1px solid black;">{{$total}}</td>
+    <td width="15%" style="text-align:center;border: 1px solid black;"></td>
 <tr>
     <td width="5%" style="text-align:center;border-top: 1px solid black;"></td>
-    <td width="50%" style="text-align:right;border-top: 1px solid black;">Indeks Prestasi Semester &nbsp; </td>
+    <td width="50%" style="text-align:center;border-top: 1px solid black;"></td>
+    <td width="15%" style="text-align:right;border-top: 1px solid black;">Indeks Prestasi Semester &nbsp; </td>
     <td width="15%" style="text-align:center;border: 1px solid black;"></td>
     <td width="15%" style="text-align:center;border: 1px solid black;">{{$total / $sks}}</td>
     <td width="15%" style="text-align:center;border: 1px solid black;"></td>
+</tr>
+<tr>
+    <td width="5%" style="text-align:center;border-top: 1px solid black;"></td>
+    <td width="50%" style="text-align: 1px solid black;"></td>
+    <td width="15%" style="text-align:right;border-top: 1px solid black;">SKS maksimal yang boleh diambil semester depan  &nbsp; </td>
+    <td width="15%" style="text-align: 1px solid black;"></td>
+    <td width="15%" style="text-align:center: 1px solid black;">{{$total / $sks}}</td>
+    <td width="15%" style="text-align: 1px solid black;"></td>
+    
 </tr>
   </tfoot>
 </table>
@@ -122,6 +134,11 @@ echo date("j")." ".$bulan[date("n")]." ".date("Y");
 @endphp
 </div>
 <div style="text-align: right;margin-right: 220px;">Dosen Wali</div>
+</br>
+</br>
+</br>
+<div style="text-align: right;margin-right: 230px;">{{$doswal->nama_dosen}}</div>
+<div style="text-align: right;margin-right: 200px;">{{$doswal->nip}}</div>
 <br>Lembar :
 <div style="font-family: arial;margin-left: 30px">&nbsp; 1. Untuk mahasiswa
 <br>&nbsp; 2. Untuk dosen wali

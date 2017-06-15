@@ -41,11 +41,19 @@ Detail Nilai
     </thead>
   <tbody>
     <tr>
+    @if($detail_uts=="")
+      <td width="15%" style="text-align:center">0</td> 
+      <td width="15%" style="text-align:center">0</td>
+      <td width="15%" style="text-align:center">0</td>
+      <td width="15%" style="text-align:center">0</td>
+      <td width="15%" style="text-align:center">0</td>
+    @else
       <td width="15%" style="text-align:center">{{$detail_uts->detail_nilai}}</td> 
       <td width="15%" style="text-align:center">{{$detail_uas->detail_nilai}}</td>
       <td width="15%" style="text-align:center">{{$detail_softskill->detail_nilai}}</td>
       <td width="15%" style="text-align:center">{{$detail_kuis->detail_nilai}}</td>
       <td width="15%" style="text-align:center">{{$detail_tugas->detail_nilai}}</td>
+    @endif
     </tr>
   </tbody>
 </table>

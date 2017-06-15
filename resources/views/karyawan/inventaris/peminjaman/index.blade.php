@@ -90,7 +90,7 @@ Peminjaman Inventaris
 
 @section('code-footer')
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+<script type="text/javascript" src="whttps://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $('#myTable1').DataTable();

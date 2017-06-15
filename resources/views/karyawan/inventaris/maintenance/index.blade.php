@@ -48,7 +48,7 @@ Maintenance
       <td width="20%" style="text-align:center">{{$main->nip_petugas_id}}</td>
       <td width="20%" style="text-align:center">{{$main->asset_yang_dimaintenance}}</td>
       <td width="10%" style="text-align:center">{{$main->nama_pemaintenance}}</td>
-      <td width="10%" style="text-align:center">{{$main->waktu_maintenance}}</td>
+      <td width="10%" style="text-align:center">{{ App\Helpers\GeneralHelper::indonesianDateFormat( $main->waktu_maintenance) }}</td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus data ini?');" href="{{url('/inventaris/maintenance/'.$main->id_maintenance.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
 
