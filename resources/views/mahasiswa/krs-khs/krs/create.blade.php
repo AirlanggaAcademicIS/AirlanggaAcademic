@@ -26,27 +26,6 @@ Input Krs
   @endif
   @endforeach
 </div>
-<<<<<<< HEAD
-=======
-<!-- <form action="{{url('mahasiswa/krskhs/krs/create')}}" method="get">
-<div class="col-md-3" style="padding: 0;">
-<div style="overflow: auto">
-  <select class="form-control" id="periode" name="periode">
-      <option>Tahun Akademik</option>
-      @foreach($tahun as $t) 
-      <option value ="{{$t->id_thn_akademik}}">{{$t->semester_periode}}</option>
-      @endforeach
-  </select>
-            <button class="btn btn-info" type="submit">Pilih</button>
-</div>
-</div>
-</form>
->>>>>>> 840284dd013a8a94d2a56e923e857d6068745028
-<style>
-  .form-group label{
-    text-align: left !important;
-  }
-</style> -->
   <!-- Ini buat menampilkan notifikasi -->
   <div class="row">
     <div class="col-md-12">
@@ -78,32 +57,13 @@ Input Krs
                   <th style="text-align:center">Kode Mk</th>
                   <th style="text-align:center">Nama MK</th>
                   <th style="text-align:center">SKS</th>
+                  <th style="text-align:center">Jam</th>
+                  <th style="text-align:center">Hari</th>
                   <th style="text-align:center">Syarat SKS</th>
                   <th style="text-align:center">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-
-                @if($cek == "")
-                @forelse($maba as $i => $m) 
-                  <tr>
-                    <td>{{ $i+1 }}</td>
-                    <td width="20%" style="text-align:center">{{$m->jenis_mk}}</td>
-                    <td width="10%" style="text-align:center">{{$m->kode_matkul}}</td>
-                    <td width="20%" style="text-align:center">{{$m->nama_matkul}}</td>
-                    <td width="15%" style="text-align:center">{{$m->sks}}</td>
-                    <td width="25%" style="text-align:center">{{$m->syarat_sks}}</td>
-                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk mengambil mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/create/'.$m->id_mk_ditawarkan)}}" class="btn btn-success btn-xs">
-                      <i class="glyphicon glyphicon-book"></i> Take</a>
-                      </td>
-                  </tr>
-                   @empty
-                      <tr>
-                        <td colspan="6"><center>Belum ada mata kuliah</center></td>
-                      </tr>
-                  @endforelse
-
-                @else
                  @forelse($krs as $i => $d) 
                   <tr>
                     <td>{{ $i+1 }}</td>
@@ -111,9 +71,11 @@ Input Krs
                     <td width="10%" style="text-align:center">{{$d->kode_matkul}}</td>
                     <td width="20%" style="text-align:center">{{$d->nama_matkul}}</td>
                     <td width="15%" style="text-align:center">{{$d->sks}}</td>
+                    <td width="10%" style="text-align:center">{{$d->id_jam}}</td>
+                    <td width="10%" style="text-align:center">{{$d->nama_hari}}</td>
                     <td width="25%" style="text-align:center">{{$d->syarat_sks}}</td>
                     <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk mengambil mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/create/'.$d->id_mk_ditawarkan)}}" class="btn btn-success btn-xs">
-                      <i class="glyphicon glyphicon-book"></i> Take</a>
+                      <i class="glyphicon glyphicon-book"></i> Ambil</a>
                       </td>
                   </tr>
                    @empty
@@ -121,7 +83,6 @@ Input Krs
                         <td colspan="6"><center>Belum ada mata kuliah</center></td>
                       </tr>
                   @endforelse
-                  @endif
                 </tbody>
               </table>
               </div>
@@ -130,6 +91,7 @@ Input Krs
               <h3>Lihat Krs</h3>
               <div style="overflow: auto">
                 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+                <a href="{{url('mahasiswa/krs-khs/krs/cetak')}}" type="button" class="btn btn-info btn-flat" style="margin-bottom: 10px;">CETAK</a>
                 <thead>
                   <tr>
                   <th style="text-align:center">No.</th>
@@ -143,7 +105,7 @@ Input Krs
                 <tbody>
                  @forelse($app as $j => $s) 
                   <tr>
-                    <td width="5%">{{ $j+1 }}</td>
+                    <td>{{ $j+1 }}</td>
                     <td width="10%" style="text-align:center">{{$s->kode_matkul}}</td>
                     <td width="20%" style="text-align:center">{{$s->nama_matkul}}</td>
                     <td width="15%" style="text-align:center">{{$s->sks}}</td>
@@ -152,7 +114,7 @@ Input Krs
                     @else
                     <td width="15%" style="text-align:center">Approved</td>
                     @endif
-                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus pilihan mata kuliah ini?');" href="{{url('/mahasiswa/krskhs/krs/delete/'.$s->mk_ditawarkan_id)}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
+                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus pilihan mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/'.$s->mk_ditawarkan_id.'/delete/')}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
                       </td>
                   </tr>
                    @empty
@@ -166,7 +128,7 @@ Input Krs
             </div>
             <div>
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">Total SKS :  </h3></h3>
-                <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$sum}}</h3></h3>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$sks_diambil}}</h3></h3>
                 <br>
             </div>
             <div>
@@ -174,9 +136,13 @@ Input Krs
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$ips}}</h3></h3>
                 <br>
             </div>
-            <div>
+            <!-- <div>
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">Limit SKS :  </h3></h3>
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$limitSks}}</h3></h3>
+            </div> -->
+            <div>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">Sisa SKS :  </h3></h3>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$limitSisa}}</h3></h3>
             </div>
             </div>
             </div>

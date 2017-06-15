@@ -55,7 +55,7 @@ Upload Dokumen
 </div>
 </form>
 
-<div style="overflow: auto">
+<div style="padding:10px">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>

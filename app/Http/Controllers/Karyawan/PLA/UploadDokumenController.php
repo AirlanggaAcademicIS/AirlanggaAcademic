@@ -23,7 +23,7 @@ class UploadDokumenController extends Controller
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'dokumen',
+            'page' => 'upload-dokumen',
             'dokumen' => Dokumen::orderBy('tgl_upload','desc')->get()
         ];
 

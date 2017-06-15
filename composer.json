@@ -15,7 +15,6 @@
         "maddhatter/laravel-fullcalendar": "^1.2",
         "maatwebsite/excel": "~2.1.0",
         "milon/barcode": "^5.3"
-
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

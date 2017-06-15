@@ -18,7 +18,7 @@ Nama konten
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
-<h3>Laporan Kinerja Dosen 2016/2017 Genap</h3>
+<h3>Laporan Kinerja Dosen {{$semester}} {{$thn}}</h3>
 <div style="overflow: auto">
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   
@@ -57,22 +57,20 @@ Nama konten
    
     <tr>
       @foreach($jurnal as $i => $j)
-      @if($j->jurnal['status_jurnal'] == 1)
+      @if($j->status_jurnal == 1)
       <td width="3%" style="text-align:center">{{$i+1}}</td>
-      <td width="%" style="text-align:center">{{$j->jurnal['nama_jurnal']}}</td>
-      <td width="%" style="text-align:center">{{$j->jurnal['halaman_jurnal']}}</td>
-      <td width="5%" style="text-align:center">{{$j->jurnal['bidang_jurnal']}}</td>
-      <td width="5%" style="text-align:center">{{$j->jurnal['volume_jurnal']}}</td>
-      <td width="%" style="text-align:center">{{$j->jurnal['penulis_ke']}}</td>
-      <td width="13%" style="text-align:center">{{$j->jurnal['tanggal_jurnal']}}</td>
-        </td>
-        @else
-        <tr>
-          <td colspan="7"><center>Belum ada data</center></td>
+      <td width="%" style="text-align:center">{{$j->nama_jurnal}}</td>
+      <td width="%" style="text-align:center">{{$j->halaman_jurnal}}</td>
+      <td width="%" style="text-align:center">{{$j->bidang_jurnal}}</td>
+      <td width="%" style="text-align:center">{{$j->volume_jurnal}}</td>
+      <td width="%" style="text-align:center">{{$j->penulis_ke}}</td>
+      <td width="13%" style="text-align:center">{{$j->tanggal_jurnal}}</td>
         </tr>
+       @else
+        
         @endif
         @endforeach
-    </tr>
+    
 
 
   </tbody>
@@ -94,20 +92,18 @@ Nama konten
    
     <tr>
       @foreach($penelitian as $i => $p)
-      @if($p->penelitian['status_penelitian'] == 1)
+      @if($p->status_penelitian == 1)
       <td width="3%" style="text-align:center">{{$i+1}}</td>
-      <td width="%" style="text-align:center">{{$p->penelitian['judul_penelitian']}}</td>
-      <td width="%" style="text-align:center">{{$p->penelitian['nama_ketua']}}</td>
-      <td width="%" style="text-align:center">{{$p->penelitian['bidang_penelitian']}}</td>
-      <td width="13%" style="text-align:center">{{$p->penelitian['tanggal_penelitian']}}</td>
-      </td>
+      <td width="%" style="text-align:center">{{$p->judul_penelitian}}</td>
+      <td width="%" style="text-align:center">{{$p->nama_ketua}}</td>
+      <td width="%" style="text-align:center">{{$p->bidang_penelitian}}</td>
+      <td width="13%" style="text-align:center">{{$p->tanggal_penelitian}}</td>
+      </tr>
       @else
-        <tr>
-          <td colspan="5"><center>Belum ada data</center></td>
-        </tr>
+        
       @endif
       @endforeach
-    </tr>
+    
   </tbody>
 </table>
 </div>
@@ -128,21 +124,19 @@ Nama konten
    
     <tr>
       @foreach($konferensi as $i => $k)
-      @if($k->konferensi['status_konferensi'] == 1)
+      @if($k->status_konferensi == 1)
       <td width="3%" style="text-align:center">{{$i+1}}</td>
-      <td width="%" style="text-align:center">{{$k->konferensi['nama_konferensi']}}</td>
-      <td width="%" style="text-align:center">{{$k->konferensi['pemapar_konferensi']}}</td>
-      <td width="%" style="text-align:center">{{$k->konferensi['tempat_konferensi']}}</td>
-      <td width="%" style="text-align:center">{{$k->konferensi['materi_konferensi']}}</td>
-      <td width="13%" style="text-align:center">{{$k->konferensi['tanggal_konferensi']}}</td>
-      </td>
+      <td width="%" style="text-align:center">{{$k->nama_konferensi}}</td>
+      <td width="%" style="text-align:center">{{$k->pemapar_konferensi}}</td>
+      <td width="%" style="text-align:center">{{$k->tempat_konferensi}}</td>
+      <td width="%" style="text-align:center">{{$k->materi_konferensi}}</td>
+      <td width="13%" style="text-align:center">{{$k->tanggal_konferensi}}</td>
+    </tr>
       @else
-        <tr>
-          <td colspan="6"><center>Belum ada data</center></td>
-        </tr>
+        
       @endif
       @endforeach
-    </tr>
+    
   </tbody>
 </table>
 </div>
@@ -161,19 +155,16 @@ Nama konten
    
     <tr>
       @foreach($pengmas as $i => $p2)
-      @if($p2->pengmas['status_pengmas'] == 1)
+      @if($p2->status_pengmas == 1)
       <td width="3%" style="text-align:center">{{$i+1}}</td>
-      <td width="42%" style="text-align:center">{{$p2->pengmas['nama_kegiatan']}}</td>
-      <td width="42%" style="text-align:center">{{$p2->pengmas['tempat_kegiatan']}}</td>
-      <td width="13%" style="text-align:center">{{$p2->pengmas['tanggal_kegiatan']}}</td>
-      </td>
-      @else
-        <tr>
-          <td colspan="4"><center>Belum ada data</center></td>
-        </tr>
+      <td width="42%" style="text-align:center">{{$p2->nama_kegiatan}}</td>
+      <td width="42%" style="text-align:center">{{$p2->tempat_kegiatan}}</td>
+      <td width="13%" style="text-align:center">{{$p2->tanggal_kegiatan}}</td>
+     </tr>     @else
+        
       @endif
       @endforeach
-    </tr>
+    
   </tbody>
 </table>
 </div>
@@ -193,9 +184,9 @@ Nama konten
     <tr>
       @foreach($stugas as $i => $s)
       <td width="3%" style="text-align:center">{{$i+1}}</td>
-      <td width="42%" style="text-align:center">{{$s->stugas['no_surat']}}</td>
-      <td width="42%" style="text-align:center">{{$s->stugas['keterangan_sk']}}</td>
-      <td width="13%" style="text-align:center">{{$s->stugas['tanggal_surat']}}</td>
+      <td width="42%" style="text-align:center">{{$s->no_surat}}</td>
+      <td width="42%" style="text-align:center">{{$s->keterangan_sk}}</td>
+      <td width="13%" style="text-align:center">{{$s->tanggal_surat}}</td>
       </td>
       @endforeach
     </tr>
@@ -203,7 +194,14 @@ Nama konten
 </table>
 </div>
 
-<a href="{{url('dosen/laporan/cetak')}}" class="btn btn-success btn-flat">Cetak</a>
+<form method="get" action="{{url('dosen/laporan/cetak')}}" enctype="multipart/form-data"  class="form-horizontal">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden"  id="tahun" name="tahun" value="{{$thn}}">
+                <input type="hidden"  id="tahun" name="semester" value="{{$semester}}">
+                <button type="submit" class="btn btn-primary btn-lg">
+              Cetak
+            </button>
+                </form>
 </body>
 
 

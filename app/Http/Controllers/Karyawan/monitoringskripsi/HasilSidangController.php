@@ -29,11 +29,13 @@ public function view_manage_hasil_sidang_proposal()
             ->leftJoin('ruang','skripsi.tempat_sidangpro','=','ruang.id_ruang')
             ->leftJoin('dosen_penguji','dosen_penguji.skripsi_id','=','skripsi.id_skripsi')
             ->leftJoin('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
-            ->leftJoin('status_skripsi','status_skripsi.id','=','skripsi.statusskrip_id')
+            ->leftJoin('status_skripsi','status_skripsi.id','=','skripsi.statusprop_id')
             ->select('skripsi.id_skripsi','biodata_mhs.nama_mhs', 'skripsi.NIM_id','skripsi.nilai_sidangpro' ,'kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangpro', 'skripsi.waktu_sidangpro', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang','dosen_penguji.nip_id as dosji','status_skripsi.keterangan')
             ->whereNull('skripsi.deleted_at')
 
             ->get();
+
+            $status_proposal = DB::table('status_skripsi')->get();
             
             $final_result = array();
 
@@ -63,7 +65,8 @@ public function view_manage_hasil_sidang_proposal()
          }
 
          $data = array('page'=> 'hasil-sidang-proposal',
-                     'hasil_sidang_proposal'=>$final_result
+                     'hasil_sidang_proposal'=>$final_result,
+                     'status_proposal'=>$status_proposal
                );
 
    	//$data = array('page' => 'hasil-sidang-proposal');
@@ -94,7 +97,7 @@ public function view_manage_hasil_sidang_proposal()
 
                $t = DB::table('skripsi')
             ->where('id_skripsi', $data['id_skripsi'])
-            ->update(['nilai_sidangskrip' => $data['nilai_sidang_skripsi']]);
+            ->update(['nilai_sidangskrip' => $data['nilai_sidang_skripsi'],'statusskrip_id'=>$data['status_skripsi']]);
 
                if($t){
                   $status_upload = 1;
@@ -119,7 +122,8 @@ public function view_manage_hasil_sidang_proposal()
 
                $t = DB::table('skripsi')
             ->where('id_skripsi', $data['id_skripsi'])
-            ->update(['nilai_sidangpro' => $data['nilai_sidang_proposal']]);
+            ->update(['nilai_sidangpro' => $data['nilai_sidang_proposal'],'statusprop_id'=>$data['status_proposal']]
+                     );
 
                if($t){
                   $status_upload = 1;
@@ -148,6 +152,8 @@ public function view_manage_hasil_sidang_proposal()
             ->whereNull('skripsi.deleted_at')
 
             ->get();
+
+            $status_skripsi = DB::table('status_skripsi')->get();
             
             $final_result = array();
 
@@ -177,7 +183,8 @@ public function view_manage_hasil_sidang_proposal()
          }
 
          $data = array('page'=> 'hasil-sidang-skripsi',
-                     'hasil_sidang_skripsi'=>$final_result
+                     'hasil_sidang_skripsi'=>$final_result,
+                     'status_skripsi'=>$status_skripsi
                );
          return view('karyawan.monitoring-skripsi.hasil-sidang.skripsi',$data);
       }   

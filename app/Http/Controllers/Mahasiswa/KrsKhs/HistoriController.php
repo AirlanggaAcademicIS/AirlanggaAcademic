@@ -45,47 +45,48 @@ class HistoriController extends Controller
     {
         $nim_id  = Auth::user()->username;
         $sum     = DB::table('mk_diambil')
-                ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
-                ->select('*')
-                ->sum('sks');
+            ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','mk_diambil.mk_ditawarkan_id')
+            ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_ditawarkan.matakuliah_id')
+            ->select('*')
+            ->where('mhs_id',$nim_id)
+            ->where('nilai','!=','k')
+            //->where('thn_akademik_id', $tahun)
+            ->sum('mata_kuliah.sks');
+        $nilai1  = DB::table('mk_diambil')
+            ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
+            ->select('mk_diambil.nilai')
+            ->where('mhs_id',$nim_id)
+            ->where('nilai','!=','k')
+            ->get(); 
+        $nilai   = 0;
+        $nilai_tmp = 0;
+        foreach($nilai1 as $n){
+            if ($n->nilai == "A")
+                $nilai_tmp = $nilai_tmp + 4;                
+            elseif ($n->nilai == "AB")
+                $nilai_tmp = $nilai_tmp + 3.5;
+            elseif ($n->nilai == "B")
+                $nilai_tmp = $nilai_tmp + 3;
+            elseif ($n->nilai == "BC")
+                $nilai_tmp = $nilai_tmp + 2.5;
+            elseif ($n->nilai == "C")
+                $nilai_tmp = $nilai_tmp + 2;
+            elseif ($n->nilai == "D")
+                $nilai_tmp = $nilai_tmp + 1;
+            elseif ($n->nilai == "E")
+                $nilai_tmp = $nilai_tmp + 0;
+            $nilai = $nilai_tmp;
+            }
+            $ipk = $nilai;
+            if ($sum != 0) {
+                $ipk = $nilai/$sum;
+            }
         $data = [
         'page' => 'histori',
-        'histori' => Histori::all(),
+        'histori' => Histori::where('mhs_id',$nim_id)->get(),
         'mk' => MK::all(),
-        'sum' => $sum,
+        'ipk' => $ipk,
         ];
         return view('mahasiswa.krs-khs.histori.index',$data);
     }
-
-    public function input(Request $request)
-    {
-        $data = $request->input('cek');
-        return view('.inventarisasset.input');
-    }
-
-     public function create(Request $request)
-    {
-        Ruang::create($request->input());
-
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Ruang berhasil ditambahkan');
-
-        // Kembali ke halaman krs-khs/ruang
-        return Redirect::to('ruang');
-    }
-
-    public function createAction(Request $request)
-    {
-        // Menginsertkan apa yang ada di form ke dalam tabel ruang
-        Ruang::create($request->input());
-
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Jam berhasil ditambahkan');
-
-        // Kembali ke halaman krs-khs/ruang
-        return Redirect::to('krs-khs/input-ruang');
-    }
-
-
-
 }

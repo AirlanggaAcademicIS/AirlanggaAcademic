@@ -66,10 +66,10 @@ Penelitian
       @endif
       @endif
         </td>
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus penelitian ini?');" href="{{url('/dosen/penelitian/'.$penelitian->penelitian_id.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="20%" style="text-align:center" > @if($penelitian->status_penelitian != 1) <a onclick="return confirm('Anda yakin untuk menghapus penelitian ini?');" href="{{url('/dosen/penelitian/'.$penelitian->penelitian_id.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/dosen/penelitian/'.$penelitian->penelitian_id.'/edit/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Edit</a>
+        <i class="fa fa-pencil-square-o"></i> Edit</a> @endif
         </td>
     </tr>
      @empty
