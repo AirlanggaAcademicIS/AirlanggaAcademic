@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-akunmahasiswa
+Kelola Akun Mahasiswa
 @endsection
 
 @section('contentheader_title')
-akunmahasiswa
+Kelola Akun Mahasiswa
 @endsection
 
 @section('main-content')

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
+use DB;
 // Tambahkan model yang ingin dipakai
 use App\Models\KrsKhs\JadwalKuliah;
 use App\Models\KrsKhs\MKDitawarkan;
@@ -26,11 +27,18 @@ class JadwalKuliahController extends Controller
     // Function untuk menampilkan tabel
     public function index()
     {
+        $tahun = TahunAkademik::count();
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar ruang
             'page' => 'jadwal',
             // Memanggil semua isi dari tabel ruang
-            'jadwal' => JadwalKuliah::all()
+            'jadwal' => DB::table('jadwal_kuliah')
+                            ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','jadwal_kuliah.mk_ditawarkan_id')
+                            ->join('mata_kuliah','mk_ditawarkan.matakuliah_id','=','mata_kuliah.id_mk')
+                            ->join('jam','jadwal_kuliah.jam_id','=','jam.id_jam')
+                            ->join('hari','hari.id_hari','=','jadwal_kuliah.hari_id')
+                            ->join('ruang','ruang.id_ruang','=','jadwal_kuliah.ruang_id')
+                            ->where('mk_ditawarkan.thn_akademik_id',$tahun)->get()
         ];
         // Memanggil tampilan index di folder krs-khs/ruang dan juga menambahkan $data tadi di view
         // dd($data);
@@ -51,26 +59,16 @@ class JadwalKuliahController extends Controller
 
              'jadwal4' =>MKDitawarkan::where('thn_akademik_id',$tahun)->get()
         ];
+        // dd($data['jadwal4']);
         // Memanggil tampilan form create
         return view('karyawan.krs-khs.jadwal_kuliah.create',$data);
     }
 
     public function createAction(Request $request){
-        // if($request->input('jam_id2')!=""){
-        //     JadwalKuliah::create($request->input());
-        //     JadwalKuliah::create(['mk_ditawarkan_id' => $request->input('mk_ditawarkan_id'),
-        //                     'jam_id' => $request->input('jam_id2'),
-        //                     'hari_id' => $request->input('hari_id'),
-        //                     'ruang_id' => $request->input('ruang_id')]);
-        // }
-        // else{
             JadwalKuliah::create($request->input()); 
-        // }
-
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Jadwal Kuliah berhasil ditambahkan');
 
-        // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/krs-khs/jadwal-kuliah/index');
     }
      

@@ -3,8 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Asset extends Model
 {
 	use SoftDeletes;
@@ -17,7 +17,7 @@ class Asset extends Model
 		'status_id',  
 		'serial_barcode',
 		'nama_asset',
-		'lokasi',
+		'lokasi_id',
 		'expired_date',
 		'nama_supplier',
 		'harga_satuan',

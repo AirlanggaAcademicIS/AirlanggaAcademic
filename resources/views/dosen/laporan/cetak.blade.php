@@ -16,17 +16,17 @@
 <br>___________________________________________________________________________________________________________
 <b></b>
 <p>
-<center><b><u>LAPORAN KINERJA DOSEN {{$tahun->semester_periode}} </u></center></b>
+<center><b><u>LAPORAN KINERJA DOSEN {{$semester}} {{$thn}} </u></center></b>
 <br>
 </p>
 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
   
     <tr>
-      <tr><td width="15%">Nama</td><td>{{$biodata->nama_dosen}}</td></tr>
-      <tr><td width="15%">NIP</td><td>{{$biodata->nip}}</td></tr>
-      <tr><td width="15%">Status</td><td>{{$biodata->status_dosen}}</td></tr>
-      <tr><td width="15%">Tanggal Lahir</td><td>{{$biodata->tanggal_lahir_dosen}}</td></tr>
-      <tr><td width="15%">Alamat</td><td>{{$biodata->alamat_dosen}}</td></tr>
+      <tr><td>Nama                 </td><td>:   {{$biodata->nama_dosen}}</td></tr>
+      <tr><td>NIP                  </td><td>:   {{$biodata->nip}}</td></tr>
+      <tr><td>Status               </td><td>:   {{$biodata->status_dosen}}</td></tr>
+      <tr><td>Tanggal Lahir        </td><td>:   {{$biodata->tanggal_lahir_dosen}}</td></tr>
+      <tr><td>Alamat               </td><td>:   {{$biodata->alamat_dosen}}</td></tr>
     </tr>
   <tbody>
    
@@ -39,35 +39,33 @@
   </tbody>
 </table>
 
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+<table style="width:100%; border: 1px solid black; border-collapse: collapse; font-family: arial ">
   <thead><h3>Jurnal</h3>
     <tr>
-      <th width="3%" style="text-align:center">No.</th>
-      <th style="text-align:center">Judul</th>
-      <th style="text-align:center">Halaman</th>
-      <th style="text-align:center">Bidang</th>
-      <th style="text-align:center">Tanggal</th>
-      <th style="text-align:center">Volume</th>
-      <th style="text-align:center">Penulis ke</th>
+      <th width="3%" style="text-align:center; border: 1px solid black">No.</th>
+      <th style="text-align:center; border: 1px solid black">Judul</th>
+      <th style="text-align:center; border: 1px solid black">Halaman</th>
+      <th style="text-align:center; border: 1px solid black">Bidang</th>
+      <th style="text-align:center; border: 1px solid black">Volume</th>
+      <th style="text-align:center; border: 1px solid black">Penulis ke</th>
+      <th width="13%" style="text-align:center; border: 1px solid black">Tanggal</th>
     </tr>
     </thead>
   <tbody>
    
     <tr>
       @foreach($jurnal as $i => $j)
-      @if($j->jurnal['status_jurnal'] == 1)
-      <td width="3%" style="text-align:center">{{$i+1}}</td>
-      <td width="3%" style="text-align:center">{{$j->jurnal['nama_jurnal']}}</td>
-      <td width="%" style="text-align:center">{{$j->jurnal['halaman_jurnal']}}</td>
-      <td width="%" style="text-align:center">{{$j->jurnal['bidang_jurnal']}}</td>
-      <td width="%" style="text-align:center">{{$j->jurnal['tanggal_jurnal']}}</td>
-      <td width="%" style="text-align:center">{{$j->jurnal['volume_jurnal']}}</td>
-      <td width="%" style="text-align:center">{{$j->jurnal['penulis_ke']}}</td>
+      @if($j->status_jurnal == 1)
+      <td width="3%" style="text-align:center; border: 1px solid black">{{$i+1}}</td>
+      <td width="%" style="text-align:center; border: 1px solid black">{{$j->nama_jurnal}}</td>
+      <td width="%" style="text-align:center; border: 1px solid black">{{$j->halaman_jurnal}}</td>
+      <td width="5%" style="text-align:center; border: 1px solid black">{{$j->bidang_jurnal}}</td>
+      <td width="5%" style="text-align:center; border: 1px solid black">{{$j->volume_jurnal}}</td>
+      <td width="%" style="text-align:center; border: 1px solid black">{{$j->penulis_ke}}</td>
+      <td width="13%" style="text-align:center; border: 1px solid black">{{$j->tanggal_jurnal}}</td>
         </td>
         @else
-        <tr>
-          <td colspan="7"><center>Belum ada data</center></td>
-        </tr>
+        
         @endif
         @endforeach
     </tr>
@@ -76,117 +74,111 @@
   </tbody>
 </table>
 
-
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+<br>
+<table style="width:100%; border: 1px solid black; border-collapse: collapse; font-family: arial ">
   <thead><h3>Penelitian</h3>
     <tr>
-      <th width="3%" style="text-align:center">No.</th>
-      <th width="%" style="text-align:center">Judul</th>
-      <th width="%" style="text-align:center">Nama Ketua</th>
-      <th width="%" style="text-align:center">Bidang</th>
-      <th width="%" style="text-align:center">Tanggal</th>
+      <th width="3%" style="text-align:center; border: 1px solid black">No.</th>
+      <th width="%" style="text-align:center; border: 1px solid black">Judul</th>
+      <th width="%" style="text-align:center; border: 1px solid black">Nama Ketua</th>
+      <th width="%" style="text-align:center; border: 1px solid black">Bidang</th>
+      <th width="13%" style="text-align:center; border: 1px solid black">Tanggal</th>
       </tr>
     </thead>
   <tbody>
    
     <tr>
       @foreach($penelitian as $i => $p)
-      @if($p->penelitian['status_penelitian'] == 1)
-      <td width="3%" style="text-align:center">{{$i+1}}</td>
-      <td width="%" style="text-align:center">{{$p->penelitian['judul_penelitian']}}</td>
-      <td width="%" style="text-align:center">{{$p->penelitian['nama_ketua']}}</td>
-      <td width="%" style="text-align:center">{{$p->penelitian['bidang_penelitian']}}</td>
-      <td width="%" style="text-align:center">{{$p->penelitian['tanggal_penelitian']}}</td>
+      @if($p->status_penelitian == 1)
+      <td width="3%" style="text-align:center; border: 1px solid black">{{$i+1}}</td>
+      <td width="%" style="text-align:center; border: 1px solid black">{{$p->judul_penelitian}}</td>
+      <td width="%" style="text-align:center; border: 1px solid black">{{$p->nama_ketua}}</td>
+      <td width="%" style="text-align:center; border: 1px solid black">{{$p->bidang_penelitian}}</td>
+      <td width="13%" style="text-align:center; border: 1px solid black">{{$p->tanggal_penelitian}}</td>
       </td>
       @else
-        <tr>
-          <td colspan="5"><center>Belum ada data</center></td>
-        </tr>
+        
       @endif
       @endforeach
     </tr>
   </tbody>
 </table>
-
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+<br>
+<table style="width:100%; border: 1px solid black; border-collapse: collapse; font-family: arial ">
   <thead><h3>Konferensi</h3>
     <tr>
-      <th width="3%" style="text-align:center">No.</th>
-      <th width="%" style="text-align:center">Nama Konferensi</th>
-      <th width="%" style="text-align:center">Pemapar</th>
-      <th width="%" style="text-align:center">Tempat</th>
-      <th width="%" style="text-align:center">Tanggal</th>
-      <th width="%" style="text-align:center">Materi</th>
+      <th width="3%" style="text-align:center; border: 1px solid black">No.</th>
+      <th width="%" style="text-align:center; border: 1px solid black">Nama Konferensi</th>
+      <th width="%" style="text-align:center; border: 1px solid black">Pemapar</th>
+      <th width="%" style="text-align:center; border: 1px solid black">Tempat</th>
+      <th width="%" style="text-align:center; border: 1px solid black">Materi</th>
+      <th width="13%" style="text-align:center; border: 1px solid black">Tanggal</th>
       </tr>
     </thead>
   <tbody>
    
     <tr>
       @foreach($konferensi as $i => $k)
-      @if($k->konferensi['status_konferensi'] == 1)
-      <td width="3%" style="text-align:center">{{$i+1}}</td>
-      <td width="%" style="text-align:center">{{$k->konferensi['nama_konferensi']}}</td>
-      <td width="%" style="text-align:center">{{$k->konferensi['pemapar_konferensi']}}</td>
-      <td width="%" style="text-align:center">{{$k->konferensi['tempat_konferensi']}}</td>
-      <td width="%" style="text-align:center">{{$k->konferensi['tanggal_konferensi']}}</td>
-      <td width="%" style="text-align:center">{{$k->konferensi['materi_konferensi']}}</td>
+      @if($k->status_konferensi == 1)
+      <td width="3%" style="text-align:center; border: 1px solid black">{{$i+1}}</td>
+      <td width="%" style="text-align:center; border: 1px solid black">{{$k->nama_konferensi}}</td>
+      <td width="%" style="text-align:center; border: 1px solid black">{{$k->pemapar_konferensi}}</td>
+      <td width="%" style="text-align:center; border: 1px solid black">{{$k->tempat_konferensi}}</td>
+      <td width="%" style="text-align:center; border: 1px solid black">{{$k->materi_konferensi}}</td>
+      <td width="13%" style="text-align:center; border: 1px solid black">{{$k->tanggal_konferensi}}</td>
       </td>
       @else
-        <tr>
-          <td colspan="6"><center>Belum ada data</center></td>
-        </tr>
+        
       @endif
       @endforeach
     </tr>
   </tbody>
 </table>
-
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+<br>
+<table style="width:100%; border: 1px solid black; border-collapse: collapse; font-family: arial ">
   <thead><h3>Pengabdian Masyarakat</h3>
     <tr>
-      <th width="3%" style="text-align:center">No.</th>
-      <th width="%" style="text-align:center">Nama Kegiatan</th>
-      <th width="%" style="text-align:center">Tempat</th>
-      <th width="10%" style="text-align:center">Tanggal</th>
+      <th width="3%" style="text-align:center; border: 1px solid black">No.</th>
+      <th width="%" style="text-align:center; border: 1px solid black">Nama Kegiatan</th>
+      <th width="%" style="text-align:center; border: 1px solid black">Tempat</th>
+      <th width="13%" style="text-align:center; border: 1px solid black">Tanggal</th>
       </tr>
     </thead>
   <tbody>
    
     <tr>
       @foreach($pengmas as $i => $p2)
-      @if($p2->pengmas['status_pengmas'] == 1)
-      <td width="3%" style="text-align:center">{{$i+1}}</td>
-      <td width="%" style="text-align:center">{{$p2->pengmas['nama_kegiatan']}}</td>
-      <td width="%" style="text-align:center">{{$p2->pengmas['tempat_kegiatan']}}</td>
-      <td width="10%" style="text-align:center">{{$p2->pengmas['tanggal_kegiatan']}}</td>
+      @if($p2->status_pengmas == 1)
+      <td width="3%" style="text-align:center; border: 1px solid black">{{$i+1}}</td>
+      <td width="42%" style="text-align:center; border: 1px solid black">{{$p2->nama_kegiatan}}</td>
+      <td width="42%" style="text-align:center; border: 1px solid black">{{$p2->tempat_kegiatan}}</td>
+      <td width="13%" style="text-align:center; border: 1px solid black">{{$p2->tanggal_kegiatan}}</td>
       </td>
       @else
-        <tr>
-          <td colspan="4"><center>Belum ada data</center></td>
-        </tr>
+        
       @endif
       @endforeach
     </tr>
   </tbody>
 </table>
-
-<table id="myTable" class="table table-striped table-bordered" cellspacing="0">
+<br>
+<table style="width:100%; border: 1px solid black; border-collapse: collapse; font-family: arial ">
   <thead><h3>Surat Tugas</h3>
     <tr>
-      <th style="text-align:center">No.</th>
-      <th style="text-align:center">nomor surat</th>      
-      <th style="text-align:center">tanggal surat</th>
-      <th style="text-align:center">keterangan surat</th>
+      <th style="text-align:center; border: 1px solid black">No.</th>
+      <th style="text-align:center; border: 1px solid black">Nomor surat</th>      
+      <th style="text-align:center; border: 1px solid black">Keterangan Surat</th>
+      <th style="text-align:center; border: 1px solid black">Tanggal</th>
       </tr>
     </thead>
   <tbody>
    
     <tr>
       @foreach($stugas as $i => $s)
-      <td width="3%" style="text-align:center">{{$i+1}}</td>
-      <td width="20%" style="text-align:center">{{$surattug->['no_surat']}}</td>
-      <td width="15%" style="text-align:center">{{$surattug->['tanggal_surat']}}</td>
-      <td width="20%" style="text-align:center">{{$surattug->['keterangan_surat']}}</td>
+      <td width="3%" style="text-align:center; border: 1px solid black">{{$i+1}}</td>
+      <td width="42%" style="text-align:center; border: 1px solid black">{{$s->no_surat}}</td>
+      <td width="42%" style="text-align:center; border: 1px solid black">{{$s->keterangan_sk}}</td>
+      <td width="13%" style="text-align:center; border: 1px solid black">{{$s->tanggal_surat}}</td>
       </td>
       @endforeach
     </tr>

@@ -44,6 +44,7 @@ Jurnal
       <th style="text-align:center">File Jurnal</th>
       <th style="text-align:center">Volume</th>
       <th style="text-align:center">Penulis Ke</th>
+      <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
@@ -68,10 +69,10 @@ Jurnal
         <i class="fa fa-pencil-square-o"></i> Download</a> </td>
       <td width="10%" style="text-align:center">{{$jurnal->volume_jurnal}}</td>
       <td width="10%" style="text-align:center">{{$jurnal->penulis_ke}}</td>
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus jurnal ini?');" href="{{url('/dosen/jurnal/'.$jurnal->jurnal_id.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="20%" style="text-align:center" > @if($jurnal->status_jurnal != 1) <a onclick="return confirm('Anda yakin untuk menghapus jurnal ini?');" href="{{url('/dosen/jurnal/'.$jurnal->jurnal_id.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('/dosen/jurnal/'.$jurnal->jurnal_id.'/edit/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Edit</a>
+        <i class="fa fa-pencil-square-o"></i> Edit</a> @endif
         </td>
     </tr>
      @empty

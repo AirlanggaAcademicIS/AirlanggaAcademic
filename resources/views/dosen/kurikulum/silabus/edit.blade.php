@@ -55,19 +55,25 @@
                             @php $isSameMetode = false; @endphp        
                         @endforeach        
             </div>
+
+            <div class="form-group">
+                <label for="capaian_matkul"><b>Capaian Mata Kuliah</b></label>    
+                <textarea name="capaian_matkul" class="form-control" rows="4" placeholder="Masukan Capaian Mata Kuliah" required>{!!$matkul_silabus->capaian_matkul!!}</textarea>
+            </div><br>
+
             <div class="form-group">
                 <label for="penilaian"><b>Deskripsi Mata Ajar</b></label>    
-                <textarea name="deskripsi_mata_ajar" class="form-control" rows="4" placeholder="Masukan Deskripsi Mata Ajar">{!!$matkul_silabus->deskripsi_matkul!!}</textarea>
+                <textarea name="deskripsi_mata_ajar" class="form-control" rows="4" placeholder="Masukan Deskripsi Mata Ajar" required>{!!$matkul_silabus->deskripsi_mata_ajar!!}</textarea>
             </div>
 
             <div class="form-group">
                 <label for="penilaian"><b>Penilaian Hasil Belajar</b></label>    
-                <textarea name="penilaian_matkul" class="form-control" rows="4" placeholder="Masukan Penilaian Hasil Belajar">{!!$matkul_silabus->penilaian_matkul!!}</textarea>
+                <textarea name="penilaian_matkul" class="form-control" rows="4" placeholder="Masukan Penilaian Hasil Belajar" required>{!!$matkul_silabus->penilaian_matkul!!}</textarea>
             </div>
             
             <div class="form-group">
                 <label for="referensi"><b>Referensi Wajib</b></label>
-                <textarea name="pustaka_utama" id="pustaka_utama" class="form-control" rows="4" placeholder="Masukkan referensi wajib (pustaka utama)">{!!$matkul_silabus->pustaka_utama!!}</textarea>
+                <textarea name="pustaka_utama" id="pustaka_utama" class="form-control" rows="4" placeholder="Masukkan referensi wajib (pustaka utama)" required>{!!$matkul_silabus->pustaka_utama!!}</textarea>
             </div>
             
             <div class="box-footer clearfix">

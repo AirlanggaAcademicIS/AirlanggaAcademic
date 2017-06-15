@@ -58,30 +58,39 @@ Rencana Pembelajaran Semester
    </div>
 
   <div class="form-group box-header">
-    <label for="mk_prasyarat"><b>Mata Kuliah Prasyarat</b></label><br>
-      @foreach($matkul as $mk)
-        @foreach ($mk_prasyarat as $mks)
-          @if($mk->id_mk == $mks->mk_syarat_id)
-            <input type="checkbox" name="mk_prasyarat[]" value="
-            {{$mk->id_mk}}" checked="{{$mks->mk_syarat_id}}"> {{$mk->nama_matkul}} <br> 
-          @else
-            <input type="checkbox" name="mk_prasyarat[]" value="
-            {{$mk->id_mk}}"> {{$mk->nama_matkul}} <br> 
+    <label for="mk_prasyarat"><b>Mata Kuliah Prasyarat</b></label><br>            
+      @php $isSameMatkul = false; @endphp
+        @foreach($matkul as $mk)          
+          @foreach($mk_prasyarat as $mks)
+              @if($mk->id_mk == $mks->mk_syarat_id)
+                  @php $isSameMatkul = true; @endphp
+                  <input checked type="checkbox" name="mk_syarat_id[]" value="{{$mk->id_mk}}}"> {{$mk->nama_matkul}} <br>        
+              @endif            
+          @endforeach
+          @if($isSameMatkul == false)
+              <input type="checkbox" name="mk_syarat_id[]" value="
+            {{$mk->id_mk}}"> {{$mk->nama_matkul}} <br>       
           @endif
-        @endforeach
-      @endforeach
-  </div> 
+          @php $isSameMatkul = false; @endphp        
+      @endforeach        
+  </div>
 
   <div class="form-group box-header">
-    <label for="cpl_prodi"><b>CPL Prodi</b></label><br>
-      @foreach($cpl as $cpl)
-        @foreach ($cp_prodi as $cprodi)
-          @if($cpl->id_cpem == $cprodi->cpem_id)
-            <label class="checkbox-inline"><input type="checkbox" name="cpl_prodi" value="
-            {{$cpl->id_cpem}}" checked="{{$cprodi->cpem_id}}"> {{$cpl->kode_cpem}} </label>
+    <label for="cpl_prodi"><b>CPL Prodi</b></label><br>            
+      @php $isSameCpl = false; @endphp
+        @foreach($cpl as $cpl)          
+          @foreach($cp_prodi as $cprodi)
+              @if($cpl->id_cpem == $cprodi->cpem_id)
+                  @php $isSameCpl = true; @endphp
+                  <label class="checkbox-inline"><input checked type="checkbox" name="cpem_id[]" value="{{$cpl->id_cpem}}"> {{$cpl->kode_cpem}} </label>       
+              @endif            
+          @endforeach
+          @if($isSameCpl == false)
+              <label class="checkbox-inline"><input type="checkbox" name="cpem_id[]" value="
+            {{$cpl->id_cpem}}"> {{$cpl->kode_cpem}} </label>
           @endif
-        @endforeach
-      @endforeach
+          @php $isSameCpl = false; @endphp        
+      @endforeach        
   </div>
 
     <div class="form-group box-header">
@@ -110,42 +119,85 @@ Rencana Pembelajaran Semester
     <div class="form-group box-header">
       <p><b>Team Teaching</b></p>
       <label for="dosen1">Koordinator Mata kuliah</label>
-      <select class="form-control" name="koor_1">
-          @foreach($dosen as $dosen1) 
-                <option value="{{$dosen1->nip}}">{{$dosen1->nama_dosen}}</option>
-          @endforeach
-        </select>
+        <select name="koor_1" class="form-control">            
+          @php $isSameDosen = false; @endphp
+            @foreach($dosen as $dosen1)          
+              @foreach($koor as $koor1)
+                  @if($dosen1->nip == $koor1->nip_id)
+                      @php $isSameDosen = true; @endphp
+                      <option value="{{$dosen1->nip}}">{{$dosen1->nama_dosen}}</option>       
+                  @endif            
+              @endforeach
+              @if($isSameDosen == false)
+                  <option value="{{$dosen1->nip}}">{{$dosen1->nama_dosen}}</option>
+              @endif
+              @php $isSameDosen = false; @endphp        
+          @endforeach 
+          </select>       
     </div>
 
     <div class="form-group box-header">
-      <label for="dosen2">Anggota Team Teaching 1</label>
-      <select class="form-control" name="koor_2">
-          @foreach($dosen as $dosen2) 
-                <option value="{{$dosen2->nip}}">{{$dosen2->nama_dosen}}</option>
-          @endforeach
-        </select>
-      </div>
-
-    <div class="form-group box-header">
-      <label for="dosen3">Anggota Team Teaching 2</label>
-        <select class="form-control" name="koor_3">
-          @foreach($dosen as $dosen3) 
-                <option value="{{$dosen3->nip}}">{{$dosen3->nama_dosen}}</option>
-          @endforeach
-        </select>
-      </div>
-
-    <div class="form-group box-header">
-      <label for="dosen4">Anggota Team Teaching 3</label>
-        <select class="form-control" name="koor_4">
-          @foreach($dosen as $dosen4) 
-                <option value="{{$dosen4->nip}}">{{$dosen4->nama_dosen}}</option>
-          @endforeach
-        </select>
+      <b><label for="dosen2">Anggota Koordinator Mata kuliah 1</label></b>
+        <select name="koor_2" class="form-control">            
+          @php $isSameDosen = false; @endphp
+            @foreach($dosen as $dosen2)          
+              @foreach($koor as $koor2)
+                  @if($dosen2->nip == $koor2->nip_id)
+                      @php $isSameDosen = true; @endphp
+                      <option value="{{$dosen2->nip}}">{{$dosen2->nama_dosen}}</option>       
+                  @endif            
+              @endforeach
+              @if($isSameDosen == false)
+                  <option value="{{$dosen2->nip}}">{{$dosen2->nama_dosen}}</option>
+              @endif
+              @php $isSameDosen = false; @endphp        
+          @endforeach 
+          </select>       
     </div>
+
+    <div class="form-group box-header">
+      <b><label for="dosen2">Anggota Koordinator Mata kuliah 2</label></b>
+        <select name="koor_3" class="form-control">            
+          @php $isSameDosen = false; @endphp
+            @foreach($dosen as $dosen3)          
+              @foreach($koor as $koor3)
+                  @if($dosen3->nip == $koor3->nip_id)
+                      @php $isSameDosen = true; @endphp
+                      <option value="{{$dosen3->nip}}">{{$dosen3->nama_dosen}}</option>       
+                  @endif            
+              @endforeach
+              @if($isSameDosen == false)
+                  <option value="{{$dosen3->nip}}">{{$dosen3->nama_dosen}}</option>
+              @endif
+              @php $isSameDosen = false; @endphp        
+          @endforeach 
+          </select>       
+    </div>
+
+    <div class="form-group box-header">
+      <b><label for="dosen2">Anggota Koordinator Mata kuliah 3</label></b>
+        <select name="koor_4" class="form-control">            
+          @php $isSameDosen = false; @endphp
+            @foreach($dosen as $dosen4)          
+              @foreach($koor as $koor4)
+                  @if($dosen4->nip == $koor4->nip_id)
+                      @php $isSameDosen = true; @endphp
+                      <option value="{{$dosen4->nip}}">{{$dosen4->nama_dosen}}</option>       
+                  @endif            
+              @endforeach
+              @if($isSameDosen == false)
+                  <option value="{{$dosen4->nip}}">{{$dosen4->nama_dosen}}</option>
+              @endif
+              @php $isSameDosen = false; @endphp        
+          @endforeach 
+          </select>       
+    </div>
+    
     <br>
+    <div class="form-group box-header">
     <button type="submit" class="btn btn-info pull-right">Edit</button> 
     <a href="{{{('/dosen/kurikulum/rps')}}}" class="btn btn-info">Kembali</a>
+    </div>
   </form>
   </div>
   </div>
