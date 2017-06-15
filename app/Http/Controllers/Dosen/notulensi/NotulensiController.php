@@ -156,7 +156,11 @@ public function kirimHasil($id_notulen)
         ->where('notulen_rapat.id_notulen', '=', $id_notulen) 
         ->get()
         ->toArray();
-        $message = sprintf('Berikut telah dikirimkan notulensi hasil rapat : '.$kirim[0]->nama_rapat.' dengan waktu pelaksanaan '. $kirim[0]->waktu_pelaksanaan.' menghasilkan hasil rapat '.$kirim[0]->deskripsi_rapat . $kirim[0]->hasil_pembahasan);
+        $message = sprintf('Berikut telah dikirimkan notulensi hasil rapat : '.'
+        nama rapat              : '. $kirim[0]->nama_rapat.'
+        waktu pelaksanaan   : '. $kirim[0]->waktu_pelaksanaan.'
+        deskripsi rapat         : '. $kirim[0]->deskripsi_rapat .'
+        hasil pembahasan    : '. $kirim[0]->hasil_pembahasan);
         foreach ($kirim as $email => $u) {
         $this->mailer->raw($message, function (Message $m) use ($u) {
             $m->from('airlanggaacademic@gmail.com', 'Admin Airlangga Academic')->to($u->email)->subject('Notulensi Rapat');
