@@ -63,7 +63,8 @@ Notulensi Rapat
         <i class="fa fa-pencil-square-o"></i>Lihat</a>
         <a href="{{url('/notulensi/konfirmasi/'.$notulensi->id_notulen.'/konfirmasi/')}}" class="btn btn-info btn-xs">
         <i class="fa fa-pencil-square-o"></i>Konfirmasi</a>
-
+        <a href="{{url('/notulensi/kirim/'.$notulensi->id_notulen.'/kirim/')}}" class="btn btn-primary btn-xs">
+        <i class="fa fa-pencil-square-o"></i>Kirim</a>
         </td>
     </tr>
      @empty
