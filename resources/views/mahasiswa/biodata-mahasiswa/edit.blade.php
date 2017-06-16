@@ -45,13 +45,20 @@ Form Biodata Mahasiswa
 			</div>
 			@endif
 			<br>
-		<form id="tambahBiodataMahasiswa" method="post" action="{{url('/mahasiswa/biodata-mahasiswa/'.$biodatamahasiswa->id_bio.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+		<form id="tambahBiodataMahasiswa" method="post" action="{{url('/mahasiswa/biodata-mahasiswa/'.$biodatamahasiswa->nim_id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<div class="form-group">
 					<label for="nama_mhs" class="col-sm-2 control-label">Nama Mahasiswa</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="nama_mhs" name="nama_mhs" placeholder="Masukkan Nama" value="{{$biodatamahasiswa->nama_mhs}}" required>
+						<input type="text" class="form-control input-lg" id="nama_mhs" name="nama_mhs" placeholder="Masukkan Nama" value="{{$biodatamahasiswa->nama_mhs}}" disabled="disabled" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="angkatan" class="col-sm-2 control-label">Angkatan</label>
+					<div class="col-md-8">
+						<input type="number" class="form-control input-lg" id="angkatan" name="angkatan" placeholder="Masukkan Angkatan"  value="{{$biodatamahasiswa->angkatan}}" disabled="disabled" required>
 					</div>
 				</div>
 
@@ -63,9 +70,16 @@ Form Biodata Mahasiswa
 				</div>
 
 				<div class="form-group">
+					<label for="no_hp" class="col-sm-2 control-label">No. HP</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="no_hp" name="no_hp" placeholder="Masukkan No. HP"  value="{{$biodatamahasiswa->no_hp}}" required>
+					</div>
+				</div>
+
+				<div class="form-group">
 					<label for="jenis_kelamin" class="col-sm-2 control-label">Jenis Kelamin</label>
 					<div class="col-md-8">
-						<select name="jenis_kelamin" value="{{$biodatamahasiswa->jenis_kelamin}}" required>
+						<select class="form-control" name="jenis_kelamin" value="{{$biodatamahasiswa->jenis_kelamin}}" required>
 						@if (($biodatamahasiswa->jenis_kelamin=="Laki-Laki"))
 							<option value="Laki-Laki" selected="selected" >Laki-Laki</option>
 							<option value="Perempuan" >Perempuan</option>
@@ -113,23 +127,23 @@ Form Biodata Mahasiswa
 				</div>
 
 				<div class="form-group">
-					<label for="ttl" class="col-sm-2 control-label">TTL</label>
+					<label for="kota_lahir" class="col-sm-2 control-label">Kota Lahir</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="ttl" name="ttl" placeholder="Masukkan TTL"  value="{{$biodatamahasiswa->ttl}}" required>
+						<input type="text" class="form-control input-lg" id="kota_lahir" name="kota_lahir" placeholder="Masukkan Kota Lahir"   value="{{$biodatamahasiswa->kota_lahir}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="angkatan" class="col-sm-2 control-label">Angkatan</label>
+					<label for="tanggal_lahir" class="col-sm-2 control-label">Tanggal Lahir</label>
 					<div class="col-md-8">
-						<input type="number" class="form-control input-lg" id="angkatan" name="angkatan" placeholder="Masukkan Angkatan"  value="{{$biodatamahasiswa->angkatan}}" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="tanggal_lahir" placeholder="Masukkan Tanggal Lahir"   value="{{$biodatamahasiswa->tanggal_lahir}}" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="agama" class="col-sm-2 control-label">Agama</label>
 					<div class="col-md-8">
-						<select name="agama" value="{{$biodatamahasiswa->agama}}" required>
+						<select class="form-control" name="agama" value="{{$biodatamahasiswa->agama}}" required>
 						@if (($biodatamahasiswa->agama=="Islam"))
 							<option value="Islam" selected="selected" >Islam</option>
 							<option value="Kristen" >Kristen</option>
@@ -228,7 +242,7 @@ Form Biodata Mahasiswa
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
 $( function() {
-    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
+    var date = $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 
   } );
   </script>

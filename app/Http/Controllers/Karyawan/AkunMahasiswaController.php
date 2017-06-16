@@ -127,14 +127,17 @@ class AkunMahasiswaController extends Controller
     public function editAction($nim, Request $request)
     {
         // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
+        $biodata = AkunBioMHS::where('nim_id', $nim)->first();
         $akunmahasiswa = AkunMahasiswa::find($nim);
+        $user = AkunUser::where('username', $nim)->first();
 
-        // Mengupdate $biodata tadi dengan isi dari form edit tadi
+        if ($akunmahasiswa->nim != $request->input('nim') || $akunmahasiswa->nip_id != $request->input('nlp_id')  || $biodata->nama_mhs!= $request->input("nama_mhs")  || $biodata->angkatan != $request->input("angkatan") || $biodata->email_mhs!= $request->input("email")  || $user->email != $request->input("email") ||$request->file('foto_mhs') != "")
+        {
+           
+          // Mengupdate $biodata tadi dengan isi dari form edit tadi
         $akunmahasiswa->nim = $request->input('nim');
         $akunmahasiswa->nip_id = $request->input('nlp_id');
         
-
-        $biodata = AkunBioMHS::where('nim_id', $nim)->first();
         $biodata->nama_mhs = $request->input("nama_mhs");
         $biodata->angkatan = $request->input("angkatan");
         $biodata->email_mhs = $request->input("email");
@@ -142,19 +145,29 @@ class AkunMahasiswaController extends Controller
         $biodata->foto_mhs= time() .'.'.$request->file('foto_mhs')->getClientOriginalExtension();
         $gambar = $request->file('foto_mhs')->move("img/foto_mhs/",$biodata['foto_mhs']);
         }
+        
+        
         // $akun = AkunUser::create($request->input()); 
-        $user = AkunUser::where('username', $nim)->first();
         $user->username = $request->input("nim");
         $user->email = $request->input("email");
-
+        
         $akunmahasiswa->save();
         $biodata->save();
         $user->save();
+    
         // Notifikasi sukses
         Session::put('alert-success', 'Akun berhasil diedit');
+    
+        }       
+        else
+        {
+        
+              Session::put('alert-warning', 'Tidak ada perubahan data');
 
+            
+        }
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/akun');
-    }
-
+    
+}
 }

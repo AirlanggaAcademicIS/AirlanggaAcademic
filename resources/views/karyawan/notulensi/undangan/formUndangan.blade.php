@@ -16,6 +16,16 @@ Undang Dosen
 
 @section('main-content')
 <!-- Kodingan HTML ditaruh di sini -->
+<div class="flash-message" style="margin-left: -16px;margin-right: -16px; margin-top: 13px;">
+  @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+  @if(Session::has('alert-' . $msg))
+<div class="alert alert-{{ $msg }}">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <p class="" style="border-radius: 0">{{ Session::get('alert-' . $msg) }}</p>
+</div>
+  {!!Session::forget('alert-' . $msg)!!}
+  @endif
+  @endforeach
             <div class="box-header with-border">
               <h3 class="box-title">Undang Dosen</h3>
             </div>
@@ -54,7 +64,7 @@ Undang Dosen
                   <th>No</th>
                   <th>Nama Dosen</th>
                   <th>NIP</th>
-                  <th>Keterangan</th>
+                  <th>Action</th>
                 </tr>
                 @foreach($dosen as $i=>$d)
                 <tr>

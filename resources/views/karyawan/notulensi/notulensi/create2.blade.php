@@ -56,7 +56,7 @@ Tambah Notulensi
     <div class="col-sm-9"> 
     @foreach($rapat as $r)
     <select class="form-control" name="id_notulen"> 
-    <option>Pilih Nama Rapat</option>
+    <option></option>
    @foreach($nama_rapat as $i => $m)  
     <option
     @if($r->id_notulen==$m->id_notulen) 

@@ -56,30 +56,39 @@ Rencana Pembelajaran Semester
    </div>
 
   <div class="form-group box-header">
-    <label for="mk_prasyarat"><b>Mata Kuliah Prasyarat</b></label><br>
-      @foreach($matkul as $mk)
-        @foreach ($mk_prasyarat as $mks)
-          @if($mk->id_mk == $mks->mk_syarat_id)
-            <input type="checkbox" name="mk_prasyarat[]" value="
-            {{$mk->id_mk}}" checked="{{$mks->mk_syarat_id}}" disabled=""> {{$mk->nama_matkul}} <br> 
-          @else
-            <input type="checkbox" name="mk_prasyarat[]" value="
-            {{$mk->id_mk}}" disabled=""> {{$mk->nama_matkul}} <br> 
+    <label for="mk_prasyarat"><b>Mata Kuliah Prasyarat</b></label><br>            
+      @php $isSameMatkul = false; @endphp
+        @foreach($matkul as $mk)          
+          @foreach($mk_prasyarat as $mks)
+              @if($mk->id_mk == $mks->mk_syarat_id)
+                  @php $isSameMatkul = true; @endphp
+                  <input checked type="checkbox" name="mk_syarat_id[]" value="{{$mk->id_mk}}}" disabled=""> {{$mk->nama_matkul}} <br>        
+              @endif            
+          @endforeach
+          @if($isSameMatkul == false)
+              <input type="checkbox" name="mk_syarat_id[]" value="
+            {{$mk->id_mk}}" disabled=""> {{$mk->nama_matkul}} <br>       
           @endif
-        @endforeach
-      @endforeach
-  </div> 
+          @php $isSameMatkul = false; @endphp        
+      @endforeach        
+  </div>
 
   <div class="form-group box-header">
-    <label for="cpl_prodi"><b>CPL Prodi</b></label><br>
-      @foreach($cpl as $cpl)
-        @foreach ($cp_prodi as $cprodi)
-          @if($cpl->id_cpem == $cprodi->cpem_id)
-            <label class="checkbox-inline"><input type="checkbox" name="cpl_prodi" value="
-            {{$cpl->id_cpem}}" checked="{{$cprodi->cpem_id}}" disabled=""> {{$cpl->kode_cpem}} </label>
+    <label for="cpl_prodi"><b>CPL Prodi</b></label><br>            
+      @php $isSameCpl = false; @endphp
+        @foreach($cpl as $cpl)          
+          @foreach($cp_prodi as $cprodi)
+              @if($cpl->id_cpem == $cprodi->cpem_id)
+                  @php $isSameCpl = true; @endphp
+                  <label class="checkbox-inline"><input checked type="checkbox" name="cpem_id[]" value="{{$cpl->id_cpem}}" disabled=""> {{$cpl->kode_cpem}} </label>       
+              @endif            
+          @endforeach
+          @if($isSameCpl == false)
+              <label class="checkbox-inline"><input type="checkbox" name="cpem_id[]" value="
+            {{$cpl->id_cpem}}" disabled=""> {{$cpl->kode_cpem}} </label>
           @endif
-        @endforeach
-      @endforeach
+          @php $isSameCpl = false; @endphp        
+      @endforeach        
   </div>
 
   <div class="form-group box-header">
@@ -158,7 +167,9 @@ Rencana Pembelajaran Semester
         </select>
     </div>
     <br> 
-    <a href="{{{('/karyawan/kurikulum/rps')}}}" class="btn btn-info">Kembali</a>
+    <div class="form-group box-header">
+      <a href="{{{('/karyawan/kurikulum/rps')}}}" class="btn btn-info">Kembali</a>
+      </div>
   </form>
   </div>
   </div>

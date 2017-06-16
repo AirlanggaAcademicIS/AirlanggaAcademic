@@ -31,7 +31,7 @@ Surat Keluar
   <a href="{{url('dosen/surat-keluar-dosen/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Surat</a>
 </div>
-<div style="overflow: auto">
+<div style="padding:10px">
 <table id="data-table" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
@@ -58,10 +58,12 @@ Surat Keluar
       <td width="10%" style="text-align:center">Tidak Disetujui</td>
       @endif
       <td width="20%" style="text-align:center" >
+        @if($surat->status != 1)
         <a onclick="return confirm('Anda yakin untuk menghapus surat ini?');" href="{{url('dosen/surat-keluar-dosen/'.$surat->id_surat_keluar.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('dosen/surat-keluar-dosen/'.$surat->id_surat_keluar.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
+        @endif
         </td>
     </tr>
      @empty

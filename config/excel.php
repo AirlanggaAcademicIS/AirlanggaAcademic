@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 return array(
 
@@ -179,7 +179,7 @@ return array(
         | having the appropriate fonts installed.
         |
         */
-        'autosize-method'             => PHPExcel_Shared_Font::AUTOSIZE_METHOD_APPROX,
+        
 
         /*
         |--------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dosen\monitoringskripsi;
+namespace App\Http\Controllers\Dosen\monitoringskripsi;;
 
 use Request;
 use Illuminate\Support\Facades\DB;
@@ -25,18 +25,18 @@ class HasilSidangController extends Controller
       # code...
        $nip = Auth::user()->username;
        $hasil_sidang_skripsi = DB::table('skripsi')
-            ->join('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
-            ->join('kbk', 'skripsi.kbk_id', '=', 'kbk.id_kbk')
-            ->join('petugas_tu','skripsi.nip_petugas_id','=','petugas_tu.nip_petugas')
-            ->join('ruang','skripsi.tempat_sidangpro','=','ruang.id_ruang')
-            ->join('dosen_penguji','dosen_penguji.skripsi_id','=','skripsi.id_skripsi')
-            ->join('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
-            ->join('status_skripsi','status_skripsi.id','=','skripsi.statusskrip_id')
+            ->leftJoin('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
+            ->leftJoin('kbk', 'skripsi.kbk_id', '=', 'kbk.id_kbk')
+            ->leftJoin('petugas_tu','skripsi.nip_petugas_id','=','petugas_tu.nip_petugas')
+            ->leftJoin('ruang','skripsi.tempat_sidangpro','=','ruang.id_ruang')
+            ->leftJoin('dosen_penguji','dosen_penguji.skripsi_id','=','skripsi.id_skripsi')
+            ->leftJoin('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
+            ->leftJoin('status_skripsi','status_skripsi.id','=','skripsi.statusskrip_id')
             ->select('skripsi.id_skripsi','biodata_mhs.nama_mhs', 'skripsi.NIM_id','skripsi.nilai_sidangskrip' ,'kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangpro', 'skripsi.waktu_sidangpro', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang','dosen_penguji.nip_id as dosji','status_skripsi.keterangan')
-            ->whereNull('skripsi.deleted_at')
-            ->whereNotNull('skripsi.nilai_sidangskrip')
-            ->where('dosen_pembimbing.nip_id','=',$nip)
-            ->orWhere('dosen_penguji.nip_id','=',$nip)
+            // ->whereNull('skripsi.deleted_at')
+            // ->whereNotNull('skripsi.nilai_sidangskrip')
+            // ->where('dosen_pembimbing.nip_id','=',$nip)
+            // ->orWhere('dosen_penguji.nip_id','=',$nip)
 
             ->get();
             
@@ -45,6 +45,12 @@ class HasilSidangController extends Controller
             $j = 0;
 
          for($i = 0; $i<count($hasil_sidang_skripsi)-1;$i++){
+               
+                $dosen1 = $hasil_sidang_skripsi[$i]->dosbing;
+                $dosen2 = $hasil_sidang_skripsi[$i+1]->dosbing;
+                $dosen3 = $hasil_sidang_skripsi[$i]->dosji;
+
+
                $tmp = array(
                     'id_skripsi'=>$hasil_sidang_skripsi[$i]->id_skripsi,
                   'nama_mhs'=>$hasil_sidang_skripsi[$i]->nama_mhs,
@@ -61,8 +67,13 @@ class HasilSidangController extends Controller
                   'nilai_skripsi'=>$hasil_sidang_skripsi[$i]->nilai_sidangskrip
 
                   );
-               $final_result[$j] = $tmp;
-               $j++;
+
+                   if(($dosen1==$nip)||$dosen2==$nip||$dosen3==$nip){
+                $final_result[$j] = $tmp;
+                $j++;
+            }               
+               // $final_result[$j] = $tmp;
+               // $j++;
 
                //array_push($final_result, $tmp);
          }
@@ -70,7 +81,7 @@ class HasilSidangController extends Controller
          $data = array('page'=> 'hasil-sidang-skripsi',
                      'hasil_sidang_skripsi'=>$final_result
                );
-         return view('mahasiswa.monitoring-skripsi.hasil-sidang.skripsi',$data);
+         return view('dosen.monitoring-skripsi.hasil-sidang.skripsi',$data);
    }
 
    public function view_hasil_sidang_proposal_dosen()
@@ -78,19 +89,19 @@ class HasilSidangController extends Controller
        $nip = Auth::user()->username;
       # code...
            $hasil_sidang_proposal = DB::table('skripsi')
-            ->join('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
-            ->join('kbk', 'skripsi.kbk_id', '=', 'kbk.id_kbk')
-            ->join('petugas_tu','skripsi.nip_petugas_id','=','petugas_tu.nip_petugas')
-            ->join('ruang','skripsi.tempat_sidangpro','=','ruang.id_ruang')
-            ->join('dosen_penguji','dosen_penguji.skripsi_id','=','skripsi.id_skripsi')
-            ->join('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
-            ->join('status_skripsi','status_skripsi.id','=','skripsi.statusskrip_id')
+            ->leftJoin('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
+            ->leftJoin('kbk', 'skripsi.kbk_id', '=', 'kbk.id_kbk')
+            ->leftJoin('petugas_tu','skripsi.nip_petugas_id','=','petugas_tu.nip_petugas')
+            ->leftJoin('ruang','skripsi.tempat_sidangpro','=','ruang.id_ruang')
+            ->leftJoin('dosen_penguji','dosen_penguji.skripsi_id','=','skripsi.id_skripsi')
+            ->leftJoin('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
+            ->leftJoin('status_skripsi','status_skripsi.id','=','skripsi.statusprop_id')
             ->select('skripsi.id_skripsi','biodata_mhs.nama_mhs', 'skripsi.NIM_id','skripsi.nilai_sidangpro' ,'kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangpro', 'skripsi.waktu_sidangpro', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang','dosen_penguji.nip_id as dosji','status_skripsi.keterangan')
-            ->whereNull('skripsi.deleted_at')
-            // ->where('NIM_id','=',$nim)
-            ->whereNotNull('nilai_sidangpro')
-            ->where('dosen_pembimbing.nip_id','=',$nip)
-            ->orWhere('dosen_penguji.nip_id','=',$nip)
+            // ->whereNull('skripsi.deleted_at')
+            // // ->where('NIM_id','=',$nim)
+            // ->whereNotNull('nilai_sidangpro')
+            // ->where('dosen_pembimbing.nip_id','=',$nip)
+            // ->orWhere('dosen_penguji.nip_id','=',$nip)
 
             ->get();
             
@@ -99,6 +110,12 @@ class HasilSidangController extends Controller
             $j = 0;
 
          for($i = 0; $i<count($hasil_sidang_proposal)-1;$i++){
+               
+               $dosen1 = $hasil_sidang_proposal[$i]->dosbing;
+                $dosen2 = $hasil_sidang_proposal[$i+1]->dosbing;
+                $dosen3 = $hasil_sidang_proposal[$i]->dosji;
+
+
                $tmp = array(
                     'id_skripsi'=>$hasil_sidang_proposal[$i]->id_skripsi,
                   'nama_mhs'=>$hasil_sidang_proposal[$i]->nama_mhs,
@@ -115,9 +132,12 @@ class HasilSidangController extends Controller
                   'nilai_proposal'=>$hasil_sidang_proposal[$i]->nilai_sidangpro
 
                   );
-               $final_result[$j] = $tmp;
-               $j++;
 
+                if(($dosen1==$nip)||$dosen2==$nip||$dosen3==$nip){
+                $final_result[$j] = $tmp;
+                $j++;
+            }
+               
                //array_push($final_result, $tmp);
          }
 
@@ -127,7 +147,7 @@ class HasilSidangController extends Controller
 
       //$data = array('page' => 'hasil-sidang-proposal');
 
-      return view('mahasiswa.monitoring-skripsi.hasil-sidang.proposal',$data);
+      return view('dosen.monitoring-skripsi.hasil-sidang.proposal',$data);
    }
    
 

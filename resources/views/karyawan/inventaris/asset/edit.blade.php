@@ -94,19 +94,26 @@ Edit Asset
 				</div>
 
 				<div class="form-group">
-					<label for="lokasi" class="col-sm-2 control-label">Lokasi</label>
+					<label for="nama" class="col-sm-2 control-label">Lokasi</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="lokasi" name="lokasi" placeholder="Masukkan Lokasi" value="{{$asset->lokasi}}" required>
+						<select class="form-control" name="lokasi" required>
+		            	<option value="">-- Pilih Lokasi --</option>
+		                <option value="1" {{ $asset->lokasi_id == "1" ? "selected" : ""}} >Labkom 1</option>
+		                <option value="2" {{ $asset->lokasi_id == "2" ? "selected" : ""}} >Labkom 2</option>
+		                <option value="3" {{ $asset->lokasi_id == "3" ? "selected" : ""}} >Labkom 3</option>
+		                <option value="4" {{ $asset->lokasi_id == "4" ? "selected" : ""}} >Labkom 4</option>
+		                <option value="5" {{ $asset->lokasi_id == "5" ? "selected" : ""}} >R.Dosen SI</option>
+		                <option value="6" {{ $asset->lokasi_id == "6" ? "selected" : ""}} >Departemen SI</option>
+					</select>
 					</div>
 				</div>
-
 
 
 				<!-- Menampilkan tanggal dengan datepicker -->
 				<div class="form-group">
 					<label for="expired_date" class="col-sm-2 control-label">Expired Date</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control input-lg" id="datepicker" name="expired_date" placeholder="Masukkan Tanggal" value="{{$asset->expired_date}}" required>
+						<input type="text" class="form-control input-lg" id="datepicker" name="expired_date" placeholder="Masukkan Tanggal" value="{{$asset->expired_date}}" >
 					</div>
 				</div>
 

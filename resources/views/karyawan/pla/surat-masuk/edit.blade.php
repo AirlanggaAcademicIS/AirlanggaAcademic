@@ -80,16 +80,7 @@ Edit Surat
 				</div>
 
 
-				<!-- Menampilkan dropdown -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Status</label>
-					<div class="col-md-2">
-						<select style="height: 45px;" class="form-control" name="status" required>
-							<option value="0">Belum Diambil</option>
-							<option value="1">Sudah Diambil</option>						
-						</select>
-					</div>
-				</div>
+				
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">

@@ -5,7 +5,7 @@ Edit Akun
 @endsection
 
 @section('contentheader_title')
-Edit Akun
+Edit Akun Mahasiswa
 @endsection
 
 @section('code-header')
@@ -74,11 +74,31 @@ Edit Akun
 					</div>
 				</div>
 
+				<div class="form-group">
+					<label for="angkatan" class="col-sm-2 control-label">Angkatan</label>
+					<div class="col-md-8">
+						<input type="number" class="form-control input-lg" id="angkatan" name="angkatan" placeholder="Masukkan angkatan" value="{{$biodata->angkatan}}" required>
+					</div>
+				</div>
 
 				<div class="form-group">
 					<label for="E-mail" class="col-sm-2 control-label">E-mail</label>
 					<div class="col-md-8">
 						<input type="email" class="form-control input-lg" id="email" name="email" placeholder="Masukkan e-mail" value="{{$biodata->email_mhs}}" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="fakultas" class="col-sm-2 control-label">Fakultas</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="fakultas" name="fakultas" value="Fakultas Sains dan Teknologi" readonly="readonly">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="program studi" class="col-sm-2 control-label">Program Studi</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control input-lg" id="program studi" name="program studi" value="S1 Sistem Informasi" readonly="readonly">
 					</div>
 				</div>
 
@@ -105,13 +125,37 @@ Edit Akun
 @endsection
 
 @section('code-footer')
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-$( function() {
-    var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
 
-  } );
-  </script>
+  <script type="text/javascript">
+	var elBrowse  = document.getElementById("foto_mhs");
+	elBrowse.addEventListener("change", function() {
+		var files  = this.files;
+		var errors = "";
+		if (!files) {
+			errors += "File upload not supported by your browser.";
+		}
+		if (files && files[0]) 
+		{
+			for(var i=0; i<files.length; i++) 
+			{
+				var file = files[i];
+				if ( (/\.(png|jpeg|jpg|gif)$/i).test(file.name) ) 
+				{
+					readImage( file ); 
+				} 
+				else 
+				{
+					errors += file.name +" is unsupported Image extension\n";
+					document.getElementById("foto_mhs").value = null;  
+				}
+			}
+		}
+		if (errors) {
+			alert(errors); 
+		}
+	});
+</script>
+
+
 @endsection
 

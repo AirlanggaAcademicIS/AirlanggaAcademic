@@ -74,7 +74,7 @@ Jurnal
     </tr>
      @empty
         <tr>
-          <td colspan="6"><center>Belum Ada Jurnal</center></td>
+          <td colspan="10"><center>Belum Ada Jurnal</center></td>
         </tr>
     @endforelse
   </tbody>

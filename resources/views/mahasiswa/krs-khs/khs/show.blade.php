@@ -28,6 +28,8 @@ KHS
             <button class="btn btn-info" type="submit">Pilih</button>
           </div>
 </div>
+<br>
+<p><b>Tahun Akademik {{$tahun_pilih->semester_periode}}</b></p>
 </div>
 </form>
     </section>
@@ -45,7 +47,7 @@ KHS
             <!-- /.box-header -->
 
             <div class="box-body">
-            <a href="{{url('mahasiswa/krs-khs/khs/cetak')}}" type="button" class="btn btn-info btn-flat" style="margin-bottom: 10px;">CETAK</a>
+            <a href="{{url('mahasiswa/krs-khs/khs/'.$tahun_pilih->id_thn_akademik.'/cetak')}}" type="button" class="btn btn-info btn-flat" style="margin-bottom: 10px;">CETAK</a>
               <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12">
 
               <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">

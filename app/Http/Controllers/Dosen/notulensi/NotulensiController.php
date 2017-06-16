@@ -15,10 +15,18 @@ use App\NotulensiDosen;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
+use Illuminate\Mail\Mailer;
+use Illuminate\Mail\Message;
+
 
 class NotulensiController extends Controller
 {
+protected $mailer;
 
+    public function __construct(Mailer $mailer)
+    {
+        $this->mailer = $mailer;
+    }
     // Function untuk menampilkan tabel
     public function index()
     {
@@ -138,5 +146,32 @@ class NotulensiController extends Controller
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('notulensi/konfirmasi');
     }
+public function kirimHasil($id_notulen)
+    {
+       
+        $kirim = DB::table('notulen_rapat')
+        ->join('dosen_rapat', 'dosen_rapat.notulen_id', '=', 'notulen_rapat.id_notulen')
+        ->join('users', 'users.username', '=', 'dosen_rapat.nip')
+        ->select('*')
+        ->where('notulen_rapat.id_notulen', '=', $id_notulen) 
+        ->get()
+        ->toArray();
+        $message = sprintf('Berikut telah dikirimkan notulensi hasil rapat : '.'
+        nama rapat              : '. $kirim[0]->nama_rapat.'
+        waktu pelaksanaan   : '. $kirim[0]->waktu_pelaksanaan.'
+        deskripsi rapat         : '. $kirim[0]->deskripsi_rapat .'
+        hasil pembahasan    : '. $kirim[0]->hasil_pembahasan);
+        foreach ($kirim as $email => $u) {
+        $this->mailer->raw($message, function (Message $m) use ($u) {
+            $m->from('airlanggaacademic@gmail.com', 'Admin Airlangga Academic')->to($u->email)->subject('Notulensi Rapat');
+        });
+        }
+       
+        
+        Session::put('alert-success', 'Berhasil mengirim hasil rapat');
+        return Redirect::to('notulensi/konfirmasi');
+        
+    }
+
 
 }

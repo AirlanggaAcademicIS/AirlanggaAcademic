@@ -83,7 +83,9 @@ Tambah Prestasi
 				<div class="form-group">
 					<label for="jenis_kegiatan" class="col-sm-2 control-label">Jenis Kegiatan</label>
 					<div class="col-md-8">
-						<select  class="form-control" name="jenis_kegiatan" required>
+
+						<select class="form-control" name="jenis_kegiatan" required>
+
 							<option value="PPKMB">PPKMB</option>
 							<option value="KKN">KKN</option>
 							<option value="PKL">PKL</option>
@@ -111,7 +113,9 @@ Tambah Prestasi
 				<div class="form-group">
 					<label for="tingkat" class="col-sm-2 control-label">Tingkat</label>
 					<div class="col-md-8">
-						<select  class="form-control" name="tingkat" required>
+
+						<select class="form-control" name="tingkat" required>
+
 							<option value="Universitas">Universitas</option>
 							<option value="Fakultas">Fakultas</option>
 							<option value="Departemen/Prodi">Departemen/Prodi</option>

@@ -28,7 +28,7 @@ class KategoriCpPemController extends Controller
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('dosen.kurikulum.kode_cppem.index',$data);
+        return view('dosen.kurikulum.kodecppem.index',$data);
     }
 
     public function createAction(Request $request)
