@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +16,5 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/logout', 'Auth\LoginController@logout');
 
 
+
 });
-=======
->>>>>>> a53490ee78011d3d34085d11913498befb4c395d
