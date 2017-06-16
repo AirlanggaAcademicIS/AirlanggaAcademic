@@ -70,7 +70,7 @@ Edit Prestasi
 				<div class="form-group">
 					<label for="kelompok_kegiatan" class="col-sm-2 control-label">Kelompok Kegiatan</label>
 					<div class="col-md-8">
-						<select name="kelompok_kegiatan" value= "{{$prestasi->kelompok_kegiatan}}" required>
+						<select  class="form-control" name="kelompok_kegiatan" value= "{{$prestasi->kelompok_kegiatan}}" required>
 							@if (($prestasi->kelompok_kegiatan)=='Kegiatan Wajib Universitas')
 							<option value="Kegiatan Wajib Universitas" selected="selected">Kegiatan Wajib Universitas</option>
 							<option value="Kegiatan Bidang Organisasi dan Kepemimpinan">Kegiatan Bidang Organisasi dan Kepemimpinan</option>
@@ -99,7 +99,7 @@ Edit Prestasi
 				<div class="form-group">
 					<label for="jenis_kegiatan" class="col-sm-2 control-label">Jenis Kegiatan</label>
 					<div class="col-md-8">
-						<select name="jenis_kegiatan" value= "{{$prestasi->jenis_kegiatan}}" required>
+						<select  class="form-control" name="jenis_kegiatan" value= "{{$prestasi->jenis_kegiatan}}" required>
 							@if (($prestasi->jenis_kegiatan)=='PPKMB')
 							<option value="PPKMB" selected="selected">PPKMB</option>
 							<option value="KKN">KKN</option>
@@ -249,7 +249,7 @@ Edit Prestasi
 				<div class="form-group">
 					<label for="tingkat" class="col-sm-2 control-label">Tingkat</label>
 					<div class="col-md-8">
-						<select name="tingkat" value= "{{$prestasi->tingkat}}" required>
+						<select  class="form-control" name="tingkat" value= "{{$prestasi->tingkat}}" required>
 							@if (($prestasi->tingkat)=='Universitas')
 							<option value="Universitas" selected="selected">Universitas</option>
 							<option value="Fakultas">Fakultas</option>
