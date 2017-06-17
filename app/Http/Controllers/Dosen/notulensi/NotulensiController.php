@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Http\Controllers\Dosen;
+namespace App\Http\Controllers\Dosen\notulensi;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -15,10 +15,18 @@ use App\NotulensiDosen;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
+use Illuminate\Mail\Mailer;
+use Illuminate\Mail\Message;
+
 
 class NotulensiController extends Controller
 {
+protected $mailer;
 
+    public function __construct(Mailer $mailer)
+    {
+        $this->mailer = $mailer;
+    } 
     // Function untuk menampilkan tabel
     public function index()
     {
@@ -138,4 +146,26 @@ class NotulensiController extends Controller
         return Redirect::to('notulensi/konfirmasi');
     }
 
+    public function kirimHasil($id_notulen)
+    {
+       
+        $kirim = DB::table('notulen_rapat')
+        ->join('dosen_rapat', 'dosen_rapat.notulen_id', '=', 'notulen_rapat.id_notulen')
+        ->join('users', 'users.username', '=', 'dosen_rapat.nip')
+        ->select('*')
+        ->where('notulen_rapat.id_notulen', '=', $id_notulen) 
+        ->get()
+        ->toArray();
+        $message = sprintf('yuyyt '.$kirim[0]->hasil_pembahasan );
+        dd($message);
+        foreach ($kirim as $email => $u) {
+        $this->mailer->raw($message, function (Message $m) use ($u) {
+            $m->from('airlanggaacademic@gmail.com', 'Admin Airlangga Academic')->to($u->email)->subject('Notulensi Rapat');
+        });
+        }
+       
+        Session::put('alert-success', 'Berhasil mengundang dosen');
+        return Redirect::to('notulensi/konfirmasi');
+        
+    }
 }
