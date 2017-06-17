@@ -37,7 +37,6 @@
          <th width="10%" style="text-align:center; color: #ffffff ">KODE MK</th>
          <th width="50%" style="text-align:center; color: #ffffff ">NAMA MATA AJAR</th>
          <th width="5%" style="text-align:center; color: #ffffff ">SKS</th>
-         <th width="10%" style="text-align:center; color: #ffffff ">KELAS</th>
          <th width="10%" style="text-align:center; color: #ffffff ">HARI</th>
          <th width="15%" style="text-align:center; color: #ffffff ">JAM</th>
          <th width="10%" style="text-align:center; color: #ffffff ">RUANG</th>
@@ -48,10 +47,9 @@
                     <td style="text-align:center; border: 1px solid black">{{$s->kode_matkul}}</td>
                     <td style="text-align:center; border: 1px solid black">{{$s->nama_matkul}}</td>
                     <td style="text-align:center; border: 1px solid black">{{$s->sks}}</td>
-                    <td style="text-align:center; border: 1px solid black"></td>
-                    <td style="text-align:center; border: 1px solid black"></td>
-                    <td style="text-align:center; border: 1px solid black"></td>
-                    <td style="text-align:center; border: 1px solid black"></td>
+                    <td style="text-align:center; border: 1px solid black">{{$s->nama_hari}}</td>
+                    <td style="text-align:center; border: 1px solid black">{{$s->waktu}}</td>
+                    <td style="text-align:center; border: 1px solid black">{{$s->nama_ruang}}</td>
                   </tr>
                   @endforeach
 
@@ -84,6 +82,11 @@ echo date("j")." ".$bulan[date("n")]." ".date("Y");
 @endphp
 </div>
 <div style="text-align: right;margin-right: 220px;">Dosen Wali</div>
+</br>
+</br>
+</br>
+<div style="text-align: right;margin-right: 230px;">{{$doswal->nama_dosen}}</div>
+<div style="text-align: right;margin-right: 200px;">{{$doswal->nip}}</div>
 <br>Lembar :
 <div style="font-family: arial;margin-left: 30px">&nbsp; 1. Untuk mahasiswa
 <br>&nbsp; 2. Untuk dosen wali

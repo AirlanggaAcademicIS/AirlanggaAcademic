@@ -28,7 +28,6 @@
 </table>
 <br>
 <table style="width:100%; border: 1px solid black; border-collapse: collapse; font-family: arial ">
- 
      <thead style="background-color: #000000">
          <th width="5%" style="text-align:center; color: #ffffff ">NO.</th>
          <th width="5%" style="text-align:center; color: #ffffff ">KODE MK</th>
@@ -38,6 +37,10 @@
          <th width="10%" style="text-align:center; color: #ffffff ">BOBOT</th>
     </thead>
     <tbody>
+     @php 
+     $total = 0;
+     $sks = 0;
+     @endphp
     @foreach($khs as $i => $k)
     <tr style="border: 1px solid black">
         <td style="text-align:center; border: 1px solid black">{{$i+1}}</td>
@@ -45,10 +48,6 @@
         <td style="text-align:center; border: 1px solid black">{{$k->MKDitawarkan->MK->nama_matkul}}</td>
         <td style="text-align:center; border: 1px solid black">{{$k->MKDitawarkan->MK->sks}}</td>
         <td style="text-align:center; border: 1px solid black">{{$k->nilai}}</td> 
-        @php 
-     $total = 0;
-     $sks = 0;
-     @endphp
           @php
           $sks = $sks + $k->MKDitawarkan->MK->sks
           @endphp   
@@ -91,20 +90,29 @@
         @endforeach
         </tr>
   </tbody>
+    @if($sks != '0')
+    $total = $total / $sks;
+    @endif
   <tfoot>
     <td width="5%" style="text-align:center"></td>
     <td width="50%" style="text-align:center: 1px solid black;"></td>
     <td width="15%" style="text-align:right;">Total SKS dan Bobot &nbsp; </td>
-    <td width="15%" style="text-align:center; border: 1px solid black;">{{$sks}}</td>
+    <td width="15%" style="text-align:center; border: 1px solid black;">
+    {{$sks}}
+    </td>
     <td width="15%" style="text-align:center;"></td>
-    <td width="15%" style="text-align:center; border: 1px solid black;">{{$total}}</td>
+    <td width="15%" style="text-align:center; border: 1px solid black;">
+    {{$total}}
+    </td>
     <td width="15%" style="text-align:center;border: 1px solid black;"></td>
 <tr>
-    <td width="5%" style="text-align:center;border-top: 1px solid black;"></td>
-    <td width="50%" style="text-align:center;border-top: 1px solid black;"></td>
+    <td width="5%" style="text-align:center;border: 1px solid black;"></td>
+    <td width="50%" style="text-align:center;border: 1px solid black;"></td>
     <td width="15%" style="text-align:right;border-top: 1px solid black;">Indeks Prestasi Semester &nbsp; </td>
     <td width="15%" style="text-align:center;border: 1px solid black;"></td>
-    <td width="15%" style="text-align:center;border: 1px solid black;">{{$total / $sks}}</td>
+    <td width="15%" style="text-align:center;border: 1px solid black;">
+    {{$total}}
+    </td>
     <td width="15%" style="text-align:center;border: 1px solid black;"></td>
 </tr>
 <tr>
@@ -112,7 +120,9 @@
     <td width="50%" style="text-align: 1px solid black;"></td>
     <td width="15%" style="text-align:right;border-top: 1px solid black;">SKS maksimal yang boleh diambil semester depan  &nbsp; </td>
     <td width="15%" style="text-align: 1px solid black;"></td>
-    <td width="15%" style="text-align:center: 1px solid black;">{{$total / $sks}}</td>
+    <td width="15%" style="text-align:center: 1px solid black;">
+    {{$total}}
+    </td>
     <td width="15%" style="text-align: 1px solid black;"></td>
     
 </tr>
@@ -120,7 +130,7 @@
 </table>
 <br>
 <div style="font-family: arial"> Tanpa mata ajar dengan nilai E, hasil studi sampai semester ini adalah :
-<br>JUMLAH SKS YANG TELAH DITEMPUH = {{$sum}} , dengan IPK = {{$total / $sks}} </div>
+<br>JUMLAH SKS YANG TELAH DITEMPUH = {{$sum}} , dengan IPK = {{$total}}</div>
 
 <br>
 <br>

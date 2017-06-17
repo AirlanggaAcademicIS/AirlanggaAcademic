@@ -44,15 +44,10 @@ class HistoriController extends Controller
     public function index()
     {
         $nim_id  = Auth::user()->username;
-        // $sum     = DB::table('mk_diambil')
-        //         ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_diambil.mk_ditawarkan_id')
-        //         ->select('*')
-        //         ->sum('sks');
         $data = [
         'page' => 'histori',
         'histori' => Histori::where('mhs_id',$nim_id)->get(),
         'mk' => MK::all(),
-        // 'sum' => $sum,
         ];
         return view('mahasiswa.krs-khs.histori.index',$data);
     }

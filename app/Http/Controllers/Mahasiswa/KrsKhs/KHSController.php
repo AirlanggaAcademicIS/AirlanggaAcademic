@@ -59,6 +59,12 @@ class KHSController extends Controller
     public function show()
     {
         $thn = \Request::get('periode');
+        if($thn=="Tahun Akademik"){
+        Session::put('alert-success', 'Pilih Tahun Akademik');
+        // Kembali ke halaman mahasiswa/biodata
+        return Redirect::back();
+        }
+        else{
         $data = [
         'page' => 'khs',
         'khs' => DB::table('mk_diambil')
@@ -72,6 +78,7 @@ class KHSController extends Controller
         'tahun_pilih' => TahunAkademik::where('id_thn_akademik',$thn)->first()
         ];
         return view('mahasiswa.krs-khs.khs.show',$data);
+        }
     }
 
     public function toPdf($id_tahun)

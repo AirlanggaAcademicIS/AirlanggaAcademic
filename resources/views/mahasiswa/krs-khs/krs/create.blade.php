@@ -49,7 +49,7 @@ Input Krs
               <div id="AmbilKrs" class="tab-pane fade in active">
               <h3>Ambil Krs</h3>
               @php
-              echo count($krs);
+              count($krs);
               @endphp
               <div style="overflow: auto">
                 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
