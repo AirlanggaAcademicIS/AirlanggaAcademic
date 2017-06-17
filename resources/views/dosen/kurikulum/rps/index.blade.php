@@ -28,7 +28,7 @@ Rencana Pembelajaran Semester
 </div>
 <div style="margin-bottom: 10px">
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('/dosen/kurikulum/rps/cpmk')}}" type="button" class="btn btn-info btn-md" >
+  <a href="{{url('/dosen/kurikulum/rps/cp-mk')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah RPS</a>
 </div>
   <!-- Href ini biar diklik masuk ke form tambah -->

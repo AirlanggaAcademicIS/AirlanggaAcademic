@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Capaian Program
+E-Learning
 @endsection
 
 @section('contentheader_title')
-Tambah Capaian Program
+Upload File E-Learning
 @endsection
 
 @section('code-header')
@@ -56,7 +56,7 @@ Tambah Capaian Program
            <div class="form-group">
               <label class="col-sm-2 control-label" for="exampleInputEmail1">Mata Kuliah</label>
               <div class="col-md-6">
-                <select class="form-control select2" style="width: 100%;" name = "mk_id" onchange="javascript:handleSelect(this)">
+                <select class="form-control select2" style="width: 161.3%;" name = "mk_id" onchange="javascript:handleSelect(this)">
                     <option value="">Pilih Mata Kuliah</option>
                       @foreach($matkul as $mk)
                       <option value="{{ $mk->id_mk }}" >{{$mk->nama_matkul}}</option>
@@ -68,7 +68,7 @@ Tambah Capaian Program
             <div class="form-group">
               <label for="capaian_program_spesifik" class="col-sm-2 control-label">Judul</label>
               <div class="col-md-6">
-                <textarea id="capaian_program_spesifik" name="judul" placeholder=" Berikan Judul" required cols="82" rows="5"></textarea>
+                <textarea id="capaian_program_spesifik" name="judul" placeholder=" Berikan Judul" required cols="130" rows="5"></textarea>
               </div>
             </div>
 
@@ -81,7 +81,7 @@ Tambah Capaian Program
             </div>
 
             <div class="form-group text-center">
-              <div style="text-align: right;" class="col-md-8">
+              <div style="text-align: right;" class="col-md-4">
                 <button type="submit" class="btn btn-primary btn-lg">
                 Upload
                 </button>

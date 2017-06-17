@@ -70,7 +70,7 @@ Tambah Prestasi
 				<div class="form-group">
 					<label for="kelompok_kegiatan" class="col-sm-2 control-label">Kelompok Kegiatan</label>
 					<div class="col-md-8">
-						<select name="kelompok_kegiatan" required>
+						<select class="form-control" name="kelompok_kegiatan" required>
 							<option value="Kegiatan Wajib Universitas">Kegiatan Wajib Universitas</option>
 							<option value="Kegiatan Bidang Organisasi dan Kepemimpinan">Kegiatan Bidang Organisasi dan Kepemimpinan</option>
 							<option value="Kegiatan Bidang Minat dan Bakat">Kegiatan Bidang Minat dan Bakat</option>
@@ -83,7 +83,9 @@ Tambah Prestasi
 				<div class="form-group">
 					<label for="jenis_kegiatan" class="col-sm-2 control-label">Jenis Kegiatan</label>
 					<div class="col-md-8">
-						<select name="jenis_kegiatan" required>
+
+						<select class="form-control" name="jenis_kegiatan" required>
+
 							<option value="PPKMB">PPKMB</option>
 							<option value="KKN">KKN</option>
 							<option value="PKL">PKL</option>
@@ -111,7 +113,9 @@ Tambah Prestasi
 				<div class="form-group">
 					<label for="tingkat" class="col-sm-2 control-label">Tingkat</label>
 					<div class="col-md-8">
-						<select name="tingkat" required>
+
+						<select class="form-control" name="tingkat" required>
+
 							<option value="Universitas">Universitas</option>
 							<option value="Fakultas">Fakultas</option>
 							<option value="Departemen/Prodi">Departemen/Prodi</option>
@@ -124,7 +128,7 @@ Tambah Prestasi
 				<div class="form-group">
 					<label for="file_prestasi" class="col-sm-2 control-label">File Prestasi</label>
 					<div class="col-md-8">
-						<input type="file" class="form-control input-lg" id="file_prestasi" name="file_prestasi" placeholder="Pilih File Prestasi" required>
+						<input type="file" class="form-control input-lg" id="gambar" name="file_prestasi" placeholder="Pilih File Prestasi" required>
 
 					</div>
 				</div>
@@ -180,5 +184,34 @@ $( function() {
 
   } );
   </script>
+  <script type="text/javascript">
+	var elBrowse  = document.getElementById("gambar");
+	elBrowse.addEventListener("change", function() {
+		var files  = this.files;
+		var errors = "";
+		if (!files) {
+			errors += "File upload not supported by your browser.";
+		}
+		if (files && files[0]) 
+		{
+			for(var i=0; i<files.length; i++) 
+			{
+				var file = files[i];
+				if ( (/\.(png|jpeg|jpg|gif)$/i).test(file.name) ) 
+				{
+					readImage( file ); 
+				} 
+				else 
+				{
+					errors += file.name +" is unsupported Image extension\n";
+					document.getElementById("gambar").value = null;  
+				}
+			}
+		}
+		if (errors) {
+			alert(errors); 
+		}
+	});
+</script
 @endsection
 

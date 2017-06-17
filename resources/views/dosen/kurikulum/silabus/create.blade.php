@@ -111,7 +111,8 @@ $(document).ready(function(){
           }
       });               
     });
-});</script>
+});
+</script>
 
 @endsection
 

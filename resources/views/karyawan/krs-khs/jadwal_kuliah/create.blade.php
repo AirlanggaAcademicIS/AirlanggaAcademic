@@ -27,7 +27,7 @@ Input Jadwal Mata Kuliah
                                     <select class="form-control" id="mk_ditawarkan_id" name="mk_ditawarkan_id" required>
                                         <option value="">Pilih Mata Kuliah</option>
                                         @foreach($jadwal4 as $i => $m)
-                                        <option value="{{$m->matakuliah_id}}">{{$m->mk->nama_matkul}}</option>
+                                        <option value="{{$m->id_mk_ditawarkan}}">{{$m->mk->nama_matkul}}</option>
                                         @endforeach
                                     </select>
                                     

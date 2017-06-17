@@ -84,8 +84,8 @@ Edit Data Dosen
                   <div class="col-md-8" >  <select class="form-control" name="status_dosen">
                   <option value="{{$dosen->status_dosen}}">{{$dosen->status_dosen}}</option>
                     <option value="Kepala Program Studi">Kepala Program Studi</option>
-                    <option value="Dosen Tetap">Dosen Tetap</option>
-                    <option value="Dosen Honorer">Dosen Honorer</option>                                       
+                    <option value="Dosen Tetap">Dosen Biasa</option>
+                                                           
                   </select>                   
 						
 					</div>

@@ -26,7 +26,11 @@ protected $mailer;
     public function __construct(Mailer $mailer)
     {
         $this->mailer = $mailer;
+
     } 
+
+    }
+
     // Function untuk menampilkan tabel
     public function index()
     {
@@ -88,6 +92,7 @@ protected $mailer;
             ->select('*')
             ->get()
         ];    
+        
                 return view('dosen.notulensi.notulensi.listHasil.index2',$data);
             }
 
@@ -145,8 +150,7 @@ protected $mailer;
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('notulensi/konfirmasi');
     }
-
-    public function kirimHasil($id_notulen)
+public function kirimHasil($id_notulen)
     {
        
         $kirim = DB::table('notulen_rapat')
@@ -156,16 +160,21 @@ protected $mailer;
         ->where('notulen_rapat.id_notulen', '=', $id_notulen) 
         ->get()
         ->toArray();
-        $message = sprintf('yuyyt '.$kirim[0]->hasil_pembahasan );
-        dd($message);
+        $message = sprintf('Berikut telah dikirimkan notulensi hasil rapat : '.'
+        nama rapat              : '. $kirim[0]->nama_rapat.'
+        waktu pelaksanaan   : '. $kirim[0]->waktu_pelaksanaan.'
+        deskripsi rapat         : '. $kirim[0]->deskripsi_rapat .'
+        hasil pembahasan    : '. $kirim[0]->hasil_pembahasan);
         foreach ($kirim as $email => $u) {
         $this->mailer->raw($message, function (Message $m) use ($u) {
             $m->from('airlanggaacademic@gmail.com', 'Admin Airlangga Academic')->to($u->email)->subject('Notulensi Rapat');
         });
         }
        
-        Session::put('alert-success', 'Berhasil mengundang dosen');
+        
+        Session::put('alert-success', 'Berhasil mengirim hasil rapat');
         return Redirect::to('notulensi/konfirmasi');
         
     }
+
 }

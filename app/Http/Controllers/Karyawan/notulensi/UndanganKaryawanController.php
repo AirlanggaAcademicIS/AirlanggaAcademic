@@ -149,8 +149,25 @@ class UndanganKaryawanController extends Controller
     public function kirimUndangan($id_notulen, Request $request)
     {
         $user = $request->input('dosen');
-       
-        $message = sprintf('halo halo');
+        $detail = DB::table('notulen_rapat')
+        ->join('permohonan_ruang', 'permohonan_ruang.id_permohonan_ruang', '=', 'notulen_rapat.permohonan_ruang_id')
+        ->join('jadwal_permohonan', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang')
+        ->join('ruang', 'ruang.id_ruang', '=', 'jadwal_permohonan.ruang_id')
+        ->select('*')
+        ->where('notulen_rapat.id_notulen', '=', $id_notulen)
+        ->get()
+        ->toArray();
+        
+        $message = sprintf('Anda telah diundang rapat dengan detail sebagai berikut : '.'
+            '.'
+            Nama Rapat              : '.$detail[0]->nama_rapat.'
+            Waktu Pelaksanaan   : '.$detail[0]->waktu_pelaksanaan.'
+            Tempat                      : '.$detail[0]->nama_ruang.'
+            Agenda Rapat            : '.$detail[0]->agenda_rapat.'
+            '.'
+            Untuk konfirmasi kehadiran silahkan login di AirlanggaAcademic kemudian pilih fitur Undangan di modul Notulensi.'.'
+            '.'
+            Email ini dikirim oleh sistem, silahkan abaikan email ini apabila anda tidak ingin menghadiri rapat.');
 
         foreach ($user as $u) {
         $this->mailer->raw($message, function (Message $m) use ($u) {
@@ -160,11 +177,12 @@ class UndanganKaryawanController extends Controller
         foreach ($user as $p) {
             $nip = DB::table('users')->select('username')->where('email','=',$p)->first();
             DB::table('dosen_rapat')->insert( [
-                'nip' => $nip->username ,
-             'notulen_id' => $id_notulen,
-             'status' => 0
-             ] );
+            'nip' => $nip->username ,
+            'notulen_id' => $id_notulen,
+            'status' => 0
+            ] );
         }
+
         Session::put('alert-success', 'Berhasil mengundang dosen');
         return Redirect::to('undangankaryawan');
         
