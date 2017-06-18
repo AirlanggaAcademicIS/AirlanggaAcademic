@@ -16,7 +16,7 @@
 <br>___________________________________________________________________________________________________________
 <b></b>
 <p>
-<center><u>KARTU HASIL STUDI TAHUN AKADEMIK {{$tahun->semester_periode}} </u></center>
+<center><u><b>KARTU HASIL STUDI TAHUN AKADEMIK {{$tahun->semester_periode}} </b></u></center>
 <br>
 </p>
 <table style="font-family: arial">
