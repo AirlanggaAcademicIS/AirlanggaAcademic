@@ -64,6 +64,7 @@ Kirim Undangan Ke Dosen
                   <th>No</th>
                   <th>Nama Dosen</th>
                   <th>NIP</th>
+                  <th>Keterangan</
                   <th>Action</th>
                 </tr>
                 @foreach($dosen as $i=>$d)

@@ -87,7 +87,7 @@ class HasilSidangController extends Controller
             ->select('skripsi.id_skripsi','biodata_mhs.nama_mhs', 'skripsi.NIM_id','skripsi.nilai_sidangpro' ,'kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangpro', 'skripsi.waktu_sidangpro', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang','dosen_penguji.nip_id as dosji','status_skripsi.keterangan')
             ->whereNull('skripsi.deleted_at')
             // ->where('NIM_id','=',$nim)
-            ->whereNotNull('nilai_sidangpro')
+            // ->whereNotNull('nilai_sidangpro')
             ->where('skripsi.NIM_id','=',$nim)
 
             ->get();
