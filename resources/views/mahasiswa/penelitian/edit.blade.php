@@ -155,7 +155,7 @@ Edit Penelitian Mahasiswa
 					<label for="nama" class="col-sm-2 control-label">Anggota</label>
 					<div class="col-md-8">
 						<textarea type="text" class="form-control input-lg" id="anggota" name="anggota" required cols="115" rows="5"
-						placeholder="Masukkan Anggota" required>{!!old( 'anggota',$detail_anggota->anggota)!!}</textarea>
+						placeholder="Masukkan Anggota" required>{!!old( 'anggota',$penelitian_mhs->anggota)!!}</textarea>
 						<p class="help-block">*contoh:</p>
 						<p class="help-block">1. Bambang</p>
 						<p class="help-block">2. Joko</p>
@@ -167,7 +167,7 @@ Edit Penelitian Mahasiswa
 				<div class="form-group">
 					<label for="nama" class="col-sm-2 control-label">Abstrak</label>
 					<div class="col-md-8">
-						<textarea id="abstract" class="form-control input-lg" name="abstract" placeholder=" Masukkan Abstract" required cols="115" rows="5">{!!old( 'abstract',$detailpenelitian->abstract)!!}</textarea>
+						<textarea id="abstract" class="form-control input-lg" name="abstract" placeholder=" Masukkan Abstract" required cols="115" rows="5">{!!old( 'abstract',$penelitian_mhs->abstract)!!}</textarea>
 					</div>
 				</div>
 
