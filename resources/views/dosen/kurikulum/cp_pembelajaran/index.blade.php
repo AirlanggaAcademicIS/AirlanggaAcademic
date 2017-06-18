@@ -25,17 +25,18 @@ Capaian Pembelajaran
   {!!Session::forget('alert-' . $msg)!!}
   @endif
   @endforeach
-  <div class="box box-info">
-<div class="box-body">
+</div>
 
-</div>
-<div style="margin-bottom: 10px">
-  <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('dosen/kurikulum/capaian-pembelajaran/create')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah Capaian</a>
-</div>
+<div class="box box-info">
+  <div class="box-body">
+    <div style="margin-bottom: 10px">
+      <!-- Href ini biar diklik masuk ke form tambah -->
+      <a href="{{url('dosen/kurikulum/capaian-pembelajaran/create')}}" type="button" class="btn btn-info btn-md" >
+      <i class="fa fa-plus-square"></i> Tambah Capaian</a>
+    </div>
+
 <div style="overflow: auto">
-<table id="myTable" class="table tabl0e-striped table-bordered" cellspacing="0">
+<table id="data-table" class="table tabl0e-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th style="text-align:center">No.</th>
@@ -46,7 +47,8 @@ Capaian Pembelajaran
       <th style="text-align:center">Action</th>
     </tr>
     </thead>
-  <tbody>
+<tbody>
+   
    @forelse($capaianpembelajaran as $i => $cp) 
     <tr>
       <td width="5%" style="text-align:center" >{{ $i+1 }}</td>
@@ -54,12 +56,15 @@ Capaian Pembelajaran
       <td width="15%" style="text-align:center">{{$cp->kategori['nama_cpem']}}</td>
       <td width="15%" style="text-align:center">{{$cp->kode_cpem}}</td>
       <td width="30%" style="text-align:center">{{$cp->deskripsi_cpem}}</td>
-      <td width="10%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus data ini?');" href="{{url('/dosen/kurikulum/capaian-pembelajaran/'.$cp->id_cpem.'/delete/')}}" class="btn btn-danger btn-xs">
+      <td width="10%" style="text-align:center">
+        <a onclick="return confirm('Anda yakin untuk menghapus data ini?');" href="{{url('/dosen/kurikulum/capaian-pembelajaran/'.$cp->id_cpem.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
+        
         <a href="{{url('/dosen/kurikulum/capaian-pembelajaran/'.$cp->id_cpem.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
-        </td>
+      </td>
     </tr>
+
      @empty
         <tr>
           <td colspan="6"><center>Belum ada data</center></td>
@@ -68,9 +73,17 @@ Capaian Pembelajaran
   </tbody>
 </table>
 </div>
+</div>
+</div>
 
 @endsection
 
 @section('code-footer')
 
+<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#data-table').DataTable(); 
+});
+</script>
 @endsection

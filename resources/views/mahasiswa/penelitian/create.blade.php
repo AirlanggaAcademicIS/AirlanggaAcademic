@@ -160,38 +160,6 @@ Tambah Penelitian Mahasiswa
 						<textarea class="form-control input-lg" id="abstract" name="abstract" placeholder=" Masukkan abstract" required cols="115" rows="5">{!! old('abstract') !!}</textarea>
 					</div>
 				</div>
-				
-				
-				<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="background" class="col-sm-2 control-label">Background</label>
-					<div class="col-md-8">
-						<textarea id="background" class="form-control input-lg" name="background" placeholder=" Masukkan background" required cols="115" rows="5">{!! old('background') !!}</textarea>
-					</div>
-				</div>
-
-				<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="objective" class="col-sm-2 control-label">Objective</label>
-					<div class="col-md-8">
-						<textarea id="objective" class="form-control input-lg" name="objective" placeholder=" Masukkan objective" required cols="115" rows="5">{!! old('objective') !!}</textarea>
-					</div>
-				</div>
-				<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="methods" class="col-sm-2 control-label">Methods</label>
-					<div class="col-md-8">
-						<textarea id="methods" class="form-control input-lg" name="methods" placeholder=" Masukkan methods" required cols="115" rows="5">{!! old('methods') !!}</textarea>
-					</div>
-				</div>
-
-				<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="results" class="col-sm-2 control-label">Results</label>
-					<div class="col-md-8">
-						<textarea id="results" class="form-control input-lg" name="results" placeholder=" Masukkan results" required cols="115" rows="5">{!! old('results') !!}</textarea>
-					</div>
-				</div>
 
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">

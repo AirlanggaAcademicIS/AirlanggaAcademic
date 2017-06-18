@@ -40,10 +40,13 @@ Verifikasi Penelitian
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                  
                   <th>Nim</th>
-                  <th>Nama Mahasiswa</th>
+                  <th>Nama</th>
+                  <th>Angkatan</th>
+                  <th>Judul Penelitian</th>
                   <th>Status Verifikasi</th>
-                  <th>View More</th>
+                  <th>Aksi</th>
                   
                 </tr>
                 </thead>
@@ -52,12 +55,16 @@ Verifikasi Penelitian
                   <tr>
                   <td>{{$pen->nim_id}}</td>
                   <td>{{$pen->peneliti}}</td>
+                  <td>{{$pen->angkatan}}</td>
+                  <td>{{$pen->judul}}</td>
                   @if(($pen->is_verified)== '0')
                   <td>Proses</td>
                   @elseif(($pen->is_verified)== '1')
                   <td>Terverifikasi</td>
+                  @elseif(($pen->is_verified)=='2')
+                  <td>Revisi</td>
                   @else
-                  <td>Verifikasi Ditolak</td>
+                  <td>Verifikasi ditolak</td>
                   @endif
                   <td> <button type="button" class="btn btn-default btn-block"><a href="{{url('/karyawan/verifikasi/'.$pen->kode_penelitian.'/penelitian/')}}">View More</a></button> </td>
                 </tr>

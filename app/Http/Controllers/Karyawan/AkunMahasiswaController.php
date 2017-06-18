@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use App\AkunMahasiswa;
 use App\AkunBioMHS;
 use App\AkunUser;
-use App\Dosen;
+use App\BiodataDosen;
 
 
 class AkunMahasiswaController extends Controller
@@ -32,6 +32,7 @@ class AkunMahasiswaController extends Controller
             'akunmahasiswa' => DB::table('mahasiswa')
             ->join('biodata_mhs', 'biodata_mhs.nim_id', '=', 'mahasiswa.nim')
             ->join('users', 'users.username', '=', 'mahasiswa.nim')
+            ->leftjoin('biodata_dosen','biodata_dosen.nip','=','mahasiswa.nip_id')
             ->select('*')
             ->get()
         
@@ -46,7 +47,7 @@ class AkunMahasiswaController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'akun',
-            'akun' => Dosen::all()
+            'akun' => BiodataDosen::all()
         ];
 
         // Memanggil tampilan form create
@@ -117,7 +118,7 @@ class AkunMahasiswaController extends Controller
             'akun' => $akun,
             'biodata' => $biodata,
             'users' => $users,
-            'dosen' => Dosen::all()
+            'dosen' => BiodataDosen::all()
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi

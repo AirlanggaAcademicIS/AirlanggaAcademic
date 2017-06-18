@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Kategori Media Pembelajaran
+Rencana Pembelajaran Semester
 @endsection
 
 @section('contentheader_title')
-Tambah Kategori Media Pembelajaran
+Rencana Pembelajaran Semester
 @endsection
 
 @section('code-header')
@@ -92,12 +92,12 @@ Tambah Kategori Media Pembelajaran
 <div class="form-group box-header">
   <p><b>Pustaka</b></p>
     <label for="pustaka_utama">Pustaka Utama</label>
-    <textarea class="form-control" rows="3" placeholder="Masukkan pustaka utama" name="pustaka_utama"></textarea>
+      <textarea class="form-control" rows="3" placeholder="Masukkan pustaka utama" name="pustaka_utama"></textarea>
 </div>
  
 <div class="form-group box-header">
-<label for="pustaka_pendukung">Pustaka Pendukung</label>
-  <textarea class="form-control" rows="3" placeholder="Masukkan pustaka pendukung" name="pustaka_pendukung"></textarea><br>
+  <label for="pustaka_pendukung">Pustaka Pendukung</label>
+    <textarea class="form-control" rows="3" placeholder="Masukkan pustaka pendukung" name="pustaka_pendukung"></textarea><br>
 </div>
   
 <div class="form-group box-header">
@@ -143,7 +143,7 @@ Tambah Kategori Media Pembelajaran
 <br>
 
 <div class="col-md-12 box-body">
-  <button type="submit" class="btn btn-primary pull-right">Tambah</button> 
+  <button type="submit" class="btn btn-primary pull-right">Selanjutnya</button> 
 </div>
 </div>
 
