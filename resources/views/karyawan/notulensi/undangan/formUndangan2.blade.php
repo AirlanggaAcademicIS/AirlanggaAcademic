@@ -6,12 +6,12 @@
 @endsection
 
 @section('htmlheader_title')
-Kirim Undangan Ke Dosen
+Kirim Email Ke Dosen
 @endsection
 
 @section('contentheader_title')
 <!-- Nama konten -->
-Kirim Undangan Ke Dosen
+Kirim Email Ke Dosen
 @endsection
 
 @section('main-content')
@@ -31,7 +31,7 @@ Kirim Undangan Ke Dosen
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="{{url('formundangan/'.$form->id_notulen.'/undang')}}">
+            <form class="form-horizontal" method="post" action="{{url('formundangan2/'.$form->id_notulen.'/undang')}}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="box-body">
                 <div class="form-group">
@@ -64,7 +64,6 @@ Kirim Undangan Ke Dosen
                   <th>No</th>
                   <th>Nama Dosen</th>
                   <th>NIP</th>
-                  <th>Keterangan</
                   <th>Action</th>
                 </tr>
                 @foreach($dosen as $i=>$d)
@@ -88,7 +87,7 @@ Kirim Undangan Ke Dosen
                 
               </div>
               <div class="box-footer">
-                <button type="submit" class="btn btn-info pull-right" name="kirimUndangan" value="undangan">Kirim Undangan</button>
+                <button type="submit" class="btn btn-info pull-right" name="kirimEmail" value="email">Kirim Email</button>
               </div>
             </form>
 @endsection
