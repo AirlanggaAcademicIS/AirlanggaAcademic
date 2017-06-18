@@ -13,7 +13,7 @@ class Histori extends Model
    	protected $fillable = [
    		'mhs_id',
 		'nilai',		
-   	];
+   	];  
    	   	public function MKDitawarkan()
    {
    	return $this->belongsTo('App\Models\KrsKhs\MKDitawarkan','mk_ditawarkan_id');

@@ -24,7 +24,6 @@ use App\Models\KrsKhs\DetailNilai;
 use App\Models\KrsKhs\TahunAkademik;
 use App\Models\KrsKhs\BiodataMahasiswa;
 use App\Models\KrsKhs\Dosen;
-use App\Models\KrsKhs\Histori;
 use PDF;    
 // /**
 //  * Class HomeController
@@ -86,17 +85,23 @@ class KHSController extends Controller
                 ->sum('sks'); 
         $data = [
         'page' => 'khs',
-        'khs' => KHS::where('mhs_id','=',$nim_id)->get(),
-
+        'khs' => DB::table('mk_diambil')
+                    ->join('mk_ditawarkan','mk_diambil.mk_ditawarkan_id','mk_ditawarkan.id_mk_ditawarkan')
+                    ->join('mata_kuliah','mk_ditawarkan.matakuliah_id','mata_kuliah.id_mk')
+                    ->where('mhs_id',$nim_id)
+                    ->where('mk_ditawarkan.thn_akademik_id',$id_tahun)->get(),
         'tahun' => TahunAkademik::where('id_thn_akademik',$id_tahun)->first(),
         'biodata_mhs' => BiodataMahasiswa::where('nim_id','=',$nim_id)->first(),
         'doswal' => DB::table('mahasiswa')
-                        ->join('biodata_dosen','mahasiswa.nip_id','biodata_dosen.nip')
-                        ->where('nim',$nim_id)->first(),
-        'histori' => Histori::where('mhs_id',$nim_id)->get(),
+                    ->join('biodata_dosen','biodata_dosen.nip','mahasiswa.nip_id')
+                    ->where('nim',$nim_id)->first(),
         'sum' => $sum,
- 
+        'histori' => DB::table('mk_diambil')
+                    ->join('mk_ditawarkan','mk_diambil.mk_ditawarkan_id','mk_ditawarkan.id_mk_ditawarkan')
+                    ->join('mata_kuliah','mk_ditawarkan.matakuliah_id','mata_kuliah.id_mk')
+                    ->where('mhs_id',$nim_id)->get(),
         ];
+        //dd($data['histori']);
         $pdf = PDF::loadView('mahasiswa.krs-khs.khs.cetak', $data);
         return $pdf->inline('KHS.pdf');
 
