@@ -49,15 +49,15 @@ Jadwal Kuliah
    @forelse($jadwal as $i => $j) 
     <tr>
       <td>{{ $i+1 }}</td>
-      <td width="20%" style="text-align:center">{{$j->mkDitawarkan->mk->nama_matkul}}</td>
-      <td width="15%" style="text-align:center">{{$j->jam->waktu}}</td>
-      <td width="20%" style="text-align:center">{{$j->hari->nama_hari}}</td>
-      <td width="20%" style="text-align:center">{{$j->ruang->nama_ruang}}</td>
+      <td width="20%" style="text-align:center">{{$j->nama_matkul}}</td>
+      <td width="15%" style="text-align:center">{{$j->waktu}}</td>
+      <td width="20%" style="text-align:center">{{$j->nama_hari}}</td>
+      <td width="20%" style="text-align:center">{{$j->nama_ruang}}</td>
       <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus jadwal ini?');"
-       href="{{url('karyawan/krs-khs/jadwal-kuliah/'.$j->mk_ditawarkan_id.'/'.$j->hari_id.'/'.$j->ruang_id.'/delete/')}}" class="btn btn-danger btn-xs">
+       href="{{url('karyawan/krs-khs/jadwal-kuliah/'.$j->mk_ditawarkan_id.'/'.$j->hari_id.'/'.$j->ruang_id.'/'.$j->jam_id.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
        
-        <a href="{{url('karyawan/krs-khs/jadwal-kuliah/'.$j->mk_ditawarkan_id.'/'.$j->hari_id.'/'.$j->ruang_id.'/edit/')}}" class="btn btn-warning btn-xs">
+        <a href="{{url('karyawan/krs-khs/jadwal-kuliah/'.$j->mk_ditawarkan_id.'/'.$j->hari_id.'/'.$j->ruang_id.'/'.$j->jam_id.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
       </td>
     </tr>

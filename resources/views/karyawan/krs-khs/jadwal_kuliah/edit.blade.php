@@ -15,7 +15,7 @@ Edit Jadwal Mata Kuliah
 
 @section('main-content')
   <div class="box box-info">
-     <form id="tambahJadwal" method="post" action="{{url('karyawan/krs-khs/jadwal-kuliah/'.$jadwal1->mk_ditawarkan_id.'/'.$jadwal1->hari_id.'/'.$jadwal1->ruang_id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
+     <form id="tambahJadwal" method="post" action="{{url('karyawan/krs-khs/jadwal-kuliah/'.$jadwal1->mk_ditawarkan_id.'/'.$jadwal1->hari_id.'/'.$jadwal1->ruang_id.'/'.$jadwal1->jam_id.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="nama_matkul" value="{{ $jadwal4->mk->nama_matkul }}">  
               <div class="box-body">
@@ -38,7 +38,7 @@ Edit Jadwal Mata Kuliah
                                 <div class="col-xs-4">
                                     <select class="form-control" id="jam_id" name="jam_id" required>
                                        
-                                        <option>Pilih Jam</option>
+                                        <option value="">Pilih Jam</option>
                                         @foreach($jadwal2 as $i => $m)
                                         <option {!!($jadwal1->jam_id == $m->id_jam)? 'selected' : ''!!} value="{{$m->id_jam}}">{{$m->waktu}}</option>
                                         @endforeach
@@ -68,7 +68,7 @@ Edit Jadwal Mata Kuliah
                                 <div class="col-xs-4">
                                     <select class="form-control" id="hari_id" name="hari_id" required>
                                        
-                                        <option>Pilih Hari</option>
+                                        <option value="">Pilih Hari</option>
                                         @foreach($jadwal5 as $i => $m)
                                         <option {!!($jadwal1->hari_id == $m->id_hari)? 'selected' : ''!!}  value="{{$m->id_hari}}">{{$m->nama_hari}}</option>
                                         @endforeach
@@ -86,7 +86,7 @@ Edit Jadwal Mata Kuliah
                                 <div class="col-xs-4">
                                     <select class="form-control" id="ruang_id" name="ruang_id" required>
                                        
-                                        <option>Pilih Ruang</option>
+                                        <option value="">Pilih Ruang</option>
                                         @foreach($jadwal3 as $i => $m)
                                         <option {!!($jadwal1->ruang_id == $m->id_ruang)? 'selected' : ''!!} value="{{$m->id_ruang}}">{{$m->nama_ruang}}</option>
                                         @endforeach

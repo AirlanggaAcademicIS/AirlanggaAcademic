@@ -37,6 +37,19 @@ Monitoring Skripsi
       <tr><td width="15%">Judul</td><td>{{$skripsi->Judul}}</td></tr>
       <tr><td width="15%">Dosen Pembimbing 1</td><td>{{$dosen1->nama_dosen}}</td></tr>
       <tr><td width="15%">Dosen Pembimbing 2</td><td>{{$dosen2->nama_dosen}}</td></tr>
+      <tr><td width="15%">Mulai Pengerjaan</td><td>
+      @if($skripsi->tgl_sidangpro==null)
+      Belum
+      @else
+      {{$skripsi->tgl_sidangpro}}
+      @endif</td></tr>
+      <tr><td width="15%">Selesai Pengerjaan</td><td>
+      @if($skripsi->tgl_sidangskrip==null)
+      Belum
+      @else
+      {{$skripsi->tgl_sidangskrip}}
+      @endif
+      </td></tr>
     </tr>
         </thead>
   </tbody>

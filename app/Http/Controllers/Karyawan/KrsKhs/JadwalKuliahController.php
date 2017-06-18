@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 use Session;
 use Validator;
 use Response;
+use DB;
 // Tambahkan model yang ingin dipakai
 use App\Models\KrsKhs\JadwalKuliah;
 use App\Models\KrsKhs\MKDitawarkan;
@@ -26,12 +27,20 @@ class JadwalKuliahController extends Controller
     // Function untuk menampilkan tabel
     public function index()
     {
+        $tahun = TahunAkademik::count();
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar ruang
             'page' => 'jadwal',
             // Memanggil semua isi dari tabel ruang
-            'jadwal' => JadwalKuliah::all()
+            'jadwal' => DB::table('jadwal_kuliah')
+                            ->leftJoin('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','jadwal_kuliah.mk_ditawarkan_id')
+                            ->leftJoin('mata_kuliah','mk_ditawarkan.matakuliah_id','=','mata_kuliah.id_mk')
+                            ->leftJoin('jam','jadwal_kuliah.jam_id','=','jam.id_jam')
+                            ->leftJoin('hari','hari.id_hari','=','jadwal_kuliah.hari_id')
+                            ->leftJoin('ruang','ruang.id_ruang','=','jadwal_kuliah.ruang_id')
+                            ->where('mk_ditawarkan.thn_akademik_id',$tahun)->get()
         ];
+        //dd($data['jadwal']);
         // Memanggil tampilan index di folder krs-khs/ruang dan juga menambahkan $data tadi di view
         // dd($data);
         return view('karyawan.krs-khs.jadwal_kuliah.index',$data);
@@ -51,35 +60,32 @@ class JadwalKuliahController extends Controller
 
              'jadwal4' =>MKDitawarkan::where('thn_akademik_id',$tahun)->get()
         ];
+        // dd($data['jadwal4']);
         // Memanggil tampilan form create
         return view('karyawan.krs-khs.jadwal_kuliah.create',$data);
     }
 
     public function createAction(Request $request){
-        // if($request->input('jam_id2')!=""){
-        //     JadwalKuliah::create($request->input());
-        //     JadwalKuliah::create(['mk_ditawarkan_id' => $request->input('mk_ditawarkan_id'),
-        //                     'jam_id' => $request->input('jam_id2'),
-        //                     'hari_id' => $request->input('hari_id'),
-        //                     'ruang_id' => $request->input('ruang_id')]);
-        // }
-        // else{
-            JadwalKuliah::create($request->input()); 
-        // }
 
+        if (!empty(JadwalKuliah::where('hari_id',$request->input('hari_id'))->where('jam_id',$request->input('jam_id'))->where('ruang_id',$request->input('ruang_id'))->first())) {
+           Session::put('alert-danger', 'Jadwal Tabrakan');
+
+        return Redirect::back();
+        }
+        JadwalKuliah::create($request->input()); 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Jadwal Kuliah berhasil ditambahkan');
 
-        // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/krs-khs/jadwal-kuliah/index');
     }
      
-     public function delete($mk_ditawarkan_id,$hari_id,$ruang_id)
+     public function delete($mk_ditawarkan_id,$hari_id,$ruang_id,$jam_id)
     {
         // Mencari ruang berdasarkan id dan memasukkannya ke dalam variabel $ruang
         $jadwal = JadwalKuliah::where('mk_ditawarkan_id',$mk_ditawarkan_id)
                             ->where('hari_id',$hari_id)
-                            ->where('ruang_id',$ruang_id)->delete();
+                            ->where('ruang_id',$ruang_id)
+                            ->where('jam_id',$jam_id)->delete();
 
         // Menghapus ruang yang dicari tadi
 
@@ -90,18 +96,16 @@ class JadwalKuliahController extends Controller
         return Redirect::back();     
     }
     
-     public function edit($mk_ditawarkan_id,$hari_id,$ruang_id)
+     public function edit($mk_ditawarkan_id,$hari_id,$ruang_id,$jam_id)
     {
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar ruang
             'page' => 'jadwal',
             // Mencari ruang berdasarkan id
-            'jadwal' => JadwalKuliah::where('mk_ditawarkan_id',$mk_ditawarkan_id)
-                                    ->where('hari_id',$hari_id)
-                                    ->where('ruang_id',$ruang_id)->get(),
             'jadwal1' => JadwalKuliah::where('mk_ditawarkan_id',$mk_ditawarkan_id)
                                     ->where('hari_id',$hari_id)
-                                    ->where('ruang_id',$ruang_id)->first(),
+                                    ->where('ruang_id',$ruang_id)
+                                    ->where('jam_id',$jam_id)->first(),
             'jadwal5' => Hari::all(),
 
             'jadwal2' =>Jam::all(),
@@ -115,17 +119,18 @@ class JadwalKuliahController extends Controller
         return view('karyawan.krs-khs.jadwal_kuliah.edit',$data);
     }
 
-    public function editAction($mk_ditawarkan_id,$hari_id,$ruang_id, Request $request)
+    public function editAction($mk_ditawarkan_id,$hari_id,$ruang_id, $jam_id,Request $request)
     {
         // Mencari ruang yang akan di update dan menaruhnya di variabel $ruang
         $jadwal = JadwalKuliah::where([
            ['mk_ditawarkan_id','=',$mk_ditawarkan_id], 
            ['ruang_id','=',$ruang_id],
-           ['hari_id','=',$hari_id]
+           ['hari_id','=',$hari_id],
+           ['jam_id','=',$jam_id]
             ])->update(
-            ['jam_id'=> $request->input('jam_id')],
-            ['hari_id'=> $request->input('hari_id')],
-            ['ruang_id'=> $request->input('ruang_id')]
+            array('jam_id' => $request->input('jam_id'),
+                'hari_id'=> $request->input('hari_id'),
+                'ruang_id'=> $request->input('ruang_id'))
             );
         // Mengupdate $ruang tadi dengan isi dari form edit tadi
         // $jadwal->mk_ditawarkan_id = $request->input('mk_ditawarkan_id');

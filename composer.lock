@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "bec412ec53935ecd61c2cd59b45e8ea6",
+=======
+    "content-hash": "916c273503e12f8e9d65ad0edec83dad",
+>>>>>>> 1db8fc8aff8686cc981ec8ad00fd9b3d042b9c2c
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -233,6 +237,7 @@
                 "user"
             ],
             "time": "2016-12-05T13:39:37+00:00"
+<<<<<<< HEAD
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -281,6 +286,8 @@
                 "pdf"
             ],
             "time": "2017-02-19T06:45:54+00:00"
+=======
+>>>>>>> 1db8fc8aff8686cc981ec8ad00fd9b3d042b9c2c
         },
         {
             "name": "barryvdh/laravel-snappy",
@@ -880,6 +887,7 @@
                 "parser"
             ],
             "time": "2014-09-09T13:34:57+00:00"
+<<<<<<< HEAD
         },
         {
             "name": "dompdf/dompdf",
@@ -942,6 +950,8 @@
             "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
             "homepage": "https://github.com/dompdf/dompdf",
             "time": "2017-02-16T02:40:40+00:00"
+=======
+>>>>>>> 1db8fc8aff8686cc981ec8ad00fd9b3d042b9c2c
         },
         {
             "name": "erusev/parsedown",
@@ -1352,6 +1362,7 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
             "version": "v5.4.25",
             "source": {
                 "type": "git",
@@ -1362,6 +1373,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/6bcc9b1f542b3deed16d51f6aa1fe318ab407c2a",
                 "reference": "6bcc9b1f542b3deed16d51f6aa1fe318ab407c2a",
+=======
+            "version": "v5.4.27",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "66f5e1b37cbd66e730ea18850ded6dc0ad570404"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/66f5e1b37cbd66e730ea18850ded6dc0ad570404",
+                "reference": "66f5e1b37cbd66e730ea18850ded6dc0ad570404",
+>>>>>>> 1db8fc8aff8686cc981ec8ad00fd9b3d042b9c2c
                 "shasum": ""
             },
             "require": {
@@ -1477,7 +1500,11 @@
                 "framework",
                 "laravel"
             ],
+<<<<<<< HEAD
             "time": "2017-06-07T13:35:12+00:00"
+=======
+            "time": "2017-06-15T19:08:25+00:00"
+>>>>>>> 1db8fc8aff8686cc981ec8ad00fd9b3d042b9c2c
         },
         {
             "name": "laravel/tinker",
@@ -2052,6 +2079,7 @@
                 "random"
             ],
             "time": "2017-03-13T16:27:32+00:00"
+<<<<<<< HEAD
         },
         {
             "name": "phenx/php-font-lib",
@@ -2126,6 +2154,8 @@
             "description": "A library to read, parse and export to PDF SVG files.",
             "homepage": "https://github.com/PhenX/php-svg-lib",
             "time": "2016-12-13T20:25:45+00:00"
+=======
+>>>>>>> 1db8fc8aff8686cc981ec8ad00fd9b3d042b9c2c
         },
         {
             "name": "phpoffice/phpexcel",
@@ -2385,6 +2415,7 @@
                 "uuid"
             ],
             "time": "2017-03-26T20:37:53+00:00"
+<<<<<<< HEAD
         },
         {
             "name": "sabberworm/php-css-parser",
@@ -2426,6 +2457,8 @@
                 "stylesheet"
             ],
             "time": "2015-08-24T08:48:52+00:00"
+=======
+>>>>>>> 1db8fc8aff8686cc981ec8ad00fd9b3d042b9c2c
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3439,6 +3472,7 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2016-09-20T12:50:39+00:00"
+<<<<<<< HEAD
         },
         {
             "name": "uxweb/sweet-alert",
@@ -3490,6 +3524,8 @@
                 "sweet"
             ],
             "time": "2017-03-27T03:54:49+00:00"
+=======
+>>>>>>> 1db8fc8aff8686cc981ec8ad00fd9b3d042b9c2c
         },
         {
             "name": "vlucas/phpdotenv",

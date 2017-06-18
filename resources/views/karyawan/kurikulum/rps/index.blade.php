@@ -28,7 +28,7 @@ Rencana Pembelajaran Semester
 </div>
 
   <!-- Href ini biar diklik masuk ke form tambah -->
-  <div class="box box-primary">
+  <div class="box box-danger">
 
 <div class="box-body">
 <table id="example1" class="table table-bordered table-striped">
@@ -49,9 +49,9 @@ Rencana Pembelajaran Semester
     <td width="25%" style="text-align:center">{{$mk->nama_matkul}}</td>
 
     <td width="15%" style="text-align:center">
-        <a class="btn btn-info btn-xs">
-        <i class="fa fa-download-square-o"></i> Download</a>
-        </td>
+      <a target="_blank" class="btn btn-info btn-xs" href="{{url('/karyawan/kurikulum/rps/pdf/'.$mk->id_mk)}}">
+      <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download PDF</a>
+    </td>
 
     @empty
     <tr>

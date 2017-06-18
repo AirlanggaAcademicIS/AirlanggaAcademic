@@ -51,7 +51,7 @@ Jadwal Sidang Proposal
         <th data-field="state" data-radio="true"></th>
         <th data-field="id_skripsi" data-visible="false">Id Skripsi</th>
         <th data-field="nim">NIM</th>
-        <!-- <th>Nama</th> -->
+        <th data-field="nama_mhs">Nama</th>
         <th data-field="kbk">KBK</th>
         <th data-field="judul-proposal">Judul Proposal</th>
         <!-- <th>Status Proposal</th> -->
@@ -77,6 +77,9 @@ Jadwal Sidang Proposal
                                 </td>
                                 <td>
                                     {{ $jadwal_sidang_proposal[$i]['nim']}}
+                                </td>
+                                 <td>
+                                    {{ $jadwal_sidang_proposal[$i]['nama_mhs']}}
                                 </td>
                                 <td>
                                     <div>{{ $jadwal_sidang_proposal[$i]['jenis_kbk']}}</div>
@@ -121,6 +124,7 @@ Jadwal Sidang Proposal
 
   </div>
 </div>
+
 
 <!-- Modal -->
 

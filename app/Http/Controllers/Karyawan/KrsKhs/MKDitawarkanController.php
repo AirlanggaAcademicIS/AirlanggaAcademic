@@ -80,11 +80,19 @@ class MKDitawarkanController extends Controller
         $tahun_akhir = $request->input('tahun_akhir');
         $periode = $request->input('periode');
         $input = $tahun_awal.'/'.$tahun_akhir.' '.$periode;
+        $cek_thn=TahunAkademik::where('semester_periode',$input)->get();
+
+        if(!empty($cek_thn)){
         $tahun = TahunAkademik::create(
             [
             'semester_periode'=>$input, 
             ]
             );
+        }
+        else{
+            $tahun = $cek_thn;
+        }
+
        $cek = $request->input('cek');
        foreach ($cek as $c) {
            MKDitawarkan::create(
