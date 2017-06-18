@@ -15,8 +15,6 @@ use Response;
 use Auth;
 // Tambahkan model yang ingin dipakai
 use App\PenelitianMhs;
-use App\DetailAnggota;
-use App\DetailPenelitian;
 use App\BiodataMahasiswa;
 
 class PenelitianController extends Controller
@@ -67,15 +65,6 @@ class PenelitianController extends Controller
         $request->file_pen->move(public_path('pdf'), $filename);
         $penelitian->file_pen = $filename;
         $penelitian->save();
-        $kode_penelitian = $penelitian->kode_penelitian;
-
-        $detail_anggota = DetailAnggota::create($request->input());
-        $detail_anggota->kode_penelitian_id = $kode_penelitian;
-        $detail_anggota->save();
-
-        $detailpenelitian = DetailPenelitian::create($request->input());
-        $detailpenelitian->kode_penelitian_id = $kode_penelitian;
-        $detailpenelitian->save();
 
         Session::put('alert-success', 'penelitian berhasil ditambahkan');
 
@@ -105,13 +94,9 @@ class PenelitianController extends Controller
    public function edit($kode_penelitian)
     {   
         $penelitian_mhs = PenelitianMhs::where('kode_penelitian',$kode_penelitian)->first();
-        $detail_anggota = DetailAnggota::where('kode_penelitian_id',$kode_penelitian)->first();
-        $detailpenelitian = DetailPenelitian::where('kode_penelitian_id',$kode_penelitian)->first();
         $data = [
             'page' => 'penelitian_mhs',
             'penelitian_mhs' => $penelitian_mhs,
-            'detail_anggota' => $detail_anggota,
-            'detailpenelitian' => $detailpenelitian
         ];
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
         return view('mahasiswa.penelitian.edit',$data);
@@ -140,21 +125,10 @@ class PenelitianController extends Controller
         $filename = basename($_FILES["file_pen"]["name"]);
         $request->file_pen->move(public_path('pdf'), $filename);
         $penelitian_mhs->file_pen = $filename;
+
+        $penelitian_mhs->anggota = $request->input('anggota');
+        $penelitian_mhs->abstract = $request->input('abstract');
         $penelitian_mhs->save();
-
-        $detail_anggota = PenelitianMhs::find($kode_penelitian)->anggota;
-        // Mengupdate $detail_anggota tadi dengan isi dari form edit tadi
-        $detail_anggota->anggota = $request->input('anggota');      
-        $detail_anggota->save();
-
-        $detailPenelitian = PenelitianMhs::find($kode_penelitian)->detail;
-        // Mengupdate $detailPenelitian tadi dengan isi dari form edit tadi
-        $detailPenelitian->abstract = $request->input('abstract');
-        $detailPenelitian->background = $request->input('background');
-        $detailPenelitian->objective = $request->input('objective');
-        $detailPenelitian->methods = $request->input('methods');
-        $detailPenelitian->results = $request->input('results');
-        $detailPenelitian->save();
 
         // Notifikasi sukses
         Session::put('alert-success', 'Penelitian berhasil diedit');

@@ -10,7 +10,7 @@ Krs
 @endsection
 
 @section('contentheader_title')
-Input Krs
+Kartu Rencana Studi
 @endsection
 
 @section('main-content')
@@ -48,6 +48,9 @@ Input Krs
             <div class="tab-content">
               <div id="AmbilKrs" class="tab-pane fade in active">
               <h3>Ambil Krs</h3>
+              @php
+              count($krs);
+              @endphp
               <div style="overflow: auto">
                 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
                 <thead>
@@ -64,7 +67,8 @@ Input Krs
                   </tr>
                 </thead>
                 <tbody>
-                 @forelse($krs as $i => $d) 
+                 @forelse($krs as $i => $d)
+                  @if($i == 0)
                   <tr>
                     <td>{{ $i+1 }}</td>
                     <td width="20%" style="text-align:center">{{$d->jenis_mk}}</td>
@@ -78,6 +82,45 @@ Input Krs
                       <i class="glyphicon glyphicon-book"></i> Ambil</a>
                       </td>
                   </tr>
+                  @elseif(($krs[$i-1]->nama_matkul == $krs[$i]->nama_matkul) && ($krs[$i-1]->nama_hari == $krs[$i]->nama_hari) && ($krs[$i-1]->ruang_id == $krs[$i]->ruang_id))
+                  <tr>
+                    <td></td>
+                    <td width="20%" style="text-align:center"></td>
+                    <td width="10%" style="text-align:center"></td>
+                    <td width="20%" style="text-align:center"></td>
+                    <td width="15%" style="text-align:center">{{$d->sks}}</td>
+                    <td width="10%" style="text-align:center">{{$krs[$i]->waktu}}-{{$krs[$i+1]->waktu}}</td>
+                    <td width="10%" style="text-align:center">{{$d->nama_hari}}</td>
+                    <td width="25%" style="text-align:center">{{$d->syarat_sks}}</td>
+                    <td width="20%" style="text-align:center" ></td>
+                  </tr>
+                  @elseif($krs[$i-1]->nama_matkul == $krs[$i]->nama_matkul)
+                  <tr>
+                    <td></td>
+                    <td width="20%" style="text-align:center"></td>
+                    <td width="10%" style="text-align:center"></td>
+                    <td width="20%" style="text-align:center"></td>
+                    <td width="15%" style="text-align:center">{{$d->sks}}</td>
+                    <td width="10%" style="text-align:center">{{$d->id_jam}}</td>
+                    <td width="10%" style="text-align:center">{{$d->nama_hari}}</td>
+                    <td width="25%" style="text-align:center">{{$d->syarat_sks}}</td>
+                    <td width="20%" style="text-align:center" ></td>
+                  </tr>
+                  @else
+                  <tr>
+                    <td>{{ $i+1 }}</td>
+                    <td width="20%" style="text-align:center">{{$d->jenis_mk}}</td>
+                    <td width="10%" style="text-align:center">{{$d->kode_matkul}}</td>
+                    <td width="20%" style="text-align:center">{{$d->nama_matkul}}</td>
+                    <td width="15%" style="text-align:center">{{$d->sks}}</td>
+                    <td width="10%" style="text-align:center">{{$d->id_jam}}</td>
+                    <td width="10%" style="text-align:center">{{$d->nama_hari}}</td>
+                    <td width="25%" style="text-align:center">{{$d->syarat_sks}}</td>
+                    <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk mengambil mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/create/'.$d->id_mk_ditawarkan)}}" class="btn btn-success btn-xs">
+                      <i class="glyphicon glyphicon-book"></i> Ambil</a>
+                      </td>
+                  </tr>
+                  @endif
                    @empty
                       <tr>
                         <td colspan="6"><center>Belum ada mata kuliah</center></td>
@@ -109,7 +152,7 @@ Input Krs
                     <td width="10%" style="text-align:center">{{$s->kode_matkul}}</td>
                     <td width="20%" style="text-align:center">{{$s->nama_matkul}}</td>
                     <td width="15%" style="text-align:center">{{$s->sks}}</td>
-                    @if($s->is_approve ==0)
+                    @if($s->is_approve == 0)
                     <td width="15%" style="text-align:center">Belum Diapprove</td>
                     @else
                     <td width="15%" style="text-align:center">Approved</td>

@@ -11,8 +11,10 @@ class KHS extends Model
    	protected $table = 'mk_diambil';    
    	protected $primaryKey = 'mk_ditawarkan_id';
    	protected $fillable = [
+       'mk_ditawarkan_id',
    		'mhs_id',
-		'nilai',		
+		'nilai',	
+      'is_approve',	
    	];
    	public function MKDitawarkan()
    {

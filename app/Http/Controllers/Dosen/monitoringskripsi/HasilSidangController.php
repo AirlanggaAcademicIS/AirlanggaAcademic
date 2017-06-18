@@ -19,6 +19,17 @@ class HasilSidangController extends Controller
 {
     //
 
+  private function cek_duplikat($id_skripsi,$arr)
+    {
+        # code...
+        for($i=0;$i<count($arr);$i++){
+            $tmp_arr = $arr[$i];
+            if($tmp_arr['id_skripsi']==$id_skripsi)
+                return 1;
+        }
+        return 0;
+
+    }
 
    public function view_hasil_sidang_skripsi_dosen()
    {
@@ -50,6 +61,7 @@ class HasilSidangController extends Controller
                 $dosen2 = $hasil_sidang_skripsi[$i+1]->dosbing;
                 $dosen3 = $hasil_sidang_skripsi[$i]->dosji;
 
+$id_skripsi = $hasil_sidang_skripsi[$i]->id_skripsi;
 
                $tmp = array(
                     'id_skripsi'=>$hasil_sidang_skripsi[$i]->id_skripsi,
@@ -68,10 +80,14 @@ class HasilSidangController extends Controller
 
                   );
 
-                   if(($dosen1==$nip)||$dosen2==$nip||$dosen3==$nip){
+                 $t = $this->cek_duplikat($id_skripsi,$final_result);
+
+                     if(($dosen1==$nip)||$dosen2==$nip||$dosen3==$nip){
+                if($t==0){
                 $final_result[$j] = $tmp;
                 $j++;
-            }               
+                }
+            }             
                // $final_result[$j] = $tmp;
                // $j++;
 
@@ -115,7 +131,7 @@ class HasilSidangController extends Controller
                 $dosen2 = $hasil_sidang_proposal[$i+1]->dosbing;
                 $dosen3 = $hasil_sidang_proposal[$i]->dosji;
 
-
+$id_skripsi = $hasil_sidang_proposal[$i]->id_skripsi;
                $tmp = array(
                     'id_skripsi'=>$hasil_sidang_proposal[$i]->id_skripsi,
                   'nama_mhs'=>$hasil_sidang_proposal[$i]->nama_mhs,
@@ -133,10 +149,14 @@ class HasilSidangController extends Controller
 
                   );
 
-                if(($dosen1==$nip)||$dosen2==$nip||$dosen3==$nip){
+                  $t = $this->cek_duplikat($id_skripsi,$final_result);
+
+                     if(($dosen1==$nip)||$dosen2==$nip||$dosen3==$nip){
+                if($t==0){
                 $final_result[$j] = $tmp;
                 $j++;
-            }
+                }
+            } 
                
                //array_push($final_result, $tmp);
          }

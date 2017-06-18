@@ -26,7 +26,11 @@ protected $mailer;
     public function __construct(Mailer $mailer)
     {
         $this->mailer = $mailer;
+
+    } 
+
     }
+
     // Function untuk menampilkan tabel
     public function index()
     {
@@ -172,6 +176,5 @@ public function kirimHasil($id_notulen)
         return Redirect::to('notulensi/konfirmasi');
         
     }
-
 
 }

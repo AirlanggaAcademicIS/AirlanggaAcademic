@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Karyawan;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
@@ -11,11 +12,10 @@ use Session;
 use Validator;
 use Response;
 use Auth;
+use DB;
 // Tambahkan model yang ingin dipakai
 use App\VerPrestasi;
 use App\VerPenelitianMhs;
-use App\DetailAnggota;
-use App\DetailPenelitian;
 
 class VerifikasiController extends Controller
 {
@@ -36,10 +36,15 @@ class VerifikasiController extends Controller
 
     public function createPrestasi()
     {
+        $bio=DB::table('biodata_mhs')->get();
+        $prestasi=DB::table('prestasi')
+                ->join('biodata_mhs','prestasi.nim_id' ,'=','biodata_mhs.nim_id')
+                ->select('biodata_mhs.*','prestasi.*')
+                ->get();
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'prestasi',
-            'prestasi' => VerPrestasi::all()
+            'prestasi' => $prestasi
         ];
 
         // Memanggil tampilan form create
@@ -49,11 +54,16 @@ class VerifikasiController extends Controller
 
     public function createPenelitian()
     {
+        $bio=DB::table('biodata_mhs')->get();
+        $penelitian=DB::table('penelitian_mhs')
+                ->join('biodata_mhs','penelitian_mhs.nim_id' ,'=','biodata_mhs.nim_id')
+                ->select('biodata_mhs.*','penelitian_mhs.*')
+                ->get();
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'penelitian',
-            'penelitian' => VerPenelitianMhs::all()
-        ];
+            'penelitian' => $penelitian        
+            ];
 
         // Memanggil tampilan form create
         return view('karyawan.verifikasi.createpenelitian',$data);
@@ -81,6 +91,7 @@ class VerifikasiController extends Controller
         // Mengupdate $prestasi tadi dengan isi dari form edit tadi
         $prestasi->ps_is_verified = $request->input('ps_is_verified');
         $prestasi->skor = $request->input('skor');
+        $prestasi->alasan_verified = $request->input('alasan_verified');
         $prestasi->save();
 
         // Menampilkan notifikasi pesan sukses
@@ -92,15 +103,11 @@ class VerifikasiController extends Controller
 
     public function editPenelitian($id)
     {
-        $detail_anggota = DetailAnggota::where('kode_penelitian_id',$id)->first();
-        $detailpenelitian = DetailPenelitian::where('kode_penelitian_id',$id)->first();
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar penelitian
             'page' => 'penelitian',
             // Mencari penelitian berdasarkan id
-            'penelitian' => VerPenelitianMhs::find($id),
-            'detail_anggota' => $detail_anggota,
-            'detailpenelitian' => $detailpenelitian
+            'penelitian' => VerPenelitianMhs::find($id)
         ];
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
@@ -113,7 +120,10 @@ class VerifikasiController extends Controller
         $penelitian = VerPenelitianMhs::find($id);
         $penelitian->nip_petugas_id = Auth::user()->username;
         // Mengupdate $penelitian tadi dengan isi dari form edit tadi
+
+        $penelitian->skor= $request->input('skor');
         $penelitian->is_verified = $request->input('is_verified');
+        $penelitian->alasan_verified = $request->input('alasan_verified');
         $penelitian->save();
 
         // Menampilkan notifikasi pesan sukses

@@ -18,6 +18,7 @@ use App\BiodataDosen;
 use App\DosenRapat;
 use Illuminate\Mail\Mailer;
 use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Input;
 
 class UndanganKaryawanController extends Controller
 {
@@ -70,6 +71,31 @@ class UndanganKaryawanController extends Controller
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('karyawan.notulensi.undangan.formUndangan',$data);
+    }
+
+    public function undang2($id_notulen)
+    {
+        $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'undangan',
+            // Memanggil semua isi dari tabel biodata
+            'ruang' => DB::table('notulen_rapat')
+            ->join('permohonan_ruang', 'permohonan_ruang.id_permohonan_ruang', '=', 'notulen_rapat.permohonan_ruang_id')
+            ->join('jadwal_permohonan', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang')
+            ->join('ruang', 'ruang.id_ruang', '=', 'jadwal_permohonan.ruang_id')
+            ->select('*')
+            ->where('id_notulen','=',$id_notulen)
+            ->first(),
+            'dosen' => DB::table('dosen')
+            ->join('biodata_dosen', 'dosen.nip', '=', 'biodata_dosen.nip')
+            ->join('users', 'biodata_dosen.nip', '=', 'users.username')
+            ->select('*')
+            ->get(),
+            'form' => FormUndangan::where('id_notulen',$id_notulen)->first()
+        ];
+
+        // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
+        return view('karyawan.notulensi.undangan.formUndangan2',$data);
     }
 
     public function create()
@@ -146,7 +172,7 @@ class UndanganKaryawanController extends Controller
         return Redirect::to('dosen/notulensi/undangan');
     }
 
-    public function kirimUndangan($id_notulen, Request $request)
+    public function kirimEmail($id_notulen, Request $request)
     {
         $user = $request->input('dosen');
         $detail = DB::table('notulen_rapat')
@@ -174,6 +200,25 @@ class UndanganKaryawanController extends Controller
             $m->from('airlanggaacademic@gmail.com', 'Admin Airlangga Academic')->to($u)->subject('Undangan Rapat');
         });
         }
+
+        Session::put('alert-success', 'Berhasil mengirim email pemberitahuan ke dosen');
+        return Redirect::to('undangankaryawan');
+        
+    }
+
+    public function kirimUndangan($id_notulen, Request $request)
+    {
+        $user = $request->input('dosen');
+        $detail = DB::table('notulen_rapat')
+        ->join('permohonan_ruang', 'permohonan_ruang.id_permohonan_ruang', '=', 'notulen_rapat.permohonan_ruang_id')
+        ->join('jadwal_permohonan', 'jadwal_permohonan.permohonan_ruang_id', '=', 'permohonan_ruang.id_permohonan_ruang')
+        ->join('ruang', 'ruang.id_ruang', '=', 'jadwal_permohonan.ruang_id')
+        ->select('*')
+        ->where('notulen_rapat.id_notulen', '=', $id_notulen)
+        ->get()
+        ->toArray();
+        
+        
         foreach ($user as $p) {
             $nip = DB::table('users')->select('username')->where('email','=',$p)->first();
             DB::table('dosen_rapat')->insert( [
@@ -187,5 +232,6 @@ class UndanganKaryawanController extends Controller
         return Redirect::to('undangankaryawan');
         
     }
+
 
 }
