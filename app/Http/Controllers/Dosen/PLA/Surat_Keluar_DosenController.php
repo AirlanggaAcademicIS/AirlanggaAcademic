@@ -129,6 +129,7 @@ class Surat_Keluar_DosenController extends Controller
         //$surat_keluar_dosen->nip_petugas_id = $request->input('nip_petugas_id');
         $surat_keluar_dosen->nama = $request->input('nama');
         $surat_keluar_dosen->tgl_upload = $request->input('tgl_upload');
+        $surat_keluar_dosen->status = '0';
         $surat_keluar_dosen->save();
 
         // Notifikasi sukses

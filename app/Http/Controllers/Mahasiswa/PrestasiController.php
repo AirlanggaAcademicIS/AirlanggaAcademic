@@ -22,11 +22,13 @@ class PrestasiController extends Controller
     public function index()
     {
         $nim = Auth::user()->username;
+        $total_skor = Prestasi::where('nim_id', '=', $nim)->where('ps_is_verified','=','1')->sum('skor');
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'prestasi',
             // Memanggil semua isi dari tabel biodata
-            'prestasi' => Prestasi::where('nim_id', '=', $nim)->get()
+            'prestasi' => Prestasi::where('nim_id', '=', $nim)->where('ps_is_verified','!=','3')->get(),
+            'total_skor' => $total_skor
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view

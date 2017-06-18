@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Tambah Jenis Penilaian
+Tambah Hasil Rapat
 @endsection
 
 @section('contentheader_title')
-Tambah Notulensi
+Tambah Hasil Rapat
 @endsection
 
 @section('code-header')
@@ -16,13 +16,12 @@ Tambah Notulensi
 @endsection
 
 @section('main-content')
-
 <style>
   .form-group label{
     text-align: left !important;
   }
 </style>
-  <!-- Ini buat menampilkan notifikasi -->
+
   @foreach (['danger', 'warning', 'success', 'info'] as $msg)
   @if(Session::has('alert-' . $msg))
 <div class="alert alert-{{ $msg }}">
@@ -35,7 +34,7 @@ Tambah Notulensi
 
 <div class="row">
   <div class="col-md-12">
- 
+    <div class="">
 
       @if (count($errors) > 0)
       <div class="alert alert-danger">
@@ -47,129 +46,111 @@ Tambah Notulensi
       </div>
       @endif
       <br>
-
-      <form  method="post" action="{{url('notulensi/create2')}}" enctype="multipart/form-data"  class="form-horizontal">
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="row" style="padding:10px">
-                <div class="col-sm-3">
-                <div class="form-group" > 
-    <label for="nip_id" class="col-sm-1 control-label"></label> 
-    <div class="col-sm-9"> 
-    
-    <select class="form-control" name="id_notulen" required> 
-    <option></option>
-   @foreach($nama_rapat as $i => $m)  
-    <option 
-     
-    value="{{$m->id_notulen}}">{{$m->nama_rapat}}</option> 
-      @endforeach 
-           </select>
-            </div> </div>
-            </div>
-            <div class="col-sm-4">
-            <button type="submit" class="btn btn-primary btn-sm">
-              Search
-            </button>
-            </div>
-    </div>
-        </form>
-
-      <form id="tambahNotulensi" method="post" action="{{url('/notulensi/create')}}" enctype="multipart/form-data"  class="form-horizontal">
+      <form id="createNotulensi" method="post" action="{{url('notulensi/'.$notulensi->id_notulen.'/create/')}}" enctype="multipart/form-data"  class="form-horizontal">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <!-- Menampilkan input text biasa -->
 
-  <div class="form-group">
-
-         <label class="col-sm-2 control-label"
-         for="permohonan_ruang_id">Ruangan</label>
-         <div class="col-sm-9">
-        <select class="form-control" name="permohonan_ruang_id">
-    <option>Pilih Ruang</option>
-     @foreach($ruang as $i => $m)
-    <option value="{{$m->id_ruang}}">{{$m->nama_ruang }}</option>
-      @endforeach
-           </select>
-            </div>
-    </div>
-    <!-- <l
-    abel for="permohonan_ruang_id" class="col-sm-2 control-label">ID Permohonan Ruang</label>
+        <!-- Menampilkan input text biasa -->
+        
+     <!--  <div class="form-group">
+    <label for="id_notulen" class="col-sm-2 control-label">ID Notulen</label>
     <div class="col-sm-9">
-      <input class="form-control" id="permohonan_ruang_id" type="text" enable> -->
-    
-
-    <div class="form-group">
+      <input type="text" class="form-control input-lg" name="id_notulen" name="id_notulen"  value="{{$notulensi->id_notulen}}" disabled>
+    </div>
+  </div> -->
+  <div class="form-group">
+    <label for="nama_rapat" class="col-sm-2 control-label">Nama Rapat</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control input-lg" name="nama_rapat" name="nama_rapat"  value="{{$notulensi->nama_rapat}}" required>
+    </div>
+    </div>
+  <div class="form-group">
+    <label for="nama_ruang" class="col-sm-2 control-label">Ruangan</label>
+    <div class="col-sm-9">
+ @foreach($notulensi2 as $a)
+      <input type="text" class="form-control input-lg" name="nama_ruang" name="nama_ruang"  value="{{$a->nama_ruang}}" disabled>
+      @endforeach
+    </div>
+  </div>
+ <div class="form-group">
       <label class="control-label col-sm-2" for="waktu_pelaksanaan" >Tanggal Rapat :</label>
         <div class="col-sm-9">
-        <input type="text" id="waktu_pelaksanaan" name="waktu_pelaksanaan" placeholder="dd-mm-yyyy" style="width: 100%; height: 16px; font-size: 16px; line-height: 18px; border: 1px solid #dddddd; padding: 17px;" 
-        value="" required>
+        <input type="text" id="waktu_pelaksanaan"  placeholder="dd-mm-yyyy" class="form-control"
+        value="{{$notulensi->waktu_pelaksanaan}}" disabled>
         </div>
     </div>
-
-   <div class="form-group">
+  
+ <div class="form-group">
     <label for="nip_id" class="col-sm-2 control-label">Ketua Rapat</label>
     <div class="col-sm-9">
-    <select class="form-control" name="nip_id">
+    <select class="form-control" name="nip_id" required="">
+    <option> </option>
     @foreach($dosen as $i => $m)
-    <option>Pilih Dosen</option>
     <option value="{{$m->nip}}">{{$m->nama_dosen}}</option>
       @endforeach
            </select>
             </div>
     </div>
 
+
+   
+  <!-- <div class="form-group">
+    <label for="id_verifikasi" class="col-sm-2 control-label">Status Verifikasi</label>
+    <div class="col-sm-9">
+       
+      @if($notulensi->id_verifikasi==0)
+      {{'Belum Terferivikasi'}}
+      @else
+      {{'Sudah Diferivikasi'}}
+      @endif
+    </div>
+  </div> -->
+
+
   <div class="form-group">
     <label for="agenda_rapat"class="col-sm-2 control-label">Agenda Rapat:</label>
     <div class="col-sm-9">
-      <textarea class="form-control" rows="3" name="agenda_rapat"  disabled>
-        
-      </textarea>
+      <textarea class="form-control" rows="5" name="agenda_rapat" name="agenda_rapat" required>{{$notulensi->agenda_rapat}}</textarea>
     </div>
+
+
+
   </div>
      <div class="form-group">
   <label for="hasil_pembahasan"class="col-sm-2 control-label">Hasil Rapat:</label>
   <div class="col-sm-9">
-  <textarea class="form-control" rows="5" name="hasil_pembahasan" required></textarea>
+  <textarea class="form-control" rows="5" name="hasil_pembahasan" name="hasil_pembahasan" required>{{$notulensi->hasil_pembahasan}}</textarea>
 </div>
     </div>
-    <div class="form-group">
+     <div class="form-group">
   <label for="deskripsi_rapat"class="col-sm-2 control-label">Deskripsi Rapat:</label>
   <div class="col-sm-9">
-  <textarea class="form-control" rows="5" name="deskripsi_rapat" required>
-    
-  </textarea>
+  <textarea class="form-control" rows="5" name="deskripsi_rapat" required>{{$notulensi->deskripsi_rapat}}</textarea>
 </div>
-
     </div>
+   <!--  <div class="form-group">
+  <label for="deskripsi_rapat"class="col-sm-2 control-label">Deskripsi Rapat:</label>
+  <div class="col-sm-9">
+  <input type="text" class="form-control input-lg" id="deskripsi_rapat" name="deskripsi_rapat" value="{{$notulensi->deskripsi_rapat}}" enable>
+</div>
+    </div> -->
       <div class="form-group">
     <div class="col-sm-offset-10 col-sm-10">
       <button type="submit" class="btn btn-info">Confirm</button>
     </div>
   </div>
-
-</form>
-
 </div>
- 
 
-      
 @endsection
-
 @section('code-footer')
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
 
-// $( function() {
-//     var date = $('#datepicker').datepicker({ dateFormat: 'yyyy/mm/dd' }).val();
-
-//   } );
-
-
-$( function() {
+  $( function() {
     var date = $( "#waktu_pelaksanaan" ).datepicker({dateFormat: 'yy-mm-dd'}).val();
   } );
   </script>
 @endsection
-
 
