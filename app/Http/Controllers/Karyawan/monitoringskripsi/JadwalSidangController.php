@@ -26,6 +26,18 @@ class JadwalSidangController extends Controller
 {
     //
 
+      private function cek_duplikat($id_skripsi,$arr)
+    {
+        # code...
+        for($i=0;$i<count($arr);$i++){
+            $tmp_arr = $arr[$i];
+            if($tmp_arr['id_skripsi']==$id_skripsi)
+                return 1;
+        }
+        return 0;
+
+    }
+
     public function view_manage_jadwal_sidang_proposal()
     {
     	# code...
@@ -66,8 +78,16 @@ class JadwalSidangController extends Controller
          			'dosen_penguji'=>$jadwal_sidang_proposal[$i]->dosji,
          			'ruang'=>$jadwal_sidang_proposal[$i]->nama_ruang
          			);
-         		$final_result[$j] = $tmp;
-         		$j++;
+
+                $id_skripsi = $jadwal_sidang_proposal[$i]->id_skripsi;
+                $t = $this->cek_duplikat($id_skripsi,$final_result);
+
+                   if($t==0){
+                $final_result[$j] = $tmp;
+                $j++;
+                }
+         		// $final_result[$j] = $tmp;
+         		// $j++;
 
          		//array_push($final_result, $tmp);
          }
@@ -259,9 +279,15 @@ class JadwalSidangController extends Controller
                     'dosen_penguji'=>$jadwal_sidang_skripsi[$i]->dosji,
                     'ruang'=>$jadwal_sidang_skripsi[$i]->nama_ruang
                     );
+
+                $id_skripsi = $jadwal_sidang_skripsi[$i]->id_skripsi;
+                $t = $this->cek_duplikat($id_skripsi,$final_result);
+
+                   if($t==0){
                 $final_result[$j] = $tmp;
                 $j++;
-
+                }
+            
                 //array_push($final_result, $tmp);
          }
 
