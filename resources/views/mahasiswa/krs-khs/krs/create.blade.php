@@ -10,7 +10,7 @@ Krs
 @endsection
 
 @section('contentheader_title')
-Input Krs
+Kartu Rencana Studi
 @endsection
 
 @section('main-content')
@@ -112,7 +112,7 @@ Input Krs
                     <td width="10%" style="text-align:center">{{$s->kode_matkul}}</td>
                     <td width="20%" style="text-align:center">{{$s->nama_matkul}}</td>
                     <td width="15%" style="text-align:center">{{$s->sks}}</td>
-                    @if($s->is_approve ==0)
+                    @if($s->is_approve == 0)
                     <td width="15%" style="text-align:center">Belum Diapprove</td>
                     @else
                     <td width="15%" style="text-align:center">Approved</td>
@@ -139,9 +139,13 @@ Input Krs
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$ips}}</h3></h3>
                 <br>
             </div>
-            <div>
+            <!-- <div>
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">Limit SKS :  </h3></h3>
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$limitSks}}</h3></h3>
+            </div> -->
+            <div>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">Sisa SKS :  </h3></h3>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$limitSisa}}</h3></h3>
             </div>
             </div>
             </div>

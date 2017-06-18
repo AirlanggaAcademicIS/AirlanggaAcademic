@@ -21,12 +21,133 @@
 </p>
 <table style="font-family: arial">
 <tbody>
-<td width="10%">NIM</td><td width="10$"> : {{$biodata_mhs->nim_id}} </td><td width="10%" ></td><td width="5%">IPK</td> <td width="10%">: </td>
+<td width="10%">NIM</td><td width="10%"> : {{$biodata_mhs->nim_id}} </td><td width="10%" ></td>
+@php
+    $total = 0;
+    $sks = 0;
+    @endphp
+   @foreach($histori as $i => $h) 
+      @php
+      if($h->nilai=="K")
+      $sks = $sks + 0;
+      else
+      $sks = $sks + $h->sks;
+      @endphp
+      @if($h->nilai=="A")
+      @php
+      $total = $total + (4 * $h->sks)
+      @endphp
+      @elseif($h->nilai=="AB")
+      @php
+      $total = $total + (3.5 * $h->sks)
+      @endphp
+      @elseif($h->nilai=="B")
+      @php
+      $total = $total + (3 * $h->sks)
+      @endphp
+      @elseif($h->nilai=="BC")
+      @php
+      $total = $total + (2.5 * $h->sks)
+      @endphp
+      @elseif($h->nilai=="C")
+      @php
+      $total = $total + (2 * $h->sks)
+      @endphp
+      @elseif($h->nilai=="D")
+      @php
+      $total = $total + (1 * $h->sks)
+      @endphp
+      @else
+      @php
+      $total = $total + (0 * $h->sks)
+      @endphp
+      @endif 
+    @endforeach 
+    @if($sks==0)
+    @php
+    $ipk = 0
+    @endphp  
+    @else
+    @php
+    $ipk = $total / $sks
+    @endphp
+    @endif
+<td width="5%">IPK</td> <td width="10%">: {{$ipk}} </td>
 <tr>
-<td width="10%">Nama Mahasiswa</td> <td width="10%"> : {{$biodata_mhs->nama_mhs}}</td>  <td width="10%"></td>   <td width="5%">IPS</td> <td width="10%">: </td>
+<td width="10%">Nama Mahasiswa</td> <td width="10%"> : {{$biodata_mhs->nama_mhs}}</td>  
+<td width="10%"></td> 
+@php
+    $total = 0;
+    $sks = 0;
+    @endphp
+   @foreach($ips as $i => $h) 
+      @php
+      if($h->nilai=="K")
+      $sks = $sks + 0;
+      else
+      $sks = $sks + $h->sks;
+      @endphp
+      @if($h->nilai=="A")
+      @php
+      $total = $total + (4 * $h->sks)
+      @endphp
+      @elseif($h->nilai=="AB")
+      @php
+      $total = $total + (3.5 * $h->sks)
+      @endphp
+      @elseif($h->nilai=="B")
+      @php
+      $total = $total + (3 * $h->sks)
+      @endphp
+      @elseif($h->nilai=="BC")
+      @php
+      $total = $total + (2.5 * $h->sks)
+      @endphp
+      @elseif($h->nilai=="C")
+      @php
+      $total = $total + (2 * $h->sks)
+      @endphp
+      @elseif($h->nilai=="D")
+      @php
+      $total = $total + (1 * $h->sks)
+      @endphp
+      @else
+      @php
+      $total = $total + (0 * $h->sks)
+      @endphp
+      @endif 
+    @endforeach 
+    @if($sks==0)
+    @php
+    $ips = 0
+    @endphp  
+    @else
+    @php
+    $ips = $total / $sks
+    @endphp
+    @endif
+<td width="5%">IPS</td> <td width="10%">: {{$ips}}</td>
 </tr>
 <tr>
-    <!-- <td></td><td></td><td></td> --> <td>SKS Maks</td> <td>: </td>
+@if(($ips>=3)||($ipk==0))
+@php
+$sks=24;
+@endphp
+@elseif(($ips<3)&&($ips>=2.75))
+@php
+$sks=23;
+@endphp
+@elseif(($ips<2.75)&&($ips>=2.5))
+@php
+$sks=22;
+@endphp
+@else
+@php
+$sks=21;
+@endphp
+@endif
+
+<td>SKS Maks</td> <td>: {{$sks}}</td>
 </tr>
 </tbody>
 </table>
@@ -63,8 +184,7 @@
         <td style="text-align:center;"></td>
         <td style="text-align:center;"></td>
         <td style="text-align:center;"></td>
-        <td style="text-align:center;"></td>
-
+        
   </tfoot>
 </table>
 <br>

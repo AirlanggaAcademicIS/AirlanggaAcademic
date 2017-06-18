@@ -8,7 +8,7 @@ class Silabus_detail_kategori extends Model
 {
 
   protected $table = 'detail_kategori';    
-  protected $primaryKey = 'cpmk_idp';    
+  protected $primaryKey = 'cpmk_id';    
   protected $fillable = [
     'media_pembelajaran_id',
   ];

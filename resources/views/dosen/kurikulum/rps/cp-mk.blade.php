@@ -55,7 +55,7 @@ Rencana Pembelajaran Semester
     <div class="col-md-12">
     <div class="form-group box-header with-border">
         <label>Mata Kuliah</label>
-        <select name="matkul" class="form-control select2" style="width: 100%;" required>
+        <select id="selectMatkul" name="matkul" class="form-control select2" style="width: 100%;" required>
           <option value="">-- Kode Mata Kuliah - Nama Mata Kuliah --</option>
           @foreach ($mk as $mk)
           {
@@ -97,7 +97,6 @@ Rencana Pembelajaran Semester
                   <th style="text-align:center">Deskripsi CP MK</th>
                   <th style="text-align:center">Mata Kuliah</th>
                   <th style="text-align:center">Media Pembelajaran</th>
-                  <th style="text-align:center">Aksi</th>
                 </tr>
               </thead>
             <tbody>
@@ -106,8 +105,7 @@ Rencana Pembelajaran Semester
                   <td style="text-align:center"></td>
                   <td style="text-align:center"></td>
                   <td style="text-align:center"></td>
-                  <td style="text-align:center"></th>
-                  <td width="15%" style="text-align:center">
+                  <td style="text-align:center"></td>
                 </tr>
             </tbody>
           </tbody>
@@ -124,11 +122,39 @@ Rencana Pembelajaran Semester
 @section('code-footer')
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-$( function() {
+<script>
+  $( function() {
     var date = $('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' }).val();
-
   } );
-  </script>
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#selectMatkul").on("change", function(){
+      var id = $("#selectMatkul").val();      
+      $.ajax({
+        headers: 
+        {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },        
+        type: "POST",
+        url: "cp-mk-id",
+        data: {'id' : id},
+        dataType: 'json',
+        encode : true,
+        success: function (data) 
+        {
+          var htmlStr;
+          htmlStr += '<thead> <tr> <th>No</th> <th>Kode CP MK</th> <th>Deskripsi CP MK</th> <th>Mata Kuliah</th> <th>Media Pembelajaran</th> </thead>';
+          $.each(data.dataMatkul, function(k, v){
+            var no = k+1;
+            // htmlStr += v.kode_cpmk + ' ' + v.id + '<br />';
+            htmlStr += '<tbody><tr><td>' + no + '</td><td>' + v.kode_cpmk + '</td><td>' + v.deskripsi_cpmk + '</td><td>' + v.nama_matkul + '</td><td>' + v.media_pembelajaran + '</td></tr></tbody>';        
+          });
+          $("#cpmk").html(htmlStr);          
+        },        
+      });               
+    });
+  });
+</script>  
 @endsection
 

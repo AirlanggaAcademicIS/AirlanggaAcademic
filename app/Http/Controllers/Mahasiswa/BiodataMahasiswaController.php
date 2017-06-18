@@ -36,31 +36,31 @@ class BiodataMahasiswaController extends Controller
         // dd($username);
     }
 
-    public function create()
-    {
-        $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'biodatamahasiswa',
-        ];
+    // public function create()
+    // {
+    //     $data = [
+    //         // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+    //         'page' => 'biodatamahasiswa',
+    //     ];
 
-        // Memanggil tampilan form create
-    	return view('mahasiswa.biodata-mahasiswa.create',$data);
-    }
+    //     // Memanggil tampilan form create
+    // 	return view('mahasiswa.biodata-mahasiswa.create',$data);
+    // }
 
-    public function createAction(Request $request)
-    {
-        // Menginsertkan apa yang ada di form ke dalam tabel biodata
-       $bio=$request->input();
-       $bio['nim_id'] = Auth::user()->username;
+    // public function createAction(Request $request)
+    // {
+    //     // Menginsertkan apa yang ada di form ke dalam tabel biodata
+    //    $bio=$request->input();
+    //    $bio['nim_id'] = Auth::user()->username;
 
-         // dd(Auth::user()->username() ;
+    //      // dd(Auth::user()->username() ;
 
-        // Menampilkan notifikasi pesan sukses
-        Session::put('alert-success', 'Biodata Mahasiswa berhasil diinputkan');
+    //     // Menampilkan notifikasi pesan sukses
+    //     Session::put('alert-success', 'Biodata Mahasiswa berhasil diinputkan');
 
-        // Kembali ke halaman mahasiswa/biodata
-        return Redirect::to('mahasiswa/biodata-mahasiswa');
-    }
+    //     // Kembali ke halaman mahasiswa/biodata
+    //     return Redirect::to('mahasiswa/biodata-mahasiswa');
+    // }
 
    public function edit($id_bio)
     {
@@ -84,15 +84,15 @@ class BiodataMahasiswaController extends Controller
            # code...
        //dd($biodata_mhs2->nama_mhs);
        
-        if ($biodata_mhs2->nama_mhs!=$request->input('nama_mhs')  
-            || $biodata_mhs2->email_mhs!=$request->input("email_mhs")
+        if ($biodata_mhs2->email_mhs!=$request->input("email_mhs")
             || $biodata_mhs2->jenis_kelamin != $request->input("jenis_kelamin") 
             || $biodata_mhs2->negara_asal!= $request->input("negara_asal")  
             || $biodata_mhs2->provinsi_asal != $request->input("provinsi_asal") 
             || $biodata_mhs2->kota_tinggal != $request->input('kota_tinggal')  
             || $biodata_mhs2->alamat_tinggal != $request->input('alamat_tinggal')  
-            || $biodata_mhs2->ttl != $request->input('ttl')  
-            || $biodata_mhs2->angkatan != $request->input('angkatan')  
+            || $biodata_mhs2->kota_lahir != $request->input('kota_lahir')  
+            || $biodata_mhs2->tanggal_lahir != $request->input('tanggal_lahir')  
+            || $biodata_mhs2->no_hp != $request->input('no_hp')   
             || $biodata_mhs2->agama != $request->input('agama')  
             || $biodata_mhs2->kebangsaan != $request->input('kebangsaan')  
             || $biodata_mhs2->nama_ayah != $request->input('nama_ayah')  
@@ -103,7 +103,6 @@ class BiodataMahasiswaController extends Controller
            
           // Mengupdate $biodata tadi dengan isi dari form edit tadi
         $biodata_mhs->nim_id = Auth::user()->username;
-        $biodata_mhs->nama_mhs = $request->input('nama_mhs');
         $biodata_mhs->email_mhs = $request->input('email_mhs');
         $biodata_mhs->jenis_kelamin = $request->input('jenis_kelamin');
         $biodata_mhs->negara_asal = $request->input('negara_asal');
@@ -111,8 +110,9 @@ class BiodataMahasiswaController extends Controller
         $biodata_mhs->kota_asal = $request->input('kota_asal');
         $biodata_mhs->kota_tinggal = $request->input('kota_tinggal');
         $biodata_mhs->alamat_tinggal = $request->input('alamat_tinggal');
-        $biodata_mhs->ttl = $request->input('ttl');
-        $biodata_mhs->angkatan = $request->input('angkatan');
+        $biodata_mhs->kota_lahir = $request->input('kota_lahir');  
+        $biodata_mhs->tanggal_lahir = $request->input('tanggal_lahir');  
+        $biodata_mhs->no_hp = $request->input('no_hp');
         $biodata_mhs->agama = $request->input('agama');
         $biodata_mhs->kebangsaan = $request->input('kebangsaan');
         $biodata_mhs->sma_asal = $request->input('sma_asal');

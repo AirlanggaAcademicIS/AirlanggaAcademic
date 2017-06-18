@@ -112,6 +112,20 @@ Hasil Sidang Skripsi
         <label for="tambah-nilai-sidang-skripsi">Nilai Sidang Skripsi</label>
         <input type="number" class="form-control" id="tambah-nilai-sidang-skripsi"></input>
         </div>
+
+
+        <div class="form-group">
+      <label for="tambah-status-sidang-skripsi">Status Skripsi</label>
+      <select class="form-control" id="tambah-status-sidang-skripsi" name="tambah-status-sidang-skripsi">
+          
+        <option disabled selected value> -- select an option -- </option>
+
+         @foreach($status_skripsi as $item)
+        <option value="{{$item->id}}">{{$item->keterangan}}</option>
+        @endforeach
+
+      </select>
+      </div>
         
       </div>
       <div class="modal-footer">
@@ -143,11 +157,14 @@ Hasil Sidang Skripsi
                 
                 var nilai_sidang_skripsi = $('#tambah-nilai-sidang-skripsi').val();
 
+                var status_skripsi = $('#tambah-status-sidang-skripsi').val();
+
                 $.ajax({
                      url: 'upload-nilai-sidang-skripsi',
                     type: "post",
                     data: {"_token": "{{ csrf_token() }}",
                         "id_skripsi":id_skripsi,
+                        'status_skripsi':status_skripsi,
 
                         "nilai_sidang_skripsi":nilai_sidang_skripsi
                     },

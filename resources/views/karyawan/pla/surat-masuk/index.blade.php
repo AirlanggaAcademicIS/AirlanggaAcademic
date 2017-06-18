@@ -33,7 +33,7 @@ Surat Masuk
   <a href="{{url('karyawan/surat-masuk/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Surat</a>
 </div>
-<div style="overflow: auto">
+<div style="padding:10px">
 <table id="data-table" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>

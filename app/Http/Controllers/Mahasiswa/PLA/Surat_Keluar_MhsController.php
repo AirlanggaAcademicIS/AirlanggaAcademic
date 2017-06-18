@@ -134,6 +134,7 @@ class Surat_Keluar_MhsController extends Controller
         $surat_keluar_mhs->nama = $request->input('nama');
         $surat_keluar_mhs->alamat = $request->input('alamat');
         $surat_keluar_mhs->tgl_upload = $request->input('tgl_upload');
+        $surat_keluar_mhs->status = '0';
         $surat_keluar_mhs->save();
 
         // Notifikasi sukses

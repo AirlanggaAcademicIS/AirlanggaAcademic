@@ -31,7 +31,7 @@ Karyawan
   <a href="{{url('/karyawan/pla/karyawan/create')}}" type="button" class="btn btn-info btn-md" >
     <i class="fa fa-plus-square"></i> Tambah Karyawan</a>
 </div>
-<div style="overflow: auto">
+<div style="padding:10px">
 <table id="data-table" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
