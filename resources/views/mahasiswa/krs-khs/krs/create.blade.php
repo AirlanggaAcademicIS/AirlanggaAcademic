@@ -10,7 +10,7 @@ Krs
 @endsection
 
 @section('contentheader_title')
-Input Krs
+Kartu Rencana Studi
 @endsection
 
 @section('main-content')
@@ -48,6 +48,9 @@ Input Krs
             <div class="tab-content">
               <div id="AmbilKrs" class="tab-pane fade in active">
               <h3>Ambil Krs</h3>
+              @php
+              count($krs);
+              @endphp
               <div style="overflow: auto">
                 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
                 <thead>
@@ -149,7 +152,7 @@ Input Krs
                     <td width="10%" style="text-align:center">{{$s->kode_matkul}}</td>
                     <td width="20%" style="text-align:center">{{$s->nama_matkul}}</td>
                     <td width="15%" style="text-align:center">{{$s->sks}}</td>
-                    @if($s->is_approve ==0)
+                    @if($s->is_approve == 0)
                     <td width="15%" style="text-align:center">Belum Diapprove</td>
                     @else
                     <td width="15%" style="text-align:center">Approved</td>

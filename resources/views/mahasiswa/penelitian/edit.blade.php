@@ -171,39 +171,6 @@ Edit Penelitian Mahasiswa
 					</div>
 				</div>
 
-				<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Background</label>
-					<div class="col-md-8">
-						<textarea id="background" class="form-control input-lg" name="background" placeholder=" Masukkan Background" required cols="115" rows="5">{!!old( 'background',$detailpenelitian->background)!!}</textarea>
-					</div>
-				</div>
-
-				<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Objective</label>
-					<div class="col-md-8">
-						<textarea id="objective" class="form-control input-lg" name="objective" placeholder=" Masukkan Objective" required cols="115" rows="5">{!!old( 'objective',$detailpenelitian->objective)!!}</textarea>
-					</div>
-				</div>
-				
-				<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Methods</label>
-					<div class="col-md-8">
-						<textarea id="methods" class="form-control input-lg" name="methods" placeholder=" Masukkan Methods" required cols="115" rows="5">{!!old( 'methods',$detailpenelitian->methods)!!}</textarea>
-					</div>
-				</div>
-
-				<!-- Menampilkan textarea -->
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Results</label>
-					<div class="col-md-8">
-						<textarea id="results" class="form-control input-lg" name="results" placeholder=" Masukkan Results" required cols="115" rows="5">{!!old( 'results',$detailpenelitian->results)!!}</textarea>
-					</div>
-				</div>
-
-
 				<div class="form-group text-center">
 					<div class="col-md-8 col-md-offset-2">
 					<button type="submit" class="btn btn-primary btn-lg">

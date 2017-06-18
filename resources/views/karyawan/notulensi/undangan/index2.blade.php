@@ -53,8 +53,10 @@ Undangan Rapat
       <td width="20%" style="text-align:center">{{$unkar->nama_ruang}}</td>
       <td width="20%" style="text-align:center">{{$unkar->agenda_rapat}}</td>
       <td width="20%" style="text-align:center">
-        <a href="{{url('formundangan/'.$unkar->id_notulen.'/undang/')}}" class="btn btn-success btn-xs">
-        <i class="fa fa-book"></i> Undang Dosen</a>
+        <a href="{{url('formundangan/'.$unkar->id_notulen.'/undang')}}" class="btn btn-success btn-xs">
+        <i class="fa fa-book"></i> Kirim Undangan</a>
+        <a href="{{url('formundangan2/'.$unkar->id_notulen.'/undang')}}" class="btn btn-warning btn-xs">
+        <i class="fa fa-book"></i> Kirim Email</a>
         <a onclick="return confirm('Anda yakin untuk menghapus rapat ini?');" href="{{url('formundangan/'.$unkar->id_notulen.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash"></i> Hapus Rapat</a>
         </td>

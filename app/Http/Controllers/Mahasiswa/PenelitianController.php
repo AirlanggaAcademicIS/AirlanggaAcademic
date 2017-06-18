@@ -150,10 +150,6 @@ class PenelitianController extends Controller
         $detailPenelitian = PenelitianMhs::find($kode_penelitian)->detail;
         // Mengupdate $detailPenelitian tadi dengan isi dari form edit tadi
         $detailPenelitian->abstract = $request->input('abstract');
-        $detailPenelitian->background = $request->input('background');
-        $detailPenelitian->objective = $request->input('objective');
-        $detailPenelitian->methods = $request->input('methods');
-        $detailPenelitian->results = $request->input('results');
         $detailPenelitian->save();
 
         // Notifikasi sukses
