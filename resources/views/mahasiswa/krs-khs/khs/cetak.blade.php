@@ -41,50 +41,50 @@
     @foreach($khs as $i => $k)
     <tr style="border: 1px solid black">
         <td style="text-align:center; border: 1px solid black">{{$i+1}}</td>
-        <td style="text-align:center; border: 1px solid black">{{$k->MKDitawarkan->MK->kode_matkul}}</td>
-        <td style="text-align:center; border: 1px solid black">{{$k->MKDitawarkan->MK->nama_matkul}}</td>
-        <td style="text-align:center; border: 1px solid black">{{$k->MKDitawarkan->MK->sks}}</td>
+        <td style="text-align:center; border: 1px solid black">{{$k->kode_matkul}}</td>
+        <td style="text-align:center; border: 1px solid black">{{$k->nama_matkul}}</td>
+        <td style="text-align:center; border: 1px solid black">{{$k->sks}}</td>
         <td style="text-align:center; border: 1px solid black">{{$k->nilai}}</td> 
         @php 
      $total = 0;
      $sks = 0;
      @endphp
           @php
-          $sks = $sks + $k->MKDitawarkan->MK->sks
+          $sks = $sks + $k->sks
           @endphp   
           @if($k->nilai=="A")
           @php
-          $total = $total + (4 * $k->MKDitawarkan->MK->sks)
+          $total = $total + (4 * $k->sks)
           @endphp
-          <td width="15%" style="text-align:center; border:">{{4 * $k->MKDitawarkan->MK->sks}} </td>
+          <td width="15%" style="text-align:center; border:">{{4 * $k->sks}} </td>
           @elseif($k->nilai=="AB")
           @php
-          $total = $total + (3.5 * $k->MKDitawarkan->MK->sks)
+          $total = $total + (3.5 * $k->sks)
           @endphp
-          <td width="15%" style="text-align:center; border:">{{3.5 * $k->MKDitawarkan->MK->sks}} </td>
+          <td width="15%" style="text-align:center; border:">{{3.5 * $k->sks}} </td>
           @elseif($k->nilai=="B")
           @php
-          $total = $total + (3 * $k->MKDitawarkan->MK->sks)
+          $total = $total + (3 * $k->sks)
           @endphp
-          <td width="15%" style="text-align:center; border:">{{3 * $k->MKDitawarkan->MK->sks}} </td>
+          <td width="15%" style="text-align:center; border:">{{3 * $k->sks}} </td>
           @elseif($k->nilai=="BC")
           @php
-          $total = $total + (2.5 * $k->MKDitawarkan->MK->sks)
+          $total = $total + (2.5 * $k->sks)
           @endphp
-          <td width="15%" style="text-align:center; border:">{{2.5 * $k->MKDitawarkan->MK->sks}} </td>
+          <td width="15%" style="text-align:center; border:">{{2.5 * $k->sks}} </td>
           @elseif($k->nilai=="C")
           @php
-          $total = $total + (2 * $k->MKDitawarkan->MK->sks)
+          $total = $total + (2 * $k->sks)
           @endphp
-          <td width="15%" style="text-align:center; border:">{{2 * $k->MKDitawarkan->MK->sks}} </td>
+          <td width="15%" style="text-align:center; border:">{{2 * $k->sks}} </td>
           @elseif($k->nilai=="D")
           @php
-          $total = $total + (1 * $k->MKDitawarkan->MK->sks)
+          $total = $total + (1 * $k->sks)
           @endphp
-          <td width="15%" style="text-align:center; border:">{{1 * $k->MKDitawarkan->MK->sks}} </td>
+          <td width="15%" style="text-align:center; border:">{{1 * $k->sks}} </td>
           @else
           @php
-          $total = $total + (0 * $k->MKDitawarkan->MK->sks)
+          $total = $total + (0 * $k->sks)
           @endphp
           <td width="15%" style="text-align:center; border:">0</td>
           @endif  
@@ -120,35 +120,38 @@
     @endphp
    @foreach($histori as $i => $h) 
       @php
-      $sks = $sks + $h->MKDitawarkan->MK->sks
+      if($h->nilai=="K")
+      $sks = $sks + 0;
+      else
+      $sks = $sks + $h->sks;
       @endphp
       @if($h->nilai=="A")
       @php
-      $total = $total + (4 * $h->MKDitawarkan->MK->sks)
+      $total = $total + (4 * $h->sks)
       @endphp
       @elseif($h->nilai=="AB")
       @php
-      $total = $total + (3.5 * $h->MKDitawarkan->MK->sks)
+      $total = $total + (3.5 * $h->sks)
       @endphp
       @elseif($h->nilai=="B")
       @php
-      $total = $total + (3 * $h->MKDitawarkan->MK->sks)
+      $total = $total + (3 * $h->sks)
       @endphp
       @elseif($h->nilai=="BC")
       @php
-      $total = $total + (2.5 * $h->MKDitawarkan->MK->sks)
+      $total = $total + (2.5 * $h->sks)
       @endphp
       @elseif($h->nilai=="C")
       @php
-      $total = $total + (2 * $h->MKDitawarkan->MK->sks)
+      $total = $total + (2 * $h->sks)
       @endphp
       @elseif($h->nilai=="D")
       @php
-      $total = $total + (1 * $h->MKDitawarkan->MK->sks)
+      $total = $total + (1 * $h->sks)
       @endphp
       @else
       @php
-      $total = $total + (0 * $h->MKDitawarkan->MK->sks)
+      $total = $total + (0 * $h->sks)
       @endphp
       @endif 
     @endforeach 
