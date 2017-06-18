@@ -36,13 +36,13 @@ class JadwalSidangController extends Controller
     	$petugas_tu = DB::table('petugas_tu')->get();
 
     	$jadwal_sidang_proposal = DB::table('skripsi')
-            ->leftJoin('mahasiswa', 'skripsi.NIM_id', '=', 'mahasiswa.nim')
+            ->leftJoin('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
             ->leftJoin('kbk', 'skripsi.kbk_id', '=', 'kbk.id_kbk')
             ->leftJoin('petugas_tu','skripsi.nip_petugas_id','=','petugas_tu.nip_petugas')
             ->leftJoin('ruang','skripsi.tempat_sidangpro','=','ruang.id_ruang')
             ->leftJoin('dosen_penguji','dosen_penguji.skripsi_id','=','skripsi.id_skripsi')
             ->leftJoin('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
-            ->select('skripsi.id_skripsi','mahasiswa.nim', 'skripsi.NIM_id', 'kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangpro', 'skripsi.waktu_sidangpro', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang as nama_ruang','dosen_penguji.nip_id as dosji')
+            ->select('skripsi.id_skripsi','skripsi.NIM_id', 'biodata_mhs.nama_mhs','kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangpro', 'skripsi.waktu_sidangpro', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang as nama_ruang','dosen_penguji.nip_id as dosji')
             ->whereNull('skripsi.deleted_at')
             ->whereNull('nilai_sidangpro')
 
@@ -55,8 +55,8 @@ class JadwalSidangController extends Controller
          for($i = 0; $i<count($jadwal_sidang_proposal)-1;$i++){
          		$tmp = array(
                     'id_skripsi'=>$jadwal_sidang_proposal[$i]->id_skripsi,
-         			'nim'=>$jadwal_sidang_proposal[$i]->nim,
-         			'NIM_id'=>$jadwal_sidang_proposal[$i]->NIM_id,
+         			'nim'=>$jadwal_sidang_proposal[$i]->NIM_id,
+         			'nama_mhs'=>$jadwal_sidang_proposal[$i]->nama_mhs,
          			'jenis_kbk'=>$jadwal_sidang_proposal[$i]->jenis_kbk,
          			'Judul'=>$jadwal_sidang_proposal[$i]->Judul,
          			'tgl_sidangpro'=>$jadwal_sidang_proposal[$i]->tgl_sidangpro,
@@ -117,7 +117,7 @@ class JadwalSidangController extends Controller
          for($i = 0; $i<count($jadwal_sidang_proposal)-1;$i++){
                 $tmp = array(
                     'id_skripsi'=>$jadwal_sidang_proposal[$i]->id_skripsi,
-                    'nim'=>$jadwal_sidang_proposal[$i]->nim,
+                    'nim'=>$jadwal_sidang_proposal[$i]->NIM_id,
                     'NIM_id'=>$jadwal_sidang_proposal[$i]->NIM_id,
                     'jenis_kbk'=>$jadwal_sidang_proposal[$i]->jenis_kbk,
                     'Judul'=>$jadwal_sidang_proposal[$i]->Judul,
@@ -227,13 +227,13 @@ class JadwalSidangController extends Controller
         $petugas_tu = DB::table('petugas_tu')->get();
 
         $jadwal_sidang_skripsi = DB::table('skripsi')
-            ->leftJoin('mahasiswa', 'skripsi.NIM_id', '=', 'mahasiswa.nim')
+            ->leftJoin('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
             ->leftJoin('kbk', 'skripsi.kbk_id', '=', 'kbk.id_kbk')
             ->leftJoin('petugas_tu','skripsi.nip_petugas_id','=','petugas_tu.nip_petugas')
             ->leftJoin('ruang','skripsi.tempat_sidangskrip','=','ruang.id_ruang')
             ->leftJoin('dosen_penguji','dosen_penguji.skripsi_id','=','skripsi.id_skripsi')
             ->leftJoin('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
-            ->select('skripsi.id_skripsi','mahasiswa.nim', 'skripsi.NIM_id', 'kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangskrip', 'skripsi.waktu_sidangskrip', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang','dosen_penguji.nip_id as dosji')
+            ->select('skripsi.id_skripsi', 'skripsi.NIM_id', 'biodata_mhs.nama_mhs','kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangskrip', 'skripsi.waktu_sidangskrip', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang','dosen_penguji.nip_id as dosji')
             ->whereNull('skripsi.deleted_at')
             // ->whereNotNull('nilai_sidangpro')
             ->whereNull('nilai_sidangskrip')
@@ -248,8 +248,8 @@ class JadwalSidangController extends Controller
          for($i = 0; $i<count($jadwal_sidang_skripsi)-1;$i++){
                 $tmp = array(
                     'id_skripsi'=>$jadwal_sidang_skripsi[$i]->id_skripsi,
-                    'nim'=>$jadwal_sidang_skripsi[$i]->nim,
-                    'NIM_id'=>$jadwal_sidang_skripsi[$i]->NIM_id,
+                    'nim'=>$jadwal_sidang_skripsi[$i]->NIM_id,
+                    'nama_mhs'=>$jadwal_sidang_skripsi[$i]->nama_mhs,
                     'jenis_kbk'=>$jadwal_sidang_skripsi[$i]->jenis_kbk,
                     'Judul'=>$jadwal_sidang_skripsi[$i]->Judul,
                     'tgl_sidangpro'=>$jadwal_sidang_skripsi[$i]->tgl_sidangskrip,

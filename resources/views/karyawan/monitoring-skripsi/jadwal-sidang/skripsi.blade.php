@@ -51,7 +51,7 @@ Jadwal Sidang Skripsi
         <th data-field="state" data-radio="true"></th>
         <th data-field="id_skripsi" data-visible="false">Id Skripsi</th>
         <th data-field="nim">NIM</th>
-        <!-- <th>Nama</th> -->
+        <th data-field="nama_mhs">Nama</th>
         <th data-field="kbk">KBK</th>
         <th data-field="judul-skripsi">Judul skripsi</th>
         <!-- <th>Status skripsi</th> -->
@@ -77,6 +77,9 @@ Jadwal Sidang Skripsi
                                 </td>
                                 <td>
                                     {{ $jadwal_sidang_skripsi[$i]['nim']}}
+                                </td>
+                                <td>
+                                    {{ $jadwal_sidang_skripsi[$i]['nama_mhs']}}
                                 </td>
                                 <td>
                                     <div>{{ $jadwal_sidang_skripsi[$i]['jenis_kbk']}}</div>
