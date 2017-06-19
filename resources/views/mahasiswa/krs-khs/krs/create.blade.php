@@ -75,7 +75,7 @@ Kartu Rencana Studi
                     <td width="10%" style="text-align:center">{{$d->kode_matkul}}</td>
                     <td width="20%" style="text-align:center">{{$d->nama_matkul}}</td>
                     <td width="15%" style="text-align:center">{{$d->sks}}</td>
-                    <td width="10%" style="text-align:center">{{$d->id_jam}}</td>
+                    <td width="10%" style="text-align:center">{{$d->waktu}}</td>
                     <td width="10%" style="text-align:center">{{$d->nama_hari}}</td>
                     <td width="25%" style="text-align:center">{{$d->syarat_sks}}</td>
                     <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk mengambil mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/create/'.$d->id_mk_ditawarkan)}}" class="btn btn-success btn-xs">
@@ -89,7 +89,7 @@ Kartu Rencana Studi
                     <td width="10%" style="text-align:center"></td>
                     <td width="20%" style="text-align:center"></td>
                     <td width="15%" style="text-align:center">{{$d->sks}}</td>
-                    <td width="10%" style="text-align:center">{{$krs[$i]->waktu}}-{{$krs[$i+1]->waktu}}</td>
+                    <td width="10%" style="text-align:center">{{$d->waktu}}</td>
                     <td width="10%" style="text-align:center">{{$d->nama_hari}}</td>
                     <td width="25%" style="text-align:center">{{$d->syarat_sks}}</td>
                     <td width="20%" style="text-align:center" ></td>
@@ -101,7 +101,7 @@ Kartu Rencana Studi
                     <td width="10%" style="text-align:center"></td>
                     <td width="20%" style="text-align:center"></td>
                     <td width="15%" style="text-align:center">{{$d->sks}}</td>
-                    <td width="10%" style="text-align:center">{{$d->id_jam}}</td>
+                    <td width="10%" style="text-align:center">{{$d->waktu}}</td>
                     <td width="10%" style="text-align:center">{{$d->nama_hari}}</td>
                     <td width="25%" style="text-align:center">{{$d->syarat_sks}}</td>
                     <td width="20%" style="text-align:center" ></td>
@@ -113,7 +113,7 @@ Kartu Rencana Studi
                     <td width="10%" style="text-align:center">{{$d->kode_matkul}}</td>
                     <td width="20%" style="text-align:center">{{$d->nama_matkul}}</td>
                     <td width="15%" style="text-align:center">{{$d->sks}}</td>
-                    <td width="10%" style="text-align:center">{{$d->id_jam}}</td>
+                    <td width="10%" style="text-align:center">{{$d->waktu}}</td>
                     <td width="10%" style="text-align:center">{{$d->nama_hari}}</td>
                     <td width="25%" style="text-align:center">{{$d->syarat_sks}}</td>
                     <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk mengambil mata kuliah ini?');" href="{{url('/mahasiswa/krs-khs/krs/create/'.$d->id_mk_ditawarkan)}}" class="btn btn-success btn-xs">
