@@ -83,6 +83,8 @@ class KHSController extends Controller
                 ->select('*')
                 ->where('mk_diambil.mhs_id','=',$nim_id)
                 ->sum('sks'); 
+
+        
         $data = [
         'page' => 'khs',
         'khs' => DB::table('mk_diambil')

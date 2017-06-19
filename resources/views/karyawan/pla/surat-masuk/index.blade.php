@@ -65,11 +65,11 @@ Surat Masuk
       @if($bio->status == 0)
         <a href="{{url('karyawan/surat-masuk/'.$bio->id.'/terambil/')}}" class="btn btn-success btn-xs">
         <i class="fa fa-pencil-square-o"></i> Terambil</a>
-        @endif
         <a onclick="return confirm('Anda yakin untuk menghapus surat ini?');" href="{{url('karyawan/surat-masuk/'.$bio->id.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('karyawan/surat-masuk/'.$bio->id.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
+        @endif
 
         </td>
     </tr>

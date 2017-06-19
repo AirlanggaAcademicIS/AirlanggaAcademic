@@ -16,7 +16,7 @@
 <br>___________________________________________________________________________________________________________
 <b></b>
 <p>
-<center><u>KARTU HASIL STUDI TAHUN AKADEMIK {{$tahun->semester_periode}} </u></center>
+<center><u><b>KARTU HASIL STUDI TAHUN AKADEMIK {{$tahun->semester_periode}} </b></u></center>
 <br>
 </p>
 <table style="font-family: arial">
@@ -56,41 +56,53 @@
           @php
           $total = $total + (4 * $k->sks)
           @endphp
-          <td width="15%" style="text-align:center; border:">{{4 * $k->sks}} </td>
+          <td width="10%" style="text-align:center; border:">{{4 * $k->sks}} </td>
           @elseif($k->nilai=="AB")
           @php
           $total = $total + (3.5 * $k->sks)
           @endphp
-          <td width="15%" style="text-align:center; border:">{{3.5 * $k->sks}} </td>
+          <td width="10%" style="text-align:center; border:">{{3.5 * $k->sks}} </td>
           @elseif($k->nilai=="B")
           @php
           $total = $total + (3 * $k->sks)
           @endphp
-          <td width="15%" style="text-align:center; border:">{{3 * $k->sks}} </td>
+          <td width="10%" style="text-align:center; border:">{{3 * $k->sks}} </td>
           @elseif($k->nilai=="BC")
           @php
           $total = $total + (2.5 * $k->sks)
           @endphp
-          <td width="15%" style="text-align:center; border:">{{2.5 * $k->sks}} </td>
+          <td width="10%" style="text-align:center; border:">{{2.5 * $k->sks}} </td>
           @elseif($k->nilai=="C")
           @php
           $total = $total + (2 * $k->sks)
           @endphp
-          <td width="15%" style="text-align:center; border:">{{2 * $k->sks}} </td>
+          <td width="10%" style="text-align:center; border:">{{2 * $k->sks}} </td>
           @elseif($k->nilai=="D")
           @php
           $total = $total + (1 * $k->sks)
           @endphp
-          <td width="15%" style="text-align:center; border:">{{1 * $k->sks}} </td>
+          <td width="10%" style="text-align:center; border:">{{1 * $k->sks}} </td>
           @else
           @php
           $total = $total + (0 * $k->sks)
           @endphp
-          <td width="15%" style="text-align:center; border:">0</td>
+          <td width="10%" style="text-align:center; border:">0</td>
           @endif  
         @endforeach
         </tr>
   </tbody>
+  @php
+  $ips = $total / $sks;
+  $lmt = 0;
+  if($ips >= 3)
+                $lmt = 24;                
+            elseif (($ips <3) && ($ips >=2.75))
+                $lmt = 23;
+            elseif (($ips <2.75) && ($ips >=2.5))
+                $lmt = 22;
+              else
+                $lmt = 21;
+  @endphp
   <tfoot>
     <td style="text-align:center"></td>
     <td style="text-align:center"></td>
@@ -100,11 +112,11 @@
     <td style="text-align:center; border: 1px solid black;">{{$total}}</td>
 <tr>
         <td colspan="3" style="text-align:right;border-top: 1px solid black;">Indeks Prestasi Semester &nbsp; </td>
-    <td colspan="3" style="text-align:center;border:1px solid black;">{{$total / $sks}}</td>
+    <td colspan="3" style="text-align:center;border:1px solid black;">{{$ips}}</td>
 </tr>
 <tr>
     <td colspan="3" style="text-align:right;border-top: 1px solid black;">SKS maksimal yang boleh diambil &nbsp; </td>
-    <td colspan="3" style="text-align:center;border: 1px solid black;"></td>
+    <td colspan="3" style="text-align:center;border: 1px solid black;">{{$lmt}}</td>
     
 </tr>
   </tfoot>

@@ -81,6 +81,7 @@ class JadwalSidangController extends Controller
          for($i = 0; $i<count($jadwal_sidang_proposal)-1;$i++){
                 $tmp = array(
                     'id_skripsi'=>$jadwal_sidang_proposal[$i]->id_skripsi,
+
                     'nim'=>$jadwal_sidang_proposal[$i]->NIM_id,
                     'nama_mhs'=>$jadwal_sidang_proposal[$i]->nama_mhs,
                     'jenis_kbk'=>$jadwal_sidang_proposal[$i]->jenis_kbk,
@@ -103,10 +104,12 @@ class JadwalSidangController extends Controller
                 $final_result[$j] = $tmp;
                 $j++;
                 }
+
                 // $final_result[$j] = $tmp;
                 // $j++;
 
                 //array_push($final_result, $tmp);
+
          }
 
         $data = array(

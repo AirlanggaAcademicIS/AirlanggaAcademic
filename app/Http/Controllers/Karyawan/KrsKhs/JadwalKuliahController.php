@@ -121,6 +121,11 @@ class JadwalKuliahController extends Controller
 
     public function editAction($mk_ditawarkan_id,$hari_id,$ruang_id, $jam_id,Request $request)
     {
+        if (!empty(JadwalKuliah::where('hari_id',$request->input('hari_id'))->where('jam_id',$request->input('jam_id'))->where('ruang_id',$request->input('ruang_id'))->first())) {
+           Session::put('alert-danger', 'Jadwal Tabrakan');
+
+        return Redirect::back();
+        }
         // Mencari ruang yang akan di update dan menaruhnya di variabel $ruang
         $jadwal = JadwalKuliah::where([
            ['mk_ditawarkan_id','=',$mk_ditawarkan_id], 

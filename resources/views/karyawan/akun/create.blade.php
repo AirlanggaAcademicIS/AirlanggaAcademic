@@ -65,12 +65,13 @@ Tambah Akun Mahasiswa
 				</div>
 
 				<div class="form-group">
-					<label for="nlp_id" class="col-sm-2 control-label">NIP Dosen Wali</label>
+					<label for="nlp_id" class="col-sm-2 control-label">Dosen Wali</label>
 					<div class="col-md-8">
 						<select class="form-control input-lg" id="nlp_id" name="nlp_id" placeholder="Masukkan NIP Dosen Wali" required>
 						@foreach ($akun as $k)
-						<option value="{{$k->nip}}">{{$k->nip}}</option>
+						<option value="{{$k->nip}}">{{$k->nama_dosen}}</option>
 						@endforeach 
+						<option value="000000">--Belum ada dosen wali--</option>
 						</select>
 					</div>
 				</div>
@@ -78,7 +79,7 @@ Tambah Akun Mahasiswa
 				<div class="form-group">
 					<label for="angkatan" class="col-sm-2 control-label">angkatan</label>
 					<div class="col-md-8">
-						<input type="angkatan" class="form-control input-lg" id="angkatan" name="angkatan" placeholder="Masukkan angkatan" required>
+						<input type="number" class="form-control input-lg" id="angkatan" name="angkatan" placeholder="Masukkan angkatan" required>
 					</div>
 				</div>
 

@@ -21,13 +21,16 @@ class BiodataMahasiswaController extends Controller
     // Function untuk menampilkan tabel
     public function index()
     {
-        $tahun = BiodataMahasiswa::where('nim_id',Auth::user()->username)->first();
-        $tahun = $tahun->angkatan;
+        // $tahun = BiodataMahasiswa::where('nim_id',Auth::user()->username)->first();
+        // $tahun = $tahun->angkatan;
+        $nim = Auth::user()->username;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'biodatamahasiswa',
             // Memanggil semua isi dari tabel biodata
-            'biodatamahasiswa' => BiodataMahasiswa::where('angkatan',$tahun)->get()
+            // 'biodatamahasiswa' => BiodataMahasiswa::where('nim_id', '=', $nim)->first()
+            'biodatamahasiswa' => BiodataMahasiswa::all()
+           
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view

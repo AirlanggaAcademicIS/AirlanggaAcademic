@@ -114,7 +114,7 @@ Input Jadwal Mata Kuliah
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <button type="submit" class="btn btn-info pull-right">Submit</button>
+                <button type="submit" class="btn btn-info pull-right">Tambah</button>
               </div>
               <!-- /.box-footer -->
             </form>
