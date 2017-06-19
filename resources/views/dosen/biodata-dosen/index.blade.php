@@ -53,8 +53,8 @@ Data Dosen
       <td width="20%" style="text-align:center">{{$dosen->alamat_dosen}}</td>
       <td width="10%" style="text-align:center">{{$dosen->tanggal_lahir_dosen}}</td>      
       <td width="10%" style="text-align:center">{{$dosen->status_dosen}}</td>
-      <td width="20%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus penelitian ini?');" href="{{url('/dosen/biodata-dosen/'.$dosen->nip.'/delete/')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-trash-o"></i> Hapus</a>
+      <td width="20%" style="text-align:center" > <!-- <a onclick="return confirm('Anda yakin untuk menghapus penelitian ini?');" href="{{url('/dosen/biodata-dosen/'.$dosen->nip.'/delete/')}}" class="btn btn-danger btn-xs">
+        <i class="fa fa-trash-o"></i> Hapus</a> -->
         <a href="{{url('/dosen/biodata-dosen/'.$dosen->nip.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
         </td>

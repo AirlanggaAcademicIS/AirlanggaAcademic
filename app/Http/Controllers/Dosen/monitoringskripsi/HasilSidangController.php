@@ -33,10 +33,10 @@ class HasilSidangController extends Controller
             ->leftJoin('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
             ->leftJoin('status_skripsi','status_skripsi.id','=','skripsi.statusskrip_id')
             ->select('skripsi.id_skripsi','biodata_mhs.nama_mhs', 'skripsi.NIM_id','skripsi.nilai_sidangskrip' ,'kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangpro', 'skripsi.waktu_sidangpro', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang','dosen_penguji.nip_id as dosji','status_skripsi.keterangan')
-            ->whereNull('skripsi.deleted_at')
-            ->whereNotNull('skripsi.nilai_sidangskrip')
-            ->where('dosen_pembimbing.nip_id','=',$nip)
-            ->orWhere('dosen_penguji.nip_id','=',$nip)
+            // ->whereNull('skripsi.deleted_at')
+            // ->whereNotNull('skripsi.nilai_sidangskrip')
+            // ->where('dosen_pembimbing.nip_id','=',$nip)
+            // ->orWhere('dosen_penguji.nip_id','=',$nip)
 
             ->get();
             
@@ -45,6 +45,12 @@ class HasilSidangController extends Controller
             $j = 0;
 
          for($i = 0; $i<count($hasil_sidang_skripsi)-1;$i++){
+               
+                $dosen1 = $hasil_sidang_skripsi[$i]->dosbing;
+                $dosen2 = $hasil_sidang_skripsi[$i+1]->dosbing;
+                $dosen3 = $hasil_sidang_skripsi[$i]->dosji;
+
+
                $tmp = array(
                     'id_skripsi'=>$hasil_sidang_skripsi[$i]->id_skripsi,
                   'nama_mhs'=>$hasil_sidang_skripsi[$i]->nama_mhs,
@@ -61,8 +67,13 @@ class HasilSidangController extends Controller
                   'nilai_skripsi'=>$hasil_sidang_skripsi[$i]->nilai_sidangskrip
 
                   );
-               $final_result[$j] = $tmp;
-               $j++;
+
+                   if(($dosen1==$nip)||$dosen2==$nip||$dosen3==$nip){
+                $final_result[$j] = $tmp;
+                $j++;
+            }               
+               // $final_result[$j] = $tmp;
+               // $j++;
 
                //array_push($final_result, $tmp);
          }
@@ -86,11 +97,11 @@ class HasilSidangController extends Controller
             ->leftJoin('dosen_pembimbing','dosen_pembimbing.skripsi_id','=','skripsi.id_skripsi')
             ->leftJoin('status_skripsi','status_skripsi.id','=','skripsi.statusskrip_id')
             ->select('skripsi.id_skripsi','biodata_mhs.nama_mhs', 'skripsi.NIM_id','skripsi.nilai_sidangpro' ,'kbk.jenis_kbk', 'skripsi.Judul', 'skripsi.tgl_sidangpro', 'skripsi.waktu_sidangpro', 'dosen_pembimbing.nip_id as dosbing','ruang.nama_ruang','dosen_penguji.nip_id as dosji','status_skripsi.keterangan')
-            ->whereNull('skripsi.deleted_at')
-            // ->where('NIM_id','=',$nim)
-            ->whereNotNull('nilai_sidangpro')
-            ->where('dosen_pembimbing.nip_id','=',$nip)
-            ->orWhere('dosen_penguji.nip_id','=',$nip)
+            // ->whereNull('skripsi.deleted_at')
+            // // ->where('NIM_id','=',$nim)
+            // ->whereNotNull('nilai_sidangpro')
+            // ->where('dosen_pembimbing.nip_id','=',$nip)
+            // ->orWhere('dosen_penguji.nip_id','=',$nip)
 
             ->get();
             
@@ -99,6 +110,12 @@ class HasilSidangController extends Controller
             $j = 0;
 
          for($i = 0; $i<count($hasil_sidang_proposal)-1;$i++){
+               
+               $dosen1 = $hasil_sidang_proposal[$i]->dosbing;
+                $dosen2 = $hasil_sidang_proposal[$i+1]->dosbing;
+                $dosen3 = $hasil_sidang_proposal[$i]->dosji;
+
+
                $tmp = array(
                     'id_skripsi'=>$hasil_sidang_proposal[$i]->id_skripsi,
                   'nama_mhs'=>$hasil_sidang_proposal[$i]->nama_mhs,
@@ -115,9 +132,12 @@ class HasilSidangController extends Controller
                   'nilai_proposal'=>$hasil_sidang_proposal[$i]->nilai_sidangpro
 
                   );
-               $final_result[$j] = $tmp;
-               $j++;
 
+                if(($dosen1==$nip)||$dosen2==$nip||$dosen3==$nip){
+                $final_result[$j] = $tmp;
+                $j++;
+            }
+               
                //array_push($final_result, $tmp);
          }
 

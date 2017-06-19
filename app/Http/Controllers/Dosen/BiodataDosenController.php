@@ -14,7 +14,7 @@ use Reqsponse;
 use App\Dosen;
 use App\BiodataDosen;
 use App\User;
-
+use Auth;
 class BiodataDosenController extends Controller
 {
 
@@ -32,6 +32,8 @@ class BiodataDosenController extends Controller
         return view('dosen.biodata-dosen.index',$data);
     }
 
+   
+
     public function create()
     {
         $data = [
@@ -48,6 +50,10 @@ class BiodataDosenController extends Controller
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
         $dosen = $request->input();
         
+         $this->validate($request, [
+        'password'              => 'confirmed|min:6'
+        ]);
+        $password=bcrypt($request->input('password'));
         Dosen::create($dosen);
         BiodataDosen::create($dosen);
         User::create([
@@ -55,7 +61,8 @@ class BiodataDosenController extends Controller
             'name' => $request->input('nama_dosen'),
             'role' => 'dosen',
             'email' => $request->input('email'),
-            'password' => '$2y$10$AeNiPmUWYXL5vCE4EaQKoeR265B7d4EzZWajzJEj610EaiW7VNuZm'
+            'password'=> $password , 
+        
             ]);      
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Data Dosen Berhasil Ditambahkan');

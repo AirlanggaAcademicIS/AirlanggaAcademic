@@ -1,14 +1,21 @@
-<!-- Contoh -->
-<!-- <li
-@if($page == 'transaksi')
-{!! 'class="active"'!!}
-@endif
->
+<li class="treeview">
 
-<a href="{{ url('transaksi') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Transaksi</a>
-</li> -->
-
-
+      <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
+      <ul class="treeview-menu">
+            <li
+            @if($page == 'kurikulum')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <a href="{{ url('karyawan/kurikulum/inputmatkul') }}"><i class='fa fa-book'> </i> <span>Input Matkul</span></a>
+            <a href="{{ url('karyawan/kurikulum/mk-prodi') }}"><i class='fa fa-book'> </i> <span>Pilih Matkul</span></a>
+            <a href="{{ url('karyawan/kurikulum/silabus') }}"><i class='fa fa-book'></i> <span> Silabus</span></a>
+            <a href="{{ url('karyawan/kurikulum/rps') }}"><i class='fa fa-book'></i> <span> RPS</span></a>
+            <a href="{{ url('karyawan/kurikulum/cp_program') }}"><i class='fa fa-book'></i> <span> Capaian Program</span></a>
+            <a href="{{ url('karyawan/kurikulum/capaian-pembelajaran') }}"><i class='fa fa-book'> </i> <span> Capaian Pembelajaran</span></a>
+            </li>
+      </ul>
+</li>
 <li
 @if($page == 'AkunMahasiswa')
 {!! 'class="active"'!!}
@@ -39,9 +46,6 @@
       > <a href="{{url('karyawan/upload-dokumen')}}"><i class="fa fa-file-text"></i>Shared Dokumen</a></li>
 
     <li class="
-      @if($page == 'konfirmasi-ruang' || 'history-ruang') 
-      {!! 'active' !!} 
-      @endif 
       treeview">
         <a href=""><i class='fa fa-calendar-plus-o'></i> <span>Permohonan Ruang</span></a>
         <ul class="treeview-menu">
@@ -112,6 +116,13 @@
     <a href="{{ url('karyawan/pla/karyawan') }}"><i class='fa fa-user'></i> <span>Akun Karyawan</span></a>
     </li>
     </ul>
+</li>
+
+<li
+@if($page == 'biodata-dosen')
+{!! 'class="active"'!!}
+@endif
+><a href="{{url('/dosen/biodata-dosen')}}"><i class="fa fa-calculator" aria-hidden="true"></i> Biodata Dosen</a>
 </li>
 <li> 
 <a href="{{ url('/inventaris/index-peminjaman') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Inventaris</a> 

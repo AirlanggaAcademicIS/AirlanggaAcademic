@@ -48,9 +48,6 @@ Input Krs
             <div class="tab-content">
               <div id="AmbilKrs" class="tab-pane fade in active">
               <h3>Ambil Krs</h3>
-              @php
-              echo count($krs);
-              @endphp
               <div style="overflow: auto">
                 <table id="myTable" class="table table-striped table-bordered" cellspacing="0">
                 <thead>
@@ -139,9 +136,18 @@ Input Krs
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$ips}}</h3></h3>
                 <br> 
             </div>
+<<<<<<< HEAD
             <div>
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">SKS yang dapat diambil :  </h3></h3>
+=======
+            <!-- <div>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">Limit SKS :  </h3></h3>
+>>>>>>> 5983454ef491a72acb0b25b3042a0c3c26c8f713
                 <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$limitSks}}</h3></h3>
+            </div> -->
+            <div>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">Sisa SKS :  </h3></h3>
+                <h3 class="label"> <h3 class="label label-info" style="text-align:center">{{$limitSisa}}</h3></h3>
             </div>
             </div>
             </div>
