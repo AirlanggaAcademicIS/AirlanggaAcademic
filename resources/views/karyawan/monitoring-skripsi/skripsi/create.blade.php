@@ -126,7 +126,7 @@ Tambah Data Skripsi
              select: function (event, ui) {
              var item = ui.item;
                  if(item) {
-                     $("#NIM_id").val(item.NIM_id);
+                     $("#NIM_id").val(item.nim_id);
                  }
              }
 

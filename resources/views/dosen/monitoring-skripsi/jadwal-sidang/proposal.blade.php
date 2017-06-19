@@ -70,13 +70,13 @@ Lihat Jadwal Sidang Proposal
                                     <div>{{ $jadwal_sidang_proposal[$i]['ruang']}}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $jadwal_sidang_proposal[$i]['dosen_pembimbing1']}}</div>
+                                    <div>{{ $jadwal_sidang_proposal[$i]['nama_dosen_pembimbing1']}}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $jadwal_sidang_proposal[$i]['dosen_pembimbing2']}}</div>
+                                    <div>{{ $jadwal_sidang_proposal[$i]['nama_dosen_pembimbing2']}}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $jadwal_sidang_proposal[$i]['dosen_penguji']}}</div>
+                                    <div>{{ $jadwal_sidang_proposal[$i]['nama_dosen_penguji']}}</div>
                                 </td>
                                 <!-- <td class="table-text">
                                     <div>{{ $jadwal_sidang_proposal[$i]['nim']}}</div>

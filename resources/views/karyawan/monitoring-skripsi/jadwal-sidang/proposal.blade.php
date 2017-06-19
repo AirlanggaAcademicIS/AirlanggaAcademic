@@ -50,11 +50,10 @@ Jadwal Sidang Proposal
       <tr>
         <th data-field="state" data-radio="true"></th>
         <th data-field="id_skripsi" data-visible="false">Id Skripsi</th>
-        <th data-field="nim">NIM</th>
         <th data-field="nama_mhs">Nama</th>
+        <th data-field="nim">NIM</th>
         <th data-field="kbk">KBK</th>
         <th data-field="judul-proposal">Judul Proposal</th>
-        <!-- <th>Status Proposal</th> -->
         <th data-field="tgl-sidang">Tanggal Sidang</th>
         <th data-field="waktu-sidang">Waktu Sidang</th>
         <th data-field="tempat-sidang">Tempat Sidang</th>
@@ -75,11 +74,11 @@ Jadwal Sidang Proposal
                                 <td>
                                   {{$jadwal_sidang_proposal[$i]['id_skripsi']}}
                                 </td>
-                                <td>
-                                    {{ $jadwal_sidang_proposal[$i]['nim']}}
-                                </td>
                                  <td>
                                     {{ $jadwal_sidang_proposal[$i]['nama_mhs']}}
+                                </td>
+                                <td>
+                                    {{ $jadwal_sidang_proposal[$i]['nim']}}
                                 </td>
                                 <td>
                                     <div>{{ $jadwal_sidang_proposal[$i]['jenis_kbk']}}</div>
@@ -96,14 +95,14 @@ Jadwal Sidang Proposal
                                 <td>
                                     <div>{{ $jadwal_sidang_proposal[$i]['ruang']}}</div>
                                 </td>
-                                <td>
-                                    <div>{{ $jadwal_sidang_proposal[$i]['dosen_pembimbing1']}}</div>
+                                 <td>
+                                    <div>{{ $jadwal_sidang_proposal[$i]['nama_dosen_pembimbing1']}}</div>
                                 </td>
-                                <td>
-                                    <div>{{ $jadwal_sidang_proposal[$i]['dosen_pembimbing2']}}</div>
+                                 <td>
+                                    <div>{{ $jadwal_sidang_proposal[$i]['nama_dosen_pembimbing2']}}</div>
                                 </td>
-                                <td>
-                                    <div>{{ $jadwal_sidang_proposal[$i]['dosen_penguji']}}</div>
+                                 <td>
+                                    <div>{{ $jadwal_sidang_proposal[$i]['nama_dosen_penguji']}}</div>
                                 </td>
                                 <!-- <td class="table-text">
                                     <div>{{ $jadwal_sidang_proposal[$i]['nim']}}</div>
@@ -149,7 +148,7 @@ Jadwal Sidang Proposal
 
        <div class="form-group">
       <label for="edit-daftar-tambah-nim-jadwal-sidang-proposal">NIM</label>
-      <select class="form-control" id="edit-daftar-tambah-nim-jadwal-sidang-proposal" name="edit-daftar-tambah-nim-jadwal-sidang-proposal">
+      <select class="form-control" id="edit-daftar-tambah-nim-jadwal-sidang-proposal" name="edit-daftar-tambah-nim-jadwal-sidang-proposal" disabled>
           
         <option disabled selected value> -- select an option -- </option>
 
@@ -167,7 +166,7 @@ Jadwal Sidang Proposal
       <div class="form-group">
       <label for="edit-daftar-tambah-nama-jadwal-sidang-proposal">Nama</label>
       
-      <input type="text" class="form-control" id="edit-daftar-tambah-nama-jadwal-sidang-proposal" name="edit-daftar-tambah-nama-jadwal-sidang-proposal"></input>
+      <input type="text" class="form-control" id="edit-daftar-tambah-nama-jadwal-sidang-proposal" name="edit-daftar-tambah-nama-jadwal-sidang-proposal" disabled></input>
       </div>
 
       </div>
@@ -182,7 +181,7 @@ Jadwal Sidang Proposal
 
        <div class="form-group">
       <label for="edit-daftar-tambah-kbk-jadwal-sidang-proposal">KBK</label>
-      <select class="form-control" id="edit-daftar-tambah-kbk-jadwal-sidang-proposal" name="edit-daftar-tambah-kbk-jadwal-sidang-proposal">
+      <select class="form-control" id="edit-daftar-tambah-kbk-jadwal-sidang-proposal" name="edit-daftar-tambah-kbk-jadwal-sidang-proposal" disabled>
           <option disabled selected value> -- select an option -- </option>
 
            @foreach($daftar_kbk as $item)
@@ -199,7 +198,7 @@ Jadwal Sidang Proposal
       <div class="form-group">
       <label for="edit-daftar-tambah-judul-jadwal-sidang-proposal">Judul Proposal</label>
       
-      <input type="text" class="form-control" id="edit-daftar-tambah-judul-jadwal-sidang-proposal" name="edit-daftar-tambah-judul-jadwal-sidang-proposal"></input>
+      <input type="text" class="form-control" id="edit-daftar-tambah-judul-jadwal-sidang-proposal" name="edit-daftar-tambah-judul-jadwal-sidang-proposal" disabled></input>
       </div>
 
       </div>
@@ -271,12 +270,12 @@ Jadwal Sidang Proposal
 
        <div class="form-group">
       <label for="edit-daftar-tambah-dosbing1-jadwal-sidang-proposal">Dosen Pembimbing 1</label>
-      <select  class="form-control" id="edit-daftar-tambah-dosbing1-jadwal-sidang-proposal">
+      <select  class="form-control" id="edit-daftar-tambah-dosbing1-jadwal-sidang-proposal" disabled>
           
           <option disabled selected value> -- select an option -- </option>
 
              @foreach($daftar_dosen as $item)
-        <option value="{{$item->nip}}">{{$item->nip}}</option>
+        <option value="{{$item->nip}}">{{$item->nama_dosen}}</option>
         @endforeach
       </select>
       </div>
@@ -303,12 +302,12 @@ Jadwal Sidang Proposal
 
        <div class="form-group">
       <label for="edit-daftar-tambah-dosbing2-jadwal-sidang-proposal">Dosen Pembimbing 2</label>
-      <select  class="form-control" id="edit-daftar-tambah-dosbing2-jadwal-sidang-proposal">
+      <select  class="form-control" id="edit-daftar-tambah-dosbing2-jadwal-sidang-proposal" disabled>
           
           <option disabled selected value> -- select an option -- </option>
 
              @foreach($daftar_dosen as $item)
-        <option value="{{$item->nip}}">{{$item->nip}}</option>
+        <option value="{{$item->nip}}">{{$item->nama_dosen}}</option>
         @endforeach
       </select>
       </div>
@@ -339,7 +338,7 @@ Jadwal Sidang Proposal
           <option disabled selected value> -- select an option -- </option>
 
              @foreach($daftar_dosen as $item)
-        <option value="{{$item->nip}}">{{$item->nip}}</option>
+        <option value="{{$item->nip}}">{{$item->nama_dosen}}</option>
         @endforeach
       </select>
       </div>
@@ -365,7 +364,7 @@ Jadwal Sidang Proposal
 
        <div class="form-group">
       <label for="edit-daftar-tambah-nip-jadwal-sidang-proposal">NIP Petugas</label>
-      <select  class="form-control" id="edit-daftar-tambah-nip-jadwal-sidang-proposal">
+      <select  class="form-control" id="edit-daftar-tambah-nip-jadwal-sidang-proposal" disabled>
           
             <option disabled selected value> -- select an option -- </option>
 

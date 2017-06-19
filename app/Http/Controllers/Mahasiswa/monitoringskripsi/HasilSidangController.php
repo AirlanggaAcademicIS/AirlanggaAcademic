@@ -24,6 +24,7 @@ class HasilSidangController extends Controller
    {
       # code...
        $nim = Auth::user()->username;
+       $biodata_dosen = DB::table('biodata_dosen')->get();
        $hasil_sidang_skripsi = DB::table('skripsi')
             ->leftJoin('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
             ->leftJoin('kbk', 'skripsi.kbk_id', '=', 'kbk.id_kbk')
@@ -57,7 +58,10 @@ class HasilSidangController extends Controller
                   'dosen_penguji'=>$hasil_sidang_skripsi[$i]->dosji,
                   'ruang'=>$hasil_sidang_skripsi[$i]->nama_ruang,
                   'status_skripsi'=>$hasil_sidang_skripsi[$i]->keterangan,
-                  'nilai_skripsi'=>$hasil_sidang_skripsi[$i]->nilai_sidangskrip
+                  'nilai_skripsi'=>$hasil_sidang_skripsi[$i]->nilai_sidangskrip,
+                  'nama_dosen_pembimbing1'=>$this->cari_nama_dosen($hasil_sidang_skripsi[$i]->dosbing,$biodata_dosen),
+                  'nama_dosen_pembimbing2'=>$this->cari_nama_dosen($hasil_sidang_skripsi[$i+1]->dosbing,$biodata_dosen),
+                  'nama_dosen_penguji'=>$this->cari_nama_dosen($hasil_sidang_skripsi[$i]->dosji,$biodata_dosen)
 
                   );
                $final_result[$j] = $tmp;
@@ -75,6 +79,7 @@ class HasilSidangController extends Controller
    public function view_hasil_sidang_proposal_mahasiswa()
    {
        $nim = Auth::user()->username;
+       $biodata_dosen = DB::table('biodata_dosen')->get();
       # code...
            $hasil_sidang_proposal = DB::table('skripsi')
             ->leftJoin('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
@@ -110,7 +115,10 @@ class HasilSidangController extends Controller
                   'dosen_penguji'=>$hasil_sidang_proposal[$i]->dosji,
                   'ruang'=>$hasil_sidang_proposal[$i]->nama_ruang,
                   'status_proposal'=>$hasil_sidang_proposal[$i]->keterangan,
-                  'nilai_proposal'=>$hasil_sidang_proposal[$i]->nilai_sidangpro
+                  'nilai_proposal'=>$hasil_sidang_proposal[$i]->nilai_sidangpro,
+                  'nama_dosen_pembimbing1'=>$this->cari_nama_dosen($hasil_sidang_proposal[$i]->dosbing,$biodata_dosen),
+                  'nama_dosen_pembimbing2'=>$this->cari_nama_dosen($hasil_sidang_proposal[$i+1]->dosbing,$biodata_dosen),
+                  'nama_dosen_penguji'=>$this->cari_nama_dosen($hasil_sidang_proposal[$i]->dosji,$biodata_dosen)
 
                   );
                $final_result[$j] = $tmp;
@@ -128,6 +136,17 @@ class HasilSidangController extends Controller
       return view('mahasiswa.monitoring-skripsi.hasil-sidang.proposal',$data);
    }
    
+   private function cari_nama_dosen($nip,$arr_dosen)
+    {
+       # code...
+      for($i=0;$i<count($arr_dosen);$i++){
+         if($arr_dosen[$i]->nip==$nip)
+         return $arr_dosen[$i]->nama_dosen;         
+      }
+
+      return "";
+
+    }
 
 
  }
