@@ -47,7 +47,7 @@ E-Learning
       <td width="5%" style="text-align:center">{{$el->mk_ditawarkan_id}}</td>
       <td width="20%" style="text-align:left">{{$el->judul}}</td>
       <td width="20%" style="text-align:leftr">{{$el->created_at}}</td>
-      <td width="20%" style="text-align:leftr"><a href="{{url('mahasiswa/Kurikulum/elearning/'.$el->nama_file.'/download')}}" class="btn btn-warning btn-xs">
+      <td width="20%" style="text-align:leftr"><a href="{{url('mahasiswa/kurikulum/elearning/'.$el->nama_file.'/download')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-book"></i> Download </a></td>
     </tr>
      @empty

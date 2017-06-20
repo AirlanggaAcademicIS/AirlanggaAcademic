@@ -35,9 +35,8 @@ class SilabusController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'silabus',
             // Memanggil semua isi dari tabel biodata
-            'mata_kuliah' => Silabus_Matkul::where('status_rps', '=', '1')->where('status_silabus', '=', '1')->get()
+            'mata_kuliah' => Silabus_Matkul::where('status_rps', '=', '2')->where('status_silabus', '=', '1')->get()
         ];
-
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
         return view('dosen.kurikulum.silabus.index',$data);
         // dd($data['sistem-pembelajaran']);
@@ -48,7 +47,7 @@ class SilabusController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'silabus',
-            'matkul_silabus' => Silabus_Matkul::where('status_rps', '=', '1')->where('status_silabus', '=', '0')->get(),
+            'matkul_silabus' => Silabus_Matkul::where('status_rps', '=', '2')->where('status_silabus', '=', '0')->get(),
             'mata_kuliah' => Silabus_Matkul::all(),            
             // 'mk_prasyarat' => Silabus_Matkul_Prasyarat::all(),
             'atribut_softskill' => Silabus_Atribut_Softskill::all(),
@@ -75,7 +74,6 @@ class SilabusController extends Controller
     {
         //get cpmk first (perlu dibenahi)
         $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $request->input('matkul'))->first();
-
         //insert to table mk_softskill
         $softskillId = $request->input('softskill_id');
         for($count = 0; $count < count($softskillId); $count++)
@@ -85,7 +83,6 @@ class SilabusController extends Controller
             $mk_softskill->softskill_id = $softskillId[$count];
             $mk_softskill->save();            
         }
-
         //insert to table detail_media_pembelajaran (sistem pembelajaran/metode pembelajaran)
         $mksp = $request->input('sistem_pembelajaran_id');
         for($count  = 0 ; $count < count($mksp); $count++)
@@ -95,7 +92,6 @@ class SilabusController extends Controller
             $mk_sp->sistem_pembelajaran_id = $mksp[$count] ;
             $mk_sp->save();
         }
-
         //insert to table detail_kategori (media pembelajaran) 
         $mdp = $request->input('media_pembelajaran_id');
         for($count = 0; $count < count($mdp); $count++)
@@ -105,7 +101,6 @@ class SilabusController extends Controller
             $detail_kategori->cpmk_id = $cpmk->id_cpmk;
             $detail_kategori->save();            
         }
-
         //update to table mata_kuliah
         $matkul  = Silabus_Matkul::find($request->input('matkul'));
         $matkul->penilaian_matkul = $request->input('penilaian_matkul');
@@ -114,8 +109,6 @@ class SilabusController extends Controller
         $matkul->capaian_matkul = $request->input('capaian_matkul');
         $matkul->status_silabus = 1;
         $matkul->save();
-
-
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Silabus berhasil ditambahkan');
         // Kembali ke halaman mahasiswa/biodata
@@ -129,14 +122,15 @@ class SilabusController extends Controller
         // Mencari biodata berdasarkan id dan memasukkannya ke dalam variabel $biodata
         $mata_kuliah = Silabus_Matkul::find($id);
         $mksoftskill = Silabus_mk_softskill::where('mk_id', $id)->delete();
+            
+        // Menghapus biodata yang dicari tadi
+        $mata_kuliah->status_silabus = '0';
+        $mata_kuliah->save();
 
         Silabus_detail_media::where('cpmk_id', '=' ,$cpmk->id_cpmk)->delete();
         // $cpmatkul = RPS_CP_Matkul::where('matakuliah_id', $id)->delete();
         // $cpmatkul= Silabus_cp_matkul::where('matakuliah_id', $id)->get();
 
-        // Menghapus biodata yang dicari tadi
-        $mata_kuliah->status_silabus = '0';
-        $mata_kuliah->save();
 
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Silabus berhasil dihapus');

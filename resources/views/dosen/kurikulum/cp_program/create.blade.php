@@ -67,7 +67,7 @@ Tambah Capaian Program
 				<div class="form-group">
 					<label for="capaian_program_spesifik" class="col-sm-2 control-label">Capaian Program Spesifik</label>
 					<div class="col-md-8">
-						<textarea id="capaian_program_spesifik" name="capaian_program_spesifik" placeholder=" Masukkan Capaian Program Spesifik" required cols="124" rows="5">
+						<textarea id="capaian_program_spesifik" name="capaian_program_spesifik" placeholder=" Masukkan Capaian Program Spesifik" required cols="80" rows="5">
 						</textarea>
 					</div>
 				</div>
@@ -76,7 +76,7 @@ Tambah Capaian Program
 				<div class="form-group">
 					<label for="dimensi_capaian_umum" class="col-sm-2 control-label">Dimensi Capaian Umum</label>
 					<div class="col-md-8">
-						<textarea id="dimensi_capaian_umum" name="dimensi_capaian_umum" placeholder=" Masukkan Dimensi Capaian Umum" required cols="124" rows="5">
+						<textarea id="dimensi_capaian_umum" name="dimensi_capaian_umum" placeholder=" Masukkan Dimensi Capaian Umum" required cols="80" rows="5">
 						</textarea>
 					</div>
 				</div>

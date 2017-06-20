@@ -32,11 +32,9 @@ Edit capaian pembelajaran
 
 <div class="box box-info">
 <div class="box-body">
-
 <div class="row">
   <div class="col-md-12">
     <div class="">
-
       @if (count($errors) > 0)
       <div class="alert alert-danger">
         <ul>
@@ -46,70 +44,59 @@ Edit capaian pembelajaran
         </ul>
       </div>
       @endif
-      
+      <br>
       <form id="tambahCapaianPembelajaran" method="post" action="{{url('/dosen/kurikulum/capaian-pembelajaran/'.$cp_pembelajaran->id_cpem.'/edit')}}" enctype="multipart/form-data"  class="form-horizontal">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
         <!-- Menampilkan input text biasa -->
-        <div class="form-group">
-     <label for="id_prodi" class="col-sm-2 control-label">Nama Prodi</label>
-     <div class="col-md-5">
-     <div class="col-md-3">
-          <select name="prodi_id" class="form-control">
-              @foreach($prodis as $prodi)
-                <option @if ($prodi->id_prodi==$cp_pembelajaran->prodi_id) 
-                {{'selected'}}
-                @endif
-                value="{{$prodi->id_prodi}}">{{$prodi->nama_prodi}}</option>
-              @endforeach
-            </select>
-        </div>
-       </div>
+          <div class="form-group">
+            <label for="id_prodi" class="col-sm-6 control-label">Nama Prodi</label>
+            <div class="col-md-3">
+                <select name="prodi_id" class="form-control">
+                  @foreach($prodis as $prodi)
+                    <option @if ($prodi->id_prodi==$cp_pembelajaran->prodi_id) 
+                    {{'selected'}}
+                    @endif
+                    value="{{$prodi->id_prodi}}">{{$prodi->nama_prodi}}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
 
-        <!-- Menampilkan input text biasa -->
-        <div class="form-group">
-          <label for="kategori_cpem_id" class="col-sm-2 control-label">Kategori Capaian Pembelajaran</label>
-          <div class="col-md-5">
-          <div class="col-md-3">
-          <select name="kategori_cpem_id" class="form-control">
-              @foreach($categories as $category)
-                <option @if ($category->id_kategori_cpem==$cp_pembelajaran->  kategori_cpem_id) 
-                {{'selected'}}
-                @endif
-                value="{{$category->id_kategori_cpem}}">{{$category->nama_cpem}}</option>
-              @endforeach
-            </select>
-          </div>
-        </div>
+            <!-- Menampilkan input text biasa -->
+            <div class="form-group">
+              <label for="kategori_cpem_id" class="col-sm-6 control-label">Kategori Capaian Pembelajaran</label>
+                <div class="col-md-3">
+                  <select name="kategori_cpem_id" class="form-control">
+                    @foreach($categories as $category)
+                      <option @if ($category->id_kategori_cpem==$cp_pembelajaran->  kategori_cpem_id) 
+                      {{'selected'}}
+                      @endif
+                      value="{{$category->id_kategori_cpem}}">{{$category->nama_cpem}}</option>
+                    @endforeach
+                  </select>
+                </div>
+            </div>
 
-        <!-- Menampilkan textarea -->
-        
-        <div class="form-group">
-          <label for="kode_cpem" class="col-sm-2 control-label">Kode Capaian Pembelajaran</label>
-          <div class="col-md-5">
-            <input type="text" class="form-control input-md" id="kode_cpem" name="kode_cpem" placeholder="Masukkan kode" value="{{$cp_pembelajaran->kode_cpem}}" required>
-          <div class="col-md-3">
-            <input type="text" class="form-control input-lg" id="kode_cpem" name="kode_cpem" placeholder="Masukkan kode" value="{{$cp_pembelajaran->kode_cpem}}" required>
-          </div>
-        </div>
+            <!-- Menampilkan textarea -->
+            <div class="form-group">
+              <label for="kode_cpem" class="col-sm-6 control-label">Kode Capaian Pembelajaran</label>
+              <div class="col-md-3">
+                <input type="text" class="form-control input-lg" id="kode_cpem" name="kode_cpem" placeholder="Masukkan kode" value="{{$cp_pembelajaran->kode_cpem}}" required>
+              </div>
+            </div>
 
                 <!-- Menampilkan input text biasa -->
-        <div class="form-group">
-          <label for="deskripsi_cpem" class="col-sm-2 control-label">Deskripsi Capaian Pembelajaran</label>
-          <div class="col-md-8">
-            <textarea id="deskripsi_cpem" name="deskripsi_cpem" placeholder=" Masukkan Deskripsi Capaian Pembelajaran" required cols="38" rows="4" required>{{$cp_pembelajaran->deskripsi_cpem}}
-            </textarea>
-          </div>
-        </div>
-
-        <div class="form-group text-center">
-          <div class="col-md-7 col-md-offset-2">
-          <br>
-          <button type="submit" class="btn btn-primary btn-lg">
-              Edit
-            </button>
-          </div>
-        </div>
+            <div class="form-group">
+                <label for="deskripsi_cpem" class="col-sm-6 control-label">Deskripsi Capaian Pembelajaran</label>
+                <div class="col-md-5">
+                  <textarea id="deskripsi_cpem" name="deskripsi_cpem" placeholder=" Masukkan Deskripsi Capaian Pembelajaran" required cols="50" rows="4" required>{{$cp_pembelajaran->deskripsi_cpem}}</textarea>
+                </div>
+            </div>
+            <div class="pull-right">
+              <button type="submit" class="btn btn-primary btn-lg">
+                Simpan
+              </button>
+            </div>
       </form>
     </div>
   </div>
