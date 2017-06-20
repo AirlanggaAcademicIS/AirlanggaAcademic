@@ -16,7 +16,7 @@ Daftar Kegiatan Akademik
 @section('main-content')
 <!-- include summernote css/js-->
 
-<h2>Kegiatan Akademik Yang Akan Datang
+<h2>Kegiatan Akademik Terlaksana
 </h2>
 
 <!--untuk pengajuan sedang diproses-->
@@ -26,22 +26,27 @@ Daftar Kegiatan Akademik
     <tr>
       <th style="text-align:center">No.</th>
       <th style="text-align:center">Nama Kegiatan</th>
-      <th style="text-align:center">Tanggal Pengajuan</th>
+      
+      <th style="text-align:center">Tanggal Pelaksanaan</th>
+      
       <th style="text-align:center">Poster</th>
       <th style="text-align:center">Action</th>
 
     </tr>
+
     </thead>
   <tbody>
    @forelse($Status as $i => $pen) 
     <tr>
       <td width="10%" style="text-align:center">{{ $i+1 }}</td>
       <td width="15%" style="text-align:center">{{$pen->nama}}</td>
-      <td width="10%" style="text-align:center">{{$pen->tglpengajuan}}</td>
+      <td width="10%" style="text-align:center">{{$pen->tglpelaksanaan}}</td>
       <td width="45%" style="text-align:center"><img src="{{URL::asset('/img/pengajuan/'.$pen->url_poster)}}" height="100px" width="100px" hspace="5px" vspace="2px"></td>
       <td width="20%" style="text-align:center">
-        <a href="{{url('/mahasiswa/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan)}}" class="btn btn-success btn-xs"><i class='fa fa-eye'></i> View Detail</a>
-
+      @if($pen->konfirmasi_proposal==2)
+      <a href="{{url('/dosen/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan)}}" class="btn btn-success btn-xs"> Revisi</a>
+      @endif
+        <a href="{{url('/dosen/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan)}}" class="btn btn-success btn-xs"> View Detail</a>
         </td>
     </tr>
      @empty

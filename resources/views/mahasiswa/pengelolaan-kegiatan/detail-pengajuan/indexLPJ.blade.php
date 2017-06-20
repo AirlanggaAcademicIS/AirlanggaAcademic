@@ -34,7 +34,7 @@ Detail Pengajuan Kegiatan
    @foreach($konfirmasiKegiatan as $i => $konfirmasi_kegiatan) 
 <div class="form-group">
 <div class="col-sm-offset-10 col-sm-2">
-        <a href="{{url('mahasiswa/pengelolaan-kegiatan/dokumentasi/download/'.$konfirmasi_kegiatan->id_kegiatan)}}"  type="submit" class="btn btn-default">Download</a>
+        <a href="{{url('mahasiswa/pengelolaan-kegiatan/dokumentasi/download/'.$konfirmasi_kegiatan->id_kegiatan.'/lpj')}}"  type="submit" class="btn btn-default">Download</a>
     </div>
     </div>
    <h4>Deskripsi Umum</h4>
@@ -136,9 +136,23 @@ Detail Pengajuan Kegiatan
     </div>
 
     <div class="form-group">
+      <label class="control-label col-sm-2" for="tanggalPelaksanaan">Tanggal Pelaksanaan Kegiatan</label>
+      <div class="col-sm-10">
+        <p class="form-control-static">{{$konfirmasi_kegiatan->tglpelaksanaan}}</p>
+      </div>
+    </div>
+
+    <div class="form-group">
       <label class="control-label col-sm-2" for="ruangPengajuan">Ruang Pengajuan Kegiatan</label>
       <div class="col-sm-10">
         <p class="form-control-static">{{$konfirmasi_kegiatan->rpengajuan}}</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="ruangPelaksanaan">Ruang Pelaksanaan Kegiatan</label>
+      <div class="col-sm-10">
+        <p class="form-control-static">{{$konfirmasi_kegiatan->rpelaksanaan}}</p>
       </div>
     </div>
 
@@ -148,6 +162,38 @@ Detail Pengajuan Kegiatan
         <p class="form-control-static"><img src="{{URL::asset('/img/pengajuan/'.$konfirmasi_kegiatan->url_poster)}}" height="100px" width="100px" hspace="5px" vspace="2px"></p>
       </div>
     </div>
+<div class="form-group">
+          <div class="col-sm-10">
+ 
+      <h4>Dokumentasi Laporan Penanggung Jawaban Kegiatan</h4>
+      <table id="dokumentasiKegiatan" class="table table-striped table-bordered" cellspacing="0">
+       <thead>
+          <tr>
+            <th width="5%" style="text-align:center">No</th>
+            <th width="40%" style="text-align:center">Lesson Learned</th>      
+            <th width="55%" style="text-align:center">Dokumentasi</th>
+          </tr>
+          </thead>
+        <tbody>
+         @forelse($lpj as $i => $dokumen)
+          <tr>
+            <td width="5%" style="text-align:center">{{$i+1}}</td>
+            <td width="40%" style="text-align:center">{{$dokumen->lesson_learned}}</td>
+            <td width="55%" style="text-align:center"><img src="{{URL::asset('/img/dokumentasi/'.$dokumen->url_foto)}}" height="100px" width="100px" hspace="5px" vspace="2px"></td>
+          </tr>
+
+    @empty
+        <tr>
+          <td colspan="6"><center>Belum ada dokumentasi</center></td>
+        </tr>
+    
+      @endforelse
+      
+        </tbody>
+      </table>
+
+      </div>
+      </div>
 
   <div class="form-group">
   <div class="col-sm-10">
@@ -179,11 +225,7 @@ Detail Pengajuan Kegiatan
         </tbody>
         </table>
       
-        </div>
-      </div>
 
- <div class="form-group">
-  <div class="col-sm-10">
         <h4>Rincian Rundown Proposal Kegiatan</h4>
 
        <table id="rincianRundownProposal" class="table table-striped table-bordered" cellspacing="0">
@@ -212,6 +254,33 @@ Detail Pengajuan Kegiatan
         </tbody>
         </table>
       
+           <h4>Rincian Rundown Laporan Penanggung Jawaban Kegiatan</h4>
+            <table id="rincianRundownLPJ" class="table table-striped table-bordered" cellspacing="0">
+       <thead>
+          <tr>
+            <th width="10%" style="text-align:center">No</th>
+            <th width="20%" style="text-align:center">Nama Rundown</th>      
+            <th width="10%" style="text-align:center">Waktu Dimulai</th>
+          </tr>
+          </thead>
+        <tbody>
+         @forelse($rundownLPJ as $i => $rincianRundown)
+          <tr>
+            <td width="10%" style="text-align:center">{{$i+1}}</td>
+            <td width="20%" style="text-align:center">{{$rincianRundown->nama}}</td>
+            <td width="10%" style="text-align:center">{{$rincianRundown->waktu}}</td>
+          </tr>
+
+    @empty
+        <tr>
+          <td colspan="6"><center>Belum ada rincian rundown LPJ</center></td>
+        </tr>
+    
+      @endforelse
+    
+        </tbody>
+        </table>
+
         
         </div>
       </div>
@@ -251,11 +320,42 @@ Detail Pengajuan Kegiatan
         </tbody>
         </table>
 
-         
-        
+        <h4>Rincian Dana Laporan Penanggung Jawaban Kegiatan</h4>
+          
+    <table id="rincianDanaLPJ" class="table table-striped table-bordered" cellspacing="0">
+       <thead>
+          <tr>
+            <th width="10%" style="text-align:center">No</th>
+            <th width="20%" style="text-align:center">Nama Dana</th>      
+            <th width="10%" style="text-align:center">Kuantitas</th>     
+            <th width="10%" style="text-align:center">Harga</th>
+            <th width="10%" style="text-align:center">Sumber Dana</th>
+          </tr>
+          </thead>
+        <tbody>
+         @forelse($danaLPJ as $i => $rincianDana)
+          <tr>
+            <td width="10%" style="text-align:center">{{$i+1}}</td>
+            <td width="20%" style="text-align:center">{{$rincianDana->nama}}</td>
+            <td width="10%" style="text-align:center">{{$rincianDana->kuantitas}}</td>
+            <td width="10%" style="text-align:center">{{$rincianDana->harga}}</td>
+            <td width="10%" style="text-align:center">{{$rincianDana->kategoriDana['jenis_dana']}}</td>
+          </tr>
+
+    @empty
+        <tr>
+          <td colspan="6"><center>Belum ada rincian dana LPJ</center></td>
+        </tr>
+    
+      @endforelse
+    
+        </tbody>
+        </table>
+
         </div>
       </div>
 
+  
 
     <div class="form-group">        
 

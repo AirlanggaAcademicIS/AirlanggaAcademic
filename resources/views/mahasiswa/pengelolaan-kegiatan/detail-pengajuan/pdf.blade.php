@@ -17,27 +17,24 @@ table, th, td {
 
 </style>
 
-<div class="col-md-12" style="text-align: center;">
-    <h3>Laporan Pertanggung Jawaban</h3>    
+<div class="col-md-12" style="text-align">
+    <h1>Proposal Kegiatan</h1>    
 </div>
 
 <br>
 <table style="width:100%">
     <tr>
-        <td style="width:4%">1 </td>
         <td style="width:30%;">Nama Kegiatan</td> 
         <td>{{$kegiatan->nama}}</td>
     </tr>
     <tr>
-        <td style="width:4%">2 </td>
         <td style="width:30%;">Kategori Pengajuan Kegiatan</td> 
         <td>Laporan Pertanggung Jawaban</td>    
     </tr>
     <tr>
-        <td style="width:4%">3 </td>
         <td style="width:30%;">Status Kegiatan</td> 
         <td>
-    @if($kegiatan->konfirmasi_proposal == 0)
+          @if($kegiatan->konfirmasi_proposal == 0)
           @if($kegiatan->konfirmasi_lpj == 0)
           Sedang Diproses
           @endif
@@ -79,53 +76,69 @@ table, th, td {
           @endif</td>    
     </tr>    
     <tr>
-        <td style="width:4%">4 </td>
         <td style="width:30%;">Latar Belakang Kegiatan</td> 
         <td>{{$kegiatan->history}}</td>    
     </tr>        
     <tr>
-        <td style="width:4%">5 </td>
         <td style="width:30%;">Mekanisme Kegiatan</td> 
         <td>{{$kegiatan->mekanisme}}</td>    
     </tr>
     <tr>
-        <td style="width:4%">6 </td>
         <td style="width:30%;">Tanggal Pengajuan Kegiatan</td> 
         <td>{{$kegiatan->tglpengajuan}}</td>    
     </tr>
     <tr>
-        <td style="width:4%">7 </td>
-        <td style="width:30%;">Tanggal Pelaksanaan Kegiatan</td> 
-        <td>{{$kegiatan->tglpelaksaan}}</td>    
-    </tr>
-    <tr>
-        <td style="width:4%">8 </td>
-        <td style="width:30%;">Ruang Pengajuan Kegiatan</td> 
+        <td style="width:30%;">Tempat Pengajuan Kegiatan</td> 
         <td>{{$kegiatan->rpengajuan}}</td>    
     </tr>
+    
+  </table>
+    
+
+<table style="width:100%">
     <tr>
-        <td style="width:4%">9 </td>
-        <td style="width:30%;">Ruang Pelaksanaan Kegiatan</td> 
-        <td>{{$kegiatan->rpelaksanaan}}</td>    
-    </tr>
-    <tr>
-        <td style="width:4%">10 </td>
-        <td style="width:30%;">Evaluasi Kegiatan</td> 
-        <td>{{$kegiatan->coba['lesson_learned']}}</td>    
-    </tr>
-    <tr>
-        <td style="width:4%">11 </td>
-        <td style="width:30%;">Rincian Rundown Kegiatan</td> 
+        <td style="width:30%;">Struktur Panitia</td> 
+        <td></td>    
     </tr>
   </table>
-    <table style="width:100%">
+ <table style="width:100%">
+    <thead>
+        <th width="4%" style="text-align:center;border: 1px solid black;">No</th>
+        <th width="20%" style="text-align:center;border: 1px solid black;">Nama Panitia</th>      
+        <th width="10%" style="text-align:center;border: 1px solid black;">Waktu Dimulai</th>
+    </thead>
+    <tbody>
+         @forelse($struktur as $i => $panitia)
+          <tr>
+            <td width="10%" style="text-align:center;border: 1px solid black;">{{$i+1}}</td>
+            <td width="20%" style="text-align:center;border: 1px solid black;">{{$panitia->mahasiswa['nama_mhs']}}</td>
+            <td width="10%" style="text-align:center;border: 1px solid black;">{{$panitia->jabatan['jabatan']}}</td>
+          </tr>
+
+        @empty
+          <tr>
+            <td colspan="6"><center>Belum ada Struktur Panitia</center></td>
+          </tr>
+    
+      @endforelse
+    
+    </tbody>
+  </table>
+ 
+ <table style="width:100%">
+    <tr>
+        <td style="width:30%;">Rincian Rundown Proposal</td> 
+        <td></td>    
+    </tr>
+  </table>
+ <table style="width:100%">
     <thead>
         <th width="4%" style="text-align:center;border: 1px solid black;">No</th>
         <th width="20%" style="text-align:center;border: 1px solid black;">Nama Rundown</th>      
         <th width="10%" style="text-align:center;border: 1px solid black;">Waktu Dimulai</th>
     </thead>
     <tbody>
-         @forelse($rundownLPJ as $i => $rincianRundown)
+         @forelse($rundownProposal as $i => $rincianRundown)
           <tr>
             <td width="10%" style="text-align:center;border: 1px solid black;">{{$i+1}}</td>
             <td width="20%" style="text-align:center;border: 1px solid black;">{{$rincianRundown->nama}}</td>
@@ -134,17 +147,20 @@ table, th, td {
 
         @empty
           <tr>
-            <td colspan="6"><center>Belum ada rundown LPJ</center></td>
+            <td colspan="6"><center>Belum ada rundown Proposal</center></td>
           </tr>
     
       @endforelse
     
     </tbody>
   </table>
+
+
+          
+
   <table style="width:100%">
     <tr>
-        <td style="width:4%">12 </td>
-        <td style="width:30%;">Rincian Dana</td> 
+        <td style="width:30%;">Rincian Dana Proposal</td> 
         <td></td>    
     </tr>
   </table>
@@ -157,7 +173,7 @@ table, th, td {
         <th width="10%" style="text-align:center;border: 1px solid black;">Sumber Dana</th>
     </thead>
     <tbody>
-         @forelse($dana as $i => $rincianDana)
+         @forelse($danaProposal as $i => $rincianDana)
           <tr>
             <td width="10%" style="text-align:center;border: 1px solid black;">{{$i+1}}</td>
             <td width="20%" style="text-align:center;border: 1px solid black;">{{$rincianDana->nama}}</td>
@@ -168,20 +184,12 @@ table, th, td {
 
         @empty
           <tr>
-            <td colspan="6"><center>Belum ada rincian dana LPJ</center></td>
+            <td colspan="6"><center>Belum ada rincian dana Proposal</center></td>
           </tr>
     
       @endforelse
     
     </tbody>
   </table>
-  <table style="width:100%">
 
-    <tr>
-        <td style="width:4%">13 </td>
-        <td style="width:30%;">Dokumentasi</td>
-        <td></td>    
-    </tr>
-    
-
-</table>
+   

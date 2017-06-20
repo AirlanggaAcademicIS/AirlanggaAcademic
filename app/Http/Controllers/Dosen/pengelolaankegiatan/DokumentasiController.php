@@ -15,6 +15,7 @@ use Response;
 use App\Dokumentasi;
 use App\PengajuanKegiatan;
 use App\RincianRundown;
+use App\RincianDana;
 use App\StrukturPanitiaDosen;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -199,13 +200,35 @@ class DokumentasiController extends Controller
     {   
         $data = [
             'kegiatan' => PengajuanKegiatan::find($id_kegiatan),
+            'struktur' => StrukturPanitiaDosen::where('kegiatan_id','=',$id_kegiatan
+                )->get(),
             'dokumentasi' => Dokumentasi::where('kegiatan_id','=',$id_kegiatan)->get(),
-            'dana' => RincianDana::where('kegiatan_id','=',$id_kegiatan)->get(),
-            'rundownLPJ' => RincianRundown::where('kegiatan_id','=',$id_kegiatan)->get()
+            'danaProposal' => RincianDana::where('kegiatan_id','=',$id_kegiatan)->where('kategori_dana','=',0)->get(),
+            'danaLPJ' => RincianDana::where('kegiatan_id','=',$id_kegiatan)->where('kategori_dana','=',1)->get(),
+            'rundownProposal' => RincianRundown::where('kegiatan_id','=',$id_kegiatan)->where('kategori_rundown','=',0)->get(),
+            'rundownLPJ' => RincianRundown::where('kegiatan_id','=',$id_kegiatan)->where('kategori_rundown','=',1)->get()
         ];
         $pdf = PDF::loadView('dosen.pengelolaan-kegiatan.detail-pengajuan.pdf', $data);
         return $pdf->download('pengelolaan-kegiatan.pdf');
     }
+
+
+    public function toPdfLPJ($id_kegiatan)
+    {   
+        $data = [
+            'kegiatan' => PengajuanKegiatan::find($id_kegiatan),
+            'struktur' => StrukturPanitiaDosen::where('kegiatan_id','=',$id_kegiatan
+                )->get(),
+            'dokumentasi' => Dokumentasi::where('kegiatan_id','=',$id_kegiatan)->get(),
+            'danaProposal' => RincianDana::where('kegiatan_id','=',$id_kegiatan)->where('kategori_dana','=',0)->get(),
+            'danaLPJ' => RincianDana::where('kegiatan_id','=',$id_kegiatan)->where('kategori_dana','=',1)->get(),
+            'rundownProposal' => RincianRundown::where('kegiatan_id','=',$id_kegiatan)->where('kategori_rundown','=',0)->get(),
+            'rundownLPJ' => RincianRundown::where('kegiatan_id','=',$id_kegiatan)->where('kategori_rundown','=',1)->get()
+        ];
+        $pdf = PDF::loadView('dosen.pengelolaan-kegiatan.detail-pengajuan.pdfLPJ', $data);
+        return $pdf->download('pengelolaan-kegiatan.pdf');
+    }
+
 
 
 

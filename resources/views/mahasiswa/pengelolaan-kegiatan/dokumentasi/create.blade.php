@@ -62,7 +62,7 @@ Pengajuan LPJ Kegiatan Akademik
 				<div class="form-group">
 				<label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
                 <div class="col-md-8">
-	                <select class="form-control select" style="width: 100%;" name = "kegiatan_id" onchange="javascript:handleSelect(this)"><!-- 
+	                <select class="form-control select" style="width: 100%;" name = "kegiatan_id" id = "kegiatan_id" onchange="javascript:handleSelect(this)"><!-- 
 	                	<option value="">Pilih Kegiatan</option> -->
 	                  	@foreach($Status as $pk)
 	                  	<option {!!(old('id_kegiatan') == $pk->id_kegiatan)? 'selected' : ''!!} value="{{ $pk->id_kegiatan }}" >{{$pk->nama}}</option>
@@ -88,9 +88,9 @@ Pengajuan LPJ Kegiatan Akademik
 				</div>
 
 				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Ruang Pelaksanaan Kegiatan</label>
+					<label for="nama" class="col-sm-2 control-label">Tempat Pelaksanaan Kegiatan</label>
 					<div class="col-md-8">
-						<textarea id="lesson_learned" name="rpelaksanaan" placeholder=" Masukkan Ruang Pelaksanaan Kegiatan" required cols="82" rows="5">
+						<textarea id="lesson_learned" name="rpelaksanaan" placeholder=" Masukkan Tempat Pelaksanaan Kegiatan" required cols="82" rows="5">
 						</textarea>
 					</div>
 				</div>
