@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DetailNilai extends Model
 {
-   use SoftDeletes;
+   //use SoftDeletes;
    protected $table = 'detail_nilai';    
    protected $primaryKey = 'mk_ditawarkan_id';   
    protected $fillable = [

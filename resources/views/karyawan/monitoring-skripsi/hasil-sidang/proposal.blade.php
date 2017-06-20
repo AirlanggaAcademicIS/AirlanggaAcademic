@@ -43,7 +43,7 @@ Hasil Sidang Proposal
         <th data-field="dosbing1">Dosen Pembimbing 1</th>
         <th data-field="dosbing2">Dosen Pembimbing 2</th>
         <th data-field="dosji">Dosen Penguji</th>
-        <th data-field="status_skripsi">Status Skripsi</th>
+        <th data-field="status_skripsi">Status Proposal</th>
         <th data-field="nilai">Nilai</th>
       </tr>
     </thead>
@@ -72,14 +72,17 @@ Hasil Sidang Proposal
                                 </td>
                                
                                 <td>
-                                    <div>{{ $hasil_sidang_proposal[$i]['dosen_pembimbing1']}}</div>
+                                    <div>{{ $hasil_sidang_proposal[$i]['nama_dosen_pembimbing1']}}</div>
                                 </td>
+                            
                                 <td>
-                                    <div>{{ $hasil_sidang_proposal[$i]['dosen_pembimbing2']}}</div>
+                                    <div>{{ $hasil_sidang_proposal[$i]['nama_dosen_pembimbing2']}}</div>
                                 </td>
+                                
                                 <td>
-                                    <div>{{ $hasil_sidang_proposal[$i]['dosen_penguji']}}</div>
+                                    <div>{{ $hasil_sidang_proposal[$i]['nama_dosen_penguji']}}</div>
                                 </td>
+                                
                                 <td>
                                     <div>{{ $hasil_sidang_proposal[$i]['status_proposal']}}</div>
                                 </td>
@@ -112,6 +115,19 @@ Hasil Sidang Proposal
         <label for="tambah-nilai-sidang-proposal">Nilai Sidang Proposal</label>
         <input type="number" class="form-control" id="tambah-nilai-sidang-proposal"></input>
         </div>
+
+        <div class="form-group">
+      <label for="tambah-status-sidang-proposal">Status Proposal</label>
+      <select class="form-control" id="tambah-status-sidang-proposal" name="tambah-status-sidang-proposal">
+          
+        <option disabled selected value> -- select an option -- </option>
+
+         @foreach($status_proposal as $item)
+        <option value="{{$item->id}}">{{$item->keterangan}}</option>
+        @endforeach
+
+      </select>
+      </div>
         
       </div>
       <div class="modal-footer">
@@ -143,11 +159,14 @@ Hasil Sidang Proposal
                 
                 var nilai_sidang_proposal = $('#tambah-nilai-sidang-proposal').val();
 
+                var status_proposal = $('#tambah-status-sidang-proposal').val();
+
                 $.ajax({
                      url: 'upload-nilai-sidang-proposal',
                     type: "post",
                     data: {"_token": "{{ csrf_token() }}",
                         "id_skripsi":id_skripsi,
+                        "status_proposal":status_proposal,
 
                         "nilai_sidang_proposal":nilai_sidang_proposal
                     },

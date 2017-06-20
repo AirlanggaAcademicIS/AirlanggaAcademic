@@ -57,10 +57,10 @@ Tambah Rapat
          <label class="col-sm-2 control-label"
          for="permohonan_ruang_id">Ruangan</label>
          <div class="col-sm-9">
-        <select class="form-control" name="permohonan_ruang_id">
+        <select class="form-control" name="permohonan_ruang_id" required>
     <option>Pilih Ruang</option>
      @foreach($ruang as $i => $m)
-    <option value="{{$m->id_ruang}}">{{$m->nama_ruang }}</option>
+    <option value="{{$m->id_ruang}}" required>{{$m->nama_ruang }}</option>
       @endforeach
            </select>
             </div>
@@ -72,7 +72,7 @@ Tambah Rapat
     
 
     <div class="form-group">
-      <label class="control-label col-sm-2" for="waktu_pelaksanaan" >Tanggal Rapat :</label>
+      <label class="control-label col-sm-2" for="waktu_pelaksanaan" >Tanggal Rapat </label>
         <div class="col-sm-9">
         <input type="text" id="waktu_pelaksanaan" name="waktu_pelaksanaan"  required>
         </div>
@@ -82,14 +82,14 @@ Tambah Rapat
 <div class="form-group">
     <label for="nama_rapat" class="col-sm-2 control-label">Nama Rapat</label>
     <div class="col-sm-9">
-      <input class="form-control" name="nama_rapat" type="text" enable>
+      <input class="form-control" name="nama_rapat" type="text" required>
     </div>
   </div>
 
   <div class="form-group">
     <label for="agenda_rapat"class="col-sm-2 control-label">Agenda Rapat:</label>
     <div class="col-sm-9">
-      <textarea class="form-control" name="agenda_rapat" rows="3" id="agenda_rapat" enable></textarea>
+      <textarea class="form-control" name="agenda_rapat" rows="3" id="agenda_rapat" required></textarea>
     </div>
   </div>
   

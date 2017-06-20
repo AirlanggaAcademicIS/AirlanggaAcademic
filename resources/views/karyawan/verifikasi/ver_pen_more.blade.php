@@ -140,7 +140,7 @@ Verifikasi Penelitian Mahasiswa
           <label for="nama" class="col-sm-2 control-label">Anggota</label>
           <div class="col-md-8">
             <textarea type="text" class="form-control input-lg" id="anggota" name="anggota" disabled required cols="55" rows="5"
-            placeholder="Masukkan Anggota" required>{{$detail_anggota->anggota}}</textarea>
+            placeholder="Masukkan Anggota" required>{{$penelitian->anggota}}</textarea>
           </div>
         </div>
 
@@ -148,41 +148,10 @@ Verifikasi Penelitian Mahasiswa
         <div class="form-group">
           <label for="nama" class="col-sm-2 control-label">Abstrak</label>
           <div class="col-md-8">
-            <textarea id="abstract" class="form-control input-lg" name="abstract" placeholder=" Masukkan Abstract" disabled required cols="115" rows="5">{{$detailpenelitian->abstract}}</textarea>
+            <textarea id="abstract" class="form-control input-lg" name="abstract" placeholder=" Masukkan Abstract" disabled required cols="115" rows="5">{{$penelitian->abstract}}</textarea>
           </div>
         </div>
 
-        <!-- Menampilkan textarea -->
-        <div class="form-group">
-          <label for="nama" class="col-sm-2 control-label">Background</label>
-          <div class="col-md-8">
-            <textarea id="background" class="form-control input-lg" name="background" placeholder=" Masukkan Background" disabled required cols="115" rows="5">{{$detailpenelitian->background}}</textarea>
-          </div>
-        </div>
-
-        <!-- Menampilkan textarea -->
-        <div class="form-group">
-          <label for="nama" class="col-sm-2 control-label">Objective</label>
-          <div class="col-md-8">
-            <textarea id="objective" class="form-control input-lg" name="objective" placeholder=" Masukkan Objective" disabled required cols="115" rows="5">{{$detailpenelitian->objective}}</textarea>
-          </div>
-        </div>
-        
-        <!-- Menampilkan textarea -->
-        <div class="form-group">
-          <label for="nama" class="col-sm-2 control-label">Methods</label>
-          <div class="col-md-8">
-            <textarea id="methods" class="form-control input-lg" name="methods" placeholder=" Masukkan Methods" disabled required cols="115" rows="5">{{$detailpenelitian->methods}}</textarea>
-          </div>
-        </div>
-
-        <!-- Menampilkan textarea -->
-        <div class="form-group">
-          <label for="nama" class="col-sm-2 control-label">Results</label>
-          <div class="col-md-8">
-            <textarea id="results" class="form-control input-lg" name="results" placeholder=" Masukkan Results" disabled required cols="115" rows="5">{{$detailpenelitian->results}}</textarea>
-          </div>
-        </div>
 
         <div class="form-group">
                   <label for="file_pen" class="col-sm-2 control-label">Upload Scan PDF</label>
@@ -192,19 +161,26 @@ Verifikasi Penelitian Mahasiswa
                 </div>
 
         <div class="form-group">
-                <label for="ps_is_verified" class="col-sm-2 control-label">Status Verifikasi</label>
+                <label for="is_verified" class="col-sm-2 control-label">Status Verifikasi</label>
                 <div class="col-md-8">
-                <select name="ps_is_verified" class="form-control select2" value= "{{$penelitian->is_verified}}" required>
+                <select name="is_verified" class="form-control select2" value= "{{$penelitian->is_verified}}" required>
                 @if (($penelitian->is_verified)=='1')
                   <option selected="selected" value="1">Diterima</option>
-                  <option value="2">Ditolak</option>
+                  <option value="2">Revisi</option>
+                  <option value="3">Ditolak</option>
                 @elseif (($penelitian->is_verified)=='2')
                   <option value="1">Diterima</option>
-                  <option selected="selected" value="2">Ditolak</option>
+                  <option selected="selected" value="2">Revisi</option>
+                  <option value="3">Ditolak</option>
+                  @elseif (($penelitian->is_verified)=='3')
+                  <option value="1">Diterima</option>
+                  <option value="2">Revisi</option>
+                  <option selected="selected" value="3">Ditolak</option>
                 @else
                   <option selected="selected">-----</option>
                   <option  value="1">Diterima</option>
-                  <option value="2">Ditolak</option>
+                  <option value="2">Revisi</option>
+                  <option value="3">Ditolak</option>
                 @endif
                 </select>
                 </div>
@@ -220,8 +196,8 @@ Verifikasi Penelitian Mahasiswa
               <div class="form-group">
                   <label for="alasan" class="col-sm-2 control-label">Alasan</label>
                   <div class="col-md-8">
-                  <textarea name="alasan_verified" type="text" class="form-control" rows="1" placeholder="Alasan" value= "{{$penelitian->alasan_verified}}"></textarea>
-                  <p class="help-block">*Silahkan isi alasan jika ditolak</p>
+                  <input name="alasan_verified" type="text" class="form-control" rows="1" placeholder="Alasan" value= "{{$penelitian->alasan_verified}}"></input>
+                  <p class="help-block">*Silahkan isi alasan jika penelitian perlu direvisi/ditolak</p>
                   </div>
                 </div>
                 <div class="col-md-8 col-md-offset-2">

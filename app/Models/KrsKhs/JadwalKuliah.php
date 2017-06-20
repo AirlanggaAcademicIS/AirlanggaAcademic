@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class JadwalKuliah extends Model
 {
-   use SoftDeletes;
+   //use SoftDeletes;
    protected $table = 'jadwal_kuliah';    
    protected $primaryKey = 'mk_ditawarkan_id';   
-   protected $dates = ['deleted_at'];
+   //protected $dates = ['deleted_at'];
    public $incrementing = false;
    protected $fillable = [
          'mk_ditawarkan_id',

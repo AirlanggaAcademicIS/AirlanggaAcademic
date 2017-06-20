@@ -260,7 +260,11 @@ class RPSController extends Controller
         $matkul->pustaka_pendukung = $request->input('pustaka_pendukung');
         $matkul->status_rps = 1;
         $matkul->save();
+<<<<<<< HEAD
         return Redirect::to('dosen/kurikulum/rps/lanjutan-rps/'.$matkul);        
+=======
+        return view('dosen.kurikulum.rps.lanjutan-rps/'.$matkul);
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
     }
 
     public function delete($id, Request $request)
@@ -376,16 +380,28 @@ class RPSController extends Controller
             ->join('sistem_pembelajaran', 'pembelajaran_rps.sistem_pembelajaran_id', '=', 'sistem_pembelajaran.id')
             ->select('*')
             ->get(),
+<<<<<<< HEAD
             'mata_kuliah' => DB::table('mata_kuliah')->where('id_mk', '=', $id)->first(),
+=======
+            'mata_kuliah' => RPS_Matkul::find($id),
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
             'minggu' => Minggu::all(),
             'rps' => RPS::all(),
             'metode_pembelajaran' => Silabus_Sistem_Pembelajaran::all(),
             'pembelajaran_rps' => RPS_Pembelajaran::all(),
+<<<<<<< HEAD
         ];        
         return view('dosen.kurikulum.rps.lanjutan-rps',$data);
      }
 
     public function lanjutanRPSAction($id, Request $request){
+=======
+        ];
+        return view('dosen.kurikulum.rps.lanjutan-rps',$data);
+     }
+
+     public function lanjutanRPSAction($id, Request $request){
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
         $rps = RPS::create([
             'mk_id' => $id,
             'kemampuan_akhir' => $request->input('kemampuan_akhir'),
@@ -397,7 +413,11 @@ class RPSController extends Controller
             'materi_pembelajaran' => $request->input('materi_pembelajaran'),
             'bobot_penilaian' => $request->input('bobot_penilaian'),
         ]);
+<<<<<<< HEAD
         $rps->save();
+=======
+       $rps->save();
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
 
        $id_rps = DB::table('rps')->latest('id_rps')->first()->id_rps;
 
@@ -416,11 +436,19 @@ class RPSController extends Controller
             $metode->rps_id = $id_rps;
             $metode->sistem_pembelajaran_id = $metode_pembelajaran[$count];
             $metode->save();
+<<<<<<< HEAD
         }       
 
        Session::put('alert-success', 'RPS Minggu Ke-'.$minggu_ke.' berhasil ditambahkan');
        return Redirect::to('dosen/kurikulum/rps/lanjutan-rps/'.$id);
     }
+=======
+        }
+
+       Session::put('alert-success', 'RPS Minggu Ke-'.$minggu_ke.' berhasil ditambahkan');
+       return Redirect::to('dosen/kurikulum/rps/lanjutan-rps/'.$id);
+     }
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
 
      public function editLanjutanRPS($id){
         $data = [
@@ -449,10 +477,15 @@ class RPSController extends Controller
             ->where('rps_id', '=', $id)
             ->first();
 
+<<<<<<< HEAD
         $del_minggu = RPSPerMinggu::where('mk_id', '=', $mk->id_mk)->delete();
         $del_rps_minggu = RPS_Minggu::where('rps_id', '=', $id)->delete();
         $del_metode = RPS_Pembelajaran::where('rps_id', '=', $id)->delete();
         $del_rps = RPS::where('id_rps', '=', $id)->delete();
+=======
+        $del_rps = RPS::where('id_rps', '=', $id)->delete();
+        $del_metode = RPS_Pembelajaran::where('rps_id', '=', $id)->delete();
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
 
         $rps = RPS::create([
             'mk_id' => $mk->id_mk,

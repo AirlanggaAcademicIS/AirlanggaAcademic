@@ -62,10 +62,12 @@ Surat Keluar
       <td width="10%" style="text-align:center">Tidak Disetujui</td>
       @endif
       <td width="20%" style="text-align:center" >
+        @if($surat->status != 1)
         <a onclick="return confirm('Anda yakin untuk menghapus surat ini?');" href="{{url('mahasiswa/surat-keluar-mhs/'.$surat->id_surat_keluar.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
         <a href="{{url('mahasiswa/surat-keluar-mhs/'.$surat->id_surat_keluar.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
+        @endif
         </td>
     </tr>
      @empty

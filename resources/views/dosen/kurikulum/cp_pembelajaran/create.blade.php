@@ -33,7 +33,6 @@ Tambah Capaian Pembelajaran
 
 <div class="box box-info">
 <div class="box-body">
-
 <div class="row">
 	<div class="col-md-12">
 		<div class="">
@@ -49,6 +48,7 @@ Tambah Capaian Pembelajaran
 			<br>
 			<form id="tambahCapaianPembelajaran" method="post" action="{{url('/dosen/kurikulum/capaian-pembelajaran/create')}}" enctype="multipart/form-data"  class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<<<<<<< HEAD
 				<!-- Menampilkan input text biasa -->
     			<div class="form-group">
  				    <label for="id_prodi" class="col-sm-6 control-label">Nama Prodi</label>
@@ -94,8 +94,55 @@ Tambah Capaian Pembelajaran
 	              </button>
 	            </div>			
             </form>
+=======
+
+    	<div class="form-group">
+		<label for="id_prodi" class="col-sm-2 control-label">Nama Prodi</label>
+			<div class="col-md-5">
+         	<select name="prodi_id" class="form-control">
+	          	@foreach($prodis as $prodi)
+	            	<option value="{{$prodi->id_prodi}}">{{$prodi->nama_prodi}}</option>
+	           	@endforeach
+           	</select>
+        	</div>
+       	</div>
+
+        <div class="form-group">
+         <label for="kategori_cpem_id" class="col-sm-2 control-label">Kategori Capaian Pembelajaran</label>
+          	<div class="col-md-5">
+         	<select name="kategori_cpem_id" class="form-control">
+	          	@foreach($categories as $category)
+	            	<option value="{{$category->id_kategori_cpem}}">{{$category->nama_cpem}}</option>
+	           	@endforeach
+           	</select>
+          </div>
+        </div>
+
+        <div class="form-group">
+        <label for="kode_cpem" class="col-sm-2 control-label">Kode Capaian Pembelajaran</label>
+          	<div class="col-md-5">
+            	<input type="text" class="form-control input-md" id="kode_cpem" name="kode_cpem" placeholder="Masukkan Kode" required>
+        	</div>
+        </div>
+
+        <div class="form-group">
+         <label for="deskripsi_cpem" class="col-sm-2 control-label">Deskripsi Capaian Pembelajaran</label>
+          	<div class="col-md-8">
+            <textarea id="deskripsi_cpem" name="deskripsi_cpem" placeholder=" Masukkan Deskripsi Capaian Pembelajaran" required cols="123" rows="5">
+            </textarea>
+          	</div>
+        </div>
+
+		<div class="box-footer clearfix">
+	        <button type="tambah" class="pull-right btn btn-info btn-sm" id="tambah">Tambah
+	        </button>
+      	</div>
+		</form>
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
 		</div>
 	</div>
+</div>
+</div>
 </div>
 @endsection
 

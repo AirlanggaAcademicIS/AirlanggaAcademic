@@ -126,12 +126,14 @@ class SkripsiController extends Controller
             ->join('biodata_dosen', 'dosen_pembimbing.nip_id', '=', 'biodata_dosen.nip')
             ->select('skripsi.*', 'dosen_pembimbing.*', 'biodata_dosen.*')
             ->where('dosen_pembimbing.status','=','0')
+            ->where('skripsi_id', $id)
             ->get(),
             'dosen2' => DB::table('skripsi')
             ->join('dosen_pembimbing', 'skripsi.id_skripsi', '=', 'dosen_pembimbing.skripsi_id')
             ->join('biodata_dosen', 'dosen_pembimbing.nip_id', '=', 'biodata_dosen.nip')
             ->select('skripsi.*', 'dosen_pembimbing.*', 'biodata_dosen.*')
             ->where('dosen_pembimbing.status','=','1')
+            ->where('skripsi_id', $id)
             ->get()
             
         ];
@@ -152,14 +154,9 @@ class SkripsiController extends Controller
         $skripsi->nip_petugas_id = Auth::user()->username;
         $skripsi->save();
 
-        $dosen1 = DosenPembimbing::where('skripsi_id', '=', $id)->where('status','=','0')->first();
-        $dosen1->nip_id = $request->input('nip_id1');
-        $dosen1->save();
+        $dosen1 = DosenPembimbing::where('skripsi_id', '=', $id)->where('status','=','0')->update(['nip_id' =>$request->input('nip_id1')]);
 
-         $dosen2 = DosenPembimbing::where('skripsi_id', '=', $id)->where('status','=','1')->first();
-         $dosen2->nip_id = $request->input('nip_id2');
-         $dosen2->save();
-
+         $dosen2 = DosenPembimbing::where('skripsi_id', '=', $id)->where('status','=','1')->update(['nip_id' =>$request->input('nip_id2')]);
         // Notifikasi sukses
         Session::put('alert-success', 'Data Skripsi berhasil diedit');
 
