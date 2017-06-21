@@ -32,6 +32,7 @@ class JadwalSidangController extends Controller
     {
         # code...
         $nip = Auth::user()->username;
+        $biodata_dosen = DB::table('biodata_dosen')->get();
 
         $mahasiswa = DB::table('mahasiswa')->get();
         $kbk = DB::table('kbk')->get();
@@ -78,7 +79,10 @@ class JadwalSidangController extends Controller
                     'dosen_pembimbing1'=>$jadwal_sidang_proposal[$i]->dosbing,
                     'dosen_pembimbing2'=>$jadwal_sidang_proposal[$i+1]->dosbing,
                     'dosen_penguji'=>$jadwal_sidang_proposal[$i]->dosji,
-                    'ruang'=>$jadwal_sidang_proposal[$i]->nama_ruang
+                    'ruang'=>$jadwal_sidang_proposal[$i]->nama_ruang,
+                    'nama_dosen_pembimbing1'=>$this->cari_nama_dosen($jadwal_sidang_proposal[$i]->dosbing,$biodata_dosen),
+                    'nama_dosen_pembimbing2'=>$this->cari_nama_dosen($jadwal_sidang_proposal[$i+1]->dosbing,$biodata_dosen),
+                    'nama_dosen_penguji'=>$this->cari_nama_dosen($jadwal_sidang_proposal[$i]->dosji,$biodata_dosen)
                     );
 
                 $t = $this->cek_duplikat($id_skripsi,$final_result);
@@ -130,6 +134,7 @@ class JadwalSidangController extends Controller
         # code...
 
          $nip = Auth::user()->username;
+         $biodata_dosen = DB::table('biodata_dosen')->get();
 
          $mahasiswa = DB::table('mahasiswa')->get();
         $kbk = DB::table('kbk')->get();
@@ -179,7 +184,10 @@ $id_skripsi = $jadwal_sidang_skripsi[$i]->id_skripsi;
                     'dosen_pembimbing1'=>$jadwal_sidang_skripsi[$i]->dosbing,
                     'dosen_pembimbing2'=>$jadwal_sidang_skripsi[$i+1]->dosbing,
                     'dosen_penguji'=>$jadwal_sidang_skripsi[$i]->dosji,
-                    'ruang'=>$jadwal_sidang_skripsi[$i]->nama_ruang
+                    'ruang'=>$jadwal_sidang_skripsi[$i]->nama_ruang,
+                     'nama_dosen_pembimbing1'=>$this->cari_nama_dosen($jadwal_sidang_skripsi[$i]->dosbing,$biodata_dosen),
+                    'nama_dosen_pembimbing2'=>$this->cari_nama_dosen($jadwal_sidang_skripsi[$i+1]->dosbing,$biodata_dosen),
+                    'nama_dosen_penguji'=>$this->cari_nama_dosen($jadwal_sidang_skripsi[$i]->dosji,$biodata_dosen)
                     );
 
                   $t = $this->cek_duplikat($id_skripsi,$final_result);
@@ -202,6 +210,18 @@ $id_skripsi = $jadwal_sidang_skripsi[$i]->id_skripsi;
             );
 
          return view('dosen.monitoring-skripsi.jadwal-sidang.skripsi',$data);
+
+    }
+
+        private function cari_nama_dosen($nip,$arr_dosen)
+    {
+       # code...
+      for($i=0;$i<count($arr_dosen);$i++){
+         if($arr_dosen[$i]->nip==$nip)
+         return $arr_dosen[$i]->nama_dosen;         
+      }
+
+      return "";
 
     }
 

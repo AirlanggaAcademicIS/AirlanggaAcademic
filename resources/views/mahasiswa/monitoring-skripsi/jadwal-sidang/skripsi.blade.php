@@ -69,13 +69,13 @@ Lihat Jadwal Sidang Skripsi
                                     <div>{{ $jadwal_sidang_skripsi[$i]['ruang']}}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $jadwal_sidang_skripsi[$i]['dosen_pembimbing1']}}</div>
+                                    <div>{{ $jadwal_sidang_skripsi[$i]['nama_dosen_pembimbing1']}}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $jadwal_sidang_skripsi[$i]['dosen_pembimbing2']}}</div>
+                                    <div>{{ $jadwal_sidang_skripsi[$i]['nama_dosen_pembimbing2']}}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $jadwal_sidang_skripsi[$i]['dosen_penguji']}}</div>
+                                    <div>{{ $jadwal_sidang_skripsi[$i]['nama_dosen_penguji']}}</div>
                                 </td>
                                 <!-- <td class="table-text">
                                     <div>{{ $jadwal_sidang_skripsi[$i]['nim']}}</div>

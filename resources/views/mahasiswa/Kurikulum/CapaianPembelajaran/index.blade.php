@@ -59,5 +59,9 @@ Capaian Pembelajaran
 @endsection
 
 @section('code-footer')
-
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#myTable').DataTable();
+  });
+</script>  
 @endsection

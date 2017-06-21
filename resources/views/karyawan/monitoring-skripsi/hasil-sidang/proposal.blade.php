@@ -72,14 +72,17 @@ Hasil Sidang Proposal
                                 </td>
                                
                                 <td>
-                                    <div>{{ $hasil_sidang_proposal[$i]['dosen_pembimbing1']}}</div>
+                                    <div>{{ $hasil_sidang_proposal[$i]['nama_dosen_pembimbing1']}}</div>
                                 </td>
+                            
                                 <td>
-                                    <div>{{ $hasil_sidang_proposal[$i]['dosen_pembimbing2']}}</div>
+                                    <div>{{ $hasil_sidang_proposal[$i]['nama_dosen_pembimbing2']}}</div>
                                 </td>
+                                
                                 <td>
-                                    <div>{{ $hasil_sidang_proposal[$i]['dosen_penguji']}}</div>
+                                    <div>{{ $hasil_sidang_proposal[$i]['nama_dosen_penguji']}}</div>
                                 </td>
+                                
                                 <td>
                                     <div>{{ $hasil_sidang_proposal[$i]['status_proposal']}}</div>
                                 </td>

@@ -35,7 +35,7 @@ class SilabusController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'silabus',
             // Memanggil semua isi dari tabel biodata
-            'mata_kuliah' => Silabus_Matkul::where('status_rps', '=', '1')->where('status_silabus', '=', '1')->get()
+            'mata_kuliah' => Silabus_Matkul::where('status_rps', '=', '2')->where('status_silabus', '=', '1')->get()
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
@@ -48,7 +48,7 @@ class SilabusController extends Controller
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'silabus',
-            'matkul_silabus' => Silabus_Matkul::where('status_rps', '=', '1')->where('status_silabus', '=', '0')->get(),
+            'matkul_silabus' => Silabus_Matkul::where('status_rps', '=', '2')->where('status_silabus', '=', '0')->get(),
             'mata_kuliah' => Silabus_Matkul::all(),            
             // 'mk_prasyarat' => Silabus_Matkul_Prasyarat::all(),
             'atribut_softskill' => Silabus_Atribut_Softskill::all(),

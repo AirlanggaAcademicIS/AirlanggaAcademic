@@ -75,7 +75,7 @@ Monitoring Skripsi
 
               <div class="box-body">
                 <div class="form-group">
-                  <label for="file_pen" class="col-sm-2 control-label">Upload Form Usulan</label>
+                  <label for="upload_form_usulan" class="col-sm-2 control-label">Upload Form Usulan</label>
                   <div class="col-md-8">
                   <input type="file" id="upload_form_usulan" name="upload_form_usulan" placeholder="Pilih File" required>
 
@@ -97,5 +97,36 @@ Monitoring Skripsi
 @endsection
 
 @section('code-footer')
+<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+var elBrowse  = document.getElementById("upload_form_usulan");
+  elBrowse.addEventListener("change", function() {
+    var files  = this.files;
+    var errors = "";
+    if (!files) {
+      errors += "File upload not supported by your browser.";
+    }
+    if (files && files[0]) 
+    {
+      for(var i=0; i<files.length; i++) 
+      {
+        var file = files[i];
+        if ( (/\.(doc|docx|pdf)$/i).test(file.name) ) 
+        {
+          readImage( file ); 
+        } 
+        else 
+        {
+          errors += file.name +" is unsupported document extension\n";
+          document.getElementById("upload_form_usulan").value = null;  
+        }
+      }
+    }
+    if (errors) {
+      alert(errors); 
+    }
+  });
+</script>
 
 @endsection

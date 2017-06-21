@@ -72,13 +72,13 @@ Hasil Sidang Skripsi
                                 </td>
                                
                                 <td>
-                                    <div>{{ $hasil_sidang_skripsi[$i]['dosen_pembimbing1']}}</div>
+                                    <div>{{ $hasil_sidang_skripsi[$i]['nama_dosen_pembimbing1']}}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $hasil_sidang_skripsi[$i]['dosen_pembimbing2']}}</div>
+                                    <div>{{ $hasil_sidang_skripsi[$i]['nama_dosen_pembimbing2']}}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $hasil_sidang_skripsi[$i]['dosen_penguji']}}</div>
+                                    <div>{{ $hasil_sidang_skripsi[$i]['nama_dosen_penguji']}}</div>
                                 </td>
                                 <td>
                                     <div>{{ $hasil_sidang_skripsi[$i]['status_skripsi']}}</div>

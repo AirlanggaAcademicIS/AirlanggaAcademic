@@ -38,16 +38,30 @@ class JadwalSidangController extends Controller
 
     }
 
+        private function cari_nama_dosen($nip,$arr_dosen)
+    {
+       # code...
+      for($i=0;$i<count($arr_dosen);$i++){
+         if($arr_dosen[$i]->nip==$nip)
+         return $arr_dosen[$i]->nama_dosen;         
+      }
+
+      return "";
+
+    }
+
     public function view_manage_jadwal_sidang_proposal()
     {
-    	# code...
-    	$mahasiswa = DB::table('mahasiswa')->get();
-    	$kbk = DB::table('kbk')->get();
-    	$tempat = DB::table('ruang')->get();
-    	$dosen = DB::table('dosen')->get();
-    	$petugas_tu = DB::table('petugas_tu')->get();
+        # code...
+        $mahasiswa = DB::table('mahasiswa')->get();
+        $kbk = DB::table('kbk')->get();
+        $tempat = DB::table('ruang')->get();
+        $dosen = DB::table('biodata_dosen')->get();
+        $petugas_tu = DB::table('petugas_tu')->get();
 
-    	$jadwal_sidang_proposal = DB::table('skripsi')
+         $biodata_dosen = DB::table('biodata_dosen')->get();
+
+        $jadwal_sidang_proposal = DB::table('skripsi')
             ->leftJoin('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
             ->leftJoin('kbk', 'skripsi.kbk_id', '=', 'kbk.id_kbk')
             ->leftJoin('petugas_tu','skripsi.nip_petugas_id','=','petugas_tu.nip_petugas')
@@ -65,19 +79,23 @@ class JadwalSidangController extends Controller
             $j = 0;
 
          for($i = 0; $i<count($jadwal_sidang_proposal)-1;$i++){
-         		$tmp = array(
+                $tmp = array(
                     'id_skripsi'=>$jadwal_sidang_proposal[$i]->id_skripsi,
-         			'nim'=>$jadwal_sidang_proposal[$i]->NIM_id,
-         			'nama_mhs'=>$jadwal_sidang_proposal[$i]->nama_mhs,
-         			'jenis_kbk'=>$jadwal_sidang_proposal[$i]->jenis_kbk,
-         			'Judul'=>$jadwal_sidang_proposal[$i]->Judul,
-         			'tgl_sidangpro'=>$jadwal_sidang_proposal[$i]->tgl_sidangpro,
-         			'waktu_sidangpro'=>$jadwal_sidang_proposal[$i]->waktu_sidangpro,
-         			'dosen_pembimbing1'=>$jadwal_sidang_proposal[$i]->dosbing,
-         			'dosen_pembimbing2'=>$jadwal_sidang_proposal[$i+1]->dosbing,
-         			'dosen_penguji'=>$jadwal_sidang_proposal[$i]->dosji,
-         			'ruang'=>$jadwal_sidang_proposal[$i]->nama_ruang
-         			);
+
+                    'nim'=>$jadwal_sidang_proposal[$i]->NIM_id,
+                    'nama_mhs'=>$jadwal_sidang_proposal[$i]->nama_mhs,
+                    'jenis_kbk'=>$jadwal_sidang_proposal[$i]->jenis_kbk,
+                    'Judul'=>$jadwal_sidang_proposal[$i]->Judul,
+                    'tgl_sidangpro'=>$jadwal_sidang_proposal[$i]->tgl_sidangpro,
+                    'waktu_sidangpro'=>$jadwal_sidang_proposal[$i]->waktu_sidangpro,
+                    'dosen_pembimbing1'=>$jadwal_sidang_proposal[$i]->dosbing,
+                    'nama_dosen_pembimbing1'=>$this->cari_nama_dosen($jadwal_sidang_proposal[$i]->dosbing,$biodata_dosen),
+                    'dosen_pembimbing2'=>$jadwal_sidang_proposal[$i+1]->dosbing,
+                    'nama_dosen_pembimbing2'=>$this->cari_nama_dosen($jadwal_sidang_proposal[$i+1]->dosbing,$biodata_dosen),
+                    'dosen_penguji'=>$jadwal_sidang_proposal[$i]->dosji,
+                    'nama_dosen_penguji'=>$this->cari_nama_dosen($jadwal_sidang_proposal[$i]->dosji,$biodata_dosen),
+                    'ruang'=>$jadwal_sidang_proposal[$i]->nama_ruang
+                    );
 
                 $id_skripsi = $jadwal_sidang_proposal[$i]->id_skripsi;
                 $t = $this->cek_duplikat($id_skripsi,$final_result);
@@ -86,23 +104,25 @@ class JadwalSidangController extends Controller
                 $final_result[$j] = $tmp;
                 $j++;
                 }
-         		// $final_result[$j] = $tmp;
-         		// $j++;
 
-         		//array_push($final_result, $tmp);
+                // $final_result[$j] = $tmp;
+                // $j++;
+
+                //array_push($final_result, $tmp);
+
          }
 
-    	$data = array(
-    			'page'=> 'jadwal-sidang-proposal',
-    			'daftar_mhs'=>$mahasiswa,
-    			'daftar_kbk'=>$kbk,
-    			'daftar_tempat'=>$tempat,
-    			'daftar_dosen'=>$dosen,
-    			'daftar_petugas_tu'=>$petugas_tu,
-    			'jadwal_sidang_proposal'=>$final_result
+        $data = array(
+                'page'=> 'jadwal-sidang-proposal',
+                'daftar_mhs'=>$mahasiswa,
+                'daftar_kbk'=>$kbk,
+                'daftar_tempat'=>$tempat,
+                'daftar_dosen'=>$dosen,
+                'daftar_petugas_tu'=>$petugas_tu,
+                'jadwal_sidang_proposal'=>$final_result
 
-    		);
-    	return view('karyawan.monitoring-skripsi.jadwal-sidang.proposal',$data);
+            );
+        return view('karyawan.monitoring-skripsi.jadwal-sidang.proposal',$data);
     }
 
     public function view_jadwal_sidang_proposal_mahasiswa()
@@ -246,6 +266,8 @@ class JadwalSidangController extends Controller
         $dosen = DB::table('dosen')->get();
         $petugas_tu = DB::table('petugas_tu')->get();
 
+         $biodata_dosen = DB::table('biodata_dosen')->get();
+
         $jadwal_sidang_skripsi = DB::table('skripsi')
             ->leftJoin('biodata_mhs', 'skripsi.NIM_id', '=', 'biodata_mhs.nim_id')
             ->leftJoin('kbk', 'skripsi.kbk_id', '=', 'kbk.id_kbk')
@@ -275,8 +297,11 @@ class JadwalSidangController extends Controller
                     'tgl_sidangpro'=>$jadwal_sidang_skripsi[$i]->tgl_sidangskrip,
                     'waktu_sidangpro'=>$jadwal_sidang_skripsi[$i]->waktu_sidangskrip,
                     'dosen_pembimbing1'=>$jadwal_sidang_skripsi[$i]->dosbing,
+                    'nama_dosen_pembimbing1'=>$this->cari_nama_dosen($jadwal_sidang_skripsi[$i]->dosbing,$biodata_dosen),
                     'dosen_pembimbing2'=>$jadwal_sidang_skripsi[$i+1]->dosbing,
+                    'nama_dosen_pembimbing2'=>$this->cari_nama_dosen($jadwal_sidang_skripsi[$i+1]->dosbing,$biodata_dosen),
                     'dosen_penguji'=>$jadwal_sidang_skripsi[$i]->dosji,
+                    'nama_dosen_penguji'=>$this->cari_nama_dosen($jadwal_sidang_skripsi[$i]->dosji,$biodata_dosen),
                     'ruang'=>$jadwal_sidang_skripsi[$i]->nama_ruang
                     );
 
@@ -457,58 +482,58 @@ class JadwalSidangController extends Controller
 
     public function create_jadwal_sidang_proposal()
     {
-    	# code...
-    	$test = 'berhasil menyimpan data';
-    	if(Request::ajax()){
-    		
-    		// $test = array(
-    		// 	'meeng'=>$data['judul_proposal']
-    		// 	);
+        # code...
+        $test = 'berhasil menyimpan data';
+        if(Request::ajax()){
+            
+            // $test = array(
+            //  'meeng'=>$data['judul_proposal']
+            //  );
 
-    		DB::transaction(function()
-			{
-				$data = Input::all();
+            DB::transaction(function()
+            {
+                $data = Input::all();
 
-    		$id_skripsi = DB::table('skripsi')->insertGetId(
-    		['NIM_id' => $data['nim'], 'kbk_id' => $data['kbk'],'judul'=>$data['judul_proposal'],
-    		  'nip_petugas_id'=>$data['petugas'],'tgl_sidangpro'=>$data['tgl'],'waktu_sidangpro'=>$data['waktu'],'tempat_sidangpro'=>$data['tempat'],'statusprop_id'=>1,'statusskrip_id'=>1
-    		]
-			);
+            $id_skripsi = DB::table('skripsi')->insertGetId(
+            ['NIM_id' => $data['nim'], 'kbk_id' => $data['kbk'],'judul'=>$data['judul_proposal'],
+              'nip_petugas_id'=>$data['petugas'],'tgl_sidangpro'=>$data['tgl'],'waktu_sidangpro'=>$data['waktu'],'tempat_sidangpro'=>$data['tempat'],'statusprop_id'=>1,'statusskrip_id'=>1
+            ]
+            );
 
-    		$dosen_pembimbing = DB::table('dosen_pembimbing')->insert([
-    			[
-    				'skripsi_id'=>$id_skripsi,
-    				'nip_id'=>$data['dosbing1'],
-    				'status'=>1
-    			],
-    			[
-    				'skripsi_id'=>$id_skripsi,
-    				'nip_id'=>$data['dosbing2'],
-    				'status'=>1
-    			]
-    			]);
+            $dosen_pembimbing = DB::table('dosen_pembimbing')->insert([
+                [
+                    'skripsi_id'=>$id_skripsi,
+                    'nip_id'=>$data['dosbing1'],
+                    'status'=>1
+                ],
+                [
+                    'skripsi_id'=>$id_skripsi,
+                    'nip_id'=>$data['dosbing2'],
+                    'status'=>1
+                ]
+                ]);
 
-    		$dosen_penguji = DB::table('dosen_penguji')->insert(
-    			[
-    				'skripsi_id'=>$id_skripsi,
-    				'nip_id'=>$data['penguji'],
-    				'status'=>1
-    			]
-    			);
+            $dosen_penguji = DB::table('dosen_penguji')->insert(
+                [
+                    'skripsi_id'=>$id_skripsi,
+                    'nip_id'=>$data['penguji'],
+                    'status'=>1
+                ]
+                );
 
-    		
-			});
+            
+            });
 
-    		$hasil = array(
-    			'status_insert'=>1
-    			);
+            $hasil = array(
+                'status_insert'=>1
+                );
 
 
-    		
-    		return response()->json([
+            
+            return response()->json([
     'status_insert' => 1
-				]);
-    	
-    	}
+                ]);
+        
+        }
     }
 }

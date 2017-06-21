@@ -44,12 +44,12 @@ class ElearningController extends Controller
 
     }
 
-        public function createAction(Request $request)
+    public function createAction(Request $request)
     {
         // Menginsertkan apa yang ada di form ke dalam tabel biodata
         $dosen = $request->input();
-        $mkd = MKDitawarkan::where('matakuliah_id', $dosen['mk_id'])->first();
-        $dosen['mk_ditawarkan_id'] = $mkd['id_mk_ditawarkan'];
+        $mkd = MKDitawarkan::where('matakuliah_id', '=' ,$dosen['mk_id'])->first();
+        $dosen['mk_ditawarkan_id'] = $mkd->id_mk_ditawarkan;
         $dosen['nip_id'] = Auth::user()->username;
         $dosen['direktori_file'] = time() .'.'.$request->file('direktori_file')->getClientOriginalExtension();
         $dosen['nama_file'] = time() .'.'.$request->file('direktori_file')->getClientOriginalExtension();

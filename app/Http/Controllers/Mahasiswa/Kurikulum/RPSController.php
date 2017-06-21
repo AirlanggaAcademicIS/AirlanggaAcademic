@@ -37,11 +37,11 @@ class RPSController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar rps
             'page' => 'rps',
             // Memanggil semua isi dari tabel
-            'mata_kuliah' => RPS_Matkul::where('status_rps','=', '1')->get(),
+            'mata_kuliah' => RPS_Matkul::where('status_rps','=', '2')->get(),
         ];
 
         // Memanggil tampilan index
-        return view('mahasiswa.kurikulum.rps.index',$data);
+        return view('mahasiswa.Kurikulum.rps.index',$data);
     }
 
     public function detail($id)
@@ -65,16 +65,42 @@ class RPSController extends Controller
 
     public function pdf($id)
     {
+        $cek = 0; 
+        $media_pembelajaran;
         $cpProdi = RPS_CPL_Prodi::where('mk_id', '=', $id)->get();
-        $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $id)->first();        
+        $cpmk = RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get();        
+        // for($count = 0; $count<count($cpmk); $count++)
+        // {
+        //     $media_pembelajaran[$count] = Silabus_detail_kategori::where('cpmk_id', '=', $cpmk[$count]->id_cpmk)->get();      
+        // } 
         $data = [
             'matkul_silabus' => Silabus_Matkul::find($id),
             'cpem' => RPS_CPL_Prodi::where('mk_id', '=', $id)->get(),
-            'mk_media_pembelajaran' => Silabus_detail_kategori::where('cpmk_id', '=', $cpmk->id_cpmk)->get(),
             'mk_prasyarat' => Silabus_Matkul_prasyarat::where('mk_id', '=', $id)->get(),
             'mk_dosen' => RPS_Koor_Matkul::where('mk_id', '=', $id)->get(),
-            'cp_matkul' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get()
-        ];
+            'cp_matkul' => RPS_CP_Matkul::where('matakuliah_id', '=', $id)->get(),   
+            // 'mk_media_pembelajaran' => DB::table('detail_kategori')->select( DB::raw('DISTINCT(media_pembelajaran_id)'))->get()        
+            'mk_media_pembelajaran' => Silabus_detail_kategori::all(),
+            'data_media' => DB::table('cp_mata_kuliah')->where('matakuliah_id', '=', $id)
+                        ->join('detail_kategori', 'cp_mata_kuliah.id_cpmk', '=', 'detail_kategori.cpmk_id')
+                        ->join('kategori_media_pembelajaran', 'detail_kategori.media_pembelajaran_id', '=', 'kategori_media_pembelajaran.id')->select('kategori_media_pembelajaran.media_pembelajaran', 'detail_kategori.media_pembelajaran_id')->groupBy('kategori_media_pembelajaran.media_pembelajaran', 'detail_kategori.media_pembelajaran_id')->get(),                       
+            'sub_cpmk' => DB::table('rps')->where('mk_id', '=', $id)
+                        // ->join('mk_minggu', 'rps.mk_id', '=', 'mk_minggu.mk_id')
+                        ->join('rps_minggu', 'rps.id_rps', '=', 'rps_minggu.rps_id')
+                        ->get(),
+            'metode_pembelajaran' => DB::table('cp_mata_kuliah')->where('matakuliah_id', '=', $id)
+                        ->join('detail_media_pembelajaran', 'cp_mata_kuliah.id_cpmk', '=', 'detail_media_pembelajaran.cpmk_id')
+                        ->join('sistem_pembelajaran', 'detail_media_pembelajaran.sistem_pembelajaran_id', '=', 'sistem_pembelajaran.id' )->get(),
+            'getUts' => DB::table('mata_kuliah')->where('id_mk', '=', $id)
+            ->join('mk_minggu', 'mk_minggu.mk_id', '=', 'mata_kuliah.id_mk')
+            ->where('mk_minggu.status', '=', 0)
+            ->first(),
+            'getUas' => DB::table('mata_kuliah')->where('id_mk', '=', $id)
+            ->join('mk_minggu', 'mk_minggu.mk_id', '=', 'mata_kuliah.id_mk')
+            ->where('mk_minggu.status', '=', 1)
+            ->first(),
+        ];   
+        // dd($data['getUas']->minggu_id);
         $pdf = PDF::loadView('dosen.kurikulum.rps.pdf-rps', $data);
         return $pdf->download('silabus-mata-kuliah.pdf');
     }

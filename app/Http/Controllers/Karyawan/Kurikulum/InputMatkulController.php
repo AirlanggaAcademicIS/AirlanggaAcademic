@@ -97,18 +97,16 @@ class InputMatkulController extends Controller
     {
         $isSame =  false ;
         $input_kode = $request->input('kode_matkul');
-        $nama_matkul = $request->input('nama_matkul');        
-        // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
+        $nama_matkul = $request->input('nama_matkul');
         $isSameKode = MataKuliah::where('kode_matkul', '=', $input_kode)->get()->count();
         $isSameName = MataKuliah::where('nama_matkul', '=', $nama_matkul)->get()->count();
 
         $getFromId = MataKuliah::find($id);
 
-        if($isSameKode == 0 && $isSameName == 0)
+        if($isSameKode == 0 || $isSameName == 0)
         {
 
         $inputmk = MataKuliah::find($id);
-        // Mengupdate $biodata tadi dengan isi dari form edit tadi
         $inputmk->kode_matkul = $request->input('kode_matkul');
         $inputmk->nama_matkul = $request->input('nama_matkul');
         $inputmk->sks = $request->input('sks');
@@ -131,6 +129,7 @@ class InputMatkulController extends Controller
         {
             Session::put('alert-danger', 'Kode Mata Kuliah atau Nama Mata Kuliah sudah diinputkan');
         }
+
         return Redirect::to('karyawan/kurikulum/inputmatkul');
 }
 }
