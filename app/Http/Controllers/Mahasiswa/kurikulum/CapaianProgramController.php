@@ -1,5 +1,5 @@
 <?php 
-namespace App\Http\Controllers\mahasiswa\kurikulum;
+namespace App\Http\Controllers\Mahasiswa\Kurikulum;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
