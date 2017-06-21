@@ -164,7 +164,7 @@ $sks=21;
     </thead>
     <tbody>
         @foreach($app as $j => $s) 
-                  <tr>
+                 <tr>
                     <td style="text-align:center; border: 1px solid black">{{$s->kode_matkul}}</td>
                     <td style="text-align:center; border: 1px solid black">{{$s->nama_matkul}}</td>
                     <td style="text-align:center; border: 1px solid black">{{$s->sks}}</td>
@@ -173,9 +173,6 @@ $sks=21;
                     <td style="text-align:center; border: 1px solid black">{{$s->nama_ruang}}</td>
                   </tr>
                   @endforeach
-
-        
-        
   </tbody>
   <tfoot>
         <td style="text-align:center"></td>
