@@ -40,6 +40,7 @@ Rincian Rundown
       <th style="text-align:center">No.</th>
       <th style="text-align:center">Nama</th>      
       <th style="text-align:center">Waktu</th>
+      <th style="text-align:center">Action</th>
     </tr>
     </thead>
   <tbody>
@@ -48,6 +49,7 @@ Rincian Rundown
       <td width="5%"  style="text-align:center">{{ $i+1 }}</td>
       <td width="10%" style="text-align:center">{{$rundown->nama}}</td>
       <td width="20%" style="text-align:center">{{$rundown->waktu}}</td>
+      <td width="20%" style="text-align:center" > <a href="{{url('mahasiswa/pengelolaan-kegiatan/rincian-rundown/'.$rundown->id_rundown.'/viewEditProposal')}}" type="button" class="btn btn-warning btn-xs"> <i class="fa fa-pencil-square-o"></i>Edit</a></td>
     </tr>
      @empty
         <tr>

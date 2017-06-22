@@ -154,7 +154,10 @@ return [
         Barryvdh\Snappy\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
+
         
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
         Maatwebsite\Excel\ExcelServiceProvider::class,

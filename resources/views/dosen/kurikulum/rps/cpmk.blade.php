@@ -45,7 +45,7 @@ Rencana Pembelajaran Semester
       @endif
       <br>
 
-  <form id="tambahCPMK" method="post" action="{{url('dosen/kurikulum/rps/cpmk')}}" enctype="multipart/form-data"  class="form-horizontal">
+  <form id="tambahCPMK" method="post" action="{{url('dosen/kurikulum/rps/cpmk/{id}')}}" enctype="multipart/form-data"  class="form-horizontal">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">       
   
     <div class="box-header with-border">

@@ -52,24 +52,24 @@ Input Dana Proposal Kegiatan
 
       
       <div class="col-sm-12 modal-body">
-          <label for="mahasiswa" class="col-sm-4">Nama Dana</label>
+          <label for="mahasiswa" class="col-sm-4">Nama Barang</label>
           <div class="col-sm-8">
 
-             <input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama Dana" required>
+             <input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama Barang" required>
              </div>
          </div>
 
 
       <div class="col-sm-12 modal-body">
-          <label for="mahasiswa" class="col-sm-4">Kuantitas Dana</label>
+          <label for="mahasiswa" class="col-sm-4">Kuantitas Barang</label>
           <div class="col-sm-8">
-             <input type="number" class="form-control input-lg" id="jumlah" name="jumlah" placeholder="Masukkan Kuantitas Dana" required>
+             <input type="number" class="form-control input-lg" id="jumlah" name="jumlah" placeholder="Masukkan Kuantitas Barang" required>
              </div>
          </div>
 
 
       <div class="col-sm-12 modal-body">
-          <label for="mahasiswa" class="col-sm-4">Harga Dana</label>
+          <label for="mahasiswa" class="col-sm-4">Harga Barang</label>
              <div class="col-sm-8">
           <input type="number" class="form-control input-lg" id="harga" name="harga" placeholder="Masukkan Harga" required>
          </div>
@@ -101,7 +101,7 @@ Input Dana Proposal Kegiatan
   <thead>
     <tr>
       <th width="10%" style="text-align:center">No</th>
-      <th width="20%" style="text-align:center">Nama Dana</th>      
+      <th width="20%" style="text-align:center">Nama Barang</th>      
       <th width="10%" style="text-align:center">Jumlah</th>     
       <th width="10%" style="text-align:center">Harga</th>     
       <th width="10%" style="text-align:center">Sumber</th>  
@@ -202,7 +202,7 @@ Input Dana Proposal Kegiatan
   </tbody>
 </table>
          <div class="col-sm-10"></div>
-<a href="{{url('dosen/pengelolaan-kegiatan/pengajuan')}}" class="btn btn-success btn-xs"> Simpan</a>
+<a href="{{url('dosen/pengelolaan-kegiatan/daftarPengajuanDitolak')}}" class="btn btn-success btn-xs"> Simpan</a>
 
 
 </div>

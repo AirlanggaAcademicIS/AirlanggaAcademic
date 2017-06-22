@@ -40,36 +40,36 @@ Input Dana Proposal Kegiatan
     <div class="modal-dialog">
     
       <!-- Modal content-->
-   <form id="rincianDanaTabel" method="post" action="{{url('dosen/pengelolaan-kegiatan/rincian-dana/'.$kegiatan->id_kegiatan.'/tambahDanaEdit')}}" enctype="multipart/form-data"  class="form-horizontal">
+   <form id="rincianDanaTabel" method="post" action="{{url('dosen/pengelolaan-kegiatan/rincian-dana/'.$kegiatan->id_kegiatan.'/tambahDanaEditLPJ')}}" enctype="multipart/form-data"  class="form-horizontal">
                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
       <div class="modal-content">
         <div class="modal-header" class="col-sm-12">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Input Rincian Dana</h4>
+          <h4 class="modal-title">Input Rincian Barang</h4>
         </div>
       
 
       
       <div class="col-sm-12 modal-body">
-          <label for="mahasiswa" class="col-sm-4">Nama Dana</label>
+          <label for="mahasiswa" class="col-sm-4">Nama Barang</label>
           <div class="col-sm-8">
 
-             <input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama Dana" required>
+             <input type="text" class="form-control input-lg" id="nama" name="nama" placeholder="Masukkan Nama Barang" required>
              </div>
          </div>
 
 
       <div class="col-sm-12 modal-body">
-          <label for="mahasiswa" class="col-sm-4">Kuantitas Dana</label>
+          <label for="mahasiswa" class="col-sm-4">Kuantitas Barang</label>
           <div class="col-sm-8">
-             <input type="number" class="form-control input-lg" id="jumlah" name="jumlah" placeholder="Masukkan Kuantitas Dana" required>
+             <input type="number" class="form-control input-lg" id="jumlah" name="jumlah" placeholder="Masukkan Kuantitas Barang" required>
              </div>
          </div>
 
 
       <div class="col-sm-12 modal-body">
-          <label for="mahasiswa" class="col-sm-4">Harga Dana</label>
+          <label for="mahasiswa" class="col-sm-4">Harga Barang</label>
              <div class="col-sm-8">
           <input type="number" class="form-control input-lg" id="harga" name="harga" placeholder="Masukkan Harga" required>
          </div>
@@ -101,7 +101,7 @@ Input Dana Proposal Kegiatan
   <thead>
     <tr>
       <th width="10%" style="text-align:center">No</th>
-      <th width="20%" style="text-align:center">Nama Dana</th>      
+      <th width="20%" style="text-align:center">Nama Barang</th>      
       <th width="10%" style="text-align:center">Jumlah</th>     
       <th width="10%" style="text-align:center">Harga</th>     
       <th width="10%" style="text-align:center">Sumber</th>  
@@ -124,7 +124,7 @@ Input Dana Proposal Kegiatan
     <div class="modal-dialog">
     
       <!-- Modal content-->
-   <form id="rincianDanaTabel" method="post" action="{{url('dosen/pengelolaan-kegiatan/rincian-dana/'.$dana->id_rdana.'/tambahDanaEdit2')}}" enctype="multipart/form-data"  class="form-horizontal">
+   <form id="rincianDanaTabel" method="post" action="{{url('dosen/pengelolaan-kegiatan/rincian-dana/'.$dana->id_rdana.'/tambahDanaEditLPJ2')}}" enctype="multipart/form-data"  class="form-horizontal">
                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
       <div class="modal-content">
@@ -202,7 +202,7 @@ Input Dana Proposal Kegiatan
   </tbody>
 </table>
          <div class="col-sm-10"></div>
-<a href="{{url('dosen/pengelolaan-kegiatan/pengajuan')}}" class="btn btn-success btn-xs"> Simpan</a>
+<a href="{{url('dosen/pengelolaan-kegiatan/daftarPengajuanDitolakLPJ')}}" class="btn btn-success btn-xs"> Simpan</a>
 
 
 </div>

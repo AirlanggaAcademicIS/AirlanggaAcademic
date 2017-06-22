@@ -38,7 +38,7 @@ Detail Pengajuan Kegiatan
     </div>
     </div>
    <h4>Deskripsi Umum</h4>
-  <form class="form-horizontal" action="{{url('mahasiswa/pengelolaan-kegiatan/pengajuan')}}">
+  <form class="form-horizontal" action="{{url('mahasiswa/pengelolaan-kegiatan/daftarPengajuanKonfirmasiProposal')}}">
     <div class="form-group">
       <label class="control-label col-sm-2" for="nama">Nama Kegiatan</label>
       <div class="col-sm-10">

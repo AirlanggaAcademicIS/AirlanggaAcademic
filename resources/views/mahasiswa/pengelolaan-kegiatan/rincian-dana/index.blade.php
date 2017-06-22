@@ -98,14 +98,15 @@ Input Dana Proposal Kegiatan
   </div>
 
 @endforeach   
-<table id="struturPanitiaTabel" class="table table-striped table-bordered" cellspacing="0">
+<table id="rincianDanaTabel1" class="table table-striped table-bordered" cellspacing="0">
   <thead>
     <tr>
       <th width="10%" style="text-align:center">No</th>
       <th width="20%" style="text-align:center">Nama Barang</th>      
       <th width="10%" style="text-align:center">Jumlah</th>     
       <th width="10%" style="text-align:center">Harga</th>     
-      <th width="10%" style="text-align:center">Sumber</th>
+      <th width="10%" style="text-align:center">Sumber</th>  
+      <th width="10%" style="text-align:center">Tindakan</th>
     </tr>
     </thead>
   <tbody>
@@ -116,6 +117,80 @@ Input Dana Proposal Kegiatan
       <td width="10%" style="text-align:center">{{$dana->kuantitas}}</td>
       <td width="10%" style="text-align:center">{{$dana->harga}}</td>
       <td width="10%" style="text-align:center">{{$dana->kategoriDana['jenis_dana']}}</td>
+      <td width="10%" style="text-align:center">
+         <a data-toggle="modal" data-target="#modalRincianDana{{$dana->id_rdana}}" class="btn btn-danger btn-xs">
+          <i class="fa fa-trash-o"></i> Edit Dana</a> 
+           <!-- Modal Proposal-->
+  <div class="modal fade" id="modalRincianDana{{$dana->id_rdana}}" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+   <form id="rincianDanaTabel" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/rincian-dana/'.$dana->id_rdana.'/tambahDanaEdit1')}}" enctype="multipart/form-data"  class="form-horizontal">
+                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+      <div class="modal-content">
+        <div class="modal-header" class="col-sm-12">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Input Rincian Dana</h4>
+        </div>
+      
+
+      
+      <div class="col-sm-12 modal-body">
+          <label for="mahasiswa" class="col-sm-4">Nama Kegiatan</label>
+          <div class="col-sm-8">
+                  <select class="form-control input-sm" name="kegiatan" id="kegiatan" value="{{$kegiatan1->id_kegiatan}}">
+            
+            <option value="{{$kegiatan1->id_kegiatan}}"> {{$kegiatan1->nama}}</option>
+            
+          </select>
+             </div>
+         </div>
+    
+     <div class="col-sm-12 modal-body">
+          <label for="mahasiswa" class="col-sm-4">Nama Dana</label>
+          <div class="col-sm-8">
+             <input type="text" class="form-control input-lg" id="nama" name="nama" value="{{$dana->nama}}" placeholder="Masukkan Kuantitas Dana" required>
+             </div>
+         </div>
+
+      <div class="col-sm-12 modal-body">
+          <label for="mahasiswa" class="col-sm-4">Kuantitas Dana</label>
+          <div class="col-sm-8">
+             <input type="number" class="form-control input-lg" id="jumlah" name="jumlah" value="{{$dana->kuantitas}}" placeholder="Masukkan Kuantitas Dana" required>
+             </div>
+         </div>
+
+
+      <div class="col-sm-12 modal-body">
+          <label for="mahasiswa" class="col-sm-4">Harga Dana</label>
+             <div class="col-sm-8">
+          <input type="number" class="form-control input-lg" id="harga" name="harga" value="{{$dana->harga}}" placeholder="Masukkan Harga" required>
+         </div>
+         </div>
+
+        <div class="col-sm-12 modal-body">
+          <label for="mahasiswa" class="col-sm-4">Sumber Dana</label>
+             <div class="col-sm-8">
+          <select class="form-control input-sm" name="sumberDana" value="{{$dana->kategoriDana['jenis_dana']}}" id="sumberDana">
+            @foreach( $sumber as $data )
+
+            <option value="{{ $data->id_sumber }}"> {{ $data->jenis_dana }}</option>
+
+            @endforeach
+          </select>
+          </div>
+         </div>
+         <div class="modal-footer" class="col-sm-12">
+          <button onclick="return confirm('Apakah anda yakin untuk menambahkan dana ini?');" type="submit" class="btn btn-success" >Simpan</button>
+        </div>
+      </div>
+    
+    </form>
+
+    </div>
+  </div>    
+      </td>
     </tr>
 
      @empty
@@ -129,7 +204,7 @@ Input Dana Proposal Kegiatan
 </table>
 @foreach($kegiatan as $kegiatan1)
          <div class="col-sm-10"></div>
-<a href="{{url('mahasiswa/pengelolaan-kegiatan/pengajuan')}}" class="btn btn-success btn-xs"> Simpan</a>
+<a href="{{url('mahasiswa/pengelolaan-kegiatan/daftarPengajuanKonfirmasiProposal')}}" class="btn btn-success btn-xs"> Simpan</a>
 @endforeach
 
 </div>

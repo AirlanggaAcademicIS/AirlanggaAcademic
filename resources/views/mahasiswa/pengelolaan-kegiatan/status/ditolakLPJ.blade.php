@@ -42,7 +42,7 @@ Daftar Kegiatan Akademik
       <td width="45%" style="text-align:center"><img src="{{URL::asset('/img/pengajuan/'.$pen->url_poster)}}" height="100px" width="100px" hspace="5px" vspace="2px"></td>
       <td width="20%" style="text-align:center">
       <a href="{{url('/mahasiswa/pengelolaan-kegiatan/dokumentasi/'.$pen->id_kegiatan.'/revisiLPJ')}}" class="btn btn-success btn-xs"><i class='fa fa-edit'></i> Revisi</a>
-        <a href="{{url('/mahasiswa/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan.'/lpj')}}" class="btn btn-success btn-xs"><i class='fa fa-eye'></i> View Detail</a>
+        <a href="{{url('/mahasiswa/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan.'/lpjRevisi')}}" class="btn btn-success btn-xs"><i class='fa fa-eye'></i> View Detail</a>
         </td>
     </tr>
      @empty

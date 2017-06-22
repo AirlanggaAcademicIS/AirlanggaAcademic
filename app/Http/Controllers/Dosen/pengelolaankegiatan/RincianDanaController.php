@@ -194,4 +194,22 @@ public function createEditActionLPJ($id_kegiatan, Request $request)
         return Redirect::to('dosen/pengelolaan-kegiatan/rincian-dana/'.$kegiatan_id.'/edit');
    
     }
+    public function editTambahActionLPJ1($id_rdana, Request $request)
+    {
+        # code...
+       
+
+        $kegiatan_id = $request->input('kegiatan');
+       
+        RincianDana::where('kegiatan_id', $kegiatan_id)->where('id_rdana',$id_rdana)->whereNull('deleted_at')->update(array(
+            'nama'    =>  $request->input('nama'), 'kuantitas'    =>  $request->input('jumlah'),'harga'    =>  $request->input('harga'),'sumber_id'    =>  $request->input('sumberDana'),'kategori_dana'    =>  '1'
+        ));
+
+        Session::put('alert-success', 'Panitia Berhasil Direvisi');
+        
+            
+        
+        return Redirect::to('dosen/pengelolaan-kegiatan/rincian-dana/'.$kegiatan_id.'/lpj');
+   
+    }
 }

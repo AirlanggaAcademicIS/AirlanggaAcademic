@@ -37,6 +37,24 @@ class KonfirmasiKegiatanController extends Controller
         return view('karyawan.pengelolaan-kegiatan.konfirmasi-kegiatan.index',$data);
     }
 
+    public function indexLPJ()
+    {
+
+        $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'konfirmasi-kegiatan',
+            // Memanggil semua isi dari tabel biodata
+
+            'konfirmasiProposal' => KonfirmasiKegiatan::where("konfirmasi_proposal","0")->where("konfirmasi_lpj","0")->get(),
+
+            'konfirmasiLPJ' => KonfirmasiKegiatan::where("konfirmasi_lpj","1")->where("konfirmasi_proposal","1")->get()
+
+        ];
+
+        // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
+        return view('karyawan.pengelolaan-kegiatan.konfirmasi-kegiatan.indexLPJ',$data);
+    }
+
     public function setujuiActionProposal($id_kegiatan, Request $request)
     {
         # code...

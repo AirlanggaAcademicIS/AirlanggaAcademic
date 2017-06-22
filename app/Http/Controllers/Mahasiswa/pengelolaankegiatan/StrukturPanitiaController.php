@@ -139,6 +139,38 @@ class StrukturPanitiaController extends Controller
    
     }
 
+    public function TambahAction($id_kegiatan, Request $request)
+    {
+        # code...
+        $user = StrukturPanitia::where("nim_id", $request->input('panitiaKegiatan'))->where("kegiatan_id",$id_kegiatan)->whereNull('deleted_at')->first();
+           if ($user === null) {
+               // user doesn't exist
+                $strukturPanitia = new StrukturPanitia;
+                $strukturPanitia->kegiatan_id = $id_kegiatan;
+                $strukturPanitia->nim_id = $request->input('panitiaKegiatan');
+                $strukturPanitia->jabatan_id = $request->input('jabatanPanitia');
+                $strukturPanitia->save();
+
+                Session::put('alert-success', 'Panitia Berhasil Ditambahkan');
+            }
+            else{
+
+        $id = $id_kegiatan;
+        $nim = $request->input('panitiaKegiatan');
+        $jabatan =  $request->input('jabatanPanitia');
+        
+        StrukturPanitia::where('kegiatan_id', $id)->where('nim_id',$nim)->whereNull('deleted_at')->update(array(
+            'jabatan_id'    =>  $jabatan
+        ));
+
+        Session::put('alert-success', 'Panitia Berhasil Direvisi');
+        
+            
+        }
+        return Redirect::to('mahasiswa/pengelolaan-kegiatan/input-struktur-panitia/'.$id_kegiatan);
+   
+    }
+
     
 
 }

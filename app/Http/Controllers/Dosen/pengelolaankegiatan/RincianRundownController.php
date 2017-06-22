@@ -284,5 +284,72 @@ class RincianRundownController extends Controller
         return Redirect::to('dosen/pengelolaan-kegiatan/rincian-rundown/'.$rincianrundown->kegiatan_id.'/editLPJ');
     }
 
+    public function editProposal($id_rundown)
+    {
+        $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'rincianrundown',
+            // Mencari biodata berdasarkan id
+            'rincianrundown' => RincianRundown::where('id_rundown',$id_rundown)->first()
+        ];
 
+        // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
+        return view('dosen.pengelolaan-kegiatan.rincian-rundown.tambahEdit',$data);
+    }
+
+  
+
+
+    public function editActionProposal1($id_rundown, Request $request)
+    {
+        // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
+        $rincianrundown = RincianRundown::find($id_rundown);
+
+        // Mengupdate $biodata tadi dengan isi dari form edit tadi
+        $rincianrundown->kegiatan_id = $request->input('kegiatan_id');
+        $rincianrundown->nama = $request->input('nama');
+        $rincianrundown->waktu = $request->input('waktu');
+        $rincianrundown->kategori_rundown = '0';
+        $rincianrundown->save();
+
+        // Notifikasi sukses
+        Session::put('alert-success', 'Rincian Rundown berhasil diedit');
+
+        // Kembali ke halaman mahasiswa/biodata
+        return Redirect::to('dosen/pengelolaan-kegiatan/rincian-rundown/'.$rincianrundown->kegiatan_id);
+    }
+ public function editLPJ1($id_rundown)
+    {
+        $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'rincianrundown',
+            // Mencari biodata berdasarkan id
+            'rincianrundown' => RincianRundown::where('id_rundown',$id_rundown)->first()
+        ];
+
+        // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
+        return view('dosen.pengelolaan-kegiatan.rincian-rundown.tambahEditLPJ',$data);
+    }
+
+  
+
+
+    public function editActionLPJ1($id_rundown, Request $request)
+    {
+        // Mencari biodata yang akan di update dan menaruhnya di variabel $biodata
+        $rincianrundown = RincianRundown::find($id_rundown);
+
+        // Mengupdate $biodata tadi dengan isi dari form edit tadi
+        $rincianrundown->kegiatan_id = $request->input('kegiatan_id');
+        $rincianrundown->nama = $request->input('nama');
+        $rincianrundown->waktu = $request->input('waktu');
+        $rincianrundown->kategori_rundown = '1';
+        $rincianrundown->save();
+
+        // Notifikasi sukses
+        Session::put('alert-success', 'Rincian Rundown berhasil diedit');
+
+        // Kembali ke halaman mahasiswa/biodata
+        return Redirect::to('dosen/pengelolaan-kegiatan/rincian-rundown/'.$rincianrundown->kegiatan_id.'/lpj');
+    }
 }

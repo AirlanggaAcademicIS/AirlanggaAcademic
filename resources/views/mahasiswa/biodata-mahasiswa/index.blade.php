@@ -38,6 +38,7 @@ Biodata Mahasiswa
       <th style="text-align:center">No.</th>
       <th style="text-align:center">NIM</th>      
       <th style="text-align:center">Nama</th>
+      <th style="text-align:center">Angkatan</th>
       <th style="text-align:center">Email</th>
       <th style="text-align:center">No. HP</th>
       <th style="text-align:center">TTL</th>
@@ -49,8 +50,9 @@ Biodata Mahasiswa
    @forelse($biodatamahasiswa as $i => $bio) 
     <tr>
       <td>{{ $i+1 }}</td>
-      <td width="20%" style="text-align:center">{{$bio->nim_id}}</td>
-      <td width="15%" style="text-align:center">{{$bio->nama_mhs}}</td>
+      <td width="15%" style="text-align:center">{{$bio->nim_id}}</td>
+      <td width="20%" style="text-align:center">{{$bio->nama_mhs}}</td>
+      <td width="10%" style="text-align:center">{{$bio->angkatan}}</td>
       <td width="20%" style="text-align:center">{{$bio->email_mhs}}</td>
       <td width="10%" style="text-align:center">{{$bio->no_hp}}</td>
       <td width="15%" style="text-align:center">{{$bio->kota_lahir}}

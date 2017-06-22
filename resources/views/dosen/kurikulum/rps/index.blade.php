@@ -27,11 +27,13 @@ Rencana Pembelajaran Semester
   @endforeach
 </div>
 <div style="margin-bottom: 10px">
-  <!-- Href ini biar diklik masuk ke form tambah -->
+  <a href="{{url('/dosen/kurikulum/rps/set-ujian')}}" type="button" class="btn btn-info btn-md" >
+    <i class="fa fa-pencil-square"></i> Atur Minggu UTS/UAS</a>
   <a href="{{url('/dosen/kurikulum/rps/cp-mk')}}" type="button" class="btn btn-info btn-md" >
-    <i class="fa fa-plus-square"></i> Tambah RPS</a>
+    <i class="fa fa-plus-square"></i> Tambah RPS</a> 
+  <a href="{{url('/dosen/kurikulum/rps/pilih-mk')}}" type="button" class="btn btn-info btn-md" >
+    <i class="fa fa-plus-square"></i> Tambah RPS Lanjutan</a>
 </div>
-  <!-- Href ini biar diklik masuk ke form tambah -->
   <div class="box box-danger">
 
 <div class="box-body">

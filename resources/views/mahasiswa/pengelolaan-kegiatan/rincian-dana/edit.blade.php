@@ -202,7 +202,7 @@ Input Dana Proposal Kegiatan
   </tbody>
 </table>
          <div class="col-sm-10"></div>
-<a href="{{url('mahasiswa/pengelolaan-kegiatan/daftarPengajuanKonfirmasiProposal')}}" class="btn btn-success btn-xs"> Simpan</a>
+<a href="{{url('mahasiswa/pengelolaan-kegiatan/daftarPengajuanDitolak')}}" class="btn btn-success btn-xs"> Simpan</a>
 
 
 </div>

@@ -43,7 +43,7 @@ Daftar Kegiatan Akademik
       <td width="20%" style="text-align:center"><img src="{{URL::asset('/img/pengajuan/'.$pen->url_poster)}}" height="100px" width="100px" hspace="5px" vspace="2px"></td>
       <td width="20%" style="text-align:center">
       <a href="{{url('/mahasiswa/pengelolaan-kegiatan/pengajuan/'.$pen->id_kegiatan.'/revisi')}}" class="btn btn-danger btn-xs"><i class='fa fa-edit'></i> Revisi</a>
-        <a href="{{url('/mahasiswa/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan)}}" class="btn btn-success btn-xs"><i class='fa fa-eye'></i> View Detail</a>
+        <a href="{{url('/mahasiswa/pengelolaan-kegiatan/detail-pengajuan/'.$pen->id_kegiatan.'/revisi')}}" class="btn btn-success btn-xs"><i class='fa fa-eye'></i> View Detail</a>
         </td>
     </tr>
      @empty

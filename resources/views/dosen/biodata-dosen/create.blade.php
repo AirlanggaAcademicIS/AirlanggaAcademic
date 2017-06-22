@@ -64,6 +64,20 @@ Tambah Data Dosen
 					</div>
 				</div>
 
+				<div class="form-group">
+					<label for="nama_ketua" class="col-sm-2 control-label">Password</label>
+					<div class="col-md-8">
+						<input type="Password" class="form-control input-lg" id="nama_ketua" name="password" placeholder="Masukkan Nama Dosen" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nama_ketua" class="col-sm-2 control-label">Confirm Password</label>
+					<div class="col-md-8">
+						<input type="Password" class="form-control input-lg" id="nama_ketua" name="password_confirmation" placeholder="Masukkan Nama Dosen" required>
+					</div>
+				</div>
+
 
 				<div class="form-group">
                   <label for="nama_ketua" class="col-sm-2 control-label">Alamat Dosen</label>
@@ -83,8 +97,8 @@ Tambah Data Dosen
                   <label for="nama_ketua" class="col-sm-2 control-label">Status Dosen</label>
                   <div class="col-md-8" >  <select class="form-control" name="status_dosen">
                     <option value="Kepala Program Studi">Kepala Program Studi</option>
-                    <option value="Dosen Tetap">Dosen Tetap</option>
-                    <option value="Dosen Honorer">Dosen Honorer</option>                                       
+                    <option value="Dosen Tetap">Dosen Biasa</option>
+                                                          
                   </select>                   
 						
 					</div>

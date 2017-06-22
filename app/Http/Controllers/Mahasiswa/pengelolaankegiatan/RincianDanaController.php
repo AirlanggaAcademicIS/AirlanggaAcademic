@@ -64,10 +64,28 @@ class RincianDanaController extends Controller
 
                 Session::put('alert-success', 'Dana Berhasil Ditambahkan');
 
-        return Redirect::to('mahasiswa/pengelolaan-kegiatan/rincian-dana/'.$id_kegiatan.'');
+        return Redirect::to('mahasiswa/pengelolaan-kegiatan/rincian-dana/'.$id_kegiatan);
     }
 
- 
+    
+     public function editTambahAction1($id_rdana, Request $request)
+    {
+        # code...
+       
+
+        $kegiatan_id = $request->input('kegiatan');
+       
+        RincianDana::where('kegiatan_id', $kegiatan_id)->where('id_rdana',$id_rdana)->whereNull('deleted_at')->update(array(
+            'nama'    =>  $request->input('nama'), 'kuantitas'    =>  $request->input('jumlah'),'harga'    =>  $request->input('harga'),'sumber_id'    =>  $request->input('sumberDana'),'kategori_dana'    =>  0
+        ));
+
+        Session::put('alert-success', 'Panitia Berhasil Direvisi');
+        
+            
+        
+        return Redirect::to('mahasiswa/pengelolaan-kegiatan/rincian-dana/'.$kegiatan_id);
+   
+    }
     public function createActionLPJ($id_kegiatan, Request $request)
     {
         # code...
@@ -83,6 +101,25 @@ class RincianDanaController extends Controller
                 Session::put('alert-success', 'Dana Berhasil Ditambahkan');
 
         return Redirect::to('mahasiswa/pengelolaan-kegiatan/rincian-dana/'.$id_kegiatan.'/lpj');
+    }
+
+     public function editTambahActionLPJ1($id_rdana, Request $request)
+    {
+        # code...
+       
+
+        $kegiatan_id = $request->input('kegiatan');
+       
+        RincianDana::where('kegiatan_id', $kegiatan_id)->where('id_rdana',$id_rdana)->whereNull('deleted_at')->update(array(
+            'nama'    =>  $request->input('nama'), 'kuantitas'    =>  $request->input('jumlah'),'harga'    =>  $request->input('harga'),'sumber_id'    =>  $request->input('sumberDana'),'kategori_dana'    =>  '1'
+        ));
+
+        Session::put('alert-success', 'Panitia Berhasil Direvisi');
+        
+            
+        
+        return Redirect::to('mahasiswa/pengelolaan-kegiatan/rincian-dana/'.$kegiatan_id.'/lpj');
+   
     }
    public function edit($id)
         {
@@ -156,7 +193,7 @@ public function createEditAction($id_kegiatan, Request $request)
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('mahasiswa.pengelolaan-kegiatan.rincian-dana.edit',$data);
+        return view('mahasiswa.pengelolaan-kegiatan.rincian-dana.editLPJ',$data);
     
     }
 public function createEditActionLPJ($id_kegiatan, Request $request)
@@ -173,7 +210,7 @@ public function createEditActionLPJ($id_kegiatan, Request $request)
 
                 Session::put('alert-success', 'Dana Berhasil Ditambahkan');
 
-        return Redirect::to('mahasiswa/pengelolaan-kegiatan/rincian-dana/'.$id_kegiatan.'/edit');
+        return Redirect::to('mahasiswa/pengelolaan-kegiatan/rincian-dana/'.$id_kegiatan.'/editLPJ');
     }
 
      public function editTambahActionLPJ($id_rdana, Request $request)
@@ -184,14 +221,14 @@ public function createEditActionLPJ($id_kegiatan, Request $request)
         $kegiatan_id = $request->input('kegiatan');
        
         RincianDana::where('kegiatan_id', $kegiatan_id)->where('id_rdana',$id_rdana)->whereNull('deleted_at')->update(array(
-            'nama'    =>  $request->input('nama'), 'kuantitas'    =>  $request->input('jumlah'),'harga'    =>  $request->input('harga'),'sumber_id'    =>  $request->input('sumberDana'),'kategori_dana'    =>  1
+            'nama'    =>  $request->input('nama'), 'kuantitas'    =>  $request->input('jumlah'),'harga'    =>  $request->input('harga'),'sumber_id'    =>  $request->input('sumberDana'),'kategori_dana'    =>  '1'
         ));
 
         Session::put('alert-success', 'Panitia Berhasil Direvisi');
         
             
         
-        return Redirect::to('mahasiswa/pengelolaan-kegiatan/rincian-dana/'.$kegiatan_id.'/edit');
+        return Redirect::to('mahasiswa/pengelolaan-kegiatan/rincian-dana/'.$kegiatan_id.'/editLPJ');
    
     }
 }

@@ -36,7 +36,8 @@ class MKDiajarController extends Controller
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'mk_diajar',
             // Memanggil semua isi dari tabel biodata
-            'mk_diajar' => MKDiajar::where('dosen_id', '=', $dosen_id)->get()
+            'mk_diajar' => MKDiajar::where('dosen_id', '=', $dosen_id)
+                                    ->where('status',0)->get()
             // 'selectedRole' = Tahun::first()->role_id;
         ];
       

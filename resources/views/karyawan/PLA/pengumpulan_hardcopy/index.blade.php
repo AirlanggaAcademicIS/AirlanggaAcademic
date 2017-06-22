@@ -81,7 +81,7 @@ Pengumpulan Hardcopy Proposal dan Skripsi
       </td>
       <td  style="text-align:center" >
        @if($bio->tanggal_pengumpulan_skripsi=='')
-      <a onclick="return confirm('Cek Apakah Skripsi Telah Sesuai!');" href="{{url('karyawan/Pengumpulan -Hardcopy/'.$bio->id_skripsi.'/Skripsi')}}" class="btn btn-success btn-xs">
+      <a onclick="return confirm('Cek Apakah Skripsi Telah Sesuai!');" href="{{url('karyawan/Pengumpulan-Hardcopy/'.$bio->id_skripsi.'/Skripsi')}}" class="btn btn-success btn-xs">
                     <i class="fa fa-pencil-square-o"></i> Kumpulkan Skripsi</a>
       @else
       {{$bio->tanggal_pengumpulan_skripsi}}

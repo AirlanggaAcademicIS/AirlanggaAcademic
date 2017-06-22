@@ -40,7 +40,7 @@ Input Dana Proposal Kegiatan
     <div class="modal-dialog">
     
       <!-- Modal content-->
-   <form id="rincianDanaTabel" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/rincian-dana/'.$kegiatan->id_kegiatan.'/tambahDanaEdit')}}" enctype="multipart/form-data"  class="form-horizontal">
+   <form id="rincianDanaTabel" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/rincian-dana/'.$kegiatan->id_kegiatan.'/tambahDanaEditLPJ')}}" enctype="multipart/form-data"  class="form-horizontal">
                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
       <div class="modal-content">
@@ -124,7 +124,7 @@ Input Dana Proposal Kegiatan
     <div class="modal-dialog">
     
       <!-- Modal content-->
-   <form id="rincianDanaTabel" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/rincian-dana/'.$dana->id_rdana.'/tambahDanaEdit2')}}" enctype="multipart/form-data"  class="form-horizontal">
+   <form id="rincianDanaTabel" method="post" action="{{url('mahasiswa/pengelolaan-kegiatan/rincian-dana/'.$dana->id_rdana.'/tambahDanaEditLPJ2')}}" enctype="multipart/form-data"  class="form-horizontal">
                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
       <div class="modal-content">
@@ -202,7 +202,7 @@ Input Dana Proposal Kegiatan
   </tbody>
 </table>
          <div class="col-sm-10"></div>
-<a href="{{url('mahasiswa/pengelolaan-kegiatan/daftarPengajuanKonfirmasiLPJ')}}" class="btn btn-success btn-xs"> Simpan</a>
+<a href="{{url('mahasiswa/pengelolaan-kegiatan/daftarPengajuanDitolakLPJ')}}" class="btn btn-success btn-xs"> Simpan</a>
 
 
 </div>
