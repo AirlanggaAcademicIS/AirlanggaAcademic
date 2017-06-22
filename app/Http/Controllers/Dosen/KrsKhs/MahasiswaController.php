@@ -44,19 +44,17 @@ class MahasiswaController extends Controller
     public function create($mhs_id)
     {
         $tahun = TahunAkademik::count();
-        $mk_ditawarkan = MKDitawarkan::where('thn_akademik_id', $tahun)->get();
-        foreach($mk_ditawarkan as $mk){
-        $matkul_id = $mk->id_mk_ditawarkan;
-                    }
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
             'page' => 'mahasiswa',
             // Memanggil semua isi dari tabel biodata
             'mahasiswa' => Mahasiswa::where('nim',$mhs_id)->first(),
-            'matkul' => MKDiambil::where('mhs_id',$mhs_id)
-                        ->where('mk_ditawarkan_id',$matkul_id)->get()
+            'matkul' => DB::table('mk_diambil')
+                        ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','mk_diambil.mk_ditawarkan_id')
+                        ->join('mata_kuliah','mata_kuliah.id_mk','mk_ditawarkan.matakuliah_id')
+                        ->where('mk_ditawarkan.thn_akademik_id',$tahun)
+                        ->where('mhs_id',$mhs_id)->get()
         ];
-
         // Memanggil tampilan form create
         return view('dosen.krs-khs.approve.create',$data);
     }

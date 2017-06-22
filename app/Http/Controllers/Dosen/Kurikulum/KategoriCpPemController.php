@@ -80,7 +80,7 @@ class KategoriCpPemController extends Controller
 
         // Menampilkan form edit dan menambahkan variabel $data ke tampilan tadi, agar nanti value di formnya bisa ke isi
         // dd($data['kode_cpmatkul']);
-        return view('dosen.kurikulum.kode_cppem.edit',$data);
+        return view('dosen.kurikulum.kodecppem.edit',$data);
     }
 
     public function editAction($id, Request $request)

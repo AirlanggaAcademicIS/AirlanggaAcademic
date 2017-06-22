@@ -71,7 +71,7 @@ Input Mata Kuliah Ditawarkan
               @foreach ($mk_ditawarkan as $i => $r)
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="cek[]" value="{{$r->id_mk}}" required>
+                  <input type="checkbox" name="cek[]" value="{{$r->id_mk}}">
                       {{$r->nama_matkul}}
                 </label>
               </div>

@@ -82,6 +82,11 @@ class MKDitawarkanController extends Controller
         $input = $tahun_awal.'/'.$tahun_akhir.' '.$periode;
         $cek_thn=TahunAkademik::where('semester_periode',$input)->get();
 
+        if($tahun_akhir-$tahun_awal!=1){
+        Session::put('alert-danger', 'Tahun akademik harus urut');
+        return Redirect::back();
+        }
+        
         if(!empty($cek_thn)){
         $tahun = TahunAkademik::create(
             [
@@ -89,6 +94,7 @@ class MKDitawarkanController extends Controller
             ]
             );
         }
+
         else{
             $tahun = $cek_thn;
         }
@@ -104,7 +110,6 @@ class MKDitawarkanController extends Controller
          }
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'MK Ditawarkan berhasil ditambahkan');
-        // Kembali ke halaman krs-khs/ruang
         return Redirect::to('karyawan/krs-khs/mk-ditawarkan/view');
     }
 

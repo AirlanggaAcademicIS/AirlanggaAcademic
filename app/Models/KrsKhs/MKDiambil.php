@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MKDiambil extends Model
 {
-   use SoftDeletes;
+   //use SoftDeletes;
    protected $table = 'mk_diambil';    
    protected $primaryKey = '';   
    protected $dates = ['deleted_at'];

@@ -40,7 +40,6 @@ class JadwalKuliahController extends Controller
                             ->leftJoin('ruang','ruang.id_ruang','=','jadwal_kuliah.ruang_id')
                             ->where('mk_ditawarkan.thn_akademik_id',$tahun)->get()
         ];
-        //dd($data['jadwal']);
         // Memanggil tampilan index di folder krs-khs/ruang dan juga menambahkan $data tadi di view
         // dd($data);
         return view('karyawan.krs-khs.jadwal_kuliah.index',$data);
@@ -66,8 +65,14 @@ class JadwalKuliahController extends Controller
     }
 
     public function createAction(Request $request){
-
-        if (!empty(JadwalKuliah::where('hari_id',$request->input('hari_id'))->where('jam_id',$request->input('jam_id'))->where('ruang_id',$request->input('ruang_id'))->first())) {
+        $tahun = TahunAkademik::count();
+        $cek = DB::table('jadwal_kuliah')
+                ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','jadwal_kuliah.mk_ditawarkan_id')
+                ->where('mk_ditawarkan.thn_akademik_id',$tahun)
+                ->where('hari_id',$request->input('hari_id'))
+                ->where('jam_id',$request->input('jam_id'))
+                ->where('ruang_id',$request->input('ruang_id'))->first();
+        if (!empty($cek)) {
            Session::put('alert-danger', 'Jadwal Tabrakan');
 
         return Redirect::back();

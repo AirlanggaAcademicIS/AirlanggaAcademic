@@ -48,7 +48,7 @@ Silabus
     <td style="text-align:center"><a href="{{url('/mahasiswa/kurikulum/silabus/edit/'.$mk->id_mk)}}">{{$mk->kode_matkul}}</a></td>
     <td width="40%" style="text-align:center">{{$mk->nama_matkul}}</td>
     <td width="30%" style="text-align:center">
-      <a class="btn btn-info btn-xs">
+      <a target="__blank" href="{{url('/mahasiswa/kurikulum/silabus/pdf/'.$mk->id_mk)}}" class="btn btn-info btn-xs">
         <i class="fa fa-file-text-o" aria-hidden="true"></i> Download PDF</a>
     </td>
     @endforeach 
