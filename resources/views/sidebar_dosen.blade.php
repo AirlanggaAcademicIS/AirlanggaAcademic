@@ -1,50 +1,88 @@
+<!-- Monitoring Skripsi -->
 <li>
-<a href=""><i class='fa fa-users'></i> <span> Kegiatan Akademik </span></a>
-<ul class="treeview-menu">
-<!-- Sidebarnya ditaruh dibawah sini -->
+      <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
+      <ul class="treeview-menu">
+            <li
+            @if($page == 'skripsi')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <a href="{{ url('dosen/monitoring-skripsi/skripsi') }}"><i class='fa fa-id-card'></i><span> Data Skripsi</span></a>
+            </li>
+
+            <li
+            @if($page == 'konsultasi')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <a href="{{ url('dosen/monitoring-skripsi/konsultasi') }}"><i class='fa fa-handshake-o'></i><span> Konsultasi</span></a>
+            </li>
+
+            <li
+            @if($page == 'berkas')
+            {!! 'class="active"'!!}
+            @endif
+            >
+            <a href="{{ url('dosen/monitoring-skripsi/berkas') }}"><i class='fa fa-file-word-o '></i><span> Berkas</span></a>
+            </li>
+
+            <li
+              @if($page == 'jadwal-sidang')
+              {!! 'class="active"'!!}
+              @endif
+              >
+              <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Jadwal Sidang</a>
+              
+              <ul class="treeview-menu">
+                
+              <li
+              @if($page == 'manage-jadwal-sidang-proposal')
+              {!! 'claass="active"'!!}
+              @endif>
+              <a href="{{url('dosen/monitoring-skripsi/view-jadwal-sidang-proposal-dosen')}}"><i class='fa fa-circle-o'></i><span>Jadwal Sidang Proposal</span>
+              </a>
+              </li>
+
+              <li
+              @if($page == 'manage-jadwal-sidang-skripsi')
+              {!! 'claass="active"'!!}
+              @endif>
+              <a href="{{url('dosen/monitoring-skripsi/view-jadwal-sidang-skripsi-dosen')}}"><i class='fa fa-circle-o'></i><span>Jadwal Sidang Skripsi</span>
+              </a> 
+              </li>
 
 
-<li
-@if($page == 'pengajuan')
-{!! 'class="active"'!!}
-@endif>
-<a href="{{ url('dosen/pengelolaan-kegiatan/pengajuan') }}"><i class='fa fa-book'></i><span>Input Pengajuan <br>Kegiatan Akademik</span></a>
+              </ul>
+            </li>
+
+              <li
+              @if($page == 'hasil-sidang')
+              {!! 'class="active"'!!}
+              @endif
+              >
+              <a href="#"><i class="fa fa-certificate" aria-hidden="true"></i>Hasil Sidang</a>
+              
+              <ul class="treeview-menu">
+                
+              <li
+              @if($page == 'manage-hasil-sidang-proposal')
+              {!! 'claass="active"'!!}
+              @endif>
+              <a href="{{url('dosen/monitoring-skripsi/view-hasil-sidang-proposal-dosen')}}"><i class='fa fa-circle-o'></i><span>Hasil Proposal </span>
+              </a>
+              </li>
+
+              <li
+              @if($page == 'manage-hasil-sidang-skripsi')
+              {!! 'claass="active"'!!}
+              @endif>
+              <a href="{{url('dosen/monitoring-skripsi/view-hasil-sidang-skripsi-dosen')}}"><i class='fa fa-circle-o'></i><span>Hasil Skripsi </span>
+              </a>
+              </li>
+
+
+              </ul>
+              </li>
+      </ul>
 </li>
-
-<li
-@if($page == 'dokumentasi')
-{!! 'class="active"'!!}
-@endif>
-<a href="{{ url('dosen/pengelolaan-kegiatan/dokumentasi/create') }}"><i class='fa fa-book'></i><span>Input Laporan Pelaksanaan <br>Kegiatan Akademik</span></a>
-</li>
-
-<li
-@if($page == 'DiterimaProposal')
-{!! 'class="active"'!!}
-@endif>
-<a href="{{ url('dosen/pengelolaan-kegiatan/daftarPengajuanKonfirmasiProposal') }}"><i class='fa fa-calendar'></i><span>Kegiatan Akademik<br>Mendatang</span></a>
-</li>
-
-<li
-@if($page == 'DiterimaLPJ')
-{!! 'class="active"'!!}
-@endif>
-<a href="{{ url('dosen/pengelolaan-kegiatan/daftarPengajuanKonfirmasiLPJ') }}"><i class='fa fa-calendar-check-o'></i><span>Kegiatan Akademik <br> Terlaksana</span></a>
-</li>
-
-<li
-@if($page == 'DitolakProposal')
-{!! 'class="active"'!!}
-@endif>
-<a href="{{ url('dosen/pengelolaan-kegiatan/daftarPengajuanDitolak') }}"><i class='fa fa-exclamation-circle'></i><span>Revisi Pengajuan<br>Kegiatan Akademik </span></a>
-</li>
-
-<li
-@if($page == 'DitolakLPJ')
-{!! 'class="active"'!!}
-@endif>
-<a href="{{ url('dosen/pengelolaan-kegiatan/daftarPengajuanDitolakLPJ') }}"><i class='fa fa-exclamation-circle'></i><span>Revisi Laporan<br>Kegiatan Akademik </span></a>
-</li>
-
-</ul>
-</li>
+<!-- Akhir side bar monitoring skripsi harus ditutup dengan ul dan li jangan lupa -->

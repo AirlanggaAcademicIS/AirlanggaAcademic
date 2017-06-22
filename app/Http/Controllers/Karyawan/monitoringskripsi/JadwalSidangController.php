@@ -50,6 +50,16 @@ class JadwalSidangController extends Controller
 
     }
 
+       public function setTglProposalAttribute($value)
+   {
+       $this->attributes['tgl_sidangpro'] = date("Y-m-d", strtotime($value) );
+   }
+
+       public function setTglSkripsiAttribute($value)
+   {
+       $this->attributes['tgl_sidangskrip'] = date("Y-m-d", strtotime($value) );
+   }
+
     public function view_manage_jadwal_sidang_proposal()
     {
         # code...

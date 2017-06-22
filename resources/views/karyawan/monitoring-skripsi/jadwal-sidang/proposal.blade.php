@@ -742,7 +742,7 @@ Jadwal Sidang Proposal
 
                 var petugas = $('#edit-daftar-tambah-nip-jadwal-sidang-proposal').val();
 
-                alert(nim+" "+kbk+" "+judul_proposal+" "+tgl+" "+waktu+" "+tempat+" "+dosbing1+" "+dosbing2+" "+penguji+" "+petugas);
+          
  
                 $.ajax({
                      url: 'update-jadwal-sidang-proposal',
@@ -817,8 +817,8 @@ Jadwal Sidang Proposal
                       $('#edit-id-skripsi').val(skripsi.id_skripsi);
 
                       $('#edit-daftar-tambah-tanggal-jadwal-sidang-proposal').datepicker({
-                format: 'yyyy-mm-dd'
-                });
+                dateFormat: 'yy-mm-dd'
+                })
              $('#edit-daftar-tambah-waktu-jadwal-sidang-proposal').timepicker({
                 minuteStep: 1,
                 secondStep: 5,
@@ -858,8 +858,7 @@ Jadwal Sidang Proposal
 
                 var petugas = $('#daftar-tambah-nip-jadwal-sidang-proposal').val();
 
-                alert(nim+" "+kbk+" "+judul_proposal+" "+tgl+" "+waktu+" "+tempat+" "+dosbing1+" "+dosbing2+" "+penguji+" "+petugas);
- 
+               
                 $.ajax({
                      url: 'create-jadwal-sidang-proposal',
                     type: "post",
@@ -895,7 +894,7 @@ Jadwal Sidang Proposal
 
 
              $('#daftar-tambah-tanggal-jadwal-sidang-proposal').datepicker({
-                format: 'yyyy-mm-dd'
+                dateFormat: 'yy-mm-dd'
                 });
              $('#daftar-tambah-waktu-jadwal-sidang-proposal').timepicker({
                 minuteStep: 1,

@@ -1,50 +1,95 @@
-<li>
-<a href=""><i class='fa fa-users'></i> <span> Kegiatan Akademik </span></a>
-<ul class="treeview-menu">
-<!-- Sidebarnya ditaruh dibawah sini -->
+<!-- Monitoring SKripsi -->
+	<li>
+        <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
+        <ul class="treeview-menu">
+
+        	<li
+        	@if($page == 'form_usulan')
+        	{!! 'class="active"'!!}
+        	@endif>
+
+        	<a href="{{ url('mahasiswa/monitoring-skripsi/form_usulan') }}"><i class='fa fa-file-word-o'></i><span> Form Usulan</span></a>
+        	</li>
+
+			<li
+			@if($page == 'skripsi')
+			{!! 'class="active"'!!}
+			@endif>
+
+			<a href="{{ url('mahasiswa/monitoring-skripsi/skripsi') }}"><i class='fa fa-id-card'></i><span> Data Skripsi</span></a>
+			</li>
+
+			<li
+			@if($page == 'konsultasi')
+			{!! 'class="active"'!!}
+			@endif>
+
+			<a href="{{ url('mahasiswa/monitoring-skripsi/konsultasi') }}"><i class='fa fa-handshake-o'></i><span> Konsultasi</span></a>
+			</li>
+
+			<li
+			@if($page == 'upload_berkas')
+			{!! 'class="active"'!!}
+			@endif>
+
+			<a href="{{ url('mahasiswa/monitoring-skripsi/upload_berkas') }}"><i class='fa fa-upload'></i><span>Upload Berkas</span></a>
+			</li>
+
+			<li
+			@if($page == 'jadwal-sidang')
+			{!! 'class="active"'!!}
+			@endif
+			>
+			<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Jadwal Sidang</a>
+			
+			<ul class="treeview-menu">
+				
+				<li
+				@if($page == 'jadwal-sidang')
+				{!! 'class="active"'!!}
+				@endif
+				> <a href="{{ url('mahasiswa/monitoring-skripsi/view-jadwal-sidang-proposal-mahasiswa') }}"><i class="fa fa-circle-o"></i>Proposal</a>
+				</li>
+
+				<li
+				@if($page == 'jadwal-sidang')
+				{!! 'class="active"'!!}
+				@endif
+				> <a href="{{ url('mahasiswa/monitoring-skripsi/view-jadwal-sidang-skripsi-mahasiswa') }}"><i class="fa fa-circle-o"></i>Skripsi</a>
+				</li>
 
 
-<li
-@if($page == 'pengajuan')
-{!! 'class="active"'!!}
-@endif>
-<a href="{{ url('mahasiswa/pengelolaan-kegiatan/pengajuan') }}"><i class='fa fa-book'></i><span>Input Pengajuan <br>Kegiatan Akademik</span></a>
-</li>
+			</ul>
+			</li>
 
-<li
-@if($page == 'dokumentasi')
-{!! 'class="active"'!!}
-@endif>
-<a href="{{ url('mahasiswa/pengelolaan-kegiatan/dokumentasi/create') }}"><i class='fa fa-book'></i><span>Input Laporan Pelaksanaan <br>Kegiatan Akademik</span></a>
-</li>
+			<li
+			@if($page == 'hasil-sidang')
+			{!! 'class="active"'!!}
+			@endif
+			>
+			<a href="#"><i class="fa fa-certificate" aria-hidden="true"></i>Hasil Sidang</a>
+			
+			<ul class="treeview-menu">
+				
+				<li
+				@if($page == 'hasil-sidang')
+				{!! 'class="active"'!!}
+				@endif
+				> <a href="{{ url('mahasiswa/monitoring-skripsi/view-hasil-sidang-proposal-mahasiswa') }}"><i class="fa fa-circle-o"></i>Proposal</a>
+				</li>
 
-<li
-@if($page == 'DiterimaProposal')
-{!! 'class="active"'!!}
-@endif>
-<a href="{{ url('mahasiswa/pengelolaan-kegiatan/daftarPengajuanKonfirmasiProposal') }}"><i class='fa fa-calendar'></i><span>Kegiatan Akademik<br>Mendatang</span></a>
-</li>
+				<li
+				@if($page == 'hasil-sidang')
+				{!! 'class="active"'!!}
+				@endif
+				> <a href="{{ url('mahasiswa/monitoring-skripsi/view-hasil-sidang-skripsi-mahasiswa') }}"><i class="fa fa-circle-o"></i>Skripsi</a>
+				</li>
 
-<li
-@if($page == 'DiterimaLPJ')
-{!! 'class="active"'!!}
-@endif>
-<a href="{{ url('mahasiswa/pengelolaan-kegiatan/daftarPengajuanKonfirmasiLPJ') }}"><i class='fa fa-calendar-check-o'></i><span>Kegiatan Akademik <br> Terlaksana</span></a>
-</li>
 
-<li
-@if($page == 'DitolakProposal')
-{!! 'class="active"'!!}
-@endif>
-<a href="{{ url('mahasiswa/pengelolaan-kegiatan/daftarPengajuanDitolak') }}"><i class='fa fa-exclamation-circle'></i><span>Revisi Pengajuan<br>Kegiatan Akademik </span></a>
-</li>
+			</ul>
+			</li>
 
-<li
-@if($page == 'DitolakLPJ')
-{!! 'class="active"'!!}
-@endif>
-<a href="{{ url('mahasiswa/pengelolaan-kegiatan/daftarPengajuanDitolakLPJ') }}"><i class='fa fa-exclamation-circle'></i><span>Revisi Laporan<br>Kegiatan Akademik </span></a>
-</li>
-
-</ul>
-</li>
+			
+			</ul>
+			</li>
+<!-- Akhir side bar monitoring skripsi harus ditutup dengan ul dan li jangan lupa -->
