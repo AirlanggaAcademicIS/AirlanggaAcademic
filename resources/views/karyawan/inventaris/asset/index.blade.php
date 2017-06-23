@@ -114,6 +114,9 @@ Asset
         <a href="{{url('/inventaris/asset/barcode/'.$ass->id_asset.'')}}" class="btn btn-info btn-xs">
         <i class="fa fa-qrcode"></i> Get QRCODE</a>
 
+        <a href="{{url('/inventaris/asset/barcode/'.$ass->id_asset.'')}}" class="btn btn-info btn-xs">
+        <i class="fa fa-qrcode"></i> History Asset</a>
+
         </td>
         <td width="20%" style="text-align:center" >
         <a href="{{url('inventaris/maintenance/input-maintenance/'.$ass->id_asset.'')}}" class="btn btn-primary btn-xs">

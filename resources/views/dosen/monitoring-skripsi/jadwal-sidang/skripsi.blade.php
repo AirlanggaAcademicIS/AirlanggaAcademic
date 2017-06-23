@@ -24,7 +24,7 @@ Lihat Jadwal Sidang Skripsi
         <th data-field="state" data-radio="true"></th>
         <th data-field="id_skripsi" data-visible="false">Id Skripsi</th>
         <th data-field="nim">NIM</th>
-        <!-- <th>Nama</th> -->
+        <th data-field="nama_mhs">Nama</th>
         <th data-field="kbk">KBK</th>
         <th data-field="judul-proposal">Judul Skripsi</th>
         <!-- <th>Status Proposal</th> -->
@@ -51,6 +51,9 @@ Lihat Jadwal Sidang Skripsi
                                     {{ $jadwal_sidang_skripsi[$i]['nim']}}
                                 </td>
                                 <td>
+                                  {{$jadwal_sidang_skripsi[$i]['nama_mhs']}}
+                                </td>
+                                <td>
                                     <div>{{ $jadwal_sidang_skripsi[$i]['jenis_kbk']}}</div>
                                 </td>
                                 <td>
@@ -66,13 +69,13 @@ Lihat Jadwal Sidang Skripsi
                                     <div>{{ $jadwal_sidang_skripsi[$i]['ruang']}}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $jadwal_sidang_skripsi[$i]['dosen_pembimbing1']}}</div>
+                                    <div>{{ $jadwal_sidang_skripsi[$i]['nama_dosen_pembimbing1']}}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $jadwal_sidang_skripsi[$i]['dosen_pembimbing2']}}</div>
+                                    <div>{{ $jadwal_sidang_skripsi[$i]['nama_dosen_pembimbing2']}}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $jadwal_sidang_skripsi[$i]['dosen_penguji']}}</div>
+                                    <div>{{ $jadwal_sidang_skripsi[$i]['nama_dosen_penguji']}}</div>
                                 </td>
                                 <!-- <td class="table-text">
                                     <div>{{ $jadwal_sidang_skripsi[$i]['nim']}}</div>

@@ -22,7 +22,7 @@
 
 <!-- Latest compiled and minified Locales -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
-
+<script src="{{ asset('/js/jquery-ui.js') }}" type="text/javascript"></script>
 <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script> -->
 <script src="{{ asset('/js/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
 

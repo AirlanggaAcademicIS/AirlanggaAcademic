@@ -6,11 +6,11 @@
 @endsection
 
 @section('htmlheader_title')
-Data Mahasiswa Skripsi
+Form Usulan 
 @endsection
 
 @section('contentheader_title')
-Data Mahasiswa Skripsi
+Form Usulan 
 @endsection
 
 @section('main-content')
@@ -45,10 +45,11 @@ Data Mahasiswa Skripsi
       <td width="15%" style="text-align:center">{{$skrip->mhs['nama_mhs']}}</td>
       <td width="10%" style="text-align:center">{{$skrip->NIM_id}}</td>
       <td width="10%" style="text-align:center" >
-      @if($skrip->upload_berkas_proposal != "")
-      <a href="{{url('karyawan/monitoring-skripsi/form_usulan/'.$skrip->NIM_id.'/download')}}" class="btn btn-info btn-xs">
+      @if($skrip->upload_berkas_proposal == "")
+      Belum ada file
+        @else 
+        <a href="{{url('karyawan/monitoring-skripsi/form_usulan/'.$skrip->NIM_id.'/download')}}" class="btn btn-info btn-xs">
         <i class="fa fa-download"></i> Download</a>
-        @else Belum ada file
         @endif
         </td>
     </tr>

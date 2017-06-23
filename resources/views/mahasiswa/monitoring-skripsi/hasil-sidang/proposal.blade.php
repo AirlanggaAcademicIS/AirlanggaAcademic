@@ -43,7 +43,7 @@ Hasil Sidang Proposal
         <th data-field="dosbing1">Dosen Pembimbing 1</th>
         <th data-field="dosbing2">Dosen Pembimbing 2</th>
         <th data-field="dosji">Dosen Penguji</th>
-        <th data-field="status_skripsi">Status Skripsi</th>
+        <th data-field="status_skripsi">Status Proposal</th>
         <th data-field="nilai">Nilai</th>
       </tr>
     </thead>
@@ -72,13 +72,13 @@ Hasil Sidang Proposal
                                 </td>
                                
                                 <td>
-                                    <div>{{ $hasil_sidang_proposal[$i]['dosen_pembimbing1']}}</div>
+                                    <div>{{ $hasil_sidang_proposal[$i]['nama_dosen_pembimbing1']}}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $hasil_sidang_proposal[$i]['dosen_pembimbing2']}}</div>
+                                    <div>{{ $hasil_sidang_proposal[$i]['nama_dosen_pembimbing2']}}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $hasil_sidang_proposal[$i]['dosen_penguji']}}</div>
+                                    <div>{{ $hasil_sidang_proposal[$i]['nama_dosen_penguji']}}</div>
                                 </td>
                                 <td>
                                     <div>{{ $hasil_sidang_proposal[$i]['status_proposal']}}</div>

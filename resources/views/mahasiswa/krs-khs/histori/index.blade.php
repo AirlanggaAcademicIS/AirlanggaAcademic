@@ -44,48 +44,55 @@ Histori Nilai
     $total = 0;
     $sks = 0;
     @endphp
+
    @forelse($histori as $i => $h) 
     <tr>
       <td width="5%" style="text-align:center">{{ $i+1 }}</td>
-      <td width="30%" style="text-align:center">{{$h->MKDitawarkan->MK->nama_matkul}}</td>
+      <td width="30%" style="text-align:center">{{$h->MKDitawarkan->mk->nama_matkul}}</td>
+      <td width="15%" style="text-align:center">{{$h->MKDitawarkan->mk->sks}}</td>
+      @if($h->nilai == "K")
       @php
-      $sks = $sks + $h->MKDitawarkan->MK->sks
+      $sks= $sks + 0
       @endphp
-      <td width="15%" style="text-align:center">{{$h->MKDitawarkan->MK->sks}}</td>
+      @else
+      @php
+      $sks = $sks + $h->MKDitawarkan->mk->sks
+      @endphp
+      @endif
       <td width="15%" style="text-align:center">{{$h->nilai}}</td>
       @if($h->nilai=="A")
       @php
-      $total = $total + (4 * $h->MKDitawarkan->MK->sks)
+      $total = $total + (4 * $h->MKDitawarkan->mk->sks)
       @endphp
-      <td width="20%" style="text-align:center">{{4 * $h->MKDitawarkan->MK->sks}} </td>
+      <td width="20%" style="text-align:center">{{4 * $h->MKDitawarkan->mk->sks}} </td>
       @elseif($h->nilai=="AB")
       @php
-      $total = $total + (3.5 * $h->MKDitawarkan->MK->sks)
+      $total = $total + (3.5 * $h->MKDitawarkan->mk->sks)
       @endphp
-      <td width="20%" style="text-align:center">{{3.5 * $h->MKDitawarkan->MK->sks}} </td>
+      <td width="20%" style="text-align:center">{{3.5 * $h->MKDitawarkan->mk->sks}} </td>
       @elseif($h->nilai=="B")
       @php
-      $total = $total + (3 * $h->MKDitawarkan->MK->sks)
+      $total = $total + (3 * $h->MKDitawarkan->mk->sks)
       @endphp
-      <td width="20%" style="text-align:center">{{3 * $h->MKDitawarkan->MK->sks}} </td>
+      <td width="20%" style="text-align:center">{{3 * $h->MKDitawarkan->mk->sks}} </td>
       @elseif($h->nilai=="BC")
       @php
-      $total = $total + (2.5 * $h->MKDitawarkan->MK->sks)
+      $total = $total + (2.5 * $h->MKDitawarkan->mk->sks)
       @endphp
-      <td width="20%" style="text-align:center">{{2.5 * $h->MKDitawarkan->MK->sks}} </td>
+      <td width="20%" style="text-align:center">{{2.5 * $h->MKDitawarkan->mk->sks}} </td>
       @elseif($h->nilai=="C")
       @php
-      $total = $total + (2 * $h->MKDitawarkan->MK->sks)
+      $total = $total + (2 * $h->MKDitawarkan->mk->sks)
       @endphp
-      <td width="20%" style="text-align:center">{{2 * $h->MKDitawarkan->MK->sks}} </td>
+      <td width="20%" style="text-align:center">{{2 * $h->MKDitawarkan->mk->sks}} </td>
       @elseif($h->nilai=="D")
       @php
-      $total = $total + (1 * $h->MKDitawarkan->MK->sks)
+      $total = $total + (1 * $h->MKDitawarkan->mk->sks)
       @endphp
-      <td width="20%" style="text-align:center">{{1 * $h->MKDitawarkan->MK->sks}} </td>
+      <td width="20%" style="text-align:center">{{1 * $h->MKDitawarkan->mk->sks}} </td>
       @else
       @php
-      $total = $total + (0 * $h->MKDitawarkan->MK->sks)
+      $total = $total + (0 * $h->MKDitawarkan->mk->sks)
       @endphp
       <td width="20%" style="text-align:center">0</td>
       @endif  
@@ -99,6 +106,15 @@ Histori Nilai
   <tfoot>
     <td width="20%" style="text-align:center">Total Bobot : {{$total}}</td>
     <td width="20%" style="text-align:center">Total SKS : {{$sks}}</td>
+    @if($sks==0)
+    @php
+    $ipk=0
+    @endphp
+    @else
+    @php
+    $ipk=$total / $sks
+    @endphp
+    @endif
     <td width="20%" style="text-align:center">IPK : {{$ipk}}</td>
   </tfoot>
 </table>

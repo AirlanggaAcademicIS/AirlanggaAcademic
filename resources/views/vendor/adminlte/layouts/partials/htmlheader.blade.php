@@ -23,6 +23,7 @@
    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css"> -->
     <link href="{{ asset('/css/bootstrap-tagsinput.css') }}" rel="stylesheet">
     <link href="{{ asset('/js/plugins/timepicker/bootstrap-timepicker.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/css/jquery-ui.css') }}" rel="stylesheet">
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),

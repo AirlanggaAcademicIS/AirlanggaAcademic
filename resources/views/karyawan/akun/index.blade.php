@@ -37,8 +37,8 @@ Kelola Akun Mahasiswa
     <tr>
       <th style="text-align:center">No.</th>
       <th style="text-align:center">NIM</th>  
-      <th style="text-align:center">NIP Dosen Wali</th>   
-      <th style="text-align:center">NIP_id</th>
+      <th style="text-align:center">Nama Mahasiswa</th>   
+      <th style="text-align:center">Dosen Wali</th>
       <th style="text-align:center">Angkatan</th>   
       <th style="text-align:center">E-mail Mahasiswa</th>    
       <th style="text-align:center">Fakultas</th>
@@ -54,7 +54,11 @@ Kelola Akun Mahasiswa
       <td>{{ $i+1 }}</td>
       <td width="10%" style="text-align:center">{{$bio->nim}}</td>
       <td width="10%" style="text-align:center">{{$bio->nama_mhs}}</td>
-      <td width="10%" style="text-align:center">{{$bio->nip_id}}</td>
+      @if (($bio->nip_id)!= '')
+      <td width="10%" style="text-align:center">{{$bio->nama_dosen}}</td>
+      @else
+      <td width="10%" style="text-align:center">Belum ada dosen wali</td>
+      @endif
       <td width="10%" style="text-align:center">{{$bio->angkatan}}</td>
       <td width="10%" style="text-align:center">{{$bio->email_mhs}}</td>
       <td width="20%" style="text-align:center">Fakultas Sains dan Teknologi</td>

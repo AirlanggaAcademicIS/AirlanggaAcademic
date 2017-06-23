@@ -299,14 +299,21 @@ Verifikasi Prestasi Mahasiswa
                 <select name="ps_is_verified" class="form-control select2" value= "{{$prestasi->ps_is_verified}}" required>
                 @if (($prestasi->ps_is_verified)=='1')
                   <option selected="selected" value="1">Diterima</option>
-                  <option value="2">Ditolak</option>
+                  <option value="2">Revisi</option>
+                  <option value="3">Ditolak</option>
                 @elseif (($prestasi->ps_is_verified)=='2')
                   <option value="1">Diterima</option>
-                  <option selected="selected" value="2">Ditolak</option>
+                  <option selected="selected" value="2">Revisi</option>
+                  <option value="3">Ditolak</option>
+                @elseif (($prestasi->ps_is_verified)=='3')
+                  <option value="1">Diterima</option>
+                  <option value="2">Revisi</option>
+                  <option selected="selected" value="3">Ditolak</option>
                 @else
                   <option selected="selected">-----</option>
                   <option  value="1">Diterima</option>
-                  <option value="2">Ditolak</option>
+                  <option value="2">Revisi</option>
+                  <option value="3">Ditolak</option>
                 @endif
                 </select>
                 </div>
@@ -322,8 +329,8 @@ Verifikasi Prestasi Mahasiswa
               <div class="form-group">
                   <label for="alasan" class="col-sm-2 control-label">Alasan</label>
                   <div class="col-md-8">
-                  <textarea name="alasan_verified" type="text" class="form-control" rows="1" placeholder="Alasan" value= "{{$prestasi->alasan_verified}}"></textarea>
-                  <p class="help-block">*Silahkan isi alasan jika ditolak</p>
+                  <input name="alasan_verified" type="text" class="form-control" rows="1" placeholder="Alasan" value= "{{$prestasi->alasan_verified}}"></input>
+                  <p class="help-block">*Silahkan isi alasan jika prestasi perlu direvisi/ditolak</p>
                   </div>
                 </div>
                 <div class="col-md-8 col-md-offset-2">

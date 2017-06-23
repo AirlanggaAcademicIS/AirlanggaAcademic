@@ -26,11 +26,7 @@ Notulensi Rapat
   @endif
   @endforeach
 </div>
-<div style="margin-bottom: 10px">
-  <!-- Href ini biar diklik masuk ke form tambah -->
-  <a href="{{url('/notulensi/create')}}" class="btn btn-primary btn-l">
-              <i class="fa fa-plus"></i> Tambah Notulensi</a>
-              </div>
+
  
 <div class="box-body">
               <table id="data-table" class="table" style="width:100%">
@@ -68,10 +64,8 @@ Notulensi Rapat
       {{'Sudah Diferivikasi'}}
       @endif
       </td>
-      <td width="60%" style="text-align:center" ><a onclick="return confirm('Anda yakin untuk menghapus jenis penilaian ini?');" href="{{url('/notulensi/'.$a->id_notulen.'/delete/')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-trash-o"></i> Hapus</a>
-        <a href="{{url('/notulensi/'.$a->id_notulen.'/edit/')}}" class="btn btn-warning btn-xs">
-        <i class="fa fa-pencil-square-o"></i> Edit</a></td>
+      <td width="60%" style="text-align:center" > <a href="{{url('/notulensi/'.$a->id_notulen.'/create/')}}" class="btn btn-warning btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Tambah Notulensi</a></td>
 
      
     </tr>

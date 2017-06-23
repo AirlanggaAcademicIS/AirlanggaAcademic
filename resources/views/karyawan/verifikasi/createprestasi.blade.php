@@ -19,7 +19,7 @@ Verifikasi Prestasi
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Tabel Prestasi Mahasiswa</h3>
+              <h3 class="box-title">Tabel Prestasi Mahasiswa </h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -27,23 +27,30 @@ Verifikasi Prestasi
                 <thead>
                 <tr>
                   <th>Nim</th>
+                  <th>Nama</th>
+                  <th>Angkatan</th>
                   <th>Prestasi</th>
                   <th>Status Verifikasi</th>
-                  <th>View More</th>
+                  <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                 @forelse($prestasi as $i => $pres)
                   <tr>
+
                   <td>{{$pres->nim_id}}</td>
+                  <td>{{$pres->nama_mhs}}</td>
+                  <td>{{$pres->angkatan}}</td>
                   <td>{{$pres->prestasi}}</td>
                   @if(($pres->ps_is_verified)== '0')
                   <td>Proses</td>
                   @elseif(($pres->ps_is_verified)== '1')
                   <td>Terverifikasi</td>
+                  @elseif(($pres->ps_is_verified)=='2')
+                  <td>Revisi</td>
                   @else
                   <td>Verifikasi Ditolak</td>
-                  @endif
+                  @endif          
                   <td> <button type="button" class="btn btn-default btn-block"><a href="{{url('/karyawan/verifikasi/'.$pres->id_prestasi.'/prestasi/')}}">View More</a></button> </td>
                 </tr>
                 @empty

@@ -64,12 +64,20 @@ Edit Akun Mahasiswa
 				</div>
 
 				<div class="form-group">
-					<label for="nlp_id" class="col-sm-2 control-label">NIP Dosen Wali</label>
+					<label for="nlp_id" class="col-sm-2 control-label">Dosen Wali</label>
 					<div class="col-md-8">
 					<select class="form-control input-lg" id="nlp_id" name="nlp_id" placeholder="Masukkan NIP Dosen Wali" required>
+						@if (($akun->nip_id)!= '')
 						@foreach ($dosen as $k)
-						<option value="{{$k->nip}}">{{$k->nip}}</option>
+						<option value="{{$k->nip}}" selected>{{$k->nama_dosen}}</option>
 						@endforeach 
+						<option value="" >--Belum ada dosen wali--</option>
+						@else
+						@foreach ($dosen as $k)
+						<option value="{{$k->nip}}">{{$k->nama_dosen}}</option>
+						@endforeach 
+						<option value="" selected>--Belum ada dosen wali--</option>
+						@endif
 						</select>
 					</div>
 				</div>

@@ -67,11 +67,11 @@ Penelitian Mahasiswa
       <td width="10%" style="text-align:center">{{$bio->tahun}}</td>
 
       @if (($bio->is_verified)==0)
-      <td width="10%" style="text-align:center"><span class="label label-warning">Process</span></td>
+      <td width="10%" style="text-align:center"><span class="label label-default">Proses</span></td>
       @elseif (($bio->is_verified)==1)
-      <td width="10%" style="text-align:center"><span class="label label-success">Approved</span></td>
+      <td width="10%" style="text-align:center"><span class="label label-success">Diterima</span></td>
       @else
-      <td width="10%" style="text-align:center"><span class="label label-danger">Rejected</span>, alasan : {{$bio->alasan_verified}}</td>
+      <td width="10%" style="text-align:center"><span class="label label-warning">Revisi</span></td>
       @endif
 
        @if (($bio->is_verified)==0)
@@ -81,10 +81,10 @@ Penelitian Mahasiswa
         <a href="{{url('/mahasiswa/penelitian/'.$bio->kode_penelitian.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
       </td>
-      @else
+      @elseif (($bio->is_verified)==2)
       <td width="20%" style="text-align:center" >
-        <a onclick="return confirm('Anda yakin untuk menghapus penelitian ini?');" href="{{url('/mahasiswa/penelitian/'.$bio->kode_penelitian.'/delete/')}}" class="btn btn-danger btn-xs">
-        <i class="fa fa-trash-o"></i> Hapus</a>
+        <a href="{{url('/mahasiswa/penelitian/'.$bio->kode_penelitian.'/edit/')}}" class="btn btn-warning btn-xs">
+        <i class="fa fa-pencil-square-o"></i> Edit</a>
       </td>    
       @endif
 
