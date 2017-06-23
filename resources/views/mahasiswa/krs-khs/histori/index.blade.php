@@ -56,7 +56,7 @@ Histori Nilai
       @endphp
       @else
       @php
-      $sks = $sks + $h->MKDitawarkan->mk->sks
+      $sks = $sks + $h->sks
       @endphp
       @endif
       <td width="15%" style="text-align:center">{{$h->nilai}}</td>
@@ -116,6 +116,8 @@ Histori Nilai
     @endphp
     @endif
     <td width="20%" style="text-align:center">IPK : {{$ipk}}</td>
+    <td width="20%" style="text-align:center"></td>
+    <td width="20%" style="text-align:center"></td>
   </tfoot>
 </table>
 </div>

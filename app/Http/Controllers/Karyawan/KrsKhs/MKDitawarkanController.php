@@ -80,14 +80,13 @@ class MKDitawarkanController extends Controller
         $tahun_akhir = $request->input('tahun_akhir');
         $periode = $request->input('periode');
         $input = $tahun_awal.'/'.$tahun_akhir.' '.$periode;
-        $cek_thn=TahunAkademik::where('semester_periode',$input)->get();
-
+        $cek_thn=TahunAkademik::where('semester_periode',$input)->first();
         if($tahun_akhir-$tahun_awal!=1){
         Session::put('alert-danger', 'Tahun akademik harus urut');
         return Redirect::back();
         }
         
-        if(!empty($cek_thn)){
+        if(empty($cek_thn)){
         $tahun = TahunAkademik::create(
             [
             'semester_periode'=>$input, 
@@ -95,7 +94,7 @@ class MKDitawarkanController extends Controller
             );
         }
 
-        else{
+        else {
             $tahun = $cek_thn;
         }
 

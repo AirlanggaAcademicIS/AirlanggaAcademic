@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <li class="treeview">
       <a href=""><i class='fa fa-users'></i> <span> Kurikulum</span></a>
       <ul class="treeview-menu">
@@ -72,7 +71,7 @@
   {!! 'class="active"'!!}
   @endif
 >
-<a href="{{ url('mahasiswa/krs-khs/krs/index') }}"><i class="fa fa-calculator"></i>Krs</a>
+<a href="{{ url('mahasiswa/krs-khs/krs/index') }}"><i class="fa fa-calculator"></i>Kartu Rencana Studi</a>
 </li>
 </ul>
 </li>
@@ -227,7 +226,7 @@
       
       </ul>
       </li>
-=======
+
 <!-- Monitoring SKripsi -->
 	<li>
         <a href=""><i class='fa fa-users'></i> <span> Monitoring Skripsi</span></a>
@@ -322,5 +321,4 @@
 			
 			</ul>
 			</li>
->>>>>>> 9d6884d2a53a2f2c0572c4d2f4f22596de334e07
 <!-- Akhir side bar monitoring skripsi harus ditutup dengan ul dan li jangan lupa -->

@@ -289,3 +289,21 @@
       </ul>
 </li>
 <!-- Akhir side bar monitoring skripsi harus ditutup dengan ul dan li jangan lupa -->
+<!-- MODUL KRS KHS -->
+<li
+  @if($page == 'mahasiswa')
+  {!! 'class="active"'!!}
+  @endif
+>
+<a href="{{url('dosen/krs-khs/approve/view')}}"><i class='fa fa-users'></i><span>Mahasiswa Wali</span>
+</a>
+</li>
+
+<li
+@if($page == 'mk_diajar')
+{!! 'class="active"'!!}
+@endif
+>
+<a href="{{ url('dosen/krs-khs/mk_diajar') }}"><i class="fa fa-calculator" aria-hidden="true"></i>Mata Kuliah Diajar</a>
+</li>
+<!-- Akhir modul krs khs -->

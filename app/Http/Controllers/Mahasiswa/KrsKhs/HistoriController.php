@@ -83,7 +83,10 @@ class HistoriController extends Controller
             }
         $data = [
         'page' => 'histori',
-        'histori' => Histori::where('mhs_id',$nim_id)->get(),
+        'histori' => DB::table('mk_diambil')
+                    ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','mk_diambil.mk_ditawarkan_id')
+                    ->join('mata_kuliah','mk_ditawarkan.matakuliah_id','mata_kuliah.id_mk')
+                    ->where('mhs_id',$nim_id)->get(),
         'mk' => MK::all(),
         'ipk' => $ipk,
         ];
