@@ -113,7 +113,7 @@ class PengajuanController extends Controller
 
         ];
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('dosen.pengelolaan-kegiatan.status.dikonfirmasi',$data);
+        return view('dosen.pengelolaan-kegiatan.status.dikonfirmasiLPJ',$data);
     }
      public function ditolak()
     {
@@ -125,19 +125,25 @@ class PengajuanController extends Controller
             'Status' => DB::table('dosen_kegiatan')
             ->join('pengajuan_kegiatan','pengajuan_kegiatan.id_kegiatan' , '=', 'dosen_kegiatan.kegiatan_id') 
             ->join('biodata_dosen', 'biodata_dosen.nip', '=', 'dosen_kegiatan.nip_id')
-            ->join('dokumentasi','dokumentasi.kegiatan_id','=','dosen_kegiatan.kegiatan_id')
             ->select('*')
             ->where('dosen_kegiatan.nip_id', '=', $nip)
             ->where('pengajuan_kegiatan.konfirmasi_proposal','=','2')
             ->where('pengajuan_kegiatan.konfirmasi_lpj','=','0')
             ->whereNull('pengajuan_kegiatan.deleted_at')
             ->get(),
+        ];
+        // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
+        return view('dosen.pengelolaan-kegiatan.status.ditolak',$data);
+    }
 
-
+     public function ditolakLPJ()
+    {
+         $nip = Auth::user()->username;
+        $data = [
+            'page' => 'Status',
              'StatusLPJ' => DB::table('dosen_kegiatan')
             ->join('pengajuan_kegiatan','pengajuan_kegiatan.id_kegiatan' , '=', 'dosen_kegiatan.kegiatan_id') 
             ->join('biodata_dosen', 'biodata_dosen.nip', '=', 'dosen_kegiatan.nip_id')
-            ->join('dokumentasi','dokumentasi.kegiatan_id','=','dosen_kegiatan.kegiatan_id')
             ->select('*')
             ->where('dosen_kegiatan.nip_id', '=', $nip)
             ->where('pengajuan_kegiatan.konfirmasi_proposal','=','1')
@@ -146,8 +152,9 @@ class PengajuanController extends Controller
             ->get(),
         ];
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('dosen.pengelolaan-kegiatan.status.ditolak',$data);
+        return view('dosen.pengelolaan-kegiatan.status.ditolakLPJ',$data);
     }
+
     public function create()
     {
         $data = [

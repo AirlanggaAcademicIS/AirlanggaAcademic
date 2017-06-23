@@ -31,6 +31,10 @@ class PengajuanKegiatan extends Model
     'deleted_at',
   ];
 
-
+public function coba()
+{
+  # code...
+  return $this->belongsTo('App\Dokumentasi','id_kegiatan');
+}
 
 }

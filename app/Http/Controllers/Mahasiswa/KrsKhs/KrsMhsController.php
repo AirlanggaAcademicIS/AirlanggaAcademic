@@ -18,6 +18,7 @@ use App\Models\KrsKhs\MataKuliah;
 use App\Models\KrsKhs\JenisMataKuliah;
 use App\Models\KrsKhs\TahunAkademik;
 use App\Models\KrsKhs\BiodataMahasiswa;
+
 class KrsMhsController extends Controller
 {
     // Function untuk menampilkan tabel
@@ -36,7 +37,6 @@ class KrsMhsController extends Controller
             ->select('*')
             ->where('mhs_id',$nim_id)
             ->where('mk_ditawarkan.thn_akademik_id',$tahun)
-            //->where('thn_akademik_id', $tahun)
             ->sum('mata_kuliah.sks');
 
         $data = [
@@ -52,6 +52,7 @@ class KrsMhsController extends Controller
             ->where('mhs_id','=',$nim_id)
             ->where('mk_ditawarkan.thn_akademik_id',$tahun)
             ->get(),
+
         'histori' => DB::table('mk_diambil')
                     ->join('mk_ditawarkan','mk_diambil.mk_ditawarkan_id','mk_ditawarkan.id_mk_ditawarkan')
                     ->join('mata_kuliah','mk_ditawarkan.matakuliah_id','mata_kuliah.id_mk')
@@ -207,7 +208,7 @@ class KrsMhsController extends Controller
             ->where('mhs_id',$nim_id)
             ->sum('mata_kuliah.sks');
 
-        $sks_mk         = DB::table('mata_kuliah')
+        $sks_mk = DB::table('mata_kuliah')
             ->join('mk_ditawarkan','mk_ditawarkan.matakuliah_id','mata_kuliah.id_mk')
             ->where('mk_ditawarkan.id_mk_ditawarkan',$id)
             ->first();
@@ -253,21 +254,22 @@ class KrsMhsController extends Controller
 
         $syaratMK = DB::table('mk_diambil')
         ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','mk_diambil.mk_ditawarkan_id')
-        ->select('mk_ditawarkan.matakuliah_id')
-        ->where('mhs_id','=',$nim_id)
-        ->where('mk_ditawarkan.id_mk_ditawarkan','=',$id)
-        ->where('nilai','!=','K')
-        ->where('is_approve','=','0')
+        ->select('*')
+        ->where('mhs_id',$nim_id)
+        ->whereNotIn('nilai', ['K','D','E'])
         ->get();
 
         $cek_syarat = DB::table('mk_ditawarkan')
                         ->join('mk_prasyarat','mk_ditawarkan.matakuliah_id','mk_prasyarat.mk_id')
                         ->where('id_mk_ditawarkan',$id)
                         ->get();
+        $count_syarat = DB::table('mk_ditawarkan')
+                        ->join('mk_prasyarat','mk_ditawarkan.matakuliah_id','mk_prasyarat.mk_id')
+                        ->where('id_mk_ditawarkan',$id)->count();
 
         $jadwal  = DB::table('mk_diambil')
         ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','mk_diambil.mk_ditawarkan_id')
-        ->join('jadwal_kuliah','jadwal_kuliah.mk_ditawarkan_id','=','mk_diambil.mk_ditawarkan_id')
+        ->join('jadwal_kuliah','jadwal_kuliah.mk_ditawarkan_id','mk_diambil.mk_ditawarkan_id')
         ->select('jadwal_kuliah.jam_id','jadwal_kuliah.hari_id')
         ->where('mhs_id',$nim_id)
         ->where('mk_ditawarkan.thn_akademik_id',$tahun)
@@ -291,7 +293,7 @@ class KrsMhsController extends Controller
             }
         }
         //Syarat 2 : Limit Sks
-        if ($lmt < $sks_ditawarkan->sks){
+        if ($lmt_tersisa  < $sks_ditawarkan->sks){
             Session::put('alert-danger', 'SKS tidak mencukupi !');
             return Redirect::back();
         }
@@ -303,13 +305,17 @@ class KrsMhsController extends Controller
         }
 
         if(!empty($cek_syarat)){
+            $i=0;
             foreach ($cek_syarat as $s) {
                 foreach ($syaratMK as $c) {
-                    if ($s->mk_syarat_id != $c->matakuliah_id){
-                        Session::put('alert-danger', 'Prasyarat mata kuliah belum terpenuhi !');
-                        return Redirect::back();
+                    if ($s->mk_syarat_id == $c->matakuliah_id){
+                       $i=$i+1;
                         }
                 }
+            }
+            if($count_syarat!=$i){
+                Session::put('alert-danger', 'Prasyarat mata kuliah belum terpenuhi !');
+                        return Redirect::back();
             }
         }
         // Syarat 4 : Syarat mk
@@ -322,7 +328,6 @@ class KrsMhsController extends Controller
             ]);
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'Mata kuliah berhasil ditambahkan');
-        // Kembali ke halaman mahasiswa/biodata
         return Redirect::back();
     }
 

@@ -59,10 +59,15 @@ Capaian Pembelajaran
       <td width="10%" style="text-align:center">
         <a onclick="return confirm('Anda yakin untuk menghapus data ini?');" href="{{url('/dosen/kurikulum/capaian-pembelajaran/'.$cp->id_cpem.'/delete/')}}" class="btn btn-danger btn-xs">
         <i class="fa fa-trash-o"></i> Hapus</a>
+<<<<<<< HEAD
+          <a href="{{url('/dosen/kurikulum/capaian-pembelajaran/'.$cp->id_cpem.'/edit/')}}" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i> Edit</a>
+        </td>
+=======
         
         <a href="{{url('/dosen/kurikulum/capaian-pembelajaran/'.$cp->id_cpem.'/edit/')}}" class="btn btn-warning btn-xs">
         <i class="fa fa-pencil-square-o"></i> Edit</a>
       </td>
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
     </tr>
 
      @empty

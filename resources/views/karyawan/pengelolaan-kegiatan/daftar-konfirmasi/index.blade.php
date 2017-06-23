@@ -49,8 +49,7 @@ Daftar Konfirmasi Kegiatan
       <td width="10%" style="text-align:center">{{$konfirmasi_kegiatan->tglpengajuan}}</td>
       <td width="10%" style="text-align:center">{{$konfirmasi_kegiatan->tglpelaksanaan}}</td>
       <td width="20%" style="text-align:center">
-        <a href="{{url('/karyawan/pengelolaan-kegiatan/detail-pengajuan/'.$konfirmasi_kegiatan->id_kegiatan)}}" class="btn btn-success btn-xs"> View Detail</a>
-        <a href="{{url('karyawan/pengelolaan-kegiatan/dokumentasi/download/'.$konfirmasi_kegiatan->id_kegiatan)}}" class="btn btn-success btn-xs"> Download</a>
+        <a href="{{url('/karyawan/pengelolaan-kegiatan/detail-pengajuan/'.$konfirmasi_kegiatan->id_kegiatan.'/daftar-konfirmasi/proposal')}}" class="btn btn-success btn-xs"> View Detail</a>
       </td>
     </tr>
 
@@ -63,43 +62,6 @@ Daftar Konfirmasi Kegiatan
 
   </tbody>
 
-</table>
-</div>
-
-<!--Tabel LPJ-->
-<div style="overflow: auto">
-<h2>Daftar Laporan Penanggung Jawaban Kegiatan</h2>
-<table id="lpjTable" class="table table-striped table-bordered" cellspacing="0">
-  <thead>
-    <tr>
-      <th width="10%" style="text-align:center">No</th>
-      <th width="20%" style="text-align:center">Nama LPJ</th>      
-      <th width="10%" style="text-align:center">Tanggal Pengajuan</th>
-      <th width="10%" style="text-align:center">Tanggal Pelaksanaan</th>
-      <th width="20%" style="text-align:center">Tindakan</th>
-     </tr>
-    </thead>
-  <tbody>
-   @forelse($konfirmasiLPJ as $i => $konfirmasi_kegiatan) 
-    <tr>
-      <td width="10%" style="text-align:center">{{$i+1}}</td>
-      <td width="20%" style="text-align:center">{{ $konfirmasi_kegiatan->nama }}</td>
-      <td width="10%" style="text-align:center">{{$konfirmasi_kegiatan->tglpengajuan}}</td>
-      <td width="10%" style="text-align:center">{{$konfirmasi_kegiatan->tglpelaksanaan}}</td>
-      <td width="20%" style="text-align:center">
-        <a href="{{url('/karyawan/pengelolaan-kegiatan/detail-pengajuan/'.$konfirmasi_kegiatan->id_kegiatan)}}" class="btn btn-success btn-xs"> View Detail</a>
-        <a href="{{url('karyawan/pengelolaan-kegiatan/dokumentasi/download/'.$konfirmasi_kegiatan->id_kegiatan)}}" class="btn btn-success btn-xs"> Download</a>
-      </td>
-    </tr>
-
-
-     @empty
-        <tr>
-          <td colspan="6"><center>Belum ada lpj yang dikonfirmasi</center></td>
-        </tr>
-   
-    @endforelse
-  </tbody>
 </table>
 </div>
 

@@ -114,7 +114,7 @@ Input Struktur Panitia Kegiatan
         </div>
       
         <div class="modal-body" class="col-sm-12">
-          <label for="mahasiswa" class="col-sm-2 control-label">Mahasiswa</label>
+          <label for="mahasiswa" class="col-sm-2 control-label">Dosen</label>
              <select class="form-control input-sm" name="panitiaKegiatan" id="panitiaKegiatan" value="{{$pan->nip_id}}">
             
             <option value="{{ $pan->nip_id }}"> {{$pan->dosen['nama_dosen']}}</option>

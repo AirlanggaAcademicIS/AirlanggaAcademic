@@ -64,7 +64,7 @@ Pengajuan Proposal Kegiatan Akademik
                 <div class="form-group">
           <label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
           <div class="col-md-8">
-            <textarea id="nama" name="nama" placeholder=" Masukkan Nama" required cols="82" rows="5">
+            <textarea id="nama" name="nama" placeholder=" Masukkan Nama" required cols="82" rows="2">
             </textarea>
           </div>
         </div>

@@ -11,7 +11,14 @@ use Validator;
 use Response;
 // Tambahkan model yang ingin dipakai
 use App\Dokumentasi;
-
+use App\PengajuanKegiatan;
+use App\RincianRundown;
+use App\RincianDana;
+use App\StrukturPanitiaDosen;
+use App\StrukturPanitia;
+use Auth;
+use Illuminate\Support\Facades\DB;
+use PDF;
 
 class DokumentasiController extends Controller
 {
@@ -77,5 +84,70 @@ class DokumentasiController extends Controller
         // Kembali ke halaman mahasiswa/biodata
         return Redirect::to('karyawan/pengelolaan-kegiatan/dokumentasi');
     }
+     public function toPdf($id_kegiatan)
+    {   
+        $data = [
+            'kegiatan' => PengajuanKegiatan::find($id_kegiatan),
+            'struktur' => StrukturPanitia::where('kegiatan_id','=',$id_kegiatan
+                )->get(),
+            'dokumentasi' => Dokumentasi::where('kegiatan_id','=',$id_kegiatan)->get(),
+            'danaProposal' => RincianDana::where('kegiatan_id','=',$id_kegiatan)->where('kategori_dana','=',0)->get(),
+            'danaLPJ' => RincianDana::where('kegiatan_id','=',$id_kegiatan)->where('kategori_dana','=',1)->get(),
+            'rundownProposal' => RincianRundown::where('kegiatan_id','=',$id_kegiatan)->where('kategori_rundown','=',0)->get(),
+            'rundownLPJ' => RincianRundown::where('kegiatan_id','=',$id_kegiatan)->where('kategori_rundown','=',1)->get()
+        ];
+        $pdf = PDF::loadView('mahasiswa.pengelolaan-kegiatan.detail-pengajuan.pdf', $data);
+        return $pdf->download('pengelolaan-kegiatan.pdf');
+    }
+
+
+    public function toPdfLPJ($id_kegiatan)
+    {   
+        $data = [
+            'kegiatan' => PengajuanKegiatan::find($id_kegiatan),
+            'struktur' => StrukturPanitia::where('kegiatan_id','=',$id_kegiatan
+                )->get(),
+            'dokumentasi' => Dokumentasi::where('kegiatan_id','=',$id_kegiatan)->get(),
+            'danaProposal' => RincianDana::where('kegiatan_id','=',$id_kegiatan)->where('kategori_dana','=',0)->get(),
+            'danaLPJ' => RincianDana::where('kegiatan_id','=',$id_kegiatan)->where('kategori_dana','=',1)->get(),
+            'rundownProposal' => RincianRundown::where('kegiatan_id','=',$id_kegiatan)->where('kategori_rundown','=',0)->get(),
+            'rundownLPJ' => RincianRundown::where('kegiatan_id','=',$id_kegiatan)->where('kategori_rundown','=',1)->get()
+        ];
+        $pdf = PDF::loadView('mahasiswa.pengelolaan-kegiatan.detail-pengajuan.pdfLPJ', $data);
+        return $pdf->download('pengelolaan-kegiatan.pdf');
+    }
+ public function toPdfDosen($id_kegiatan)
+    {   
+        $data = [
+            'kegiatan' => PengajuanKegiatan::find($id_kegiatan),
+            'struktur' => StrukturPanitia::where('kegiatan_id','=',$id_kegiatan
+                )->get(),
+            'dokumentasi' => Dokumentasi::where('kegiatan_id','=',$id_kegiatan)->get(),
+            'danaProposal' => RincianDana::where('kegiatan_id','=',$id_kegiatan)->where('kategori_dana','=',0)->get(),
+            'danaLPJ' => RincianDana::where('kegiatan_id','=',$id_kegiatan)->where('kategori_dana','=',1)->get(),
+            'rundownProposal' => RincianRundown::where('kegiatan_id','=',$id_kegiatan)->where('kategori_rundown','=',0)->get(),
+            'rundownLPJ' => RincianRundown::where('kegiatan_id','=',$id_kegiatan)->where('kategori_rundown','=',1)->get()
+        ];
+        $pdf = PDF::loadView('karyawan.pengelolaan-kegiatan.detail-pengajuan.pdfDosen', $data);
+        return $pdf->download('pengelolaan-kegiatan.pdf');
+    }
+
+
+    public function toPdfLPJDosen($id_kegiatan)
+    {   
+        $data = [
+            'kegiatan' => PengajuanKegiatan::find($id_kegiatan),
+            'struktur' => StrukturPanitia::where('kegiatan_id','=',$id_kegiatan
+                )->get(),
+            'dokumentasi' => Dokumentasi::where('kegiatan_id','=',$id_kegiatan)->get(),
+            'danaProposal' => RincianDana::where('kegiatan_id','=',$id_kegiatan)->where('kategori_dana','=',0)->get(),
+            'danaLPJ' => RincianDana::where('kegiatan_id','=',$id_kegiatan)->where('kategori_dana','=',1)->get(),
+            'rundownProposal' => RincianRundown::where('kegiatan_id','=',$id_kegiatan)->where('kategori_rundown','=',0)->get(),
+            'rundownLPJ' => RincianRundown::where('kegiatan_id','=',$id_kegiatan)->where('kategori_rundown','=',1)->get()
+        ];
+        $pdf = PDF::loadView('karyawan.pengelolaan-kegiatan.detail-pengajuan.pdfLPJDosen', $data);
+        return $pdf->download('pengelolaan-kegiatan.pdf');
+    }
+
 
 }

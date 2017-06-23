@@ -812,8 +812,6 @@ Jadwal Sidang Skripsi
                 var penguji = $('#daftar-tambah-dosbing-penguji-jadwal-sidang-skripsi').val();
 
                 var petugas = $('#daftar-tambah-nip-jadwal-sidang-skripsi').val();
-
-                alert(nim+" "+kbk+" "+judul_skripsi+" "+tgl+" "+waktu+" "+tempat+" "+dosbing1+" "+dosbing2+" "+penguji+" "+petugas);
  
                 $.ajax({
                      url: 'create-jadwal-sidang-skripsi',
@@ -850,10 +848,10 @@ Jadwal Sidang Skripsi
 
 
              $('#daftar-tambah-tanggal-jadwal-sidang-skripsi').datepicker({
-                format: 'yyyy-mm-dd'
+                dateFormat: 'yy-mm-dd'
                 });
              $('#edit-daftar-tambah-tanggal-jadwal-sidang-skripsi').datepicker({
-                format: 'yyyy-mm-dd'
+                dateFormat: 'yy-mm-dd'
                 });
              $('#daftar-tambah-waktu-jadwal-sidang-skripsi').timepicker({
                 minuteStep: 1,

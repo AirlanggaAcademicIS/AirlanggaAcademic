@@ -28,6 +28,6 @@ class CapaianPembelajaranController extends Controller
         ];
 
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('mahasiswa.kurikulum.CapaianPembelajaran.index',$data);
+        return view('mahasiswa.Kurikulum.CapaianPembelajaran.index',$data);
     }
 }

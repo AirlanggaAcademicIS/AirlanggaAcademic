@@ -137,13 +137,15 @@ class NilaiController extends Controller
                     $konversi = "A";
                 }
 
-                MKDiambil::where('mhs_id',$na['nim'])->update([
+                MKDiambil::where('mhs_id',$na['nim'])
+                            ->where('mk_ditawarkan_id',$id_mk_ditawarkan)->update([
                     'nilai' => $konversi,
                     ]);
                 // $detail->jenis_penilaian_id = $value->jenis_penilaian_id;
                 // $detail->detail_nilai = round($excel->nilai_akhir*$value->persen/100);
             }
         }
+
         else {
             DetailNilai::where('mk_ditawarkan_id',$id_mk_ditawarkan)->delete();
             foreach ($nilai as $na) {
@@ -218,7 +220,8 @@ class NilaiController extends Controller
                     $konversi = "A";
                 }
 
-                MKDiambil::where('mhs_id',$na['nim'])->update([
+                MKDiambil::where('mhs_id',$na['nim'])
+                            ->where('mk_ditawarkan_id',$id_mk_ditawarkan)->update([
                     'nilai' => $konversi,
                     ]);
                 // $detail->jenis_penilaian_id = $value->jenis_penilaian_id;

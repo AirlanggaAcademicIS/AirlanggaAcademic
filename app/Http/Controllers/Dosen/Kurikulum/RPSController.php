@@ -202,7 +202,7 @@ class RPSController extends Controller
             'media' => RPS_Media_Pembelajaran::all(),
             'cpl' => CapaianPembelajaran::all()
         ];
-    	return view('dosen.kurikulum.rps.create',$data);
+        return view('dosen.kurikulum.rps.create',$data);
     }
 
     public function createAction(Request $request)
@@ -260,7 +260,11 @@ class RPSController extends Controller
         $matkul->pustaka_pendukung = $request->input('pustaka_pendukung');
         $matkul->status_rps = 1;
         $matkul->save();
+<<<<<<< HEAD
+        return Redirect::to('dosen/kurikulum/rps/lanjutan-rps/'.$matkul);        
+=======
         return view('dosen.kurikulum.rps.lanjutan-rps/'.$matkul);
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
     }
 
     public function delete($id, Request $request)
@@ -268,14 +272,24 @@ class RPSController extends Controller
         $matkul = RPS_Matkul::find($id);
         $matkul->status_rps = '0';
         $matkul->save();
+        $rps = DB::table('rps')
+            ->where('mata_kuliah', '=', $id)
+            ->join('mata_kuliah', 'mata_kuliah.id_mk', '=', 'rps.mk_id')
+            ->select('*')
+            ->first();
+
+        $del_minggu = RPSPerMinggu::where('mk_id', '=', $id)->delete();
+        $del_rps_minggu = RPS_Minggu::where('rps_id', '=', $rps->id_rps)->delete();
+        $del_metode = RPS_Pembelajaran::where('rps_id', '=', $rps->id_rps)->delete();
+        $del_rps = RPS::where('id_rps', '=', $rps->id_rps)->delete();
 
         $cpmk = RPS_CP_Matkul::where('matakuliah_id', $id)->delete();
         $cpl_prodi = RPS_CPL_Prodi::where('mk_id', $id)->delete();
         $mk_prasyarat = RPS_Matkul_Prasyarat::where('mk_id',$id)->delete();
         $koormk = RPS_Koor_Matkul::where('mk_id',$id)->delete();
 
-    	Session::put('alert-success', 'RPS berhasil dihapus');
-      	return Redirect::back();	 
+        Session::put('alert-success', 'RPS berhasil dihapus');
+        return Redirect::back();     
     }
 
    public function edit($id)
@@ -366,16 +380,28 @@ class RPSController extends Controller
             ->join('sistem_pembelajaran', 'pembelajaran_rps.sistem_pembelajaran_id', '=', 'sistem_pembelajaran.id')
             ->select('*')
             ->get(),
+<<<<<<< HEAD
+            'mata_kuliah' => DB::table('mata_kuliah')->where('id_mk', '=', $id)->first(),
+=======
             'mata_kuliah' => RPS_Matkul::find($id),
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
             'minggu' => Minggu::all(),
             'rps' => RPS::all(),
             'metode_pembelajaran' => Silabus_Sistem_Pembelajaran::all(),
             'pembelajaran_rps' => RPS_Pembelajaran::all(),
+<<<<<<< HEAD
+        ];        
+        return view('dosen.kurikulum.rps.lanjutan-rps',$data);
+     }
+
+    public function lanjutanRPSAction($id, Request $request){
+=======
         ];
         return view('dosen.kurikulum.rps.lanjutan-rps',$data);
      }
 
      public function lanjutanRPSAction($id, Request $request){
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
         $rps = RPS::create([
             'mk_id' => $id,
             'kemampuan_akhir' => $request->input('kemampuan_akhir'),
@@ -387,7 +413,11 @@ class RPSController extends Controller
             'materi_pembelajaran' => $request->input('materi_pembelajaran'),
             'bobot_penilaian' => $request->input('bobot_penilaian'),
         ]);
+<<<<<<< HEAD
+        $rps->save();
+=======
        $rps->save();
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
 
        $id_rps = DB::table('rps')->latest('id_rps')->first()->id_rps;
 
@@ -406,11 +436,19 @@ class RPSController extends Controller
             $metode->rps_id = $id_rps;
             $metode->sistem_pembelajaran_id = $metode_pembelajaran[$count];
             $metode->save();
+<<<<<<< HEAD
+        }       
+
+       Session::put('alert-success', 'RPS Minggu Ke-'.$minggu_ke.' berhasil ditambahkan');
+       return Redirect::to('dosen/kurikulum/rps/lanjutan-rps/'.$id);
+    }
+=======
         }
 
        Session::put('alert-success', 'RPS Minggu Ke-'.$minggu_ke.' berhasil ditambahkan');
        return Redirect::to('dosen/kurikulum/rps/lanjutan-rps/'.$id);
      }
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
 
      public function editLanjutanRPS($id){
         $data = [
@@ -439,8 +477,15 @@ class RPSController extends Controller
             ->where('rps_id', '=', $id)
             ->first();
 
+<<<<<<< HEAD
+        $del_minggu = RPSPerMinggu::where('mk_id', '=', $mk->id_mk)->delete();
+        $del_rps_minggu = RPS_Minggu::where('rps_id', '=', $id)->delete();
+        $del_metode = RPS_Pembelajaran::where('rps_id', '=', $id)->delete();
+        $del_rps = RPS::where('id_rps', '=', $id)->delete();
+=======
         $del_rps = RPS::where('id_rps', '=', $id)->delete();
         $del_metode = RPS_Pembelajaran::where('rps_id', '=', $id)->delete();
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
 
         $rps = RPS::create([
             'mk_id' => $mk->id_mk,
@@ -498,9 +543,24 @@ class RPSController extends Controller
             'mk_media_pembelajaran' => Silabus_detail_kategori::all(),
             'data_media' => DB::table('cp_mata_kuliah')->where('matakuliah_id', '=', $id)
                         ->join('detail_kategori', 'cp_mata_kuliah.id_cpmk', '=', 'detail_kategori.cpmk_id')
-                        ->join('kategori_media_pembelajaran', 'detail_kategori.media_pembelajaran_id', '=', 'kategori_media_pembelajaran.id')->select('kategori_media_pembelajaran.media_pembelajaran', 'detail_kategori.media_pembelajaran_id')->groupBy('kategori_media_pembelajaran.media_pembelajaran', 'detail_kategori.media_pembelajaran_id')->get()                       
+                        ->join('kategori_media_pembelajaran', 'detail_kategori.media_pembelajaran_id', '=', 'kategori_media_pembelajaran.id')->select('kategori_media_pembelajaran.media_pembelajaran', 'detail_kategori.media_pembelajaran_id')->groupBy('kategori_media_pembelajaran.media_pembelajaran', 'detail_kategori.media_pembelajaran_id')->get(),                       
+            'sub_cpmk' => DB::table('rps')->where('mk_id', '=', $id)
+                        // ->join('mk_minggu', 'rps.mk_id', '=', 'mk_minggu.mk_id')
+                        ->join('rps_minggu', 'rps.id_rps', '=', 'rps_minggu.rps_id')
+                        ->get(),
+            'metode_pembelajaran' => DB::table('cp_mata_kuliah')->where('matakuliah_id', '=', $id)
+                        ->join('detail_media_pembelajaran', 'cp_mata_kuliah.id_cpmk', '=', 'detail_media_pembelajaran.cpmk_id')
+                        ->join('sistem_pembelajaran', 'detail_media_pembelajaran.sistem_pembelajaran_id', '=', 'sistem_pembelajaran.id' )->get(),
+            'getUts' => DB::table('mata_kuliah')->where('id_mk', '=', $id)
+            ->join('mk_minggu', 'mk_minggu.mk_id', '=', 'mata_kuliah.id_mk')
+            ->where('mk_minggu.status', '=', 0)
+            ->first(),
+            'getUas' => DB::table('mata_kuliah')->where('id_mk', '=', $id)
+            ->join('mk_minggu', 'mk_minggu.mk_id', '=', 'mata_kuliah.id_mk')
+            ->where('mk_minggu.status', '=', 1)
+            ->first(),
         ];   
-        // dd($data['mk_media_pembelajaran']);
+        // dd($data['getUas']->minggu_id);
         $pdf = PDF::loadView('dosen.kurikulum.rps.pdf-rps', $data);
         return $pdf->download('silabus-mata-kuliah.pdf');
     }

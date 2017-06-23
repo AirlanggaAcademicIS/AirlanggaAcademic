@@ -63,7 +63,7 @@ Pengajuan Proposal Kegiatan Akademik
                 <div class="form-group">
           <label for="nama" class="col-sm-2 control-label">Nama Kegiatan</label>
           <div class="col-md-8">
-            <textarea id="nama" name="nama" placeholder=" Masukkan Nama" required cols="82" rows="5">
+            <textarea id="nama" name="nama" placeholder=" Masukkan Nama" required cols="82" rows="2">
             </textarea>
           </div>
         </div>
@@ -105,9 +105,9 @@ Pengajuan Proposal Kegiatan Akademik
         </div>
 
         <div class="form-group">
-          <label for="nama" class="col-sm-2 control-label">Ruang Pengajuan</label>
+          <label for="nama" class="col-sm-2 control-label">Tempat Pelaksanaan Pengajuan</label>
           <div class="col-md-7">
-            <input type="text" class="form-control input-lg" id="rpengajuan" name="rpengajuan" placeholder="Masukkan Ruang Pengajuan" required>
+            <input type="text" class="form-control input-lg" id="rpengajuan" name="rpengajuan" placeholder="Masukkan Tempat Pelaksanaan Pengajuan" required>
           </div>
         </div>
 

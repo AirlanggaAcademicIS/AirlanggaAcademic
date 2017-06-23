@@ -34,40 +34,6 @@ class PengajuanController extends Controller
         return view('mahasiswa.pengelolaan-kegiatan.pengajuan.index',$data);
     }
 
-    // Function untuk menampilkan tabel
-    public function sedangDiproses()
-    {
-        $nim = Auth::user()->username;
-        $nama ="Sedang Di Proses";
-        $data = [
-            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'Status',
-            'nama_pengajuan' => $nama,
-            // Memanggil semua isi dari tabel biodata
-            'Status' => DB::table('mhs_kegiatan')
-            ->join('pengajuan_kegiatan','pengajuan_kegiatan.id_kegiatan' , '=', 'mhs_kegiatan.kegiatan_id') 
-            ->join('biodata_mhs', 'biodata_mhs.nim_id', '=', 'mhs_kegiatan.nim_id') 
-            ->select('*')
-            ->where('biodata_mhs.nim_id', '=', $nim)
-            ->where('pengajuan_kegiatan.konfirmasi_proposal','=','0')
-            ->where('pengajuan_kegiatan.konfirmasi_lpj','=','0')
-            ->whereNull('pengajuan_kegiatan.deleted_at')
-            ->get(),
-
-             'StatusLPJ' => DB::table('mhs_kegiatan')
-            ->join('pengajuan_kegiatan','pengajuan_kegiatan.id_kegiatan' , '=', 'mhs_kegiatan.kegiatan_id') 
-            ->join('biodata_mhs', 'biodata_mhs.nim_id', '=', 'mhs_kegiatan.nim_id') 
-            ->select('*')
-            ->where('biodata_mhs.nim_id', '=', $nim)
-            ->where('pengajuan_kegiatan.konfirmasi_proposal','=','1')
-            ->where('pengajuan_kegiatan.konfirmasi_lpj','=','1')
-            ->whereNull('pengajuan_kegiatan.deleted_at')
-            ->get(),
-        ];
-        // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('mahasiswa.pengelolaan-kegiatan.status.index',$data);
-    }
-
      public function dikonfirmasiProposal()
     {
         $nim = Auth::user()->username;
@@ -109,19 +75,18 @@ class PengajuanController extends Controller
 
         ];
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('mahasiswa.pengelolaan-kegiatan.status.dikonfirmasi',$data);
+        return view('mahasiswa.pengelolaan-kegiatan.status.dikonfirmasiLPJ',$data);
     }
      public function ditolak()
     {
         $nim = Auth::user()->username;
         $data = [
             // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
-            'page' => 'Ditolak',
+            'page' => 'DitolakProposal',
             // Memanggil semua isi dari tabel biodata
             'Status' => DB::table('mhs_kegiatan')
             ->join('pengajuan_kegiatan','pengajuan_kegiatan.id_kegiatan' , '=', 'mhs_kegiatan.kegiatan_id') 
             ->join('biodata_mhs', 'biodata_mhs.nim_id', '=', 'mhs_kegiatan.nim_id') 
-            ->join('dokumentasi','dokumentasi.kegiatan_id','=','mhs_kegiatan.kegiatan_id')
             ->select('*')
             ->where('biodata_mhs.nim_id', '=', $nim)
             ->where('pengajuan_kegiatan.konfirmasi_proposal','=','2')
@@ -129,10 +94,21 @@ class PengajuanController extends Controller
             ->whereNull('pengajuan_kegiatan.deleted_at')
             ->get(),
 
+        ];
+        // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
+        return view('mahasiswa.pengelolaan-kegiatan.status.ditolak',$data);
+    }
+     public function ditolakLPJ()
+    {
+        $nim = Auth::user()->username;
+        $data = [
+            // Buat di sidebar, biar ketika diklik yg aktif sidebar biodata
+            'page' => 'DitolakLPJ',
+            // Memanggil semua isi dari tabel biodata
+            
              'StatusLPJ' => DB::table('mhs_kegiatan')
             ->join('pengajuan_kegiatan','pengajuan_kegiatan.id_kegiatan' , '=', 'mhs_kegiatan.kegiatan_id') 
             ->join('biodata_mhs', 'biodata_mhs.nim_id', '=', 'mhs_kegiatan.nim_id') 
-            ->join('dokumentasi','dokumentasi.kegiatan_id','=','mhs_kegiatan.kegiatan_id')
             ->select('*')
             ->where('biodata_mhs.nim_id', '=', $nim)
             ->where('pengajuan_kegiatan.konfirmasi_proposal','=','1')
@@ -141,7 +117,7 @@ class PengajuanController extends Controller
             ->get(),
         ];
         // Memanggil tampilan index di folder mahasiswa/biodata dan juga menambahkan $data tadi di view
-        return view('mahasiswa.pengelolaan-kegiatan.status.ditolak',$data);
+        return view('mahasiswa.pengelolaan-kegiatan.status.ditolakLPJ',$data);
     }
     public function create()
     {

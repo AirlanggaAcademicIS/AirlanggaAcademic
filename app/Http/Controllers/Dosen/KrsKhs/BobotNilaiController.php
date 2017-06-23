@@ -53,37 +53,37 @@ class BobotNilaiController extends Controller
     {
         PersentasePenilaian::create(
             [
-            'persentase' => $request->input('persentase_uts'),
             'jenis_penilaian_id'   => '1',
             'mk_ditawarkan_id' => $mk_ditawarkan_id,
+            'persentase' => $request->input('persentase_uts'),
             ]
             );
         PersentasePenilaian::create(
             [
-            'persentase' => $request->input('persentase_uas'),
             'jenis_penilaian_id'   => '2',
             'mk_ditawarkan_id' => $mk_ditawarkan_id,
+            'persentase' => $request->input('persentase_uas'),
             ]
             );
         PersentasePenilaian::create(
             [
-            'persentase' => $request->input('persentase_tugas'),
             'jenis_penilaian_id'   => '3',
             'mk_ditawarkan_id' => $mk_ditawarkan_id,
+            'persentase' => $request->input('persentase_tugas'),
             ]
             );
         PersentasePenilaian::create(
             [
-            'persentase' => $request->input('persentase_kuis'),
             'jenis_penilaian_id'   => '4',
             'mk_ditawarkan_id' => $mk_ditawarkan_id,
+            'persentase' => $request->input('persentase_kuis'),
             ]
             );
         PersentasePenilaian::create(
             [
-            'persentase' => $request->input('persentase_softskill'),
             'jenis_penilaian_id'   => '5',
             'mk_ditawarkan_id' => $mk_ditawarkan_id,
+            'persentase' => $request->input('persentase_softskill'),
             ]
             );
         

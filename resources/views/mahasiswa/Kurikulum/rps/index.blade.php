@@ -31,7 +31,7 @@ Rencana Pembelajaran Semester
   <div class="box box-danger">
 
 <div class="box-body">
-<table id="example1" class="table table-bordered table-striped">
+<table id="data-table" class="table table-bordered table-striped">
     <thead>
 <tr>
     <th style="text-align:center">No.</th>
@@ -49,8 +49,8 @@ Rencana Pembelajaran Semester
     <td width="25%" style="text-align:center">{{$mk->nama_matkul}}</td>
 
     <td width="15%" style="text-align:center">
-        <a class="btn btn-info btn-xs">
-        <i class="fa fa-download-square-o"></i> Download</a>
+        <a target="__blank" href="{{url('/mahasiswa/kurikulum/rps/pdf/'.$mk->id_mk)}}" class="btn btn-info btn-xs">
+        <i class="fa fa-file-text-o" aria-hidden="true"></i> Download PDF</a>
         </td>
 
     @empty
@@ -68,8 +68,9 @@ Rencana Pembelajaran Semester
 @endsection
 
 @section('code-footer')
-
-
-
-
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#data-table').DataTable();
+  });
+</script>
 @endsection

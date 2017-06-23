@@ -71,6 +71,7 @@ table, th, td {
                 @foreach($mk_softskill as $mk_s)
                     @if($softskill->id_softskill == $mk_s->softskill_id)
                         - {{$softskill->softskill}}
+                        <br>
                     @endif
                 @endforeach
             @endforeach        

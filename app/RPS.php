@@ -19,7 +19,11 @@ class RPS extends Model
 		'waktu_pembelajaran',
 		'materi_pembelajaran',
 		'bobot_penilaian',
+<<<<<<< HEAD
+		'tugas'
+=======
 		'tugas',
+>>>>>>> 51d35c1ddb4c47bc69e19accb81cb22e04df7d5e
    ];
 	protected $dates = [
 	'deleted_at'
