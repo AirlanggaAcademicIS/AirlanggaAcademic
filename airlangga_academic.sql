@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2017 at 12:30 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Generation Time: Jun 24, 2017 at 11:48 AM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -33,7 +33,7 @@ CREATE TABLE `asset` (
   `status_id` int(11) NOT NULL,
   `serial_barcode` text NOT NULL,
   `nama_asset` text NOT NULL,
-  `lokasi` text NOT NULL,
+  `lokasi_id` int(11) NOT NULL,
   `expired_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `nama_supplier` varchar(50) NOT NULL,
   `harga_satuan` int(11) NOT NULL,
@@ -46,8 +46,17 @@ CREATE TABLE `asset` (
 -- Dumping data for table `asset`
 --
 
-INSERT INTO `asset` (`id_asset`, `kategori_id`, `nip_petugas_id`, `status_id`, `serial_barcode`, `nama_asset`, `lokasi`, `expired_date`, `nama_supplier`, `harga_satuan`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(3457, 1, '12345', 1, 'serial barcode', 'nama aset', 'lokasi', '2017-05-07 10:40:33', 'nama suplier', 30000, '2017-05-07 10:40:33', NULL, '0000-00-00 00:00:00');
+INSERT INTO `asset` (`id_asset`, `kategori_id`, `nip_petugas_id`, `status_id`, `serial_barcode`, `nama_asset`, `lokasi_id`, `expired_date`, `nama_supplier`, `harga_satuan`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(8, 1, '12345', 2, 'ASTSONY proyektor.png', 'SONY proyektor', 1, '2017-06-08 04:52:41', 'berlian komputer', 12000000, '2017-05-25 05:23:51', '2017-06-07 19:52:41', '2017-06-07 19:52:41'),
+(9, 2, '12345', 2, 'ASTHUAWEI2889qrnetworkswitch.png', 'HUAWEI 2889qr network switch', 1, '2017-06-08 04:52:41', 'berlian komputer', 900000, '2017-05-25 05:34:16', '2017-06-07 19:52:53', '2017-06-07 19:52:53'),
+(10, 2, '12345', 4, 'ASTHUAWEI2889qrnetworkswitch', 'HUAWEI 2889qr network switch', 1, '2017-06-08 04:52:41', 'berlian komputer', 900000, '2017-05-25 05:37:07', '2017-06-07 19:53:03', '2017-06-07 19:53:03'),
+(11, 2, '12345', 2, 'ASTHUAWEI2889qrnetworkswitch7.png', 'HUAWEI 2889qr network switch 7', 1, '2017-06-10 02:27:32', 'berlian komputer', 900000, '2017-05-25 05:37:34', '2017-06-09 19:27:32', '2017-06-09 19:27:32'),
+(12, 4, '12345', 1, 'ASTpedomanskripsi2112.png', 'pedoman skripsi 2112', 1, '2017-06-08 04:52:41', 'airlangga press', 0, '2017-05-25 05:40:14', '2017-06-07 19:55:38', '2017-06-07 19:55:38'),
+(13, 1, '12345', 1, 'ASTkartuwr.png', 'kartu wr', 1, '2017-06-10 02:27:29', 'bambang', 145000, '2017-06-07 19:52:10', '2017-06-09 19:27:29', '2017-06-09 19:27:29'),
+(14, 2, '12345', 3, 'ASTmobil.png', 'Mobil Dinas Honda CRV S 789 UK', 2, '2017-06-12 20:17:04', 'honda', 100000000, '2017-06-07 20:56:56', '2017-06-09 19:27:36', '2017-06-09 19:27:36'),
+(15, 1, '12345', 1, 'astDell244HVU24inchMonitor.png', 'Dell 244HVU 24 inch Monitor', 5, '2017-06-13 03:01:31', 'Ali KOMP', 190000000, '2017-06-12 17:45:37', '2017-06-12 20:01:31', '2017-06-12 20:01:31'),
+(16, 1, '12345', 1, 'astPrinterEpsonL120.png', 'Printer Epson L120', 5, '2017-06-13 03:21:37', 'Ali KOMP', 1500000, '2017-06-12 19:59:53', '2017-06-12 20:21:37', NULL),
+(17, 1, '12345', 1, 'astAntiVirusAVAST.png', 'AntiVirus AVAST', 6, '2017-06-13 03:18:03', 'Ali KOMP', 500000, '2017-06-12 20:10:41', '2017-06-12 20:18:03', NULL);
 
 -- --------------------------------------------------------
 
@@ -57,7 +66,7 @@ INSERT INTO `asset` (`id_asset`, `kategori_id`, `nip_petugas_id`, `status_id`, `
 
 CREATE TABLE `atribut_softskill` (
   `id_softskill` int(11) NOT NULL,
-  `softskill` varchar(15) NOT NULL
+  `softskill` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -65,7 +74,12 @@ CREATE TABLE `atribut_softskill` (
 --
 
 INSERT INTO `atribut_softskill` (`id_softskill`, `softskill`) VALUES
-(1, 'dummy_softskill');
+(1, 'Kesopanan'),
+(2, 'Komunikasi'),
+(3, 'Integritas'),
+(4, 'Etos Kerja'),
+(5, 'Kepemimpinan'),
+(6, 'Kerja Sama');
 
 -- --------------------------------------------------------
 
@@ -90,7 +104,11 @@ CREATE TABLE `biodata_dosen` (
 --
 
 INSERT INTO `biodata_dosen` (`biodata_id`, `nip`, `nama_dosen`, `alamat_dosen`, `status_dosen`, `tanggal_lahir_dosen`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '12345678910', 'nama dosen', 'alamat dosen', 'status dosen', '2017-05-07', '2017-05-07 09:01:01', NULL, NULL);
+(1, '12345678910', 'Prof. Einstein', 'Jl. Waru no. 9 Surabaya', 'Aktif', '2017-05-07', '2017-05-07 09:01:01', NULL, NULL),
+(2, '12345678911', 'John PhD', 'Jl. Mawar No.9 Surabaya', 'Aktif', '2017-05-07', '2017-05-07 09:01:01', NULL, NULL),
+(3, '12345678912', 'Kayla S.Kom.,M.Kom.', 'Jalan Mulyorejo 124', 'Aktif', '2017-05-07', '2017-05-07 09:01:01', NULL, NULL),
+(6, '0799667799', 'Renold', 'kepanjen gang 1', 'Dosen Tetap', '2000-12-13', '2017-06-14 02:43:39', '2017-06-14 02:43:39', NULL),
+(7, '123456', '12345', 'lapangan', 'Dosen Tetap', '2017-06-15', '2017-06-14 15:02:05', '2017-06-14 15:02:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -110,7 +128,9 @@ CREATE TABLE `biodata_mhs` (
   `kota_asal` varchar(30) DEFAULT NULL,
   `kota_tinggal` varchar(30) DEFAULT NULL,
   `alamat_tinggal` varchar(50) DEFAULT NULL,
-  `ttl` varchar(30) DEFAULT NULL,
+  `kota_lahir` varchar(30) DEFAULT NULL,
+  `tanggal_lahir` varchar(15) DEFAULT NULL,
+  `no_hp` varchar(15) DEFAULT NULL,
   `angkatan` varchar(4) DEFAULT NULL,
   `agama` varchar(12) DEFAULT NULL,
   `kebangsaan` varchar(30) DEFAULT NULL,
@@ -128,8 +148,11 @@ CREATE TABLE `biodata_mhs` (
 -- Dumping data for table `biodata_mhs`
 --
 
-INSERT INTO `biodata_mhs` (`id_bio`, `nim_id`, `nama_mhs`, `email_mhs`, `foto_mhs`, `jenis_kelamin`, `negara_asal`, `provinsi_asal`, `kota_asal`, `kota_tinggal`, `alamat_tinggal`, `ttl`, `angkatan`, `agama`, `kebangsaan`, `sma_asal`, `nama_ayah`, `nama_ibu`, `deskripsi_diri`, `motto`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '081411631070', 'nama mhs', 'email@mhs.com', '', 'jenis kelamin', 'negara asal', 'provinsi asal', 'kota asal', 'kota tinggal ', 'alamat tinggal', 'surabaya, 7 juni 2015', '2014', 'agama', 'kebangsaan', 'sma asal', 'nama ayah', 'nama ibu', 'deskripsi diri', 'motto', '2017-05-07 09:22:12', NULL, NULL);
+INSERT INTO `biodata_mhs` (`id_bio`, `nim_id`, `nama_mhs`, `email_mhs`, `foto_mhs`, `jenis_kelamin`, `negara_asal`, `provinsi_asal`, `kota_asal`, `kota_tinggal`, `alamat_tinggal`, `kota_lahir`, `tanggal_lahir`, `no_hp`, `angkatan`, `agama`, `kebangsaan`, `sma_asal`, `nama_ayah`, `nama_ibu`, `deskripsi_diri`, `motto`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, '081411631070', 'Prianka Ratu Masitho', 'priankarm@airlangga-academic.com', '1497318777.jpg', 'Perempuan', 'Indonesia', 'Jawa Tengah', 'Yogyakarta', 'Surabaya', 'Jl Mulyorejo No 9', 'Mojokerto', '5 Mei 1998', '083830557123', '2014', 'Islam', 'Indonesia', 'SMA Pertiwi', 'Jammy', 'Zainab', 'Mahasiwa Sistem Informasi', 'Nothing''s gonna change my love for you', '2017-05-07 09:22:12', '2017-06-12 18:52:57', NULL),
+(2, '081411631099', 'Jerry Kim', 'jerryKim1996@email.com', '1497320214.jpg', 'Perempuan', 'Indonesia', 'Jawa Timur', 'Surabaya', 'Surabaya', 'Jl Mulyorejo No 78', 'Jombang', '9 Juni 1997', '098768854323', '2018', 'Islam', 'Indonesia', 'SMA Pertiwi 6', 'Jared', 'Oiku', 'Mahasiwa Sistem Informasi', 'Better late than never', '2017-05-07 09:22:12', '2017-06-12 19:16:54', NULL),
+(4, '081711631006', 'Muhammad Hilmi Achwin', 'hilmi@olimpiade.id', '1497308693.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-06-12 16:04:53', '2017-06-12 16:04:53', NULL),
+(6, '88888888', 'Kendall Jenner', 'kendal@jenner.com', '1497320600.jpg', 'Perempuan', 'USA', 'California', 'Los Angeles', 'Los Angeles', 'Beverly Hills A2', 'New York', '1999-08-02', '08520987890', '2014', 'Kristen', 'USA', 'Cali High', 'Bruce Jenner', 'Caitlyn Jenner', 'I am a superstar', 'Dream high', '2017-06-12 19:23:20', '2017-06-12 19:31:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -153,8 +176,10 @@ CREATE TABLE `capaian_pembelajaran` (
 --
 
 INSERT INTO `capaian_pembelajaran` (`id_cpem`, `prodi_id`, `kategori_cpem_id`, `kode_cpem`, `deskripsi_cpem`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 2, 1, 'KK9', 'deskripsi kk9', '2017-05-07 11:14:42', NULL, NULL),
-(2, 2, 1, 'KK9', 'deskripsi kk9', '2017-05-07 11:15:02', NULL, NULL);
+(1, 1, 1, 'KK9', 'Menunjukkan sikap bertanggung jawab atas pekerjaan di bidang keahliannya secara mandiri', '2017-05-07 11:14:42', NULL, NULL),
+(2, 1, 1, 'KK3', 'Mampu menformulasikan permasalahan di industri berdasakan konsep terkait', '2017-05-07 11:15:02', NULL, NULL),
+(3, 1, 2, 'KU2', 'Mampu menunjukkan kinerja mandri', '2017-06-12 08:15:14', NULL, NULL),
+(4, 1, 3, 'S9', 'Bersikap bertanggung jawab dalam menyelesaikan tugas dan perkuliahan', '2017-06-12 08:15:14', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -177,7 +202,10 @@ CREATE TABLE `cp_mata_kuliah` (
 --
 
 INSERT INTO `cp_mata_kuliah` (`id_cpmk`, `matakuliah_id`, `kode_cpmk`, `deskripsi_cpmk`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'kode1', 'deskripsi kode1', '2017-05-07 11:23:49', NULL, NULL);
+(1, 1, 'M1', 'Mahasiswa mampu menjelaskan matriks', '2017-05-07 11:23:49', NULL, NULL),
+(2, 1, 'M2', 'Mahasiswa mampu mencari nilai determinan matriks', '2017-05-07 11:23:49', NULL, NULL),
+(3, 1, 'M3', 'Mahasiswa mampu menjelasakan jenis-jenis matriks', '2017-05-07 11:23:49', NULL, NULL),
+(4, 1, 'SD1', 'Pintar Statistika', '2017-06-14 13:02:10', '2017-06-14 13:02:10', NULL);
 
 -- --------------------------------------------------------
 
@@ -198,7 +226,7 @@ CREATE TABLE `cp_prodi` (
 --
 
 INSERT INTO `cp_prodi` (`cpem_id`, `mk_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 1, '2017-05-07 11:15:50', NULL, NULL);
+(1, 2, '2017-06-14 13:13:41', '2017-06-14 13:13:41', NULL);
 
 -- --------------------------------------------------------
 
@@ -231,9 +259,8 @@ INSERT INTO `cp_program` (`id`, `prodi_id`, `capaian_program_spesifik`, `dimensi
 
 CREATE TABLE `detail_anggota` (
   `id_anggota` int(11) NOT NULL,
-  `kode_penelitian_id` int(15) NOT NULL,
+  `kode_penelitian_id` int(15) DEFAULT NULL,
   `anggota` varchar(70) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -243,8 +270,10 @@ CREATE TABLE `detail_anggota` (
 -- Dumping data for table `detail_anggota`
 --
 
-INSERT INTO `detail_anggota` (`id_anggota`, `kode_penelitian_id`, `anggota`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 1000, 'Bejo', 0, '2017-05-11 08:00:12', NULL, NULL);
+INSERT INTO `detail_anggota` (`id_anggota`, `kode_penelitian_id`, `anggota`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(2, 1000, 'Bejo', '2017-05-11 08:00:12', NULL, NULL),
+(3, 1001, 'Me, myself and i', '2017-06-12 16:10:41', '2017-06-12 16:10:41', NULL),
+(4, 1002, '1. Kim Kardashian -> ketua\r\n2. Bruce Jenner', '2017-06-12 19:42:19', '2017-06-12 19:42:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -265,7 +294,13 @@ CREATE TABLE `detail_kategori` (
 --
 
 INSERT INTO `detail_kategori` (`media_pembelajaran_id`, `cpmk_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, '2017-05-07 11:24:47', NULL, NULL);
+(1, 1, '2017-05-07 11:24:47', NULL, NULL),
+(1, 4, '2017-06-14 13:02:10', '2017-06-14 13:02:10', NULL),
+(2, 1, '2017-05-07 11:24:47', NULL, NULL),
+(2, 4, '2017-06-14 13:02:10', '2017-06-14 13:02:10', NULL),
+(3, 4, '2017-06-14 13:02:10', '2017-06-14 13:02:10', NULL),
+(4, 1, '2017-05-07 11:24:47', NULL, NULL),
+(4, 4, '2017-06-14 13:02:10', '2017-06-14 13:02:10', NULL);
 
 -- --------------------------------------------------------
 
@@ -286,7 +321,9 @@ CREATE TABLE `detail_media_pembelajaran` (
 --
 
 INSERT INTO `detail_media_pembelajaran` (`cpmk_id`, `sistem_pembelajaran_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, '2017-05-07 11:24:17', NULL, NULL);
+(1, 1, '2017-05-07 11:24:17', NULL, NULL),
+(1, 3, '2017-05-07 11:24:17', NULL, NULL),
+(1, 4, '2017-05-07 11:24:17', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -310,7 +347,25 @@ CREATE TABLE `detail_nilai` (
 
 INSERT INTO `detail_nilai` (`mk_ditawarkan_id`, `mhs_id`, `jenis_penilaian_id`, `detail_nilai`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, '081411631070', 1, 67, '2017-05-07 10:23:59', NULL, NULL),
-(1, '081411631070', 2, 89, '2017-05-21 14:14:36', NULL, NULL);
+(1, '081411631070', 2, 89, '2017-05-21 14:14:36', NULL, NULL),
+(1, '081411631070', 3, 76, '2017-06-11 13:29:22', NULL, NULL),
+(1, '081411631070', 4, 45, '2017-06-11 13:29:22', NULL, NULL),
+(1, '081411631070', 5, 89, '2017-06-11 13:29:22', NULL, NULL),
+(1, '081411631099', 1, 67, '2017-06-11 13:37:56', NULL, NULL),
+(1, '081411631099', 2, 89, '2017-06-11 13:37:56', NULL, NULL),
+(1, '081411631099', 3, 98, '2017-06-11 13:37:56', NULL, NULL),
+(1, '081411631099', 4, 56, '2017-06-11 13:37:56', NULL, NULL),
+(1, '081411631099', 5, 79, '2017-06-11 13:37:56', NULL, NULL),
+(5, '081411631070', 1, 67, '2017-05-07 10:23:59', NULL, NULL),
+(5, '081411631070', 2, 89, '2017-05-21 14:14:36', NULL, NULL),
+(5, '081411631070', 3, 76, '2017-06-11 13:29:22', NULL, NULL),
+(5, '081411631070', 4, 45, '2017-06-11 13:29:22', NULL, NULL),
+(5, '081411631070', 5, 89, '2017-06-11 13:29:22', NULL, NULL),
+(5, '081411631099', 1, 67, '2017-06-11 13:37:56', NULL, NULL),
+(5, '081411631099', 2, 89, '2017-06-11 13:37:56', NULL, NULL),
+(5, '081411631099', 3, 98, '2017-06-11 13:37:56', NULL, NULL),
+(5, '081411631099', 4, 56, '2017-06-11 13:37:56', NULL, NULL),
+(5, '081411631099', 5, 79, '2017-06-11 13:37:56', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -320,7 +375,7 @@ INSERT INTO `detail_nilai` (`mk_ditawarkan_id`, `mhs_id`, `jenis_penilaian_id`, 
 
 CREATE TABLE `detail_penelitian` (
   `id_penelitian` int(15) NOT NULL,
-  `kode_penelitian_id` int(15) NOT NULL,
+  `kode_penelitian_id` int(15) DEFAULT NULL,
   `abstract` text NOT NULL,
   `background` text NOT NULL,
   `objective` text NOT NULL,
@@ -336,7 +391,9 @@ CREATE TABLE `detail_penelitian` (
 --
 
 INSERT INTO `detail_penelitian` (`id_penelitian`, `kode_penelitian_id`, `abstract`, `background`, `objective`, `methods`, `results`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 1000, 'abstrak', 'background', 'objective', 'methods', 'results', '2017-05-11 07:58:58', NULL, NULL);
+(2, 1000, 'abstrak', 'background', 'objective', 'methods', 'results', '2017-05-11 07:58:58', NULL, NULL),
+(5, 1001, 'Abstrak ku', 'Background ku', 'Tujuan ku', 'Metodologi Penelitian', '1 Alat pembangkit listrik tenaga dalam', '2017-06-12 16:10:42', '2017-06-12 16:10:42', NULL),
+(6, 1002, 'Minuman campuran adalah suatu minuman yang merupakan hasil campuran \r\ndari sekurang-kurangnya dua jenis minuman yang berbeda. Agar penampilan dari\r\nminuman campuran itu dapat lebih menarik pandangan dan selera minum, maka\r\nperlu diberi hiasan (garnish) di samping rasa, aroma dan warna, hiasan ini juga\r\nberguna untuk menambah daya tarik dan penampilan minuman tersebut, sehingga\r\nakan memiliki nilai tambah. Banyak minuman yang memiliki rasa dan nikmat\r\nyang beraneka ragam. Pada umumnya minuman itu terdiri dari beberapa\r\nkomposisi yaitu rasa dan kandungan tambahan (vitamin, mineral dan lain-lain).\r\nSebagai contoh, minuman ringan adalah air yang dicampurkan dengan bahanbahan\r\nmineral\r\ndan\r\nkemudian\r\nditambahkan\r\ndengan\r\ngas\r\nCO2\r\n. Kami membuat suatu\r\nproduk minuman yang menarik dan unik bertujuan menciptakan sensasi rasa yang\r\nberbeda, yaitu dengan penyajian gelas yang terbagi menjadi dua, tiga atau empat\r\npartisi/bagian dengan sedotan yang juga memiliki jumlah lubang sesuai jumlah\r\npartisi pada gelas, sehingga percampuran berbagai rasa minuman tersebut terjadi\r\ndi dalam mulut setelah dihisap.\r\n \r\nKata Kunci: minuman, campur, rasa, sensasi', 'Indonesia memiliki bermacam-macam wirausaha dari yang kecil sampai \r\nyang besar, seperti home industri makanan atau minuman sampai yang memiliki\r\nperusahaan ternama di Indonesia itu sendiri. Namun banyak wirausaha yang\r\nmeniru produk makanan dan minuman dari produk lain. \r\nContohnya yang sedang digemari masyarakat sekarang adalah capcin\r\n(capucino cincau), pop ice bubble dan sebagainya. Minuman tersebut sekarang\r\ntidak setenar lagi seperti saat baru muncul di pasaran karena banyak persaingan\r\ndalam inovasi pembuatan minuman yang lain. \r\nOleh karena itu, kami menciptakan inovasi baru dalam bidang minuman\r\nringan, yang memiliki cita rasa berbeda dengan mencampurkan berbagai rasa,\r\nyaitu dengan penyajian gelas yang terbagi menjadi tiga atau empat sekat/bagian\r\ndan penyajiannya menggunakan satu sedotan yang memiliki berbagai lubang.\r\nSehingga percampuran minuman tersebut terjadi didalam mulut bukan disedotan\r\natau di gelasnya. Kami berkeyakinan bahwa minuman ini akan lebih tenar\r\ndibanding minuman-minuman lain karena selain memiliki rasa yang khas, kami\r\nmenyediakan minuman ini dalam bentuk penyajian yang menarik dan belum\r\npernah digunakan dalam penyajian minuman lain.', '1. Untuk menciptakan suatu produk yang menarik dari segi penampilan \r\ntetapi menyehatkan untuk tubuh .\r\n2. Untuk mengembangkan jiwa kreativitas mahasiswa dan masyarakat agar \r\nlebih kreatif dalam berwirausaha.\r\n3. Mengajak mahasiswa dan masyarakat untuk ikut berpartisipasi dalam \r\nusaha ini', 'Metode Produksi \r\nProduksi yang akan kami lakukan bekerjasama dengan pabrik sedotdan sablon gelas plastik yang telah kami berikan pengarahan sebelummengenai cara produksi produk ini. \r\nMetode Pemasaran \r\na. Poster\r\nSejumlah poster yang memuat iklan produk ini akan kami sebabeberapa tempat di lingkup kampus. \r\nb. Brosur dan Pamflet\r\nBrosur dan pamflet untuk produk ini akan kami sebarkasebanyak-banyaknya ke lingkup kampus dan daerah sekitarnya.', '-', '2017-06-12 19:42:19', '2017-06-12 19:42:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -360,7 +417,9 @@ CREATE TABLE `dokumen` (
 --
 
 INSERT INTO `dokumen` (`id_dokumen`, `nip_petugas_id`, `nama`, `tgl_upload`, `url_dokumen`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '12345', 'nama dokumen', '2017-05-07 10:27:02', 'url dokumen', '2017-05-07 10:27:02', NULL, NULL);
+(1, '12345', 'Template Presentasi Proposal', '2017-06-13 01:40:18', 'L22-Limit.ppt', '2017-05-07 10:27:02', NULL, NULL),
+(2, '12345', 'Template Presentasi Skripsi', '2017-06-13 01:40:12', 'L22-Limit.ppt', '2017-06-05 19:35:15', NULL, NULL),
+(3, '12345', 'Dokumen A', '2017-06-13 01:39:25', '1497317965.docx', '2017-06-12 18:39:25', '2017-06-12 18:39:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -403,7 +462,11 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`nip`, `created_at`, `updated_at`, `deleted_at`) VALUES
-('12345678910', '2017-05-07 08:58:51', NULL, NULL);
+('0799667799', '2017-06-14 02:43:39', '2017-06-14 02:43:39', NULL),
+('123456', '2017-06-14 15:02:05', '2017-06-14 15:02:05', NULL),
+('12345678910', '2017-05-07 08:58:51', NULL, NULL),
+('12345678911', '2017-05-30 13:16:56', NULL, NULL),
+('12345678912', '2017-05-30 13:16:56', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -447,7 +510,8 @@ CREATE TABLE `dosen_pembimbing` (
 --
 
 INSERT INTO `dosen_pembimbing` (`skripsi_id`, `nip_id`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '12345678910', 1, '2017-05-07 09:40:37', NULL, NULL);
+(1, '12345678910', 1, '2017-05-07 09:40:37', NULL, NULL),
+(1, '12345678911', 0, '2017-05-30 13:21:31', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -490,7 +554,7 @@ CREATE TABLE `dosen_penguji` (
 --
 
 INSERT INTO `dosen_penguji` (`skripsi_id`, `nip_id`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '12345678910', 1, '2017-05-07 09:41:13', NULL, NULL);
+(1, '12345678912', 1, '2017-05-07 09:41:13', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -501,10 +565,18 @@ INSERT INTO `dosen_penguji` (`skripsi_id`, `nip_id`, `status`, `created_at`, `up
 CREATE TABLE `dosen_rapat` (
   `nip` varchar(20) NOT NULL,
   `notulen_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dosen_rapat`
+--
+
+INSERT INTO `dosen_rapat` (`nip`, `notulen_id`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+('12345678910', 1, 0, '2017-05-30 13:12:54', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -567,7 +639,13 @@ CREATE TABLE `hari` (
 --
 
 INSERT INTO `hari` (`id_hari`, `nama_hari`) VALUES
-(1, 'Senin');
+(1, 'Senin'),
+(2, 'Selasa'),
+(3, 'Rabu'),
+(4, 'Kamis'),
+(5, 'Jumat'),
+(6, 'Sabtu'),
+(7, 'Minggu');
 
 -- --------------------------------------------------------
 
@@ -609,9 +687,15 @@ CREATE TABLE `jadwal_kuliah` (
 
 INSERT INTO `jadwal_kuliah` (`mk_ditawarkan_id`, `jam_id`, `hari_id`, `ruang_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 1, 1, 1, '2017-05-07 10:20:29', NULL, NULL),
-(1, 1, 1, 2, '2017-05-25 09:03:49', NULL, NULL),
-(1, 2, 1, 2, '2017-05-21 13:06:26', NULL, NULL),
-(1, 3, 1, 2, '2017-05-25 08:30:21', NULL, NULL);
+(1, 1, 2, 1, '2017-05-25 09:03:49', NULL, NULL),
+(1, 2, 2, 3, '2017-05-21 13:06:26', NULL, NULL),
+(1, 3, 1, 1, '2017-05-25 08:30:21', NULL, NULL),
+(2, 2, 2, 3, '2017-06-11 13:05:04', NULL, NULL),
+(2, 3, 1, 1, '2017-06-11 13:05:04', NULL, NULL),
+(4, 3, 1, 2, '2017-06-11 13:06:20', NULL, NULL),
+(4, 3, 2, 2, '2017-06-11 13:06:20', NULL, NULL),
+(5, 3, 2, 2, '2017-06-11 13:07:11', NULL, NULL),
+(5, 3, 4, 3, '2017-06-11 13:07:11', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -634,7 +718,10 @@ CREATE TABLE `jadwal_permohonan` (
 --
 
 INSERT INTO `jadwal_permohonan` (`permohonan_ruang_id`, `ruang_id`, `hari_id`, `jam_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, 1, '2017-05-07 10:31:32', NULL, NULL);
+(1, 1, 1, 1, '2017-05-07 10:31:32', NULL, NULL),
+(2, 1, 4, 1, '2017-06-12 18:34:30', '2017-06-12 18:34:30', NULL),
+(3, 1, 5, 1, '2017-06-14 14:06:22', '2017-06-14 14:06:22', NULL),
+(3, 1, 5, 2, '2017-06-14 14:06:22', '2017-06-14 14:06:22', NULL);
 
 -- --------------------------------------------------------
 
@@ -654,7 +741,16 @@ CREATE TABLE `jam` (
 INSERT INTO `jam` (`id_jam`, `waktu`) VALUES
 (1, '07:00:00'),
 (2, '07:50:00'),
-(3, '08:40:00');
+(3, '08:50:00'),
+(4, '09:40:00'),
+(5, '10:40:00'),
+(6, '11:30:00'),
+(7, '13:00:00'),
+(8, '13:50:00'),
+(9, '14:50:00'),
+(10, '15:50:00'),
+(11, '16:40:00'),
+(12, '17:40:00');
 
 -- --------------------------------------------------------
 
@@ -699,7 +795,10 @@ CREATE TABLE `jenis_penilaian` (
 
 INSERT INTO `jenis_penilaian` (`id_jenis_penilaian`, `nama_jenis`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'UTS', '2017-05-07 09:42:56', NULL, NULL),
-(2, 'UAS', '2017-05-21 13:51:12', NULL, NULL);
+(2, 'UAS', '2017-05-21 13:51:12', NULL, NULL),
+(3, 'Softskill', '2017-06-11 13:24:48', NULL, NULL),
+(4, 'Kuis', '2017-06-11 13:24:48', NULL, NULL),
+(5, 'Tugas', '2017-06-11 13:24:48', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -727,8 +826,8 @@ CREATE TABLE `jurnal` (
 --
 
 INSERT INTO `jurnal` (`jurnal_id`, `nama_jurnal`, `halaman_jurnal`, `bidang_jurnal`, `tanggal_jurnal`, `status_jurnal`, `volume_jurnal`, `penulis_ke`, `created_at`, `file_jurnal`, `updated_at`, `deleted_at`) VALUES
-(123455677, 'Decision Support System to Majoring High School Student', '314-322', 'Information System', '2017-04-04', NULL, '3', '4', '2017-04-09 11:44:09', '', '2017-04-09 05:51:52', NULL),
-(123455679, 'The Decision Support System For Predicting Color Change', '122-145', 'Information System', '2017-03-08', NULL, '4', '4', '2017-04-09 05:44:16', '', '2017-04-09 05:58:45', NULL);
+(123455680, 'penelitian tanaman hias', '123-125', 'biologi', '2017-06-13', 1, '2', '1', '2017-06-14 01:29:28', '1497428968.pdf', '2017-06-14 01:30:12', NULL),
+(123455682, 'penelitian tanaman gantung aja', '123-125', 'biologi banget', '2017-09-19', 1, '1', '1', '2017-06-14 01:56:30', '1497430590.jpg', '2017-06-14 15:08:16', NULL);
 
 -- --------------------------------------------------------
 
@@ -749,7 +848,8 @@ CREATE TABLE `jurnal_dosen` (
 --
 
 INSERT INTO `jurnal_dosen` (`jurnal_id`, `nip`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(123455677, '12345678910', '2017-05-07 09:12:07', NULL, NULL);
+(123455680, '12345678910', '2017-06-14 01:29:28', '2017-06-14 01:29:28', NULL),
+(123455682, '12345678910', '2017-06-14 01:56:30', '2017-06-14 01:56:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -770,7 +870,11 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id_kategori`, `kategori`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'dokumen', '2017-05-27 07:33:49', NULL, NULL);
+(1, 'Elektronik', '2017-05-27 07:33:49', NULL, NULL),
+(2, 'Mekanik', '2017-06-12 08:23:50', NULL, NULL),
+(3, 'Furniture', '2017-06-12 08:23:50', NULL, NULL),
+(4, 'Dokumen', '2017-06-12 08:23:50', NULL, NULL),
+(5, 'Kendaraan', '2017-06-13 00:44:46', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -780,7 +884,7 @@ INSERT INTO `kategori` (`id_kategori`, `kategori`, `created_at`, `updated_at`, `
 
 CREATE TABLE `kategori_capaian_pembelajaran` (
   `id_kategori_cpem` int(11) NOT NULL,
-  `nama_cpem` varchar(15) NOT NULL,
+  `nama_cpem` varchar(25) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -791,7 +895,9 @@ CREATE TABLE `kategori_capaian_pembelajaran` (
 --
 
 INSERT INTO `kategori_capaian_pembelajaran` (`id_kategori_cpem`, `nama_cpem`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'kategori cpem', '2017-05-07 11:13:30', NULL, NULL);
+(1, 'Kemampuan Khusus', '2017-05-07 11:13:30', NULL, NULL),
+(2, 'Kemampuan Umum', '2017-06-12 06:13:47', NULL, NULL),
+(3, 'Softskill', '2017-06-12 06:13:47', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -820,7 +926,7 @@ INSERT INTO `kategori_dana` (`id_sumber`, `jenis_dana`) VALUES
 CREATE TABLE `kategori_media_pembelajaran` (
   `id` int(11) NOT NULL,
   `kategori_media_pembelajaran` varchar(15) NOT NULL,
-  `media_pembelajaran` varchar(15) NOT NULL,
+  `media_pembelajaran` varchar(30) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -831,7 +937,10 @@ CREATE TABLE `kategori_media_pembelajaran` (
 --
 
 INSERT INTO `kategori_media_pembelajaran` (`id`, `kategori_media_pembelajaran`, `media_pembelajaran`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'kategori media', 'media', '2017-05-07 11:22:59', NULL, NULL);
+(1, 'Perangkat Lunak', 'SPSS', '2017-05-07 11:22:59', NULL, NULL),
+(2, 'Perangkat Lunak', 'Minitab', '2017-05-07 11:22:59', NULL, NULL),
+(3, 'Perangkat Keras', 'Papan Tulis', '2017-05-07 11:22:59', NULL, NULL),
+(4, 'Perangkat Keras', 'LCD Projector', '2017-05-07 11:22:59', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -854,7 +963,8 @@ CREATE TABLE `kbk` (
 INSERT INTO `kbk` (`id_kbk`, `jenis_kbk`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Data Mining', '2017-04-09 02:22:56', '2017-04-09 02:22:56', NULL),
 (2, 'Sistem Pendukung Keputusan', '2017-04-09 02:26:08', '2017-04-09 02:26:08', NULL),
-(3, 'Information System Engineering', '2017-04-09 02:26:15', '2017-04-09 02:26:15', NULL);
+(3, 'Information System Engineering', '2017-04-09 02:26:15', '2017-04-09 02:26:15', NULL),
+(4, 'RPL', '2017-06-19 07:45:53', '2017-06-19 07:45:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -925,7 +1035,8 @@ CREATE TABLE `konsultasi` (
 --
 
 INSERT INTO `konsultasi` (`id_konsultasi`, `skripsi_id`, `tgl_konsul`, `catatan_konsul`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, '2017-05-02', 'catatan konsultasi', '2017-05-07 09:39:54', NULL, NULL);
+(1, 1, '2017-05-02', 'BAB 2 : Progress TOP', '2017-05-07 09:39:54', NULL, NULL),
+(2, 1, '2017-05-03', 'BAB 3: Menambahkan Gant Chart', '2017-05-07 09:39:54', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -943,13 +1054,31 @@ CREATE TABLE `koor_mk` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `koor_mk`
+-- Table structure for table `lokasi`
 --
 
-INSERT INTO `koor_mk` (`id_koor_mk`, `nip_id`, `mk_id`, `status_tt_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(0, '12345678910', 1, 1, '2017-05-07 11:18:31', NULL, NULL),
-(1, '12345678910', 1, 1, '2017-05-07 11:18:42', NULL, NULL);
+CREATE TABLE `lokasi` (
+  `id` int(11) NOT NULL,
+  `nama_lokasi` varchar(20) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lokasi`
+--
+
+INSERT INTO `lokasi` (`id`, `nama_lokasi`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Labkom 1', '2017-06-13 00:41:26', NULL, NULL),
+(2, 'Labkom 2', '2017-06-13 00:41:26', NULL, NULL),
+(3, 'Labkom 3', '2017-06-13 00:42:47', NULL, NULL),
+(4, 'Labkom 4', '2017-06-13 00:42:47', NULL, NULL),
+(5, 'R.Dosen SI', '2017-06-13 00:43:39', NULL, NULL),
+(6, 'Departemen SI', '2017-06-13 00:43:39', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -959,7 +1088,7 @@ INSERT INTO `koor_mk` (`id_koor_mk`, `nip_id`, `mk_id`, `status_tt_id`, `created
 
 CREATE TABLE `mahasiswa` (
   `nim` varchar(20) NOT NULL,
-  `nip_id` varchar(20) NOT NULL,
+  `nip_id` varchar(20) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -970,7 +1099,10 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `nip_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-('081411631070', '12345678910', '2017-05-07 09:16:12', NULL, NULL);
+('081411631070', '12345678910', '2017-05-07 09:16:12', NULL, NULL),
+('081411631099', '12345678910', '2017-06-11 13:30:00', '2017-06-12 19:17:17', NULL),
+('081711631006', '12345678910', '2017-06-12 16:04:52', '2017-06-12 16:04:52', NULL),
+('88888888', '12345678910', '2017-06-12 19:23:20', '2017-06-12 19:23:20', NULL);
 
 -- --------------------------------------------------------
 
@@ -997,7 +1129,9 @@ CREATE TABLE `maintenance` (
 --
 
 INSERT INTO `maintenance` (`id_maintenance`, `nip_petugas_id`, `asset_id`, `asset_yang_dimaintenance`, `nama_pemaintenance`, `problem`, `solution`, `waktu_maintenance`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(4, '12345', 3457, 'asset yang dimaintanance', 'nama pemeintanace', 'masalah', 'solusi', '2017-05-09 23:00:00', '2017-05-07 10:41:48', NULL, NULL);
+(5, '12345', 14, 'Mobil Dinas Honda CRV S 789 UK', 'Bambang', 'pendingin tidak berfungsi', 'Mengisi Freon', '2017-06-24 06:00:00', '2017-06-12 20:20:26', '2017-06-12 19:01:46', '2017-06-12 19:01:46'),
+(6, '12345', 15, 'Dell 244HVU 24 inch Monitor', 'Rahma', 'LED harus ganti', 'ganti LED', '2017-06-13 17:00:00', '2017-06-12 19:01:39', '2017-06-12 19:02:15', NULL),
+(7, '12345', 16, 'Printer Epson L120', 'Dhanang', 'Kabel putus', 'Beli baru', '2017-06-14 17:00:00', '2017-06-12 20:20:45', '2017-06-12 20:21:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -1011,13 +1145,16 @@ CREATE TABLE `mata_kuliah` (
   `kode_matkul` varchar(10) NOT NULL,
   `nama_matkul` varchar(100) NOT NULL,
   `sks` int(11) NOT NULL,
-  `deskripsi_matkul` text NOT NULL,
-  `capaian_matkul` text NOT NULL,
-  `penilaian_matkul` varchar(200) NOT NULL,
-  `pokok_pembahasan` text NOT NULL,
-  `pustaka_utama` text NOT NULL,
-  `pustaka_pendukung` text NOT NULL,
-  `syarat_sks` varchar(3) NOT NULL,
+  `deskripsi_matkul` text,
+  `capaian_matkul` text,
+  `penilaian_matkul` varchar(200) DEFAULT NULL,
+  `pokok_pembahasan` text,
+  `pustaka_utama` text,
+  `pustaka_pendukung` text,
+  `syarat_sks` varchar(3) DEFAULT NULL,
+  `deskripsi_mata_ajar` text,
+  `status_rps` int(11) DEFAULT NULL,
+  `status_silabus` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -1027,8 +1164,9 @@ CREATE TABLE `mata_kuliah` (
 -- Dumping data for table `mata_kuliah`
 --
 
-INSERT INTO `mata_kuliah` (`id_mk`, `jenis_mk_id`, `kode_matkul`, `nama_matkul`, `sks`, `deskripsi_matkul`, `capaian_matkul`, `penilaian_matkul`, `pokok_pembahasan`, `pustaka_utama`, `pustaka_pendukung`, `syarat_sks`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 2, 'kode1', 'nama mk', 3, 'deskripsi mk', 'capaian mk', 'penilaian mk', 'pokok pembahasan mk', 'pustaka utama mk', 'pustaka pendukung mk', '123', '2017-05-07 10:15:38', NULL, NULL);
+INSERT INTO `mata_kuliah` (`id_mk`, `jenis_mk_id`, `kode_matkul`, `nama_matkul`, `sks`, `deskripsi_matkul`, `capaian_matkul`, `penilaian_matkul`, `pokok_pembahasan`, `pustaka_utama`, `pustaka_pendukung`, `syarat_sks`, `deskripsi_mata_ajar`, `status_rps`, `status_silabus`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 2, 'kode1', 'Statistika Deskriptif', 3, 'Pada Matakuliah ini, mahasiswa belajar mengenai dasar dasar Statistika.\r\n', 'Mahasiswa mampu meringkas dan menyajikan informasi numerik sehingga menjadi jelas dan berguna.', 'Tugas (25%) + UTS (30%) + UAS (35%) + SoftSkill(10%)', '1) Perhitungan Determinan Matriks\r\n2) representasi masalah dengan matriks', '1) Kumar, Santha.2013.Dasar dasar Statistika.Pearson:New York City.', '2) Neil, Goodblood.Statistika Pengembangan.Gramedia: Jakarta', '123', '1) Pendahuluan Metode Riset mengunakan teknik stastitik, serta keuntungan serta kerugian masih-masih teknik\r\n2) Visualisasi data: menciptakan dan menginterpretasikan histogram, bar charts, dan frequency plots.\r\n3) Central Tendency: menghitung dan menginterpretasikan ukuran distribusi, mean, median, dan mode\r\n4) Variability:  mengukur penyebaran data menggunakan rentang dan deviasi standar. serta mengidentifikasi outlier dalam data set menggunakan konsep rentang interkuartil.\r\n5) Standarisasi : mengkonversi distribusi ke distribusi normal standar menggunakan Z-skor. serta menghitung proporsi menggunakan distribusi standar.\r\n6) Distribusi Normal : menggunakan distribusi normal untuk menghitung probabilitas.serta menggunakan Z-table untuk mencari proporsi pengamatan atas, bawah, atau di antara nilai-nilai.\r\n7) Sampling Distribusi : menerapkan konsep probabilitas dan normalisasi untuk set data sampel.', 0, 0, '2017-05-07 10:15:38', NULL, NULL),
+(2, 2, 'MAK123', 'Matrik dan Transformasi Linier', 3, 'Pada Mata kuliah ini, mahasiswa dapat mempelajari matriks dan perhitungannya.', 'Mahasiswa mampu menyelesaikan Operasi Matrik, sistem persamaan linier, operasi vektor, dan aljabar linier numerik.\r\n', 'Tugas (25%) + UTS (30%) + UAS (35%) + SoftSkill(10%)', '1) Konsep Matriks\r\n2) Determinan matriks', 'Anton, H. 2000. Dasar-dasar Aljabar Linear jilid 1 dan 2. Jakarta: Penerbit Inter Aksara.\r\nDewiyani. 2006. Buku Materi Kuliah STIKOM : Aljabar Linear. Surabaya : STIKOM. ', 'Kolman, Bernard. 2004. Elementary Linear Algebra. New Jearsey: Prentice Hall.\r\nLeon, S. J. 2001. Aljabar Linier dan Aplikasinya. Jakarta : Penerbit Airlangga.', '0', 'Pengertian Matriks ( Jenis jenis matriks & Operasi Matriks)\r\nDeterminan Matriks\r\nInvers Matriks\r\nSistem Persamaan Linear\r\nVektor\r\nPerkalian vektor Sudut antara 2 vektor Vektor satuan Proj (u,v) dan komp(u,v)\r\nRuang vector\r\nProses Gram Schmidt\r\nTransformasi Linear Kernel Jangkauan\r\nNilai Eigen, Vektor Eigen', 0, 0, '2017-06-11 12:37:28', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1071,7 +1209,8 @@ CREATE TABLE `mhs_pemohon_surat` (
 --
 
 INSERT INTO `mhs_pemohon_surat` (`nim_id`, `surat_keluar_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-('081411631070', 1, '2017-05-07 10:32:48', NULL, NULL);
+('081411631070', 1, '2017-05-07 10:32:48', NULL, NULL),
+('081411631070', 2, '2017-06-14 14:16:18', '2017-06-14 14:16:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -1093,7 +1232,9 @@ CREATE TABLE `mk_diajar` (
 --
 
 INSERT INTO `mk_diajar` (`dosen_id`, `mk_ditawarkan_id`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-('12345678910', 1, 0, '2017-05-07 10:22:55', NULL, NULL);
+('12345678910', 1, 0, '2017-05-07 10:22:55', NULL, NULL),
+('12345678910', 4, 0, '2017-06-11 13:09:27', NULL, NULL),
+('12345678910', 5, 0, '2017-06-11 13:09:27', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1116,7 +1257,10 @@ CREATE TABLE `mk_diambil` (
 --
 
 INSERT INTO `mk_diambil` (`mk_ditawarkan_id`, `mhs_id`, `nilai`, `is_approve`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '081411631070', 'AB', 0, '2017-05-07 10:22:03', NULL, NULL);
+(1, '081411631070', '0', 0, '2017-05-07 10:22:03', NULL, NULL),
+(2, '081411631070', '0', 0, '2017-06-11 13:23:28', NULL, NULL),
+(4, '081411631070', '0', 0, '2017-06-11 13:22:57', NULL, NULL),
+(5, '081411631070', '0', 0, '2017-06-11 13:22:57', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1138,7 +1282,13 @@ CREATE TABLE `mk_ditawarkan` (
 --
 
 INSERT INTO `mk_ditawarkan` (`id_mk_ditawarkan`, `thn_akademik_id`, `matakuliah_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, '2017-05-07 10:18:03', NULL, NULL);
+(1, 1, 1, '2017-05-07 10:18:03', NULL, NULL),
+(2, 2, 1, '2017-06-11 12:39:11', NULL, NULL),
+(3, 2, 2, '2017-06-11 12:39:11', NULL, NULL),
+(4, 5, 2, '2017-06-11 12:39:44', NULL, NULL),
+(5, 5, 1, '2017-06-11 12:39:44', NULL, NULL),
+(6, 8, 1, '2017-06-23 22:36:23', '2017-06-23 22:36:23', NULL),
+(7, 8, 2, '2017-06-23 22:36:24', '2017-06-23 22:36:24', NULL);
 
 -- --------------------------------------------------------
 
@@ -1160,7 +1310,12 @@ CREATE TABLE `mk_prasyarat` (
 --
 
 INSERT INTO `mk_prasyarat` (`id_mk_prasyarat`, `mk_id`, `mk_syarat_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, '2017-05-07 11:20:48', NULL, NULL);
+(1, 1, 2, '2017-05-07 11:20:48', NULL, NULL),
+(2, 1, 2, '2017-06-14 13:08:57', '2017-06-14 13:08:57', NULL),
+(3, 1, 2, '2017-06-14 13:10:48', '2017-06-14 13:10:48', NULL),
+(4, 1, 2, '2017-06-14 13:12:34', '2017-06-14 13:12:34', NULL),
+(5, 1, 2, '2017-06-14 13:13:09', '2017-06-14 13:13:09', NULL),
+(6, 2, 2, '2017-06-14 13:13:41', '2017-06-14 13:13:41', NULL);
 
 -- --------------------------------------------------------
 
@@ -1181,7 +1336,8 @@ CREATE TABLE `mk_prodi` (
 --
 
 INSERT INTO `mk_prodi` (`prodi_id`, `mk_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 1, '2017-05-07 11:16:28', NULL, NULL);
+(1, 1, '2017-05-07 11:16:28', NULL, NULL),
+(1, 2, '2017-05-07 11:16:28', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1202,7 +1358,11 @@ CREATE TABLE `mk_softskill` (
 --
 
 INSERT INTO `mk_softskill` (`mk_id`, `softskill_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, '2017-05-07 11:25:42', NULL, NULL);
+(1, 1, '2017-05-07 11:25:42', NULL, NULL),
+(1, 3, '2017-05-07 11:25:42', NULL, NULL),
+(1, 4, '2017-05-07 11:25:42', NULL, NULL),
+(2, 3, '2017-06-12 06:33:02', NULL, NULL),
+(2, 6, '2017-06-12 06:33:02', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1213,14 +1373,14 @@ INSERT INTO `mk_softskill` (`mk_id`, `softskill_id`, `created_at`, `updated_at`,
 CREATE TABLE `notulen_rapat` (
   `id_notulen` int(11) NOT NULL,
   `permohonan_ruang_id` int(11) NOT NULL,
-  `nip_petugas_id` varchar(50) NOT NULL,
-  `nip_id` varchar(20) NOT NULL,
+  `nip_petugas_id` varchar(50) DEFAULT NULL,
+  `nip_id` varchar(20) DEFAULT NULL,
   `nama_rapat` varchar(100) NOT NULL,
   `agenda_rapat` longtext NOT NULL,
-  `waktu_pelaksanaan` date NOT NULL,
-  `hasil_pembahasan` longtext NOT NULL,
-  `id_verifikasi` varchar(2) NOT NULL,
-  `deskripsi_rapat` varchar(100) NOT NULL,
+  `waktu_pelaksanaan` date DEFAULT NULL,
+  `hasil_pembahasan` longtext,
+  `id_verifikasi` varchar(2) DEFAULT NULL,
+  `deskripsi_rapat` varchar(100) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -1257,7 +1417,9 @@ CREATE TABLE `penelitian_dosen` (
 --
 
 INSERT INTO `penelitian_dosen` (`penelitian_id`, `judul_penelitian`, `nama_ketua`, `bidang_penelitian`, `file_penelitian`, `tanggal_penelitian`, `status_penelitian`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'judul penelitian dosen', 'nama ketua', 'bidang penelitian', 'url file', '2017-05-02', 1, '2017-05-07 09:05:11', NULL, NULL);
+(1, 'judul penelitian dosen', 'nama ketua', 'bidang penelitian', 'url file', '2017-05-02', 1, '2017-05-07 09:05:11', NULL, NULL),
+(2, 'Penelitian Pangan', 'Dewo', 'Pertanian', '1497477055.pdf', '2017-06-30', 0, '2017-06-14 14:50:55', '2017-06-14 14:50:55', NULL),
+(3, 'tugas', 'alun', 'kesehatan', '1497477892.pdf', '2017-06-15', 0, '2017-06-14 15:04:52', '2017-06-14 15:04:52', NULL);
 
 -- --------------------------------------------------------
 
@@ -1280,7 +1442,8 @@ CREATE TABLE `penelitian_mhs` (
   `publikasi` varchar(30) NOT NULL,
   `kategori_penelitian` varchar(30) NOT NULL,
   `is_verified` int(3) NOT NULL DEFAULT '0',
-  `alasan_verified` text NOT NULL,
+  `alasan_verified` text,
+  `skor` int(10) DEFAULT NULL,
   `file_pen` varchar(1024) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -1291,8 +1454,10 @@ CREATE TABLE `penelitian_mhs` (
 -- Dumping data for table `penelitian_mhs`
 --
 
-INSERT INTO `penelitian_mhs` (`kode_penelitian`, `nim_id`, `nip_petugas_id`, `judul`, `peneliti`, `fakultas`, `tahun`, `halaman_naskah`, `sumber_dana`, `besar_dana`, `sk`, `publikasi`, `kategori_penelitian`, `is_verified`, `alasan_verified`, `file_pen`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1000, '081411631070', '12345', 'Judul', 'Peneliti', 'Fakultas', '2017', 'halaman', 'sumber dana', 'besar', 'sk', 'publikasi', 'PKM', 0, '', NULL, '2017-05-11 07:58:06', NULL, NULL);
+INSERT INTO `penelitian_mhs` (`kode_penelitian`, `nim_id`, `nip_petugas_id`, `judul`, `peneliti`, `fakultas`, `tahun`, `halaman_naskah`, `sumber_dana`, `besar_dana`, `sk`, `publikasi`, `kategori_penelitian`, `is_verified`, `alasan_verified`, `skor`, `file_pen`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1000, '081411631070', '12345', 'Judul', 'Peneliti', 'Fakultas', '2017', 'halaman', 'sumber dana', 'besar', 'sk', 'publikasi', 'PKM', 0, '', NULL, 'cscw15.pdf', '2017-06-12 23:08:37', '2017-06-12 16:08:37', NULL),
+(1001, '081411631070', '12345', 'Pembangkit Listrik Tenaga Dalam', 'Lisa M', 'Sains dan Teknologi', '2017', '123', 'Dikti', '2500000', '-', '-', 'PKM', 1, NULL, NULL, 'feliciano-ICSE2016.pdf', '2017-06-12 23:17:07', '2017-06-12 16:17:07', NULL),
+(1002, '88888888', '12345', 'PKM-K-Minuman-MiM', 'Kendall Jenner', 'Sains dan Teknologi', '2014', '18', 'Dikti', '10000000', '-', '-', 'PKM', 1, NULL, NULL, 'PKM-K-Minuman-MiM.pdf', '2017-06-13 02:52:25', '2017-06-12 19:52:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -1313,7 +1478,9 @@ CREATE TABLE `penelitian_milik_dosen` (
 --
 
 INSERT INTO `penelitian_milik_dosen` (`nip`, `penelitian_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-('12345678910', 1, '2017-05-07 09:10:20', NULL, NULL);
+('12345678910', 1, '2017-05-07 09:10:20', NULL, NULL),
+('12345678910', 2, '2017-06-14 14:50:55', '2017-06-14 14:50:55', NULL),
+('12345678910', 3, '2017-06-14 15:04:52', '2017-06-14 15:04:52', NULL);
 
 -- --------------------------------------------------------
 
@@ -1338,7 +1505,8 @@ CREATE TABLE `pengabdian_masyarakat` (
 --
 
 INSERT INTO `pengabdian_masyarakat` (`kegiatan_id`, `nama_kegiatan`, `tempat_kegiatan`, `tanggal_kegiatan`, `file_pengmas`, `status_pengmas`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'nama kegiatan pengmas', 'tempat kegiatan pengmas', '2017-05-08', 'url file pengmas', 1, '2017-05-07 09:02:35', NULL, NULL);
+(1, 'nama kegiatan pengmas', 'tempat kegiatan pengmas', '2017-05-08', 'url file pengmas', 1, '2017-05-07 09:02:35', NULL, NULL),
+(2, 'kerja bakti bangun acc', 'sidoarjo', '2017-07-08', '1497429403.jpg', 1, '2017-06-14 01:36:43', '2017-06-14 01:36:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -1370,7 +1538,7 @@ CREATE TABLE `pengajuan_kegiatan` (
 --
 
 INSERT INTO `pengajuan_kegiatan` (`id_kegiatan`, `konfirmasi_lpj`, `konfirmasi_proposal`, `revisi`, `nama`, `history`, `tujuan`, `mekanisme`, `tglpengajuan`, `tglpelaksanaan`, `rpengajuan`, `rpelaksanaan`, `url_poster`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 0, 'revisi', 'nama', 'history', 'tujuan', 'mekanisme', '2017-05-03', '2017-05-08', 'rencana pengajuan', 'rencana pelaksanaan', 'url poster', '2017-05-07 10:50:50', NULL, NULL);
+(1, 0, 0, 'revisi', 'nama', 'history', 'tujuan', 'mekanisme', '2017-05-03', '2017-05-08', 'rencana pengajuan', 'rencana pelaksanaan', 'url poster', '2017-05-07 10:50:50', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1391,7 +1559,8 @@ CREATE TABLE `pengmas_dosen` (
 --
 
 INSERT INTO `pengmas_dosen` (`nip`, `kegiatan_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-('12345678910', 1, '2017-05-07 09:11:30', NULL, NULL);
+('12345678910', 1, '2017-05-07 09:11:30', NULL, NULL),
+('12345678910', 2, '2017-06-14 01:36:43', '2017-06-14 01:36:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -1401,7 +1570,7 @@ INSERT INTO `pengmas_dosen` (`nip`, `kegiatan_id`, `created_at`, `updated_at`, `
 
 CREATE TABLE `permohonan_ruang` (
   `id_permohonan_ruang` int(11) NOT NULL,
-  `nip_petugas_id` varchar(50) NOT NULL,
+  `nip_petugas_id` varchar(50) DEFAULT NULL,
   `nama` varchar(64) NOT NULL,
   `tgl_pinjam` date NOT NULL,
   `atribut_verifikasi` int(11) NOT NULL,
@@ -1416,7 +1585,9 @@ CREATE TABLE `permohonan_ruang` (
 --
 
 INSERT INTO `permohonan_ruang` (`id_permohonan_ruang`, `nip_petugas_id`, `nama`, `tgl_pinjam`, `atribut_verifikasi`, `nim_nip`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '12345', 'nama pemohon', '2017-05-30', 1, '12345678910', '2017-05-07 10:26:20', NULL, NULL);
+(1, '12345', 'Kelas Pengganti Metpen', '2017-05-30', 2, '12345678910', '2017-05-07 10:26:20', '2017-06-12 18:41:05', NULL),
+(2, '12345', 'PHL Kalkulus', '2017-06-15', 1, '081411631070', '2017-06-12 18:34:30', '2017-06-12 18:41:11', NULL),
+(3, '12345', 'PHL PSI', '2017-06-16', 1, '081411631070', '2017-06-14 14:06:21', '2017-06-14 14:07:01', NULL);
 
 -- --------------------------------------------------------
 
@@ -1438,7 +1609,17 @@ CREATE TABLE `persentase_penilaian` (
 --
 
 INSERT INTO `persentase_penilaian` (`jenis_penilaian_id`, `mk_ditawarkan_id`, `persentase`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 30, '2017-05-07 10:21:21', NULL, NULL);
+(1, 1, 30, '2017-05-07 10:21:21', NULL, NULL),
+(1, 4, 30, '2017-06-11 13:43:59', NULL, NULL),
+(1, 5, 30, '2017-06-11 13:43:59', NULL, NULL),
+(2, 4, 20, '2017-06-11 13:43:59', NULL, NULL),
+(2, 5, 20, '2017-06-11 13:43:59', NULL, NULL),
+(3, 4, 15, '2017-06-11 13:43:59', NULL, NULL),
+(3, 5, 15, '2017-06-11 13:43:59', NULL, NULL),
+(4, 4, 15, '2017-06-11 13:43:59', NULL, NULL),
+(4, 5, 15, '2017-06-11 13:43:59', NULL, NULL),
+(5, 4, 10, '2017-06-11 13:43:59', NULL, NULL),
+(5, 5, 10, '2017-06-11 13:43:59', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1462,7 +1643,9 @@ CREATE TABLE `petugas_tu` (
 --
 
 INSERT INTO `petugas_tu` (`nip_petugas`, `nama_petugas`, `no_telp_petugas`, `email_petugas`, `prodi_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-('12345', 'nama petugas', 'telp petugas', 'email@petugas.com', 2, '2017-05-07 09:19:15', NULL, NULL);
+('12345', 'George Mayer', '089535891657', '123123@gmail.com', 1, '2017-05-07 09:19:15', NULL, NULL),
+('1234567', 'Faisal Rahman', '01234567', 'faisal@gmail.com', 1, '2017-06-14 13:57:46', '2017-06-14 13:58:40', '2017-06-14 13:58:40'),
+('12346', 'Jeremy Mayer', '089535654789', 'j123@gmail.com', 1, '2017-05-07 09:19:15', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1482,7 +1665,7 @@ CREATE TABLE `prestasi` (
   `penyelenggara` varchar(30) NOT NULL,
   `file_prestasi` varchar(50) NOT NULL,
   `ps_is_verified` int(12) NOT NULL DEFAULT '0',
-  `alasan_verified` text NOT NULL,
+  `alasan_verified` text,
   `skor` int(10) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -1494,7 +1677,8 @@ CREATE TABLE `prestasi` (
 --
 
 INSERT INTO `prestasi` (`id_prestasi`, `nip_petugas_id`, `nim_id`, `kelompok_kegiatan`, `jenis_kegiatan`, `tingkat`, `prestasi`, `tahun_kegiatan`, `penyelenggara`, `file_prestasi`, `ps_is_verified`, `alasan_verified`, `skor`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '12345', '081411631070', 'kelompok kegiatan prestasi', 'jenis kegiatan', 'tingkat', 'prestasi', '2015', 'penyelenggara', 'url file prestasi', 0, '', NULL, '2017-05-07 09:23:54', NULL, NULL);
+(1, '12345', '081411631070', 'Kegiatan Wajib Universitas', 'Latihan Kepemimpinan', 'Departemen/Prodi', 'Satria Airlangga Surabaya', '2015', 'penyelenggara', '1497307901.png', 1, '', 200, '2017-05-07 09:23:54', '2017-06-12 16:05:37', NULL),
+(2, NULL, '081411631070', 'Kegiatan Bidang Minat dan Bakat', 'Mengikuti kegiatan Minat dan Bakat', 'Nasional', 'Runner Up Hackathon 3.0', '2015', 'Telkom', '1497308813.png', 2, 'salah', NULL, '2017-06-12 16:06:53', '2017-06-12 16:06:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -1592,8 +1776,10 @@ CREATE TABLE `ruang` (
 --
 
 INSERT INTO `ruang` (`id_ruang`, `nama_ruang`, `kapasitas`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'nama ruang', 23, '2017-05-07 10:18:46', NULL, NULL),
-(2, 'nama ruang 2', 34, '2017-05-21 13:03:15', NULL, NULL);
+(1, '302', 60, '2017-05-07 10:18:46', NULL, NULL),
+(2, '301A', 34, '2017-05-21 13:03:15', NULL, NULL),
+(3, '301B', 50, '2017-06-11 11:48:32', NULL, NULL),
+(4, '322A', 60, '2017-06-11 11:48:32', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1632,6 +1818,7 @@ CREATE TABLE `skripsi` (
   `statusprop_id` int(11) DEFAULT NULL,
   `statusskrip_id` int(11) DEFAULT NULL,
   `Judul` varchar(100) NOT NULL,
+  `upload_form_usulan` varchar(100) DEFAULT NULL,
   `upload_berkas_proposal` varchar(100) DEFAULT NULL,
   `upload_berkas_skripsi` varchar(100) DEFAULT NULL,
   `nip_petugas_id` varchar(50) NOT NULL,
@@ -1655,8 +1842,8 @@ CREATE TABLE `skripsi` (
 -- Dumping data for table `skripsi`
 --
 
-INSERT INTO `skripsi` (`id_skripsi`, `NIM_id`, `kbk_id`, `statusprop_id`, `statusskrip_id`, `Judul`, `upload_berkas_proposal`, `upload_berkas_skripsi`, `nip_petugas_id`, `tgl_sidangpro`, `waktu_sidangpro`, `tempat_sidangpro`, `nilai_sidangpro`, `nilai_sidangskrip`, `tgl_sidangskrip`, `waktu_sidangskrip`, `tempat_sidangskrip`, `tanggal_pengumpulan_proposal`, `tanggal_pengumpulan_skripsi`, `is_verified`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '081411631070', 2, 1, 1, 'judul skripsi', 'url berkas', '', '12345', '2017-05-01', '03:00:00', 'tempat sidang proposal', NULL, NULL, '2017-05-02', '01:00:00', 'tempat sidang skripsi', '2017-05-03', '2017-05-01', 1, '2017-05-07 09:38:38', NULL, NULL);
+INSERT INTO `skripsi` (`id_skripsi`, `NIM_id`, `kbk_id`, `statusprop_id`, `statusskrip_id`, `Judul`, `upload_form_usulan`, `upload_berkas_proposal`, `upload_berkas_skripsi`, `nip_petugas_id`, `tgl_sidangpro`, `waktu_sidangpro`, `tempat_sidangpro`, `nilai_sidangpro`, `nilai_sidangskrip`, `tgl_sidangskrip`, `waktu_sidangskrip`, `tempat_sidangskrip`, `tanggal_pengumpulan_proposal`, `tanggal_pengumpulan_skripsi`, `is_verified`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, '081411631070', 2, 1, 1, 'Rancang Bangun Sistem Pendukung Keputusan Pemilihan Suplier di PT Near', NULL, '1495872093.docx', NULL, '12345', '2017-05-01', '03:00:00', 'Labkom 4', NULL, NULL, NULL, NULL, NULL, '2017-06-14', '2017-06-14', 2, '2017-05-07 09:38:38', '2017-06-14 14:12:01', NULL);
 
 -- --------------------------------------------------------
 
@@ -1677,7 +1864,11 @@ CREATE TABLE `status_asset` (
 --
 
 INSERT INTO `status_asset` (`id_status`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'rusak', '2017-05-27 07:36:09', NULL, NULL);
+(1, 'Ready', '2017-05-27 07:36:09', NULL, NULL),
+(2, 'Borrowed', '2017-06-12 08:21:15', NULL, NULL),
+(3, 'Maintanance', '2017-06-12 08:21:15', NULL, NULL),
+(4, 'Broken', '2017-06-12 08:21:35', NULL, NULL),
+(5, 'Expired', '2017-06-12 08:21:35', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1698,7 +1889,8 @@ CREATE TABLE `status_skripsi` (
 --
 
 INSERT INTO `status_skripsi` (`id`, `keterangan`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'disetjui', '2017-05-07 09:35:05', NULL, NULL);
+(1, 'Disetjui', '2017-05-07 09:35:05', NULL, NULL),
+(2, 'Revisi', '2017-05-07 09:35:05', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1711,13 +1903,6 @@ CREATE TABLE `status_team_teaching` (
   `status_tt` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `status_team_teaching`
---
-
-INSERT INTO `status_team_teaching` (`id_status_tt`, `status_tt`) VALUES
-(1, 'PJMK1');
-
 -- --------------------------------------------------------
 
 --
@@ -1726,9 +1911,10 @@ INSERT INTO `status_team_teaching` (`id_status_tt`, `status_tt`) VALUES
 
 CREATE TABLE `surat_keluar_dosen` (
   `id_surat_keluar` int(11) NOT NULL,
-  `nip_petugas_id` varchar(50) NOT NULL,
+  `nip_petugas_id` varchar(50) DEFAULT NULL,
   `nama` varchar(64) NOT NULL,
   `tgl_upload` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -1738,8 +1924,8 @@ CREATE TABLE `surat_keluar_dosen` (
 -- Dumping data for table `surat_keluar_dosen`
 --
 
-INSERT INTO `surat_keluar_dosen` (`id_surat_keluar`, `nip_petugas_id`, `nama`, `tgl_upload`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '12345', 'nama dosen', '2017-05-07 10:30:37', '2017-05-07 10:30:37', NULL, NULL);
+INSERT INTO `surat_keluar_dosen` (`id_surat_keluar`, `nip_petugas_id`, `nama`, `tgl_upload`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, '12345', 'Surat Pengantar Conference', '2017-05-07 10:30:37', 0, '2017-05-07 10:30:37', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1749,11 +1935,12 @@ INSERT INTO `surat_keluar_dosen` (`id_surat_keluar`, `nip_petugas_id`, `nama`, `
 
 CREATE TABLE `surat_keluar_mhs` (
   `id_surat_keluar` int(11) NOT NULL,
-  `nip_petugas_id` varchar(50) NOT NULL,
+  `nip_petugas_id` varchar(50) DEFAULT NULL,
   `nama_lembaga` varchar(100) NOT NULL,
   `nama` varchar(64) NOT NULL,
   `alamat` varchar(100) NOT NULL,
   `tgl_upload` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -1763,8 +1950,9 @@ CREATE TABLE `surat_keluar_mhs` (
 -- Dumping data for table `surat_keluar_mhs`
 --
 
-INSERT INTO `surat_keluar_mhs` (`id_surat_keluar`, `nip_petugas_id`, `nama_lembaga`, `nama`, `alamat`, `tgl_upload`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '12345', 'nama lembaga', 'nama mhs', 'alamat lembaga', '2017-05-07 10:29:51', '2017-05-07 10:29:51', NULL, NULL);
+INSERT INTO `surat_keluar_mhs` (`id_surat_keluar`, `nip_petugas_id`, `nama_lembaga`, `nama`, `alamat`, `tgl_upload`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, '12345', 'Bank Indonesia', 'Permohonan Magang', 'Jalan Pahlawan No.35', '2017-06-13 01:35:04', 1, '2017-05-07 10:29:51', '2017-06-14 14:17:45', NULL),
+(2, '12345', 'pertamina', 'magang', 'karang', '2017-06-14 21:16:18', 2, '2017-06-14 14:16:18', '2017-06-14 14:17:10', NULL);
 
 -- --------------------------------------------------------
 
@@ -1790,7 +1978,8 @@ CREATE TABLE `surat_masuk` (
 --
 
 INSERT INTO `surat_masuk` (`id`, `no_surat_masuk`, `nip_petugas_id`, `nama_lembaga`, `judul_surat_masuk`, `nim_nip`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '', '12345', 'nama lembaga', 'judul surat masuk', '081411631050', 0, '2017-05-07 10:28:22', NULL, NULL);
+(1, '', '12345', 'Bank Indonesia', 'Surat Penerimaan Magang', '081411631070', 0, '2017-05-07 10:28:22', NULL, NULL),
+(2, '', '12345', 'ASINDO', 'Surat Undangan Conference', '12345678910', 0, '2017-05-07 10:28:22', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1845,15 +2034,24 @@ INSERT INTO `surat_tugas_dosen` (`nip`, `surat_id`, `created_at`, `updated_at`, 
 
 CREATE TABLE `thn_akademik` (
   `id_thn_akademik` int(11) NOT NULL,
-  `semester_periode` varchar(15) NOT NULL
+  `semester_periode` varchar(20) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `thn_akademik`
 --
 
-INSERT INTO `thn_akademik` (`id_thn_akademik`, `semester_periode`) VALUES
-(1, '2014/2015 genap');
+INSERT INTO `thn_akademik` (`id_thn_akademik`, `semester_periode`, `created_at`, `updated_at`) VALUES
+(1, '2014/2015 Genap', '2017-06-06 06:09:47', NULL),
+(2, '2015/2016 Ganjil', '2017-06-06 06:09:47', NULL),
+(3, '2015/2016 Genap', '2017-06-06 06:09:47', NULL),
+(4, '2016/2017 Ganjil', '2017-06-06 06:09:47', NULL),
+(5, '2016/2017 Genap', '2017-06-06 06:09:47', NULL),
+(6, '2000/2001 Gasal', '2017-06-23 19:00:22', '2017-06-23 19:00:22'),
+(7, '2004/2005 Gasal', '2017-06-23 22:29:49', '2017-06-23 22:29:49'),
+(8, '2005/2006 Gasal', '2017-06-23 22:36:23', '2017-06-23 22:36:23');
 
 -- --------------------------------------------------------
 
@@ -1881,7 +2079,13 @@ CREATE TABLE `transaksi_peminjaman` (
 --
 
 INSERT INTO `transaksi_peminjaman` (`id_peminjaman`, `nip_petugas_id`, `asset_id`, `nim_nip_peminjam`, `asset_yang_dipinjam`, `checkin_date`, `checkout_date`, `expected_checkin_date`, `waktu_pinjam`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(6, '12345', 3457, '081411631070', 'asset yang dipinjam', '2017-05-17', '2017-05-01', '2017-05-02', '2017-05-07 10:45:31', '2017-05-07 10:44:09', NULL, NULL);
+(3, '12345', 9, '12345678910', 'HUAWEI 2889qr network switch', '2017-05-25', '2017-05-25', '2017-05-31', '2017-06-13 01:05:13', '2017-05-25 05:46:01', '2017-06-12 18:05:13', '2017-06-12 18:05:13'),
+(4, '12345', 11, '12345678911', 'HUAWEI 2889qr network switch 7', '2017-05-25', '2017-05-25', '2017-05-26', '2017-06-13 01:05:17', '2017-05-25 06:58:02', '2017-06-12 18:05:17', '2017-06-12 18:05:17'),
+(5, '12345', 12, '081411631070', 'pedoman skripsi 2112', '2017-05-25', '2017-05-25', '2017-05-26', '2017-06-13 01:05:21', '2017-05-25 06:58:51', '2017-06-12 18:05:21', '2017-06-12 18:05:21'),
+(6, '12345', 10, '081411631070', 'HUAWEI 2889qr network switch', '2017-05-25', '2017-05-25', '2017-05-26', '2017-06-13 01:05:32', '2017-05-25 07:15:45', '2017-06-12 18:05:32', '2017-06-12 18:05:32'),
+(7, '12345', 13, '081411631071', 'kartu wr', '2017-06-12', '2017-06-08', '2017-06-09', '2017-06-13 01:05:39', '2017-06-07 20:54:36', '2017-06-12 18:05:39', '2017-06-12 18:05:39'),
+(8, '12345', 15, '081411631024', 'Dell 244HVU 24 inch Monitor', '2017-06-13', '2017-06-13', '2017-06-27', '2017-06-13 01:07:23', '2017-06-12 18:05:06', '2017-06-12 18:07:23', '2017-06-12 18:07:23'),
+(9, '12345', 17, '081411631024', 'AntiVirus AVAST', '2017-06-13', '2017-06-13', '2017-06-14', '2017-06-13 03:18:03', '2017-06-12 20:16:24', '2017-06-12 20:18:03', NULL);
 
 -- --------------------------------------------------------
 
@@ -1892,7 +2096,7 @@ INSERT INTO `transaksi_peminjaman` (`id_peminjaman`, `nip_petugas_id`, `asset_id
 CREATE TABLE `universitas` (
   `id_universitas` int(11) NOT NULL,
   `kode_universitas` varchar(10) NOT NULL,
-  `nama_universitas` varchar(15) NOT NULL
+  `nama_universitas` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1900,7 +2104,7 @@ CREATE TABLE `universitas` (
 --
 
 INSERT INTO `universitas` (`id_universitas`, `kode_universitas`, `nama_universitas`) VALUES
-(1, 'kode1', 'Unair');
+(1, 'kode1', 'Universitas Airlangga');
 
 -- --------------------------------------------------------
 
@@ -1925,13 +2129,21 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `name`, `role`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, '', 'Kretawiweka', '', 'ekanuraga@gmail.com', '$2y$10$vCIEXVF7bLslTCieJl/UdOy6tmXKFCTN8YayFDshIcJ2/Ij0D3E1.', 'NGdXD1d8Zap6M1gbgutblBahGAhTA0RtuuZMwx6Om7dWPXTlO9SjZ02jN4eB', '2017-02-28 12:39:02', '2017-02-28 12:39:02'),
-(2, '', 'Ramadhan Akira', '', 'akirahadian@gmail.com', '$2y$10$tAOqSqzwql2n2d3neLjCPux1XPwH7fYPDTRVhCUFDtL6DOcvtPCzy', 'zjDRh9mmCVo57Vnz0QNJ63LFtrCCh38tUwP3fEenww3HkA1q4lDsrrsnbmMK', '2017-03-05 01:23:21', '2017-03-05 01:23:21'),
-(3, '', 'hilmi', '', 'hilmi@olimpiade.id', '$2y$10$k9QR9NqivqP0yoPxTUfIdOAuFuaIaeAVXU0Uf8BtWiqL9DNz50jVa', 'PJRXO2JUzYvWR2R4x5zXEKEME3lqGZhx9ydjgTCaNXRzouR7iNsqL8AqZ8ZV', '2017-03-17 19:58:55', '2017-03-17 19:58:55'),
 (4, '081411631006', 'admin', 'mahasiswa', 'admin@psi.com', '$2y$10$9S83V93bZX74YV2V4tWRCOJeAaRMnTX0ys.5PZGiHjd3JEAmAuyv6', 'XK6BJcl4n38F5ZKtLYFcTY4eoPnFwWLzpIiafpPlXEsrGoVV7LKpisHDGj5Y', '2017-03-17 20:16:14', '2017-03-17 20:16:14'),
-(5, '081411631070', 'Mahasiswa', 'mahasiswa', 'mahasiswa@email.com', '$2y$10$jOI14OJADWUUImOHnZztquz9BdO/2dFYiRPBhtyygc8DEmIbLNLNq', 'pVYK5fmtf7SSYLYTp2sqJTQraI7pUGBb5CniE4XSv8CSTdV7dQvlxL1KZLBI', '2017-05-10 03:40:14', '2017-05-10 03:40:14'),
-(6, '12345678910', 'Dosen', 'dosen', 'dosen@email.com', '$2y$10$AeNiPmUWYXL5vCE4EaQKoeR265B7d4EzZWajzJEj610EaiW7VNuZm', 'rOem6p0uegCq6vVld8QRQPvE6GNpA3DZkB5VKPWYyKFZwVyVe9UgiRQ6QSGT', '2017-05-10 03:54:39', '2017-05-10 03:54:39'),
-(7, '12345', 'Karyawan', 'karyawan', '123123@gmail.com', '$2y$10$zabtKldYAuIH/KbIbYofuON3U/jlvBXIEFY/w.ItHp0WdfvfFteda', 'COEd39ZPUoatKUMjTil5ZyVZrZxCo4TaEux62h7nD1dcWkOoedCntbo6JJUl', '2017-05-10 03:55:29', '2017-05-10 03:55:29');
+(5, '081411631070', 'Prianka Ratu Masitho', 'mahasiswa', 'priankarm@airlangga-academic.com', '$2y$10$lg7ykAXZzhjHUmVy6CePCuFSK/rGlnRfU0sH2E38PMDyMPPvY68Ey', 'zbmta6NoEbhYchxiEE8kp1yhjgFjsDV1LbENrsWNHwzzqtpXLTZz559u89Wl', '2017-05-10 03:40:14', '2017-06-12 18:48:12'),
+(6, '12345678910', 'Prof. Einstein', 'dosen', 'Einstein@email.com', '$2y$10$AeNiPmUWYXL5vCE4EaQKoeR265B7d4EzZWajzJEj610EaiW7VNuZm', 'vdXgKXYnnp8AW6MCQ6zzFD6KqzAUjMezt2Cj36qcoEcFGnAFXZqqW30hDrQ8', '2017-05-10 03:54:39', '2017-05-10 03:54:39'),
+(7, '12345', 'George Mayer', 'karyawan', '123123@gmail.com', '$2y$10$zabtKldYAuIH/KbIbYofuON3U/jlvBXIEFY/w.ItHp0WdfvfFteda', 'W1bc2WwdhubA7DtIdQwzFJDqmDcRSl6ExzDyKdFQEWzrlg2NutP56i8zH6va', '2017-05-10 03:55:29', '2017-05-10 03:55:29'),
+(8, '12345678911', 'John PhD', 'dosen', 'John@email.com', '$2y$10$AeNiPmUWYXL5vCE4EaQKoeR265B7d4EzZWajzJEj610EaiW7VNuZm', 'rOem6p0uegCq6vVld8QRQPvE6GNpA3DZkB5VKPWYyKFZwVyVe9UgiRQ6QSGT', '2017-05-10 03:54:39', '2017-05-10 03:54:39'),
+(9, '12345678912', 'Kayla S.Kom.,M.Kom.', 'dosen', 'kayla123n@email.com', '$2y$10$AeNiPmUWYXL5vCE4EaQKoeR265B7d4EzZWajzJEj610EaiW7VNuZm', 'rOem6p0uegCq6vVld8QRQPvE6GNpA3DZkB5VKPWYyKFZwVyVe9UgiRQ6QSGT', '2017-05-10 03:54:39', '2017-05-10 03:54:39'),
+(10, '081411631099', 'Jenny Kim', 'mahasiswa', 'jerryKim1996@email.com', '$2y$10$jOI14OJADWUUImOHnZztquz9BdO/2dFYiRPBhtyygc8DEmIbLNLNq', 'J0kuQQYGjjFQs89YOikmY6p9x5EU35UFDODsbD4JbAfMleDn05tJQJrXjZv5', '2017-05-10 03:40:14', '2017-06-12 19:16:54'),
+(11, '123456', 'Jeremy Mayer', 'karyawan', 'j123@gmail.com', '$2y$10$zabtKldYAuIH/KbIbYofuON3U/jlvBXIEFY/w.ItHp0WdfvfFteda', 'COEd39ZPUoatKUMjTil5ZyVZrZxCo4TaEux62h7nD1dcWkOoedCntbo6JJUl', '2017-05-10 03:55:29', '2017-05-10 03:55:29'),
+(12, '081411631006', '081411631006', 'mahasiswa', 'hilmi@olimpiade.id', '$2y$10$hcqAEffcDlEyQRkk9cd/0.Xg8BydaCJ0UyD.x4Oa2Vq0LkYW10dB2', NULL, '2017-06-12 16:01:49', '2017-06-12 16:01:49'),
+(13, '081711631006', '081711631006', 'mahasiswa', 'hilmi@olimpiade.id', '$2y$10$ShOrxbWyu6FpBDDa7WL1.ONKiV7AwtQ9R5kQUc6bAMt1ROd5hzvSm', NULL, '2017-06-12 16:04:53', '2017-06-12 16:04:53'),
+(14, '081411631007', '081411631007', 'mahasiswa', 'fandi@bram.com', '$2y$10$zjorCa5gex7.nZAnxdyGj.NBxY..90c.7puWpVbhfz7Vda1be1FVe', NULL, '2017-06-12 19:10:50', '2017-06-12 19:10:50'),
+(15, '88888888', '88888888', 'mahasiswa', 'kendal@jenner.com', '$2y$10$.oI8CuNoFiKJpUWd.ja0jeJTluXe6pmOC15M3U9eh9yCxAaIbSxKm', NULL, '2017-06-12 19:23:21', '2017-06-12 19:24:26'),
+(16, '0799667799', 'Renold', 'dosen', 'Renold@gmail.com', '$2y$10$wwpfozLmFcMAJR0VE/CpxOrm4Hddr55molijWh/pydaoxsV1mMLD6', 'YA9iMqCsbBZFLOXHTE4yefOUi6RFbuoNnuzKkMXARDKAX1nJTj2zo39qkZBs', '2017-06-14 02:43:39', '2017-06-14 02:43:39'),
+(17, '1234567', 'Faisal', 'karyawan', 'faisal@gmail.com', '$2y$10$zabtKldYAuIH/KbIbYofuON3U/jlvBXIEFY/w.ItHp0WdfvfFteda', NULL, '2017-06-14 13:57:46', '2017-06-14 13:57:46'),
+(18, '123456', '12345', 'dosen', 'dosen@psi.com', '$2y$10$guHyWJ3m8XeC3l/I.NVaPuQSZqF3eE7r6BYR/0Ex8EZaTgrV20S9S', NULL, '2017-06-14 15:02:05', '2017-06-14 15:02:05');
 
 --
 -- Indexes for dumped tables
@@ -1944,8 +2156,8 @@ ALTER TABLE `asset`
   ADD PRIMARY KEY (`id_asset`),
   ADD KEY `status_id` (`status_id`),
   ADD KEY `kategori_id` (`kategori_id`),
-  ADD KEY `kategori_id_2` (`kategori_id`),
-  ADD KEY `nip_petugas` (`nip_petugas_id`);
+  ADD KEY `nip_petugas` (`nip_petugas_id`),
+  ADD KEY `lokasi_id` (`lokasi_id`);
 
 --
 -- Indexes for table `atribut_softskill`
@@ -2001,9 +2213,8 @@ ALTER TABLE `cp_program`
 -- Indexes for table `detail_anggota`
 --
 ALTER TABLE `detail_anggota`
-  ADD PRIMARY KEY (`id_anggota`,`kode_penelitian_id`),
-  ADD KEY `kode_penelitian` (`kode_penelitian_id`),
-  ADD KEY `kode_penelitian_2` (`kode_penelitian_id`);
+  ADD PRIMARY KEY (`id_anggota`) USING BTREE,
+  ADD KEY `kode_penelitian` (`kode_penelitian_id`);
 
 --
 -- Indexes for table `detail_kategori`
@@ -2034,7 +2245,7 @@ ALTER TABLE `detail_nilai`
 -- Indexes for table `detail_penelitian`
 --
 ALTER TABLE `detail_penelitian`
-  ADD PRIMARY KEY (`id_penelitian`,`kode_penelitian_id`),
+  ADD PRIMARY KEY (`id_penelitian`) USING BTREE,
   ADD KEY `kode_penelitian` (`kode_penelitian_id`);
 
 --
@@ -2237,6 +2448,12 @@ ALTER TABLE `koor_mk`
   ADD KEY `mk_id` (`mk_id`),
   ADD KEY `status_tt_id` (`status_tt_id`),
   ADD KEY `nip_id` (`nip_id`);
+
+--
+-- Indexes for table `lokasi`
+--
+ALTER TABLE `lokasi`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `mahasiswa`
@@ -2542,32 +2759,32 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `asset`
 --
 ALTER TABLE `asset`
-  MODIFY `id_asset` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3458;
+  MODIFY `id_asset` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `atribut_softskill`
 --
 ALTER TABLE `atribut_softskill`
-  MODIFY `id_softskill` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_softskill` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `biodata_dosen`
 --
 ALTER TABLE `biodata_dosen`
-  MODIFY `biodata_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `biodata_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `biodata_mhs`
 --
 ALTER TABLE `biodata_mhs`
-  MODIFY `id_bio` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_bio` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `capaian_pembelajaran`
 --
 ALTER TABLE `capaian_pembelajaran`
-  MODIFY `id_cpem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_cpem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `cp_mata_kuliah`
 --
 ALTER TABLE `cp_mata_kuliah`
-  MODIFY `id_cpmk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_cpmk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `cp_program`
 --
@@ -2577,17 +2794,17 @@ ALTER TABLE `cp_program`
 -- AUTO_INCREMENT for table `detail_anggota`
 --
 ALTER TABLE `detail_anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `detail_penelitian`
 --
 ALTER TABLE `detail_penelitian`
-  MODIFY `id_penelitian` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_penelitian` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `dokumen`
 --
 ALTER TABLE `dokumen`
-  MODIFY `id_dokumen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_dokumen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `dokumentasi`
 --
@@ -2607,7 +2824,7 @@ ALTER TABLE `fakultas`
 -- AUTO_INCREMENT for table `hari`
 --
 ALTER TABLE `hari`
-  MODIFY `id_hari` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_hari` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `jabatan`
 --
@@ -2617,7 +2834,7 @@ ALTER TABLE `jabatan`
 -- AUTO_INCREMENT for table `jam`
 --
 ALTER TABLE `jam`
-  MODIFY `id_jam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_jam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `jenis_mk`
 --
@@ -2627,22 +2844,22 @@ ALTER TABLE `jenis_mk`
 -- AUTO_INCREMENT for table `jenis_penilaian`
 --
 ALTER TABLE `jenis_penilaian`
-  MODIFY `id_jenis_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_jenis_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `jurnal`
 --
 ALTER TABLE `jurnal`
-  MODIFY `jurnal_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123455680;
+  MODIFY `jurnal_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123455683;
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `kategori_capaian_pembelajaran`
 --
 ALTER TABLE `kategori_capaian_pembelajaran`
-  MODIFY `id_kategori_cpem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_kategori_cpem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `kategori_dana`
 --
@@ -2652,7 +2869,7 @@ ALTER TABLE `kategori_dana`
 -- AUTO_INCREMENT for table `kategori_media_pembelajaran`
 --
 ALTER TABLE `kategori_media_pembelajaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `konferensi`
 --
@@ -2662,22 +2879,37 @@ ALTER TABLE `konferensi`
 -- AUTO_INCREMENT for table `konsultasi`
 --
 ALTER TABLE `konsultasi`
-  MODIFY `id_konsultasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_konsultasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `koor_mk`
+--
+ALTER TABLE `koor_mk`
+  MODIFY `id_koor_mk` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `lokasi`
+--
+ALTER TABLE `lokasi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `maintenance`
 --
 ALTER TABLE `maintenance`
-  MODIFY `id_maintenance` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_maintenance` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `mata_kuliah`
 --
 ALTER TABLE `mata_kuliah`
-  MODIFY `id_mk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_mk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `mk_ditawarkan`
 --
 ALTER TABLE `mk_ditawarkan`
-  MODIFY `id_mk_ditawarkan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_mk_ditawarkan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `mk_prasyarat`
+--
+ALTER TABLE `mk_prasyarat`
+  MODIFY `id_mk_prasyarat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `notulen_rapat`
 --
@@ -2687,7 +2919,7 @@ ALTER TABLE `notulen_rapat`
 -- AUTO_INCREMENT for table `penelitian_dosen`
 --
 ALTER TABLE `penelitian_dosen`
-  MODIFY `penelitian_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `penelitian_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `penelitian_mhs`
 --
@@ -2697,7 +2929,7 @@ ALTER TABLE `penelitian_mhs`
 -- AUTO_INCREMENT for table `pengabdian_masyarakat`
 --
 ALTER TABLE `pengabdian_masyarakat`
-  MODIFY `kegiatan_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `kegiatan_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `pengajuan_kegiatan`
 --
@@ -2707,12 +2939,12 @@ ALTER TABLE `pengajuan_kegiatan`
 -- AUTO_INCREMENT for table `permohonan_ruang`
 --
 ALTER TABLE `permohonan_ruang`
-  MODIFY `id_permohonan_ruang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_permohonan_ruang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `prestasi`
 --
 ALTER TABLE `prestasi`
-  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `prodi`
 --
@@ -2732,7 +2964,7 @@ ALTER TABLE `rincian_rundown`
 -- AUTO_INCREMENT for table `ruang`
 --
 ALTER TABLE `ruang`
-  MODIFY `id_ruang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_ruang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `sistem_pembelajaran`
 --
@@ -2747,17 +2979,17 @@ ALTER TABLE `skripsi`
 -- AUTO_INCREMENT for table `status_asset`
 --
 ALTER TABLE `status_asset`
-  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `status_skripsi`
 --
 ALTER TABLE `status_skripsi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `status_team_teaching`
 --
 ALTER TABLE `status_team_teaching`
-  MODIFY `id_status_tt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_status_tt` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `surat_keluar_dosen`
 --
@@ -2767,12 +2999,12 @@ ALTER TABLE `surat_keluar_dosen`
 -- AUTO_INCREMENT for table `surat_keluar_mhs`
 --
 ALTER TABLE `surat_keluar_mhs`
-  MODIFY `id_surat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_surat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `surat_masuk`
 --
 ALTER TABLE `surat_masuk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `surat_tugas`
 --
@@ -2782,12 +3014,12 @@ ALTER TABLE `surat_tugas`
 -- AUTO_INCREMENT for table `thn_akademik`
 --
 ALTER TABLE `thn_akademik`
-  MODIFY `id_thn_akademik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_thn_akademik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `transaksi_peminjaman`
 --
 ALTER TABLE `transaksi_peminjaman`
-  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `universitas`
 --
@@ -2797,7 +3029,7 @@ ALTER TABLE `universitas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- Constraints for dumped tables
 --
@@ -2807,6 +3039,7 @@ ALTER TABLE `users`
 --
 ALTER TABLE `asset`
   ADD CONSTRAINT `asset_ibfk_1` FOREIGN KEY (`nip_petugas_id`) REFERENCES `petugas_tu` (`nip_petugas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `asset_ibfk_2` FOREIGN KEY (`lokasi_id`) REFERENCES `lokasi` (`id`),
   ADD CONSTRAINT `kategori` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `status` FOREIGN KEY (`status_id`) REFERENCES `status_asset` (`id_status`) ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -2826,7 +3059,8 @@ ALTER TABLE `biodata_mhs`
 -- Constraints for table `capaian_pembelajaran`
 --
 ALTER TABLE `capaian_pembelajaran`
-  ADD CONSTRAINT `capaian_pembelajaran_ibfk_2` FOREIGN KEY (`kategori_cpem_id`) REFERENCES `kategori_capaian_pembelajaran` (`id_kategori_cpem`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `capaian_pembelajaran_ibfk_2` FOREIGN KEY (`kategori_cpem_id`) REFERENCES `kategori_capaian_pembelajaran` (`id_kategori_cpem`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `capaian_pembelajaran_ibfk_3` FOREIGN KEY (`prodi_id`) REFERENCES `prodi` (`id_prodi`);
 
 --
 -- Constraints for table `cp_mata_kuliah`

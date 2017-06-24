@@ -68,6 +68,19 @@ php artisan serve
 
 Untuk menjalankan aplikasi di browser gunakan url "localhost:8000"
 
+## Akun untuk login
+* Mahasiswa
+username : 081411631070
+password : mahasiswa
+
+* Dosen
+username : 12345678910
+password : dosen
+
+* Karyawan
+username : 12345
+password : karyawan
+
 ## Modul yang tersedia:
 ### Modul Inventaris
 Fitur :
@@ -179,6 +192,26 @@ Minus :
 - Lanjutan rps belum muncul di halaman index rps karena status rps setelah input lanjutan rps belum berubah
 - Belum bisa auth karyawan yang sedang login dari prodi apa
 
-Good Luck, Have Fun 
+Modul Krs & Khs:
+Fitur:
+1. CRU ruang
+2. CRU mk ditawarkan
+3. CRU dosen matkul
+4. CRUD jadwal
+5. CRUD krs + cetak
+6. Approve natkul
+7. CRU bobot nilai
+8. Upload nilai & download template nilai
+9. Lihat krs + cetak
+10. Lihat detail nilai
+11. Histori nilai
+
+Minus:
+- Tampilan GUI kurang rapi
+- Exception upload nilai kurang (isi bobot dulu baru bisa upload)
+- Exception tambah tahun akademik kurang (input tahun akademik tahun lalu yg blm ada didb masih bisa)
+- Kebanyakan tabel belum urut
+
+Good Luck, Have Fun :3 
 
 [Coding for Purpose]
