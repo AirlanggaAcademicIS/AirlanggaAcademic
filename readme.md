@@ -193,7 +193,7 @@ Minus :
 - Lanjutan rps belum muncul di halaman index rps karena status rps setelah input lanjutan rps belum berubah
 - Belum bisa auth karyawan yang sedang login dari prodi apa
 
-Modul Krs & Khs:
+### Modul Krs & Khs:
 Fitur:
 1. CRU ruang
 2. CRU mk ditawarkan
