@@ -111,11 +111,12 @@ Minus :
 
 ### Modul Kegiatan
 Fitur :
-1) Pengajuan Kegiatan
-2) Pengajuan LPJ Kegiatan
-3) Pencatatan Kegiatan yg akan dilaksanakan
-4) Pencatatan Kegiatan yg telah dilaksanakan
-5) Download Surat Pengajuan
+1. Pengajuan Kegiatan
+2. Pengajuan LPJ Kegiatan
+3. Pencatatan Kegiatan yg akan dilaksanakan
+4. Pencatatan Kegiatan yg telah dilaksanakan
+5. Download Surat Pengajuan
+
 Minus :
 - view detail karyawan dari dosen belum muncul
 - fitur edit masih mengisi ulang
@@ -133,7 +134,7 @@ Minus:
 - Belum bisa mengirim email ke mhs setelah akun dibuat
 - Password default sama spt nim mhs
 
-### Modul PLA 
+### Modul Layanan Akademik
 Fitur :
 1. Pengelolahan akun karyawan
 2. Kalender Ruangan
@@ -151,7 +152,7 @@ Minus:
 - Bug Fitur Search Kalender Ruangan saat dropdown search masih "Pilih ruangan"
 - Proses bisnis surat keluar dan pengumpulan hardcopy yang belum sesuai dengan apa yang diharapkan oleh Pak Indra
 
-### Modul monitoring skripsi 
+### Modul Monitoring Skripsi 
 Fitur :
 1. download upload form usulan
 2. Data skripsi 
