@@ -34,8 +34,8 @@ MK Ditawarkan
 <form action="{{url('karyawan/krs-khs/mk-ditawarkan/show')}}" method="get">
 <div class="col-md-3" style="padding: 0;">
 <div style="overflow: auto">
-  <select class="form-control" id="periode" name="periode">
-      <option>Tahun Akademik</option>
+  <select class="form-control" id="periode" name="periode" required>
+      <option value="">Tahun Akademik</option>
       @foreach($tahun as $t) 
       <option value ="{{$t->id_thn_akademik}}">{{$t->semester_periode}}</option>
       @endforeach

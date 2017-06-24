@@ -47,7 +47,13 @@ Kartu Hasil Studi
             <!-- /.box-header -->
 
             <div class="box-body">
+
+            @if(empty($cek))
+            <button type="button" disabled class="btn btn-info btn-flat" style="margin-bottom: 10px;">CETAK</button>
+            @else
             <a href="{{url('mahasiswa/krs-khs/khs/'.$tahun_pilih->id_thn_akademik.'/cetak')}}" type="button" class="btn btn-info btn-flat" style="margin-bottom: 10px;">CETAK</a>
+            @endif
+
               <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12">
 
               <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
@@ -62,7 +68,7 @@ Kartu Hasil Studi
                     </tr>
                     </thead>
                   <tbody>
-    @foreach($khs as $i => $k) 
+    @forelse($khs as $i => $k) 
     <tr>
       <td witdh="10%" style="text-align:center">{{$i+1}}</td>
       <td width="50%" style="text-align:center">{{$k->nama_matkul}}</td>
@@ -84,7 +90,11 @@ Kartu Hasil Studi
         <td width="20%" style="text-align:center">0</td>
         @endif     
     </tr>
-    @endforeach
+    @empty
+                      <tr>
+                        <td colspan="6"><center>Belum ada mata kuliah</center></td>
+                      </tr>
+    @endforelse
                     </tbody>
                   </table>
                  

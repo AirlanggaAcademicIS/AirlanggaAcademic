@@ -92,7 +92,12 @@
         </tr>
   </tbody>
   @php
+  if($sks == 0){
+  $ips = 0;
+  }
+  else{
   $ips = $total / $sks;
+  }
   $lmt = 0;
   if($ips >= 3)
                 $lmt = 24;                

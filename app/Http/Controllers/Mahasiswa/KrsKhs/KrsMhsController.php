@@ -80,7 +80,8 @@ class KrsMhsController extends Controller
         $angg       = DB::table('mk_diambil')
             ->select('*')
             ->where('mhs_id',$nim_id)
-            ->get();
+            ->first();
+
         $sum     = DB::table('mk_diambil')
             ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','mk_diambil.mk_ditawarkan_id')
             ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_ditawarkan.matakuliah_id')
@@ -125,7 +126,7 @@ class KrsMhsController extends Controller
             if ($sum != 0) {
                 $ips = $nilai/$sum;
             }
-            if (($ips >= 3) || (!empty($angg)) || ((!empty($angg->nilai))&&((!empty($angg->nilai)))))
+            if (($ips >= 3) || (empty($angg)) || ($angg->nilai=="K"))
                 $lmt = 24;                
             elseif (($ips <3) && ($ips >=2.75))
                 $lmt = 23;
@@ -179,7 +180,7 @@ class KrsMhsController extends Controller
         $angg       = DB::table('mk_diambil')
             ->select('*')
             ->where('mhs_id',$nim_id)
-            ->get();
+            ->first();
         $sum        = DB::table('mk_diambil')
             ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','mk_diambil.mk_ditawarkan_id')
             ->join('mata_kuliah','mata_kuliah.id_mk','=','mk_ditawarkan.matakuliah_id')
@@ -242,7 +243,7 @@ class KrsMhsController extends Controller
             if ($sum != 0) {
                 $ips = $nilai/$sum;
             }
-            if (($ips >= 3) || (!empty($angg)) || ((!empty($angg->nilai))&&((!empty($angg->nilai)))))
+            if (($ips >= 3) || (empty($angg)) || ($angg->nilai=="K"))
                 $lmt = 24;                
             elseif (($ips <3) && ($ips >=2.75))
                 $lmt = 23;
