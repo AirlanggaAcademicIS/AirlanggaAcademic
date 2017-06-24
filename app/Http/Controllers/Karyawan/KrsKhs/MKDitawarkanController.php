@@ -99,6 +99,11 @@ class MKDitawarkanController extends Controller
         }
 
        $cek = $request->input('cek');
+       if ($cek=='') {
+        Session::put('alert-danger', 'Mata Kuliah Harus diisi');
+        return Redirect::back();
+       }
+       else{
        foreach ($cek as $c) {
            MKDitawarkan::create(
             [
@@ -110,6 +115,7 @@ class MKDitawarkanController extends Controller
         // Menampilkan notifikasi pesan sukses
         Session::put('alert-success', 'MK Ditawarkan berhasil ditambahkan');
         return Redirect::to('karyawan/krs-khs/mk-ditawarkan/view');
+        }
     }
 
     public function edit($thn_akademik_id)

@@ -68,6 +68,13 @@ class KHSController extends Controller
             ->where('mhs_id',Auth::user()->username)
             ->where('mk_ditawarkan.thn_akademik_id',$thn)
             ->get(),
+        'cek' => DB::table('mk_diambil')
+            ->join('mk_ditawarkan','mk_ditawarkan.id_mk_ditawarkan','=','mk_diambil.mk_ditawarkan_id')
+            ->join('mata_kuliah','mk_ditawarkan.matakuliah_id','=','mata_kuliah.id_mk')
+            ->select('*')
+            ->where('mhs_id',Auth::user()->username)
+            ->where('mk_ditawarkan.thn_akademik_id',$thn)
+            ->first(),
         'tahun' => TahunAkademik::all(),
         'tahun_pilih' => TahunAkademik::where('id_thn_akademik',$thn)->first()
         ];
